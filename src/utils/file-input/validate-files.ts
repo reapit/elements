@@ -87,6 +87,25 @@ function rejectionReason(
   return undefined
 }
 
+/**
+ * Filters `dropped` files down to what a native OS file picker would have already delivered by
+ * the time `change` fires — the browser filters the picker's dialog by `accept` and, without
+ * `multiple`, only ever returns one file. Drag-and-drop bypasses both: the dropped `DataTransfer`
+ * is exactly what the OS gave, unfiltered. Applying that same pre-filtering here, before the
+ * dropped files are ever assigned to the input, keeps `change` events from browsing and dropping
+ * indistinguishable downstream — no bespoke second contract for consumers to handle.
+ *
+ * This filter is deliberately separate from `validateFiles`'s `accept`/`multiple` checks, which
+ * run afterwards against whatever files actually landed in the selection (`FileInput`'s post-hoc,
+ * non-filtering `setCustomValidity` step). It's the pre-hoc filter step that a native picker
+ * performs for free, and that drag-and-drop has to do for itself instead.
+ */
+export function filterDroppedFiles(dropped: File[], rules: { accept?: string; multiple?: boolean }): File[] {
+  const { accept, multiple } = rules
+  const matchingAccept = accept ? dropped.filter((file) => matchesAccept(file, accept)) : dropped
+  return multiple ? matchingAccept : matchingAccept.slice(0, 1)
+}
+
 function sumSize(files: File[]): number {
   return files.reduce((total, file) => total + file.size, 0)
 }

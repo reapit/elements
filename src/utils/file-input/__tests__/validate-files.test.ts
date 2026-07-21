@@ -1,4 +1,4 @@
-import { validateFiles } from '../validate-files'
+import { filterDroppedFiles, validateFiles } from '../validate-files'
 
 // ---------------------------------------------------------------------------
 // No rules
@@ -179,6 +179,34 @@ test('reports maxFileSize before multiple when a file fails both', () => {
   const file = makeFile('a.txt', { size: 200 })
   const { rejected } = validateFiles([file], [makeFile('existing.txt')], { maxFileSize: 100 })
   expect(rejected).toEqual([{ file, reason: 'maxFileSize' }])
+})
+
+// ---------------------------------------------------------------------------
+// filterDroppedFiles
+// ---------------------------------------------------------------------------
+
+test('keeps only the first dropped file when multiple is not set', () => {
+  const a = makeFile('a.txt')
+  const b = makeFile('b.txt')
+  expect(filterDroppedFiles([a, b], {})).toEqual([a])
+})
+
+test('keeps every dropped file when multiple is true', () => {
+  const a = makeFile('a.txt')
+  const b = makeFile('b.txt')
+  expect(filterDroppedFiles([a, b], { multiple: true })).toEqual([a, b])
+})
+
+test('excludes a dropped file that does not match accept', () => {
+  const match = makeFile('photo.png', { type: 'image/png' })
+  const mismatch = makeFile('report.pdf', { type: 'application/pdf' })
+  expect(filterDroppedFiles([match, mismatch], { accept: 'image/*', multiple: true })).toEqual([match])
+})
+
+test('applies the accept filter before clamping to a single file', () => {
+  const mismatch = makeFile('report.pdf', { type: 'application/pdf' })
+  const match = makeFile('photo.png', { type: 'image/png' })
+  expect(filterDroppedFiles([mismatch, match], { accept: 'image/*' })).toEqual([match])
 })
 
 // ---------------------------------------------------------------------------

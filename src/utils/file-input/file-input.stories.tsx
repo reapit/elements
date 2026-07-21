@@ -1,8 +1,52 @@
 import preview from '#.storybook/preview'
 import { FileInput } from './file-input'
 import { Button } from '#src/core/button'
+import { CloudUploadIcon } from '#src/icons/cloud-upload'
 import { FileUploadIcon } from '#src/icons/file-upload'
+import { styled } from '@linaria/react'
 import { useState } from 'react'
+
+// Demo-only dropzone chrome for the `Drag and drop` story below — `FileInput` renders none of
+// this itself. `:has(input:invalid)` reaches the real (visually hidden) input rendered by
+// `FileInput` inside `ElDropzone`, and forwards the error colour into `ElDropzoneContent` via a
+// custom property, since `ElDropzoneContent` is a sibling of that input, not an ancestor of it.
+const ElDropzone = styled.div`
+  display: inline-flex;
+
+  &:has(input:invalid) {
+    --file-input-story-border-colour: var(--colour-border-error-default);
+  }
+`
+
+const ElDropzoneContent = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-2);
+  width: 320px;
+  padding: var(--spacing-6);
+  border: var(--border-width-default) dashed
+    var(--file-input-story-border-colour, var(--colour-border-neutral-light_darker));
+  border-radius: var(--border-radius-l);
+  color: var(--colour-text-tertiary);
+  cursor: pointer;
+
+  &:hover,
+  &[data-dragging-over='true'] {
+    background: var(--comp-uploader-colour-fill-drop_area-hover);
+  }
+
+  &[data-focused='true'] {
+    outline: var(--border-width-double) solid var(--colour-border-focus);
+    outline-offset: -2px;
+  }
+
+  &[data-disabled='true'] {
+    background: var(--colour-fill-neutral-lightest);
+    color: var(--colour-text-placeholder);
+    cursor: not-allowed;
+  }
+`
 
 const meta = preview.meta({
   title: 'Utils/FileInput',
@@ -118,6 +162,7 @@ export const CustomTrigger = Example.extend({
   name: 'Custom trigger',
   args: {
     multiple: true,
+    tabIndex: -1,
   },
   render: function CustomTrigger(args) {
     return (
@@ -146,6 +191,46 @@ export const CustomTrigger = Example.extend({
           </div>
         )}
       </FileInput>
+    )
+  },
+})
+
+/**
+ * Drag a file over the dropzone below to select it, as an alternative to clicking through to the
+ * native picker. `FileInput` itself renders no visual chrome; every state below (`isDraggingOver`,
+ * `isFocused`, `disabled`, and the native invalid state) comes from its `children` render prop or
+ * plain CSS, wired up here by the story rather than by the component.
+ */
+export const DragAndDrop = Example.extend({
+  name: 'Drag and drop',
+  args: {
+    accept: 'image/*,.pdf',
+    multiple: true,
+    maxFiles: 2,
+  },
+  render: function DragAndDrop(args) {
+    return (
+      // `ElDropzone` wraps `FileInput` itself, rather than living inside `children`, so its
+      // `:has(input:invalid)` selector can reach the real (visually hidden) input `FileInput`
+      // renders as a sibling of whatever `children` returns — a selector inside `children`'s own
+      // output could never see it, since that content is a sibling of the input, not an ancestor.
+      <ElDropzone>
+        <FileInput {...args}>
+          {({ isDraggingOver, isFocused, disabled, openFilePicker }) => (
+            <ElDropzoneContent
+              onClick={openFilePicker}
+              data-dragging-over={isDraggingOver}
+              data-focused={isFocused}
+              data-disabled={disabled}
+            >
+              <CloudUploadIcon size="lg" />
+              <span>
+                Drag and drop or <strong>browse files</strong>
+              </span>
+            </ElDropzoneContent>
+          )}
+        </FileInput>
+      </ElDropzone>
     )
   },
 })

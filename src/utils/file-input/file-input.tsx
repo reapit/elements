@@ -1,7 +1,8 @@
 import { ElFileInput, ElFileInputWrapper } from './styles'
-import { forwardRef, useEffect, useId, useState } from 'react'
-import { syncInputFiles } from './sync-input-files'
-import { validateFiles } from './validate-files'
+import { forwardRef, useId, useState } from 'react'
+import { getInputElement } from './get-input-element'
+import { useFileDropzone } from './use-file-dropzone'
+import { useFileInputValidity } from './use-file-input-validity'
 
 import type { ChangeEvent, FocusEvent, InputHTMLAttributes, ReactNode } from 'react'
 
@@ -12,14 +13,16 @@ export namespace FileInput {
   export interface RenderProps {
     /** The current selection. */
     files: File[]
-    /**
-     * Whether a file is currently being dragged over the input. Always `false` for now —
-     * drag-and-drop support lands in a later change (see `src/core/file-uploader/ARCHITECTURE.md`).
-     * Exposed already so a `children` render function written against this shape doesn't need to
-     * change once it does.
-     */
+    /** Whether a file is currently being dragged over the dropzone (the whole rendered area — the
+     * native input plus `children`, if provided). */
     isDraggingOver: boolean
-    /** Whether the native input has focus. */
+    /**
+     * Whether the native input has focus. By default the native input is also where a keyboard
+     * user's `Tab` lands on `FileInput` — see the doc comment on `tabIndex` on `Props`, below — so
+     * a `children` render function can use this to draw its own focus indicator around custom
+     * content, the same way a visually-hidden native checkbox/radio's sibling reflects its
+     * `:focus-visible` state.
+     */
     isFocused: boolean
     /** Whether the input is disabled. */
     disabled: boolean
@@ -29,6 +32,11 @@ export namespace FileInput {
      * `children` should trigger browsing (e.g. a button), rather than the whole rendered content,
      * so nested controls that shouldn't open the picker (e.g. a remove button on an already-selected
      * file) aren't caught up in it. A no-op while `disabled`.
+     *
+     * If `children` renders its own separately-focusable trigger (e.g. a `Button` wired to this),
+     * also pass `tabIndex={-1}` to `FileInput` — see the doc comment on `tabIndex`
+     * on `Props`, below — so the hidden input doesn't become a second, indicator-less tab stop ahead
+     * of it.
      */
     openFilePicker: () => void
   }
@@ -92,9 +100,24 @@ export namespace FileInput {
      * validation, constraint reporting — for free; only the visible content, and what triggers
      * browsing, changes — see `openFilePicker` on `RenderProps`. `FileUploader`'s single-select
      * composition uses this to swap in its own `MediaCard` once a file has been selected (see
-     * `src/core/file-uploader/ARCHITECTURE.md`).
+     * `src/core/file-uploader/ARCHITECTURE.md`). See `tabIndex` below for what stays unchanged on
+     * the native input while `children` is provided.
      */
     children?: (props: FileInput.RenderProps) => ReactNode
+    /**
+     * Left as the native default (focusable, in tab order) even while `children` replaces the
+     * input's visible content — a visually-hidden input is still a real, keyboard-operable one,
+     * the same trick that underlies a custom checkbox/radio built on a hidden native input. This is what
+     * lets a plain `<label htmlFor>` wrapping `FileInput` (as `FileUploader` does) delegate `Tab`
+     * straight to it, and what makes `isFocused` on `RenderProps` reflect genuine keyboard focus
+     * rather than only the brief, programmatic focus `openFilePicker`'s `.click()` produces.
+     *
+     * Pass `tabIndex={-1}` explicitly when `children` renders its own separately-focusable trigger
+     * (e.g. a `Button` wired to `openFilePicker`, as in the `CustomTrigger` story) — otherwise the
+     * hidden input becomes a second tab stop immediately before it, with nothing visible to show
+     * for it.
+     */
+    tabIndex?: number
   }
 }
 
@@ -153,30 +176,22 @@ export const FileInput = forwardRef<HTMLInputElement, FileInput.Props>(
 
     const [isFocused, setIsFocused] = useState(false)
 
-    // Keeps the native input's raw `.files`, and its custom validity, in sync with `files` —
-    // whichever changed it (handleChange below, a controlled consumer updating `value`, or the
-    // initial mount for a `defaultValue`). `files` holds exactly what was picked, valid or not —
-    // matching native `<input type="file">`, which never drops a file the OS picker returned — so
-    // validity is deliberately a pure function of the resulting `files`, the same way
-    // `useRangeValidation` validates `NumberInput`'s current value. An invalid selection stays
-    // invalid until it's superseded: browsing again replaces it entirely (uncontrolled), or a
-    // controlled consumer removes the offending file from `value` itself (e.g. via a queue item's
-    // own remove button — see `src/core/file-uploader/ARCHITECTURE.md`).
-    useEffect(() => {
-      const input = document.getElementById(inputId)
-      if (!(input instanceof HTMLInputElement)) return
+    useFileInputValidity({
+      inputId,
+      files,
+      accept,
+      multiple: effectiveMultiple,
+      maxFileSize,
+      maxFiles,
+      maxTotalSize,
+    })
 
-      syncInputFiles(input, files)
-
-      const { rejected } = validateFiles(files, [], {
-        accept,
-        multiple: effectiveMultiple,
-        maxFileSize,
-        maxFiles,
-        maxTotalSize,
-      })
-      input.setCustomValidity(rejected[0]?.reason ?? '')
-    }, [inputId, files, accept, effectiveMultiple, maxFileSize, maxFiles, maxTotalSize])
+    const { isDraggingOver, dropzoneProps } = useFileDropzone({
+      inputId,
+      disabled: !!disabled,
+      accept,
+      multiple: effectiveMultiple,
+    })
 
     function handleChange(event: ChangeEvent<HTMLInputElement>) {
       // Always replaces rather than accumulates onto the existing selection — matching plain
@@ -184,8 +199,10 @@ export const FileInput = forwardRef<HTMLInputElement, FileInput.Props>(
       // overwrites rather than appending. Accumulating without a way to remove from the result is
       // a worse experience than replacing, and a bare FileInput has no removal affordance; a
       // consumer that wants both owns accumulation itself (see `onChange`'s doc comment above).
-      // `event.target.files` is left exactly as the browser set it — no filtering here; the effect
-      // above is the single source of truth for validity.
+      // `event.target.files` is left exactly as the browser set it — no filtering here;
+      // `useFileInputValidity` is the single source of truth for validity. Dropping a file goes
+      // through this exact same handler — `useFileDropzone` dispatches a genuine native `change`
+      // event on the input rather than taking a separate path.
       if (!isControlled) setUncontrolledFiles(Array.from(event.currentTarget.files ?? []))
       onChange?.(event)
     }
@@ -202,12 +219,11 @@ export const FileInput = forwardRef<HTMLInputElement, FileInput.Props>(
 
     function openFilePicker() {
       if (disabled) return
-      const input = document.getElementById(inputId)
-      if (input instanceof HTMLInputElement) input.click()
+      getInputElement(inputId)?.click()
     }
 
     return (
-      <ElFileInputWrapper className={className} data-disabled={!!disabled} style={style}>
+      <ElFileInputWrapper className={className} data-disabled={!!disabled} style={style} {...dropzoneProps}>
         <ElFileInput
           {...rest}
           accept={accept}
@@ -219,10 +235,9 @@ export const FileInput = forwardRef<HTMLInputElement, FileInput.Props>(
           onChange={handleChange}
           onFocus={handleFocus}
           ref={ref}
-          tabIndex={children ? -1 : rest.tabIndex}
           type="file"
         />
-        {children?.({ files, isDraggingOver: false, isFocused, disabled: !!disabled, openFilePicker })}
+        {children?.({ files, isDraggingOver, isFocused, disabled: !!disabled, openFilePicker })}
       </ElFileInputWrapper>
     )
   },

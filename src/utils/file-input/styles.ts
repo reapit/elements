@@ -12,11 +12,9 @@ export const ElFileInputWrapper = styled.div`
 
 export const ElFileInput = styled.input`
   @layer elements.main {
-    /* NOTE: applied when a consumer supplies \`children\`, replacing the default rendered
-     * content. The input stays in the document and part of the accessibility tree (unlike
-     * \`display: none\`), but is removed from the tab order (see \`tabIndex\` in file-input.tsx) —
-     * the trigger \`children\` renders is the only tab stop; the input is just not visually shown
-     * alongside the custom content. */
+    /* NOTE: applied when a consumer supplies children, replacing the default rendered content.
+     * The input stays focusable and part of the accessibility tree — see file-input.tsx's doc
+     * comment on tabIndex — it's just not visually shown alongside the custom content. */
     &[data-visually-hidden='true'] {
       position: absolute;
       width: 1px;

@@ -83,6 +83,25 @@ test('renders the content returned by children', () => {
   expect(screen.getByText('Browse files')).toBeVisible()
 })
 
+test('keeps the input in the default tab order when children are provided', () => {
+  render(<FileInput data-testid="input">{() => <span>Browse</span>}</FileInput>)
+  // Visually hidden isn't the same as absent from the tab order — a keyboard user must still be
+  // able to reach and operate the input directly, since `children` here has no interactive
+  // element of its own to receive focus instead.
+  expect(screen.getByTestId('input')).toHaveProperty('tabIndex', 0)
+})
+
+test('respects an explicit tabIndex on the input even when children are provided', () => {
+  render(
+    <FileInput tabIndex={-1} data-testid="input">
+      {() => <span>Browse</span>}
+    </FileInput>,
+  )
+  // A consumer whose `children` renders its own separately-focusable trigger opts out this way,
+  // so the hidden input doesn't become a second, indicator-less tab stop ahead of it.
+  expect(screen.getByTestId('input')).toHaveProperty('tabIndex', -1)
+})
+
 // ---------------------------------------------------------------------------
 // children render prop
 // ---------------------------------------------------------------------------
@@ -129,7 +148,7 @@ test('openFilePicker is a no-op while disabled', () => {
   click.mockRestore()
 })
 
-test('exposes isDraggingOver as false', () => {
+test('exposes isDraggingOver as false before any drag', () => {
   const children = vi.fn((_props: FileInput.RenderProps) => null)
   render(<FileInput>{children}</FileInput>)
   expect(children.mock.calls[0]?.[0]).toEqual(expect.objectContaining({ isDraggingOver: false }))
@@ -169,6 +188,147 @@ test('calls a consumer-supplied onBlur handler', () => {
   fireEvent.focus(input)
   fireEvent.blur(input)
   expect(onBlur).toHaveBeenCalledTimes(1)
+})
+
+// ---------------------------------------------------------------------------
+// Drag and drop
+// ---------------------------------------------------------------------------
+
+test('sets isDraggingOver to true on dragenter and false on dragleave', () => {
+  const children = vi.fn(() => null)
+  const { container } = render(<FileInput>{children}</FileInput>)
+  const dropzone = container.firstElementChild as HTMLElement
+
+  fireEvent.dragEnter(dropzone, { dataTransfer: { types: ['Files'] } })
+  expect(children).toHaveBeenLastCalledWith(expect.objectContaining({ isDraggingOver: true }))
+
+  fireEvent.dragLeave(dropzone, { dataTransfer: { types: ['Files'] } })
+  expect(children).toHaveBeenLastCalledWith(expect.objectContaining({ isDraggingOver: false }))
+})
+
+test('stays isDraggingOver while the pointer moves across a nested child before leaving the dropzone', () => {
+  const children = vi.fn(() => null)
+  const { container } = render(<FileInput>{children}</FileInput>)
+  const dropzone = container.firstElementChild as HTMLElement
+
+  // dragenter/dragleave fire at every element boundary crossed, including nested children — this
+  // simulates entering the dropzone, then entering and leaving a child within it, and asserts
+  // isDraggingOver survives that inner pair rather than flickering false.
+  fireEvent.dragEnter(dropzone, { dataTransfer: { types: ['Files'] } })
+  fireEvent.dragEnter(dropzone, { dataTransfer: { types: ['Files'] } })
+  fireEvent.dragLeave(dropzone, { dataTransfer: { types: ['Files'] } })
+  expect(children).toHaveBeenLastCalledWith(expect.objectContaining({ isDraggingOver: true }))
+
+  fireEvent.dragLeave(dropzone, { dataTransfer: { types: ['Files'] } })
+  expect(children).toHaveBeenLastCalledWith(expect.objectContaining({ isDraggingOver: false }))
+})
+
+test('ignores a drag that carries no files', () => {
+  const children = vi.fn(() => null)
+  const { container } = render(<FileInput>{children}</FileInput>)
+  const dropzone = container.firstElementChild as HTMLElement
+
+  fireEvent.dragEnter(dropzone, { dataTransfer: { types: ['text/plain'] } })
+  expect(children).toHaveBeenLastCalledWith(expect.objectContaining({ isDraggingOver: false }))
+})
+
+test('does not set isDraggingOver while disabled', () => {
+  const children = vi.fn(() => null)
+  const { container } = render(<FileInput disabled>{children}</FileInput>)
+  const dropzone = container.firstElementChild as HTMLElement
+
+  fireEvent.dragEnter(dropzone, { dataTransfer: { types: ['Files'] } })
+  expect(children).toHaveBeenLastCalledWith(expect.objectContaining({ isDraggingOver: false }))
+})
+
+test('allows a drop by calling preventDefault on dragover', () => {
+  const { container } = render(<FileInput />)
+  const dropzone = container.firstElementChild as HTMLElement
+
+  const notCancelled = fireEvent.dragOver(dropzone, { dataTransfer: { types: ['Files'] } })
+  expect(notCancelled).toBe(false)
+})
+
+test('calls preventDefault on dragover of a file even while disabled', () => {
+  const { container } = render(<FileInput disabled />)
+  const dropzone = container.firstElementChild as HTMLElement
+
+  const notCancelled = fireEvent.dragOver(dropzone, { dataTransfer: { types: ['Files'] } })
+  expect(notCancelled).toBe(false)
+})
+
+test('dropping a file updates the selection through the same change path as browsing', () => {
+  const children = vi.fn(() => null)
+  const onChange = vi.fn()
+  const { container } = render(<FileInput onChange={onChange}>{children}</FileInput>)
+  const dropzone = container.firstElementChild as HTMLElement
+
+  const file = makeFile('a.txt')
+  fireEvent.drop(dropzone, { dataTransfer: { files: [file], types: ['Files'] } })
+
+  expect(children).toHaveBeenLastCalledWith(expect.objectContaining({ files: [file], isDraggingOver: false }))
+  expect(onChange).toHaveBeenCalledTimes(1)
+  expect(onChange.mock.calls[0]?.[0]?.type).toBe('change')
+})
+
+test('drops only the first file when multiple is not set', () => {
+  const children = vi.fn(() => null)
+  const { container } = render(<FileInput>{children}</FileInput>)
+  const dropzone = container.firstElementChild as HTMLElement
+
+  const a = makeFile('a.txt')
+  const b = makeFile('b.txt')
+  fireEvent.drop(dropzone, { dataTransfer: { files: [a, b], types: ['Files'] } })
+
+  expect(children).toHaveBeenLastCalledWith(expect.objectContaining({ files: [a] }))
+})
+
+test('drops every file when multiple is set', () => {
+  const children = vi.fn(() => null)
+  const { container } = render(<FileInput multiple>{children}</FileInput>)
+  const dropzone = container.firstElementChild as HTMLElement
+
+  const a = makeFile('a.txt')
+  const b = makeFile('b.txt')
+  fireEvent.drop(dropzone, { dataTransfer: { files: [a, b], types: ['Files'] } })
+
+  expect(children).toHaveBeenLastCalledWith(expect.objectContaining({ files: [a, b] }))
+})
+
+test('excludes a dropped file that fails accept before it ever reaches the selection', () => {
+  const children = vi.fn(() => null)
+  const { container } = render(
+    <FileInput accept="image/*" multiple>
+      {children}
+    </FileInput>,
+  )
+  const dropzone = container.firstElementChild as HTMLElement
+
+  const match = makeFile('photo.png', { type: 'image/png' })
+  const mismatch = makeFile('report.pdf', { type: 'application/pdf' })
+  fireEvent.drop(dropzone, { dataTransfer: { files: [mismatch, match], types: ['Files'] } })
+
+  // Unlike a constraint violation (accept on a browsed file, or maxFiles/maxFileSize/maxTotalSize
+  // on either entry point), which stays in the selection and only invalidates the input, a dropped
+  // file that fails `accept` never lands here at all — matching what the OS picker would have
+  // already filtered out before `change` fired for a browsed selection.
+  expect(children).toHaveBeenLastCalledWith(expect.objectContaining({ files: [match] }))
+})
+
+test('ignores a drop while disabled', () => {
+  const children = vi.fn(() => null)
+  const onChange = vi.fn()
+  const { container } = render(
+    <FileInput disabled onChange={onChange}>
+      {children}
+    </FileInput>,
+  )
+  const dropzone = container.firstElementChild as HTMLElement
+
+  fireEvent.drop(dropzone, { dataTransfer: { files: [makeFile('a.txt')], types: ['Files'] } })
+
+  expect(onChange).not.toHaveBeenCalled()
+  expect(children).toHaveBeenLastCalledWith(expect.objectContaining({ files: [] }))
 })
 
 // ---------------------------------------------------------------------------
