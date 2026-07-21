@@ -552,6 +552,24 @@ its Fixed/Manual Sizing stories — all matched, including the resize-handle gri
   one `Sizing` export in the whole component; see the 2026-07-16 correction
   above). Not fixable via an owned preview. All other GalleryViewer stories
   match.
+- AppSwitcher's `All Accessible` / `None Accessible` stories grade `close` for
+  the same root cause as GalleryViewer's `Sizing` above: a story-level
+  `decorators` array (magenta debug-border wrapper) isn't honoured by the
+  preview compiler, so the preview renders with a plain border instead.
+  Content is otherwise identical. Not fixable via an owned preview (the
+  decorator lives in the story file). Found during the 2026-07-21 DS-286
+  re-grade wave.
+- **2026-07-21 DS-286 re-grade wave**: removing `maxTitleDepth` (an obsolete,
+  unrecognized config key superseded by `titleParts()`'s exportedSet-based
+  scan) and the DS-286 `source-storybook.mjs` fix changed grouping/path
+  metadata for nearly all 82 components, clearing every grade. Re-verified
+  the full roster in parallel batches — all re-graded `match` (bundle/CSS/
+  providers were untouched, only story→component pairing metadata moved).
+  AnchorCard and ButtonCard now correctly drop out of the sync entirely: their
+  only stories are subcomponent-depth titles (`.../AtAGlance/AnchorCard`
+  etc.), which are documentation-only, not synced, per DS-286's intent.
+  ChipSelect/ChipSelectControl reproduced the known `sb-error` flake below on
+  the same 2 components — re-verified manually as before, still `match`.
 - The `.el-form-layout` CSS cascade fix lives in `.design-sync/overrides/
 css-fallback.mjs`. If `dist/js/style.css` changes (new build), the upstream
   bug (deprecated grid overrides new flex) would still be present — the fork

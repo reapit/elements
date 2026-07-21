@@ -26,60 +26,13 @@
   },
   "overrides": {
     "Button": {
-      "skip": [
-        "utils-combobox-button--example",
-        "utils-combobox-button--placeholder",
-        "utils-combobox-button--search",
-        "utils-combobox-button--disabled",
-        "utils-combobox-button--invalid",
-        "utils-combobox-button--aria-invalid",
-        "utils-combobox-button--borderless",
-        "utils-combobox-button--max-width",
-        "utils-combobox-button--truncation"
-      ],
       "cardMode": "column"
-    },
-    "Dialog": {
-      "skip": [
-        "content-display-galleryviewer-dialog--example",
-        "content-display-galleryviewer-dialog--closed-by",
-        "content-display-galleryviewer-dialog-content--example",
-        "content-display-galleryviewer-dialog-header--example",
-        "content-display-galleryviewer-dialog-header--truncation",
-        "content-display-galleryviewer-dialog-header--dynamic-layout",
-        "containers-and-layout-dialog-header--example",
-        "containers-and-layout-dialog-header--action",
-        "containers-and-layout-dialog-header--no-title",
-        "containers-and-layout-dialog-header--static-positioning",
-        "containers-and-layout-dialog-header--sticky-positioning",
-        "containers-and-layout-dialog-footer--example",
-        "containers-and-layout-dialog-footer--full-screen",
-        "containers-and-layout-dialog-footer--sticky",
-        "containers-and-layout-dialog-body--example",
-        "containers-and-layout-dialog-body--long-content",
-        "containers-and-layout-dialog-body--dynamic-layout"
-      ]
     },
     "PageLayout": {
       "skip": ["containers-and-layout-pagelayout--mobile"]
     },
-    "Accordion": {
-      "skip": [
-        "content-display-accordion-summary--example",
-        "content-display-accordion-summary--with-features",
-        "content-display-accordion-summary--with-clear-button",
-        "content-display-accordion-summary--overflow"
-      ]
-    },
     "Listbox": {
       "skip": [
-        "utils-combobox-listbox--example",
-        "utils-combobox-listbox--single",
-        "utils-combobox-listbox--multiple",
-        "utils-combobox-listbox--groups",
-        "utils-combobox-listbox--controlled",
-        "utils-combobox-listbox--forms",
-        "utils-combobox-listbox--placeholder",
         "utils-listbox--example",
         "utils-listbox--single",
         "utils-listbox--multiple",
@@ -95,92 +48,15 @@
       ]
     },
     "TopBar": {
-      "skip": [
-        "containers-and-layout-focusedlayout-topbar--example",
-        "containers-and-layout-focusedlayout-topbar--sticky",
-        "containers-and-layout-focusedlayout-topbar--wrapping"
-      ],
       "cardMode": "column"
     },
     "Chip": {
-      "skip": [
-        "input-and-selection-chipselect-chip--example",
-        "input-and-selection-chipselect-chip--icons",
-        "input-and-selection-chipselect-chip--icon-only",
-        "input-and-selection-chipselect-chip--sizes",
-        "input-and-selection-chipselect-chip--selected",
-        "input-and-selection-chipselect-chip--read-only",
-        "input-and-selection-chipselect-chip--disabled",
-        "input-and-selection-chipselect-chip--truncation",
-        "input-and-selection-chipselect-chip--max-width"
-      ],
       "cardMode": "column"
-    },
-    "BottomBar": {
-      "skip": [
-        "containers-and-layout-focusedlayout-bottombar--example",
-        "navigation-bottombar-menulist--example",
-        "navigation-bottombar-menulist--selected-item"
-      ]
     },
     "SplitButton": {
-      "skip": [
-        "buttons-splitbutton-action--example",
-        "buttons-splitbutton-action--variants",
-        "buttons-splitbutton-action--sizes",
-        "buttons-splitbutton-action--icons",
-        "buttons-splitbutton-action--disabled",
-        "buttons-splitbutton-action--busy",
-        "buttons-splitbutton-action--destructive",
-        "buttons-splitbutton-action--anchors",
-        "buttons-splitbutton-menubutton--example",
-        "buttons-splitbutton-menubutton--variants",
-        "buttons-splitbutton-menubutton--sizes",
-        "buttons-splitbutton-menubutton--disabled",
-        "buttons-splitbutton-menubutton--busy"
-      ],
       "cardMode": "column"
-    },
-    "SideBar": {
-      "skip": [
-        "navigation-sidebar-collapsebutton--example",
-        "navigation-sidebar-collapsebutton--truncated",
-        "navigation-sidebar-collapsebutton--collapsed",
-        "navigation-sidebar-menugroup--example",
-        "navigation-sidebar-menugroup--selected",
-        "navigation-sidebar-menugroup--collapsed",
-        "navigation-sidebar-menugroup--selected-and-collapsed",
-        "navigation-sidebar-menugroup--manually-active",
-        "navigation-sidebar-menuitem--example",
-        "navigation-sidebar-menuitem--selected",
-        "navigation-sidebar-menuitem--truncation",
-        "navigation-sidebar-menuitem--collapsed",
-        "navigation-sidebar-menulist--example",
-        "navigation-sidebar-menulist--selected-item",
-        "navigation-sidebar-menulist--selected-submenu-item",
-        "navigation-sidebar-menulist--truncation",
-        "navigation-sidebar-menulist--collapsed",
-        "navigation-sidebar-submenu--example",
-        "navigation-sidebar-submenu--selected",
-        "navigation-sidebar-submenu--truncation",
-        "navigation-sidebar-submenuitem--example",
-        "navigation-sidebar-submenuitem--selected",
-        "navigation-sidebar-submenuitem--truncation",
-        "navigation-sidebar-submenuitem--collapsed"
-      ]
     },
     "SearchInput": {
-      "skip": [
-        "utils-combobox-searchinput--example",
-        "utils-combobox-searchinput--drawer",
-        "utils-combobox-searchinput--auto"
-      ],
-      "cardMode": "column"
-    },
-    "AnchorCard": {
-      "cardMode": "column"
-    },
-    "ButtonCard": {
       "cardMode": "column"
     },
     "Drawer": {
@@ -284,9 +160,6 @@
     "DescriptionList": {
       "cardMode": "single",
       "primaryStory": "Example"
-    },
-    "Select": {
-      "skip": ["input-and-selection-officeswitcher-select--example"]
     }
   },
   "titleMap": {
@@ -312,8 +185,6 @@
     "SecondaryNav": null,
     "Tab": null,
     "TableProvider": null,
-    "TableRowSelection": null,
-    "AtAGlance.AnchorCard": "AnchorCard",
-    "AtAGlance.ButtonCard": "ButtonCard"
+    "TableRowSelection": null
   }
 }

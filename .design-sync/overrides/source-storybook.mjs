@@ -230,6 +230,19 @@ export async function resolveStorybook(ctx) {
         if (e.type === 'docs') continue
         if ((e.tags ?? []).includes('!dev') || (e.tags ?? []).includes('deprecated')) continue
         if (/deprecated/i.test(e.importPath ?? '')) continue
+        // This repo's titles are always `Category/Component` for a synced
+        // parent, `Category/Parent/Child[/...]` for its subcomponents (e.g.
+        // `Content display/AtAGlance/AnchorCard`). titleParts()'s
+        // exportedSet backward-scan can't tell those apart from a genuine
+        // unrelated top-level export sharing the leaf name (AtAGlance's
+        // AnchorCard/ButtonCard subcomponents collided with the real,
+        // separately-documented Card family AnchorCard/ButtonCard; same for
+        // FocusedLayout.BottomBar/TopBar vs the standalone BottomBar/TopBar,
+        // Breadcrumbs.Link vs Link, OfficeSwitcher.Select vs Select,
+        // PageHeader.SupplementaryInfo vs SupplementaryInfo — the collision
+        // silently dropped one of each pair from the synced set). Only the
+        // parent gets a card; deeper title levels are documentation-only.
+        if (e.title.split('/').length > 2) continue
         const { name: compName, group } = titleParts(e.title, titleMap, exportedSet)
         if (compName === null) continue
         if (!byComp.has(compName))
