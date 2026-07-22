@@ -5,7 +5,7 @@
 The file-uploader family has four layers, each independently usable and independently testable:
 
 - **`FileInput`** (`src/utils/file-input/`) — the native primitive. Owns file selection mechanics only: a real `<input type="file">`, drag-and-drop, `accept`/`multiple`/`required`, custom size/count limits. No label, no help/error text, no upload orchestration, no item rendering. Lives in `src/utils/`, not `src/core/`, since it has no Figma component of its own — unlike `FileCard`/`MediaCard`, which do have Figma frames but stay private to `FileUploader` for a different reason (their upload-status behaviour is meaningless outside an active queue). `FileInput` has no such coupling and is designed to be used standalone (e.g. a single-avatar-upload trigger with no progress UI), so it stays public — just not a `core` component, the same way `HTMLDialog` (`src/utils/dialog/`) is a public, Figma-less native-element primitive that `Dialog`/`Drawer` build on.
-- **`FileUploadQueue`** (`src/core/file-uploader/`) — an external store class that owns the upload lifecycle for a set of files: status, progress, retry, abort. No DOM knowledge, no rendering.
+- **`FileUploadQueue`** (`src/core/file-uploader/`) — an external store class that owns the upload lifecycle for a set of files (status, progress, abort) and the running validation state for each of them, reactive to both new files and constraint changes. No DOM knowledge, no rendering.
 - **`FileUploader.FileCard` / `FileUploader.MediaCard`** (private subcomponents inside `src/core/file-uploader/`, not separately exported) — presentational item rows. No knowledge of the queue; take plain props.
 - **`FileUploader`** (`src/core/file-uploader/`) — the compound composition: `FormControl` chrome + `FileInput` + `FileUploadQueue` + item rendering.
 
@@ -34,7 +34,7 @@ Each layer solves a problem the others don't need to know about:
 
 An external store class — same shape as the existing toaster store (`src/core/toaster/store.ts`: mutable state + pub/sub + `getSnapshot`/`subscribe` for `useSyncExternalStore`), but instantiated **per `FileUploader`**, not as a global singleton (uploads are scoped to one form instance, unlike toasts).
 
-**Item lifecycle**: `queued → uploading (progress?: number) → processing? → uploaded`, with `error` reachable from `uploading` or `processing`. Validation-rejected files (from `validateFiles`) enter directly at `error` — same visual language as an upload failure, no separate rejection side-channel.
+**Item lifecycle**: `queued → uploading (progress?: number) → processing? → uploaded`, with `error` reachable only from `uploading`/`processing` — an actual upload failure. Validation-rejected files are **not** a lifecycle state; see "Validation as a projection, not a status" below.
 
 - `progress` is optional. Some `onUpload` implementations can't report it (`fetch` cannot report upload progress the way XHR's `upload.onprogress` can) — treat `undefined` as indeterminate. Which loading primitive renders (circular progress ring vs. spinner) is driven by whether `progress` is a number, not by which status the item is in.
 - `processing` is optional and **consumer-driven**, not inferred — a helper the queue exposes that `onUpload` calls before resolving, for backends with a post-upload server-side step (virus scan, transcoding, etc.). Whether a given backend has this step is unknowable in advance, so the queue never guesses.
@@ -42,6 +42,36 @@ An external store class — same shape as the existing toaster store (`src/core/
 - A delayed-loading-indicator flag (`minLoadingIndicatorDelayMs`, default ~300ms) avoids indicator flash on fast operations: a per-item `isLoadingIndicatorVisible` boolean only flips true if the item is still `uploading`/`processing` after the delay elapses. `FileCard`/`MediaCard` just read this boolean — no timer logic in the presentational layer.
 - `getFileId(result)` computes `item.fileId` once, at the moment `onUpload` resolves. `FileUploadQueue` also retains the raw `item.result`, for consumers who need to look up richer data by ID later (see "Native form integration").
 - The queue is **externally creatable and injectable**: `FileUploader` accepts an optional `queue` prop (an instance created via `new FileUploadQueue(...)`), defaulting to creating one internally when omitted — same controlled/uncontrolled convention as every other input in this codebase, just applied to a store instance instead of a primitive value. This is what lets a consumer's submit handler read the same instance `FileUploader` is rendering from, entirely outside React's render cycle.
+- **No retry.** `error` (from an `onUpload` rejection) has no resume affordance — `FileCard`/`MediaCard` render only a remove button in that state, no retry button. The only way back is removing the item and re-adding the file, which starts a genuinely new attempt (new `id`, no carried `fileId`). This keeps `error` unambiguous: it means "this upload attempt failed," full stop — see "Validation as a projection, not a status" below for why that matters.
+
+### Reactive validation constraints
+
+`accept`/`maxFiles`/`maxFileSize`/`maxTotalSize` can't be fixed at queue-construction time, because they can legitimately depend on a consumer's own render-time logic — e.g. a form that accepts "one PDF, or up to two DOCX files" recomputes its effective `maxFiles` from what's currently in the queue. If the queue only validated once, at `addFiles`, it would go stale the moment such a constraint changes without a new file being picked.
+
+- `addFiles(files, constraints)` takes the current validation constraints as an explicit argument (not read from constructor `options`) — supplied fresh by `FileUploader.Input` on every call, straight from whatever props it currently has. `onUpload`/`getFileId`/`minLoadingIndicatorDelayMs` stay constructor-only options; they're upload behaviour, not per-render validation state.
+- A separate method — call it `updateConstraints(constraints)` — lets `FileUploader.Input` push a change into the queue when constraints change **without** a new file being added (e.g. a prop change alone), so already-queued items get re-evaluated against the new limits. This is the reactive half of the same mechanism `addFiles` uses for new files.
+- Both entry points funnel into the same internal re-validation pass — see below.
+
+### Validation as a projection, not a status
+
+Validity is **derived state, not stored state**. An item's `status` never encodes "currently over `maxFiles`" or "wrong `accept` type" — only genuine upload lifecycle (`queued → uploading → processing? → uploaded`, or `error` for an actual upload failure). Whether an item currently satisfies the running validation constraints is a separate, orthogonal annotation — a `validationError: string | undefined` — computed fresh every time it could change, not assigned once and left to rot:
+
+- **Recomputed on every mutation to items or constraints**: `addFiles`, `removeItem`, and `updateConstraints` each end by re-running a `validateFiles` pass, in queue order, over the full, ordered item list against the current constraints, producing a fresh `id → validationError` map. This replaces the old model (this doc, and `addFiles`'s doc comment, used to describe validation-rejected files "entering the queue directly at `error`" — that's gone; a file that fails validation on add is still queued as a normal item, just annotated invalid from the start).
+- **Order matters, and is stable**: earlier items in the queue get priority for a limited resource (`maxFiles`/`maxTotalSize`) — the check walks items in queue order, accumulating count/size as it goes, so once a limit is reached every later item is invalid, regardless of which one it is. So if `maxFiles` shrinks from 3 to 2, the 3rd item (by add order) becomes invalid — not an arbitrary one. Removing an earlier item shifts everyone after it and re-opens a slot, which is exactly how relaxing works too (see the worked example below).
+- **Applies uniformly regardless of lifecycle stage**, and never has a side effect on lifecycle by itself: an item that's `uploading`/`processing` when it becomes invalid keeps running to completion — invalidity doesn't abort it. An already-`uploaded` item that becomes invalid keeps its `fileId`/`result` — invalidity doesn't undo a completed upload. The only actions this state is meant to provoke are consumer-facing: block native submit (see below) and prompt the user to remove something.
+- **The one place lifecycle _is_ affected**: a `queued` item — meaning never yet attempted — that flips from invalid to valid as a side effect of a re-validation pass immediately becomes eligible to start uploading, exactly as if it had just been accepted by `addFiles` for the first time (calls `#upload` if `onUpload` is configured). This is not a "retry": it's the item's first attempt, just delayed until it satisfied the running constraints. An item already `uploading`/`processing`/`uploaded`/`error` is untouched by this trigger even if its validity flips — only genuinely un-started items can be (re)triggered this way.
+
+**Worked example** (`accept=".pdf,.docx"`, a form needing "one PDF, or up to two DOCX", so the consumer computes `maxFiles = queue.getFiles().some(isPdf) ? 1 : 2`):
+
+1. A PDF and a DOCX are dropped together. Both are accepted at add time (nothing yet has revealed the PDF-implies-1 rule to the queue) and both start uploading.
+2. The consumer notices a PDF is now present, recomputes `maxFiles = 1`, and calls `updateConstraints({ maxFiles: 1, ... })`. The re-validation pass marks the DOCX (second in queue order) invalid — even though it's already `uploading`. The upload isn't aborted.
+3. The user removes the PDF. `removeItem` re-runs the pass: with the PDF gone, `maxFiles` recomputes to `2`, and the DOCX — now first and only — becomes valid again. If it's still `queued` at that point this also starts its upload; if it already finished uploading while invalid, it simply becomes a valid `uploaded` item.
+
+### Effect on other layers
+
+- **`FileUploader.Input`**: driving `FileInput` with `value={queue.getFiles()}` still holds, but the `accept`/`maxFiles`/`maxFileSize`/`maxTotalSize` passed to `FileInput` and the ones passed into the queue (via `addFiles`'s second argument and `updateConstraints`) are the same values, sourced every render from props — not resynced imperatively, just passed straight through on the relevant call, matching `FileInput`'s own "validity as a pure function of current input" convention (`useFileInputValidity`).
+- **`FileUploader.Files`**: an item with a current `validationError` does **not** get a hidden `<input name={name}>`, even if `status === 'uploaded'` — an invalid item shouldn't contribute to `FormData` regardless of whether the bytes already made it to the server. Native submit-blocking (via `FileInput`'s `setCustomValidity`, which also revalidates on every constraint change) and the missing hidden input work together: the form can't be submitted, and if that were ever bypassed, the invalid file's ID wouldn't be in the payload anyway.
+- **`FileCard`/`MediaCard`**: render error UI from whichever of `status === 'error' ? errorMessage : validationError` is present — one status-text derivation (`getFileUploaderItemStatus`) covering both sources, so the two error states look identical to the user even though only one of them is a `status`.
 
 ## `FileUploader.FileCard` / `FileUploader.MediaCard`
 
@@ -83,9 +113,10 @@ Compound API: `<FileUploader>` composes `FormControl` (label/help-text/error-tex
 
 `FileUploader.Input` is the only place that knows about both `FileInput` and `FileUploadQueue`:
 
-- Renders `FileInput` **controlled** by the queue's own snapshot, not uncontrolled: `<FileInput value={queue.getFiles()} maxFiles={...} maxFileSize={...} maxTotalSize={...} onChange={(e) => queue.addFiles(e.target.files)} />`.
+- Renders `FileInput` **controlled** by the queue's own snapshot, not uncontrolled: `<FileInput value={queue.getFiles()} maxFiles={...} maxFileSize={...} maxTotalSize={...} onChange={(e) => queue.addFiles(e.target.files, constraints)} />`.
 - No bespoke resync effect is needed here. `FileInput`'s own effect (see "`FileInput`" above) already resyncs the native `.files` and recomputes `setCustomValidity` against whatever `value` currently is, as a pure function of that value — it doesn't care whether the value came from a browse round or a queue snapshot. Driving it with `value={queue.getFiles()}` means any change to the queue's file set — an addition or a removal — keeps the raw input's `.files` and validity in sync with the queue's true accumulated state, for free. This is simpler than, and supersedes, resyncing `.files` imperatively via a ref whenever the queue changes.
-- Passing the same `maxFiles`/`maxFileSize`/`maxTotalSize` to both `FileInput` and the queue is intentional duplication, not redundancy: the queue owns the accept/reject decision for the running selection (`addFiles` runs its own `validateFiles` against its own accumulated items — see `FileUploadQueue` above); `FileInput` only reflects whether the _result_ is valid, driving native submit-blocking and any `:has(input:invalid)`-style error styling on `FileUploader.Input`'s own rendered content (matching `TextInput`'s existing `:has(input:invalid)` pattern).
+- Passing the same `maxFiles`/`maxFileSize`/`maxTotalSize` to both `FileInput` and the queue is intentional duplication, not redundancy: the queue owns the accept/reject decision for the running selection, driven by whatever `constraints` object is current at the moment each render calls `addFiles`/`updateConstraints` (see "Reactive validation constraints" under `FileUploadQueue` above — this replaced construction-time-only constraints); `FileInput` only reflects whether the _result_ is valid, driving native submit-blocking and any `:has(input:invalid)`-style error styling on `FileUploader.Input`'s own rendered content (matching `TextInput`'s existing `:has(input:invalid)` pattern).
+- A `useEffect` on `[accept, maxFiles, maxFileSize, maxTotalSize]` calls `queue.updateConstraints(...)` so items already in the queue get re-projected when a constraint changes independently of a new file being picked — this is the one place `FileUploader.Input` needs an effect; `FileInput` itself still needs none.
 
 `FileInput` and `FileUploadQueue` never reference each other directly.
 
@@ -117,7 +148,7 @@ No RHF/Formik-specific code exists anywhere in this library. `FileInput`'s nativ
 
 `validateFiles(incoming, existing, rules)` (`src/utils/file-input/validate-files.ts`) is a pure function returning `{ accepted, rejected: { file, reason }[] }`. Co-located with `file-input/` rather than promoted to a top-level, generic utility, matching `number-input`'s `validate-range.ts` precedent — it's scoped to this component's constraints, not a generic cross-cutting utility.
 
-Rejected files enter the queue directly at `error` status, rendered through the same `FileCard`/`MediaCard` error state as a genuine upload failure. This gives one visual language for "why did this fail," whether the failure was validation (client-side, before upload) or a transport error (server-side, after upload started).
+Rejected files are **not** entered at `error` status — see "Validation as a projection, not a status" under `FileUploadQueue` above. They're queued (or left at whatever lifecycle stage they're already in) with a `validationError` annotation instead, which `FileCard`/`MediaCard` render through the same visual language as a genuine `error`. This still gives one look for "why did this fail," whether the cause was validation (client-side, and possibly reversible without re-adding the file) or a transport error (server-side, after upload started, and only reversible by removing and re-adding) — the two just aren't the same underlying state.
 
 ## Accessibility
 
@@ -136,6 +167,7 @@ No WAI-ARIA APG pattern exists for file-upload/dropzone widgets — checked agai
 
 - **RHF `useFieldArray` integration.** Not needed — see "Native form integration" above.
 - **Per-item custom form values beyond the file ID.** Consumers needing richer data look it up from the injected `queue` by ID in their submit handler, rather than `Files` supporting an arbitrary per-item value.
+- **Retrying a failed upload.** An `error` item (an actual `onUpload` rejection) has no resume affordance in `FileCard`/`MediaCard` — the only path back is removing it and re-adding the file, a genuinely new attempt. See "No retry" under `FileUploadQueue` above.
 
 ## Changesets
 
