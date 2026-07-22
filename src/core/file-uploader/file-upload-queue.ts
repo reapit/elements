@@ -115,8 +115,23 @@ export class FileUploadQueue<TResult = string> {
     }
   }
 
-  /** The current selection, in order — what `FileInput`'s controlled `value` should be driven from. Includes invalid items. */
-  getFiles = (): File[] => this.#items.map((item) => item.file)
+  #filesSnapshot: File[] = []
+
+  /**
+   * The current selection, in order — what `FileInput`'s controlled `value` should be driven
+   * from, and suitable as a `useSyncExternalStore` `getSnapshot` in its own right. Includes
+   * invalid items. Memoised against the previous call: progress/status updates replace `#items`
+   * without changing any item's `file`, so this returns the same `File[]` reference in that case
+   * rather than a fresh one, letting `useSyncExternalStore` bail out of re-rendering a subscriber
+   * that only cares about the file list.
+   */
+  getFiles = (): File[] => {
+    const files = this.#items.map((item) => item.file)
+    const unchanged =
+      files.length === this.#filesSnapshot.length && files.every((file, index) => file === this.#filesSnapshot[index])
+    if (!unchanged) this.#filesSnapshot = files
+    return this.#filesSnapshot
+  }
 
   /**
    * Queues `files` — always, even if they fail validation against `constraints` — then
