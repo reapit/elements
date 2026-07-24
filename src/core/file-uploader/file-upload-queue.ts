@@ -1,31 +1,40 @@
-import { formatFileSize } from '#src/utils/number-format'
-import { validateFiles } from '#src/utils/file-input/validate-files'
 import { clampPercentage } from './clamp-percentage'
+import type { validateFiles } from '#src/utils/file-input/validate-files'
 
 export namespace FileUploadQueue {
-  export type Status = 'queued' | 'uploading' | 'processing' | 'uploaded' | 'error'
+  /**
+   * Which per-item constraint an item currently fails, named after the DOM's `ValidityState`
+   * convention. Reported by a consumer via `reportValidity` — the queue never computes this
+   * itself; see `reportValidity`'s doc comment.
+   */
+  export type ValidationError = validateFiles.FileValidationError
 
   /**
    * Item lifecycle: `queued -> uploading (progress?) -> processing? -> uploaded`, with `error`
-   * reachable only from `uploading`/`processing` — a genuine upload failure. There is no retry:
-   * an `error` item must be removed and the file re-added from scratch. Modelled as a
-   * discriminated union on `status` so each variant only carries the fields meaningful to it —
-   * e.g. `result` doesn't exist before `uploaded`, `errorMessage` doesn't exist outside `error`.
+   * reachable only from `uploading`/`processing`. There's no retry; an `error` item must be
+   * removed and the file re-added from scratch.
    *
-   * `validationError` is deliberately outside the union: whether an item currently satisfies the
-   * running validation constraints (`accept`/`maxFiles`/`maxFileSize`/`maxTotalSize`) is a
-   * separate, orthogonal projection — recomputed on every `addFiles`/`removeItem`/
-   * `updateConstraints` call, not a lifecycle state. It can be set or cleared on an item in any
-   * status, including `uploaded`, without affecting that status. See "Validation as a
-   * projection, not a status" in `src/core/file-uploader/ARCHITECTURE.md`.
+   * `validationError` is independent of `status`: it reflects whether a consumer has reported
+   * this item as failing validation via `reportValidity`, and can be set on an item in any status,
+   * including terminal states like `uploaded` and `error`.
    */
-  export type Item<TResult = unknown> = { id: string; file: File; validationError?: string } & (
+  export type Item<TResult extends unknown = unknown> = {
+    id: string
+    file: File
+    validationError?: ValidationError
+  } & (
     | { status: 'queued' }
-    | { status: 'uploading'; progress?: number; isLoadingIndicatorVisible: boolean; fileId?: string }
-    | { status: 'processing'; isLoadingIndicatorVisible: boolean; fileId?: string }
-    | { status: 'uploaded'; fileId: string; result: TResult }
+    | { status: 'uploading'; progress?: number; isLoadingIndicatorVisible: boolean }
+    | { status: 'processing'; isLoadingIndicatorVisible: boolean }
+    | { status: 'uploaded'; fileId?: string; result: TResult }
     | { status: 'error'; errorMessage: string }
   )
+
+  export interface ItemResources {
+    abortController: AbortController
+    loadingIndicatorTimer?: ReturnType<typeof globalThis.setTimeout>
+    progressThrottle?: { lastNotifiedAt: number; timer?: ReturnType<typeof globalThis.setTimeout> }
+  }
 
   export interface UploadHelpers {
     /** Aborted when the item is removed from the queue while its upload is in flight. */
@@ -34,35 +43,9 @@ export namespace FileUploadQueue {
     onProgress: (progress: number) => void
     /** Transitions the item to `processing`, for backends with a post-upload server-side step (virus scan, transcoding, etc.). */
     setProcessing: () => void
-    /**
-     * Records the server-assigned entity ID as soon as it's known — before the upload itself
-     * resolves. Covers the common "create a file entity, get a pre-signed upload URL + ID back,
-     * then upload the bytes to that URL" flow (e.g. S3 pre-signed URLs), where the ID exists well
-     * before the transfer finishes. If never called, `fileId` is instead derived from the resolved
-     * result once `onUpload` settles (via `getFileId`, below).
-     */
-    setFileId: (fileId: string) => void
   }
 
-  /**
-   * Validation constraints for the current selection. Passed fresh to `addFiles` and
-   * `updateConstraints` rather than fixed at construction, since they may legitimately depend on
-   * render-time state (e.g. a form whose effective `maxFiles` depends on which files are already
-   * in the queue) — see "Reactive validation constraints" in
-   * `src/core/file-uploader/ARCHITECTURE.md`.
-   */
-  export type Constraints = {
-    /** Native `accept` attribute syntax, forwarded to `validateFiles`. */
-    accept?: string
-    /** The maximum number of files allowed. `1` enables single-select replace semantics (see `addFiles`). */
-    maxFiles?: number
-    /** The maximum size, in bytes, allowed for any single file. */
-    maxFileSize?: number
-    /** The maximum cumulative size, in bytes, allowed across all files. */
-    maxTotalSize?: number
-  }
-
-  export type Options<TResult = string> = {
+  export type Options<TResult extends unknown = string> = {
     /**
      * How long an item must stay `uploading`/`processing` before its `isLoadingIndicatorVisible`
      * flag flips `true`, so fast uploads never flash a spinner.
@@ -70,43 +53,43 @@ export namespace FileUploadQueue {
      * @default 300
      */
     minLoadingIndicatorDelayMs?: number
-  } & (
-    | { onUpload?: undefined; getFileId?: undefined }
-    | ({ onUpload: (file: File, helpers: UploadHelpers) => Promise<TResult> } & (TResult extends string
-        ? { getFileId?: (result: TResult) => string }
-        : { getFileId: (result: TResult) => string }))
-  )
+    /**
+     * Uploads `file`, resolving with whatever the consumer's backend returns. Use `helpers` to
+     * report progress or flip the item to `processing` for a post-upload server-side step.
+     */
+    onUpload: (file: File, helpers: UploadHelpers) => Promise<TResult>
+    /**
+     * Derives the server-assigned file ID to submit as part of the form from `onUpload`'s
+     * resolved result. Provide this whenever that result isn't itself the ID string — e.g.
+     * `onUpload` resolves a richer object containing metadata alongside the ID. If omitted,
+     * `onUpload` is expected to resolve the ID directly, as a `string`.
+     */
+    getFileId?: (result: TResult) => string
+  }
 }
 
 const DEFAULT_MIN_LOADING_INDICATOR_DELAY_MS = 300
 const PROGRESS_THROTTLE_MS = 100
 
 /**
- * An external store class — mutable state + pub/sub + `getSnapshot`/`subscribe`, for
- * `useSyncExternalStore` — that owns the upload lifecycle for a set of files (status, progress,
- * abort) and the running validation projection for each of them, reactive to both new files and
- * constraint changes. No DOM knowledge, no rendering. Instantiated per `FileUploader`, not as a
- * global singleton (uploads are scoped to one form instance). See
- * `src/core/file-uploader/ARCHITECTURE.md`.
+ * An external store (`getSnapshot`/`subscribe`, for `useSyncExternalStore`) that owns the upload
+ * lifecycle for a set of files — status, progress, abort. Validation is not the queue's concern:
+ * a consumer runs `validateFiles` itself and reports the result via `reportValidity`, which is
+ * also what starts uploading a newly-valid item. No DOM knowledge, no rendering.
  */
-export class FileUploadQueue<TResult = string> {
+export class FileUploadQueue<TResult extends unknown = string> {
   #items: FileUploadQueue.Item<TResult>[] = []
-  #constraints: FileUploadQueue.Constraints = {}
+  #files: File[] = []
+
   readonly #listeners = new Set<() => void>()
 
-  /** Per-in-flight-item bookkeeping, keyed by item id — created in `#upload`, torn down as a unit in `removeItem`/resolve/reject. */
-  readonly #resources = new Map<
-    string,
-    {
-      abortController: AbortController
-      loadingIndicatorTimer?: ReturnType<typeof globalThis.setTimeout>
-      progressThrottle?: { lastNotifiedAt: number; timer?: ReturnType<typeof globalThis.setTimeout> }
-    }
-  >()
+  /**
+   * Per-in-flight-item bookkeeping, keyed by item id. Created in `#upload`, torn down
+   * by `#clearResources`
+   */
+  readonly #resources = new Map<string, FileUploadQueue.ItemResources>()
 
-  constructor(private readonly options: FileUploadQueue.Options<TResult> = {}) {}
-
-  getSnapshot = (): FileUploadQueue.Item<TResult>[] => this.#items
+  constructor(private readonly options: FileUploadQueue.Options<TResult>) {}
 
   subscribe = (listener: () => void): (() => void) => {
     this.#listeners.add(listener)
@@ -115,149 +98,122 @@ export class FileUploadQueue<TResult = string> {
     }
   }
 
-  #filesSnapshot: File[] = []
+  /**
+   * The files being uploaded, in order, with progress and status metadata. Can be used as a
+   * `useSyncExternalStore`'s snapshot. Useful when a subscriber is interested in each file's
+   * upload progress/status.
+   */
+  getItemsSnapshot = (): FileUploadQueue.Item<TResult>[] => this.#items
 
   /**
-   * The current selection, in order — what `FileInput`'s controlled `value` should be driven
-   * from, and suitable as a `useSyncExternalStore` `getSnapshot` in its own right. Includes
-   * invalid items. Memoised against the previous call: progress/status updates replace `#items`
-   * without changing any item's `file`, so this returns the same `File[]` reference in that case
-   * rather than a fresh one, letting `useSyncExternalStore` bail out of re-rendering a subscriber
-   * that only cares about the file list.
+   * The selected files, in order. Includes files that have failed validation to allow consumers
+   * to display them in the UI. Can be used as a `useSyncExternalStore`'s snapshot. Useful when a
+   * subscriber only cares about the file list, not progress/status updates.
    */
-  getFiles = (): File[] => {
-    const files = this.#items.map((item) => item.file)
-    const unchanged =
-      files.length === this.#filesSnapshot.length && files.every((file, index) => file === this.#filesSnapshot[index])
-    if (!unchanged) this.#filesSnapshot = files
-    return this.#filesSnapshot
+  getFilesSnapshot = (): File[] => {
+    const latestFiles = this.#items.map((item) => item.file)
+    const changed =
+      latestFiles.length !== this.#files.length || latestFiles.some((file, index) => file !== this.#files[index])
+    if (changed) this.#files = latestFiles
+    return this.#files
   }
 
   /**
-   * Queues `files` — always, even if they fail validation against `constraints` — then
-   * re-projects `validationError` across every item in the queue (see "Validation as a
-   * projection, not a status" in ARCHITECTURE.md). `constraints` is supplied fresh on every call
-   * rather than read from constructor options, since it may change across renders. A newly
-   * queued item that's valid starts uploading immediately if `onUpload` was provided.
-   *
-   * Accepts a `FileList` as well as a plain `File[]` — a native `onChange`'s
-   * `event.target.files` is a `FileList`, so callers can pass it straight through without
-   * converting it first; tests and other non-DOM callers pass a plain array instead, since
-   * `FileList` has no public constructor outside a real `<input>`.
+   * Returns the current status of the queue. Can be used as a `useSyncExternalStore`'s snapshot.
+   * Useful when a subscriber only cares about whether any file is currently uploading or processing.
    */
-  addFiles = (files: File[] | FileList, constraints: FileUploadQueue.Constraints = {}): void => {
-    const fileArray = Array.from(files)
-    this.#constraints = constraints
+  getStatusSnapshot(): 'idle' | 'busy' {
+    return this.#items.some((item) => item.status === 'uploading' || item.status === 'processing') ? 'busy' : 'idle'
+  }
 
-    // Single-select replace: a new pick while the one slot is already occupied replaces the
-    // existing item (aborting it if mid-upload) rather than being rejected by `maxFiles`
-    // validation — see "Single-select composition" in ARCHITECTURE.md.
-    if (constraints.maxFiles === 1 && this.#items.length > 0 && fileArray.length > 0) {
-      this.removeItem(this.#items[0].id)
+  /**
+   * Queues `files` unconditionally. Files remain queued until `reportValidity` is called.
+   *
+   * Accepts a `FileList` as well as a plain `File[]`, so a native `onChange`'s
+   * `event.currentTarget.files` can be passed straight through.
+   */
+  addFiles(files: File[] | FileList): void {
+    const newItems = this.#toQueuedItems(files)
+    this.#items = [...this.#items, ...newItems]
+    this.#notify()
+  }
+
+  /**
+   * Replaces the entire queue with `files`, aborting and discarding every existing item (mid-flight
+   * uploads included) in a single notify. Files remain queued until `reportValidity` is called.
+   *
+   * Accepts a `FileList` as well as a plain `File[]`, so a native `onChange`'s
+   * `event.currentTarget.files` can be passed straight through.
+   */
+  replaceFiles(files: File[] | FileList): void {
+    for (const id of this.#resources.keys()) this.#cancelUpload(id)
+    this.#items = this.#toQueuedItems(files)
+    this.#notify()
+  }
+
+  /**
+   * Records per-item validation failures. Valid, still-queued files start uploading. Never aborts
+   * an in-flight upload or undoes a completed or errored one.
+   *
+   * `rejections` is only ever that round's freshly-picked files (see `FileUploaderInput`) — an
+   * item outside it is left untouched deliberately, not revalidated or cleared. A previously
+   * rejected item's `validationError` is only ever undone by removing and re-adding the file, not
+   * by a later `reportValidity` call. See "Validation is a consumer concern, not the queue's" in
+   * ARCHITECTURE.md.
+   */
+  reportValidity(rejections: readonly validateFiles.Rejection[]): void {
+    const validationErrors = new Map(rejections.map(({ file, validationError }) => [file, validationError]))
+    this.#items = this.#items.map((item) =>
+      validationErrors.has(item.file) ? { ...item, validationError: validationErrors.get(item.file) } : item,
+    )
+    this.#notify()
+
+    for (const item of this.#items) {
+      if (item.status === 'queued' && !item.validationError) this.#upload(item)
     }
+  }
 
-    const previousItems = this.#items
-    const newItems: FileUploadQueue.Item<TResult>[] = fileArray.map((file) => ({
+  /** Aborts the item's upload if in flight, clears its timers, and removes it from the queue. */
+  removeItem(id: string): void {
+    this.#cancelUpload(id)
+
+    this.#items = this.#items.filter((item) => item.id !== id)
+    this.#notify()
+  }
+
+  /**
+   * Aborts every in-flight upload, clears all pending timers, and drops all listeners.
+   * Call this from an owning component's unmount effect.
+   */
+  destroy(): void {
+    for (const id of this.#resources.keys()) this.#cancelUpload(id)
+    this.#listeners.clear()
+  }
+
+  #toQueuedItems(files: File[] | FileList): FileUploadQueue.Item<TResult>[] {
+    return Array.from(files).map((file) => ({
       status: 'queued',
       id: crypto.randomUUID(),
       file,
     }))
-
-    this.#items = [...this.#items, ...newItems]
-    this.#validateAndUploadQueued(previousItems)
   }
 
-  /**
-   * Re-projects `validationError` across every item in the queue against `constraints`, without
-   * adding any files — for when a constraint changes independently of a new file being picked
-   * (e.g. a prop change alone). See "Reactive validation constraints" in ARCHITECTURE.md.
-   */
-  updateConstraints = (constraints: FileUploadQueue.Constraints): void => {
-    this.#constraints = constraints
-    this.#validateAndUploadQueued(this.#items)
-  }
-
-  /** Aborts the item's upload if in flight, clears its timers, removes it from the queue, and re-projects validity onto what remains. */
-  removeItem = (id: string): void => {
-    this.#resources.get(id)?.abortController.abort()
-    this.#clearResources(id)
-
-    const previousItems = this.#items
-    this.#items = this.#items.filter((item) => item.id !== id)
-    this.#validateAndUploadQueued(previousItems)
-  }
-
-  /**
-   * Re-projects `validationError` across the full, ordered item list against `this.#constraints`
-   * — earlier items in the queue get priority for a limited resource (`maxFiles`/`maxTotalSize`),
-   * so once a limit is reached every later item is invalid, regardless of which one it is (see
-   * "Validation as a projection, not a status" in ARCHITECTURE.md). Pure: never touches uploads,
-   * timers, or subscribers — callers combine it with `#validateAndUploadQueued` below to also act
-   * on the result.
-   */
-  #validateItems(): FileUploadQueue.Item<TResult>[] {
-    const { rejected } = validateFiles(
-      this.#items.map((item) => item.file),
-      [],
-      {
-        accept: this.#constraints.accept,
-        multiple: this.#constraints.maxFiles !== 1,
-        maxFileSize: this.#constraints.maxFileSize,
-        maxFiles: this.#constraints.maxFiles,
-        maxTotalSize: this.#constraints.maxTotalSize,
-      },
-    )
-    const rejectionReasons = new Map(rejected.map(({ file, reason }) => [file, reason]))
-
-    return this.#items.map((item) => {
-      const reason = rejectionReasons.get(item.file)
-      return { ...item, validationError: reason ? this.#getRejectionMessage(reason) : undefined }
-    })
-  }
-
-  /**
-   * Applies `#validateItems`'s validation projection, notifies subscribers, then starts uploading
-   * any still-`queued`, never-attempted item that flipped from invalid (or didn't exist yet, in
-   * `previousItems`) to valid. Never aborts an in-flight upload or undoes a completed one itself.
-   */
-  #validateAndUploadQueued(previousItems: FileUploadQueue.Item<TResult>[]): void {
-    this.#items = this.#validateItems()
-    this.#notify()
-
-    if (!this.options.onUpload) return
-
-    for (const item of this.#items) {
-      if (item.status !== 'queued' || item.validationError) continue
-      const previous = previousItems.find((prev) => prev.id === item.id)
-      if (!previous || previous.validationError) this.#upload(item)
-    }
-  }
-
-  #upload(item: { id: string; file: File; validationError?: string }): void {
-    if (!this.options.onUpload) return
-
+  #upload(item: { id: string; file: File; validationError?: FileUploadQueue.ValidationError }): void {
     const abortController = new AbortController()
     this.#resources.set(item.id, { abortController })
 
     this.#replaceItem({ ...this.#baseFields(item), status: 'uploading', isLoadingIndicatorVisible: false })
     this.#startLoadingIndicatorTimer(item.id)
 
-    void this.#runUpload(item, abortController)
+    this.#runUpload(item, abortController)
   }
 
-  /**
-   * Runs `onUpload` and routes the outcome to the resolve/reject handlers. `try`/`catch` around
-   * the `await` — rather than `.then(onResolve, onReject)` on the returned promise — also catches
-   * a consumer's `onUpload` throwing synchronously instead of returning a rejected promise, since
-   * that throw happens inside this `try` block regardless of whether `await` was ever reached.
-   */
   async #runUpload(item: { id: string; file: File }, abortController: AbortController): Promise<void> {
     try {
-      const result = await this.options.onUpload!(item.file, {
+      const result = await this.options.onUpload(item.file, {
         signal: abortController.signal,
         onProgress: (progress) => this.#handleProgress(item.id, progress),
         setProcessing: () => this.#handleSetProcessing(item.id),
-        setFileId: (fileId) => this.#handleSetFileId(item.id, fileId),
       })
       this.#handleUploadResolve(item.id, result)
     } catch (error) {
@@ -305,15 +261,7 @@ export class FileUploadQueue<TResult = string> {
       ...this.#baseFields(item),
       status: 'processing',
       isLoadingIndicatorVisible: item.isLoadingIndicatorVisible,
-      fileId: item.fileId,
     })
-  }
-
-  #handleSetFileId(id: string, fileId: string): void {
-    const item = this.#items.find((i) => i.id === id)
-    if (!item || (item.status !== 'uploading' && item.status !== 'processing')) return
-
-    this.#replaceItem({ ...item, fileId })
   }
 
   #handleUploadResolve(id: string, result: TResult): void {
@@ -322,40 +270,44 @@ export class FileUploadQueue<TResult = string> {
 
     this.#clearResources(id)
 
-    const existingFileId = 'fileId' in item ? item.fileId : undefined
-    const fileId =
-      existingFileId ?? this.options.getFileId?.(result) ?? (typeof result === 'string' ? result : undefined)
-
-    if (!fileId) {
-      this.#replaceItem({
-        ...this.#baseFields(item),
-        status: 'error',
-        errorMessage: 'Upload succeeded but no file ID could be determined',
-      })
-      return
-    }
+    const fileId = typeof result === 'string' ? result : this.#getFileId(result)
 
     this.#replaceItem({ ...this.#baseFields(item), status: 'uploaded', fileId, result })
+  }
+
+  // `getFileId` is consumer code, called after the upload itself already succeeded — a throw here
+  // (e.g. `result` shaped unexpectedly) must not be mistaken for the upload having failed.
+  #getFileId(result: TResult): string | undefined {
+    try {
+      return this.options.getFileId?.(result)
+    } catch {
+      return undefined
+    }
   }
 
   #handleUploadReject(id: string, error: unknown, signal: AbortSignal): void {
     const item = this.#items.find((i) => i.id === id)
     if (!item) return // removed while in flight — removeItem already cleaned up
 
+    const aborted = signal.aborted
     this.#clearResources(id)
 
-    if (signal.aborted) return
+    if (aborted) return
 
     const errorMessage = error instanceof Error ? error.message : 'Upload failed'
     this.#replaceItem({ ...this.#baseFields(item), status: 'error', errorMessage })
   }
 
-  #baseFields(item: { id: string; file: File; validationError?: string }): {
+  #baseFields(item: { id: string; file: File; validationError?: FileUploadQueue.ValidationError }): {
     id: string
     file: File
-    validationError?: string
+    validationError?: FileUploadQueue.ValidationError
   } {
-    return { id: item.id, file: item.file, validationError: item.validationError }
+    return {
+      id: item.id,
+      file: item.file,
+      validationError: item.validationError,
+    }
   }
 
   #startLoadingIndicatorTimer(id: string): void {
@@ -371,7 +323,19 @@ export class FileUploadQueue<TResult = string> {
     if (resource) resource.loadingIndicatorTimer = timer
   }
 
-  /** Clears any pending timers for `id` and drops its resource entry — used once an item's upload settles or is removed. */
+  /**
+   * Aborts `id`'s in-flight upload, then clears its resources — see `#clearResources`. Used only
+   * when the item is genuinely being cancelled (removed, or discarded by `replaceFiles`/`destroy`),
+   * never when its upload settles: `signal` is documented as "aborted when the item is removed
+   * from the queue while its upload is in flight", and aborting on a successful/failed settle
+   * would fire a consumer's abort listeners for an upload that wasn't actually cancelled.
+   */
+  #cancelUpload(id: string): void {
+    this.#resources.get(id)?.abortController.abort()
+    this.#clearResources(id)
+  }
+
+  /** Clears `id`'s pending timers and drops its resource entry. Used once its upload settles. */
   #clearResources(id: string): void {
     const resource = this.#resources.get(id)
     if (resource?.loadingIndicatorTimer !== undefined) globalThis.clearTimeout(resource.loadingIndicatorTimer)
@@ -386,24 +350,5 @@ export class FileUploadQueue<TResult = string> {
 
   #notify(): void {
     for (const listener of this.#listeners) listener()
-  }
-
-  #getRejectionMessage(reason: validateFiles.RejectionReason): string {
-    switch (reason) {
-      case 'accept':
-        return 'File type not accepted'
-      case 'multiple':
-        return 'Only one file may be selected'
-      case 'maxFiles':
-        return `Maximum number of files exceeded${this.#constraints.maxFiles ? ` (${this.#constraints.maxFiles})` : ''}`
-      case 'maxFileSize':
-        return this.#constraints.maxFileSize
-          ? `File exceeds the maximum size of ${formatFileSize(this.#constraints.maxFileSize)}`
-          : 'File exceeds the maximum size'
-      case 'maxTotalSize':
-        return this.#constraints.maxTotalSize
-          ? `Total selection size exceeds the maximum of ${formatFileSize(this.#constraints.maxTotalSize)}`
-          : 'Total selection size exceeds the maximum'
-    }
   }
 }

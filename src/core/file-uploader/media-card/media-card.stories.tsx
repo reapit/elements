@@ -17,7 +17,8 @@ export const Example = meta.story({
     status: 'queued' as const,
     onRemove: () => {},
   },
-  // MediaCard fills its container's width by design (it's placed in a grid cell by FileUploader.Files).
+  // Since MediaCard fills its container's width by design, we limit it here to avoid it taking up the entire
+  // Storybook canvas.
   decorators: [
     (Story) => (
       <div style={{ width: '200px' }}>

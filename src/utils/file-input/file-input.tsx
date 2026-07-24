@@ -56,20 +56,20 @@ export namespace FileInput {
      *
      * `event.target.files` reflects exactly this round's picks, unfiltered — matching native
      * `<input type="file">` behaviour. A pick that violates `maxFileSize`/`maxFiles`/`maxTotalSize`
-     * below still lands here; it invalidates the input via `setCustomValidity` rather than being
-     * silently dropped (see those props below). Files from an earlier round are not carried forward
+     * below still lands here; see those props below for whether it invalidates the input or is
+     * dropped from the native input's own `.files` instead. Files from an earlier round are not carried forward
      * either way: browsing again always replaces the current selection, matching plain
      * `<input type="file" multiple>` behaviour. A consumer that wants to accumulate a running
      * selection across rounds (and, necessarily, a way to remove from it — see `maxFiles` below)
      * owns that itself, either from a controlled `value` (appending in its own `onChange` handler)
-     * or via `FileUploadQueue`/`FileUploader`, which pair accumulation with removal by construction
-     * (see `src/core/file-uploader/ARCHITECTURE.md`).
+     * or via `FileUploadQueue`/`FileUploader`, which pair accumulation with removal by construction.
      */
     onChange?: (event: ChangeEvent<HTMLInputElement>) => void
     /**
-     * The maximum size, in bytes, allowed for any single file. A violation invalidates the input via
-     * `setCustomValidity` rather than being silently dropped — the offending file still lands in
-     * `event.target.files`/the selection; see `onChange` above.
+     * The maximum size, in bytes, allowed for any single file. The offending file still lands in
+     * `event.target.files`/the selection — see `onChange` above — but is dropped from the native
+     * input's own `.files` (so a native form submission silently excludes it) rather than
+     * invalidating the input.
      */
     maxFileSize?: number
     /**
@@ -83,7 +83,9 @@ export namespace FileInput {
      *
      * Implies `multiple` when `multiple` isn't explicitly set and this is greater than `1` — a
      * `maxFiles` above `1` is otherwise unsatisfiable, since a single-select input never has more
-     * than one file to exceed it. Pass `multiple` explicitly to override.
+     * than one file to exceed it. Pass `multiple` explicitly to override. Unlike `maxFileSize`,
+     * a `maxFiles` violation is a fact about the selection as a whole, not any one file, so the
+     * excess files stay in `.files` and it invalidates the input instead.
      */
     maxFiles?: number
     /**
@@ -95,13 +97,33 @@ export namespace FileInput {
      */
     maxTotalSize?: number
     /**
+     * The minimum number of files required in the current selection. Validated the same way as
+     * `maxFiles` — against whatever `files`/controlled `value` currently holds — and invalidates
+     * the input via `setCustomValidity` rather than dropping files.
+     *
+     * Defaults to `1` when `required` is set and this is otherwise omitted — `required` is
+     * otherwise only a native attribute, with no bearing on `setCustomValidity`, so without this
+     * default a `required` file input's underflow would go unreported by everything except the
+     * browser's own separate `valueMissing` state. Pass `minFiles={0}` explicitly to opt out of
+     * that default while keeping `required`'s native attribute/label semantics.
+     */
+    minFiles?: number
+    /**
+     * Native `required` attribute semantics — forwarded to the underlying `<input>` as-is, so
+     * `:required`/`aria-required` and a plain, no-JS form's own submit-blocking behave exactly as
+     * they would on a bare `<input type="file" required>`. Also seeds `minFiles`'s default of `1`
+     * above, so an underflow is reported through the same `setCustomValidity`/`filesUnderflow`
+     * path as an explicit `minFiles` violation, not only through the browser's separate
+     * `valueMissing` state.
+     */
+    required?: boolean
+    /**
      * Renders custom content in place of the default rendered content, given the current selection
      * and interaction state. The returned content still gets all of `FileInput`'s native mechanics —
      * validation, constraint reporting — for free; only the visible content, and what triggers
      * browsing, changes — see `openFilePicker` on `RenderProps`. `FileUploader`'s single-select
-     * composition uses this to swap in its own `MediaCard` once a file has been selected (see
-     * `src/core/file-uploader/ARCHITECTURE.md`). See `tabIndex` below for what stays unchanged on
-     * the native input while `children` is provided.
+     * composition uses this to swap in its own `MediaCard` once a file has been selected. See
+     * `tabIndex` below for what stays unchanged on the native input while `children` is provided.
      */
     children?: (props: FileInput.RenderProps) => ReactNode
     /**
@@ -118,14 +140,26 @@ export namespace FileInput {
      * for it.
      */
     tabIndex?: number
+    /**
+     * Whether the input's validity should be visually communicated or not. Typically, validity
+     * will only be shown once the input has been touched (e.g. blurred) — see `setCustomValidity`
+     * usage above for how `minFiles`/`maxFiles`/`maxTotalSize` violations set that validity in the
+     * first place.
+     */
+    showValidity?: boolean
   }
 }
 
 /**
  * The native file-selection primitive: a real, ref-forwarded `<input type="file">`.
- * `accept`/`multiple`/`required` are native attributes; `maxFileSize`/`maxFiles`/`maxTotalSize` are
- * custom constraints validated via `validateFiles` and surfaced through `setCustomValidity`, so
- * `reportValidity()`/native submit-blocking behaves consistently for native and custom violations.
+ * `accept`/`multiple`/`required` are native attributes; `maxFileSize`/`minFiles`/`maxFiles`/
+ * `maxTotalSize` are custom constraints validated via `validateFiles` and surfaced through
+ * `setCustomValidity`, so `reportValidity()`/native submit-blocking behaves consistently for native
+ * and custom violations. `multiple`/`required` also feed into that same custom validation, mapped
+ * to `maxFiles`/`minFiles` defaults respectively — see `maxFiles`/`minFiles` on `Props` — so a
+ * `multiple`/`required` violation is reported through the exact same `filesOverflow`/
+ * `filesUnderflow` tokens an explicit `maxFiles`/`minFiles` violation would be, not a separate,
+ * native-only validity state.
  *
  * "Controlled"/"uncontrolled" describes `FileInput`'s own derived `File[]` state, not the DOM
  * element — browsers only let script clear a file input's value, never set it to a chosen file, so
@@ -152,8 +186,11 @@ export const FileInput = forwardRef<HTMLInputElement, FileInput.Props>(
       maxFileSize,
       maxFiles,
       maxTotalSize,
+      minFiles,
       multiple,
       onChange,
+      required,
+      showValidity,
       style,
       value,
       ...rest
@@ -168,11 +205,18 @@ export const FileInput = forwardRef<HTMLInputElement, FileInput.Props>(
     const files = isControlled ? value : uncontrolledFiles
 
     // A `maxFiles` above `1` is unsatisfiable under single-select — `validateFiles` rejects a
-    // second file as a `multiple` violation before `maxFiles` is ever consulted — so infer
-    // `multiple` from it when the consumer hasn't set `multiple` explicitly. `maxTotalSize` isn't
-    // inferred the same way: with one file, "total selection size" and "that file's size" are the
-    // same number, so it degrades to `maxFileSize` rather than going dead.
+    // second file as an overflow before `maxFiles` is ever consulted — so infer `multiple` from it
+    // when the consumer hasn't set `multiple` explicitly. `maxTotalSize` isn't inferred the same
+    // way: with one file, "total selection size" and "that file's size" are the same number, so it
+    // degrades to `maxFileSize` rather than going dead.
     const effectiveMultiple = multiple ?? (maxFiles !== undefined && maxFiles > 1)
+
+    // `multiple`/`required` are native attributes with no bearing on `validateFiles` by
+    // themselves — they're folded into the same `maxFiles`/`minFiles` custom constraints an
+    // explicit value would use, rather than being a separate rule `validateFiles` has to know
+    // about. An explicit `maxFiles`/`minFiles` always wins over the inferred default.
+    const effectiveMaxFiles = maxFiles ?? (effectiveMultiple ? Infinity : 1)
+    const effectiveMinFiles = minFiles ?? (required ? 1 : 0)
 
     const [isFocused, setIsFocused] = useState(false)
 
@@ -180,9 +224,9 @@ export const FileInput = forwardRef<HTMLInputElement, FileInput.Props>(
       inputId,
       files,
       accept,
-      multiple: effectiveMultiple,
       maxFileSize,
-      maxFiles,
+      minFiles: effectiveMinFiles,
+      maxFiles: effectiveMaxFiles,
       maxTotalSize,
     })
 
@@ -227,6 +271,7 @@ export const FileInput = forwardRef<HTMLInputElement, FileInput.Props>(
         <ElFileInput
           {...rest}
           accept={accept}
+          data-show-validity={!!showValidity}
           data-visually-hidden={!!children}
           disabled={disabled}
           id={inputId}
@@ -235,6 +280,7 @@ export const FileInput = forwardRef<HTMLInputElement, FileInput.Props>(
           onChange={handleChange}
           onFocus={handleFocus}
           ref={ref}
+          required={required}
           type="file"
         />
         {children?.({ files, isDraggingOver, isFocused, disabled: !!disabled, openFilePicker })}

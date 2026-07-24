@@ -2,7 +2,7 @@ import {
   ElFileUploaderMediaCard,
   ElFileUploaderMediaCardThumbnail,
   ElFileUploaderMediaCardOverlay,
-  ElFileUploaderMediaCardRemoveButtonSlot,
+  ElFileUploaderMediaCardRemoveButtonContainer,
   ElFileUploaderMediaCardDuration,
   ElFileUploaderMediaCardStatusIcon,
   ElFileUploaderMediaCardErrorBadge,
@@ -19,6 +19,8 @@ import { SeparatorDotIcon } from '#src/icons/separator-dot'
 import { WarningCircleOutlineIcon } from '#src/icons/warning-circle-outline'
 
 import type { MouseEventHandler } from 'react'
+import { Image } from '#src/utils/image'
+import { PhotoIcon } from '#src/icons/photo'
 
 export namespace FileUploaderMediaCard {
   export type Status = 'queued' | 'uploading' | 'processing' | 'uploaded' | 'error'
@@ -57,9 +59,7 @@ export namespace FileUploaderMediaCard {
 }
 
 /**
- * A thumbnail-forward tile for `FileUploader`, matching Figma's `Media card [multi select]` component — the
- * list-item variant, used inside `FileUploader.Files`. Not independently exported — see
- * `src/core/file-uploader/ARCHITECTURE.md`.
+ * A thumbnail-forward card for `FileUploader` for media files. Use via `FileUploader.File`.
  */
 export function FileUploaderMediaCard({
   fileName,
@@ -99,12 +99,19 @@ export function FileUploaderMediaCard({
   return (
     <ElFileUploaderMediaCard>
       <ElFileUploaderMediaCardThumbnail data-status={status}>
-        <img alt={alt ?? ''} src={src} />
+        <Image
+          alt={alt ?? ''}
+          fallback={<Image.Fallback icon={<PhotoIcon />} />}
+          objectFit="cover"
+          src={src}
+          width="100%"
+          height="100%"
+        />
         {showOverlay && <ElFileUploaderMediaCardOverlay />}
         {onRemove && (
-          <ElFileUploaderMediaCardRemoveButtonSlot>
+          <ElFileUploaderMediaCardRemoveButtonContainer>
             <FileUploaderRemoveButton aria-label={`Remove ${fileName}`} onClick={onRemove} />
-          </ElFileUploaderMediaCardRemoveButtonSlot>
+          </ElFileUploaderMediaCardRemoveButtonContainer>
         )}
         {duration && <ElFileUploaderMediaCardDuration>{duration}</ElFileUploaderMediaCardDuration>}
         {progressIndicator && (

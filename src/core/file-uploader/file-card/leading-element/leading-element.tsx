@@ -1,8 +1,10 @@
 import { ElFileUploaderFileCardLeadingElement, ElFileUploaderFileCardLeadingElementLabel } from './styles'
 import { FileIcon } from '#src/icons/file'
+import { Image } from '#src/utils/image'
 
-import type { IconProps as ElIconProps } from '#src/icons/make-icon/make-icon'
 import type { ComponentType } from 'react'
+import type { IconProps as ElIconProps } from '#src/icons/make-icon'
+import { PhotoIcon } from '#src/icons/photo'
 
 export namespace FileUploaderFileCardLeadingElement {
   /** A real thumbnail, for image/video files that can be previewed. */
@@ -37,7 +39,14 @@ export function FileUploaderFileCardLeadingElement(props: FileUploaderFileCardLe
     case 'image':
       return (
         <ElFileUploaderFileCardLeadingElement data-type="image">
-          <img alt={props.alt ?? ''} src={props.src} />
+          <Image
+            alt={props.alt ?? ''}
+            fallback={<Image.Fallback icon={<PhotoIcon size="md" />} />}
+            objectFit="cover"
+            src={props.src}
+            width="100%"
+            height="100%"
+          />
         </ElFileUploaderFileCardLeadingElement>
       )
     case 'file-type':

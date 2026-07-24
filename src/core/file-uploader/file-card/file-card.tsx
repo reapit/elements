@@ -44,8 +44,7 @@ export namespace FileUploaderFileCard {
 }
 
 /**
- * A compact single-line item row for `FileUploader`, matching Figma's `File card [multi select]` component.
- * Not independently exported — see `src/core/file-uploader/ARCHITECTURE.md`.
+ * A compact, generic file item for `FileUploader`. Use via `FileUploader.File`.
  */
 export function FileUploaderFileCard({
   fileName,

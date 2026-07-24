@@ -30,8 +30,14 @@ test('returns the error message and isError for an error item', () => {
   expect(result.isError).toBe(true)
 })
 
-test('is not an error for non-error statuses', () => {
+test('is not an error for non-error statuses with no errorMessage', () => {
   expect(getFileUploaderItemStatus({ status: 'uploaded' }).isError).toBe(false)
+})
+
+test('a present errorMessage is treated as an error even on a non-error status, for a failing validationError', () => {
+  const result = getFileUploaderItemStatus({ status: 'queued', errorMessage: 'File exceeds the maximum size' })
+  expect(result.statusText).toBe('File exceeds the maximum size')
+  expect(result.isError).toBe(true)
 })
 
 test('falls back to a non-empty statusText when errorMessage is omitted', () => {

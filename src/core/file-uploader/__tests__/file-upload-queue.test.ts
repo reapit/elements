@@ -40,150 +40,145 @@ async function flushMicrotasks(): Promise<void> {
   for (let i = 0; i < 5; i++) await Promise.resolve()
 }
 
-test('addFiles() queues accepted files', () => {
-  const queue = new FileUploadQueue()
+test('addFiles() queues files without starting their upload', () => {
+  const queue = new FileUploadQueue({ onUpload: async () => 'file-id' })
   queue.addFiles([makeFile('a.txt')])
 
-  const [item] = queue.getSnapshot()
+  const [item] = queue.getItemsSnapshot()
   expect(item.status).toBe('queued')
   expect(item.file.name).toBe('a.txt')
   expect(typeof item.id).toBe('string')
   expect(item.validationError).toBeUndefined()
 })
 
-test('addFiles() marks files that fail validation with a validationError, but keeps them queued', () => {
-  const queue = new FileUploadQueue()
-  queue.addFiles([makeFile('too-big.txt', 100)], { maxFileSize: 10 })
+test('reportValidity() starts uploading a queued item reported as valid', () => {
+  const onUpload = vi.fn().mockResolvedValue('id-1')
+  const queue = new FileUploadQueue({ onUpload })
+  queue.addFiles([makeFile('a.txt')])
 
-  const [item] = queue.getSnapshot()
+  queue.reportValidity([])
+
+  expect(onUpload).toHaveBeenCalledTimes(1)
+  expect(queue.getItemsSnapshot()[0]).toMatchObject({ status: 'uploading', validationError: undefined })
+})
+
+test('reportValidity() marks a rejected file with a validationError, and keeps it queued', () => {
+  const onUpload = vi.fn().mockResolvedValue('id-1')
+  const queue = new FileUploadQueue({ onUpload })
+  queue.addFiles([makeFile('too-big.txt', 100)])
+
+  queue.reportValidity([{ file: queue.getItemsSnapshot()[0].file, validationError: 'fileSizeOverflow' }])
+
+  expect(onUpload).not.toHaveBeenCalled()
+  const [item] = queue.getItemsSnapshot()
   expect(item.status).toBe('queued')
-  expect(item.validationError).toMatch(/maximum size/i)
+  expect(item.validationError).toBe('fileSizeOverflow')
 })
 
-test('addFiles() derives readable validationError messages for each rejection reason', () => {
-  const acceptQueue = new FileUploadQueue()
-  acceptQueue.addFiles([makeFile('a.txt')], { accept: 'image/*' })
-  expect(acceptQueue.getSnapshot()[0]).toMatchObject({ status: 'queued', validationError: 'File type not accepted' })
+test('reportValidity() only starts the items it reports valid, leaving others queued', () => {
+  const onUpload = vi.fn().mockResolvedValue('id-1')
+  const queue = new FileUploadQueue({ onUpload })
+  queue.addFiles([makeFile('good.txt'), makeFile('bad.txt', 100)])
 
-  // maxFiles: 1 only triggers replace semantics on a *subsequent* addFiles call when a slot is
-  // already occupied — within one call, two files at once still validates 'multiple' first.
-  const multipleQueue = new FileUploadQueue()
-  multipleQueue.addFiles([makeFile('a.txt'), makeFile('b.txt')], { maxFiles: 1 })
-  expect(multipleQueue.getSnapshot()[1]).toMatchObject({
+  const [good, bad] = queue.getItemsSnapshot()
+  queue.reportValidity([{ file: bad.file, validationError: 'fileSizeOverflow' }])
+
+  const snapshot = queue.getItemsSnapshot()
+  expect(snapshot.find((item) => item.id === good.id)?.status).toBe('uploading')
+  expect(snapshot.find((item) => item.id === bad.id)).toMatchObject({
     status: 'queued',
-    validationError: 'Only one file may be selected',
+    validationError: 'fileSizeOverflow',
   })
-
-  // maxFiles: 1 triggers replace semantics instead of a maxFiles rejection — use 2 to hit the
-  // maxFiles rejection path directly without replace kicking in.
-  const maxFilesQueue = new FileUploadQueue()
-  maxFilesQueue.addFiles([makeFile('a.txt'), makeFile('b.txt'), makeFile('c.txt')], { maxFiles: 2 })
-  expect(maxFilesQueue.getSnapshot()[2]).toMatchObject({
-    status: 'queued',
-    validationError: 'Maximum number of files exceeded (2)',
-  })
-
-  const maxTotalSizeQueue = new FileUploadQueue()
-  maxTotalSizeQueue.addFiles([makeFile('a.txt', 100)], { maxTotalSize: 10 })
-  expect(maxTotalSizeQueue.getSnapshot()[0]).toMatchObject({ status: 'queued' })
-  expect(maxTotalSizeQueue.getSnapshot()[0].validationError).toMatch(/maximum/i)
+  expect(onUpload).toHaveBeenCalledTimes(1)
 })
 
-test('addFiles() with maxFiles 1 replaces the existing item rather than rejecting', () => {
-  const queue = new FileUploadQueue()
-  queue.addFiles([makeFile('a.txt')], { maxFiles: 1 })
-  const firstId = queue.getSnapshot()[0].id
+test('reportValidity() leaves a previously-rejected item untouched on a later call that omits it', () => {
+  const onUpload = vi.fn().mockResolvedValue('id-1')
+  const queue = new FileUploadQueue({ onUpload })
+  queue.addFiles([makeFile('bad.txt', 100)])
+  const [bad] = queue.getItemsSnapshot()
 
-  queue.addFiles([makeFile('b.txt')], { maxFiles: 1 })
+  queue.reportValidity([{ file: bad.file, validationError: 'fileSizeOverflow' }])
+  queue.addFiles([makeFile('good.txt')])
+  queue.reportValidity([])
 
-  const snapshot = queue.getSnapshot()
+  const snapshot = queue.getItemsSnapshot()
+  expect(snapshot.find((item) => item.id === bad.id)).toMatchObject({
+    status: 'queued',
+    validationError: 'fileSizeOverflow',
+  })
+  expect(onUpload).toHaveBeenCalledTimes(1)
+})
+
+test('a successful upload does not abort its own signal', async () => {
+  let signalRef: AbortSignal | undefined
+  const onUpload = vi.fn((_file: File, helpers: FileUploadQueue.UploadHelpers) => {
+    signalRef = helpers.signal
+    return Promise.resolve('id-1')
+  })
+  const queue = new FileUploadQueue({ onUpload })
+
+  queue.addFiles([makeFile('a.txt')])
+  queue.reportValidity([])
+  await flushMicrotasks()
+
+  expect(queue.getItemsSnapshot()[0].status).toBe('uploaded')
+  expect(signalRef?.aborted).toBe(false)
+})
+
+test('a failed upload does not abort its own signal', async () => {
+  let signalRef: AbortSignal | undefined
+  const onUpload = vi.fn((_file: File, helpers: FileUploadQueue.UploadHelpers) => {
+    signalRef = helpers.signal
+    return Promise.reject(new Error('boom'))
+  })
+  const queue = new FileUploadQueue({ onUpload })
+
+  queue.addFiles([makeFile('a.txt')])
+  queue.reportValidity([])
+  await flushMicrotasks()
+
+  expect(queue.getItemsSnapshot()[0].status).toBe('error')
+  expect(signalRef?.aborted).toBe(false)
+})
+
+test('replaceFiles() replaces the existing items', () => {
+  const queue = new FileUploadQueue({ onUpload: async () => 'file-id' })
+  queue.addFiles([makeFile('a.txt')])
+  queue.reportValidity([])
+  const firstId = queue.getItemsSnapshot()[0].id
+
+  queue.replaceFiles([makeFile('b.txt')])
+
+  const snapshot = queue.getItemsSnapshot()
   expect(snapshot).toHaveLength(1)
   expect(snapshot[0].id).not.toBe(firstId)
   expect(snapshot[0].file.name).toBe('b.txt')
 })
 
-test('addFiles() with maxFiles 1 aborts an in-flight upload before replacing', async () => {
+test('replaceFiles() aborts in-flight uploads before replacing', async () => {
   const abortSpy = vi.spyOn(AbortController.prototype, 'abort')
   const first = deferred<string>()
   const onUpload = vi.fn().mockReturnValueOnce(first.promise).mockReturnValueOnce(Promise.resolve('id-2'))
   const queue = new FileUploadQueue({ onUpload })
 
-  queue.addFiles([makeFile('a.txt')], { maxFiles: 1 })
-  expect(queue.getSnapshot()[0].status).toBe('uploading')
+  queue.addFiles([makeFile('a.txt')])
+  queue.reportValidity([])
+  expect(queue.getItemsSnapshot()[0].status).toBe('uploading')
 
-  queue.addFiles([makeFile('b.txt')], { maxFiles: 1 })
+  queue.replaceFiles([makeFile('b.txt')])
 
   expect(abortSpy).toHaveBeenCalledTimes(1)
-  expect(queue.getSnapshot()).toHaveLength(1)
-  expect(queue.getSnapshot()[0].file.name).toBe('b.txt')
+  expect(queue.getItemsSnapshot()).toHaveLength(1)
+  expect(queue.getItemsSnapshot()[0].file.name).toBe('b.txt')
 })
 
 test('addFiles() accepts a FileList as well as a File[]', () => {
-  const queue = new FileUploadQueue()
+  const queue = new FileUploadQueue({ onUpload: async () => 'file-id' })
   queue.addFiles(makeFileList([makeFile('a.txt'), makeFile('b.txt')]))
 
-  const snapshot = queue.getSnapshot()
+  const snapshot = queue.getItemsSnapshot()
   expect(snapshot.map((item) => item.file.name)).toEqual(['a.txt', 'b.txt'])
-})
-
-test('updateConstraints() re-projects validity onto existing items without adding files', () => {
-  const queue = new FileUploadQueue()
-  queue.addFiles([makeFile('a.txt'), makeFile('b.txt'), makeFile('c.txt')], { maxFiles: 3 })
-  expect(queue.getSnapshot().every((item) => item.validationError === undefined)).toBe(true)
-
-  queue.updateConstraints({ maxFiles: 2 })
-
-  const snapshot = queue.getSnapshot()
-  expect(snapshot[0].validationError).toBeUndefined()
-  expect(snapshot[1].validationError).toBeUndefined()
-  expect(snapshot[2].validationError).toMatch(/maximum number of files/i)
-})
-
-test('removeItem() re-projects validity, relaxing constraints for the remaining items', () => {
-  const queue = new FileUploadQueue()
-  queue.addFiles([makeFile('a.txt'), makeFile('b.txt'), makeFile('c.txt')], { maxFiles: 2 })
-  const [first, , third] = queue.getSnapshot()
-  expect(third.validationError).toMatch(/maximum number of files/i)
-
-  queue.removeItem(first.id)
-
-  const snapshot = queue.getSnapshot()
-  expect(snapshot.map((item) => item.file.name)).toEqual(['b.txt', 'c.txt'])
-  expect(snapshot.every((item) => item.validationError === undefined)).toBe(true)
-})
-
-test('a queued item that flips from invalid to valid starts uploading', async () => {
-  const onUpload = vi.fn().mockResolvedValue('id-1')
-  const queue = new FileUploadQueue({ onUpload })
-
-  queue.addFiles([makeFile('a.txt'), makeFile('b.txt')], { maxFiles: 1 })
-  expect(onUpload).toHaveBeenCalledTimes(1)
-  expect(queue.getSnapshot()[1]).toMatchObject({ status: 'queued' })
-  expect(queue.getSnapshot()[1].validationError).toBeDefined()
-
-  queue.updateConstraints({ maxFiles: 2 })
-
-  expect(onUpload).toHaveBeenCalledTimes(2)
-  expect(queue.getSnapshot()[1].status).toBe('uploading')
-})
-
-test('an item that becomes invalid while uploading is not aborted, and one that becomes invalid after uploading keeps its result', async () => {
-  const onUpload = vi.fn().mockResolvedValue('id-1')
-  const queue = new FileUploadQueue({ onUpload })
-
-  queue.addFiles([makeFile('a.txt')], { maxFiles: 2 })
-  expect(queue.getSnapshot()[0].status).toBe('uploading')
-
-  queue.updateConstraints({ maxFiles: 0 })
-  expect(queue.getSnapshot()[0].status).toBe('uploading')
-  expect(queue.getSnapshot()[0].validationError).toBeDefined()
-
-  await flushMicrotasks()
-
-  const [item] = queue.getSnapshot()
-  expect(item.status).toBe('uploaded')
-  expect(item.validationError).toBeDefined()
-  if (item.status === 'uploaded') expect(item.fileId).toBe('id-1')
 })
 
 test('happy path: queued -> uploading -> uploaded, with fileId derived from the raw string result', async () => {
@@ -191,12 +186,13 @@ test('happy path: queued -> uploading -> uploaded, with fileId derived from the 
   const queue = new FileUploadQueue({ onUpload })
 
   queue.addFiles([makeFile('a.txt')])
-  expect(queue.getSnapshot()[0].status).toBe('uploading')
+  queue.reportValidity([])
+  expect(queue.getItemsSnapshot()[0].status).toBe('uploading')
 
   await flushMicrotasks()
-  expect(queue.getSnapshot()[0].status).toBe('uploaded')
+  expect(queue.getItemsSnapshot()[0].status).toBe('uploaded')
 
-  const [item] = queue.getSnapshot()
+  const [item] = queue.getItemsSnapshot()
   if (item.status === 'uploaded') {
     expect(item.fileId).toBe('server-id-1')
     expect(item.result).toBe('server-id-1')
@@ -208,37 +204,14 @@ test('happy path with a custom getFileId', async () => {
   const queue = new FileUploadQueue<{ id: string; url: string }>({ onUpload, getFileId: (result) => result.id })
 
   queue.addFiles([makeFile('a.txt')])
+  queue.reportValidity([])
   await flushMicrotasks()
-  expect(queue.getSnapshot()[0].status).toBe('uploaded')
+  expect(queue.getItemsSnapshot()[0].status).toBe('uploaded')
 
-  const [item] = queue.getSnapshot()
+  const [item] = queue.getItemsSnapshot()
   if (item.status === 'uploaded') {
     expect(item.fileId).toBe('abc')
     expect(item.result).toEqual({ id: 'abc', url: 'https://example.com/abc' })
-  }
-})
-
-test('setFileId() records the ID immediately, before the upload resolves, and it survives into `uploaded`', async () => {
-  const { promise, resolve } = deferred<string>()
-  const onUpload = vi.fn((_file: File, helpers: FileUploadQueue.UploadHelpers) => {
-    helpers.setFileId('early-id')
-    return promise
-  })
-  const queue = new FileUploadQueue({ onUpload })
-
-  queue.addFiles([makeFile('a.txt')])
-
-  const [uploading] = queue.getSnapshot()
-  expect(uploading.status).toBe('uploading')
-  if (uploading.status === 'uploading') expect(uploading.fileId).toBe('early-id')
-
-  resolve('final-result')
-  await flushMicrotasks()
-  expect(queue.getSnapshot()[0].status).toBe('uploaded')
-
-  const [uploaded] = queue.getSnapshot()
-  if (uploaded.status === 'uploaded') {
-    expect(uploaded.fileId).toBe('early-id')
   }
 })
 
@@ -252,6 +225,7 @@ test('progress is throttled: rapid onProgress calls collapse into fewer notifica
   const queue = new FileUploadQueue({ onUpload })
 
   queue.addFiles([makeFile('a.txt')])
+  queue.reportValidity([])
 
   const listener = vi.fn()
   queue.subscribe(listener)
@@ -270,7 +244,7 @@ test('progress is throttled: rapid onProgress calls collapse into fewer notifica
 
   vi.advanceTimersByTime(150)
 
-  const [item] = queue.getSnapshot()
+  const [item] = queue.getItemsSnapshot()
   if (item.status === 'uploading') {
     expect(item.progress).toBe(40)
   }
@@ -290,6 +264,7 @@ test('progress: a trailing throttle timer is cleared, not orphaned, when a later
   const queue = new FileUploadQueue({ onUpload, minLoadingIndicatorDelayMs: 100_000 })
 
   queue.addFiles([makeFile('a.txt')])
+  queue.reportValidity([])
 
   const listener = vi.fn()
   queue.subscribe(listener)
@@ -324,10 +299,11 @@ test('setProcessing() transitions to processing and drops progress', async () =>
   const queue = new FileUploadQueue({ onUpload })
 
   queue.addFiles([makeFile('a.txt')])
+  queue.reportValidity([])
   helpersRef?.onProgress(55)
   helpersRef?.setProcessing()
 
-  const [item] = queue.getSnapshot()
+  const [item] = queue.getItemsSnapshot()
   expect(item.status).toBe('processing')
 })
 
@@ -336,11 +312,12 @@ test('isLoadingIndicatorVisible stays false for uploads that resolve before minL
   const queue = new FileUploadQueue({ onUpload, minLoadingIndicatorDelayMs: 300 })
 
   queue.addFiles([makeFile('a.txt')])
-  const [item] = queue.getSnapshot()
+  queue.reportValidity([])
+  const [item] = queue.getItemsSnapshot()
   if (item.status === 'uploading') expect(item.isLoadingIndicatorVisible).toBe(false)
 
   await flushMicrotasks()
-  expect(queue.getSnapshot()[0].status).toBe('uploaded')
+  expect(queue.getItemsSnapshot()[0].status).toBe('uploaded')
 })
 
 test('isLoadingIndicatorVisible flips true once minLoadingIndicatorDelayMs elapses while still uploading', async () => {
@@ -349,9 +326,10 @@ test('isLoadingIndicatorVisible flips true once minLoadingIndicatorDelayMs elaps
   const queue = new FileUploadQueue({ onUpload, minLoadingIndicatorDelayMs: 300 })
 
   queue.addFiles([makeFile('a.txt')])
+  queue.reportValidity([])
   vi.advanceTimersByTime(300)
 
-  const [item] = queue.getSnapshot()
+  const [item] = queue.getItemsSnapshot()
   if (item.status === 'uploading') expect(item.isLoadingIndicatorVisible).toBe(true)
 })
 
@@ -360,12 +338,13 @@ test('upload rejection sets status to error with a message, and clears the loadi
   const queue = new FileUploadQueue({ onUpload, minLoadingIndicatorDelayMs: 300 })
 
   queue.addFiles([makeFile('a.txt')])
+  queue.reportValidity([])
   vi.advanceTimersByTime(300)
 
   await flushMicrotasks()
-  expect(queue.getSnapshot()[0].status).toBe('error')
+  expect(queue.getItemsSnapshot()[0].status).toBe('error')
 
-  const [item] = queue.getSnapshot()
+  const [item] = queue.getItemsSnapshot()
   if (item.status === 'error') expect(item.errorMessage).toBe('boom')
 })
 
@@ -376,9 +355,10 @@ test('onUpload throwing synchronously is treated the same as a rejection', async
   const queue = new FileUploadQueue({ onUpload })
 
   queue.addFiles([makeFile('a.txt')])
+  queue.reportValidity([])
   await flushMicrotasks()
 
-  const [item] = queue.getSnapshot()
+  const [item] = queue.getItemsSnapshot()
   expect(item.status).toBe('error')
   if (item.status === 'error') expect(item.errorMessage).toBe('sync boom')
 })
@@ -390,12 +370,13 @@ test('removeItem() mid-upload aborts the signal and removes the item', async () 
   const queue = new FileUploadQueue({ onUpload })
 
   queue.addFiles([makeFile('a.txt')])
-  const id = queue.getSnapshot()[0].id
+  queue.reportValidity([])
+  const id = queue.getItemsSnapshot()[0].id
 
   queue.removeItem(id)
 
   expect(abortSpy).toHaveBeenCalledTimes(1)
-  expect(queue.getSnapshot()).toHaveLength(0)
+  expect(queue.getItemsSnapshot()).toHaveLength(0)
 })
 
 test('removeItem() mid-upload prevents a late-firing loading-indicator timer from resurrecting the item', () => {
@@ -404,11 +385,12 @@ test('removeItem() mid-upload prevents a late-firing loading-indicator timer fro
   const queue = new FileUploadQueue({ onUpload, minLoadingIndicatorDelayMs: 300 })
 
   queue.addFiles([makeFile('a.txt')])
-  const id = queue.getSnapshot()[0].id
+  queue.reportValidity([])
+  const id = queue.getItemsSnapshot()[0].id
   queue.removeItem(id)
 
   expect(() => vi.advanceTimersByTime(300)).not.toThrow()
-  expect(queue.getSnapshot()).toHaveLength(0)
+  expect(queue.getItemsSnapshot()).toHaveLength(0)
 })
 
 test('removeItem() mid-upload prevents a late-resolving promise from resurrecting the item', async () => {
@@ -417,32 +399,81 @@ test('removeItem() mid-upload prevents a late-resolving promise from resurrectin
   const queue = new FileUploadQueue({ onUpload })
 
   queue.addFiles([makeFile('a.txt')])
-  const id = queue.getSnapshot()[0].id
+  queue.reportValidity([])
+  const id = queue.getItemsSnapshot()[0].id
   queue.removeItem(id)
 
   resolve('too-late')
   await flushMicrotasks()
 
-  expect(queue.getSnapshot()).toHaveLength(0)
+  expect(queue.getItemsSnapshot()).toHaveLength(0)
 })
 
 test('subscribe() notifies listeners on mutation, and unsubscribe stops further notifications', () => {
-  const queue = new FileUploadQueue()
+  const queue = new FileUploadQueue({ onUpload: async () => 'file-id' })
   const listener = vi.fn()
   const unsubscribe = queue.subscribe(listener)
 
   queue.addFiles([makeFile('a.txt')])
-  expect(listener).toHaveBeenCalledTimes(1)
+  const callsBeforeUnsubscribe = listener.mock.calls.length
+  expect(callsBeforeUnsubscribe).toBeGreaterThan(0)
 
   unsubscribe()
   queue.addFiles([makeFile('b.txt')])
-  expect(listener).toHaveBeenCalledTimes(1)
+  expect(listener).toHaveBeenCalledTimes(callsBeforeUnsubscribe)
 })
 
-test('getFiles() includes items with a validationError, in order', () => {
-  const queue = new FileUploadQueue()
-  queue.addFiles([makeFile('good.txt', 5), makeFile('bad.txt', 100)], { maxFileSize: 10 })
+test('getFilesSnapshot() includes items with a validationError, in order', () => {
+  const goodFile = makeFile('good.txt', 5)
+  const badFile = makeFile('bad.txt', 100)
+  const queue = new FileUploadQueue({ onUpload: async () => 'file-id' })
 
-  const files = queue.getFiles()
+  queue.addFiles([goodFile, badFile])
+  queue.reportValidity([{ file: queue.getItemsSnapshot()[1].file, validationError: 'fileSizeOverflow' }])
+
+  const files = queue.getFilesSnapshot()
   expect(files.map((f) => f.name)).toEqual(['good.txt', 'bad.txt'])
+})
+
+test('getStatusSnapshot() reports idle when no files are uploading or processing', async () => {
+  vi.useFakeTimers()
+
+  const goodFile = makeFile('good.txt', 5)
+  const badFile = makeFile('bad.txt', 100)
+  const queue = new FileUploadQueue({ onUpload: async () => 'file-id' })
+
+  queue.addFiles([goodFile, badFile])
+  expect(queue.getStatusSnapshot()).toEqual('idle')
+
+  queue.reportValidity([{ file: queue.getItemsSnapshot()[1].file, validationError: 'fileSizeOverflow' }])
+  await vi.runAllTimersAsync()
+
+  expect(queue.getStatusSnapshot()).toEqual('idle')
+})
+
+test('getStatusSnapshot() reports busy when files are uploading', async () => {
+  const goodFile = makeFile('good.txt', 5)
+  const badFile = makeFile('bad.txt', 100)
+  const queue = new FileUploadQueue({ onUpload: async () => 'file-id' })
+
+  queue.addFiles([goodFile, badFile])
+  queue.reportValidity([{ file: queue.getItemsSnapshot()[1].file, validationError: 'fileSizeOverflow' }])
+
+  expect(queue.getStatusSnapshot()).toEqual('busy') // uploading good.txt, bad.txt is queued with validationError
+})
+
+test('getStatusSnapshot() reports busy when files are processing', async () => {
+  const { promise, resolve } = Promise.withResolvers<void>()
+  const queue = new FileUploadQueue({
+    onUpload: async (_, { setProcessing }) => {
+      setProcessing()
+      return promise
+    },
+  })
+
+  queue.addFiles([makeFile('good.txt', 5)])
+  queue.reportValidity([])
+
+  expect(queue.getStatusSnapshot()).toEqual('busy') // uploading good.txt, bad.txt is queued with validationError
+  resolve()
 })

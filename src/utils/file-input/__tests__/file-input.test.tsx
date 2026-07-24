@@ -32,6 +32,16 @@ test('forwards accept, multiple, and required as native attributes', () => {
   expect(input).toHaveAttribute('required')
 })
 
+test('sets data-show-validity="true" on the native input when showValidity is true', () => {
+  render(<FileInput data-testid="input" showValidity />)
+  expect(screen.getByTestId('input')).toHaveAttribute('data-show-validity', 'true')
+})
+
+test('sets data-show-validity="false" on the native input when showValidity is omitted', () => {
+  render(<FileInput data-testid="input" />)
+  expect(screen.getByTestId('input')).toHaveAttribute('data-show-validity', 'false')
+})
+
 test('infers multiple from a maxFiles greater than 1 when multiple is not set', () => {
   render(<FileInput maxFiles={3} data-testid="input" />)
   expect(screen.getByTestId('input')).toHaveAttribute('multiple')
@@ -45,6 +55,36 @@ test('does not infer multiple from maxFiles set to 1', () => {
 test('respects an explicit multiple={false} even when maxFiles is greater than 1', () => {
   render(<FileInput multiple={false} maxFiles={3} data-testid="input" />)
   expect(screen.getByTestId('input')).not.toHaveAttribute('multiple')
+})
+
+test('required implies a minFiles of 1', () => {
+  render(<FileInput required data-testid="input" />)
+  const input = screen.getByTestId('input') as HTMLInputElement
+  expect(input.validationMessage).toBe('filesUnderflow')
+})
+
+test('an explicit minFiles={0} opts out of the required-derived default', () => {
+  render(<FileInput required minFiles={0} data-testid="input" />)
+  const input = screen.getByTestId('input') as HTMLInputElement
+  expect(input.validationMessage).toBe('')
+})
+
+test('clears the minFiles violation once enough files are selected', () => {
+  render(<FileInput required data-testid="input" />)
+  const input = screen.getByTestId('input') as HTMLInputElement
+
+  fireEvent.change(input, { target: { files: [makeFile('a.txt')] } })
+
+  expect(input.validationMessage).toBe('')
+})
+
+test('an explicit maxFiles wins over multiple when both are set', () => {
+  render(<FileInput multiple maxFiles={2} data-testid="input" />)
+  const input = screen.getByTestId('input') as HTMLInputElement
+
+  fireEvent.change(input, { target: { files: [makeFile('a.txt'), makeFile('b.txt'), makeFile('c.txt')] } })
+
+  expect(input.validationMessage).toBe('filesOverflow')
 })
 
 test('accepts more than one file when multiple is inferred from maxFiles', () => {
@@ -411,7 +451,7 @@ test("onChange's event.target.files reflects only this round's picks, not previo
   expect(Array.from(lastEvent.target.files)).toEqual([b])
 })
 
-test('keeps a file rejected by accept in the selection but invalidates the input', () => {
+test('keeps a file rejected by accept in the exposed selection but drops it from the native input', () => {
   const children = vi.fn(() => null)
   render(
     <FileInput accept="image/*" data-testid="input">
@@ -421,9 +461,11 @@ test('keeps a file rejected by accept in the selection but invalidates the input
 
   const file = makeFile('report.pdf')
   fireEvent.change(screen.getByTestId('input'), { target: { files: [file] } })
+  const input = screen.getByTestId('input') as HTMLInputElement
 
   expect(children).toHaveBeenLastCalledWith(expect.objectContaining({ files: [file] }))
-  expect((screen.getByTestId('input') as HTMLInputElement).validationMessage).toBe('accept')
+  expect(Array.from(input.files ?? [])).toEqual([])
+  expect(input.validationMessage).toBe('')
 })
 
 test('keeps a file beyond maxFiles in the selection but invalidates the input', () => {
@@ -439,7 +481,7 @@ test('keeps a file beyond maxFiles in the selection but invalidates the input', 
   fireEvent.change(screen.getByTestId('input'), { target: { files: [a, b] } })
 
   expect(children).toHaveBeenLastCalledWith(expect.objectContaining({ files: [a, b] }))
-  expect((screen.getByTestId('input') as HTMLInputElement).validationMessage).toBe('maxFiles')
+  expect((screen.getByTestId('input') as HTMLInputElement).validationMessage).toBe('filesOverflow')
 })
 
 test('does not enforce maxFiles across separate rounds', () => {
@@ -460,7 +502,7 @@ test('does not enforce maxFiles across separate rounds', () => {
   expect(children).toHaveBeenLastCalledWith(expect.objectContaining({ files: [b] }))
 })
 
-test('keeps a file beyond maxFileSize in the selection but invalidates the input', () => {
+test('keeps a file beyond maxFileSize in the exposed selection but drops it from the native input', () => {
   const children = vi.fn(() => null)
   render(
     <FileInput maxFileSize={10} data-testid="input">
@@ -470,9 +512,11 @@ test('keeps a file beyond maxFileSize in the selection but invalidates the input
 
   const file = makeFile('a.txt', { size: 20 })
   fireEvent.change(screen.getByTestId('input'), { target: { files: [file] } })
+  const input = screen.getByTestId('input') as HTMLInputElement
 
   expect(children).toHaveBeenLastCalledWith(expect.objectContaining({ files: [file] }))
-  expect((screen.getByTestId('input') as HTMLInputElement).validationMessage).toBe('maxFileSize')
+  expect(Array.from(input.files ?? [])).toEqual([])
+  expect(input.validationMessage).toBe('')
 })
 
 // ---------------------------------------------------------------------------
@@ -537,23 +581,29 @@ test('has no custom validity message when the selection satisfies the rules', ()
 
 test('sets a custom validity token when a controlled value violates maxFiles', () => {
   render(<FileInput multiple maxFiles={1} value={[makeFile('a.txt'), makeFile('b.txt')]} data-testid="input" />)
-  expect((screen.getByTestId('input') as HTMLInputElement).validationMessage).toBe('maxFiles')
+  expect((screen.getByTestId('input') as HTMLInputElement).validationMessage).toBe('filesOverflow')
 })
 
 test('sets a custom validity token when an uncontrolled pick violates a constraint', () => {
+  render(<FileInput multiple maxFiles={1} data-testid="input" />)
+  fireEvent.change(screen.getByTestId('input'), { target: { files: [makeFile('a.txt'), makeFile('b.txt')] } })
+  expect((screen.getByTestId('input') as HTMLInputElement).validationMessage).toBe('filesOverflow')
+})
+
+test('does not set a custom validity token when an uncontrolled pick only violates a per-file rule', () => {
   render(<FileInput accept="image/*" data-testid="input" />)
   fireEvent.change(screen.getByTestId('input'), { target: { files: [makeFile('report.pdf')] } })
-  expect((screen.getByTestId('input') as HTMLInputElement).validationMessage).toBe('accept')
+  expect((screen.getByTestId('input') as HTMLInputElement).validationMessage).toBe('')
 })
 
 test('clears the custom validity token once an uncontrolled selection is replaced with a valid one', () => {
-  render(<FileInput accept="image/*" data-testid="input" />)
+  render(<FileInput multiple maxFiles={1} data-testid="input" />)
   const input = screen.getByTestId('input') as HTMLInputElement
 
-  fireEvent.change(input, { target: { files: [makeFile('report.pdf')] } })
-  expect(input.validationMessage).toBe('accept')
+  fireEvent.change(input, { target: { files: [makeFile('a.txt'), makeFile('b.txt')] } })
+  expect(input.validationMessage).toBe('filesOverflow')
 
-  fireEvent.change(input, { target: { files: [makeFile('photo.png', { type: 'image/png' })] } })
+  fireEvent.change(input, { target: { files: [makeFile('a.txt')] } })
   expect(input.validationMessage).toBe('')
 })
 
@@ -568,7 +618,7 @@ test('clears the custom validity token once a controlled value satisfies the rul
     )
   }
   render(<Controlled />)
-  expect((screen.getByTestId('input') as HTMLInputElement).validationMessage).toBe('maxFiles')
+  expect((screen.getByTestId('input') as HTMLInputElement).validationMessage).toBe('filesOverflow')
 
   fireEvent.click(screen.getByText('Fix'))
   expect((screen.getByTestId('input') as HTMLInputElement).validationMessage).toBe('')

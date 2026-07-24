@@ -10,7 +10,7 @@ const meta = preview.meta({
 /**
  * A real thumbnail, used for image/video files that can be previewed.
  */
-export const Image = meta.story({
+export const Example = meta.story({
   args: {
     type: 'image',
     src: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=80&h=80&fit=crop',

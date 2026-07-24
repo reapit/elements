@@ -14,7 +14,11 @@ export namespace getFileUploaderItemStatus {
     progress?: number
     /** The file's size in bytes, used to derive `sizeText`. Omit to skip rendering a size. */
     fileSize?: number
-    /** The error message to surface. Only meaningful while `status` is `'error'`. */
+    /**
+     * The error message to surface, from either a genuine upload failure (`status === 'error'`)
+     * or a currently-failing validation constraint (independent of `status`) — whichever
+     * applies. A present message always wins over `status`'s own text.
+     */
     errorMessage?: string
     /**
      * BCP 47 locale tag, forwarded to `formatFileSize` and used to format the upload percentage. Defaults to the
@@ -47,7 +51,7 @@ export function getFileUploaderItemStatus({
 }: getFileUploaderItemStatus.Input): getFileUploaderItemStatus.Output {
   const sizeText = fileSize === undefined ? undefined : formatFileSize(fileSize, locale)
 
-  if (status === 'error') {
+  if (status === 'error' || errorMessage) {
     return { sizeText, statusText: errorMessage?.trim() || 'Error', isError: true }
   }
 

@@ -13,30 +13,22 @@ export const ElFileUploaderMediaCard = styled.div`
 export const ElFileUploaderMediaCardThumbnail = styled.div`
   @layer elements.main {
     position: relative;
+    /* display: grid, not the block default, so the Image wrapper below stretches to fill this element's
+     * height via track sizing rather than a height: 100% percentage chain — that chain breaks once it has
+     * to resolve through the Image wrapper's own nested elements against this element's flex-grown height. */
+    display: grid;
     overflow: hidden;
     width: 100%;
     /* Lets the thumbnail absorb any extra height the outer card is stretched to (e.g. by a CSS grid row with
-     * align-items: stretch, as FileUploader.Files uses for the multi-select layout) — the caption below keeps its
+     * align-items: stretch, as FileUploader.FileList uses for the multi-select layout) — the caption below keeps its
      * own natural height since it has no flex-grow. min-height: 0 overrides flexbox's default min-height: auto,
      * which would otherwise floor this at the image's intrinsic height and stop it from ever shrinking. */
     flex: 1 1 auto;
-    min-height: 0;
+    /* TODO: Check if 100px is an appropriate hard minimum */
+    min-height: 100px;
     border: var(--border-width-default) solid var(--colour-border-neutral-light_default);
     border-radius: var(--border-radius-l);
     background: var(--colour-fill-neutral-lightest);
-
-    /* No aspect-ratio here by design — Figma shows this thumbnail cropped to different ratios depending on where
-     * it sits (a near-square multi-select grid cell vs. a wide single-select dropzone), so the ratio is the
-     * container's call, not this component's. A percentage height on an auto-height ancestor (plain block/flex
-     * flow, no explicit row height) resolves to 'auto', so the image just renders at its own intrinsic ratio;
-     * an ancestor with a real height (e.g. a CSS grid row stretching every cell to match) gives the image
-     * something to fill, and object-fit: cover crops it without distortion. Same rule, two outcomes for free. */
-    img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
 
     &[data-status='error'] {
       border-color: var(--colour-border-error-default);
@@ -52,7 +44,7 @@ export const ElFileUploaderMediaCardOverlay = styled.div`
   }
 `
 
-export const ElFileUploaderMediaCardRemoveButtonSlot = styled.div`
+export const ElFileUploaderMediaCardRemoveButtonContainer = styled.div`
   @layer elements.main {
     position: absolute;
     top: 0;
