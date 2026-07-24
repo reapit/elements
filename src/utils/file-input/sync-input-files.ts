@@ -8,7 +8,8 @@
  * for a `defaultValue`. `useFileInputValidity` is the caller that decides what `files` to pass —
  * the full selection, or a subset with per-file-invalid entries dropped; this function itself has
  * no opinion on that, it just performs the reassignment. The same reassignment technique is also
- * what `FileUploader.Input` will use to resync `FileInput` after `FileUploadQueue` removes an item.
+ * what `FileUploaderButtonInput`/`FileUploaderDropzoneInput` use to resync `FileInput` after
+ * `FileUploadQueue` removes an item.
  */
 export function syncInputFiles(input: HTMLInputElement, files: File[]): void {
   const dataTransfer = new DataTransfer()

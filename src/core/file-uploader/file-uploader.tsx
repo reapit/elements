@@ -1,8 +1,10 @@
 import { ElFileUploader } from './styles'
+import { FileUploaderButtonControl } from './button/button-control'
+import { FileUploaderButtonInput } from './button/button'
 import { FileUploaderContext } from './context'
-import { FileUploaderControl } from './control/control'
+import { FileUploaderDropzoneControl } from './dropzone/dropzone-control'
+import { FileUploaderDropzoneInput } from './dropzone/dropzone'
 import { FileUploaderFileList } from './file-list'
-import { FileUploaderInput } from './input/input'
 import { FileUploadQueue } from './file-upload-queue'
 import { useEffect, useMemo, useState } from 'react'
 
@@ -10,7 +12,7 @@ import type { ReactNode } from 'react'
 
 export namespace FileUploader {
   interface BaseProps<TResult extends unknown = string> {
-    /** Typically a `FileUploader.Control` and/or `FileUploader.FileList`. */
+    /** Typically a `FileUploader.ButtonControl`/`FileUploader.DropzoneControl` and/or `FileUploader.FileList`. */
     children?: ReactNode
     /** Whether the uploader is disabled. */
     disabled?: boolean
@@ -64,10 +66,10 @@ export namespace FileUploader {
 
 /**
  * A compound file uploader. Renders no chrome of its own — shares its queue with
- * `FileUploader.Control`/`FileUploader.Input`/`FileUploader.FileList` via context. Validation
- * constraints (`accept`/`multiple`/`required`/`minFiles`/`maxFiles`/`maxFileSize`/`maxTotalSize`)
- * live on `FileUploader.Control`/`FileUploader.Input` instead — see `ARCHITECTURE.md` — so they're
- * not props here.
+ * `FileUploader.ButtonControl`/`FileUploader.DropzoneControl`/`FileUploader.FileList` via
+ * context. Validation constraints (`accept`/`multiple`/`required`/`minFiles`/`maxFiles`/
+ * `maxFileSize`/`maxTotalSize`) live on whichever trigger is rendered instead — see
+ * `ARCHITECTURE.md` — so they're not props here.
  */
 export function FileUploader<TResult extends unknown = string>(props: FileUploader.Props<TResult>) {
   const { children, disabled, locale, maxWidth, minLoadingIndicatorDelayMs } = props
@@ -109,7 +111,9 @@ export function FileUploader<TResult extends unknown = string>(props: FileUpload
   )
 }
 
-FileUploader.Control = FileUploaderControl
+FileUploader.ButtonControl = FileUploaderButtonControl
+FileUploader.ButtonInput = FileUploaderButtonInput
+FileUploader.DropzoneControl = FileUploaderDropzoneControl
+FileUploader.DropzoneInput = FileUploaderDropzoneInput
 FileUploader.File = FileUploaderFileList.File
 FileUploader.FileList = FileUploaderFileList
-FileUploader.Input = FileUploaderInput

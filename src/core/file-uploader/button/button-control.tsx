@@ -1,49 +1,47 @@
-import { FileUploaderInput } from '../input/input'
+import { FileUploaderButtonInput } from './button'
 import { FormControl } from '#src/core/form-control'
 import { useId } from 'react'
 
 import type { ReactNode } from 'react'
 
-export namespace FileUploaderControl {
-  // Omits the native `size` attribute (a number — the input's display width in characters)
-  export interface Props extends Omit<FileUploaderInput.Props, 'size'> {
-    /** The visual label for the uploader. If no visual label is provided, an accessible label should be provided via `aria-label`. */
-    label?: ReactNode
-    /** Optional help text that provides more context about the uploader. */
-    helpText?: ReactNode
+export namespace FileUploaderButtonControl {
+  export interface Props extends FileUploaderButtonInput.Props {
     /** Error text that communicates why the uploader's value is invalid. */
     errorText?: ReactNode
+    /** Optional help text that provides more context about the uploader. */
+    helpText?: ReactNode
+    /** The visual label for the uploader. If no visual label is provided, an accessible label should be provided via `aria-label`. */
+    label?: ReactNode
   }
 }
 
 /**
- * Renders `FormControl`'s label/help text/error text around `FileUploader.Input`. Error text takes
- * help text's place when both are supplied.
+ * Renders `FormControl` chrome (label/help text/error text) around `FileUploader.ButtonInput`.
+ * Intended for use alongside `FileUploader.FileList`.
  */
-export function FileUploaderControl({
+export function FileUploaderButtonControl({
   errorText,
   helpText,
   id,
   label,
   required,
   showValidity,
-  variant = 'button',
+  size = 'medium',
   ...rest
-}: FileUploaderControl.Props) {
+}: FileUploaderButtonControl.Props) {
   const fallbackId = useId()
   const inputId = id ?? fallbackId
-  const labelId = useId()
   const helpTextId = useId()
   const errorTextId = useId()
 
   return (
-    <FormControl as="div" size={variant === 'large' ? 'large' : 'medium'}>
+    <FormControl as="div" size={size}>
       {label && (
-        <FormControl.Label htmlFor={inputId} id={labelId} isRequired={required}>
+        <FormControl.Label htmlFor={inputId} isRequired={required}>
           {label}
         </FormControl.Label>
       )}
-      <FileUploaderInput
+      <FileUploaderButtonInput
         {...rest}
         aria-describedby={helpText && !errorText ? helpTextId : undefined}
         aria-errormessage={errorText ? errorTextId : undefined}
@@ -51,7 +49,7 @@ export function FileUploaderControl({
         id={inputId}
         required={required}
         showValidity={showValidity ?? !!errorText}
-        variant={variant}
+        size={size}
       />
       {errorText ? (
         <FormControl.ErrorText id={errorTextId}>{errorText}</FormControl.ErrorText>
@@ -62,4 +60,4 @@ export function FileUploaderControl({
   )
 }
 
-FileUploaderControl.displayName = 'FileUploader.Control'
+FileUploaderButtonControl.displayName = 'FileUploader.ButtonControl'

@@ -155,7 +155,7 @@ export class FileUploadQueue<TResult extends unknown = string> {
    * Records per-item validation failures. Valid, still-queued files start uploading. Never aborts
    * an in-flight upload or undoes a completed or errored one.
    *
-   * `rejections` is only ever that round's freshly-picked files (see `FileUploaderInput`) — an
+   * `rejections` is only ever that round's freshly-picked files (see `useFileUploaderInput`) — an
    * item outside it is left untouched deliberately, not revalidated or cleared. A previously
    * rejected item's `validationError` is only ever undone by removing and re-adding the file, not
    * by a later `reportValidity` call. See "Validation is a consumer concern, not the queue's" in

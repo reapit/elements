@@ -8,14 +8,14 @@ export namespace FileUploaderContext {
     disabled?: boolean
     /** The locale used when formatting file sizes/status text. */
     locale?: string
-    /** The queue that `FileUploader.Input`/`FileUploader.FileList` drive and render from. */
+    /** The queue that `FileUploader.ButtonControl`/`FileUploader.DropzoneControl`/`FileUploader.FileList` drive and render from. */
     queue: FileUploadQueue<any>
   }
 }
 
 /**
- * Shares `FileUploader`'s queue instance (and `disabled`/`locale`) with its `Control`/`Input`/
- * `Files` descendants, so a consumer doesn't have to thread them through explicit props. Validation
+ * Shares `FileUploader`'s queue instance (and `disabled`/`locale`) with its control/`Files`
+ * descendants, so a consumer doesn't have to thread them through explicit props. Validation
  * constraints are deliberately not here — see `FileUploader`'s own doc comment.
  */
 export const FileUploaderContext = createContext<FileUploaderContext.Value | null>(null)
