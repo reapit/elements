@@ -86,6 +86,53 @@ test('produces a single replace announcement when one item disappears and a new 
   expect(newAnnouncements[0]).toBe('Invoice.pdf replaced with Photo.jpg')
 })
 
+test('does NOT produce a replace announcement when removing one item while other items are still uploading (multi-select)', async () => {
+  // Simulate multi-select: two files uploading, user removes one while the other is still in flight.
+  let resolveFirst!: (value: string) => void
+  let resolveSecond!: (value: string) => void
+
+  const queue = new FileUploadQueue<string>({
+    onUpload: (_file, _helpers) =>
+      new Promise<string>((resolve) => {
+        if (!resolveFirst) {
+          resolveFirst = resolve
+        } else {
+          resolveSecond = resolve
+        }
+      }),
+  })
+  const { result } = renderHook(() => useFileUploaderAnnouncements(queue))
+
+  act(() => {
+    queue.addFiles([makeFile('a.pdf'), makeFile('b.pdf')])
+    queue.reportValidity([])
+  })
+
+  // Wait for both items to be uploading.
+  await vi.waitFor(() => {
+    expect(queue.getItemsSnapshot().filter((i) => i.status === 'uploading')).toHaveLength(2)
+  })
+
+  // Remove one item while the other is still uploading.
+  act(() => {
+    const items = queue.getItemsSnapshot()
+    queue.removeItem(items[0].id)
+  })
+
+  // Now resolve the remaining upload.
+  act(() => {
+    resolveSecond('file-id-b')
+  })
+
+  await vi.waitFor(() => {
+    expect(result.current.length).toBeGreaterThan(0)
+  })
+
+  // Should announce a plain upload, not a replace.
+  expect(result.current).toContain('b.pdf uploaded')
+  expect(result.current.every((msg) => !msg.includes('replaced with'))).toBe(true)
+})
+
 test('accumulates multiple announcements without clearing previous ones', async () => {
   const queue = new FileUploadQueue({ onUpload: async () => 'file-id' })
   const { result } = renderHook(() => useFileUploaderAnnouncements(queue))

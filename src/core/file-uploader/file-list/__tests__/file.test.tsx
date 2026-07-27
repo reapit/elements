@@ -1,3 +1,4 @@
+import { transferFocusAfterRemoval } from '../transfer-focus-after-removal'
 import { FileUploaderContext } from '../../context'
 import { FileUploaderFile } from '../file'
 import { FileUploaderFileListContext } from '../context'
@@ -252,4 +253,16 @@ test('moves focus to the upload trigger when the last item is removed', () => {
   fireEvent.click(screen.getByRole('button', { name: 'Remove a.txt' }))
 
   expect(screen.getByRole('button', { name: 'Upload' })).toHaveFocus()
+})
+
+test('transferFocusAfterRemoval does nothing when listItem is not a child of the list', () => {
+  const list = document.createElement('ul')
+  const orphan = document.createElement('li')
+  // orphan is intentionally NOT appended to list
+
+  const listRef = { current: list }
+  const listItemRef = { current: orphan }
+
+  // Should not throw and should not move focus.
+  expect(() => transferFocusAfterRemoval(listRef, listItemRef, 'trigger-id')).not.toThrow()
 })

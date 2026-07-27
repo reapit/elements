@@ -1,4 +1,4 @@
-import { useRef, useState, useSyncExternalStore } from 'react'
+import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
 
 import type { FileUploadQueue } from './file-upload-queue'
 
@@ -32,9 +32,11 @@ export function useFileUploaderAnnouncements(queue: FileUploadQueue<any>): strin
   const pendingReplaceNamesRef = useRef<string[]>([])
   const [announcements, setAnnouncements] = useState<string[]>([])
 
-  const prevItems = prevItemsRef.current
+  useEffect(() => {
+    const prevItems = prevItemsRef.current
 
-  if (currentItems !== prevItems) {
+    if (currentItems === prevItems) return
+
     prevItemsRef.current = currentItems
 
     const prevById = new Map(prevItems.map((item) => [item.id, item]))
@@ -60,15 +62,19 @@ export function useFileUploaderAnnouncements(queue: FileUploadQueue<any>): strin
 
     const next: string[] = []
 
-    // Park any removed items as pending replacements when there are currently uploading items
-    // in the new snapshot (i.e. this looks like a replace rather than a plain remove).
+    // Park any removed items as pending replacements only when this looks like a single-select
+    // replace: all current items are brand-new (not present in the previous snapshot), which is
+    // exactly what `replaceFiles` produces. In multi-select, removing one item leaves other
+    // pre-existing items in the snapshot, so `allCurrentItemsAreNew` is false and we do not park
+    // a pending replace name — avoiding the misclassification of a normal multi-select removal.
     const currentlyUploading = currentItems.filter((item) => item.status === 'uploading' || item.status === 'queued')
-    if (removedItems.length > 0 && currentlyUploading.length > 0) {
+    const allCurrentItemsAreNew = currentItems.length > 0 && currentItems.every((item) => !prevById.has(item.id))
+    if (removedItems.length > 0 && currentlyUploading.length > 0 && allCurrentItemsAreNew) {
       for (const removed of removedItems) {
         pendingReplaceNamesRef.current.push(removed.file.name)
       }
     } else if (removedItems.length > 0) {
-      // Plain remove with nothing uploading — clear any stale pending replace names.
+      // Plain remove (or multi-select removal) — clear any stale pending replace names.
       pendingReplaceNamesRef.current = []
     }
 
@@ -93,7 +99,7 @@ export function useFileUploaderAnnouncements(queue: FileUploadQueue<any>): strin
     if (next.length > 0) {
       setAnnouncements((prev) => [...prev, ...next])
     }
-  }
+  }, [currentItems])
 
   return announcements
 }

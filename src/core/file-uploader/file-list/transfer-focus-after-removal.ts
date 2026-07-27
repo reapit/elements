@@ -24,8 +24,10 @@ export function transferFocusAfterRemoval(
 
   if (!list || !listItem) return
 
-  const items = Array.from(list.querySelectorAll<HTMLLIElement>(':scope > li'))
+  const items = Array.from(list.children) as HTMLLIElement[]
   const ownIndex = items.indexOf(listItem)
+
+  if (ownIndex === -1) return
 
   // Pick next sibling, else previous sibling (ownIndex - 1 handles the "was last" case).
   const candidate = items[ownIndex + 1] ?? items[ownIndex - 1]
