@@ -1,15 +1,22 @@
+import { ElFileUploaderFileListItem } from './styles'
 import { FileUploaderFileCard } from '../file-card/file-card'
 import { FileUploaderFileCardLeadingElement } from '../file-card/leading-element/leading-element'
 import { FileUploaderMediaCard } from '../media-card/media-card'
-import { forwardRef, useEffect, useMemo } from 'react'
+import { forwardRef } from 'react'
 import { useFileUploaderContext } from '../context'
 import { useFileUploaderFileListContext } from './context'
+import { useObjectUrl } from '../use-object-url'
 
 import type { FileUploadQueue } from '../file-upload-queue'
 import type { InputHTMLAttributes, MouseEventHandler } from 'react'
 
 export namespace FileUploaderFile {
   export interface Props extends Omit<InputHTMLAttributes<HTMLInputElement>, 'children' | 'type' | 'value'> {
+    /**
+     * Aspect ratio of media thumbnails. Only applies to the file list's media variant
+     * @default '4 / 3'
+     */
+    aspectRatio?: string
     /** The error text to display on the file card. */
     errorText?: string
     /** The item to render — typically one yielded by `FileUploader.FileList`'s `children` render prop. */
@@ -32,7 +39,7 @@ export namespace FileUploaderFile {
  * are forwarded onto the hidden input to allow integration with form libraries.
  */
 export const FileUploaderFile = forwardRef<HTMLInputElement, FileUploaderFile.Props>(function FileUploaderFile(
-  { errorText: errorMessage, item, name, onRemove, ...inputProps },
+  { aspectRatio = '4 / 3', errorText: errorMessage, item, name, onRemove, style, ...inputProps },
   ref,
 ) {
   const { locale } = useFileUploaderContext('FileUploader.File')
@@ -49,9 +56,10 @@ export const FileUploaderFile = forwardRef<HTMLInputElement, FileUploaderFile.Pr
 
   if (isMedia) {
     return (
-      <li>
+      <ElFileUploaderFileListItem>
         {hiddenInput}
         <FileUploaderMediaCard
+          aspectRatio={aspectRatio}
           errorMessage={errorMessage}
           fileName={item.file.name}
           fileSize={item.file.size}
@@ -60,8 +68,9 @@ export const FileUploaderFile = forwardRef<HTMLInputElement, FileUploaderFile.Pr
           progress={item.status === 'uploading' ? item.progress : undefined}
           src={objectUrl ?? ''}
           status={item.status}
+          style={style}
         />
-      </li>
+      </ElFileUploaderFileListItem>
     )
   }
 
@@ -89,16 +98,3 @@ export const FileUploaderFile = forwardRef<HTMLInputElement, FileUploaderFile.Pr
 })
 
 FileUploaderFile.displayName = 'FileUploader.File'
-
-/** Creates an object URL for `file` while `enabled`, revoking it on cleanup or when it's no longer needed. */
-function useObjectUrl(file: File, enabled: boolean): string | undefined {
-  const url = useMemo(() => (enabled ? URL.createObjectURL(file) : undefined), [file, enabled])
-
-  useEffect(() => {
-    return () => {
-      if (url) URL.revokeObjectURL(url)
-    }
-  }, [url])
-
-  return url
-}

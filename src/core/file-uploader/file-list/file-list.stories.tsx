@@ -86,9 +86,42 @@ export const Media = Example.extend({
           })}
           onRemove={() => {}}
         />
+        <FileUploader.File
+          item={makeItem({ id: '3', file: makeFile('c.png', 'image/png'), status: 'error' })}
+          onRemove={() => {}}
+        />
+        <FileUploader.File
+          item={makeItem({
+            id: '4',
+            file: makeFile('d.png', 'image/png'),
+            status: 'uploading',
+            progress: 20,
+            isLoadingIndicatorVisible: true,
+          })}
+          onRemove={() => {}}
+        />
       </>
     ),
   },
+})
+
+/**
+ * The `minItemHeight` and `minItemWidth` props control the size of each file/media card. In addition to
+ * this, the file list will fit to its container's width. If `minItemWidth` is larger than the container's
+ * width, the items will overflow the container.
+ */
+export const Sizing = Media.extend({
+  args: {
+    minItemHeight: '300px',
+    minItemWidth: '150px',
+  },
+  decorators: [
+    (Story) => (
+      <div style={{ maxWidth: '400px', border: '1px solid #FA00FF' }}>
+        <Story />
+      </div>
+    ),
+  ],
 })
 
 function makeFile(name: string, type = 'text/plain'): File {

@@ -2,7 +2,7 @@ import preview from '#.storybook/preview'
 import { FileUploaderCircularProgress } from './circular-progress'
 
 const meta = preview.meta({
-  title: 'Input and selection/FileUploader/MediaCard/CircularProgress',
+  title: 'Input and selection/FileUploader/MediaThumbnail/CircularProgress',
   component: FileUploaderCircularProgress,
   argTypes: {
     value: {
@@ -17,7 +17,7 @@ const meta = preview.meta({
 })
 
 /**
- * The dark background mimics `FileUploader.MediaCard`'s thumbnail overlay, the only context this component is
+ * The dark background mimics `FileUploaderMediaThumbnail`'s overlay, the only context this component is
  * used in — its white fill is otherwise invisible on a light background.
  */
 export const Example = meta.story({

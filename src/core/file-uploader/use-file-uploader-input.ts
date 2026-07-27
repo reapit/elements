@@ -5,14 +5,15 @@ import { validateFiles } from '#src/utils/file-input'
 import type { ChangeEventHandler } from 'react'
 
 export namespace useFileUploaderInput {
-  // Does not accept all the supported validation constraints, because we only care about reporting
-  // validity to the queue for file-level constraints (accept, maxFileSize). The only selection-level
-  // constraint we need here is maxFiles, as that determines whether we replace files in the queue or
-  // add to it.
+  // Note: Does not accept all the supported validation constraints, because we only care about reporting
+  // validity to the queue for file-level constraints (e.g. accept, maxFileSize) and deciding whether to
+  // append to or replace the current selection (which only cares about the maximum number of files
+  // permitted, not the minimum).
   export interface Options {
     accept?: string
     maxFiles?: number
     maxFileSize?: number
+    multiple?: boolean
     onChange?: ChangeEventHandler<HTMLInputElement>
   }
 }
@@ -24,16 +25,24 @@ export namespace useFileUploaderInput {
  * handler that enqueues newly picked files, validates them, and reports the result back to the
  * queue.
  */
-export function useFileUploaderInput({ accept, maxFiles, maxFileSize, onChange }: useFileUploaderInput.Options): {
+export function useFileUploaderInput({
+  accept,
+  maxFiles,
+  maxFileSize,
+  multiple,
+  onChange,
+}: useFileUploaderInput.Options): {
   files: File[]
   handleChange: ChangeEventHandler<HTMLInputElement>
 } {
   const { queue } = useFileUploaderContext('useFileUploaderInput')
   const files = useSyncExternalStore(queue.subscribe, queue.getFilesSnapshot)
 
+  const effectiveMaxFiles = maxFiles ?? (multiple ? Infinity : 1)
+
   const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => {
     const newFiles = Array.from(event.currentTarget.files ?? [])
-    if (maxFiles === 1) queue.replaceFiles(newFiles)
+    if (effectiveMaxFiles === 1) queue.replaceFiles(newFiles)
     else queue.addFiles(newFiles)
     queue.reportValidity(validateFiles(newFiles, { accept, maxFileSize }).rejected)
     onChange?.(event)

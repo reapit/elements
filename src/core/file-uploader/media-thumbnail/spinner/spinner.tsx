@@ -9,7 +9,7 @@ const CIRCUMFERENCE = 2 * Math.PI * RADIUS
 const INDICATOR_ARC_LENGTH = CIRCUMFERENCE * 0.25
 
 /**
- * An indeterminate circular spinner, shown on `FileUploader.MediaCard`'s thumbnail overlay while an item is
+ * An indeterminate circular spinner, shown on `FileUploaderMediaThumbnail`'s overlay while an item is
  * `processing`, or `uploading` with no known `progress`.
  */
 export function FileUploaderSpinner() {

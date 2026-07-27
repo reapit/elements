@@ -1,2 +1,2 @@
-export { FileUploaderButtonInput } from './button'
+export { FileUploaderButtonInput } from './button-input'
 export { FileUploaderButtonControl } from './button-control'

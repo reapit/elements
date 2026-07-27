@@ -1,31 +1,23 @@
 import {
   ElFileUploaderMediaCard,
-  ElFileUploaderMediaCardThumbnail,
-  ElFileUploaderMediaCardOverlay,
-  ElFileUploaderMediaCardRemoveButtonContainer,
-  ElFileUploaderMediaCardDuration,
-  ElFileUploaderMediaCardStatusIcon,
-  ElFileUploaderMediaCardErrorBadge,
   ElFileUploaderMediaCardContent,
   ElFileUploaderMediaCardFileName,
   ElFileUploaderMediaCardSecondaryInfo,
   ElFileUploaderMediaCardStatusText,
 } from './styles'
+import { FileUploaderMediaThumbnail } from '../media-thumbnail/media-thumbnail'
 import { FileUploaderRemoveButton } from '../remove-button/remove-button'
-import { FileUploaderCircularProgress } from './circular-progress/circular-progress'
-import { FileUploaderSpinner } from './spinner/spinner'
 import { getFileUploaderItemStatus } from '../get-file-uploader-item-status'
 import { SeparatorDotIcon } from '#src/icons/separator-dot'
-import { WarningCircleOutlineIcon } from '#src/icons/warning-circle-outline'
 
-import type { MouseEventHandler } from 'react'
-import { Image } from '#src/utils/image'
-import { PhotoIcon } from '#src/icons/photo'
+import type { HTMLAttributes, MouseEventHandler } from 'react'
 
 export namespace FileUploaderMediaCard {
-  export type Status = 'queued' | 'uploading' | 'processing' | 'uploaded' | 'error'
+  export type Status = FileUploaderMediaThumbnail.Status
 
-  export interface Props {
+  export interface Props extends HTMLAttributes<HTMLDivElement> {
+    /** Aspect ratio of the media thumbnail. Useful when you want the height to scale proportionally to the width. */
+    aspectRatio?: string
     /** The file's name, rendered with end-truncation. */
     fileName: string
     /** The file's size in bytes. Omit to skip rendering a size. */
@@ -59,9 +51,11 @@ export namespace FileUploaderMediaCard {
 }
 
 /**
- * A thumbnail-forward card for `FileUploader` for media files. Use via `FileUploader.File`.
+ * A thumbnail-forward card for `FileUploader` for media files, used within a multi-select file list. Use via
+ * `FileUploader.File`.
  */
 export function FileUploaderMediaCard({
+  aspectRatio = '4 / 3',
   fileName,
   fileSize,
   status,
@@ -72,6 +66,7 @@ export function FileUploaderMediaCard({
   duration,
   onRemove,
   locale,
+  ...rest
 }: FileUploaderMediaCard.Props) {
   const { sizeText, statusText, isError } = getFileUploaderItemStatus({
     status,
@@ -80,49 +75,20 @@ export function FileUploaderMediaCard({
     errorMessage,
     locale,
   })
-  const showOverlay = status !== 'uploaded'
-
-  const progressIndicator = (() => {
-    if (status === 'uploading') {
-      return typeof progress === 'number' && Number.isFinite(progress) ? (
-        <FileUploaderCircularProgress value={progress} />
-      ) : (
-        <FileUploaderSpinner />
-      )
-    }
-    if (status === 'processing') {
-      return <FileUploaderSpinner />
-    }
-    return null
-  })()
 
   return (
-    <ElFileUploaderMediaCard>
-      <ElFileUploaderMediaCardThumbnail data-status={status}>
-        <Image
-          alt={alt ?? ''}
-          fallback={<Image.Fallback icon={<PhotoIcon />} />}
-          objectFit="cover"
-          src={src}
-          width="100%"
-          height="100%"
-        />
-        {showOverlay && <ElFileUploaderMediaCardOverlay />}
-        {onRemove && (
-          <ElFileUploaderMediaCardRemoveButtonContainer>
-            <FileUploaderRemoveButton aria-label={`Remove ${fileName}`} onClick={onRemove} />
-          </ElFileUploaderMediaCardRemoveButtonContainer>
-        )}
-        {duration && <ElFileUploaderMediaCardDuration>{duration}</ElFileUploaderMediaCardDuration>}
-        {progressIndicator && (
-          <ElFileUploaderMediaCardStatusIcon>{progressIndicator}</ElFileUploaderMediaCardStatusIcon>
-        )}
-        {status === 'error' && (
-          <ElFileUploaderMediaCardErrorBadge>
-            <WarningCircleOutlineIcon aria-hidden color="error" size="lg" />
-          </ElFileUploaderMediaCardErrorBadge>
-        )}
-      </ElFileUploaderMediaCardThumbnail>
+    <ElFileUploaderMediaCard {...rest}>
+      <FileUploaderMediaThumbnail
+        action={
+          onRemove ? <FileUploaderRemoveButton aria-label={`Remove ${fileName}`} onClick={onRemove} /> : undefined
+        }
+        alt={alt}
+        aspectRatio={aspectRatio}
+        duration={duration}
+        progress={progress}
+        src={src}
+        status={status}
+      />
       <ElFileUploaderMediaCardContent>
         <ElFileUploaderMediaCardFileName title={fileName}>{fileName}</ElFileUploaderMediaCardFileName>
         <ElFileUploaderMediaCardSecondaryInfo data-wrap={isError || undefined}>

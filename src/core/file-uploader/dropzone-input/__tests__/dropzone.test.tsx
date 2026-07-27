@@ -1,5 +1,5 @@
 import { FileUploaderContext } from '../../context'
-import { FileUploaderDropzoneInput } from '../dropzone'
+import { FileUploaderDropzoneInput } from '../dropzone-input'
 import { FileUploadQueue } from '../../file-upload-queue'
 import { fireEvent, render, screen } from '@testing-library/react'
 
@@ -71,4 +71,29 @@ test('queues a picked file on the underlying native input', () => {
   fireEvent.change(screen.getByTestId('my-input'), { target: { files: [file] } })
 
   expect(queue.getItemsSnapshot()).toMatchObject([{ status: 'uploading', file }])
+})
+
+test('replaces the previous file with the next pick when multiple is not set', () => {
+  const { queue } = renderDropzone({ 'data-testid': 'my-input' } as FileUploaderDropzoneInput.Props)
+  const first = new File([new Uint8Array(10)], 'a.txt', { type: 'text/plain' })
+  const second = new File([new Uint8Array(10)], 'b.txt', { type: 'text/plain' })
+
+  fireEvent.change(screen.getByTestId('my-input'), { target: { files: [first] } })
+  fireEvent.change(screen.getByTestId('my-input'), { target: { files: [second] } })
+
+  expect(queue.getItemsSnapshot()).toMatchObject([{ file: second }])
+})
+
+test('adds to the existing selection on the next pick when multiple is set', () => {
+  const { queue } = renderDropzone({
+    'data-testid': 'my-input',
+    multiple: true,
+  } as FileUploaderDropzoneInput.Props)
+  const first = new File([new Uint8Array(10)], 'a.txt', { type: 'text/plain' })
+  const second = new File([new Uint8Array(10)], 'b.txt', { type: 'text/plain' })
+
+  fireEvent.change(screen.getByTestId('my-input'), { target: { files: [first] } })
+  fireEvent.change(screen.getByTestId('my-input'), { target: { files: [second] } })
+
+  expect(queue.getItemsSnapshot()).toMatchObject([{ file: first }, { file: second }])
 })

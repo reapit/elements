@@ -76,7 +76,13 @@ export function FileUploaderDropzoneInput({
   variant = 'large',
   ...rest
 }: FileUploaderDropzoneInput.Props) {
-  const { files, handleChange } = useFileUploaderInput({ accept, maxFiles, maxFileSize, onChange })
+  const { files, handleChange } = useFileUploaderInput({
+    accept,
+    maxFiles,
+    maxFileSize,
+    multiple,
+    onChange,
+  })
 
   return (
     <FileInput

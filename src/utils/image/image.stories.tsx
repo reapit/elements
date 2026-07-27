@@ -38,7 +38,14 @@ export const Example = meta.story({
  * While the image accepts an explicit width and height, it is constrained to the size of its container.
  * This allows ancestors to control the size the image is displayed at.
  */
-export const Sizing = Example.extend({
+export const Sizing = meta.story({
+  args: {
+    src: 'https://picsum.photos/seed/ds-image/400/400',
+    alt: 'A sample landscape photograph',
+    objectFit: 'contain',
+    width: '100%',
+    height: '100%',
+  },
   decorators: [
     (Story) => (
       <div style={{ border: '1px solid #FA00FF', width: '120px', height: '80px' }}>

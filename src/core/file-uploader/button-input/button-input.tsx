@@ -84,7 +84,13 @@ export function FileUploaderButtonInput({
   variant = 'secondary',
   ...rest
 }: FileUploaderButtonInput.Props) {
-  const { files, handleChange } = useFileUploaderInput({ accept, maxFiles, maxFileSize, onChange })
+  const { files, handleChange } = useFileUploaderInput({
+    accept,
+    maxFiles,
+    maxFileSize,
+    multiple,
+    onChange,
+  })
 
   return (
     <FileInput

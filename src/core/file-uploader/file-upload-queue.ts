@@ -158,8 +158,7 @@ export class FileUploadQueue<TResult extends unknown = string> {
    * `rejections` is only ever that round's freshly-picked files (see `useFileUploaderInput`) — an
    * item outside it is left untouched deliberately, not revalidated or cleared. A previously
    * rejected item's `validationError` is only ever undone by removing and re-adding the file, not
-   * by a later `reportValidity` call. See "Validation is a consumer concern, not the queue's" in
-   * ARCHITECTURE.md.
+   * by a later `reportValidity` call.
    */
   reportValidity(rejections: readonly validateFiles.Rejection[]): void {
     const validationErrors = new Map(rejections.map(({ file, validationError }) => [file, validationError]))

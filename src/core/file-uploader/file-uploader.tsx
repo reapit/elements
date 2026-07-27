@@ -1,10 +1,9 @@
 import { ElFileUploader } from './styles'
-import { FileUploaderButtonControl } from './button/button-control'
-import { FileUploaderButtonInput } from './button/button'
+import { FileUploaderButtonControl, FileUploaderButtonInput } from './button-input'
 import { FileUploaderContext } from './context'
-import { FileUploaderDropzoneControl } from './dropzone/dropzone-control'
-import { FileUploaderDropzoneInput } from './dropzone/dropzone'
+import { FileUploaderDropzoneControl, FileUploaderDropzoneInput } from './dropzone-input'
 import { FileUploaderFileList } from './file-list'
+import { FileUploaderSingleSelectMediaControl, FileUploaderSingleSelectMediaInput } from './single-select-media-input'
 import { FileUploadQueue } from './file-upload-queue'
 import { useEffect, useMemo, useState } from 'react'
 
@@ -65,11 +64,9 @@ export namespace FileUploader {
 }
 
 /**
- * A compound file uploader. Renders no chrome of its own — shares its queue with
- * `FileUploader.ButtonControl`/`FileUploader.DropzoneControl`/`FileUploader.FileList` via
- * context. Validation constraints (`accept`/`multiple`/`required`/`minFiles`/`maxFiles`/
- * `maxFileSize`/`maxTotalSize`) live on whichever trigger is rendered instead — see
- * `ARCHITECTURE.md` — so they're not props here.
+ * A compound file uploader. Children will typically be some combination of a control (button or dropzone) and
+ * a file list. The queue is either supplied via the `queue` prop or created internally. Validation constraints
+ * are applied to the controls and determine how many files, and of which type and size, can be uploaded.
  */
 export function FileUploader<TResult extends unknown = string>(props: FileUploader.Props<TResult>) {
   const { children, disabled, locale, maxWidth, minLoadingIndicatorDelayMs } = props
@@ -117,3 +114,5 @@ FileUploader.DropzoneControl = FileUploaderDropzoneControl
 FileUploader.DropzoneInput = FileUploaderDropzoneInput
 FileUploader.File = FileUploaderFileList.File
 FileUploader.FileList = FileUploaderFileList
+FileUploader.SingleSelectMediaControl = FileUploaderSingleSelectMediaControl
+FileUploader.SingleSelectMediaInput = FileUploaderSingleSelectMediaInput

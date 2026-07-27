@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react'
+import { act, fireEvent, render, screen } from '@testing-library/react'
 import { FileUploader } from '../file-uploader'
 import { FileUploadQueue } from '../file-upload-queue'
 
@@ -11,7 +11,7 @@ test('renders a file input', () => {
   expect(screen.getByLabelText('Upload')).toBeInTheDocument()
 })
 
-test('creates its own queue when no queue prop is provided', () => {
+test('creates its own queue when no queue prop is provided', async () => {
   render(
     <FileUploader onUpload={async () => 'file-id'}>
       <FileUploader.ButtonControl data-testid="input" multiple />
@@ -25,6 +25,10 @@ test('creates its own queue when no queue prop is provided', () => {
   fireEvent.change(screen.getByTestId('input'), { target: { files: [file] } })
 
   expect(screen.getByText('a.txt')).toBeInTheDocument()
+
+  // Flushes the pending upload's resolution (a microtask scheduled by `onUpload`), so its
+  // resulting queue update happens inside `act` instead of after the test completes.
+  await act(async () => {})
 })
 
 test('uses an externally-provided queue instead of creating its own', () => {

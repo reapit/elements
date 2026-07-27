@@ -9,8 +9,12 @@ export const elImageContainer = css`
     max-block-size: var(--image-height, 100%);
     max-inline-size: var(--image-width, 100%);
 
-    height: 100%;
-    width: 100%;
+    /* The container is allowed to shrink in size */
+    min-block-size: 0;
+    min-inline-size: 0;
+
+    block-size: 100%;
+    inline-size: 100%;
   }
 `
 
@@ -26,8 +30,8 @@ export const elResponsiveImage = css`
   @layer elements.main {
     display: block;
 
-    height: var(--image-height, auto);
-    width: var(--image-width, 100%);
+    block-size: var(--image-height, auto);
+    inline-size: var(--image-width, 100%);
 
     /* We constrain the image to never go beyond its container's width and height.
      * This allows the responsive image to be used by itself in a container with

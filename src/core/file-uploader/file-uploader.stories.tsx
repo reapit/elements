@@ -31,7 +31,7 @@ function renderFileList() {
       ? items.map((item) => (
           <FileUploader.File
             key={item.id}
-            errorText={item.status === 'error' ? item.errorMessage : undefined}
+            errorText={item.status === 'error' ? item.errorMessage : (item.validationError ?? undefined)}
             item={item}
             onRemove={() => queue.removeItem(item.id)}
           />
@@ -55,7 +55,7 @@ export const Example = meta.story({
         helpText="PDF, DOC, or DOCX up to 10MB"
         icon={<CloudUploadIcon />}
         label="Upload documents"
-        maxFileSize={10 * 1024 * 1024}
+        maxFileSize={10 * 1024 * 1024} // 10 MB
         multiple
         variant="large"
       >
@@ -81,7 +81,7 @@ export const Button = Example.extend({
         helpText="PNG or JPG up to 5MB"
         iconLeft={<FileUploadIcon />}
         label="Upload photos"
-        maxFileSize={5 * 1024 * 1024}
+        maxFileSize={5 * 1024 * 1024} // 5 MB
         multiple
       >
         Select files to upload
@@ -106,7 +106,7 @@ export const Media = Example.extend({
         helpText="PNG or JPG up to 5MB"
         icon={<CloudUploadIcon />}
         label="Upload photos"
-        maxFileSize={5 * 1024 * 1024}
+        maxFileSize={5 * 1024 * 1024} // 5 MB
         multiple
         variant="large"
       >
@@ -118,10 +118,93 @@ export const Media = Example.extend({
 })
 
 /**
- * Error text renders directly between the input and the file list, rather than after both —
- * `FileUploader.DropzoneControl` owns its own `FormControl`, so it never wraps the sibling
- * `FileUploader.FileList`. `required` here maps to a `minFiles` of `1`, reported through the same
- * mechanism an explicit `minFiles` violation would use.
+ * By default, the file uploader allows a single file to be selected. The file list is still needed to diplay
+ * display the uploaded file, but the file picker will only allow one file to be selected at a time.
+ */
+export const SingleSelect = Example.extend({
+  name: 'Single-select',
+  args: {
+    onUpload: simulateUpload,
+  },
+  render: (args) => (
+    <div style={{ maxWidth: '400px' }}>
+      <FileUploader {...args}>
+        <FileUploader.ButtonControl iconLeft={<CloudUploadIcon />} label="Upload files">
+          Browse files
+        </FileUploader.ButtonControl>
+        <FileUploader.FileList>{renderFileList()}</FileUploader.FileList>
+      </FileUploader>
+    </div>
+  ),
+})
+
+/**
+ * The file uploader supports a special experience for single-select media uploads via
+ * `FileUploader.SingleSelectMediaControl`. It swaps between an empty drag-and-drop prompt and a
+ * thumbnail of the selected media item. A replacement can be selected by clicking the thumbnail
+ * or dragging a new file over it.
+ *
+ * The example here is rendered within a width constrained container.
+ */
+export const SingleSelectMedia = Example.extend({
+  name: 'Single-select media',
+  args: {
+    onUpload: simulateUpload,
+  },
+  render: (args) => (
+    <div style={{ maxWidth: '400px' }}>
+      <FileUploader {...args}>
+        <FileUploader.SingleSelectMediaControl
+          accept="image/*"
+          icon={<CloudUploadIcon />}
+          label="Upload photo"
+          maxFileSize={5 * 1024 * 1024} // 5 MB
+          required
+        >
+          Drag and drop a photo here or <strong>browse files</strong>
+        </FileUploader.SingleSelectMediaControl>
+      </FileUploader>
+    </div>
+  ),
+})
+
+/**
+ * The file uploader supports the following constraints: `accept`, `maxFiles`, `maxFileSize`, `maxTotalSize`,
+ * `minFiles`, `multiple` and `required`. Only `accept` and `maxFileSize` impact individual selected files;
+ * the rest impact the file uploader as a whole.
+ *
+ * `multiple` implies `maxFiles` > 1, and `required` implies `minFiles` > 0. Explicit constraints for
+ * `maxFiles` and `minFiles` take precedence of `multiple` and `required`. It is up to consumers to display
+ * an appropriate message for any failed validation constraints to users, either for the specific file that
+ * failed the constraint, or for the file uploader itself.
+ */
+export const Constraints = Example.extend({
+  args: {
+    onUpload: simulateUpload,
+  },
+  render: (args) => (
+    <FileUploader {...args}>
+      <FileUploader.ButtonControl
+        iconLeft={<CloudUploadIcon />}
+        label="Upload files"
+        maxFileSize={5 * 1024 * 1024} // 5 MB
+        maxTotalSize={10 * 1024 * 1024} // 10 MB
+        multiple
+        required
+      >
+        Browse files
+      </FileUploader.ButtonControl>
+      <FileUploader.FileList>{renderFileList()}</FileUploader.FileList>
+    </FileUploader>
+  ),
+})
+
+/**
+ * The file uploader's error text is intended for validation errors that apply to the file uploader as a whole,
+ * rather than to a specific file. Individual files accept their own `errorText` for displaying upload or
+ * validation errors specific to that file.
+ *
+ * In either case, consumers are responsible for displaying an appropriate message to users.
  */
 export const WithError = Example.extend({
   name: 'With error',
@@ -146,10 +229,10 @@ export const WithError = Example.extend({
 })
 
 /**
- * `FileUploader.FileList`'s `name` prop is shared with every `FileUploader.File` via context, so
- * each one renders its own `<input type="hidden">` for a successfully-uploaded item, valued at its
- * `fileId` — enough for a native `<form>` submission to collect every uploaded file's ID via
- * `FormData`, with no form library required.
+ * Each `FileUploader.File` with a defined `name` (either directly or via `FileUploader.FileList`'s `name`)
+ * will include a hidden input if it's related item is valid and has successfully-uploaded. The value of the
+ * input will be set to the item's `fileId`. This enables native `<form>` submission to collect every uploaded
+ * file's ID via `FormData`, with no form library required.
  */
 export const Forms = Example.extend({
   args: {
@@ -166,7 +249,13 @@ export const Forms = Example.extend({
         }}
       >
         <FileUploader {...args}>
-          <FileUploader.DropzoneControl icon={<CloudUploadIcon />} label="Upload documents" multiple variant="large">
+          <FileUploader.DropzoneControl
+            icon={<CloudUploadIcon />}
+            label="Upload documents"
+            multiple
+            required
+            variant="large"
+          >
             Drag and drop your files here or <strong>browse files</strong>
           </FileUploader.DropzoneControl>
           <FileUploader.FileList name={fieldName}>{renderFileList()}</FileUploader.FileList>

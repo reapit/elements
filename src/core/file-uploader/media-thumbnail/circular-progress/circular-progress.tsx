@@ -14,7 +14,7 @@ export namespace FileUploaderCircularProgress {
 }
 
 /**
- * A determinate circular progress disk, shown on `FileUploader.MediaCard`'s thumbnail overlay while an item's
+ * A determinate circular progress disk, shown on `FileUploaderMediaThumbnail`'s overlay while an item's
  * upload progress is known.
  */
 export function FileUploaderCircularProgress({ value }: FileUploaderCircularProgress.Props) {
