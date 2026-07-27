@@ -12,11 +12,7 @@ export namespace FileUploaderDropzoneControl {
     helpText?: ReactNode
     /** The visual label for the uploader. If no visual label is provided, an accessible label should be provided via `aria-label`. */
     label?: ReactNode
-    /**
-     * The size of `FormControl`'s label/help/error text. Independent of `variant` — `variant`
-     * is a layout decision about how much space the dropzone itself occupies on a form, unrelated
-     * to the text size of a form control it's paired alongside, which may use any size.
-     */
+    /** The size of the form control's label/help/error text. */
     size?: 'small' | 'medium' | 'large'
   }
 }

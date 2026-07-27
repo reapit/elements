@@ -12,7 +12,7 @@ export namespace FileUploaderSingleSelectMediaControl {
     helpText?: ReactNode
     /** The visual label for the uploader. If no visual label is provided, an accessible label should be provided via `aria-label`. */
     label?: ReactNode
-    /** The size of `FormControl`'s label/help/error text. */
+    /** The size of the form control's label/help/error text. */
     size?: 'small' | 'medium' | 'large'
   }
 }
