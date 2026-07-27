@@ -29,7 +29,7 @@ const meta = preview.meta({
   },
   decorators: [
     (Story) => (
-      <FileUploaderContext.Provider value={{ queue }}>
+      <FileUploaderContext.Provider value={{ queue, triggerId: 'trigger' }}>
         <Story />
       </FileUploaderContext.Provider>
     ),

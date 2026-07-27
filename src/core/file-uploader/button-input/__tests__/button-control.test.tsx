@@ -172,7 +172,7 @@ test('throws when rendered with no queue prop and no FileUploader ancestor', () 
 test('sources the queue and constraints from context when no props are given', () => {
   const queue = new FileUploadQueue({ onUpload: async () => 'file-id' })
   render(
-    <FileUploaderContext.Provider value={{ queue }}>
+    <FileUploaderContext.Provider value={{ queue, triggerId: 'trigger' }}>
       <FileUploaderButtonControl accept="image/*" data-testid="input" />
     </FileUploaderContext.Provider>,
   )

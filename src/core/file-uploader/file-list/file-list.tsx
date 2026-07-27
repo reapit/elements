@@ -1,7 +1,7 @@
 import { ElFileUploaderFileList } from './styles'
 import { FileUploaderFile } from './file'
 import { FileUploaderFileListContext } from './context'
-import { useSyncExternalStore } from 'react'
+import { useRef, useSyncExternalStore } from 'react'
 import { useFileUploaderContext } from '../context'
 
 import type { FileUploadQueue } from '../file-upload-queue'
@@ -54,12 +54,14 @@ export function FileUploaderFileList({
 }: FileUploaderFileList.Props) {
   const { queue } = useFileUploaderContext('FileUploader.FileList')
   const items = useSyncExternalStore(queue.subscribe, queue.getItemsSnapshot)
+  const listRef = useRef<HTMLUListElement>(null)
 
   return (
-    <FileUploaderFileListContext.Provider value={{ variant, name }}>
+    <FileUploaderFileListContext.Provider value={{ variant, name, listRef }}>
       <ElFileUploaderFileList
         {...rest}
         data-layout={variant === 'media' ? 'grid' : 'list'}
+        ref={listRef}
         style={
           {
             ...rest.style,

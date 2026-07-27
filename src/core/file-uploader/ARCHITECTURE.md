@@ -183,8 +183,11 @@ No WAI-ARIA APG pattern exists for file-upload/dropzone widgets — checked agai
 
 - The click-to-browse trigger is a native `<label>` (or a `<button>` calling `.click()` on the input) — keyboard operability and correct accessible naming come free, no custom keydown handling.
 - Drag-and-drop stays a pointer-only _enhancement_ over that native path — this satisfies WCAG 2.2's "Dragging Movements" equivalence requirement automatically, as long as the label/button path is fully equivalent, so drag-and-drop doesn't need its own ARIA story.
-- A visually-hidden `aria-live="polite"` region announces status transitions (e.g. "Invoice.pdf uploaded", "Invoice.pdf failed to upload: file too large").
-- Remove buttons carry an explicit accessible name ("Remove Invoice.pdf").
+- A visually-hidden `aria-live="polite"` region (rendered as the first child of `ElFileUploader` so it never affects surrounding grid/form layouts) announces status transitions. `useFileUploaderAnnouncements` diffs successive queue snapshots and produces announcement strings: `"{fileName} uploaded"`, `"{fileName} failed to upload: {errorMessage}"`, or — for single-select replace, where one item disappears and a new one reaches `uploaded` in the same diff tick — `"{oldFileName} replaced with {newFileName}"` (a single atomic event, not two). Announcements accumulate and are never cleared.
+- Remove buttons carry an explicit accessible name (`"Remove {fileName}"`).
+- Focus management when an item is removed: `FileUploader.File` calls `transferFocusAfterRemoval` synchronously in its remove handler, before React flushes the re-render. The DOM walk queries `:scope > li` children of the list's `<ul>` (ref-forwarded via `FileUploaderFileListContext`), finds the removed item's own `<li>` by index, then focuses the next sibling's `[data-remove-button]` — or the previous if it was last — falling back to the upload trigger (`document.getElementById(triggerId)`) when the list becomes empty. `triggerId` is a stable `useId()`-generated value provided via `FileUploaderContext` and applied as `id` to every trigger component (`ButtonInput`, `DropzoneInput`, `SingleSelectMediaInput`'s empty-state button).
+- Single-select focus management on remove was already implemented before this pass: an effect in `FileUploaderSingleSelectMediaInput` detects the item-to-no-item transition and restores focus to the empty placeholder button.
+- `FileUploader.File`'s `onRemove` prop is an optional _side-effect_ callback, not the removal mechanism. The component owns `queue.removeItem` and focus transfer itself. Calling `event.preventDefault()` in `onRemove` suppresses both — for example, to show a confirmation dialogue before deciding whether to remove the item.
 
 ## `formatFileSize`
 

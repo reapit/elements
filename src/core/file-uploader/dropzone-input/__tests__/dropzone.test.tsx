@@ -6,7 +6,7 @@ import { fireEvent, render, screen } from '@testing-library/react'
 function renderDropzone(props: Partial<FileUploaderDropzoneInput.Props> = {}) {
   const queue = new FileUploadQueue({ onUpload: async () => 'file-id' })
   render(
-    <FileUploaderContext.Provider value={{ queue }}>
+    <FileUploaderContext.Provider value={{ queue, triggerId: 'trigger' }}>
       <FileUploaderDropzoneInput {...props}>Drag and drop your file here</FileUploaderDropzoneInput>
     </FileUploaderContext.Provider>,
   )

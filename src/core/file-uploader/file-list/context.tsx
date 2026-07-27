@@ -1,5 +1,7 @@
 import { createContext, useContext } from 'react'
 
+import type { RefObject } from 'react'
+
 export namespace FileUploaderFileListContext {
   export interface Value {
     /** Whether `FileUploader.File` renders each item as a `FileCard` row or a `MediaCard` tile. */
@@ -9,6 +11,12 @@ export namespace FileUploaderFileListContext {
      * A `name` passed directly to a `FileUploader.File` instance takes precedence over this.
      */
     name?: string
+    /**
+     * Ref to the `<ul>` element. Used by `FileUploader.File` to perform DOM-based sibling focus
+     * management after a removal — finding the next or previous item's remove button without
+     * needing explicit knowledge of sibling components.
+     */
+    listRef: RefObject<HTMLUListElement>
   }
 }
 

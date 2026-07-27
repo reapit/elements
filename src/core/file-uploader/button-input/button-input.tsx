@@ -2,6 +2,7 @@ import { Button } from '#src/core/button'
 import { cx } from '@linaria/core'
 import { elFileUploaderButtonInput } from './styles'
 import { FileInput } from '#src/utils/file-input'
+import { useFileUploaderContext } from '../context'
 import { useFileUploaderInput } from '../use-file-uploader-input'
 
 import type { ComponentProps, FocusEventHandler, KeyboardEventHandler, MouseEventHandler } from 'react'
@@ -91,6 +92,7 @@ export function FileUploaderButtonInput({
     multiple,
     onChange,
   })
+  const { triggerId } = useFileUploaderContext('FileUploader.ButtonInput')
 
   return (
     <FileInput
@@ -118,6 +120,7 @@ export function FileUploaderButtonInput({
           hasNoPadding={hasNoPadding}
           iconLeft={iconLeft}
           iconRight={iconRight}
+          id={triggerId}
           isBusy={isBusy}
           isDestructive={isDestructive}
           onBlur={onBlur}

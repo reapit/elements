@@ -1,11 +1,12 @@
-import { ElFileUploader } from './styles'
+import { ElFileUploader, ElFileUploaderAnnouncer } from './styles'
 import { FileUploaderButtonControl, FileUploaderButtonInput } from './button-input'
 import { FileUploaderContext } from './context'
 import { FileUploaderDropzoneControl, FileUploaderDropzoneInput } from './dropzone-input'
 import { FileUploaderFileList } from './file-list'
 import { FileUploaderSingleSelectMediaControl, FileUploaderSingleSelectMediaInput } from './single-select-media-input'
 import { FileUploadQueue } from './file-upload-queue'
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useId, useMemo, useState } from 'react'
+import { useFileUploaderAnnouncements } from './use-file-uploader-announcements'
 
 import type { ReactNode } from 'react'
 
@@ -92,17 +93,30 @@ export function FileUploader<TResult extends unknown = string>(props: FileUpload
     return () => queue.destroy()
   }, [queue, isUsingOwnQueue])
 
+  const triggerId = useId()
+  const announcements = useFileUploaderAnnouncements(queue)
+
   const contextValue = useMemo<FileUploaderContext.Value>(
     () => ({
       queue,
       disabled,
       locale,
+      triggerId,
     }),
-    [disabled, locale, queue],
+    [disabled, locale, queue, triggerId],
   )
 
   return (
     <ElFileUploader style={{ maxWidth }}>
+      <ElFileUploaderAnnouncer aria-atomic="false" aria-live="polite">
+        {announcements.map((message, index) => (
+          // Each announcement is its own element so the live region accumulates messages
+          // rather than replacing them — `aria-atomic="false"` ensures only the new span
+          // is read, not the whole region.
+          // eslint-disable-next-line react/no-array-index-key
+          <span key={index}>{message}</span>
+        ))}
+      </ElFileUploaderAnnouncer>
       <FileUploaderContext.Provider value={contextValue}>{children}</FileUploaderContext.Provider>
     </ElFileUploader>
   )

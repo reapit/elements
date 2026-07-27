@@ -5,6 +5,7 @@ import {
   ElFileUploaderDropzoneText,
 } from './styles'
 import { FileInput } from '#src/utils/file-input'
+import { useFileUploaderContext } from '../context'
 import { useFileUploaderInput } from '../use-file-uploader-input'
 
 import type { CSSProperties, FocusEventHandler, KeyboardEventHandler, MouseEventHandler, ReactNode } from 'react'
@@ -83,6 +84,7 @@ export function FileUploaderDropzoneInput({
     multiple,
     onChange,
   })
+  const { triggerId } = useFileUploaderContext('FileUploader.DropzoneInput')
 
   return (
     <FileInput
@@ -108,6 +110,7 @@ export function FileUploaderDropzoneInput({
           data-is-dragging-over={isDraggingOver}
           data-variant={variant}
           disabled={disabled}
+          id={triggerId}
           onBlur={onBlur}
           onClick={(event) => {
             openFilePicker()

@@ -6,7 +6,7 @@ import { fireEvent, render, screen } from '@testing-library/react'
 function renderButton(children: React.ReactNode = 'Browse files', props: Partial<FileUploaderButtonInput.Props> = {}) {
   const queue = new FileUploadQueue({ onUpload: async () => 'file-id' })
   render(
-    <FileUploaderContext.Provider value={{ queue }}>
+    <FileUploaderContext.Provider value={{ queue, triggerId: 'trigger' }}>
       <FileUploaderButtonInput {...props}>{children}</FileUploaderButtonInput>
     </FileUploaderContext.Provider>,
   )

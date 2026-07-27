@@ -12,7 +12,7 @@ export namespace FileUploaderRemoveButton {
  */
 export function FileUploaderRemoveButton({ onClick, ...rest }: FileUploaderRemoveButton.Props) {
   return (
-    <ElFileUploaderRemoveButton {...rest} type="button" onClick={onClick}>
+    <ElFileUploaderRemoveButton {...rest} data-remove-button type="button" onClick={onClick}>
       <ElFileUploaderRemoveButtonBackground>
         <CloseIcon aria-hidden color="tertiary" size="sm" />
       </ElFileUploaderRemoveButtonBackground>

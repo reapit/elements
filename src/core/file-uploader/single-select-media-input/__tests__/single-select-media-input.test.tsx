@@ -6,7 +6,7 @@ import { FileUploadQueue } from '../../file-upload-queue'
 function renderInput(props: Partial<FileUploaderSingleSelectMediaInput.Props> = {}) {
   const queue = new FileUploadQueue({ onUpload: async () => 'file-id' })
   render(
-    <FileUploaderContext.Provider value={{ queue }}>
+    <FileUploaderContext.Provider value={{ queue, triggerId: 'trigger' }}>
       <FileUploaderSingleSelectMediaInput {...props}>Drag and drop your file here</FileUploaderSingleSelectMediaInput>
     </FileUploaderContext.Provider>,
   )

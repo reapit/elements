@@ -10,6 +10,12 @@ export namespace FileUploaderContext {
     locale?: string
     /** The queue that `FileUploader.ButtonControl`/`FileUploader.DropzoneControl`/`FileUploader.FileList` drive and render from. */
     queue: FileUploadQueue<any>
+    /**
+     * A stable ID shared by all trigger components (`ButtonInput`, `DropzoneInput`,
+     * `SingleSelectMediaInput`'s empty-state button). `FileUploader.File` uses it as a focus
+     * fallback when the file list becomes empty after a removal.
+     */
+    triggerId: string
   }
 }
 

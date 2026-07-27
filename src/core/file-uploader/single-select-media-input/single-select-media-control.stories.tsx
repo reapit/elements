@@ -72,7 +72,7 @@ export const Example = meta.story({
     const queue = useFileUploadQueue({ onUpload: async () => 'file-id' })
 
     return (
-      <FileUploaderContext.Provider value={{ queue }}>
+      <FileUploaderContext.Provider value={{ queue, triggerId: 'trigger' }}>
         <FileUploader.SingleSelectMediaControl {...args} />
       </FileUploaderContext.Provider>
     )

@@ -4,7 +4,7 @@ import { FileUploaderFileListContext } from '../context'
 import { fireEvent, render, screen } from '@testing-library/react'
 
 import type { FileUploadQueue } from '../../file-upload-queue'
-import type { ReactNode } from 'react'
+import type { ReactNode, RefObject } from 'react'
 
 function makeFile(name: string, type = 'text/plain'): File {
   return new File([new Uint8Array(10)], name, { type })
@@ -14,17 +14,35 @@ function makeItem(overrides: Partial<FileUploadQueue.Item> = {}): FileUploadQueu
   return { id: '1', file: makeFile('a.txt'), status: 'queued', ...overrides } as FileUploadQueue.Item
 }
 
+// A minimal queue stub — only the methods FileUploaderFile calls are needed.
+function makeQueueStub(overrides: Partial<FileUploadQueue<any>> = {}): FileUploadQueue<any> {
+  return {
+    removeItem: vi.fn(),
+    subscribe: () => () => {},
+    getItemsSnapshot: () => [],
+    ...overrides,
+  } as unknown as FileUploadQueue<any>
+}
+
 interface WrapperProps {
   children: ReactNode
+  listRef?: RefObject<HTMLUListElement>
   locale?: string
   name?: string
+  queue?: FileUploadQueue<any>
+  triggerId?: string
   variant?: 'file' | 'media'
 }
 
-function Wrapper({ children, locale, name, variant = 'file' }: WrapperProps) {
+function Wrapper({ children, listRef, locale, name, queue, triggerId = 'trigger-id', variant = 'file' }: WrapperProps) {
+  const resolvedListRef = listRef ?? { current: null }
   return (
-    <FileUploaderContext.Provider value={{ locale, queue: {} as FileUploadQueue<any> }}>
-      <FileUploaderFileListContext.Provider value={{ name, variant }}>{children}</FileUploaderFileListContext.Provider>
+    <FileUploaderContext.Provider value={{ locale, queue: queue ?? makeQueueStub(), triggerId }}>
+      <FileUploaderFileListContext.Provider
+        value={{ name, variant, listRef: resolvedListRef as RefObject<HTMLUListElement> }}
+      >
+        {children}
+      </FileUploaderFileListContext.Provider>
     </FileUploaderContext.Provider>
   )
 }
@@ -39,7 +57,7 @@ test('throws when rendered outside a FileUploader.FileList', () => {
   expect(() =>
     render(<FileUploaderFile item={makeItem()} />, {
       wrapper: ({ children }) => (
-        <FileUploaderContext.Provider value={{ queue: {} as FileUploadQueue<any> }}>
+        <FileUploaderContext.Provider value={{ queue: makeQueueStub(), triggerId: 'trigger-id' }}>
           {children}
         </FileUploaderContext.Provider>
       ),
@@ -90,18 +108,46 @@ test('shows no error message for a failing item with no errorText', () => {
   expect(screen.getByText('Queued')).toBeVisible()
 })
 
-test('renders no remove button when onRemove is omitted', () => {
+test('renders a remove button even when onRemove is omitted', () => {
   render(<FileUploaderFile item={makeItem()} />, { wrapper: Wrapper })
-  expect(screen.queryByRole('button')).not.toBeInTheDocument()
+  expect(screen.getByRole('button', { name: 'Remove a.txt' })).toBeInTheDocument()
 })
 
-test('calls onRemove when the remove button is clicked', () => {
+test('calls queue.removeItem when the remove button is clicked', () => {
+  const queue = makeQueueStub()
+  render(<FileUploaderFile item={makeItem()} onRemove={() => {}} />, {
+    wrapper: (props) => <Wrapper {...props} queue={queue} />,
+  })
+
+  fireEvent.click(screen.getByRole('button', { name: 'Remove a.txt' }))
+
+  expect(queue.removeItem).toHaveBeenCalledWith('1')
+})
+
+test('calls the consumer-supplied onRemove callback when the remove button is clicked', () => {
   const onRemove = vi.fn()
   render(<FileUploaderFile item={makeItem()} onRemove={onRemove} />, { wrapper: Wrapper })
 
   fireEvent.click(screen.getByRole('button', { name: 'Remove a.txt' }))
 
   expect(onRemove).toHaveBeenCalledTimes(1)
+})
+
+test('suppresses queue.removeItem and focus transfer when onRemove calls event.preventDefault()', () => {
+  const queue = makeQueueStub()
+  render(
+    <FileUploaderFile
+      item={makeItem()}
+      onRemove={(event) => {
+        event.preventDefault()
+      }}
+    />,
+    { wrapper: (props) => <Wrapper {...props} queue={queue} /> },
+  )
+
+  fireEvent.click(screen.getByRole('button', { name: 'Remove a.txt' }))
+
+  expect(queue.removeItem).not.toHaveBeenCalled()
 })
 
 test('shows upload progress while uploading', () => {
@@ -150,4 +196,60 @@ test('forwards native input props — onChange, onBlur, ref — onto the hidden 
 
   const hiddenInput = await screen.findByDisplayValue('result-id')
   expect(ref.current).toBe(hiddenInput)
+})
+
+test('moves focus to the next sibling remove button after removal when siblings remain', () => {
+  const queue = makeQueueStub()
+  const listRef = { current: null as HTMLUListElement | null }
+
+  const itemA = makeItem({ id: '1', file: makeFile('a.txt') })
+  const itemB = makeItem({ id: '2', file: makeFile('b.txt') })
+
+  render(
+    <ul
+      ref={(el) => {
+        listRef.current = el
+      }}
+    >
+      <FileUploaderFile item={itemA} onRemove={() => {}} />
+      <FileUploaderFile item={itemB} onRemove={() => {}} />
+    </ul>,
+    {
+      wrapper: (props) => <Wrapper {...props} listRef={listRef as RefObject<HTMLUListElement>} queue={queue} />,
+    },
+  )
+
+  // Click the remove button of the first item.
+  fireEvent.click(screen.getByRole('button', { name: 'Remove a.txt' }))
+
+  // Focus should have moved to the second item's remove button (the next sibling).
+  expect(screen.getByRole('button', { name: 'Remove b.txt' })).toHaveFocus()
+})
+
+test('moves focus to the upload trigger when the last item is removed', () => {
+  const queue = makeQueueStub()
+  const listRef = { current: null as HTMLUListElement | null }
+
+  // Render the trigger with the shared triggerId and the single list item.
+  render(
+    <div>
+      <button id="trigger-id" type="button">
+        Upload
+      </button>
+      <ul
+        ref={(el) => {
+          listRef.current = el
+        }}
+      >
+        <FileUploaderFile item={makeItem()} onRemove={() => {}} />
+      </ul>
+    </div>,
+    {
+      wrapper: (props) => <Wrapper {...props} listRef={listRef as RefObject<HTMLUListElement>} queue={queue} />,
+    },
+  )
+
+  fireEvent.click(screen.getByRole('button', { name: 'Remove a.txt' }))
+
+  expect(screen.getByRole('button', { name: 'Upload' })).toHaveFocus()
 })

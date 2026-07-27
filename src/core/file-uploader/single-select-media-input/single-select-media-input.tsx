@@ -88,7 +88,7 @@ export function FileUploaderSingleSelectMediaInput({
   tabIndex,
   ...rest
 }: FileUploaderSingleSelectMediaInput.Props) {
-  const { queue } = useFileUploaderContext('FileUploader.SingleSelectMediaInput')
+  const { queue, triggerId } = useFileUploaderContext('FileUploader.SingleSelectMediaInput')
   const { files, handleChange } = useFileUploaderInput({ accept, maxFiles: 1, maxFileSize, onChange })
   const items = useSyncExternalStore(queue.subscribe, queue.getItemsSnapshot)
   const item = items[0]
@@ -139,6 +139,7 @@ export function FileUploaderSingleSelectMediaInput({
             data-is-dragging-over={isDraggingOver}
             data-variant="large"
             disabled={disabled}
+            id={triggerId}
             onBlur={onBlur}
             onClick={(event) => {
               openFilePicker()

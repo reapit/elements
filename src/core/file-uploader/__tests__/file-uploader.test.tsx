@@ -66,6 +66,18 @@ test('applies maxWidth to the wrapping element', () => {
   expect(container.firstChild).toHaveStyle({ maxWidth: '300px' })
 })
 
+test('renders a visually-hidden aria-live region for status announcements', () => {
+  const { container } = render(
+    <FileUploader onUpload={async () => 'file-id'}>
+      <FileUploader.ButtonControl aria-label="Upload" />
+    </FileUploader>,
+  )
+
+  const announcer = container.querySelector('[aria-live="polite"]')
+  expect(announcer).toBeInTheDocument()
+  expect(announcer).toHaveAttribute('aria-atomic', 'false')
+})
+
 test('FileUploader.ButtonControl renders help/error text between the input and the file list, not after both', () => {
   const queue = new FileUploadQueue({ onUpload: async () => 'file-id' })
   queue.addFiles([new File([new Uint8Array(10)], 'a.txt')])

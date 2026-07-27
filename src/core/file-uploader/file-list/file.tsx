@@ -2,7 +2,8 @@ import { ElFileUploaderFileListItem } from './styles'
 import { FileUploaderFileCard } from '../file-card/file-card'
 import { FileUploaderFileCardLeadingElement } from '../file-card/leading-element/leading-element'
 import { FileUploaderMediaCard } from '../media-card/media-card'
-import { forwardRef } from 'react'
+import { forwardRef, useRef } from 'react'
+import { transferFocusAfterRemoval } from './transfer-focus-after-removal'
 import { useFileUploaderContext } from '../context'
 import { useFileUploaderFileListContext } from './context'
 import { useObjectUrl } from '../use-object-url'
@@ -21,7 +22,12 @@ export namespace FileUploaderFile {
     errorText?: string
     /** The item to render — typically one yielded by `FileUploader.FileList`'s `children` render prop. */
     item: FileUploadQueue.Item
-    /** Called when the remove button is clicked. Omit to render a read-only card with no remove button. */
+    /**
+     * Called when the remove button is clicked, in addition to the built-in removal behaviour
+     * (`queue.removeItem` + focus transfer). Call `event.preventDefault()` to suppress both the
+     * built-in removal and focus transfer — for example, to show a confirmation dialogue before
+     * deciding whether to remove the item.
+     */
     onRemove?: MouseEventHandler<HTMLButtonElement>
   }
 }
@@ -42,11 +48,13 @@ export const FileUploaderFile = forwardRef<HTMLInputElement, FileUploaderFile.Pr
   { aspectRatio = '4 / 3', errorText: errorMessage, item, name, onRemove, style, ...inputProps },
   ref,
 ) {
-  const { locale } = useFileUploaderContext('FileUploader.File')
-  const { name: contextName, variant } = useFileUploaderFileListContext('FileUploader.File')
+  const { locale, queue, triggerId } = useFileUploaderContext('FileUploader.File')
+  const { name: contextName, variant, listRef } = useFileUploaderFileListContext('FileUploader.File')
   const isMedia = variant === 'media'
   const isImage = item.file.type.startsWith('image/')
   const objectUrl = useObjectUrl(item.file, isMedia || isImage)
+
+  const listItemRef = useRef<HTMLLIElement>(null)
 
   const inputName = name ?? contextName
   const hiddenInput =
@@ -54,9 +62,16 @@ export const FileUploaderFile = forwardRef<HTMLInputElement, FileUploaderFile.Pr
       <input {...inputProps} ref={ref} name={inputName} type="hidden" value={item.fileId} />
     ) : null
 
+  const handleRemove: MouseEventHandler<HTMLButtonElement> = (event) => {
+    onRemove?.(event)
+    if (event.defaultPrevented) return
+    queue.removeItem(item.id)
+    transferFocusAfterRemoval(listRef, listItemRef, triggerId)
+  }
+
   if (isMedia) {
     return (
-      <ElFileUploaderFileListItem>
+      <ElFileUploaderFileListItem ref={listItemRef}>
         {hiddenInput}
         <FileUploaderMediaCard
           aspectRatio={aspectRatio}
@@ -64,7 +79,7 @@ export const FileUploaderFile = forwardRef<HTMLInputElement, FileUploaderFile.Pr
           fileName={item.file.name}
           fileSize={item.file.size}
           locale={locale}
-          onRemove={onRemove}
+          onRemove={handleRemove}
           progress={item.status === 'uploading' ? item.progress : undefined}
           src={objectUrl ?? ''}
           status={item.status}
@@ -75,7 +90,7 @@ export const FileUploaderFile = forwardRef<HTMLInputElement, FileUploaderFile.Pr
   }
 
   return (
-    <li>
+    <li ref={listItemRef}>
       {hiddenInput}
       <FileUploaderFileCard
         errorMessage={errorMessage}
@@ -89,7 +104,7 @@ export const FileUploaderFile = forwardRef<HTMLInputElement, FileUploaderFile.Pr
           )
         }
         locale={locale}
-        onRemove={onRemove}
+        onRemove={handleRemove}
         progress={item.status === 'uploading' ? item.progress : undefined}
         status={item.status}
       />

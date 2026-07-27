@@ -70,7 +70,7 @@ export const Example = meta.story({
 
     return (
       <div style={{ display: 'flex', flexFlow: 'column nowrap', gap: 'var(--spacing-2)', alignItems: 'flex-start' }}>
-        <FileUploaderContext.Provider value={{ queue }}>
+        <FileUploaderContext.Provider value={{ queue, triggerId: 'trigger' }}>
           <FileUploader.ButtonControl {...args} />
           {items.length > 0 && (
             <ul
@@ -157,7 +157,7 @@ export const Input = Example.extend({
 
     return (
       <div style={{ display: 'flex', flexFlow: 'column nowrap', gap: 'var(--spacing-2)', alignItems: 'flex-start' }}>
-        <FileUploaderContext.Provider value={{ queue }}>
+        <FileUploaderContext.Provider value={{ queue, triggerId: 'trigger' }}>
           <FileUploader.ButtonInput {...args} />
           {items.length > 0 && (
             <ul
