@@ -1578,12 +1578,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@linaria/core@npm:8.0.0, @linaria/core@npm:^8.0.0":
-  version: 8.0.0
-  resolution: "@linaria/core@npm:8.0.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40linaria%2Fcore%2F-%2Fcore-8.0.0.tgz"
+"@linaria/core@npm:8.1.1, @linaria/core@npm:^8.1.1":
+  version: 8.1.1
+  resolution: "@linaria/core@npm:8.1.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40linaria%2Fcore%2F-%2Fcore-8.1.1.tgz"
   dependencies:
-    "@wyw-in-js/processor-utils": "npm:2.0.0"
-  checksum: 10/ead95fc8833284eada1b6f7a863c3f8f0748563df6415a77fa1391af33a2c3b89b9fef4948936098a5d43eab4ab402f17579c226489958bf52a0f3c55d5330af
+    "@wyw-in-js/processor-utils": "npm:2.1.0"
+  checksum: 10/6197ab8107dfa24e573d425983ec65a9040565e0577194c2c4587701f17093e7c36937f3fe0acd531404230bafd9268b50e641aada669be4d75aa21efcfc68f6
   languageName: node
   linkType: hard
 
@@ -1600,21 +1600,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@linaria/react@npm:8.0.0":
-  version: 8.0.0
-  resolution: "@linaria/react@npm:8.0.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40linaria%2Freact%2F-%2Freact-8.0.0.tgz"
+"@linaria/react@npm:8.1.1":
+  version: 8.1.1
+  resolution: "@linaria/react@npm:8.1.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40linaria%2Freact%2F-%2Freact-8.1.1.tgz"
   dependencies:
     "@emotion/is-prop-valid": "npm:^1.2.0"
-    "@linaria/core": "npm:^8.0.0"
-    "@wyw-in-js/processor-utils": "npm:2.0.0"
-    "@wyw-in-js/shared": "npm:2.0.0"
+    "@linaria/core": "npm:^8.1.1"
+    "@wyw-in-js/processor-utils": "npm:2.1.0"
+    "@wyw-in-js/shared": "npm:2.1.0"
     minimatch: "npm:^9.0.3"
     react-html-attributes: "npm:^1.4.6"
     resolve: "npm:^1.22.8"
-    ts-invariant: "npm:^0.10.3"
   peerDependencies:
     react: ">=16"
-  checksum: 10/2384dfd1924dda61653a1afa31523891e033ee7253dfc749ef3ee77ffb5ebb73462162d8d3cdac45d4ae615f3a41d6dfdb495cb5b4b994009ee9a88c17045fc7
+  checksum: 10/a5edfb0f7ac34a81d489108a6c52dd6d50666a0067402b28135ba799ca1e1180439e86d8631c66152b29358c3eada4791fc90110e16579e1be664d6cf06dbdf6
   languageName: node
   linkType: hard
 
@@ -2635,9 +2634,9 @@ __metadata:
     "@changesets/get-github-info": "npm:1.0.0-next.3"
     "@changesets/types": "npm:^6.1.0"
     "@figma/code-connect": "npm:^1.4.9"
-    "@linaria/core": "npm:8.0.0"
+    "@linaria/core": "npm:8.1.1"
     "@linaria/postcss-linaria": "npm:8.1.1"
-    "@linaria/react": "npm:8.0.0"
+    "@linaria/react": "npm:8.1.1"
     "@oddbird/css-anchor-positioning": "npm:^0.9.0"
     "@playwright/test": "npm:1.61.1"
     "@storybook/addon-a11y": "npm:10.5.3"
@@ -4083,32 +4082,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@wyw-in-js/processor-utils@npm:2.0.0":
-  version: 2.0.0
-  resolution: "@wyw-in-js/processor-utils@npm:2.0.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40wyw-in-js%2Fprocessor-utils%2F-%2Fprocessor-utils-2.0.0.tgz"
-  dependencies:
-    "@wyw-in-js/shared": "npm:2.0.0"
-  checksum: 10/4df4eba4199cb200fe58f827dc71d38a08b84cd3dea0a0f9f3e3e2670a21136932647e19f36a6495a7a9e0cf8a34a87be6e7a3cc671b764ae8ec39a8c28e5d7f
-  languageName: node
-  linkType: hard
-
 "@wyw-in-js/processor-utils@npm:2.1.0":
   version: 2.1.0
   resolution: "@wyw-in-js/processor-utils@npm:2.1.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40wyw-in-js%2Fprocessor-utils%2F-%2Fprocessor-utils-2.1.0.tgz"
   dependencies:
     "@wyw-in-js/shared": "npm:2.1.0"
   checksum: 10/4b948898db313cbdaef8fde2f0e8898a5568add54a736ae2fbd62b8889e9e53c466b56165c43e99e1ba5c8ccf3b224075cccf1d94ae8664a588dd4fbc506aea0
-  languageName: node
-  linkType: hard
-
-"@wyw-in-js/shared@npm:2.0.0":
-  version: 2.0.0
-  resolution: "@wyw-in-js/shared@npm:2.0.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40wyw-in-js%2Fshared%2F-%2Fshared-2.0.0.tgz"
-  dependencies:
-    debug: "npm:^4.3.4"
-    find-up: "npm:^5.0.0"
-    minimatch: "npm:^9.0.3"
-  checksum: 10/0037220e64b0353db4e85251d419531f44d9aee45918858402f75d501ddd6c0017d9cf4a894acc58c42e7186362d0fcc76ad5ef7e76a08d6ae7eb28fb227f19e
   languageName: node
   linkType: hard
 
