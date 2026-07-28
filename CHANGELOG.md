@@ -1,5 +1,35 @@
 # @reapit/elements
 
+## 5.2.0
+
+### Minor Changes
+
+- **[Added]** `FileInput` component, a native `<input type="file">` primitive with file count and size validation constraints. ([#1547](https://github.com/reapit-global/gbl-ds-elements/pull/1547))
+
+- **[Added]** `FileUploader` compound component for uploading and managing a queue of files, with support for native `<form>` submission and form library integration. ([#1554](https://github.com/reapit-global/gbl-ds-elements/pull/1554))
+
+- **[Added]** `formatFileSize` utility to `src/utils/number-format`. Formats a byte count as a localised size string using decimal (SI) units — `1 kB` is `1,000` bytes, `1 MB` is `1,000,000` bytes — e.g. `3.6 MB` in `en-GB`. ([#1528](https://github.com/reapit-global/gbl-ds-elements/pull/1528))
+
+- **[Added]** `consumeBackdropClick` prop to the `HTMLDialog` utility in `src/utils/dialog`, for building custom dialogs with a fully transparent backdrop that should keep the native click-through behaviour instead. ([#1543](https://github.com/reapit-global/gbl-ds-elements/pull/1543))
+
+- **[Added]** `CloudUploadIcon`, `RotateLeftIcon`, `RotateRightIcon`, and `WarningCircleOutlineIcon`. ([#1542](https://github.com/reapit-global/gbl-ds-elements/pull/1542))
+
+- **[Added]** `upgrade-empty-state-action` codemod. Migrates `EmptyState.Action` and `EmptyState.ActionButton` usages to plain `AnchorButton` / `Button` usage. ([#1550](https://github.com/reapit-global/gbl-ds-elements/pull/1550))
+
+- **[Added]** `useCSSCustomHighlights` utility hook. Highlights every case-insensitive occurrence of a search query within an element's text content using the CSS Custom Highlight API. ([#1551](https://github.com/reapit-global/gbl-ds-elements/pull/1551))
+
+- **[Added]** `useFileUploadQueue` hook for creating a `FileUploadQueue` instance to pass into `FileUploader`'s `queue` prop. ([#1554](https://github.com/reapit-global/gbl-ds-elements/pull/1554))
+
+### Patch Changes
+
+- **[Fixed]** `Avatar` now scales icon children to fit the avatar, rather than rendering them at full size ([#1546](https://github.com/reapit-global/gbl-ds-elements/pull/1546))
+
+- **[Fixed]** Backdrop clicks on `Drawer`, `Dialog`, `GalleryViewerDialog`, `TopBarMenuDrawer`, and `Combobox.Popup` (with `closedBy="any"`) no longer also activate a control on the page behind the backdrop. ([#1537](https://github.com/reapit-global/gbl-ds-elements/pull/1537))
+
+- **[Fixed]** `Text` and `Heading` now render correctly when given the `md` font size or `text-md/*` font style, resolving it to the `base` size. `md` isn't a real design token, so it's no longer listed in Storybook documentation. ([#1533](https://github.com/reapit-global/gbl-ds-elements/pull/1533))
+
+- **[Fixed]** `rewrite-v5-imports` codemod now rewrites imports of `Flex` and `ProgressIndicator`. ([#1530](https://github.com/reapit-global/gbl-ds-elements/pull/1530))
+
 ## 5.1.0
 
 ### Minor Changes
