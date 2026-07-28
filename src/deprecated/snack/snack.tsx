@@ -2,6 +2,16 @@ import { cx } from "@linaria/core";
 import React, { FC, HTMLAttributes, ReactNode } from "react";
 
 import { CloseIcon } from "#src/icons/close";
+// imports all icons to support v4 string icon names (e.g. icon="contact")
+import * as allIcons from "#src/icons/docs/all-icons";
+import type { IconProps } from "#src/icons/make-icon/make-icon";
+
+const resolveDeprecatedIcon = (icon: ReactNode): ReactNode => {
+  if (typeof icon !== "string") return icon;
+  const componentName = icon.charAt(0).toUpperCase() + icon.slice(1) + "Icon";
+  const IconComponent = (allIcons as unknown as Record<string, FC<IconProps>>)[componentName];
+  return IconComponent ? <IconComponent size="md" color="primary" /> : null;
+};
 
 import { Intent, getIntentClassName } from "../../helpers/intent";
 import { ElSnack, elSnackIcon, elSnackCloseIcon, ElSnackHolder } from "./__styles__";
@@ -54,7 +64,7 @@ export const Snack: FC<SnackProps> = ({
 
   return (
     <ElSnack className={combinedClassName} role="status" aria-live="polite" {...rest}>
-      {icon && <span className={elSnackIcon}>{icon}</span>}
+      {icon && <span className={elSnackIcon}>{resolveDeprecatedIcon(icon)}</span>}
       {children}
       {onRemove && (
         <CloseIcon

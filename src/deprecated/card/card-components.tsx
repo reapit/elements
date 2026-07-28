@@ -1,5 +1,16 @@
 import { cx } from "@linaria/core";
-import { Dispatch, FC, HTMLAttributes, SetStateAction, ReactNode } from "react";
+import React, { Dispatch, FC, HTMLAttributes, SetStateAction, ReactNode } from "react";
+
+// imports all icons to support v4 string icon names (e.g. listCardItemIcon="contact")
+import * as allIcons from "#src/icons/docs/all-icons";
+import type { IconProps } from "#src/icons/make-icon/make-icon";
+
+const resolveDeprecatedIcon = (icon: ReactNode): ReactNode => {
+  if (typeof icon !== "string") return icon;
+  const componentName = icon.charAt(0).toUpperCase() + icon.slice(1) + "Icon";
+  const IconComponent = (allIcons as unknown as Record<string, FC<IconProps>>)[componentName];
+  return IconComponent ? <IconComponent size="md" color="primary" /> : null;
+};
 
 import { Intent } from "../../helpers/intent";
 import { elMb5, elMt5 } from "../../styles/deprecated-spacing";
@@ -131,7 +142,9 @@ export const Card: FC<CardProps> = ({
                 index,
               ) => (
                 <CardListItem key={index} onClick={onClick}>
-                  {listCardItemIcon && <CardListIcon>{listCardItemIcon}</CardListIcon>}
+                  {listCardItemIcon && (
+                    <CardListIcon>{resolveDeprecatedIcon(listCardItemIcon)}</CardListIcon>
+                  )}
                   <CardListItemTextWrap>
                     <CardListItemTextPrimary>{listCardItemHeading}</CardListItemTextPrimary>
                     <CardListItemTextSecondary>{listCardItemSubHeading}</CardListItemTextSecondary>

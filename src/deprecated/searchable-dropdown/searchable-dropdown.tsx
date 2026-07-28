@@ -3,7 +3,17 @@ import React, { FC, forwardRef, HTMLAttributes, ReactNode, useEffect, useId } fr
 
 import { Button } from "#src/core/button";
 import { CloseIcon } from "#src/icons/close";
+// imports all icons to support v4 string icon names (e.g. icon="contact")
+import * as allIcons from "#src/icons/docs/all-icons";
+import type { IconProps } from "#src/icons/make-icon/make-icon";
 import { SearchIcon } from "#src/icons/search";
+
+const resolveDeprecatedIcon = (icon: ReactNode): ReactNode => {
+  if (typeof icon !== "string") return icon;
+  const componentName = icon.charAt(0).toUpperCase() + icon.slice(1) + "Icon";
+  const IconComponent = (allIcons as unknown as Record<string, FC<IconProps>>)[componentName];
+  return IconComponent ? <IconComponent size="md" color="primary" /> : null;
+};
 
 import { generateRandomId } from "../../storybook/random-id";
 import { elFlex } from "../../styles/deprecated-flexbox";
@@ -78,7 +88,9 @@ export const SearchableDropdownControlledInner = <T extends unknown>(
         aria-haspopup="listbox"
       >
         <input id={id} style={{ display: "none" }} readOnly value={selectedValue} ref={ref} />
-        <ElSearchableDropdownSearchInputAddOn>{icon}</ElSearchableDropdownSearchInputAddOn>
+        <ElSearchableDropdownSearchInputAddOn>
+          {resolveDeprecatedIcon(icon)}
+        </ElSearchableDropdownSearchInputAddOn>
         <ElSearchableDropdownSearchInput
           aria-label="Search"
           data-testid="search-input"

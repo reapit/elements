@@ -12,7 +12,27 @@ exports[`KeyValueList component > should match a snapshot 1`] = `
       <div
         class="mocked-styled-0 el-key-value-icon-wrap"
       >
-        user
+        <svg
+          class="el-icon"
+          color="primary"
+          data-size="md"
+          fill="currentColor"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M8.38 8.88c0-2 1.62-3.624 3.62-3.63a3.64 3.64 0 0 1 3.63 3.63c-.003.617-.06 1.233-.17 1.84A3.58 3.58 0 0 1 12 14a3.58 3.58 0 0 1-3.46-3.28 10.5 10.5 0 0 1-.16-1.84M12 12c.91 0 1.36-.82 1.49-1.6q.134-.754.14-1.52a1.63 1.63 0 1 0-3.25 0 8.7 8.7 0 0 0 .13 1.52c.13.78.58 1.6 1.49 1.6"
+            fill-rule="evenodd"
+          />
+          <path
+            clip-rule="evenodd"
+            d="M1 12C1 5.925 5.925 1 12 1a11 11 0 0 1 11 11c0 6.075-4.925 11-11 11S1 18.075 1 12m11 5c-2.75 0-4.73 1.27-5 2.49h.06a8.93 8.93 0 0 0 9.94 0c-.27-1.22-2.25-2.49-5-2.49m0-2c3.07 0 5.62 1.28 6.55 3.12h.03a9 9 0 1 0-13.16 0C6.38 16.28 8.93 15 12 15"
+            fill-rule="evenodd"
+          />
+        </svg>
       </div>
       <div
         class="el-flex-container el-flex-column"
@@ -36,7 +56,20 @@ exports[`KeyValueList component > should match a snapshot 1`] = `
       <div
         class="mocked-styled-0 el-key-value-icon-wrap"
       >
-        email
+        <svg
+          class="el-icon"
+          color="primary"
+          data-size="md"
+          fill="currentColor"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2m-1.41 2L12 12.59 5.41 6zM4 18V7.41L10.59 14a2 2 0 0 0 2.82 0L20 7.41V18z"
+          />
+        </svg>
       </div>
       <div
         class="el-flex-container el-flex-column"
@@ -60,7 +93,25 @@ exports[`KeyValueList component > should match a snapshot 1`] = `
       <div
         class="mocked-styled-0 el-key-value-icon-wrap"
       >
-        car
+        <svg
+          class="el-icon"
+          color="primary"
+          data-size="md"
+          fill="currentColor"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M6.5 15.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4M19.5 13.5a2 2 0 1 1-4 0 2 2 0 0 1 4 0"
+          />
+          <path
+            clip-rule="evenodd"
+            d="M21 8h-.28l-1.09-3.27A4 4 0 0 0 15.84 2H8.16a4 4 0 0 0-3.79 2.74L3.28 8H3a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2v1a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-1h8v1a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-1a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2M6.26 5.37A2 2 0 0 1 8.16 4h7.68a2 2 0 0 1 1.9 1.37L18.61 8H5.39zM6 20H5v-1h1zm13 0h-1v-1h1zM3 17v-7h18v7z"
+            fill-rule="evenodd"
+          />
+        </svg>
       </div>
       <div
         class="el-flex-container el-flex-column"
@@ -84,7 +135,20 @@ exports[`KeyValueList component > should match a snapshot 1`] = `
       <div
         class="mocked-styled-0 el-key-value-icon-wrap"
       >
-        calendar
+        <svg
+          class="el-icon"
+          color="primary"
+          data-size="md"
+          fill="currentColor"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M19 4h-1V3a1 1 0 1 0-2 0v1H8V3a1 1 0 0 0-2 0v1H5a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3m1 15a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-9h16zm0-11H4V7a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1z"
+          />
+        </svg>
       </div>
       <div
         class="el-flex-container el-flex-column"
@@ -108,7 +172,20 @@ exports[`KeyValueList component > should match a snapshot 1`] = `
       <div
         class="mocked-styled-0 el-key-value-icon-wrap"
       >
-        property
+        <svg
+          class="el-icon"
+          color="primary"
+          data-size="md"
+          fill="currentColor"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="m22.923 9.165-10.5-7a1 1 0 0 0-1.1 0l-10.45 7a1 1 0 0 0 1.1 1.66l.9-.63v11.3a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-11.3l.95.63a.94.94 0 0 0 .55.17 1 1 0 0 0 .55-1.83m-4.05 11.33h-14V8.865l7-4.67 7 4.67z"
+          />
+        </svg>
       </div>
       <div
         class="el-flex-container el-flex-column"
@@ -132,7 +209,20 @@ exports[`KeyValueList component > should match a snapshot 1`] = `
       <div
         class="mocked-styled-0 el-key-value-icon-wrap"
       >
-        edit
+        <svg
+          class="el-icon"
+          color="primary"
+          data-size="md"
+          fill="currentColor"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3 16.172v5h5l12.59-12.59a2 2 0 0 0 0-2.82l-2.18-2.18a2 2 0 0 0-2.82 0zm4.17 3H5v-2.17l8.41-8.42 2.18 2.18zm7.66-12L17 5.002l2.17 2.17L17 9.342z"
+          />
+        </svg>
       </div>
       <div
         class="el-flex-container el-flex-column"
@@ -167,7 +257,27 @@ exports[`KeyValueList component > should match a snapshot for a grid 1`] = `
         <div
           class="mocked-styled-0 el-key-value-icon-wrap"
         >
-          user
+          <svg
+            class="el-icon"
+            color="primary"
+            data-size="md"
+            fill="currentColor"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M8.38 8.88c0-2 1.62-3.624 3.62-3.63a3.64 3.64 0 0 1 3.63 3.63c-.003.617-.06 1.233-.17 1.84A3.58 3.58 0 0 1 12 14a3.58 3.58 0 0 1-3.46-3.28 10.5 10.5 0 0 1-.16-1.84M12 12c.91 0 1.36-.82 1.49-1.6q.134-.754.14-1.52a1.63 1.63 0 1 0-3.25 0 8.7 8.7 0 0 0 .13 1.52c.13.78.58 1.6 1.49 1.6"
+              fill-rule="evenodd"
+            />
+            <path
+              clip-rule="evenodd"
+              d="M1 12C1 5.925 5.925 1 12 1a11 11 0 0 1 11 11c0 6.075-4.925 11-11 11S1 18.075 1 12m11 5c-2.75 0-4.73 1.27-5 2.49h.06a8.93 8.93 0 0 0 9.94 0c-.27-1.22-2.25-2.49-5-2.49m0-2c3.07 0 5.62 1.28 6.55 3.12h.03a9 9 0 1 0-13.16 0C6.38 16.28 8.93 15 12 15"
+              fill-rule="evenodd"
+            />
+          </svg>
         </div>
         <div
           class="el-flex-container el-flex-column"
@@ -194,7 +304,20 @@ exports[`KeyValueList component > should match a snapshot for a grid 1`] = `
         <div
           class="mocked-styled-0 el-key-value-icon-wrap"
         >
-          email
+          <svg
+            class="el-icon"
+            color="primary"
+            data-size="md"
+            fill="currentColor"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2m-1.41 2L12 12.59 5.41 6zM4 18V7.41L10.59 14a2 2 0 0 0 2.82 0L20 7.41V18z"
+            />
+          </svg>
         </div>
         <div
           class="el-flex-container el-flex-column"
@@ -221,7 +344,25 @@ exports[`KeyValueList component > should match a snapshot for a grid 1`] = `
         <div
           class="mocked-styled-0 el-key-value-icon-wrap"
         >
-          car
+          <svg
+            class="el-icon"
+            color="primary"
+            data-size="md"
+            fill="currentColor"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M6.5 15.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4M19.5 13.5a2 2 0 1 1-4 0 2 2 0 0 1 4 0"
+            />
+            <path
+              clip-rule="evenodd"
+              d="M21 8h-.28l-1.09-3.27A4 4 0 0 0 15.84 2H8.16a4 4 0 0 0-3.79 2.74L3.28 8H3a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2v1a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-1h8v1a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-1a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2M6.26 5.37A2 2 0 0 1 8.16 4h7.68a2 2 0 0 1 1.9 1.37L18.61 8H5.39zM6 20H5v-1h1zm13 0h-1v-1h1zM3 17v-7h18v7z"
+              fill-rule="evenodd"
+            />
+          </svg>
         </div>
         <div
           class="el-flex-container el-flex-column"
@@ -248,7 +389,20 @@ exports[`KeyValueList component > should match a snapshot for a grid 1`] = `
         <div
           class="mocked-styled-0 el-key-value-icon-wrap"
         >
-          calendar
+          <svg
+            class="el-icon"
+            color="primary"
+            data-size="md"
+            fill="currentColor"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M19 4h-1V3a1 1 0 1 0-2 0v1H8V3a1 1 0 0 0-2 0v1H5a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3m1 15a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-9h16zm0-11H4V7a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1z"
+            />
+          </svg>
         </div>
         <div
           class="el-flex-container el-flex-column"
@@ -275,7 +429,20 @@ exports[`KeyValueList component > should match a snapshot for a grid 1`] = `
         <div
           class="mocked-styled-0 el-key-value-icon-wrap"
         >
-          property
+          <svg
+            class="el-icon"
+            color="primary"
+            data-size="md"
+            fill="currentColor"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="m22.923 9.165-10.5-7a1 1 0 0 0-1.1 0l-10.45 7a1 1 0 0 0 1.1 1.66l.9-.63v11.3a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-11.3l.95.63a.94.94 0 0 0 .55.17 1 1 0 0 0 .55-1.83m-4.05 11.33h-14V8.865l7-4.67 7 4.67z"
+            />
+          </svg>
         </div>
         <div
           class="el-flex-container el-flex-column"
@@ -302,7 +469,20 @@ exports[`KeyValueList component > should match a snapshot for a grid 1`] = `
         <div
           class="mocked-styled-0 el-key-value-icon-wrap"
         >
-          edit
+          <svg
+            class="el-icon"
+            color="primary"
+            data-size="md"
+            fill="currentColor"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3 16.172v5h5l12.59-12.59a2 2 0 0 0 0-2.82l-2.18-2.18a2 2 0 0 0-2.82 0zm4.17 3H5v-2.17l8.41-8.42 2.18 2.18zm7.66-12L17 5.002l2.17 2.17L17 9.342z"
+            />
+          </svg>
         </div>
         <div
           class="el-flex-container el-flex-column"

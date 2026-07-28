@@ -1,7 +1,17 @@
 import { cx } from "@linaria/core";
 import React, { FC, HTMLAttributes, ReactNode } from "react";
 
+// imports all icons to support v4 string icon names (e.g. icon="contact")
+import * as allIcons from "#src/icons/docs/all-icons";
 import { InfoIcon } from "#src/icons/info";
+import type { IconProps } from "#src/icons/make-icon/make-icon";
+
+const resolveDeprecatedIcon = (icon: ReactNode): ReactNode => {
+  if (typeof icon !== "string") return icon;
+  const componentName = icon.charAt(0).toUpperCase() + icon.slice(1) + "Icon";
+  const IconComponent = (allIcons as unknown as Record<string, FC<IconProps>>)[componentName];
+  return IconComponent ? <IconComponent size="md" color="primary" /> : null;
+};
 
 import { Intent, getIntentClassName } from "../../helpers/intent";
 import { elIsActive } from "../../styles/deprecated-states";
@@ -56,7 +66,7 @@ export const PersistentNotification: FC<PersistentNotificationProps> = ({
         data-testid="close-icon"
         onClick={() => onExpansionToggle && onExpansionToggle(!isExpanded)}
       >
-        {icon}
+        {resolveDeprecatedIcon(icon)}
       </div>
       <div aria-live="polite" className={elPnContent}>
         {children}

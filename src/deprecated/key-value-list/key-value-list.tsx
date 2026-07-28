@@ -1,12 +1,23 @@
 import { cx } from "@linaria/core";
 import React, { FC, HTMLAttributes, ReactNode } from "react";
 
+// imports all icons to support v4 string icon names (e.g. iconName="contact")
+import * as allIcons from "#src/icons/docs/all-icons";
+import type { IconProps } from "#src/icons/make-icon/make-icon";
+
 import { Intent } from "../../helpers/intent";
 import { elTextEllipsis } from "../../styles/deprecated-typography";
 import { ColHalf, Col, Grid } from "../grid";
 import { FlexContainer } from "../layout";
 import { TextSM, TextXS } from "../typography";
 import { ElKeyValueIconWrap, ElKeyValueListWrap } from "./__styles__";
+
+const resolveDeprecatedIcon = (icon: ReactNode): ReactNode => {
+  if (typeof icon !== "string") return icon;
+  const componentName = icon.charAt(0).toUpperCase() + icon.slice(1) + "Icon";
+  const IconComponent = (allIcons as unknown as Record<string, FC<IconProps>>)[componentName];
+  return IconComponent ? <IconComponent size="md" color="primary" /> : null;
+};
 
 /** @deprecated */
 export interface KeyValueItem {
@@ -57,7 +68,7 @@ export const KeyValueContent: FC<KeyValueContentProps> = ({
   item: { intent, iconName, icon, value, key, textEllipsis },
 }) => (
   <>
-    <KeyValueIconWrap>{icon ? icon : iconName ? iconName : ""}</KeyValueIconWrap>
+    <KeyValueIconWrap>{resolveDeprecatedIcon(icon ?? iconName ?? "")}</KeyValueIconWrap>
     <FlexContainer isFlexColumn>
       <TextXS className={cx(textEllipsis && elTextEllipsis)} hasGreyText>
         {key}
