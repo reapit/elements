@@ -653,12 +653,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@changesets/get-github-info@npm:1.0.0-next.3":
-  version: 1.0.0-next.3
-  resolution: "@changesets/get-github-info@npm:1.0.0-next.3::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40changesets%2Fget-github-info%2F-%2Fget-github-info-1.0.0-next.3.tgz"
+"@changesets/get-github-info@npm:1.0.0-next.4":
+  version: 1.0.0-next.4
+  resolution: "@changesets/get-github-info@npm:1.0.0-next.4::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40changesets%2Fget-github-info%2F-%2Fget-github-info-1.0.0-next.4.tgz"
   dependencies:
     dataloader: "npm:^2.2.3"
-  checksum: 10/459e9e3c4bbd30375fb55586f148a03a3951e6b312eb63d56b8bba61c71681308ea229955b4e9295dadf84dcc4d629bfd2ba98ce3b0dc732fd59a9ed389a7b48
+  checksum: 10/90098f97ccdc34bf11f41b1254eb1c0609a47d65bae9b956ca75290f1311d72509ba91921885977fed56fbb6ad864fe5c919f2ffc605ee09f1b38841555bc8c7
   languageName: node
   linkType: hard
 
@@ -2631,7 +2631,7 @@ __metadata:
   resolution: "@reapit/elements@workspace:."
   dependencies:
     "@changesets/cli": "npm:^2.31.1"
-    "@changesets/get-github-info": "npm:1.0.0-next.3"
+    "@changesets/get-github-info": "npm:1.0.0-next.4"
     "@changesets/types": "npm:^6.1.0"
     "@figma/code-connect": "npm:^1.4.9"
     "@linaria/core": "npm:8.1.1"
