@@ -1,204 +1,188 @@
-# File Uploader Architecture
+# FileUploader Architecture
 
 ## Overview
 
-The file-uploader family has five layers, each independently usable and independently testable:
+The file-uploader family handles file selection, upload orchestration, and
+per-file progress display. It comprises five layers: `FileInput` (native file
+selection primitive), `FileUploadQueue` (upload lifecycle store), `FileCard`
+and `MediaCard` (presentational item components), `FileUploader.File` (bridge
+from queue item to presentational component), and `FileUploader` (compound
+root that provides context).
 
-- **`FileInput`** (`src/utils/file-input/`) — the native primitive. Owns file selection mechanics only: a real `<input type="file">`, drag-and-drop, `accept`/`multiple`/`required`, custom size/count limits. No label, no help/error text, no upload orchestration, no item rendering. Lives in `src/utils/`, not `src/core/`, since it has no Figma component of its own — unlike `FileCard`/`MediaCard`, which do have Figma frames but stay private to `FileUploader` for a different reason (their upload-status behaviour is meaningless outside an active queue). `FileInput` has no such coupling and is designed to be used standalone (e.g. a single-avatar-upload trigger with no progress UI), so it stays public — just not a `core` component, the same way `HTMLDialog` (`src/utils/dialog/`) is a public, Figma-less native-element primitive that `Dialog`/`Drawer` build on.
-- **`FileUploadQueue`** (`src/core/file-uploader/`) — an external store class that owns the upload lifecycle for a set of files (status, progress, abort). It does not run validation itself: a consumer runs `validateFiles` and reports the result via `reportValidity`, which is also what starts uploading a newly-valid item. No DOM knowledge, no rendering. See "Validation is a consumer concern, not the queue's" below.
-- **`FileUploader.FileCard` / `FileUploader.MediaCard`** (private subcomponents inside `src/core/file-uploader/`, not separately exported) — presentational item rows. No knowledge of the queue or of `FileUploadQueue.Item` — just plain props.
-- **`FileUploader.File`** (`src/core/file-uploader/file/`) — the piece that bridges the two above: takes a `FileUploadQueue.Item` directly, picks `FileCard` vs `MediaCard`, owns that item's thumbnail object URL, and resolves `validationError`/`errorMessage` into the `errorMessage` string those two presentational components render. This is the only place a per-item reason code becomes copy — see "`FileUploader.File`" below.
-- **`FileUploader`** (`src/core/file-uploader/`) — the compound composition: a context provider (the queue instance, `disabled`, `locale`) around a control (`FileUploader.ButtonControl` or `FileUploader.DropzoneControl`) + `FileUploader.FileList`. Renders no chrome of its own. Validation constraints (`accept`/`multiple`/`required`/`minFiles`/`maxFiles`/`maxFileSize`/`maxTotalSize`) are **not** shared through this context — they live on whichever control is rendered, since `Files` never needs them (see "`FileUploader`" below).
-- **`FileUploader.ButtonInput` / `FileUploader.DropzoneInput`** (`src/core/file-uploader/button/`, `src/core/file-uploader/dropzone/`) — the two persistent trigger primitives: a real `Button` and a custom-styled dropzone, respectively, each wired to its own visually-hidden `<input type="file">` via the shared `useFileUploaderInput` hook. Neither is independently exported from `index.ts` — both are meaningless outside a `FileUploader` context, the same way `FileCard`/`MediaCard` aren't — but a consumer already inside one can still import and render either directly.
-- **`FileUploader.ButtonControl` / `FileUploader.DropzoneControl`** (`src/core/file-uploader/button/`, `src/core/file-uploader/dropzone/`) — `FormControl` chrome (label/help text/error text) composed _around_ `ButtonInput`/`DropzoneInput` respectively, rather than the other way round — see "Composition is inverted" below. These are the pieces that play the `*Control` role described below; each exists as its own subcomponent, rather than being folded into `FileUploader` itself, specifically so help/error text can sit directly below the input — ahead of a sibling `FileUploader.FileList` — instead of after both (see "Labelling" below).
+## Component layers
 
-This mirrors an existing pattern in this codebase: `Autocomplete` (primitive) vs. `AutocompleteControl` (primitive + `FormControl` + convenience wiring, e.g. auto-rendered `SelectionChips`). `FileInput` plays the role `Autocomplete` plays; `FileUploader.ButtonControl`/`FileUploader.DropzoneControl` play the role `AutocompleteControl` plays. Unlike `AutocompleteControl`, this `*Control` role isn't the top-level compound component here — `FileUploader` sits above it purely as a context provider, because (unlike `Autocomplete`'s fixed `Autocomplete` + `SelectionChips` layout) `FileUploader`'s composition is consumer-arranged: a control and `Files` are ordered as siblings by whoever writes the JSX, not laid out internally by one component. `FileUploader` itself is deliberately **not** named `FileUploadControl` — that would overload this codebase's existing `*Control` meaning (primitive + `FormControl`) with a second, different meaning (queue/orchestration layering). `FileUploader` already matches the Figma component name and fills the top-level compound role without borrowing the suffix; `FileUploader.ButtonControl`/`FileUploader.DropzoneControl` are where the `*Control` meaning actually lives.
+**`FileInput`** (`src/utils/file-input/`) is the native file selection
+primitive. It owns file selection mechanics only — a real
+`<input type="file">`, drag-and-drop, and custom size and count constraints.
+It has no knowledge of upload queues or item rendering. It lives in
+`src/utils/` because it has no Figma component of its own and is designed for
+use outside a `FileUploader` context (for example, a single-avatar-upload
+trigger with no progress UI).
 
-### Composition is inverted
+**`FileUploadQueue`** (`src/core/file-uploader/`) is an external store class
+that owns the upload lifecycle for a set of files: status, progress, and
+abort. It has no DOM knowledge and no notion of validation constraints. One
+instance is created per `FileUploader`, not shared globally, because uploads
+are scoped to a single form instance.
 
-Unlike `AutocompleteControl` — which _encapsulates_ `Autocomplete`, hiding it behind its own curated prop subset — `FileUploader`'s controls invert this: `FileUploaderButtonInput`/`FileUploaderDropzoneInput` are the base components, and `FileUploaderButtonControl`/`FileUploaderDropzoneControl` compose them with `FormControl`, forwarding each input's full native interface unpicked. An earlier version of this API had one `FileUploaderControl` encapsulating both triggers behind a single `variant` prop (`'button' | 'compact' | 'large'`), curating each trigger's own interface down to a shared `icon`/`children`/`secondaryText` subset. That was reverted: `ButtonInput`'s `Button` surface (`variant`/`useLinkStyle`/`iconLeft`/etc.) and `DropzoneInput`'s own surface (`icon`/`children`/`secondaryText`) don't overlap enough to curate into one shared subset without losing access to either's distinguishing props — a consumer wanting `Button`'s `useLinkStyle` had to bypass the whole `Control` layer to get it. Two separate control components, each composing its own input's full interface with no picking required, avoids that trade-off entirely. This is also why there's no shared `variant` prop across the two anymore — a consumer picks `FileUploader.ButtonControl` or `FileUploader.DropzoneControl` directly, the same way `FileCard`/`MediaCard` are picked as separate components rather than variants of one.
+**`FileUploader.FileCard`** and **`FileUploader.MediaCard`** are private
+presentational components inside `src/core/file-uploader/`. They render
+upload-status-specific UI (queued, uploading, processing, error, progress,
+remove) and have no knowledge of `FileUploadQueue` or its items. They are not
+exported because their upload-status behaviour is meaningless outside an active
+queue.
 
-That same reversal is also why `FormControl`'s own `size` (label/help/error text size) is a plain, independent prop on both controls rather than derived from anything else. An earlier version derived it from the old omnibus `variant` (`'button'`/`'compact'` → `'medium'`, `'large'` → `'large'`), which silently coupled two unrelated decisions: which trigger shape a form needs (a design decision about how much space the uploader should occupy) and how large its label/help/error text should render (a decision that should match whatever size scale the _rest_ of the surrounding form is using, independent of the trigger's shape). `FileUploaderButtonControl` additionally unifies its own `size` with `Button`'s own visual size — matching `TextControl`/`SelectControl`'s precedent, since `Button`'s size is a real, explicitly-chosen prop on the same small/medium/large scale as `FormControl`'s, not an unrelated concept the way `variant` was.
+**`FileUploader.File`** is the bridge between a raw queue item and the
+presentational components. It picks `FileCard` or `MediaCard`, owns the
+item's thumbnail object URL, resolves a validation error or upload error into
+the error message those components render, and renders a hidden form input for
+each successfully uploaded item.
 
-A consumer needing to configure a trigger beyond what its control exposes (which, per the above, is the trigger's _entire_ interface) never actually needs to bypass the control for that reason. The remaining case for rendering `FileUploaderButtonInput`/`FileUploaderDropzoneInput` directly, without going through `FileUploaderButtonControl`/`FileUploaderDropzoneControl`, is a consumer supplying their own `FormControl` composition entirely (e.g. non-standard label placement) — both accept the exact same queue-wiring props (`accept`/`maxFiles`/`onChange`/etc., via the shared `useFileUploaderInput` hook) either way.
+**`FileUploader`** (`src/core/file-uploader/`) is the compound root. It
+provides context — the queue instance, `disabled`, and `locale` — to its
+descendants and renders no chrome of its own. Consumers arrange a control
+(`FileUploader.ButtonControl` or `FileUploader.DropzoneControl`) and
+`FileUploader.FileList` as siblings.
 
-## Why the split
+## Functional requirements
 
-Each layer solves a problem the others don't need to know about:
+### 1. Invalid files do not block submission
 
-- `FileInput` doesn't need to know an upload queue exists. It can be used alone for simple cases (e.g. a single-avatar-upload trigger with no progress UI).
-- `FileUploadQueue` doesn't need to know a DOM input exists. It's testable with plain unit tests, no browser element required.
-- `FileCard`/`MediaCard` don't need to know where their data came from. They're pure presentational components.
-- `FileUploaderButtonInput`/`FileUploaderDropzoneInput` — via the `useFileUploaderInput` hook they share — are the **only** places allowed to know about both `FileInput` and `FileUploadQueue` — see "Wiring" below. `FileUploaderButtonControl`/`FileUploaderDropzoneControl` don't call the hook themselves; they compose `FormControl` around whichever input already does.
+An invalid file — one that fails a per-file constraint such as type or size —
+is recorded in the queue with a validation error but does not affect whether
+the form can be submitted. Only field-level validity, surfaced through
+`FileInput`'s native constraint validation API, impacts submission.
 
-## `FileInput`
+This means a consumer can submit a form that contains invalid queued files.
+Invalid files do not count towards field-level validity and are not included
+in form data on submission.
 
-- Real `<input type="file">`, ref-forwarded. `value`/`defaultValue` are `File[]`, and `onChange` is a **literal native `ChangeEvent`**, forwarded as-is — same convention as `TextInput`. This is deliberate: it means RHF's `register()`/`Controller` and Formik's file-input handling work exactly as they would against a bare `<input type="file" multiple>`, with no bespoke event shape to design, document, or get wrong. See "Native form integration" below.
-- Browsers only let script clear a file input's `.value` to `""`, never set it to a chosen file (security restriction) — a genuinely DOM-controlled file input doesn't exist. "Controlled" here means `FileInput`'s own derived `File[]` state is authoritative, not the DOM element; the native input is an event source, not something `FileInput` drives.
-- Drag-and-drop is unified into the _same_ native `change` path rather than given a second, bespoke event shape: on `drop`, the dropped `DataTransfer`'s files are assigned onto the real input's `.files`, then a genuine `change` event is dispatched on that input. Browse and drop are indistinguishable downstream — one event, one contract.
-- `accept`/`multiple`/`required` are native attributes, but **the browser does not enforce `accept`/`multiple` against drag-and-drop** — they only filter the OS picker dialog. `validateFiles` re-checks both on the drop path so behaviour doesn't differ by entry point.
-- `multiple`/`required` are not constraints `validateFiles` knows about directly — `FileInput` maps them onto `minFiles`/`maxFiles` before validating: `multiple` (when `maxFiles` isn't set) resolves to `maxFiles=Infinity` (vs. `maxFiles=1` when unset/`false`), and `required` (when `minFiles` isn't set) resolves to `minFiles=1` (vs. `minFiles=0` when unset). An explicit `minFiles`/`maxFiles` always wins over these derived defaults — e.g. `multiple` + `maxFiles={2}` still resolves to `maxFiles=2`, not `Infinity`. `required` is still also forwarded as a native attribute in its own right (`:required`/`aria-required`/no-JS form blocking) — the `minFiles` default is an addition on top of that, not a replacement for it. This keeps `validateFiles`'s `Rules` purely mechanical (`accept`/`maxFileSize`/`minFiles`/`maxFiles`/`maxTotalSize`, no `multiple`/`required`) — see "Validation" below.
-- Custom constraints (`minFiles`/`maxFileSize`/`maxFiles`/`maxTotalSize`) are surfaced via `setCustomValidity()`, matching `number-input`'s `useRangeValidation` (`src/core/number-input/use-range-validation.ts`) — so `reportValidity()`/native submit-blocking behaves consistently whether the violation is native or custom. Validity is a pure function of the current `files`/`value`, independent of how it arrived — a browse round for uncontrolled usage, or a controlled consumer's own value. This is what lets a controlled `FileInput` reflect a source of truth it doesn't own (see "Wiring" below): no bespoke resync-and-revalidate logic is needed on the consumer's side, only handing in the current value.
-- A `children`-as-function render prop exposes the input's live state — the current files, drag/focus state, `disabled`, and a callback to open the picker — letting a consumer fully replace the dropzone's rendered content while still getting all of `FileInput`'s native mechanics (drag-and-drop, validation) for free. `FileUploader`'s single-select-media composition exercises this for real — see "Single-select composition" below — and it remains available as a general escape hatch for any other bespoke dropzone content, without needing a bespoke component.
-- `FileInput` renders **no wrapping `<label>`** — it's a bare, unlabelled native input plus whatever `children` returns. This is deliberate, not an oversight: a native input's accessible name is the concatenation of the text of _every_ `<label>` associated with it (implicit wrapping or explicit `htmlFor`), so if `FileInput` wrapped itself in a `<label>`, an outer, explicit `<label htmlFor>` supplied by a consumer (see "Wiring" below) would get its text silently concatenated with whatever `FileInput`'s own content says — corrupting the accessible name rather than cleanly labelling the field. The picker-opening callback exposed above (a no-op while `disabled`) replaces the wrapping `<label>`'s implicit forwarding: a consumer wires it onto whichever specific element should trigger browsing (e.g. a button), rather than the whole rendered subtree, so other interactive content in the same `children` output — a remove button on an already-selected file, the single-select `Replace` overlay's sibling controls — isn't accidentally caught up in opening the picker too.
+### 2. Validation constraints belong with the control/input
 
-## `FileUploadQueue`
+Constraints such as `accept`, `multiple`, `required`, `minFiles`, `maxFiles`,
+`maxFileSize`, and `maxTotalSize` are props on whichever control is rendered
+— `FileUploader.ButtonControl`, `FileUploader.DropzoneControl`, or
+`FileUploader.SingleSelectMediaControl` — not on `FileUploader` itself and
+not shared via context.
 
-An external store class — same shape as the existing toaster store (`src/core/toaster/store.ts`: mutable state + pub/sub + `getSnapshot`/`subscribe` for `useSyncExternalStore`), but instantiated **per `FileUploader`**, not as a global singleton (uploads are scoped to one form instance, unlike toasts).
+The reason is that constraints are tightly coupled to which input is in use.
+`multiple`, for example, is not valid for `FileUploader.SingleSelectMediaControl`.
+If constraints lived on `FileUploader`, a consumer could pass `multiple={true}`
+and compose in `FileUploader.SingleSelectMediaControl`, producing a
+contradictory configuration the component cannot detect or reject. Placing
+constraints on the control that renders the actual input makes contradictory
+configurations impossible.
 
-**Item lifecycle**: `queued → uploading (progress?: number) → processing? → uploaded`, with `error` reachable only from `uploading`/`processing` — an actual upload failure. Validation-rejected files are **not** a lifecycle state; see "Validation as a projection, not a status" below.
+### 3. `FileUploadQueue` records validity; it does not enforce it
 
-- `progress` is optional. Some `onUpload` implementations can't report it (`fetch` cannot report upload progress the way XHR's `upload.onprogress` can) — treat `undefined` as indeterminate. Which loading primitive renders (circular progress ring vs. spinner) is driven by whether `progress` is a number, not by which status the item is in.
-- `processing` is optional and **consumer-driven**, not inferred — a helper the queue exposes that `onUpload` calls before resolving, for backends with a post-upload server-side step (virus scan, transcoding, etc.). Whether a given backend has this step is unknowable in advance, so the queue never guesses.
-- Progress snapshots are throttled/coalesced — high-frequency XHR progress events would otherwise re-render every `useSyncExternalStore` subscriber excessively.
-- A delayed-loading-indicator flag (`minLoadingIndicatorDelayMs`, default ~300ms) avoids indicator flash on fast operations: a per-item `isLoadingIndicatorVisible` boolean only flips true if the item is still `uploading`/`processing` after the delay elapses. `FileCard`/`MediaCard` just read this boolean — no timer logic in the presentational layer.
-- `getFileId(result)` computes `item.fileId` once, at the moment `onUpload` resolves. `FileUploadQueue` also retains the raw `item.result`, for consumers who need to look up richer data by ID later (see "Native form integration").
-- The queue is **externally creatable and injectable**: `FileUploader` accepts an optional `queue` prop (an instance created via the exported `useFileUploadQueue` hook), defaulting to creating one internally when omitted — same controlled/uncontrolled convention as every other input in this codebase, just applied to a store instance instead of a primitive value. This is what lets a consumer's submit handler read the same instance `FileUploader` is rendering from, entirely outside React's render cycle. `FileUploadQueue` itself is exported only as a type (for typing that `queue` prop) — the class is never exported as a value, so a consumer can't accidentally construct one at module scope and share a single instance across every render/consumer of their component; `useFileUploadQueue` forces construction inside a component, scoped per mount, matching `useState`'s own guarantee.
-- **No retry.** `error` (from an `onUpload` rejection) has no resume affordance — `FileCard`/`MediaCard` render only a remove button in that state, no retry button. The only way back is removing the item and re-adding the file, which starts a genuinely new attempt (new `id`, no carried `fileId`). This keeps `error` unambiguous: it means "this upload attempt failed," full stop — see "Validation as a projection, not a status" below for why that matters.
+The queue does not run validation and has no knowledge of validation
+constraints. A consumer runs validation against newly picked files and reports
+the results to the queue. The queue records the outcome per item for two
+purposes:
 
-### Validation is a consumer concern, not the queue's
+1. To prevent a queued, invalid file from starting to upload.
+2. To give consumers a way to observe validation results outside the component
+   — for example, by holding a reference to an externally-supplied queue
+   instance and reading its state in a submit handler.
 
-The queue's own state is upload lifecycle only. It has no notion of `accept`/`maxFiles`/`maxFileSize`/`maxTotalSize` at all, and never calls `validateFiles` itself:
+Per-file constraint violations (type mismatch, file too large) are stored as a
+validation error on the affected item. Selection-level violations (too many
+files, total size exceeded) are surfaced through `FileInput`'s own constraint
+validation API and have no representation in the queue, because they are facts
+about the accumulated selection, not about any individual file.
 
-- **`addFiles(files)`** only enqueues — every new item starts `queued` and stays there, whatever it contains. A newly-added item never starts uploading from `addFiles` alone. The queue also exposes a separate **`replaceFiles(files)`**, for single-select replace semantics (see "Single-select composition" below and "Wiring" below) — `useFileUploaderInput`, not the queue, decides which of the two to call, since that decision depends on `maxFiles`/`multiple`, constraints the queue itself has no notion of.
-- **`reportValidity(rejections)`** is how a consumer feeds validation results back in. `useFileUploaderInput`'s `handleChange` runs `validateFiles` itself against the files from that round's pick, then calls `queue.reportValidity(result.rejected)`. The queue sets `validationError` on every item matching a rejection's `file`, then starts uploading any `queued` item left without one — this is the one thing that transitions a queued file to uploading, and effectively replaces `addFiles`'s old auto-upload behaviour.
-- **Per-item only, via a `validationError` field** — one of a small set of reason codes (e.g. a type mismatch, a file-size overflow), named after the DOM's native `ValidityState` convention (`typeMismatch`, `rangeOverflow`). `accept`/`maxFileSize` are intrinsic to one file, independent of the rest of the selection, so a rejection reported for one file is never revisited as a side effect of another file being added or removed — only a fresh `reportValidity` call (i.e. a new pick) ever sets it. Building the reason into a user-facing string is deliberately **not** the queue's job — see "`FileUploader.File`" below.
-- **`minFiles`/`maxFiles`/`maxTotalSize` overflow/underflow has no representation in the queue at all** — it's a fact about the accumulated selection, not about any file, and the queue doesn't track constraints to evaluate it against. It's surfaced entirely through `FileInput`'s own `setCustomValidity`, computed by `useFileInputValidity` from the same `value={queue.getFiles()}` the queue already drives — a second, queue-level validation result would just duplicate that. See "Effect on other layers" below.
-- **Applies uniformly regardless of lifecycle stage, and never has a side effect on lifecycle by itself**: an item that's `uploading`/`processing` never gets a `validationError` in practice, since `reportValidity` is only ever called with that round's freshly-picked files; an already-`uploaded` item keeps its `fileId`/`result` regardless. The only lifecycle effect `reportValidity` itself causes is starting the upload of a still-`queued`, newly-valid item, as above.
+### 4. The queue is externally creatable
 
-### Effect on other layers
+`FileUploader` creates a queue instance internally when none is supplied, but
+also accepts an externally created instance via a prop. This follows the same
+controlled/uncontrolled convention as every other input in this library,
+applied to a store instance rather than a primitive value.
 
-- **`FileUploaderButtonInput`/`FileUploaderDropzoneInput`**: driving `FileInput` with `value={queue.getFiles()}` still holds. `onChange` does two things in sequence: `queue.addFiles(newFiles, { maxFiles })` to enqueue, then `queue.reportValidity(validateFiles(newFiles, { accept, maxFileSize }).rejected)` to validate and, for anything that passes, start it uploading. `FileInput` itself still receives `accept`/`maxFiles`/`maxFileSize`/`maxTotalSize` directly, straight from props, for its own native `setCustomValidity`/`multiple` handling — independent of whatever the queue does with them.
-- **`FileUploader.File`**: an item with a current per-item `validationError` does **not** get a hidden `<input name={name}>`, even if `status === 'uploaded'` — an invalid item shouldn't contribute to `FormData` regardless of whether the bytes already made it to the server. A `maxFiles`/`maxTotalSize` overflow has no bearing on this at all — an uploaded item beyond either limit still gets its hidden input; native submit-blocking (via `FileInput`'s `setCustomValidity`) is what actually stops the form being submitted in that case.
-- **`FileUploader.File`**: resolves whichever of `status === 'error' ? errorMessage : validationError` is present into the single `errorMessage` string `FileCard`/`MediaCard` render — see "`FileUploader.File`" below. This is what makes the two error states look identical to the user even though only one of them is a `status`. A `maxFiles`/`maxTotalSize` overflow plays no part here at all — the queue doesn't know about it, and no per-card treatment exists for it.
+The reason is that a submit handler needs to read the same queue instance that
+`FileUploader` renders from. An external instance makes that possible without
+any bespoke integration code. The queue class itself is not exported as a
+value; consumers create instances through a hook, which scopes construction
+to a component mount and prevents accidentally sharing one instance across
+multiple renders.
 
-## `FileUploader.FileCard` / `FileUploader.MediaCard`
+### 5. `ButtonControl` and `DropzoneControl` are two separate components
 
-Two separate subcomponents — not one component with a `variant` prop — matching the Figma subcomponent boundary directly (Figma lists "File card" and "Media card" as siblings, not variants of one wrapper). This avoids a discriminated-union rendering problem (compact row vs. thumbnail tile don't share much layout) and keeps each component small and single-purpose.
+`FileUploader.ButtonControl` and `FileUploader.DropzoneControl` are distinct
+components rather than one component with a `variant` prop. The `Button`
+surface and the dropzone surface don't overlap enough to curate into a shared
+prop subset without losing trigger-specific props — a consumer needing
+`Button`'s `useLinkStyle`, for example, would have no way to reach it through
+a unified interface. Two separate components, each composing `FormControl`
+around its own trigger's full interface, avoid this trade-off entirely.
 
-Neither is independently exported. Both are plain presentational components, with no knowledge of `FileUploadQueue.Item`/`validationError` at all — with `FileUploader.File` as their only caller. Both render upload-status-specific state (queued/uploading/processing/error, progress, remove) that's meaningless without an active `FileUploadQueue` behind it — confirmed with design as uploader-specific behaviour, not general-purpose file-display UI. A read-only list of already-uploaded files (e.g. documents already attached to a record, with no active uploader present) is a different UI need entirely — a gallery/carousel for media, and a lighter-weight file-row variant for documents — not these components. That rules out the standalone-export path this doc originally proposed.
+`FormControl` chrome (label, help text, error text) sits directly on the
+control rather than on `FileUploader` itself, because help and error text must
+render between the input and the file list — not after both. Splitting the
+chrome into a control that is a sibling to `FileUploader.FileList` puts it in
+exactly the right place while leaving `FileUploader`'s consumer-arranged
+composition model untouched.
 
-- `FileCard`: compact single-line row. Works for any file type — the safe universal default.
-- `MediaCard`: thumbnail-forward tile, for images/video specifically.
-- Both share small **internal, non-exported** status label formatting (`getFileUploaderItemStatus`) and a remove button (`FileUploaderRemoveButton`) — implementation reuse, not a shared public interface. These live directly under `src/core/file-uploader/`, since both are private to the same component family. `getFileUploaderItemStatus` treats a present `errorMessage` as an error regardless of `status` — not gated on `status === 'error'` — since `FileUploader.File` passes it a resolved validation message for `queued`/`uploading`/`processing`/`uploaded` items too, not just genuine upload failures.
-- The circular progress ring and spinner are **`MediaCard`-only** — they render on its thumbnail overlay; `FileCard` has no thumbnail and shows `getFileUploaderItemStatus`'s `statusText` as plain text instead. They live under `src/core/file-uploader/media-card/`.
-- Figma treats "Media card" and "Media card [single select]" as genuinely separate components, not one component with a variant — so the thumbnail-plus-overlay markup they share (image, dimming overlay, progress ring/spinner, error badge, duration badge, remove button) is factored out into `FileUploaderMediaThumbnail` (`src/core/file-uploader/media-thumbnail/`), also private/non-exported, rather than adding a `variant` prop to `MediaCard` itself. `MediaCard` wraps `FileUploaderMediaThumbnail` with the list-item caption (filename/size) below it; the single-select card described in "Single-select composition" below wraps the same thumbnail with its own full-bleed, caption-less chrome instead.
+## Item lifecycle
 
-## `FileUploader.File`
-
-The bridge between a raw `FileUploadQueue.Item` and `FileCard`/`MediaCard`'s plain props. Given one `item`, it:
-
-- Picks `FileCard` vs `MediaCard` per the parent `FileUploader.FileList`'s `variant` prop, read from `FileUploaderFileListContext` — a single uploader-level decision applied to every item, not a per-file inference — so a custom `children` render function that still wants the default per-item look can render `<FileUploader.File item={item} />` for each item without re-deriving that choice itself.
-- Owns that one item's thumbnail object URL (`URL.createObjectURL`/`revokeObjectURL`), scoped to its own mount/unmount — simpler than the list-level, id-keyed `Map` this replaced, since each item is now its own component and React's unmount-on-removal does the cleanup that a shared map previously had to do by hand.
-- Renders whatever `errorText` it's given, verbatim — it never sees a `validationError` reason code or resolves one into copy itself. A consumer who needs validation-reason copy renders it themselves, passing the resolved string as `errorText` per item.
-- Renders its own hidden file input, for a successfully-uploaded, currently-valid item, when a form-field name is available — from `FileUploader.FileList`'s shared name (via `FileUploaderFileListContext`, so a custom `children` function doesn't have to re-pass it to every item) or from its own name, which takes precedence. This moved here from `FileUploader.FileList` itself (see "`FileUploader.FileList`" below) once `FileList` stopped doing any per-item rendering of its own — the hidden input is per-item state (`status`/`validationError`), so the component that already owns per-item rendering is the natural place for it.
-- Forwards the rest of its native input attributes onto that hidden input — the same `forwardRef`-plus-native-attributes convention `FileInput` itself uses (see "`FileInput`" above), so RHF's `register()`/`Controller` or Formik's `field` props can be spread directly onto a `FileUploader.File` instance to observe/control the hidden input, with no bespoke integration code. The attributes that make the input what it is (its `type`, its `value`, its rendered children) stay internally derived and aren't safe for a caller to override.
-
-Not independently exported from `index.ts` — attached to `FileUploader.File` the same way `Control`/`Input`/`Files` are, matching the rest of this compound API.
-
-## `FileUploader`
-
-Compound API: `<FileUploader>` provides context only — the queue instance, `disabled`, `locale` — around a control (`FileUploader.ButtonControl` or `FileUploader.DropzoneControl` — `FormControl` chrome composed around the matching persistent trigger) and `FileUploader.FileList`.
+A queue item moves through the following states:
 
 ```
-<FileUploader onUpload={uploadToS3} getFileId={(result) => result.id}>
-  <FileUploader.DropzoneControl accept="image/*" label="Documents" name="documents" multiple />
-  <FileUploader.FileList name="documentIds" variant="media">
-    {(items, queue) =>
-      items.map((item) => (
-        <FileUploader.File key={item.id} item={item} onRemove={() => queue.removeItem(item.id)} />
-      ))
-    }
-  </FileUploader.FileList>
-</FileUploader>
+queued → uploading → processing? → uploaded
+                  ↘
+                   error
 ```
 
-Label/help-text/error-text props live on `FileUploaderButtonControl`/`FileUploaderDropzoneControl`, not `FileUploader` or its context — nothing else in the family needs them (confirmed against `FileUploader.FileList`/`FileCard`/`MediaCard`, none of which read them; label/help/error text were only ever rendered by the one `FormControl`). `errorText` is a plain caller-supplied prop — neither control auto-derives it from the selection's aggregate validity, matching every other `*Control` in this codebase (`SelectControl`/`TextareaControl`/`AutocompleteControl`/`RadioGroupControl`, etc.), none of which auto-source error copy from their own internal validity. The queue has no aggregate validation state to derive it from in any case — see "Validation is a consumer concern, not the queue's" above. Each control generates its own label/help-text/error-text ids with `useId()` and passes them straight through to its own trigger (via `aria-describedby`/`aria-errormessage`/`aria-invalid`, forwarded on to the underlying native input) — no context hop needed. `FileUploader` itself keeps the one prop that constrains the whole uploader rather than just the input's chrome — unlike label/help/error text, it needs to wrap the input and file list together, so it's applied as a plain wrapping element around `children`, independent of either control's own `FormControl`.
+`error` is reachable only from `uploading` or `processing` and represents a
+failed upload attempt. `processing` is optional and consumer-driven, for
+backends with a post-upload server-side step such as virus scanning or
+transcoding. There is no retry: removing and re-adding the file starts a new
+attempt.
 
-- **Validation constraints (`accept`/`multiple`/`required`/`minFiles`/`maxFiles`/`maxFileSize`/`maxTotalSize`) live on whichever control is rendered, not `FileUploader`**: an earlier version of this API accepted them on `FileUploader` itself and shared them with the input via context, on the theory that `FileUploader.FileList` would also need `accept` to pick between `FileCard`/`MediaCard`. That's no longer the case — `FileList` takes its own explicit `variant` prop instead of inferring it from `accept` — so there's no cross-sibling need left, and constraints are ordinary props passed directly to whichever element renders the actual `<input>` (`FileUploader.ButtonControl`/`FileUploader.DropzoneControl`, which forward to `FileUploaderButtonInput`/`FileUploaderDropzoneInput` respectively). `FileUploaderContext.Value` carries only `queue`/`disabled`/`locale` as a result.
-- **`FileUploader.FileList`**: a pure subscribe-and-provide component — it renders no items of its own. It subscribes to the queue (`useSyncExternalStore`) and shares `variant`/`name` with `FileUploader.File` descendants via `FileUploaderFileListContext`, then renders `children` — either a fixed subtree, or a function `(items, queue) => ReactNode` given the current snapshot and the queue itself (so a consumer can wire `onRemove` via `queue.removeItem` without needing its own reference to the queue). `children` is required — there's no default per-item rendering to fall back to. A consumer wanting the default look renders `<FileUploader.File item={item} />` per item themselves, from the render function; one wanting something else builds its own row UI from `item.status`/`item.progress`/`item.validationError` directly, since `FileCard`/`MediaCard` themselves still aren't exported. This is deliberately more explicit than the previous default-rendering version: `FileList` no longer needs its own logic to infer `FileCard`-vs-`MediaCard` from `accept` (that's `FileUploader.File`'s job, driven by the `variant` it's handed either way, an explicit prop rather than an inference), and every composition — default or custom — goes through the exact same `children` path instead of two different code paths.
-- **`name` prop on `Files`**: shared with every `FileUploader.File` descendant via `FileUploaderFileListContext`, so each one renders its own hidden input for a successfully-uploaded item — see "`FileUploader.File`" above for where that rendering actually happens now.
-- **`onUpload`/`getFileId` live on `FileUploader`, not `Files`**: `getFileId` is conditionally required depending on what `onUpload` resolves to — required unless the resolved result is already a plain string ID, in which case it's an optional override. That conditional-required relationship only typechecks when both props are generic over the same result type on one component — it could not be enforced if `getFileId` lived on a separate `Files` element, since TypeScript can't constrain one JSX element's prop based on a sibling element's generic instantiation.
-
-### Wiring (`useFileUploaderInput`)
-
-`FileUploaderButtonInput`/`FileUploaderDropzoneInput` are the only places that know about both `FileInput` and `FileUploadQueue`, via a shared `useFileUploaderInput` hook (`src/core/file-uploader/use-file-uploader-input.ts`) each of them calls (`FileUploaderButtonControl`/`FileUploaderDropzoneControl` never call it themselves — they compose `FormControl` around whichever input already does):
-
-- Renders `FileInput` **controlled** by the queue's own snapshot, not uncontrolled: its `value` is always `queue.getFiles()`, and its `onChange` enqueues the newly-picked files onto the queue, then validates and reports the result back to the queue in the same call.
-- No bespoke resync effect is needed here. `FileInput`'s own effect (see "`FileInput`" above) already resyncs the native `.files` and recomputes `setCustomValidity` against whatever `value` currently is, as a pure function of that value — it doesn't care whether the value came from a browse round or a queue snapshot. Driving it with `value={queue.getFiles()}` means any change to the queue's file set — an addition or a removal — keeps the raw input's `.files` and validity in sync with the queue's true accumulated state, for free. This is simpler than, and supersedes, resyncing `.files` imperatively via a ref whenever the queue changes.
-- `useFileUploaderInput`, not the queue, owns running `validateFiles` — it's the only consumer that needs the result both to drive the queue (`reportValidity`) and, via the `accept`/`maxFileSize`/`maxFiles`/`maxTotalSize` props already forwarded to `FileInput`, to drive native `setCustomValidity`. There's no duplication between the two: the queue only ever sees the specific `rejected` list `useFileUploaderInput` computed for that round's pick, not the constraints themselves.
-- No effect is needed to keep anything in sync — none of `FileUploaderButtonInput`/`FileUploaderDropzoneInput` have one. A constraint prop changing on its own, without a file being picked, does nothing until the next `onChange`, since both `addFiles` and `reportValidity` are one-shot calls, not reactive state.
-- **`onChange` replaces rather than adds when the resolved selection is single-file**, mirroring `FileInput`'s own `multiple`→`maxFiles` default (see "`FileInput`" above): `useFileUploaderInput` resolves `maxFiles ?? (multiple ? Infinity : 1)` and calls `queue.replaceFiles` when that resolves to `1`, `queue.addFiles` otherwise. This has to duplicate (a simplified form of) `FileInput`'s own default, rather than reading it back off `FileInput`, because the two components never share state — `FileInput` computes its default internally, purely for its own `setCustomValidity`/native-attribute purposes, and exposes no way for a sibling to ask what it resolved to. Passing `multiple` through unresolved and leaving `useFileUploaderInput` to default it itself (instead of, say, always calling `addFiles` and asking `FileInput` to dedupe) keeps the queue's accumulated selection matching what a user actually sees in the picker's own single/multi-select mode.
-
-`FileInput` and `FileUploadQueue` never reference each other directly — `useFileUploaderInput` is the one place that bridges them.
-
-### Labelling
-
-`FileUploaderButtonControl`/`FileUploaderDropzoneControl` each compose `FormControl` (as `as="div"`, wrapping a **plain `<label>`/`htmlFor`** pair) the same way `TextControl`/`AutocompleteControl` do (`useId()` generates the input's `id`, `FormControl.Label` gets the matching `htmlFor`) — **not** the `as="fieldset"`/`as="legend"` pattern `CheckboxGroupControl`/`RadioGroupControl`/`ChipSelectControl` use. Those use `fieldset`/`legend` because they have _N_ real inputs under one group heading, with no single control a `<label for>` could target. `FileUploader` has exactly one `<input type="file">` — the same cardinality as `TextInput` — so, matching established file-upload UX (GOV.UK, USWDS both do this), clicking the field's label is expected to open the picker, which only a real `<label htmlFor>` gives you. This is also exactly why `FileInput` renders no `<label>` of its own (see "`FileInput`" above) — one input, one label, supplied by whichever control renders it.
-
-Each control exists as a subcomponent distinct from top-level `FileUploader` specifically because of where this chrome needs to sit. `FileUploader.FileList` is a sibling a consumer arranges after a control, not a fixed child inside it (see "Why the split" above) — so if `FormControl` were rendered by `FileUploader` itself, wrapping all of `children`, help/error text would land after both the input _and_ the file list, rather than directly below the input. Splitting `FormControl`'s rendering out into a control — a sibling to `Files`, not an ancestor of it — puts help/error text exactly between them, while leaving `FileUploader`'s consumer-arranged composition model otherwise untouched.
-
-## Trigger content
-
-`FileUploaderButtonInput` and `FileUploaderDropzoneInput` (`src/core/file-uploader/button/`, `src/core/file-uploader/dropzone/`) are two separate subcomponents, not one component behind a shared `variant` prop — the same reasoning as `FileCard`/`MediaCard` above: they render genuinely different layouts, not variations on one shape, and their content props don't overlap enough to curate into a shared subset (see "Composition is inverted" above). Neither is independently exported from `index.ts` — both are meaningless outside a `FileUploader` context, the same way `FileCard`/`MediaCard` aren't — but a consumer already inside one can still import and render either directly, bypassing `FileUploaderButtonControl`/`FileUploaderDropzoneControl` entirely.
-
-- **Both render as real `<button>` elements**, wired to `openFilePicker` from `RenderProps`, and both accept `isDraggingOver`/`disabled` from it — but deliberately not `isFocused`: unlike the escape-hatch `children` example in `FileInput`'s own stories, these are genuinely independently-focusable triggers, not a visual stand-in for the native input's own focus. This is also why both pin `tabIndex` to `-1` on the `FileInput` they each own internally, unconditionally rather than as an overridable default — the native input should never be a second, indicator-less tab stop ahead of the real trigger. Each subcomponent's own public `tabIndex` prop instead forwards to the visible `<button>`, so a consumer composing one into something that manages its own tab order (e.g. a roving-tabindex toolbar) controls the trigger that's actually focusable, not the hidden input behind it.
-- **Content is fully caller-configurable, not hardcoded**: `FileUploaderDropzoneInput`'s `icon`/`children`/`secondaryText` are plain `ReactNode` props, native to that component (not curated down from anywhere else); `FileUploaderButtonInput` uses `Button`'s own `children`/`iconLeft`/`iconRight` directly, for the same reason. The primary text renders as a single span — Figma's "Drag and drop or **browse files**" is one line of mixed weight, not two props, so emphasising part of it (e.g. `<strong>browse files</strong>`) is left to the caller rather than split across `children`/`secondaryText`. `variant="compact"` ignores `secondaryText` — it has no secondary line in Figma, unlike `variant="large"`, which renders it as a small supporting line below the primary text. Falls back to genuinely empty content if none are supplied, the same way an icon-only `Button` with no `children`/`iconLeft`/`iconRight` would — this library doesn't invent copy on a caller's behalf.
-- **Hover and dragging-over are styled differently on purpose**: hover is pure CSS (`:hover`), since it's truly presentation-only. Dragging-over is JS-tracked (`FileInput`'s own `isDraggingOver`) and threaded onto a `data-is-dragging-over` attribute, since it's real interaction state that both subcomponents need to expose to consumers of their own markup (e.g. a snapshot test), not something CSS alone can observe.
-- **Error styling is CSS-only, via the native input's own `:invalid`/`:user-invalid`.** Both subcomponents are rendered as `children`'s return value, which `FileInput` places as a direct adjacent sibling of the native `<input>` inside `ElFileInputWrapper` — so a plain adjacent-sibling selector (`input:invalid + &`, gated on `data-show-validity` the same way every other input in this library gates its own invalid styling) reaches them with no `:has()`, and no need to plumb a separate `isInvalid`/`hasError` prop through `RenderProps`.
+Validation-rejected files are not a lifecycle state. An item rejected by
+validation remains `queued` with a `validationError` annotation; it does not
+enter `error`. Files only transition to uploading when the consumer reports
+them as valid to the queue.
 
 ## Single-select composition
 
-Figma splits `FileUploader` into two separate top-level components, not one component with a variant: **multi-select** (a persistent dropzone trigger above a separate list of item rows — the composition documented above) and **single-select** (one widget whose own content swaps between the empty drag-and-drop prompt and the filled single-select media card, which itself carries the `Replace`/remove affordances). There is no single-select `FileCard` — this pattern is media-only.
-
-This is **its own component family**, not a mode of `ButtonInput`/`DropzoneInput`/`ButtonControl`/`DropzoneControl` — an earlier version of this doc sketched adding a render-prop escape hatch to one of those instead, but neither's `children` is a full-content-replacement slot (`ButtonInput`'s is the button label, `DropzoneInput`'s is its primary text), and overloading either would repeat the exact prop-curation problem "Composition is inverted" above already rejected once. The family mirrors the multi-select one at every layer instead:
-
-- **`FileUploaderSingleSelectMediaCard`** (`single-select-media-card/`, private/non-exported) — the filled-state card: a full-bleed `FileUploaderMediaThumbnail` (see "`FileUploader.FileCard` / `FileUploader.MediaCard`" above) with no caption, wrapped in a `role="button"` surface whose whole area re-opens the picker (`aria-label="Replace {fileName}"`) plus the thumbnail's own remove button layered on top. A `Replace` pill overlay is shown (only once `status === 'uploaded'`) and revealed via CSS on `:hover`/`:focus-within`/a `data-is-dragging-over` attribute — the same data-attribute convention `ButtonInput`/`DropzoneInput` use for drag state (see "Trigger content" above), threaded here from `FileInput`'s `isDraggingOver`. The remove button's click/keydown handlers stop propagation/guard `event.target !== event.currentTarget` so activating it never also fires the outer surface's `onReplace`. Figma documents both "Media card [single select]" and "Remove button" as intended solely for the file uploader, reinforcing why this stays private.
-- **`FileUploaderSingleSelectMediaInput`** (`single-select-media-input/`) — built directly on `FileInput`'s `children` render prop (see "`FileInput`" above), with `maxFiles` fixed at `1`. Renders the empty-state prompt as `FileUploaderDropzoneInput`'s own `variant="large"` markup (reused directly from `dropzone/styles.ts` — confirmed against Figma's single-select empty state, which matches it exactly) when the queue has no item, or `FileUploaderSingleSelectMediaCard` in its place once it does. Since removing the sole item unmounts the card — taking focus with it, as a removed element can't retain it — an effect restores focus to the empty prompt on that exact status transition.
-- **`FileUploaderSingleSelectMediaControl`** (`single-select-media-input/`) — `FormControl` chrome composed around `FileUploaderSingleSelectMediaInput`, the same inverted composition `ButtonControl`/`DropzoneControl` use (see "Composition is inverted" above).
-- Exposed as `FileUploader.SingleSelectMediaInput`/`FileUploader.SingleSelectMediaControl` on the compound API, alongside the multi-select controls — a consumer picks one persistent trigger, not both, since they represent Figma's two separate top-level components rather than two pieces of one composition.
-- No Figma Code Connect for any of these three — out of scope for this feature.
+Figma defines multi-select and single-select as two separate top-level
+components, not one component with a variant. The single-select family
+— `FileUploader.SingleSelectMediaInput` and
+`FileUploader.SingleSelectMediaControl` — mirrors the multi-select family at
+every layer and is not a mode of the multi-select controls. There is no
+single-select `FileCard`; this pattern is media-only.
 
 ## Native form integration
 
-Three mechanisms, deliberately kept separate:
+Three mechanisms handle form integration, and they are kept separate:
 
-1. **Plain native `<form>` submit, no JS library**: `Files`'s `name` prop, rendered by each `FileUploader.File` as above. Read at submit time from whatever hidden inputs currently exist in the DOM — no live-tracking needed.
-2. **A consumer wants more than just the ID** (richer per-file data at submit time): look it up from the externally-injected `queue` by the ID collected from `FormData`, in the submit handler. This is why the queue must be externally creatable — the submit handler and `FileUploader`'s rendering need to read the _same_ instance.
-3. **A consumer wants to hand the hidden input itself to RHF/Formik** — e.g. `register()`'s field props, or Formik's `field` — spreads directly onto `FileUploader.File`, since it forwards native input attributes the same way `FileInput` does (see "`FileInput`" above). This is not bespoke per-library code: nothing in `FileUploader.File` knows RHF or Formik exist, it just forwards whatever native input props it's given onto a real `<input>`.
+1. **Hidden inputs per uploaded item.** `FileUploader.FileList`'s `name` prop
+   causes `FileUploader.File` to render a hidden input for each successfully
+   uploaded, currently valid item. The form's submit handler reads these from
+   `FormData` in the normal way.
 
-**This library explicitly does not build RHF `useFieldArray` support.** `useFieldArray` exists for when the _form library_ owns list mutation (its own `append`/`remove`, re-keyed internally). Here, the **queue** owns add/remove — a file finishing upload, or a user clicking remove, is driven by the queue, not by RHF. A consumer wanting the array "live" in RHF's `watch`/`formState` (rather than just correct at native-submit time) uses a `useEffect` calling `setValue(name, ids, { shouldDirty: true })` when the queue's derived ID array changes. This treats the array as one atomic field value. `useFieldArray` would only be relevant if a consumer wants RHF to own something this library doesn't touch at all (e.g. structured per-file metadata RHF itself validates) — fully decoupled from the queue.
+2. **External queue access.** A consumer who needs richer per-file data at
+   submit time — beyond the IDs collected from `FormData` — holds an external
+   queue reference and looks up items by ID in the submit handler.
 
-Beyond mechanism 3 above, no RHF/Formik-specific code exists anywhere in this library — `FileInput`'s and `FileUploader.File`'s native `onChange`/ref contracts are sufficient on their own.
-
-## Validation
-
-`validateFiles` (`src/utils/file-input/validate-files.ts`) is a pure function that checks incoming files against the current rules and existing selection, returning which are accepted and which are rejected (and why). Co-located with `file-input/` rather than promoted to a top-level, generic utility, matching `number-input`'s `validate-range.ts` precedent — it's scoped to this component's constraints, not a generic cross-cutting utility.
-
-Rejected files are **not** entered at `error` status — see "Validation is a consumer concern, not the queue's" under `FileUploadQueue` above. A file failing a per-item constraint is queued with a `validationError` annotation instead, reported to the queue via `reportValidity`; a file that's only part of a `maxFiles`/`maxTotalSize` overflow gets no per-item annotation at all, since the queue has no representation of that condition. `FileUploader.File` resolves a per-item `validationError` into copy rendered through the same visual language as a genuine `error` (see "`FileUploader.File`" above); a selection-level overflow gets no such per-card treatment — it's surfaced only through `FileInput`'s native `setCustomValidity`. This still gives one look for "why this file specifically failed," whether the cause was per-item validation (client-side, and possibly reversible without re-adding the file) or a transport error (server-side, after upload started, and only reversible by removing and re-adding) — the two just aren't the same underlying state.
+3. **Native input attribute forwarding.** `FileUploader.File` forwards native
+   input attributes onto its hidden input, so a form library's field props can
+   be spread directly onto it without bespoke integration code.
 
 ## Accessibility
 
-No WAI-ARIA APG pattern exists for file-upload/dropzone widgets — checked against the APG pattern list; there's no "File Upload" or "Dropzone" entry, unlike Combobox/Listbox which do have one. This can't be solved by "follow pattern X"; it's composed from a few general, well-established principles instead:
+No WAI-ARIA Authoring Practices pattern exists for file upload or dropzone
+widgets. The component composes from general, well-established principles:
 
-- The click-to-browse trigger is a native `<label>` (or a `<button>` calling `.click()` on the input) — keyboard operability and correct accessible naming come free, no custom keydown handling.
-- Drag-and-drop stays a pointer-only _enhancement_ over that native path — this satisfies WCAG 2.2's "Dragging Movements" equivalence requirement automatically, as long as the label/button path is fully equivalent, so drag-and-drop doesn't need its own ARIA story.
-- A visually-hidden `aria-live="polite"` region (rendered as the first child of `ElFileUploader` so it never affects surrounding grid/form layouts) announces status transitions. `useFileUploaderAnnouncements` diffs successive queue snapshots and produces announcement strings: `"{fileName} uploaded"`, `"{fileName} failed to upload: {errorMessage}"`, or — for single-select replace, where one item disappears and a new one reaches `uploaded` in the same diff tick — `"{oldFileName} replaced with {newFileName}"` (a single atomic event, not two). Announcements accumulate and are never cleared.
-- Remove buttons carry an explicit accessible name (`"Remove {fileName}"`).
-- Focus management when an item is removed: `FileUploader.File` calls `transferFocusAfterRemoval` synchronously in its remove handler, before React flushes the re-render. The DOM walk queries `:scope > li` children of the list's `<ul>` (ref-forwarded via `FileUploaderFileListContext`), finds the removed item's own `<li>` by index, then focuses the next sibling's `[data-remove-button]` — or the previous if it was last — falling back to the upload trigger (`document.getElementById(triggerId)`) when the list becomes empty. `triggerId` is a stable `useId()`-generated value provided via `FileUploaderContext` and applied as `id` to every trigger component (`ButtonInput`, `DropzoneInput`, `SingleSelectMediaInput`'s empty-state button).
-- Single-select focus management on remove was already implemented before this pass: an effect in `FileUploaderSingleSelectMediaInput` detects the item-to-no-item transition and restores focus to the empty placeholder button.
-- `FileUploader.File`'s `onRemove` prop is an optional _side-effect_ callback, not the removal mechanism. The component owns `queue.removeItem` and focus transfer itself. Calling `event.preventDefault()` in `onRemove` suppresses both — for example, to show a confirmation dialogue before deciding whether to remove the item.
-
-## `formatFileSize`
-
-`src/utils/number-format/number-format.ts` (alongside `getIntlNumberFormat`/`getNumberAffix`/`getLocaleNumberSeparators`, not a new top-level util — it depends on `getIntlNumberFormat` for the numeric part). Picks a size tier (byte/kilobyte/megabyte) and formats it via `getIntlNumberFormat(locale, { style: 'unit', unit, unitDisplay: 'short', maximumFractionDigits: 2 })`, matching the Figma spec's `"3.6 MB"` in `en-GB`. Both the number and the unit are localised (e.g. `"3,6 Mo"` in `fr-FR`), since `Intl.NumberFormat`'s unit data already covers byte/kilobyte/megabyte correctly — there's no need to hand-roll a fixed suffix.
-
-## Explicitly out of scope for v1
-
-- **RHF `useFieldArray` integration.** Not needed — see "Native form integration" above.
-- **Per-item custom form values beyond the file ID.** Consumers needing richer data look it up from the injected `queue` by ID in their submit handler, rather than `Files` supporting an arbitrary per-item value.
-- **Retrying a failed upload.** An `error` item (an actual `onUpload` rejection) has no resume affordance in `FileCard`/`MediaCard` — the only path back is removing it and re-adding the file, a genuinely new attempt. See "No retry" under `FileUploadQueue` above.
-
-## Changesets
-
-Most subtasks in this feature are internal building blocks with no independently consumable surface until later subtasks land — those use `yarn changeset --empty`. Real `Added:` changesets land only where something becomes independently importable and usable: `FileInput` and `FileUploader` itself. `FileCard`/`MediaCard` and the shared upload-status primitives are never independently exported, so their subtasks always use an empty changeset.
+- The click-to-browse trigger is a native `<button>` or `<label>`, so keyboard
+  operability and accessible naming are provided by the platform.
+- Drag-and-drop is a pointer-only enhancement over the native trigger path.
+  This satisfies WCAG 2.2's dragging-movements equivalence requirement without
+  any additional ARIA handling, as long as the trigger path is fully
+  equivalent.
+- A visually hidden live region announces status transitions — upload
+  completion, failure, and single-select replacement — to assistive
+  technology.
+- Remove buttons carry explicit accessible names.
+- Focus moves to an adjacent item's remove button, or to the upload trigger
+  when the list becomes empty, when an item is removed.
