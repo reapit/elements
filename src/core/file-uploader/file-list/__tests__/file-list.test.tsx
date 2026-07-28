@@ -151,3 +151,17 @@ test("a FileUploader.File's own name prop overrides FileUploader.FileList's", as
   const hiddenInput = await screen.findByDisplayValue('result-id')
   expect(hiddenInput).toHaveAttribute('name', 'overridden')
 })
+
+test('sets the --file-uploader-columns CSS custom property when columns is provided', () => {
+  const queue = new FileUploadQueue({ onUpload: async () => 'file-id' })
+
+  const { container } = render(
+    <FileUploader queue={queue}>
+      <FileUploaderFileList variant="media" columns={3}>
+        {null}
+      </FileUploaderFileList>
+    </FileUploader>,
+  )
+
+  expect(container.querySelector('ul')).toHaveStyle({ '--file-uploader-columns': '3' })
+})

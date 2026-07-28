@@ -15,6 +15,10 @@ export namespace FileUploaderFileList {
      */
     children: ReactNode | ((items: FileUploadQueue.Item[], queue: FileUploadQueue<any>) => ReactNode)
     /**
+     * Number of columns in the grid. Only applies to `variant="media"`. Defaults to `2`.
+     */
+    columns?: number
+    /**
      * Minimum block size of each item. Defaults to min-content.
      */
     minItemHeight?: string
@@ -46,6 +50,7 @@ export namespace FileUploaderFileList {
  */
 export function FileUploaderFileList({
   children,
+  columns,
   minItemHeight,
   minItemWidth,
   name,
@@ -65,6 +70,7 @@ export function FileUploaderFileList({
         style={
           {
             ...rest.style,
+            '--file-uploader-columns': columns,
             '--file-uploader-min-item-height': minItemHeight,
             '--file-uploader-min-item-width': minItemWidth,
           } as CSSProperties

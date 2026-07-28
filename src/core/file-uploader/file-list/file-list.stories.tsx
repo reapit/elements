@@ -58,6 +58,7 @@ export const Example = meta.story({
         />
       </>
     ),
+    columns: 2,
     name: 'myFiles',
     variant: 'file',
   },
@@ -106,9 +107,9 @@ export const Media = Example.extend({
 })
 
 /**
- * The `minItemHeight` and `minItemWidth` props control the size of each file/media card. In addition to
- * this, the file list will fit to its container's width. If `minItemWidth` is larger than the container's
- * width, the items will overflow the container.
+ * The `minItemHeight` and `minItemWidth` props control the size of each file/media card. The file
+ * list stretches to fill its container. If `minItemWidth` exceeds the container width, items will
+ * overflow.
  */
 export const Sizing = Media.extend({
   args: {
@@ -122,6 +123,16 @@ export const Sizing = Media.extend({
       </div>
     ),
   ],
+})
+
+/**
+ * The `columns` prop sets an explicit column count for the `media` variant. It has no effect on
+ * the `file` variant, which always renders as a single-column list. Defaults to `2`.
+ */
+export const Columns = Media.extend({
+  args: {
+    columns: 3,
+  },
 })
 
 function makeFile(name: string, type = 'text/plain'): File {

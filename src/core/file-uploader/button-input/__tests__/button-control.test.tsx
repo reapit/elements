@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react'
+import { act, fireEvent, render, screen } from '@testing-library/react'
 import { FileUploader } from '../../file-uploader'
 import { FileUploaderButtonControl } from '../button-control'
 import { FileUploaderContext } from '../../context'
@@ -134,7 +134,7 @@ test('respects an explicit showValidity={false} override even when error text is
   expect(screen.getByTestId('input')).toHaveAttribute('data-show-validity', 'false')
 })
 
-test('adding a file through the native input queues and uploads it', () => {
+test('adding a file through the native input queues and uploads it', async () => {
   const queue = new FileUploadQueue({ onUpload: async () => 'file-id' })
   render(
     <FileUploader queue={queue}>
@@ -143,9 +143,11 @@ test('adding a file through the native input queues and uploads it', () => {
   )
 
   const file = makeFile('a.txt')
-  fireEvent.change(screen.getByTestId('input'), { target: { files: [file] } })
+  await act(async () => {
+    fireEvent.change(screen.getByTestId('input'), { target: { files: [file] } })
+  })
 
-  expect(queue.getItemsSnapshot()).toMatchObject([{ status: 'uploading', file }])
+  expect(queue.getItemsSnapshot()).toMatchObject([{ status: 'uploaded', file }])
 })
 
 test('reportValidity is called with a rejection for a file failing accept/maxFileSize', () => {

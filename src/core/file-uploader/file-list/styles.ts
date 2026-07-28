@@ -12,7 +12,10 @@ export const ElFileUploaderFileList = styled.ul`
 
     &[data-layout='grid'] {
       grid-auto-rows: minmax(var(--file-uploader-min-item-height, min-content), auto);
-      grid-template-columns: repeat(auto-fit, minmax(var(--file-uploader-min-item-width, var(--size-32)), 1fr));
+      grid-template-columns: repeat(
+        var(--file-uploader-columns, 2),
+        minmax(var(--file-uploader-min-item-width, var(--size-32)), 1fr)
+      );
     }
 
     &[data-layout='list'] {
