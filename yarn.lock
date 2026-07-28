@@ -2644,16 +2644,16 @@ __metadata:
     "@storybook/addon-docs": "npm:10.5.3"
     "@storybook/addon-links": "npm:10.5.3"
     "@storybook/addon-mcp": "npm:^0.7.0"
-    "@storybook/cli": "npm:10.5.2"
-    "@storybook/codemod": "npm:^10.5.2"
+    "@storybook/cli": "npm:10.5.3"
+    "@storybook/codemod": "npm:^10.5.3"
     "@storybook/mcp": "npm:^0.8.0"
     "@storybook/react-vite": "npm:10.5.3"
     "@testing-library/dom": "npm:10.4.1"
     "@testing-library/jest-dom": "npm:6.9.1"
     "@testing-library/react": "npm:16.3.2"
     "@types/caniuse-lite": "npm:1.0.5"
-    "@types/node": "npm:^24.12.4"
-    "@types/react": "npm:18.3.28"
+    "@types/node": "npm:^24.13.3"
+    "@types/react": "npm:18.3.31"
     "@types/react-dom": "npm:18.3.7"
     "@vitejs/plugin-react": "npm:^6.0.3"
     "@vitest/coverage-v8": "npm:^4.1.10"
@@ -2670,12 +2670,12 @@ __metadata:
     lint-staged: "npm:^17.1.0"
     oxfmt: "npm:^0.58.0"
     oxlint: "npm:^1.74.0"
-    postcss: "npm:8.5.20"
+    postcss: "npm:8.5.21"
     react: "npm:18.3.1"
     react-dom: "npm:18.3.1"
     rimraf: "npm:6.1.3"
     snyk: "npm:^1.1306.1"
-    storybook: "patch:storybook@npm%3A10.5.2#~/.yarn/patches/storybook-npm-10.5.2-patch.patch"
+    storybook: "npm:^10.5.3"
     style-dictionary: "npm:5.5.0"
     stylelint: "npm:17.14.1"
     stylelint-no-unsupported-browser-features: "npm:^8.1.1"
@@ -3088,40 +3088,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/cli@npm:10.5.2":
-  version: 10.5.2
-  resolution: "@storybook/cli@npm:10.5.2::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40storybook%2Fcli%2F-%2Fcli-10.5.2.tgz"
+"@storybook/cli@npm:10.5.3":
+  version: 10.5.3
+  resolution: "@storybook/cli@npm:10.5.3::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40storybook%2Fcli%2F-%2Fcli-10.5.3.tgz"
   dependencies:
-    "@storybook/codemod": "npm:10.5.2"
+    "@storybook/codemod": "npm:10.5.3"
     "@types/semver": "npm:^7.7.1"
     commander: "npm:^14.0.2"
-    create-storybook: "npm:10.5.2"
+    create-storybook: "npm:10.5.3"
     jscodeshift: "npm:^0.15.1"
-    storybook: "npm:10.5.2"
+    storybook: "npm:10.5.3"
     ts-dedent: "npm:^2.0.0"
   bin:
     cli: ./dist/bin/index.js
-  checksum: 10/e2d2526d022a4e7983a954d1472ca16d7e9085c1bef4512bd78bbeadce9ef8d2c92531f1c8b03be221203a696deafe20bc09aaf5f4d13e52afbed6882a45974d
+  checksum: 10/c479040e472f6b2a7cf9944f8b88e23e49151d98cf632d57fdcaae6f819fb8aaa54297c6d0754b970823560e5a56fa62d567177e96e4e965aa0383375b35a116
   languageName: node
   linkType: hard
 
-"@storybook/codemod@npm:10.5.2":
-  version: 10.5.2
-  resolution: "@storybook/codemod@npm:10.5.2::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40storybook%2Fcodemod%2F-%2Fcodemod-10.5.2.tgz"
-  dependencies:
-    "@types/cross-spawn": "npm:^6.0.6"
-    cross-spawn: "npm:^7.0.6"
-    es-toolkit: "npm:^1.43.0"
-    jscodeshift: "npm:^0.15.1"
-    prettier: "npm:^3.7.1"
-    storybook: "npm:10.5.2"
-    tiny-invariant: "npm:^1.3.1"
-    tinyglobby: "npm:^0.2.13"
-  checksum: 10/108271fdd7c8b751414a8b67cf0d978be9d358449f4c833e9bb3360ea8a3ffc1b870a62d8334f66ae34b35d73eb07e927d0cfcb0e176e03285a340ab29f905aa
-  languageName: node
-  linkType: hard
-
-"@storybook/codemod@npm:^10.5.2":
+"@storybook/codemod@npm:10.5.3, @storybook/codemod@npm:^10.5.3":
   version: 10.5.3
   resolution: "@storybook/codemod@npm:10.5.3::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40storybook%2Fcodemod%2F-%2Fcodemod-10.5.3.tgz"
   dependencies:
@@ -3698,12 +3682,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^24.12.4":
-  version: 24.12.4
-  resolution: "@types/node@npm:24.12.4"
+"@types/node@npm:^24.13.3":
+  version: 24.13.3
+  resolution: "@types/node@npm:24.13.3::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40types%2Fnode%2F-%2Fnode-24.13.3.tgz"
   dependencies:
-    undici-types: "npm:~7.16.0"
-  checksum: 10/4e5ce6faaf0e6f291114d6ac14fe546d491812b306107620802d5bef00ca36fb290637e79ec4fc24f33214f78f58c9b63254bd0ce94788bebfec03f26d45f2ea
+    undici-types: "npm:~7.18.0"
+  checksum: 10/cfa6ed1e16c4624d1e83b09aeb72a2f50a7e17d837bf5a1259a52e346f33a693afd289402d3b6118ce3abea7aff35f2a4f13a0284b96bc5807a50f0e22e1ec77
   languageName: node
   linkType: hard
 
@@ -3737,13 +3721,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:18.3.28":
-  version: 18.3.28
-  resolution: "@types/react@npm:18.3.28"
+"@types/react@npm:18.3.31":
+  version: 18.3.31
+  resolution: "@types/react@npm:18.3.31::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40types%2Freact%2F-%2Freact-18.3.31.tgz"
   dependencies:
     "@types/prop-types": "npm:*"
     csstype: "npm:^3.2.2"
-  checksum: 10/6db7bb7f19957ee9f530baa7d143527f8befedad1585b064eb80777be0d84621157de75aba4f499ff429b10c5ef0c7d13e89be6bca3296ef71c80472894ff0eb
+  checksum: 10/0a5d73b1ba3ce73273b28cc50da78d520b1a8d4253075820dc5cf6c9e286ff6cb339b56bd613d05885fec214fbecd8137bddcbdb475612fdcc46e061d88f00fc
   languageName: node
   linkType: hard
 
@@ -5044,15 +5028,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"create-storybook@npm:10.5.2":
-  version: 10.5.2
-  resolution: "create-storybook@npm:10.5.2::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fcreate-storybook%2F-%2Fcreate-storybook-10.5.2.tgz"
+"create-storybook@npm:10.5.3":
+  version: 10.5.3
+  resolution: "create-storybook@npm:10.5.3::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fcreate-storybook%2F-%2Fcreate-storybook-10.5.3.tgz"
   dependencies:
     semver: "npm:^7.7.3"
-    storybook: "npm:10.5.2"
+    storybook: "npm:10.5.3"
   bin:
     create-storybook: ./dist/bin/index.js
-  checksum: 10/1ee340bf70cf4ff389e11eac01eb3ea4b9d4ed5a81d752737857b9401d2f6e071cfdafde32dd8ed86ce5e7d2b00c2671d42bf114a8dc1d7403d3a58be14ee1d3
+  checksum: 10/1eaffab55ca5dd662240818eb6cf6527592c4fe18547011bbe6e496c0dbbcdade6213834aa6b88cce42af3f18bc27d921429036ab97857aeba0c94fadfc676dc
   languageName: node
   linkType: hard
 
@@ -8986,14 +8970,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:8.5.20":
-  version: 8.5.20
-  resolution: "postcss@npm:8.5.20::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fpostcss%2F-%2Fpostcss-8.5.20.tgz"
+"postcss@npm:8.5.21, postcss@npm:^8.5.17":
+  version: 8.5.21
+  resolution: "postcss@npm:8.5.21::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fpostcss%2F-%2Fpostcss-8.5.21.tgz"
   dependencies:
     nanoid: "npm:^3.3.16"
     picocolors: "npm:^1.1.1"
     source-map-js: "npm:^1.2.1"
-  checksum: 10/bcae7818094f88030cb410f17efc312f24ee8f9bbc46483ac6536df5a9270f693c5fc41dcf0ccc254ab3fa6853d48468ee8707999ad1cc434a6084ed0a0e7a47
+  checksum: 10/4849872929ff764216515f4f746469e5e91b3ef79be85fcd8d34df068a00bcfea47f7181d523a7353a3aa3fb017ff749c23308257ae5c8c06743582ffbf066f6
   languageName: node
   linkType: hard
 
@@ -9016,17 +9000,6 @@ __metadata:
     picocolors: "npm:^1.1.1"
     source-map-js: "npm:^1.2.1"
   checksum: 10/b39408900aa394bce6f567d539b7361e71c07f361313e5b01e40481c5120309a570e7a54c6a0c6ea5f0c0c06ff8c12b560beeebcc29ea173ad42ec74bae86069
-  languageName: node
-  linkType: hard
-
-"postcss@npm:^8.5.17":
-  version: 8.5.21
-  resolution: "postcss@npm:8.5.21::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fpostcss%2F-%2Fpostcss-8.5.21.tgz"
-  dependencies:
-    nanoid: "npm:^3.3.16"
-    picocolors: "npm:^1.1.1"
-    source-map-js: "npm:^1.2.1"
-  checksum: 10/4849872929ff764216515f4f746469e5e91b3ef79be85fcd8d34df068a00bcfea47f7181d523a7353a3aa3fb017ff749c23308257ae5c8c06743582ffbf066f6
   languageName: node
   linkType: hard
 
@@ -10016,44 +9989,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"storybook@npm:10.5.2":
-  version: 10.5.2
-  resolution: "storybook@npm:10.5.2::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fstorybook%2F-%2Fstorybook-10.5.2.tgz"
-  dependencies:
-    "@storybook/global": "npm:^5.0.0"
-    "@storybook/icons": "npm:^2.0.2"
-    "@testing-library/dom": "npm:^10.4.1"
-    "@testing-library/jest-dom": "npm:^6.9.1"
-    "@testing-library/user-event": "npm:^14.6.1"
-    "@vitest/expect": "npm:3.2.4"
-    "@vitest/spy": "npm:3.2.4"
-    "@webcontainer/env": "npm:^1.1.1"
-    esbuild: "npm:^0.18.0 || ^0.19.0 || ^0.20.0 || ^0.21.0 || ^0.22.0 || ^0.23.0 || ^0.24.0 || ^0.25.0 || ^0.26.0 || ^0.27.0 || ^0.28.0"
-    jsonc-parser: "npm:^3.3.1"
-    open: "npm:^10.2.0"
-    oxc-parser: "npm:^0.127.0"
-    oxc-resolver: "npm:^11.19.1"
-    recast: "npm:^0.23.5"
-    semver: "npm:^7.7.3"
-    use-sync-external-store: "npm:^1.5.0"
-    ws: "npm:^8.18.0"
-  peerDependencies:
-    "@types/react": ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
-    prettier: ^2 || ^3
-    vite-plus: ^0.1.15 || ^0.2.0
-  peerDependenciesMeta:
-    "@types/react":
-      optional: true
-    prettier:
-      optional: true
-    vite-plus:
-      optional: true
-  bin:
-    storybook: ./dist/bin/dispatcher.js
-  checksum: 10/5da75e02a752edd79328a797246da270c6fd7efa0b27e2a616a659a9ad5d7af769fbae31d9f8afa25287335d99a28e40194c4a7c4ebc9efd19c2263b66ab7aa5
-  languageName: node
-  linkType: hard
-
 "storybook@npm:10.5.3":
   version: 10.5.3
   resolution: "storybook@npm:10.5.3::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fstorybook%2F-%2Fstorybook-10.5.3.tgz"
@@ -10092,9 +10027,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"storybook@patch:storybook@npm%3A10.5.2#~/.yarn/patches/storybook-npm-10.5.2-patch.patch":
-  version: 10.5.2
-  resolution: "storybook@patch:storybook@npm%3A10.5.2%3A%3A__archiveUrl=https%253A%252F%252Fregistry.npmjs.org%252Fstorybook%252F-%252Fstorybook-10.5.2.tgz#~/.yarn/patches/storybook-npm-10.5.2-patch.patch::version=10.5.2&hash=8a582a"
+"storybook@patch:storybook@npm%3A10.5.3#~/.yarn/patches/storybook-npm-10.5.3-ee7b0f5bd4.patch":
+  version: 10.5.3
+  resolution: "storybook@patch:storybook@npm%3A10.5.3%3A%3A__archiveUrl=https%253A%252F%252Fregistry.npmjs.org%252Fstorybook%252F-%252Fstorybook-10.5.3.tgz#~/.yarn/patches/storybook-npm-10.5.3-ee7b0f5bd4.patch::version=10.5.3&hash=5fb5b5"
   dependencies:
     "@storybook/global": "npm:^5.0.0"
     "@storybook/icons": "npm:^2.0.2"
@@ -10126,7 +10061,7 @@ __metadata:
       optional: true
   bin:
     storybook: ./dist/bin/dispatcher.js
-  checksum: 10/ee1f19b2ac3add36f29ffbcb167398daa46c42b7e3d4255a1d537fcc912d67e7ffb45ff14f99272b4b9a81da1a9f36b5c87e13eb77b7f2d3c02ec037d8e0d878
+  checksum: 10/f3e746d9cc112530d9977c9259dc87692d0ac9ea5f0c2b139987e46ff6854a87476f995944e75db9c6c5956391542adeb2825a0087d8cc02f7889fd1e449ee3f
   languageName: node
   linkType: hard
 
@@ -10907,6 +10842,13 @@ __metadata:
   version: 7.16.0
   resolution: "undici-types@npm:7.16.0"
   checksum: 10/db43439f69c2d94cc29f75cbfe9de86df87061d6b0c577ebe9bb3255f49b22c50162a7d7eb413b0458b6510b8ca299ac7cff38c3a29fbd31af9f504bcf7fbc0d
+  languageName: node
+  linkType: hard
+
+"undici-types@npm:~7.18.0":
+  version: 7.18.2
+  resolution: "undici-types@npm:7.18.2::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fundici-types%2F-%2Fundici-types-7.18.2.tgz"
+  checksum: 10/e61a5918f624d68420c3ca9d301e9f15b61cba6e97be39fe2ce266dd6151e4afe424d679372638826cb506be33952774e0424141200111a9857e464216c009af
   languageName: node
   linkType: hard
 
