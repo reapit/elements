@@ -16,6 +16,7 @@ export const elMenu = css`
        to support the use of CSSContainerQuery and it's reliance on a wrapping <div> */
     & .${elDivider} {
       margin-inline: calc(0px - var(--spacing-2));
+      width: calc(100% + var(--spacing-2) * 2);
     }
 
     & ${ElMenuGroup} {

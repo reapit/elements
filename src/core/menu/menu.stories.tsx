@@ -21,6 +21,8 @@ const meta = preview.meta({
             <Menu.AnchorItem href={href}>Item 1</Menu.AnchorItem>
             <Menu.Item>Item 2</Menu.Item>
             <Menu.Item>Item 3</Menu.Item>
+            <Menu.Divider />
+            <Menu.Item>Item 4</Menu.Item>
           </>
         ),
         Fancy: (
