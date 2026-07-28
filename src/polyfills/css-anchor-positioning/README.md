@@ -5,11 +5,11 @@ Polyfills the [CSS Anchor Positioning API](https://developer.mozilla.org/en-US/d
 ## Quick Start
 
 ```ts
-import { applyCSSAnchorPositioningPolyfill } from '@reapit/elements'
+import { applyCSSAnchorPositioningPolyfill } from "@reapit/elements";
 
 await applyCSSAnchorPositioningPolyfill({
   elements: [anchorElement, positionedElement],
-})
+});
 ```
 
 ## File Structure
@@ -38,11 +38,11 @@ Preload the polyfill module to reduce latency if your first render includes comp
 
 ```ts
 // At app entry point - starts loading the polyfill module
-import('@reapit/elements/polyfills/css-anchor-positioning/preload')
+import("@reapit/elements/polyfills/css-anchor-positioning/preload");
 
 // Later in components - module will already be loaded/loading
-import { applyCSSAnchorPositioningPolyfill } from '@reapit/elements'
-await applyCSSAnchorPositioningPolyfill({ elements: [myElement] })
+import { applyCSSAnchorPositioningPolyfill } from "@reapit/elements";
+await applyCSSAnchorPositioningPolyfill({ elements: [myElement] });
 ```
 
 ## API

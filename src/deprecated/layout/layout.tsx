@@ -1,13 +1,6 @@
-import { FC } from 'react'
-import { cx } from '@linaria/core'
-import {
-  elHasGreyBackground,
-  elHasMaxWidth,
-  elDeprecatedMainContainer,
-  elPageContainer,
-  elSecondaryNavContainer,
-  elFlexContainer,
-} from './styles'
+import { cx } from "@linaria/core";
+import { FC } from "react";
+
 import {
   elFlexRow,
   elFlexColumn,
@@ -31,8 +24,16 @@ import {
   elFlexAlignCenter,
   elFlexAlignStart,
   elFlexAlignEnd,
-} from '../../styles/deprecated-flexbox'
-import { ContainerFlexProps, ContainerProps, TaggedElementProps } from './types'
+} from "../../styles/deprecated-flexbox";
+import {
+  elHasGreyBackground,
+  elHasMaxWidth,
+  elDeprecatedMainContainer,
+  elPageContainer,
+  elSecondaryNavContainer,
+  elFlexContainer,
+} from "./styles";
+import { ContainerFlexProps, ContainerProps, TaggedElementProps } from "./types";
 
 /** @deprecated */
 export const TaggedElement: FC<TaggedElementProps> = ({
@@ -44,60 +45,69 @@ export const TaggedElement: FC<TaggedElementProps> = ({
   hasMaxWidth,
   ...rest
 }) => {
-  const classes = cx(baseClass, hasGreyBackground && elHasGreyBackground, hasMaxWidth && elHasMaxWidth, className)
+  const classes = cx(
+    baseClass,
+    hasGreyBackground && elHasGreyBackground,
+    hasMaxWidth && elHasMaxWidth,
+    className,
+  );
   switch (tag) {
-    case 'main':
+    case "main":
       return (
         <main className={classes} {...rest}>
           {children}
         </main>
-      )
-    case 'aside':
+      );
+    case "aside":
       return (
         <aside className={classes} {...rest}>
           {children}
         </aside>
-      )
-    case 'section':
+      );
+    case "section":
       return (
         <section className={classes} {...rest}>
           {children}
         </section>
-      )
+      );
     default:
-    case 'div':
+    case "div":
       return (
         <div className={classes} {...rest}>
           {children}
         </div>
-      )
+      );
   }
-}
+};
 
 /** @deprecated */
-export const DeprecatedMainContainer: FC<ContainerProps> = ({ tag = 'main', children, ...rest }) => (
+export const DeprecatedMainContainer: FC<ContainerProps> = ({
+  tag = "main",
+  children,
+  ...rest
+}) => (
   <TaggedElement tag={tag} baseClass={elDeprecatedMainContainer} {...rest}>
     {children}
   </TaggedElement>
-)
+);
 
 /** @deprecated */
-export const PageContainer: FC<ContainerProps> = ({ tag = 'section', children, ...rest }) => (
+export const PageContainer: FC<ContainerProps> = ({ tag = "section", children, ...rest }) => (
   <TaggedElement tag={tag} baseClass={elPageContainer} {...rest}>
     {children}
   </TaggedElement>
-)
+);
 
 /** @deprecated */
-export const SecondaryNavContainer: FC<ContainerProps> = ({ children, tag = 'aside', ...rest }) => (
+export const SecondaryNavContainer: FC<ContainerProps> = ({ children, tag = "aside", ...rest }) => (
   <TaggedElement tag={tag} baseClass={elSecondaryNavContainer} {...rest}>
     {children}
   </TaggedElement>
-)
+);
 
 /** @deprecated */
 export const FlexContainer: FC<ContainerFlexProps> = ({
-  tag = 'div',
+  tag = "div",
   children,
   isFlexRow,
   isFlexRowReverse,
@@ -152,11 +162,11 @@ export const FlexContainer: FC<ContainerFlexProps> = ({
     hasGreyBackground && elHasGreyBackground,
     hasMaxWidth && elHasMaxWidth,
     className,
-  )
+  );
 
   return (
     <TaggedElement tag={tag} baseClass={elFlexContainer} className={combinedClasses} {...rest}>
       {children}
     </TaggedElement>
-  )
-}
+  );
+};

@@ -1,16 +1,17 @@
-import preview from '#.storybook/preview'
-import { Button } from '#src/core/button'
-import { FilterBar } from '../filter-bar'
+import preview from "#.storybook/preview";
+import { Button } from "#src/core/button";
+
+import { FilterBar } from "../filter-bar";
 
 const meta = preview.meta({
-  title: 'Input and selection/FilterBar/RightContent',
+  title: "Input and selection/FilterBar/RightContent",
   component: FilterBar.RightContent,
   argTypes: {
     children: {
-      control: 'radio',
-      defaultValue: 'Few Filters',
+      control: "radio",
+      defaultValue: "Few Filters",
       // TODO: Update to demo Chip Select and Switch when available.
-      options: ['Button'],
+      options: ["Button"],
       mapping: {
         Button: (
           <Button size="small" variant="secondary">
@@ -20,10 +21,10 @@ const meta = preview.meta({
       },
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
-    children: 'Button',
+    children: "Button",
   },
-})
+});

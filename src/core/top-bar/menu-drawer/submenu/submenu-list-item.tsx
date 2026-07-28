@@ -1,7 +1,7 @@
-import { ElTopBarMenuDrawerSubmenuListItem } from './styles'
-import { TopBarMenuDrawerSubmenuItem } from '../submenu-item'
+import type { ComponentProps } from "react";
 
-import type { ComponentProps } from 'react'
+import { TopBarMenuDrawerSubmenuItem } from "../submenu-item";
+import { ElTopBarMenuDrawerSubmenuListItem } from "./styles";
 
 export namespace TopBarMenuDrawerSubmenuListItem {
   export interface Props extends ComponentProps<typeof TopBarMenuDrawerSubmenuItem> {}
@@ -18,7 +18,7 @@ export function TopBarMenuDrawerSubmenuListItem(props: TopBarMenuDrawerSubmenuLi
     <ElTopBarMenuDrawerSubmenuListItem>
       <TopBarMenuDrawerSubmenuItem {...props} />
     </ElTopBarMenuDrawerSubmenuListItem>
-  )
+  );
 }
 
-TopBarMenuDrawerSubmenuListItem.displayName = 'TopBar.MenuSubmenuItem'
+TopBarMenuDrawerSubmenuListItem.displayName = "TopBar.MenuSubmenuItem";

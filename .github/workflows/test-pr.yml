@@ -2,7 +2,7 @@ name: Test PR
 
 on:
   pull_request:
-    types: ['opened', 'synchronize', 'reopened']
+    types: ["opened", "synchronize", "reopened"]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -94,7 +94,7 @@ jobs:
           fetch-depth: 0
       - uses: ./actions/audit-skills
         with:
-          changed-only: 'true'
+          changed-only: "true"
           base-ref: ${{ github.base_ref }}
 
   codacy:

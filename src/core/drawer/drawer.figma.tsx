@@ -1,14 +1,15 @@
-import { Drawer } from './drawer'
-import figma from '@figma/code-connect'
+import figma from "@figma/code-connect";
 
-figma.connect(Drawer, '<DRAWER_URL>', {
-  variant: { Variant: 'Simple' },
+import { Drawer } from "./drawer";
+
+figma.connect(Drawer, "<DRAWER_URL>", {
+  variant: { Variant: "Simple" },
   props: {
-    children: figma.slot('Content slot').connectedInstances,
-    overline: figma.string('Overline'),
-    supplementaryInfo: figma.children('Supplementary info'),
-    tabs: figma.children('Tabs'),
-    title: figma.string('Drawer title'),
+    children: figma.slot("Content slot").connectedInstances,
+    overline: figma.string("Overline"),
+    supplementaryInfo: figma.children("Supplementary info"),
+    tabs: figma.children("Tabs"),
+    title: figma.string("Drawer title"),
   },
   example: (props) => (
     <Drawer>
@@ -23,16 +24,16 @@ figma.connect(Drawer, '<DRAWER_URL>', {
       <Drawer.Body>{props.children}</Drawer.Body>
     </Drawer>
   ),
-})
+});
 
-figma.connect(Drawer, '<DRAWER_URL>', {
-  variant: { Variant: 'With footer' },
+figma.connect(Drawer, "<DRAWER_URL>", {
+  variant: { Variant: "With footer" },
   props: {
-    children: figma.slot('Content slot').connectedInstances,
-    footer: figma.children('Button group'),
-    overline: figma.string('Overline'),
-    supplementaryInfo: figma.children('Supplementary info'),
-    title: figma.string('Drawer title'),
+    children: figma.slot("Content slot").connectedInstances,
+    footer: figma.children("Button group"),
+    overline: figma.string("Overline"),
+    supplementaryInfo: figma.children("Supplementary info"),
+    title: figma.string("Drawer title"),
   },
   example: (props) => (
     <Drawer>
@@ -43,4 +44,4 @@ figma.connect(Drawer, '<DRAWER_URL>', {
       <Drawer.Footer>{props.footer}</Drawer.Footer>
     </Drawer>
   ),
-})
+});

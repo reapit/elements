@@ -1,5 +1,6 @@
-import { useComboboxPopupObserver } from './use-popup-observer'
-import { useState } from 'react'
+import { useState } from "react";
+
+import { useComboboxPopupObserver } from "./use-popup-observer";
 
 /**
  * Tracks the open state of a popup element by subscribing to its `toggle` event.
@@ -7,11 +8,11 @@ import { useState } from 'react'
  * @returns `true` when the popup is open, `false` when closed.
  */
 export function useComboboxPopupState(popupId: string): boolean {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
   useComboboxPopupObserver(popupId, (event) => {
-    setIsOpen(event.newState === 'open')
-  })
+    setIsOpen(event.newState === "open");
+  });
 
-  return isOpen
+  return isOpen;
 }

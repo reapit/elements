@@ -1,23 +1,26 @@
-import preview from '#.storybook/preview'
-import { Button } from '#src/core/button'
-import { ButtonGroup } from '#src/core/button-group'
-import { Divider } from '#src/core/divider'
-import { TextControl } from '#src/core/text-control'
-import { FormLayout } from './form-layout'
+import preview from "#.storybook/preview";
+import { Button } from "#src/core/button";
+import { ButtonGroup } from "#src/core/button-group";
+import { Divider } from "#src/core/divider";
+import { TextControl } from "#src/core/text-control";
+
+import { FormLayout } from "./form-layout";
 
 const meta = preview.meta({
-  title: 'Containers and layout/FormLayout',
+  title: "Containers and layout/FormLayout",
   component: FormLayout,
   argTypes: {
     children: {
-      control: 'radio',
-      options: ['Default', 'Header only', 'With footer', 'No header'],
+      control: "radio",
+      options: ["Default", "Header only", "With footer", "No header"],
       mapping: {
         Default: (
           <>
             <FormLayout.Header>
               <FormLayout.Title>Contact details</FormLayout.Title>
-              <FormLayout.Description>Add the primary contact information for this record.</FormLayout.Description>
+              <FormLayout.Description>
+                Add the primary contact information for this record.
+              </FormLayout.Description>
             </FormLayout.Header>
             <FormLayout.Section>
               <FormLayout.SectionHeader>
@@ -36,11 +39,13 @@ const meta = preview.meta({
             </FormLayout.Section>
           </>
         ),
-        'Header only': (
+        "Header only": (
           <>
             <FormLayout.Header>
               <FormLayout.Title>Edit property</FormLayout.Title>
-              <FormLayout.Description>Update the details for this property listing.</FormLayout.Description>
+              <FormLayout.Description>
+                Update the details for this property listing.
+              </FormLayout.Description>
             </FormLayout.Header>
             <FormLayout.Section>
               <FormLayout.SectionHeader>
@@ -52,7 +57,7 @@ const meta = preview.meta({
             </FormLayout.Section>
           </>
         ),
-        'With footer': (
+        "With footer": (
           <>
             <FormLayout.Header>
               <FormLayout.Title>Create tenancy</FormLayout.Title>
@@ -84,7 +89,7 @@ const meta = preview.meta({
             </FormLayout.Footer>
           </>
         ),
-        'No header': (
+        "No header": (
           <>
             <FormLayout.Section>
               <FormLayout.SectionHeader>
@@ -104,10 +109,10 @@ const meta = preview.meta({
       },
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
-    children: 'Default',
+    children: "Default",
   },
-})
+});

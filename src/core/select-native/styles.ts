@@ -1,14 +1,14 @@
-import { styled } from '@linaria/react'
-import { font } from '#src/utils/font'
+import { styled } from "@linaria/react";
+import type { CSSProperties } from "react";
 
-import type { CSSProperties } from 'react'
+import { font } from "#src/utils/font";
 
 interface ElSelectNativeContainerProps {
   // NOTE: We use a CSS variable for the max-width rather than simply using the max-width inline
   // style because we want the max-width to be available to both the container and select elements.
   style?: CSSProperties & {
-    '--select-max-width'?: string
-  }
+    "--select-max-width"?: string;
+  };
 }
 
 export const ElSelectNativeContainer = styled.div<ElSelectNativeContainerProps>`
@@ -19,10 +19,10 @@ export const ElSelectNativeContainer = styled.div<ElSelectNativeContainerProps>`
     max-width: var(--select-max-width, 100%);
     width: 100%;
   }
-`
+`;
 
 interface ElSelectNativeProps {
-  'data-show-validity': boolean
+  "data-show-validity": boolean;
 }
 
 export const ElSelectNative = styled.select<ElSelectNativeProps>`
@@ -53,9 +53,9 @@ export const ElSelectNative = styled.select<ElSelectNativeProps>`
      * focus styles to take precedence. aria-invalid="true" is also supported as an alternative to the
      * native :invalid pseudo-class, for cases where the element is not natively invalid (e.g.
      * server-side validation). */
-    &:where([data-show-validity='true']):invalid,
-    &:where([data-show-validity='true']):user-invalid,
-    &:where([aria-invalid='true'][data-show-validity='true']) {
+    &:where([data-show-validity="true"]):invalid,
+    &:where([data-show-validity="true"]):user-invalid,
+    &:where([aria-invalid="true"][data-show-validity="true"]) {
       border-color: var(--comp-input-colour-border-error);
       background: var(--comp-input-colour-fill-error-background);
     }
@@ -67,22 +67,22 @@ export const ElSelectNative = styled.select<ElSelectNativeProps>`
     }
 
     /* Sizes */
-    &[data-size='small'] {
+    &[data-size="small"] {
       height: var(--size-8);
-      ${font('xs', 'regular')}
+      ${font("xs", "regular")}
     }
 
-    &[data-size='medium'] {
+    &[data-size="medium"] {
       height: var(--size-9);
-      ${font('sm', 'regular')}
+      ${font("sm", "regular")}
     }
 
-    &[data-size='large'] {
+    &[data-size="large"] {
       height: var(--size-10);
-      ${font('base', 'regular')}
+      ${font("base", "regular")}
     }
   }
-`
+`;
 
 export const ElSelectNativeIconContainer = styled.span`
   @layer elements.main {
@@ -101,4 +101,4 @@ export const ElSelectNativeIconContainer = styled.span`
     width: var(--icon_size-sm);
     height: var(--icon_size-sm);
   }
-`
+`;

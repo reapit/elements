@@ -1,27 +1,29 @@
-import preview from '#.storybook/preview'
-import { Button } from '#src/core/button'
-import { Dialog } from './dialog'
-import { Pattern } from '#src/core/drawer/__story__/Pattern'
-import { useArgs } from 'storybook/preview-api'
-import { useState } from 'react'
+import { useState } from "react";
+import { useArgs } from "storybook/preview-api";
+
+import preview from "#.storybook/preview";
+import { Button } from "#src/core/button";
+import { Pattern } from "#src/core/drawer/__story__/Pattern";
+
+import { Dialog } from "./dialog";
 
 const meta = preview.meta({
-  title: 'Containers and layout/Dialog',
+  title: "Containers and layout/Dialog",
   component: Dialog,
   argTypes: {
     children: {
-      control: 'radio',
-      options: ['Simple', 'Simple w/ Scrolling', 'Footer', 'Footer w/ Scrolling', 'Empty'],
+      control: "radio",
+      options: ["Simple", "Simple w/ Scrolling", "Footer", "Footer w/ Scrolling", "Empty"],
       mapping: {
         Simple: <ExampleSimpleLayout height="100px" />,
-        'Simple w/ Scrolling': <ExampleSimpleLayout height="100svh" />,
+        "Simple w/ Scrolling": <ExampleSimpleLayout height="100svh" />,
         Footer: <ExampleFooterLayout height="100px" />,
-        'Footer w/ Scrolling': <ExampleFooterLayout height="100svh" />,
+        "Footer w/ Scrolling": <ExampleFooterLayout height="100svh" />,
         Empty: null,
       },
     },
   },
-})
+});
 
 /**
  * At its simplest, you can open and close a dialog by controlling it's `isOpen` state. In some cases, a dialog's
@@ -31,21 +33,21 @@ const meta = preview.meta({
  */
 export const Example = meta.story({
   args: {
-    children: 'Simple',
-    closedBy: 'closerequest',
+    children: "Simple",
+    closedBy: "closerequest",
     isOpen: false,
-    size: 'small',
+    size: "small",
   },
   render: function Example(args) {
-    const [, setArgs] = useArgs()
+    const [, setArgs] = useArgs();
     return (
       <>
         <button onClick={() => setArgs({ isOpen: true })}>Open Dialog</button>
         <Dialog onClose={() => setArgs({ isOpen: false })} {...args} />
       </>
-    )
+    );
   },
-})
+});
 
 /**
  * The `closedBy` prop specifies the types of user actions that can be used to close the dialog. It
@@ -73,18 +75,18 @@ export const Example = meta.story({
  */
 export const ClosedBy = Example.extend({
   args: {
-    closedBy: 'any',
+    closedBy: "any",
   },
   render: function ClosedBy(args) {
-    const [isOpen, setIsOpen] = useState(false)
+    const [isOpen, setIsOpen] = useState(false);
     return (
       <>
         <button onClick={() => setIsOpen(true)}>Open Dialog</button>
         <Dialog onClose={() => setIsOpen(false)} {...args} isOpen={isOpen} />
       </>
-    )
+    );
   },
-})
+});
 
 /**
  * In future, we expect to enable the opening and closing of dialogs using the new
@@ -109,12 +111,12 @@ export const InvokerCommands = Example.extend({
         </button>
         <Dialog id="my-dialog" {...args} />
       </>
-    )
+    );
   },
-})
+});
 
 interface ExampleLayoutProps {
-  height: string
+  height: string;
 }
 
 function ExampleSimpleLayout({ height }: ExampleLayoutProps) {
@@ -125,7 +127,7 @@ function ExampleSimpleLayout({ height }: ExampleLayoutProps) {
         <Pattern height={height} />
       </Dialog.Body>
     </>
-  )
+  );
 }
 
 function ExampleFooterLayout({ height }: ExampleLayoutProps) {
@@ -136,7 +138,7 @@ function ExampleFooterLayout({ height }: ExampleLayoutProps) {
         <Pattern height={height} />
       </Dialog.Body>
       <Dialog.Footer>
-        <form style={{ display: 'contents' }}>
+        <form style={{ display: "contents" }}>
           <Button autoFocus formMethod="dialog" size="medium" variant="secondary">
             Cancel
           </Button>
@@ -146,5 +148,5 @@ function ExampleFooterLayout({ height }: ExampleLayoutProps) {
         </Button>
       </Dialog.Footer>
     </>
-  )
+  );
 }

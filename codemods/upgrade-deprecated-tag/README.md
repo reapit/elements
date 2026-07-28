@@ -47,10 +47,10 @@ With a facade package, `Tag` and `TagGroup` stay at the same specifier rather th
 
 ```tsx
 // Before (with facade package @company/ui)
-import { DeprecatedTag, DeprecatedTagGroup } from '@company/ui/elements'
+import { DeprecatedTag, DeprecatedTagGroup } from "@company/ui/elements";
 
 // After running with --facade-package @company/ui
-import { Tag, TagGroup } from '@company/ui/elements'
+import { Tag, TagGroup } from "@company/ui/elements";
 ```
 
 ## Background
@@ -104,7 +104,7 @@ Standalone `DeprecatedTag` elements (those not inside a `DeprecatedTagGroup`) be
 
 ```tsx
 // Before
-;<DeprecatedTag intent="primary">Active</DeprecatedTag>
+<DeprecatedTag intent="primary">Active</DeprecatedTag>;
 
 // After
 {
@@ -113,7 +113,7 @@ Standalone `DeprecatedTag` elements (those not inside a `DeprecatedTagGroup`) be
 {
   /* TODO: intent prop removed — the new Tag and TagGroup.Item have no colour/intent equivalent */
 }
-;<Tag>Active</Tag>
+<Tag>Active</Tag>;
 ```
 
 When no `intent` prop is present, only the standalone migration TODO appears.

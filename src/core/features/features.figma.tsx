@@ -1,15 +1,16 @@
-import { Features } from './features'
-import figma from '@figma/code-connect'
+import figma from "@figma/code-connect";
 
-figma.connect(Features, '<FEATURES_URL>', {
+import { Features } from "./features";
+
+figma.connect(Features, "<FEATURES_URL>", {
   props: {
-    size: figma.enum('Size', {
-      '2xs': '2xs',
-      xs: 'xs',
-      sm: 'sm',
-      base: 'base',
+    size: figma.enum("Size", {
+      "2xs": "2xs",
+      xs: "xs",
+      sm: "sm",
+      base: "base",
     }),
-    children: figma.children('*'),
+    children: figma.children("*"),
   },
   example: (props) => (
     <Features size={props.size}>
@@ -18,4 +19,4 @@ figma.connect(Features, '<FEATURES_URL>', {
       {props.children}
     </Features>
   ),
-})
+});

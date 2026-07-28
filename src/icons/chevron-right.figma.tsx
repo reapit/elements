@@ -1,4 +1,5 @@
-import figma from '@figma/code-connect'
-import { ChevronRightIcon } from './chevron-right'
+import figma from "@figma/code-connect";
 
-figma.connect(ChevronRightIcon, 'https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=20-550')
+import { ChevronRightIcon } from "./chevron-right";
+
+figma.connect(ChevronRightIcon, "https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=20-550");

@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/addon-docs/blocks'
+import { Meta } from "@storybook/addon-docs/blocks";
 
 # extractPathParams
 
@@ -13,7 +13,7 @@ The shape of the parameters object is automatically inferred from the path patte
 ## Syntax
 
 ```ts
-extractPathParams(pattern, pathname)
+extractPathParams(pattern, pathname);
 ```
 
 - `pattern`: A path pattern string that may contain named parameters (`:param`) and/or splat parameters (`*`)
@@ -33,28 +33,28 @@ The function includes sophisticated TypeScript types that extract parameter name
 
 ```ts
 // Type is inferred as { id: string } | null
-extractPathParams('/foo/:fooId', '...')
+extractPathParams("/foo/:fooId", "...");
 
 // Type is inferred as { fooId: string; barId: string } | null
-extractPathParams('/foo/:fooId/bar/:barId', '...')
+extractPathParams("/foo/:fooId/bar/:barId", "...");
 
 // Type is inferred as { '*': string } | null
-extractPathParams('/foo/*', '...')
+extractPathParams("/foo/*", "...");
 
 // Type is inferred as { fooId: string; '*': string } | null
-extractPathParams('/foo/:fooId/*', '...')
+extractPathParams("/foo/:fooId/*", "...");
 ```
 
 ## Example
 
 ```ts
-import { extractPathParams } from '@reapit/elements/utils/path'
+import { extractPathParams } from "@reapit/elements/utils/path";
 
 // Named parameter with splat
-extractPathParams('/foo/:fooId/*', '/foo/123/bar/baz')
+extractPathParams("/foo/:fooId/*", "/foo/123/bar/baz");
 // => { fooId: '123', '*': 'bar/baz' }
 
 // Multiple named parameters with splat
-extractPathParams('/foo/:fooId/bar/:barId/*', '/foo/123/bar/abc/baz/qux')
+extractPathParams("/foo/:fooId/bar/:barId/*", "/foo/123/bar/abc/baz/qux");
 // => { fooId: '123', barId: 'abc', '*': 'baz/qux' }
 ```

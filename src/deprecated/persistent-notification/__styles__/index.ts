@@ -1,6 +1,6 @@
-import { css } from '@linaria/core'
-import { styled } from '@linaria/react'
-import { elIsActive } from '../../../styles/deprecated-states'
+import { css } from "@linaria/core";
+import { styled } from "@linaria/react";
+
 import {
   elIntentPrimary,
   elIntentNeutral,
@@ -9,25 +9,27 @@ import {
   elIntentWarning,
   elIntentDanger,
   elIntentDefault,
-} from '../../../styles/deprecated-intent'
+} from "../../../styles/deprecated-intent";
+import { elIsActive } from "../../../styles/deprecated-states";
 
 /** @deprecated */
-export const elPnIsFullWidth = css``
+export const elPnIsFullWidth = css``;
 
 /** @deprecated */
-export const elPnIsFixed = css``
+export const elPnIsFixed = css``;
 
 /** @deprecated */
-export const elPnIsInline = css``
+export const elPnIsInline = css``;
 
 /** @deprecated */
 export const elPnIcon = css`
   padding-left: 0.75rem;
   display: flex;
   align-items: center;
-  border-radius: 0.25rem /* was --default-border-radius */ 0 0 0.25rem /* was --default-border-radius */;
+  border-radius: 0.25rem /* was --default-border-radius */ 0 0 0.25rem
+    /* was --default-border-radius */;
   cursor: pointer;
-`
+`;
 
 /** @deprecated */
 export const elPnContent = css`
@@ -36,7 +38,7 @@ export const elPnContent = css`
   width: 100%;
   color: var(--colour-text-primary);
   font-size: 0.9375rem /* was --font-size-default */;
-`
+`;
 
 /** @deprecated */
 export const ElPersistentNotification = styled.div`
@@ -70,7 +72,8 @@ export const ElPersistentNotification = styled.div`
     position: relative;
     background: var(--colour-fill-white);
     .${elPnContent} {
-      border-radius: 0 0.25rem /* was --default-border-radius */ 0.25rem /* was --default-border-radius */ 0;
+      border-radius: 0 0.25rem /* was --default-border-radius */ 0.25rem
+        /* was --default-border-radius */ 0;
     }
   }
 
@@ -171,4 +174,4 @@ export const ElPersistentNotification = styled.div`
       }
     }
   }
-`
+`;

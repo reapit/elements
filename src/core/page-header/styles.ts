@@ -1,12 +1,14 @@
-import { isWidthAtOrAbove, isWidthBelow } from '#src/utils/breakpoints'
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
+import type { CSSProperties } from "react";
 
-import type { CSSProperties } from 'react'
+import { isWidthAtOrAbove, isWidthBelow } from "#src/utils/breakpoints";
 
 interface PageHeaderProps {
   style?: CSSProperties & {
-    '--page-header-background_colour'?: 'var(--colour-fill-white)' | 'var(--colour-fill-neutral-lightest)'
-  }
+    "--page-header-background_colour"?:
+      | "var(--colour-fill-white)"
+      | "var(--colour-fill-neutral-lightest)";
+  };
 }
 
 export const ElPageHeader = styled.header<PageHeaderProps>`
@@ -24,26 +26,26 @@ export const ElPageHeader = styled.header<PageHeaderProps>`
 
     /* NOTE: Media queries are use by default, but if the browser supports container queries, they will override the
      * media query styles defined here. */
-    @media screen and ${isWidthAtOrAbove('SM')} {
+    @media screen and ${isWidthAtOrAbove("SM")} {
       padding-block: var(--spacing-8);
     }
 
-    @media screen and ${isWidthAtOrAbove('MD')} {
+    @media screen and ${isWidthAtOrAbove("MD")} {
       padding-block: var(--spacing-10);
     }
 
     /* NOTE: These container query styles come _after_ the media query styles, so they will override them (if the browser
      * supports container queries). These container query styles are also dependent on a parent element being a size or
      * inline-size container. */
-    @container ${isWidthBelow('SM')} {
+    @container ${isWidthBelow("SM")} {
       padding-block: var(--spacing-3);
     }
 
-    @container ${isWidthAtOrAbove('SM')} {
+    @container ${isWidthAtOrAbove("SM")} {
       padding-block: var(--spacing-8);
     }
   }
-`
+`;
 
 export const ElPageHeaderBreadcrumbsContainer = styled.div`
   @layer elements.main {
@@ -52,22 +54,22 @@ export const ElPageHeaderBreadcrumbsContainer = styled.div`
 
     /* NOTE: Media queries are use by default, but if the browser supports container queries, they will override the
      * media query styles defined here. */
-    @media screen and ${isWidthAtOrAbove('SM')} {
+    @media screen and ${isWidthAtOrAbove("SM")} {
       padding-block-end: var(--spacing-4);
     }
 
-    @container ${isWidthAtOrAbove('SM')} {
+    @container ${isWidthAtOrAbove("SM")} {
       padding-block-end: var(--spacing-4);
     }
 
     /* NOTE: These container query styles come _after_ the media query styles, so they will override them (if the browser
      * supports container queries). These container query styles are also dependent on a parent element being a size or
      * inline-size container. */
-    @container ${isWidthBelow('SM')} {
+    @container ${isWidthBelow("SM")} {
       padding-block-end: var(--spacing-2);
     }
   }
-`
+`;
 
 export const ElPageHeaderLeadingElementContainer = styled.div`
   @layer elements.main {
@@ -76,37 +78,37 @@ export const ElPageHeaderLeadingElementContainer = styled.div`
 
     /* NOTE: Media queries are use by default, but if the browser supports container queries, they will override the
      * media query styles defined here. */
-    @media screen and ${isWidthAtOrAbove('SM')} {
+    @media screen and ${isWidthAtOrAbove("SM")} {
       padding-inline-end: var(--spacing-4);
     }
 
-    @container ${isWidthAtOrAbove('SM')} {
+    @container ${isWidthAtOrAbove("SM")} {
       padding-inline-end: var(--spacing-4);
     }
 
     /* NOTE: These container query styles come _after_ the media query styles, so they will override them (if the browser
      * supports container queries). These container query styles are also dependent on a parent element being a size or
      * inline-size container. */
-    @container ${isWidthBelow('SM')} {
+    @container ${isWidthBelow("SM")} {
       padding-inline-end: var(--spacing-3);
     }
   }
-`
+`;
 
 export const ElPageHeaderTitleContainer = styled.div`
   @layer elements.main {
     grid-area: title;
   }
-`
+`;
 
 export const ElPageHeaderSubtitleContainer = styled.div`
   @layer elements.main {
     grid-area: subtitle;
   }
-`
+`;
 
 export const ElPageHeaderSupplementaryInfoContainer = styled.div`
   @layer elements.main {
     grid-area: supplementary-info;
   }
-`
+`;

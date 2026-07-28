@@ -1,6 +1,8 @@
-import { RadioButton } from '#src/core/radio-group-control/radio-button/index'
-import { forwardRef } from 'react'
-import { useRadioGroupContext } from './context'
+import { forwardRef } from "react";
+
+import { RadioButton } from "#src/core/radio-group-control/radio-button/index";
+
+import { useRadioGroupContext } from "./context";
 
 export namespace RadioGroupControlOption {
   export interface Props extends RadioButton.Props {}
@@ -13,7 +15,7 @@ export namespace RadioGroupControlOption {
  */
 export const RadioGroupControlOption = forwardRef<HTMLInputElement, RadioGroupControlOption.Props>(
   ({ disabled, form, name, required, showValidity, ...rest }, ref) => {
-    const context = useRadioGroupContext()
+    const context = useRadioGroupContext();
     return (
       <RadioButton
         {...rest}
@@ -24,8 +26,8 @@ export const RadioGroupControlOption = forwardRef<HTMLInputElement, RadioGroupCo
         required={required ?? context.required}
         showValidity={showValidity ?? context.showValidity}
       />
-    )
+    );
   },
-)
+);
 
-RadioGroupControlOption.displayName = 'RadioGroup.Option'
+RadioGroupControlOption.displayName = "RadioGroup.Option";

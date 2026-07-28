@@ -1,7 +1,8 @@
-import { Select } from '../select'
-import { render, screen } from '@testing-library/react'
+import { render, screen } from "@testing-library/react";
 
-test('renders a combobox', () => {
+import { Select } from "../select";
+
+test("renders a combobox", () => {
   render(
     <Select>
       <Select.Button />
@@ -9,11 +10,11 @@ test('renders a combobox', () => {
         <Select.Listbox />
       </Select.Popup>
     </Select>,
-  )
-  expect(screen.getByRole('combobox')).toBeVisible()
-})
+  );
+  expect(screen.getByRole("combobox")).toBeVisible();
+});
 
-test('renders with listbox', () => {
+test("renders with listbox", () => {
   render(
     <Select>
       <Select.Button />
@@ -24,11 +25,11 @@ test('renders with listbox', () => {
         </Select.Listbox>
       </Select.Popup>
     </Select>,
-  )
-  expect(screen.getByRole('combobox')).toBeVisible()
-})
+  );
+  expect(screen.getByRole("combobox")).toBeVisible();
+});
 
-test('can be disabled', () => {
+test("can be disabled", () => {
   render(
     <Select disabled>
       <Select.Button />
@@ -36,11 +37,11 @@ test('can be disabled', () => {
         <Select.Listbox />
       </Select.Popup>
     </Select>,
-  )
-  expect(screen.getByRole('combobox')).toBeDisabled()
-})
+  );
+  expect(screen.getByRole("combobox")).toBeDisabled();
+});
 
-test('can be required', () => {
+test("can be required", () => {
   render(
     <Select required>
       <Select.Button />
@@ -48,11 +49,11 @@ test('can be required', () => {
         <Select.Listbox />
       </Select.Popup>
     </Select>,
-  )
-  expect(screen.getByRole('combobox')).toHaveAttribute('aria-required', 'true')
-})
+  );
+  expect(screen.getByRole("combobox")).toHaveAttribute("aria-required", "true");
+});
 
-test('supports small size', () => {
+test("supports small size", () => {
   const { container } = render(
     <Select size="small">
       <Select.Button />
@@ -60,11 +61,11 @@ test('supports small size', () => {
         <Select.Listbox />
       </Select.Popup>
     </Select>,
-  )
-  expect(container.querySelector('[data-size="small"]')).toBeVisible()
-})
+  );
+  expect(container.querySelector('[data-size="small"]')).toBeVisible();
+});
 
-test('supports medium size', () => {
+test("supports medium size", () => {
   const { container } = render(
     <Select size="medium">
       <Select.Button />
@@ -72,11 +73,11 @@ test('supports medium size', () => {
         <Select.Listbox />
       </Select.Popup>
     </Select>,
-  )
-  expect(container.querySelector('[data-size="medium"]')).toBeVisible()
-})
+  );
+  expect(container.querySelector('[data-size="medium"]')).toBeVisible();
+});
 
-test('supports large size', () => {
+test("supports large size", () => {
   const { container } = render(
     <Select size="large">
       <Select.Button />
@@ -84,11 +85,11 @@ test('supports large size', () => {
         <Select.Listbox />
       </Select.Popup>
     </Select>,
-  )
-  expect(container.querySelector('[data-size="large"]')).toBeVisible()
-})
+  );
+  expect(container.querySelector('[data-size="large"]')).toBeVisible();
+});
 
-test('forwards additional props to underlying element', () => {
+test("forwards additional props to underlying element", () => {
   render(
     <Select data-testid="my-Select" className="custom-class">
       <Select.Button />
@@ -96,51 +97,51 @@ test('forwards additional props to underlying element', () => {
         <Select.Listbox />
       </Select.Popup>
     </Select>,
-  )
-  expect(screen.getByTestId('my-Select')).toBeVisible()
-  expect(screen.getByTestId('my-Select')).toHaveClass('custom-class')
-})
+  );
+  expect(screen.getByTestId("my-Select")).toBeVisible();
+  expect(screen.getByTestId("my-Select")).toHaveClass("custom-class");
+});
 
-test('exposes Button component', () => {
-  expect(Select.Button).toBeDefined()
-})
+test("exposes Button component", () => {
+  expect(Select.Button).toBeDefined();
+});
 
-test('exposes Listbox component', () => {
-  expect(Select.Listbox).toBeDefined()
-})
+test("exposes Listbox component", () => {
+  expect(Select.Listbox).toBeDefined();
+});
 
-test('exposes Option component', () => {
-  expect(Select.Option).toBeDefined()
-})
+test("exposes Option component", () => {
+  expect(Select.Option).toBeDefined();
+});
 
-test('exposes OptionAdditionalInfo component', () => {
-  expect(Select.OptionAdditionalInfo).toBeDefined()
-})
+test("exposes OptionAdditionalInfo component", () => {
+  expect(Select.OptionAdditionalInfo).toBeDefined();
+});
 
-test('exposes Optgroup component', () => {
-  expect(Select.Optgroup).toBeDefined()
-})
+test("exposes Optgroup component", () => {
+  expect(Select.Optgroup).toBeDefined();
+});
 
-test('exposes Popup component', () => {
-  expect(Select.Popup).toBeDefined()
-})
+test("exposes Popup component", () => {
+  expect(Select.Popup).toBeDefined();
+});
 
-test('exposes SelectionChips component', () => {
-  expect(Select.SelectionChips).toBeDefined()
-})
+test("exposes SelectionChips component", () => {
+  expect(Select.SelectionChips).toBeDefined();
+});
 
-test('exposes getValue utility function', () => {
-  expect(Select.getValue).toBeDefined()
-})
+test("exposes getValue utility function", () => {
+  expect(Select.getValue).toBeDefined();
+});
 
-test('exposes getListboxId utility function', () => {
-  expect(Select.getListboxId).toBeDefined()
-})
+test("exposes getListboxId utility function", () => {
+  expect(Select.getListboxId).toBeDefined();
+});
 
-test('exposes getPopupId utility function', () => {
-  expect(Select.getPopupId).toBeDefined()
-})
+test("exposes getPopupId utility function", () => {
+  expect(Select.getPopupId).toBeDefined();
+});
 
-test('exposes useState hook', () => {
-  expect(Select.useState).toBeDefined()
-})
+test("exposes useState hook", () => {
+  expect(Select.useState).toBeDefined();
+});

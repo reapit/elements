@@ -1,17 +1,17 @@
-import { BottomBarContext, useBottomBarContext } from './context'
-import { BottomBarItemButton } from './item'
-import { BottomBarMenuList } from './menu-list'
-import { ElBottomBarContainer, ElBottomBarNav } from './styles'
-import { useBottomBarObserver } from './use-bottom-bar-observer'
+import type { HTMLAttributes, ReactNode } from "react";
 
-import type { HTMLAttributes, ReactNode } from 'react'
+import { BottomBarContext, useBottomBarContext } from "./context";
+import { BottomBarItemButton } from "./item";
+import { BottomBarMenuList } from "./menu-list";
+import { ElBottomBarContainer, ElBottomBarNav } from "./styles";
+import { useBottomBarObserver } from "./use-bottom-bar-observer";
 
 export namespace BottomBar {
   export interface Props extends HTMLAttributes<HTMLDivElement> {
     /** The children of the bottom bar. **/
-    children: ReactNode
+    children: ReactNode;
     /** The ID of the scroll container the bottom bar will observe. */
-    scrollContainerId?: string
+    scrollContainerId?: string;
   }
 }
 
@@ -24,12 +24,12 @@ export namespace BottomBar {
  * observed, such as the `PageLayout.BottomBarRegion`.
  */
 export function BottomBar({
-  'aria-label': ariaLabel = 'Bottom navigation',
+  "aria-label": ariaLabel = "Bottom navigation",
   children,
   scrollContainerId,
   ...rest
 }: BottomBar.Props) {
-  const state = useBottomBarObserver(scrollContainerId)
+  const state = useBottomBarObserver(scrollContainerId);
 
   return (
     <ElBottomBarContainer>
@@ -37,16 +37,16 @@ export function BottomBar({
         <BottomBarContext.Provider value={{ state }}>{children}</BottomBarContext.Provider>
       </ElBottomBarNav>
     </ElBottomBarContainer>
-  )
+  );
 }
 
-BottomBar.Item = BottomBarMenuList.Item
-BottomBar.ItemButton = BottomBarItemButton
-BottomBar.MenuItem = BottomBarMenuList.MenuItem
-BottomBar.MenuList = BottomBarMenuList
+BottomBar.Item = BottomBarMenuList.Item;
+BottomBar.ItemButton = BottomBarItemButton;
+BottomBar.MenuItem = BottomBarMenuList.MenuItem;
+BottomBar.MenuList = BottomBarMenuList;
 
-BottomBar.Context = BottomBarContext
-BottomBar.useContext = useBottomBarContext
+BottomBar.Context = BottomBarContext;
+BottomBar.useContext = useBottomBarContext;
 
 /** @deprecated Use BottomBar.Props instead */
-export type BottomBarProps = BottomBar.Props
+export type BottomBarProps = BottomBar.Props;

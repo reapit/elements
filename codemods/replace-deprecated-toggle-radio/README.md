@@ -82,9 +82,9 @@ When `options` is an inline array literal with statically resolvable `value` and
 <ToggleRadio
   name="my-radio"
   options={[
-    { id: 'opt1', value: 'a', text: 'Option A', isChecked: true },
-    { id: 'opt2', value: 'b', text: 'Option B', isChecked: false },
-    { id: 'opt3', value: 'c', text: 'Option C', isChecked: false },
+    { id: "opt1", value: "a", text: "Option A", isChecked: true },
+    { id: "opt2", value: "b", text: "Option B", isChecked: false },
+    { id: "opt3", value: "c", text: "Option C", isChecked: false },
   ]}
 />
 ```

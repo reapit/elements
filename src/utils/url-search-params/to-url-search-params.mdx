@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/addon-docs/blocks'
+import { Meta } from "@storybook/addon-docs/blocks";
 
 # toURLSearchParams
 
@@ -11,7 +11,7 @@ multiple key-value pairs.
 ## Syntax
 
 ```ts
-toURLSearchParams(data, init)
+toURLSearchParams(data, init);
 ```
 
 - `entries`: An iterable of key-value pairs.
@@ -21,9 +21,9 @@ toURLSearchParams(data, init)
 ## Example
 
 ```ts
-import { toURLSearchParams } from '@reapit/elements/utils/url-search-params'
+import { toURLSearchParams } from "@reapit/elements/utils/url-search-params";
 
-const data = { a: '1', b: null, c: ['3', '4'] }
-const params = toURLSearchParams(Object.entries(data))
-console.log(params.toString()) // 'a=1&c=3&c=4'
+const data = { a: "1", b: null, c: ["3", "4"] };
+const params = toURLSearchParams(Object.entries(data));
+console.log(params.toString()); // 'a=1&c=3&c=4'
 ```

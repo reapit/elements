@@ -5,7 +5,9 @@ import type {
   HTMLAttributes,
   MouseEventHandler,
   ReactNode,
-} from 'react'
+} from "react";
+
+import type { sizeType } from "../../types/core";
 import {
   ElDeprecatedMenuItemAnchor,
   ElDeprecatedMenuItemButton,
@@ -13,12 +15,11 @@ import {
   ElDeprecatedMenuItemGroupList,
   ElDeprecatedMenuItemGroupTitle,
   ElDeprecatedMenuList,
-} from './styles'
-import type { sizeType } from '../../types/core'
+} from "./styles";
 
 /** @deprecated */
 interface CommonDeprecatedMenuItemProps {
-  children?: ReactNode
+  children?: ReactNode;
   /**
    * Whether the menu is closed when clicking this item
    *
@@ -27,39 +28,39 @@ interface CommonDeprecatedMenuItemProps {
    *
    * @default true
    */
-  closeMenu?: boolean
+  closeMenu?: boolean;
   /**
    * Whether the Menu item is active
    *
    * @default false
    **/
-  isActive?: boolean
+  isActive?: boolean;
 }
 
 /** @deprecated */
 interface DeprecatedMenuItemAsButtonElementProps
   extends CommonDeprecatedMenuItemProps, ButtonHTMLAttributes<HTMLButtonElement> {
-  href?: never
-  disabled?: boolean
-  onClick?: MouseEventHandler<HTMLButtonElement>
+  href?: never;
+  disabled?: boolean;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
 /** @deprecated */
 interface DeprecatedMenuItemAsAnchorElementProps
   extends CommonDeprecatedMenuItemProps, AnchorHTMLAttributes<HTMLAnchorElement> {
   /** MenuItemAsAnchor currently doesn't support disabled state, use MenuItemButton instead */
-  disabled?: never
+  disabled?: never;
 }
 
 /** @deprecated */
 export type DeprecatedMenuItemContainerProps =
   | DeprecatedMenuItemAsButtonElementProps
-  | DeprecatedMenuItemAsAnchorElementProps
+  | DeprecatedMenuItemAsAnchorElementProps;
 
 /** @deprecated */
 export interface DeprecatedMenuListProps extends HTMLAttributes<HTMLDivElement> {
-  maxWidth?: sizeType
-  maxHeight?: sizeType
+  maxWidth?: sizeType;
+  maxHeight?: sizeType;
 }
 
 /**
@@ -70,8 +71,8 @@ export interface DeprecatedMenuListProps extends HTMLAttributes<HTMLDivElement> 
  */
 export const DeprecatedMenuItemGroup: FC<
   HTMLAttributes<HTMLDivElement> & {
-    label?: string
-    maxHeight?: sizeType
+    label?: string;
+    maxHeight?: sizeType;
   }
 > = ({ children, label, maxHeight, ...rest }) => {
   return (
@@ -81,8 +82,8 @@ export const DeprecatedMenuItemGroup: FC<
         {children}
       </ElDeprecatedMenuItemGroupList>
     </ElDeprecatedMenuItemGroup>
-  )
-}
+  );
+};
 
 /** @deprecated */
 export const DeprecatedMenuItemContainer: FC<DeprecatedMenuItemContainerProps> = ({
@@ -98,11 +99,11 @@ export const DeprecatedMenuItemContainer: FC<DeprecatedMenuItemContainerProps> =
         {...(rest as DeprecatedMenuItemAsAnchorElementProps)}
         role="menuitem"
         data-close-menu={closeMenu || !!disabled}
-        aria-current={isActive ? 'page' : undefined}
+        aria-current={isActive ? "page" : undefined}
       >
         {children}
       </ElDeprecatedMenuItemAnchor>
-    )
+    );
   }
 
   return (
@@ -112,16 +113,21 @@ export const DeprecatedMenuItemContainer: FC<DeprecatedMenuItemContainerProps> =
       data-close-menu={closeMenu}
       disabled={disabled}
       aria-disabled={disabled}
-      aria-current={isActive ? 'true' : undefined}
+      aria-current={isActive ? "true" : undefined}
       tabIndex={disabled ? -1 : 0}
     >
       {children}
     </ElDeprecatedMenuItemButton>
-  )
-}
+  );
+};
 
 /** @deprecated */
-export const DeprecatedMenuList: FC<DeprecatedMenuListProps> = ({ children, maxWidth, maxHeight, ...rest }) => (
+export const DeprecatedMenuList: FC<DeprecatedMenuListProps> = ({
+  children,
+  maxWidth,
+  maxHeight,
+  ...rest
+}) => (
   <ElDeprecatedMenuList
     {...rest}
     style={{ ...rest?.style, maxWidth: `var(${maxWidth})`, maxHeight: `var(${maxHeight})` }}
@@ -130,10 +136,10 @@ export const DeprecatedMenuList: FC<DeprecatedMenuListProps> = ({ children, maxW
   >
     {children}
   </ElDeprecatedMenuList>
-)
+);
 
 function isItemAsButtonElement(
   props: DeprecatedMenuItemContainerProps,
 ): props is DeprecatedMenuItemAsButtonElementProps {
-  return !props.href
+  return !props.href;
 }

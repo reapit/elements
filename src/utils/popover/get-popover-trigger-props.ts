@@ -1,5 +1,5 @@
-import { getReactMajor } from '#src/utils/react-version'
-import type { IsReact19 } from '#src/utils/react-version'
+import { getReactMajor } from "#src/utils/react-version";
+import type { IsReact19 } from "#src/utils/react-version";
 
 /**
  * Adapts Popover API trigger attributes for the installed React version.
@@ -24,21 +24,21 @@ export function getPopoverTriggerProps({
   popoverTargetAction,
 }: getPopoverTriggerProps.Input): getPopoverTriggerProps.Output {
   if (getReactMajor() >= 19) {
-    return { id, popoverTarget, popoverTargetAction } as unknown as getPopoverTriggerProps.Output
+    return { id, popoverTarget, popoverTargetAction } as unknown as getPopoverTriggerProps.Output;
   }
 
   return {
     id,
     popovertarget: popoverTarget,
     popovertargetaction: popoverTargetAction,
-  } as getPopoverTriggerProps.Output
+  } as getPopoverTriggerProps.Output;
 }
 
 export namespace getPopoverTriggerProps {
   export interface Input {
-    id: string
-    popoverTarget: string
-    popoverTargetAction: 'hide' | 'show' | 'toggle'
+    id: string;
+    popoverTarget: string;
+    popoverTargetAction: "hide" | "show" | "toggle";
   }
 
   /**
@@ -48,13 +48,13 @@ export namespace getPopoverTriggerProps {
    */
   export type Output = IsReact19 extends true
     ? {
-        id: string
-        popoverTarget: string
-        popoverTargetAction: 'hide' | 'show' | 'toggle'
+        id: string;
+        popoverTarget: string;
+        popoverTargetAction: "hide" | "show" | "toggle";
       }
     : {
-        id: string
-        popovertarget: string
-        popovertargetaction: 'hide' | 'show' | 'toggle'
-      }
+        id: string;
+        popovertarget: string;
+        popovertargetaction: "hide" | "show" | "toggle";
+      };
 }

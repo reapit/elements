@@ -1,4 +1,4 @@
-import { css } from '@linaria/core'
+import { css } from "@linaria/core";
 
 export const elToastOutlet = css`
   @layer elements.main {
@@ -11,7 +11,7 @@ export const elToastOutlet = css`
     color: inherit;
     overflow: visible;
   }
-`
+`;
 
 export const elToastList = css`
   @layer elements.main {
@@ -35,26 +35,26 @@ export const elToastList = css`
     /* Pointer events: only the toasts themselves are interactive */
     pointer-events: none;
 
-    &[data-position='bottom-left'] {
+    &[data-position="bottom-left"] {
       left: var(--toaster-gutter);
       transform: none;
       align-items: flex-start;
     }
 
-    &[data-position='bottom-right'] {
+    &[data-position="bottom-right"] {
       left: auto;
       right: var(--toaster-gutter);
       transform: none;
       align-items: flex-end;
     }
 
-    &[data-position='top-center'] {
+    &[data-position="top-center"] {
       bottom: auto;
       top: var(--toaster-gutter);
       flex-direction: column-reverse;
     }
 
-    &[data-position='top-left'] {
+    &[data-position="top-left"] {
       bottom: auto;
       top: var(--toaster-gutter);
       left: var(--toaster-gutter);
@@ -63,14 +63,14 @@ export const elToastList = css`
       align-items: flex-start;
     }
 
-    &[data-position='top-right'] {
+    &[data-position="top-right"] {
       inset: var(--toaster-gutter) var(--toaster-gutter) auto auto;
       transform: none;
       flex-direction: column-reverse;
       align-items: flex-end;
     }
   }
-`
+`;
 
 export const elToastItem = css`
   @layer elements.main {
@@ -95,7 +95,7 @@ export const elToastItem = css`
      * inherited by the inner elToastItemContent div. */
     --toast-dir: 1;
 
-    &[data-position^='top'] {
+    &[data-position^="top"] {
       --toast-dir: -1;
     }
 
@@ -109,7 +109,7 @@ export const elToastItem = css`
       margin-block-start: 0;
     }
 
-    &[data-position^='top'] {
+    &[data-position^="top"] {
       margin-block-start: var(--spacing-2);
 
       &:last-child {
@@ -134,7 +134,7 @@ export const elToastItem = css`
     /* Pending: collapsed with no transition. The toast is in the DOM but not
      * yet visible. The settle() call transitions this to 'visible', at which
      * point the CSS transition animates the expansion. */
-    &[data-state='pending'] {
+    &[data-state="pending"] {
       grid-template-rows: 0fr;
       margin-block-start: 0;
     }
@@ -144,7 +144,7 @@ export const elToastItem = css`
      * a portal remount) renders immediately at rest with no transition.
      * Paused toasts (hovered, swiped, or page-hidden) are visually identical to
      * visible toasts. */
-    &:is([data-state='visible'], [data-state='paused']) {
+    &:is([data-state="visible"], [data-state="paused"]) {
       grid-template-rows: 1fr;
       transition-property: grid-template-rows, margin-block-start;
     }
@@ -153,13 +153,13 @@ export const elToastItem = css`
     /* Exit — layout                                                       */
     /* ------------------------------------------------------------------ */
 
-    &[data-state='dismissing'] {
+    &[data-state="dismissing"] {
       grid-template-rows: 0fr;
       margin-block-start: 0;
       transition-property: grid-template-rows, margin-block-start;
     }
   }
-`
+`;
 
 /** Inner wrapper for the toast content. Handles all visual transitions
  * (transform, opacity) independently from the layout collapse on the parent
@@ -204,15 +204,17 @@ export const elToastItemContent = css`
     /* ------------------------------------------------------------------ */
 
     /* Pending: off-screen starting position, no transition. */
-    [data-state='pending'] > & {
-      transform: translateY(calc(var(--toast-dir) * (var(--toast-height, 100%) + var(--toaster-gutter))));
+    [data-state="pending"] > & {
+      transform: translateY(
+        calc(var(--toast-dir) * (var(--toast-height, 100%) + var(--toaster-gutter)))
+      );
       transition: none;
     }
 
     /* Visible / paused: resting position, transitions enabled. Transitioning
      * from 'pending' slides the toast into view. Inserted directly as 'visible'
      * renders at rest with no animation. */
-    :is([data-state='visible'], [data-state='paused']) > & {
+    :is([data-state="visible"], [data-state="paused"]) > & {
       transform: translateY(var(--swipe-offset, 0));
       transition-property: transform;
     }
@@ -222,7 +224,7 @@ export const elToastItemContent = css`
     /* ------------------------------------------------------------------ */
 
     /* Non-edge toasts: fade + slide toward the edge. */
-    [data-state='dismissing'] > & {
+    [data-state="dismissing"] > & {
       opacity: 0;
       transform: translateY(calc(var(--toast-dir) * var(--spacing-6)));
       transition-property: opacity, transform;
@@ -232,9 +234,11 @@ export const elToastItemContent = css`
 
     /* Edge toast (:last-child in both column and column-reverse is visually
      * nearest the viewport edge): slide off-screen, no fade. */
-    [data-state='dismissing']:last-child > & {
+    [data-state="dismissing"]:last-child > & {
       opacity: 1;
-      transform: translateY(calc(var(--toast-dir) * (var(--toast-height, 100%) + var(--toaster-gutter))));
+      transform: translateY(
+        calc(var(--toast-dir) * (var(--toast-height, 100%) + var(--toaster-gutter)))
+      );
       transition-property: transform;
       transition-duration: 200ms;
       transition-timing-function: ease-in;
@@ -249,7 +253,7 @@ export const elToastItemContent = css`
      * [data-state='visible'] / [data-state='paused'] so it has sufficient
      * specificity to override the visible rule's transition-property
      * declaration. */
-    :is([data-state='visible'], [data-state='paused']) > &[data-swiping='true'] {
+    :is([data-state="visible"], [data-state="paused"]) > &[data-swiping="true"] {
       transform: translateY(var(--swipe-offset, 0));
       transition: none;
     }
@@ -266,4 +270,4 @@ export const elToastItemContent = css`
       transition-timing-function: ease-out;
     }
   }
-`
+`;

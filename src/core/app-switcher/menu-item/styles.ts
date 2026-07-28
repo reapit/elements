@@ -1,5 +1,6 @@
-import { font } from '#src/utils/font'
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
+
+import { font } from "#src/utils/font";
 
 // If we don't have the transparent border, the component will move a slight bit, which is not what we want
 export const ElAppSwitcherMenuItemAnchor = styled.a`
@@ -8,8 +9,8 @@ export const ElAppSwitcherMenuItemAnchor = styled.a`
 
     display: grid;
     grid-template:
-      'logo name' min-content
-      'logo supplementary-info' min-content / min-content auto;
+      "logo name" min-content
+      "logo supplementary-info" min-content / min-content auto;
     gap: var(--spacing-1) var(--spacing-3);
     padding-block: var(--spacing-3);
     padding-inline: var(--spacing-3) var(--spacing-4);
@@ -27,7 +28,7 @@ export const ElAppSwitcherMenuItemAnchor = styled.a`
       background-color: var(--comp-menu-colour-fill-hover);
     }
   }
-`
+`;
 
 export const ElAppSwitcherMenuItemAvatar = styled.div`
   @layer elements.main {
@@ -44,7 +45,7 @@ export const ElAppSwitcherMenuItemAvatar = styled.div`
       height: 100%;
     }
   }
-`
+`;
 
 export const ElAppSwitcherMenuItemLabel = styled.span`
   @layer elements.main {
@@ -52,9 +53,9 @@ export const ElAppSwitcherMenuItemLabel = styled.span`
     overflow-wrap: anywhere;
 
     color: var(--comp-menu-colour-text-default-primary);
-    ${font('sm', 'medium')}
+    ${font("sm", "medium")}
   }
-`
+`;
 
 export const ElAppSwitcherMenuItemSupplementaryInfo = styled.span`
   @layer elements.main {
@@ -62,6 +63,6 @@ export const ElAppSwitcherMenuItemSupplementaryInfo = styled.span`
     overflow-wrap: anywhere;
 
     color: var(--comp-menu-colour-text-default-secondary);
-    ${font('xs', 'regular')}
+    ${font("xs", "regular")}
   }
-`
+`;

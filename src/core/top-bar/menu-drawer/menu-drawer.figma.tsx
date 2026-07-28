@@ -1,21 +1,22 @@
-import figma from '@figma/code-connect'
-import { TopBar } from '../top-bar'
+import figma from "@figma/code-connect";
 
-figma.connect(TopBar, '<TOP_BAR_MENU_URL>', {
-  variant: { Variant: 'Main level' },
+import { TopBar } from "../top-bar";
+
+figma.connect(TopBar, "<TOP_BAR_MENU_URL>", {
+  variant: { Variant: "Main level" },
   props: {
-    mainNav: figma.nestedProps('Main nav', {
-      children: figma.children('*'),
+    mainNav: figma.nestedProps("Main nav", {
+      children: figma.children("*"),
     }),
-    secondaryNav: figma.boolean('Show secondary nav', {
-      true: figma.nestedProps('Secondary nav', {
-        children: figma.children('*'),
+    secondaryNav: figma.boolean("Show secondary nav", {
+      true: figma.nestedProps("Secondary nav", {
+        children: figma.children("*"),
       }),
       false: { children: undefined },
     }),
-    profileNav: figma.boolean('Show user menu', {
-      true: figma.nestedProps('User menu', {
-        children: figma.children('*'),
+    profileNav: figma.boolean("Show user menu", {
+      true: figma.nestedProps("User menu", {
+        children: figma.children("*"),
       }),
       false: { children: undefined },
     }),
@@ -29,4 +30,4 @@ figma.connect(TopBar, '<TOP_BAR_MENU_URL>', {
       </TopBar.MenuContent>
     </TopBar.Menu>
   ),
-})
+});

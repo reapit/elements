@@ -1,8 +1,9 @@
-import { useFileUploaderContext } from './context'
-import { useSyncExternalStore } from 'react'
-import { validateFiles } from '#src/utils/file-input'
+import { useSyncExternalStore } from "react";
+import type { ChangeEventHandler } from "react";
 
-import type { ChangeEventHandler } from 'react'
+import { validateFiles } from "#src/utils/file-input";
+
+import { useFileUploaderContext } from "./context";
 
 export namespace useFileUploaderInput {
   // Note: Does not accept all the supported validation constraints, because we only care about reporting
@@ -10,11 +11,11 @@ export namespace useFileUploaderInput {
   // append to or replace the current selection (which only cares about the maximum number of files
   // permitted, not the minimum).
   export interface Options {
-    accept?: string
-    maxFiles?: number
-    maxFileSize?: number
-    multiple?: boolean
-    onChange?: ChangeEventHandler<HTMLInputElement>
+    accept?: string;
+    maxFiles?: number;
+    maxFileSize?: number;
+    multiple?: boolean;
+    onChange?: ChangeEventHandler<HTMLInputElement>;
   }
 }
 
@@ -32,21 +33,21 @@ export function useFileUploaderInput({
   multiple,
   onChange,
 }: useFileUploaderInput.Options): {
-  files: File[]
-  handleChange: ChangeEventHandler<HTMLInputElement>
+  files: File[];
+  handleChange: ChangeEventHandler<HTMLInputElement>;
 } {
-  const { queue } = useFileUploaderContext('useFileUploaderInput')
-  const files = useSyncExternalStore(queue.subscribe, queue.getFilesSnapshot)
+  const { queue } = useFileUploaderContext("useFileUploaderInput");
+  const files = useSyncExternalStore(queue.subscribe, queue.getFilesSnapshot);
 
-  const effectiveMaxFiles = maxFiles ?? (multiple ? Infinity : 1)
+  const effectiveMaxFiles = maxFiles ?? (multiple ? Infinity : 1);
 
   const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => {
-    const newFiles = Array.from(event.currentTarget.files ?? [])
-    if (effectiveMaxFiles === 1) queue.replaceFiles(newFiles)
-    else queue.addFiles(newFiles)
-    queue.reportValidity(validateFiles(newFiles, { accept, maxFileSize }).rejected)
-    onChange?.(event)
-  }
+    const newFiles = Array.from(event.currentTarget.files ?? []);
+    if (effectiveMaxFiles === 1) queue.replaceFiles(newFiles);
+    else queue.addFiles(newFiles);
+    queue.reportValidity(validateFiles(newFiles, { accept, maxFileSize }).rejected);
+    onChange?.(event);
+  };
 
-  return { files, handleChange }
+  return { files, handleChange };
 }

@@ -1,10 +1,11 @@
-import { CheckboxGroupControlOption } from './checkbox-group-control-option'
-import { CheckboxGroupControlContext, useCheckboxGroupControlContext } from './context'
-import { ElCheckboxGroup } from './styles'
-import { FormControl } from '#src/core/form-control'
-import { useId } from 'react'
+import { useId } from "react";
+import type { FieldsetHTMLAttributes, ReactNode } from "react";
 
-import type { FieldsetHTMLAttributes, ReactNode } from 'react'
+import { FormControl } from "#src/core/form-control";
+
+import { CheckboxGroupControlOption } from "./checkbox-group-control-option";
+import { CheckboxGroupControlContext, useCheckboxGroupControlContext } from "./context";
+import { ElCheckboxGroup } from "./styles";
 
 export namespace CheckboxGroupControl {
   export interface Props extends FieldsetHTMLAttributes<HTMLFieldSetElement> {
@@ -12,43 +13,43 @@ export namespace CheckboxGroupControl {
      * An accessible label for the checkbox group. Should be considered mandatory when there is
      * no visual label.
      */
-    'aria-label'?: string
+    "aria-label"?: string;
     /** The options in the checkbox group. */
-    children: ReactNode
+    children: ReactNode;
     /**
      * Whether all checkboxes in the group are disabled by default. Individual options can override
      * this value.
      */
-    disabled?: boolean
+    disabled?: boolean;
     /** Optional error text that communicates why the checkbox group's value is invalid. */
-    errorText?: ReactNode
+    errorText?: ReactNode;
     /**
      * The ID of the form the checkbox group's options should be associated with. An explicit value is
      * only necessary if the checkbox group is not a descendant of a form element; if it is, it will be
      * automatically associated with that ancestral form.
      */
-    form?: string
+    form?: string;
     /** Optional help text that provides more context about the checkbox group and its options. */
-    helpText?: ReactNode
+    helpText?: ReactNode;
     /**
      * The visual label for the checkbox group. If no visual label is provided, an accessible
      * label should be via `aria-label`.
      */
-    label?: ReactNode
+    label?: ReactNode;
     /** The name each option in the checkbox group should use. */
-    name?: string
+    name?: string;
     /** Whether the checkboxes are laid out horizontally or vertically. */
-    orientation?: 'vertical' | 'horizontal'
+    orientation?: "vertical" | "horizontal";
     /**
      * Whether all checkboxes in the group are required by default. Individual options can override
      * this value.
      */
-    required?: boolean
+    required?: boolean;
     /**
      * Whether to show validity state on all checkboxes in the group by default. Individual options
      * can override this value.
      */
-    showValidity?: boolean
+    showValidity?: boolean;
   }
 }
 
@@ -63,13 +64,13 @@ export function CheckboxGroupControl({
   helpText,
   label,
   name,
-  orientation = 'vertical',
+  orientation = "vertical",
   required,
   showValidity,
   ...rest
 }: CheckboxGroupControl.Props) {
-  const helpTextId = useId()
-  const errorTextId = useId()
+  const helpTextId = useId();
+  const errorTextId = useId();
 
   return (
     // NOTE: we do not use the fieldset's native disabled, form or name attributes, because we want
@@ -100,9 +101,9 @@ export function CheckboxGroupControl({
         helpText && <FormControl.HelpText id={helpTextId}>{helpText}</FormControl.HelpText>
       )}
     </FormControl>
-  )
+  );
 }
 
-CheckboxGroupControl.Option = CheckboxGroupControlOption
-CheckboxGroupControl.Context = CheckboxGroupControlContext
-CheckboxGroupControl.useContext = useCheckboxGroupControlContext
+CheckboxGroupControl.Option = CheckboxGroupControlOption;
+CheckboxGroupControl.Context = CheckboxGroupControlContext;
+CheckboxGroupControl.useContext = useCheckboxGroupControlContext;

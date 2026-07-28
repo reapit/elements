@@ -1,9 +1,9 @@
-import { ElTopBarMenuDrawerMenuList } from './styles'
-import { TopBarMenuDrawerMenuListItem } from './menu-list-item'
-import { TopBarMenuDrawerMenuListItemButton } from './menu-list-item-button'
-import { TopBarMenuDrawerMenuListGroup } from './menu-list-group'
+import type { ComponentProps } from "react";
 
-import type { ComponentProps } from 'react'
+import { TopBarMenuDrawerMenuListGroup } from "./menu-list-group";
+import { TopBarMenuDrawerMenuListItem } from "./menu-list-item";
+import { TopBarMenuDrawerMenuListItemButton } from "./menu-list-item-button";
+import { ElTopBarMenuDrawerMenuList } from "./styles";
 
 export namespace TopBarMenuDrawerMenuList {
   export interface ItemProps extends TopBarMenuDrawerMenuListItem.Props {}
@@ -22,12 +22,12 @@ export namespace TopBarMenuDrawerMenuList {
  * direct usage of this component as they all provide automatic display handling.
  */
 export function TopBarMenuDrawerMenuList({ children, ...rest }: TopBarMenuDrawerMenuList.Props) {
-  return <ElTopBarMenuDrawerMenuList {...rest}>{children}</ElTopBarMenuDrawerMenuList>
+  return <ElTopBarMenuDrawerMenuList {...rest}>{children}</ElTopBarMenuDrawerMenuList>;
 }
 
-TopBarMenuDrawerMenuList.displayName = 'TopBar.MenuList'
+TopBarMenuDrawerMenuList.displayName = "TopBar.MenuList";
 
-TopBarMenuDrawerMenuList.Item = TopBarMenuDrawerMenuListItem
-TopBarMenuDrawerMenuList.ItemButton = TopBarMenuDrawerMenuListItemButton
-TopBarMenuDrawerMenuList.Group = TopBarMenuDrawerMenuListGroup
-TopBarMenuDrawerMenuList.GroupSummary = TopBarMenuDrawerMenuListGroup.Summary
+TopBarMenuDrawerMenuList.Item = TopBarMenuDrawerMenuListItem;
+TopBarMenuDrawerMenuList.ItemButton = TopBarMenuDrawerMenuListItemButton;
+TopBarMenuDrawerMenuList.Group = TopBarMenuDrawerMenuListGroup;
+TopBarMenuDrawerMenuList.GroupSummary = TopBarMenuDrawerMenuListGroup.Summary;

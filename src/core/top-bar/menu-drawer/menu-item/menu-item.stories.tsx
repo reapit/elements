@@ -1,27 +1,28 @@
-import preview from '#.storybook/preview'
-import { TopBarMenuDrawerMenuItem } from './menu-item'
+import preview from "#.storybook/preview";
+
+import { TopBarMenuDrawerMenuItem } from "./menu-item";
 
 const meta = preview.meta({
-  title: 'Navigation/TopBar/MenuDrawer/MenuItem',
+  title: "Navigation/TopBar/MenuDrawer/MenuItem",
   component: TopBarMenuDrawerMenuItem,
-})
+});
 
 export const Example = meta.story({
   args: {
-    children: 'Dashboard',
-    href: '/dashboard',
-    'aria-current': false,
+    children: "Dashboard",
+    href: "/dashboard",
+    "aria-current": false,
   },
-})
+});
 
 /**
  * If the menu item represents the current page, `aria-current` should be provided.
  */
 export const Selected = Example.extend({
   args: {
-    'aria-current': 'page',
+    "aria-current": "page",
   },
-})
+});
 
 /**
  * A notification badge can be displayed using `hasBadge`.
@@ -30,7 +31,7 @@ export const Badge = Example.extend({
   args: {
     hasBadge: true,
   },
-})
+});
 
 /**
  * Menu items should have concise labels. In cases where the label is too long, it will truncate.
@@ -38,13 +39,13 @@ export const Badge = Example.extend({
  */
 export const Truncation = Example.extend({
   args: {
-    children: 'All your base are belong to me',
+    children: "All your base are belong to me",
   },
   decorators: [
     (Story) => (
-      <div style={{ border: '1px solid #FA00FF', width: '200px' }}>
+      <div style={{ border: "1px solid #FA00FF", width: "200px" }}>
         <Story />
       </div>
     ),
   ],
-})
+});

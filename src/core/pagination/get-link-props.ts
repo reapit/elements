@@ -1,10 +1,10 @@
-import { getARIALabel } from './get-aria-label'
-import { isTerminalPage } from './is-terminal-page'
+import { getARIALabel } from "./get-aria-label";
+import { isTerminalPage } from "./is-terminal-page";
 
 interface GetLinkPropsResult {
-  'aria-disabled': boolean
-  'aria-label': string
-  variant: 'next-page' | 'previous-page'
+  "aria-disabled": boolean;
+  "aria-label": string;
+  variant: "next-page" | "previous-page";
 }
 
 /**
@@ -12,13 +12,13 @@ interface GetLinkPropsResult {
  * The supplied `variant` is also passed through in the result.
  */
 export function getLinkProps(
-  variant: 'next-page' | 'previous-page',
+  variant: "next-page" | "previous-page",
   pageNumber: number,
   pageCount: number,
 ): GetLinkPropsResult {
   return {
-    'aria-disabled': isTerminalPage(variant, pageNumber, pageCount),
-    'aria-label': getARIALabel(variant, pageNumber, pageCount),
+    "aria-disabled": isTerminalPage(variant, pageNumber, pageCount),
+    "aria-label": getARIALabel(variant, pageNumber, pageCount),
     variant,
-  }
+  };
 }

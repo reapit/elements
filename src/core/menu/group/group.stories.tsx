@@ -1,17 +1,18 @@
-import preview from '#.storybook/preview'
-import { Badge } from '#src/core/badge'
-import { Menu } from '../menu'
-import { StarIcon } from '#src/icons/star'
+import preview from "#.storybook/preview";
+import { Badge } from "#src/core/badge";
+import { StarIcon } from "#src/icons/star";
 
-const href = '#'
+import { Menu } from "../menu";
+
+const href = "#";
 
 const meta = preview.meta({
-  title: 'Input and selection/Menu/Group',
+  title: "Input and selection/Menu/Group",
   component: Menu.Group,
   argTypes: {
     children: {
-      control: 'select',
-      options: ['Simple', 'Fancy'],
+      control: "select",
+      options: ["Simple", "Fancy"],
       mapping: {
         Simple: (
           <>
@@ -61,10 +62,10 @@ const meta = preview.meta({
       },
     },
     label: {
-      control: 'text',
+      control: "text",
     },
   },
-})
+});
 
 /**
  * A basic menu group with interactive menu items. Use `Menu.Item` for menu items that perform
@@ -72,10 +73,10 @@ const meta = preview.meta({
  */
 export const Example = meta.story({
   args: {
-    children: 'Simple',
-    label: 'Actions',
+    children: "Simple",
+    label: "Actions",
   },
-})
+});
 
 /**
  * Menu groups can be created without a label.
@@ -84,7 +85,7 @@ export const NoLabel = Example.extend({
   args: {
     label: null,
   },
-})
+});
 
 /**
  * Menu groups should generally have short and concise labels, but the text will flow to multiple lines
@@ -96,25 +97,32 @@ export const Overflow = Example.extend({
   },
   decorators: [
     (Story) => (
-      <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', width: '277px' }}>
+      <div style={{ boxSizing: "content-box", border: "1px solid #FA00FF", width: "277px" }}>
         <Story />
       </div>
     ),
   ],
-})
+});
 
 /**
  * The menu group label will remain sticky positioned if the parent container scrolls.
  */
 export const StickyPositioning = Example.extend({
   args: {
-    children: 'Fancy',
+    children: "Fancy",
   },
   decorators: [
     (Story) => (
-      <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', maxHeight: '100px', overflow: 'auto' }}>
+      <div
+        style={{
+          boxSizing: "content-box",
+          border: "1px solid #FA00FF",
+          maxHeight: "100px",
+          overflow: "auto",
+        }}
+      >
         <Story />
       </div>
     ),
   ],
-})
+});

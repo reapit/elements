@@ -58,7 +58,7 @@ export const ElMyContainer = styled.div`
     width: min-content;
     height: min-content;
   }
-`
+`;
 ```
 
 ### Migrating unlayered styles
@@ -150,7 +150,7 @@ export const elSpinner = css`
       }
     }
   }
-`
+`;
 
 // ✅ Correct: @keyframes outside @layer
 export const elSpinner = css`
@@ -166,7 +166,7 @@ export const elSpinner = css`
       transform: rotate(360deg);
     }
   }
-`
+`;
 ```
 
 ## Review Checklist

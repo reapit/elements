@@ -1,6 +1,7 @@
-import { styled } from '@linaria/react'
-import { font } from '#src/utils/font'
-import { ProgressIndicator } from '#src/core/progress-indicator/progress-indicator'
+import { styled } from "@linaria/react";
+
+import { ProgressIndicator } from "#src/core/progress-indicator/progress-indicator";
+import { font } from "#src/utils/font";
 
 export const ElFileUploaderFileCard = styled.div`
   @layer elements.main {
@@ -15,7 +16,7 @@ export const ElFileUploaderFileCard = styled.div`
     border-radius: var(--border-radius-l);
     background: var(--colour-fill-white);
 
-    &[data-status='error'] {
+    &[data-status="error"] {
       border-color: var(--colour-border-error-default);
     }
 
@@ -23,7 +24,7 @@ export const ElFileUploaderFileCard = styled.div`
       padding-inline-end: var(--spacing-1);
     }
   }
-`
+`;
 
 export const ElFileUploaderFileCardContent = styled.div`
   @layer elements.main {
@@ -33,11 +34,11 @@ export const ElFileUploaderFileCardContent = styled.div`
     justify-content: center;
     min-width: 0;
   }
-`
+`;
 
 export const ElFileUploaderFileCardName = styled.p`
   @layer elements.main {
-    ${font('base', 'regular')}
+    ${font("base", "regular")}
     overflow: hidden;
     margin: 0;
     width: 100%;
@@ -45,7 +46,7 @@ export const ElFileUploaderFileCardName = styled.p`
     text-overflow: ellipsis;
     white-space: nowrap;
   }
-`
+`;
 
 export const ElFileUploaderFileCardSecondaryInfo = styled.div`
   @layer elements.main {
@@ -60,11 +61,11 @@ export const ElFileUploaderFileCardSecondaryInfo = styled.div`
       flex-wrap: wrap;
     }
   }
-`
+`;
 
 export const ElFileUploaderFileCardStatusText = styled.span`
   @layer elements.main {
-    ${font('2xs', 'regular')}
+    ${font("2xs", "regular")}
     overflow: hidden;
     min-width: 0;
     color: var(--colour-text-secondary);
@@ -72,14 +73,14 @@ export const ElFileUploaderFileCardStatusText = styled.span`
     white-space: nowrap;
 
     &[data-error] {
-      ${font('2xs', 'medium')}
+      ${font("2xs", "medium")}
       overflow: visible;
       color: var(--colour-text-error);
       text-overflow: unset;
       white-space: normal;
     }
   }
-`
+`;
 
 export const ElFileUploaderFileCardProgressBar = styled(ProgressIndicator)`
   @layer elements.main {
@@ -89,4 +90,4 @@ export const ElFileUploaderFileCardProgressBar = styled(ProgressIndicator)`
     right: 0;
     height: var(--size-1);
   }
-`
+`;

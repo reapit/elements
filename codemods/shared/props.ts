@@ -5,7 +5,7 @@ import {
   JsxSelfClosingElement,
   StringLiteral,
   SyntaxKind,
-} from 'ts-morph'
+} from "ts-morph";
 
 /**
  * Renames a JSX attribute's name node to `newName`.
@@ -14,7 +14,7 @@ import {
  * @param newName - The replacement attribute name.
  */
 export function renameProp(attr: JsxAttribute, newName: string): void {
-  attr.getNameNode().replaceWithText(newName)
+  attr.getNameNode().replaceWithText(newName);
 }
 
 /**
@@ -23,7 +23,7 @@ export function renameProp(attr: JsxAttribute, newName: string): void {
  * @param attr - The JSX attribute to remove.
  */
 export function removeProp(attr: JsxAttribute): void {
-  attr.remove()
+  attr.remove();
 }
 
 /**
@@ -37,8 +37,12 @@ export function removeProp(attr: JsxAttribute): void {
  * @param name - The attribute name to add.
  * @param initializer - An optional raw initializer string.
  */
-export function addProp(element: JsxOpeningElement | JsxSelfClosingElement, name: string, initializer?: string): void {
-  element.addAttribute({ name, initializer })
+export function addProp(
+  element: JsxOpeningElement | JsxSelfClosingElement,
+  name: string,
+  initializer?: string,
+): void {
+  element.addAttribute({ name, initializer });
 }
 
 /**
@@ -54,23 +58,23 @@ export function addProp(element: JsxOpeningElement | JsxSelfClosingElement, name
  * @param attr - The JSX attribute to inspect.
  */
 export function getPropStringValue(attr: JsxAttribute): string | undefined {
-  const init = attr.getInitializer()
-  if (!init) return undefined
+  const init = attr.getInitializer();
+  if (!init) return undefined;
 
-  const kind = init.getKind()
+  const kind = init.getKind();
 
   if (kind === SyntaxKind.StringLiteral) {
-    return (init as StringLiteral).getLiteralText()
+    return (init as StringLiteral).getLiteralText();
   }
 
   if (kind === SyntaxKind.JsxExpression) {
-    const expr = (init as JsxExpression).getExpression()
+    const expr = (init as JsxExpression).getExpression();
     if (expr?.getKind() === SyntaxKind.StringLiteral) {
-      return (expr as StringLiteral).getLiteralText()
+      return (expr as StringLiteral).getLiteralText();
     }
   }
 
-  return undefined
+  return undefined;
 }
 
 /**
@@ -92,13 +96,13 @@ export function applyPropTransforms(
   propsToRemove: Set<string>,
 ): void {
   for (const attr of element.getAttributes().slice()) {
-    if (attr.getKind() !== SyntaxKind.JsxAttribute) continue
-    const jsxAttr = attr.asKindOrThrow(SyntaxKind.JsxAttribute)
-    const name = jsxAttr.getNameNode().getText()
+    if (attr.getKind() !== SyntaxKind.JsxAttribute) continue;
+    const jsxAttr = attr.asKindOrThrow(SyntaxKind.JsxAttribute);
+    const name = jsxAttr.getNameNode().getText();
     if (name in propRenames) {
-      renameProp(jsxAttr, propRenames[name])
+      renameProp(jsxAttr, propRenames[name]);
     } else if (propsToRemove.has(name)) {
-      removeProp(jsxAttr)
+      removeProp(jsxAttr);
     }
   }
 }

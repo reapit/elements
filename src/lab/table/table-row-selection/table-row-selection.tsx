@@ -1,6 +1,8 @@
-import React from 'react'
-import { Checkbox } from '#src/core/checkbox'
-import { TableRowSelectionProps } from './types'
+import React from "react";
+
+import { Checkbox } from "#src/core/checkbox";
+
+import { TableRowSelectionProps } from "./types";
 
 /**
  * TableRowSelection component: A checkbox for selecting rows in a table.
@@ -18,8 +20,8 @@ export const TableRowSelection: React.FC<TableRowSelectionProps> = ({
   ...rest
 }) => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    onChange(event.target.checked)
-  }
+    onChange(event.target.checked);
+  };
 
   return (
     <Checkbox
@@ -28,7 +30,7 @@ export const TableRowSelection: React.FC<TableRowSelectionProps> = ({
       isIndeterminate={isIndeterminate}
       checked={checked}
       onChange={handleChange}
-      aria-label={isSelectAll ? 'Select all rows' : `Select row ${id}`}
+      aria-label={isSelectAll ? "Select all rows" : `Select row ${id}`}
     />
-  )
-}
+  );
+};

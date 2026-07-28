@@ -1,16 +1,17 @@
-import { font } from '#src/utils/font'
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
+
+import { font } from "#src/utils/font";
 
 export const ElTableCellDoubleLineLayout = styled.div`
   @layer elements.main {
     display: inline-grid;
-    grid-template: 'media-item primary-data' auto 'media-item supplementary-data' auto / auto 1fr;
+    grid-template: "media-item primary-data" auto "media-item supplementary-data" auto / auto 1fr;
     align-items: center;
     justify-content: var(--__table-column-justification);
 
     padding-block: var(--spacing-2);
   }
-`
+`;
 
 export const ElTableCellDoubleLineLayoutPrimaryData = styled.div`
   @layer elements.main {
@@ -24,9 +25,9 @@ export const ElTableCellDoubleLineLayoutPrimaryData = styled.div`
     overflow: hidden;
     white-space: nowrap;
 
-    ${font('sm', 'regular')}
+    ${font("sm", "regular")}
   }
-`
+`;
 
 export const ElTableCellDoubleLineLayoutSupplementaryData = styled.span`
   @layer elements.main {
@@ -41,11 +42,11 @@ export const ElTableCellDoubleLineLayoutSupplementaryData = styled.span`
     overflow: hidden;
     white-space: nowrap;
 
-    ${font('xs', 'regular')}
+    ${font("xs", "regular")}
 
     margin-block-start: var(--spacing-1);
   }
-`
+`;
 
 export const ElTableCellDoubleLineLayoutMediaItem = styled.div`
   @layer elements.main {
@@ -53,4 +54,4 @@ export const ElTableCellDoubleLineLayoutMediaItem = styled.div`
     max-height: var(--size-10);
     margin-inline-end: var(--spacing-4);
   }
-`
+`;

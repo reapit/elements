@@ -1,26 +1,30 @@
-import preview from '#.storybook/preview'
-import { useEffect, type ComponentProps } from 'react'
-import { DeprecatedMenu, useDeprecatedMenuContext } from '.'
-import { Button } from '../../core/button'
-import { FlexContainer, DeprecatedMainContainer } from '../layout'
-import { elHScreen } from '../../styles/deprecated-sizing'
-import { Badge } from '../../core/badge'
-import { MoreIcon } from '#src/icons/more'
-import { PropertyIcon } from '#src/icons/property'
-import { ExportIcon } from '#src/icons/export'
+import { useEffect, type ComponentProps } from "react";
+
+import preview from "#.storybook/preview";
+import { ExportIcon } from "#src/icons/export";
+import { MoreIcon } from "#src/icons/more";
+import { PropertyIcon } from "#src/icons/property";
+
+import { DeprecatedMenu, useDeprecatedMenuContext } from ".";
+import { Badge } from "../../core/badge";
+import { Button } from "../../core/button";
+import { elHScreen } from "../../styles/deprecated-sizing";
+import { FlexContainer, DeprecatedMainContainer } from "../layout";
 
 const meta = preview.meta({
-  title: 'Deprecated/DeprecatedMenu',
-})
+  title: "Deprecated/DeprecatedMenu",
+});
 
-export default meta
+export default meta;
 
 export const Default = meta.story({
   render: () => {
     return (
       <DeprecatedMenu>
         <DeprecatedMenu.Trigger>
-          {({ getTriggerProps }) => <Button {...getTriggerProps()} iconLeft={<MoreIcon size="sm" />} />}
+          {({ getTriggerProps }) => (
+            <Button {...getTriggerProps()} iconLeft={<MoreIcon size="sm" />} />
+          )}
         </DeprecatedMenu.Trigger>
         <DeprecatedMenu.Popover>
           <DeprecatedMenu.List>
@@ -33,16 +37,18 @@ export const Default = meta.story({
           </DeprecatedMenu.List>
         </DeprecatedMenu.Popover>
       </DeprecatedMenu>
-    )
+    );
   },
-})
+});
 
 export const WithCompleteFeatures = meta.story({
   render: () => {
     return (
       <DeprecatedMenu>
         <DeprecatedMenu.Trigger>
-          {({ getTriggerProps }) => <Button {...getTriggerProps()} iconLeft={<MoreIcon size="sm" />} />}
+          {({ getTriggerProps }) => (
+            <Button {...getTriggerProps()} iconLeft={<MoreIcon size="sm" />} />
+          )}
         </DeprecatedMenu.Trigger>
         <DeprecatedMenu.Popover>
           <DeprecatedMenu.List maxWidth="--size-80" maxHeight="--size-80">
@@ -94,9 +100,9 @@ export const WithCompleteFeatures = meta.story({
           </DeprecatedMenu.List>
         </DeprecatedMenu.Popover>
       </DeprecatedMenu>
-    )
+    );
   },
-})
+});
 
 export const WithCustomAlignment = meta.story({
   render: () => {
@@ -104,7 +110,9 @@ export const WithCustomAlignment = meta.story({
       <FlexContainer isFlexAlignCenter isFlexJustifyCenter>
         <DeprecatedMenu data-alignment="right">
           <DeprecatedMenu.Trigger>
-            {({ getTriggerProps }) => <Button {...getTriggerProps()} iconLeft={<MoreIcon size="sm" />} />}
+            {({ getTriggerProps }) => (
+              <Button {...getTriggerProps()} iconLeft={<MoreIcon size="sm" />} />
+            )}
           </DeprecatedMenu.Trigger>
           <DeprecatedMenu.Popover yOffset={10}>
             <DeprecatedMenu.List>
@@ -117,9 +125,9 @@ export const WithCustomAlignment = meta.story({
           </DeprecatedMenu.Popover>
         </DeprecatedMenu>
       </FlexContainer>
-    )
+    );
   },
-})
+});
 
 export const MoreComplexUsageExample = meta.story({
   render: (props) => {
@@ -139,7 +147,7 @@ export const MoreComplexUsageExample = meta.story({
           </DeprecatedMenu.Trigger>
           <DeprecatedMenu.Popover yOffset={yOffset}>
             <DeprecatedMenu.List>
-              <DeprecatedMenu.Group label={title ?? 'Group Title'}>
+              <DeprecatedMenu.Group label={title ?? "Group Title"}>
                 <DeprecatedMenu.Item label="Menu Item" onClick={console.log} />
                 <DeprecatedMenu.Item label="Menu Item as anchor" href="/#" />
                 <DeprecatedMenu.Item label="Menu Item (keep open)" closeMenu={false} />
@@ -147,21 +155,26 @@ export const MoreComplexUsageExample = meta.story({
             </DeprecatedMenu.List>
           </DeprecatedMenu.Popover>
         </DeprecatedMenu>
-      )
-    }
+      );
+    };
     return (
       <FlexContainer
         isFlexColumn
         isFlexJustifyBetween
         style={{
-          height: '150vh',
-          overflow: 'hidden',
+          height: "150vh",
+          overflow: "hidden",
           padding: 5,
         }}
       >
         <FlexContainer isFlexJustifyBetween>
           <NavDropdownButtonUsageExample {...props} />
-          <NavDropdownButtonUsageExample {...props} data-alignment="right" title="Custom y-offset" yOffset={50} />
+          <NavDropdownButtonUsageExample
+            {...props}
+            data-alignment="right"
+            title="Custom y-offset"
+            yOffset={50}
+          />
         </FlexContainer>
         <FlexContainer isFlexJustifyBetween>
           <NavDropdownButtonUsageExample {...props} />
@@ -172,9 +185,9 @@ export const MoreComplexUsageExample = meta.story({
           <NavDropdownButtonUsageExample {...props} data-alignment="right" />
         </FlexContainer>
       </FlexContainer>
-    )
+    );
   },
-})
+});
 
 export const WithIframe = meta.story({
   render: () => {
@@ -183,44 +196,46 @@ export const WithIframe = meta.story({
         <iframe
           src="https://www.example.com"
           style={{
-            width: '100%',
-            height: '100%',
-            border: 'none',
-            marginTop: '1rem',
+            width: "100%",
+            height: "100%",
+            border: "none",
+            marginTop: "1rem",
           }}
           title="Example IFrame"
         />
-      )
-    }
+      );
+    };
 
     // NOTE: make sure this component is rendered inside the Menu context
     const IframeHandler = () => {
-      const { closeMenu } = useDeprecatedMenuContext()
+      const { closeMenu } = useDeprecatedMenuContext();
 
       // close the menu when iframe is focused
       useEffect(() => {
-        const controller = new AbortController()
+        const controller = new AbortController();
         const handleWindowBlur = () => {
-          if (document.activeElement?.tagName === 'IFRAME') {
-            closeMenu()
+          if (document.activeElement?.tagName === "IFRAME") {
+            closeMenu();
           }
-        }
+        };
 
-        window.addEventListener('blur', handleWindowBlur, {
+        window.addEventListener("blur", handleWindowBlur, {
           signal: controller.signal,
-        })
+        });
         return () => {
-          controller.abort()
-        }
-      }, [closeMenu])
-      return null
-    }
+          controller.abort();
+        };
+      }, [closeMenu]);
+      return null;
+    };
 
     return (
       <DeprecatedMainContainer className={elHScreen}>
         <DeprecatedMenu>
           <DeprecatedMenu.Trigger>
-            {({ getTriggerProps }) => <Button {...getTriggerProps()} iconLeft={<MoreIcon size="sm" />} />}
+            {({ getTriggerProps }) => (
+              <Button {...getTriggerProps()} iconLeft={<MoreIcon size="sm" />} />
+            )}
           </DeprecatedMenu.Trigger>
           <DeprecatedMenu.Popover>
             <IframeHandler />
@@ -233,6 +248,6 @@ export const WithIframe = meta.story({
         </DeprecatedMenu>
         <IFrameComponent />
       </DeprecatedMainContainer>
-    )
+    );
   },
-})
+});

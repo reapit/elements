@@ -3,13 +3,13 @@
 exports[`Card > should match a snapshot and render children with full props 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-0 el-card-wrap"
+    class="mocked-styled-2 el-card-wrap"
   >
     <div
-      class="mocked-styled-2 el-card-main-wrap"
+      class="mocked-styled-4 el-card-main-wrap"
     >
       <div
-        class="mocked-styled-19 el-deprecated-avatar el-deprecated-avatar-image el-deprecated-avatar"
+        class="mocked-styled-1 el-deprecated-avatar el-deprecated-avatar-image el-deprecated-avatar"
         role="img"
         title="An avatar image"
       >
@@ -19,20 +19,20 @@ exports[`Card > should match a snapshot and render children with full props 1`] 
         />
       </div>
       <div
-        class="mocked-styled-1 el-card-heading-wrap"
+        class="mocked-styled-3 el-card-heading-wrap"
       >
         <h5
-          class="mocked-styled-3 el-card-heading"
+          class="mocked-styled-5 el-card-heading"
         >
           Main Heading
         </h5>
         <h6
-          class="mocked-styled-4 el-card-sub-heading"
+          class="mocked-styled-6 el-card-sub-heading"
         >
           Main Subheading
         </h6>
         <h6
-          class="mocked-styled-5 el-card-sub-heading-additional"
+          class="mocked-styled-7 el-card-sub-heading-additional"
         >
           Main Subheading Additional
         </h6>
@@ -47,57 +47,57 @@ exports[`Card > should match a snapshot and render children with full props 1`] 
       class="el-mt5 el-card-list-main-wrap"
     >
       <h5
-        class="mocked-styled-11 el-card-list-heading"
+        class="mocked-styled-13 el-card-list-heading"
       >
         List Card Heading
       </h5>
       <h6
-        class="mocked-styled-12 el-card-list-sub-heading"
+        class="mocked-styled-14 el-card-list-sub-heading"
       >
         List Card Sub Heading
       </h6>
     </div>
     <div
-      class="mocked-styled-13 el-card-list-item"
+      class="mocked-styled-15 el-card-list-item"
     >
       <div
-        class="mocked-styled-17 el-card-list-icon"
+        class="mocked-styled-19 el-card-list-icon"
       >
         user
       </div>
       <div
-        class="mocked-styled-14 el-card-list-item-text-wrap"
+        class="mocked-styled-16 el-card-list-item-text-wrap"
       >
         <div
-          class="mocked-styled-15 el-card-list-item-text-primary"
+          class="mocked-styled-17 el-card-list-item-text-primary"
         >
           Applicant
         </div>
         <div
-          class="mocked-styled-16 el-card-list-item-text-secondary"
+          class="mocked-styled-18 el-card-list-item-text-secondary"
         >
           Bob Smith
         </div>
       </div>
     </div>
     <div
-      class="mocked-styled-13 el-card-list-item"
+      class="mocked-styled-15 el-card-list-item"
     >
       <div
-        class="mocked-styled-17 el-card-list-icon"
+        class="mocked-styled-19 el-card-list-icon"
       >
         property
       </div>
       <div
-        class="mocked-styled-14 el-card-list-item-text-wrap"
+        class="mocked-styled-16 el-card-list-item-text-wrap"
       >
         <div
-          class="mocked-styled-15 el-card-list-item-text-primary"
+          class="mocked-styled-17 el-card-list-item-text-primary"
         >
           Property
         </div>
         <div
-          class="mocked-styled-16 el-card-list-item-text-secondary"
+          class="mocked-styled-18 el-card-list-item-text-secondary"
         >
           Some Address
         </div>
@@ -110,7 +110,7 @@ exports[`Card > should match a snapshot and render children with full props 1`] 
 exports[`Card > should match a snapshot and render children with no props 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-0 el-card-wrap"
+    class="mocked-styled-2 el-card-wrap"
   />
 </DocumentFragment>
 `;

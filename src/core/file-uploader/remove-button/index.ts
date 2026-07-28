@@ -1,1 +1,1 @@
-export { FileUploaderRemoveButton } from './remove-button'
+export { FileUploaderRemoveButton } from "./remove-button";

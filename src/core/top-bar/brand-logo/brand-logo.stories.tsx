@@ -1,19 +1,20 @@
-import preview from '#.storybook/preview'
-import { TopBar } from '../top-bar'
-import { supportedAppNames } from './app-logo'
+import preview from "#.storybook/preview";
 
-const href = '#'
+import { TopBar } from "../top-bar";
+import { supportedAppNames } from "./app-logo";
+
+const href = "#";
 
 const meta = preview.meta({
-  title: 'Navigation/TopBar/BrandLogo',
+  title: "Navigation/TopBar/BrandLogo",
   component: TopBar.BrandLogo,
   argTypes: {
     appName: {
-      control: 'select',
+      control: "select",
       options: supportedAppNames,
     },
   },
-})
+});
 
 /**
  * The default story showcases the BrandLogo component with the Reapit brand.
@@ -22,10 +23,10 @@ const meta = preview.meta({
  */
 export const Example = meta.story({
   args: {
-    appName: 'Reapit',
+    appName: "Reapit",
     href,
   },
-})
+});
 
 /**
  * This story demonstrates all supported brand logos.
@@ -33,7 +34,14 @@ export const Example = meta.story({
 export const AllBrands = meta.story({
   decorators: [
     (Story) => (
-      <div style={{ display: 'flex', alignItems: 'start', flexDirection: 'column', gap: 'var(--spacing-6)' }}>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "start",
+          flexDirection: "column",
+          gap: "var(--spacing-6)",
+        }}
+      >
         <Story />
       </div>
     ),
@@ -59,4 +67,4 @@ export const AllBrands = meta.story({
       <TopBar.BrandLogo appName="Auto Responder" href={href} />
     </>
   ),
-})
+});

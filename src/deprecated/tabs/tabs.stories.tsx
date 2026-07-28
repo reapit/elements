@@ -1,5 +1,9 @@
-import preview from '#.storybook/preview'
-import { useState } from 'react'
+import { useState } from "react";
+
+import preview from "#.storybook/preview";
+
+import { TextInput } from "../../core/text-input";
+import { TextBase } from "../typography";
 import {
   Tab,
   TabsFooter,
@@ -10,15 +14,13 @@ import {
   elTabsFullWidth,
   elTabsHasNoBorder,
   Tabs,
-} from './index'
-import { TextBase } from '../typography'
-import { TextInput } from '../../core/text-input'
+} from "./index";
 
 const meta = preview.meta({
-  title: 'Deprecated/Tabs',
-})
+  title: "Deprecated/Tabs",
+});
 
-export default meta
+export default meta;
 
 export const StylesOnlyUsage = meta.story({
   render: () => (
@@ -40,13 +42,19 @@ export const StylesOnlyUsage = meta.story({
       <TabsFooter />
     </TabsWrap>
   ),
-})
+});
 
 export const FullWidth = meta.story({
   render: () => (
     <TabsWrap className={elTabsFullWidth}>
       <TabsOptionsWrap role="tablist">
-        <Tab id="tab-1-fw" name="my-cool-tabs-full-width" value="tab-1-fw" type="radio" defaultChecked />
+        <Tab
+          id="tab-1-fw"
+          name="my-cool-tabs-full-width"
+          value="tab-1-fw"
+          type="radio"
+          defaultChecked
+        />
         <TabsLabel htmlFor="tab-1-fw" role="tab" tabIndex={0}>
           <TabsItem>Tab Content 1</TabsItem>
         </TabsLabel>
@@ -62,13 +70,19 @@ export const FullWidth = meta.story({
       <TabsFooter className={elTabsFullWidth} />
     </TabsWrap>
   ),
-})
+});
 
 export const NoBorder = meta.story({
   render: () => (
     <TabsWrap>
       <TabsOptionsWrap role="tablist">
-        <Tab id="tab-1-nb" name="my-cool-tabs-no-border" value="tab-1-nb" type="radio" defaultChecked />
+        <Tab
+          id="tab-1-nb"
+          name="my-cool-tabs-no-border"
+          value="tab-1-nb"
+          type="radio"
+          defaultChecked
+        />
         <TabsLabel htmlFor="tab-1-nb" role="tab" tabIndex={0}>
           <TabsItem>Tab Content 1</TabsItem>
         </TabsLabel>
@@ -84,7 +98,7 @@ export const NoBorder = meta.story({
       <TabsFooter className={elTabsHasNoBorder} />
     </TabsWrap>
   ),
-})
+});
 
 export const ReactUsage = meta.story({
   render: () => (
@@ -92,27 +106,27 @@ export const ReactUsage = meta.story({
       name="my-cool-tabs-default"
       options={[
         {
-          id: 'react-tab-1',
-          value: 'tab-1',
-          text: 'Tab Content 1',
+          id: "react-tab-1",
+          value: "tab-1",
+          text: "Tab Content 1",
           isChecked: true,
         },
         {
-          id: 'react-tab-2',
-          value: 'tab-2',
-          text: 'Tab Content 2',
+          id: "react-tab-2",
+          value: "tab-2",
+          text: "Tab Content 2",
           isChecked: false,
         },
         {
-          id: 'react-tab-3',
-          value: 'tab-3',
-          text: 'Tab Content 3',
+          id: "react-tab-3",
+          value: "tab-3",
+          text: "Tab Content 3",
           isChecked: false,
         },
       ]}
     />
   ),
-})
+});
 
 export const ReactFullWidth = meta.story({
   render: () => (
@@ -121,31 +135,31 @@ export const ReactFullWidth = meta.story({
       isFullWidth
       options={[
         {
-          id: 'react-tab-1-fw',
-          value: 'tab-1-fw',
-          text: 'Tab Content 1',
+          id: "react-tab-1-fw",
+          value: "tab-1-fw",
+          text: "Tab Content 1",
           isChecked: true,
         },
         {
-          id: 'react-tab-2-fw',
-          value: 'tab-2-fw',
-          text: 'Tab Content 2',
+          id: "react-tab-2-fw",
+          value: "tab-2-fw",
+          text: "Tab Content 2",
           isChecked: false,
         },
         {
-          id: 'react-tab-3-fw',
-          value: 'tab-3-fw',
-          text: 'Tab Content 3',
+          id: "react-tab-3-fw",
+          value: "tab-3-fw",
+          text: "Tab Content 3",
           isChecked: false,
         },
       ]}
     />
   ),
-})
+});
 
 export const ReactUncontrolled = meta.story({
   render: () => {
-    const [tab, setTab] = useState('1')
+    const [tab, setTab] = useState("1");
 
     return (
       <>
@@ -155,37 +169,37 @@ export const ReactUncontrolled = meta.story({
           onChange={(e: any) => setTab(e.target.value)}
           options={[
             {
-              id: 'react-tab-1-react',
-              value: '1',
-              text: 'Tab Content 1',
-              isChecked: tab === '1',
+              id: "react-tab-1-react",
+              value: "1",
+              text: "Tab Content 1",
+              isChecked: tab === "1",
             },
             {
-              id: 'react-tab-2-react',
-              value: '2',
-              text: 'Tab Content 2',
-              isChecked: tab === '2',
+              id: "react-tab-2-react",
+              value: "2",
+              text: "Tab Content 2",
+              isChecked: tab === "2",
             },
             {
-              id: 'react-tab-3-react',
-              value: '3',
-              text: 'Tab Content 3',
-              isChecked: tab === '3',
+              id: "react-tab-3-react",
+              value: "3",
+              text: "Tab Content 3",
+              isChecked: tab === "3",
             },
           ]}
         />
-        {tab === '1' && <TextBase hasGreyText>Tab 1 Content</TextBase>}
-        {tab === '2' && <TextBase hasGreyText>Tab 2 Content</TextBase>}
-        {tab === '3' && <TextBase hasGreyText>Tab 3 Content</TextBase>}
+        {tab === "1" && <TextBase hasGreyText>Tab 1 Content</TextBase>}
+        {tab === "2" && <TextBase hasGreyText>Tab 2 Content</TextBase>}
+        {tab === "3" && <TextBase hasGreyText>Tab 3 Content</TextBase>}
         <TextInput aria-label="Current tab value" value={tab} readOnly />
       </>
-    )
+    );
   },
-})
+});
 
 export const ReactControlled = meta.story({
   render: () => {
-    const [tab, setTab] = useState('1')
+    const [tab, setTab] = useState("1");
 
     return (
       <>
@@ -196,30 +210,34 @@ export const ReactControlled = meta.story({
           onChange={(e: any) => setTab(e.target.value)}
           options={[
             {
-              id: 'react-tab-1-react-controlled',
-              value: '1',
-              text: 'Tab Content 1',
-              isChecked: tab === '1',
+              id: "react-tab-1-react-controlled",
+              value: "1",
+              text: "Tab Content 1",
+              isChecked: tab === "1",
             },
             {
-              id: 'react-tab-2-react-controlled',
-              value: '2',
-              text: 'Tab Content 2',
-              isChecked: tab === '2',
+              id: "react-tab-2-react-controlled",
+              value: "2",
+              text: "Tab Content 2",
+              isChecked: tab === "2",
             },
             {
-              id: 'react-tab-3-react-controlled',
-              value: '3',
-              text: 'Tab Content 3',
-              isChecked: tab === '3',
+              id: "react-tab-3-react-controlled",
+              value: "3",
+              text: "Tab Content 3",
+              isChecked: tab === "3",
             },
           ]}
         />
-        {tab === '1' && <TextBase hasGreyText>Tab 1 Content</TextBase>}
-        {tab === '2' && <TextBase hasGreyText>Tab 2 Content</TextBase>}
-        {tab === '3' && <TextBase hasGreyText>Tab 3 Content</TextBase>}
-        <TextInput aria-label="Current tab value" value={tab} onChange={(e) => setTab(e.target.value)} />
+        {tab === "1" && <TextBase hasGreyText>Tab 1 Content</TextBase>}
+        {tab === "2" && <TextBase hasGreyText>Tab 2 Content</TextBase>}
+        {tab === "3" && <TextBase hasGreyText>Tab 3 Content</TextBase>}
+        <TextInput
+          aria-label="Current tab value"
+          value={tab}
+          onChange={(e) => setTab(e.target.value)}
+        />
       </>
-    )
+    );
   },
-})
+});

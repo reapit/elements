@@ -13,22 +13,22 @@ export function onScrollEnd(el: HTMLElement, callback: () => void): () => void {
   // the DOM lib's declaration of `onscrollend` on GlobalEventHandlers makes
   // the check always-true from TS's perspective, narrowing the fallback
   // branch to `never`.
-  if ('onscrollend' in (el as object)) {
-    el.addEventListener('scrollend', callback)
-    return () => el.removeEventListener('scrollend', callback)
+  if ("onscrollend" in (el as object)) {
+    el.addEventListener("scrollend", callback);
+    return () => el.removeEventListener("scrollend", callback);
   }
 
-  let timer: ReturnType<typeof setTimeout>
+  let timer: ReturnType<typeof setTimeout>;
 
   function handleScroll() {
-    clearTimeout(timer)
-    timer = setTimeout(callback, 50)
+    clearTimeout(timer);
+    timer = setTimeout(callback, 50);
   }
 
-  el.addEventListener('scroll', handleScroll, { passive: true })
+  el.addEventListener("scroll", handleScroll, { passive: true });
 
   return () => {
-    clearTimeout(timer)
-    el.removeEventListener('scroll', handleScroll)
-  }
+    clearTimeout(timer);
+    el.removeEventListener("scroll", handleScroll);
+  };
 }

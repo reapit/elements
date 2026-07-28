@@ -1,6 +1,7 @@
-import { cx } from '@linaria/core'
-import { elGridItem } from './styles'
-import type { CSSProperties, ComponentPropsWithoutRef, ElementType } from 'react'
+import { cx } from "@linaria/core";
+import type { CSSProperties, ComponentPropsWithoutRef, ElementType } from "react";
+
+import { elGridItem } from "./styles";
 
 export namespace GridItem {
   export interface BaseProps {
@@ -9,32 +10,32 @@ export namespace GridItem {
      * Accepts any valid [grid-column](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-column) value,
      * e.g. `"1 / 3"`, `"1 / -1"`, `"span 2"`.
      */
-    column?: string
+    column?: string;
     /**
      * Shorthand for `grid-row-start` and `grid-row-end`.
      * Accepts any valid [grid-row](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-row) value,
      * e.g. `"1 / 3"`, `"span 2"`.
      */
-    row?: string
+    row?: string;
     /**
      * Named area placement.
      * Accepts any valid [grid-area](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-area) value.
      */
-    area?: string
+    area?: string;
     /**
      * Overrides block-axis alignment for this item within its cell.
      */
-    alignSelf?: 'auto' | 'normal' | 'start' | 'end' | 'center' | 'stretch' | 'baseline'
+    alignSelf?: "auto" | "normal" | "start" | "end" | "center" | "stretch" | "baseline";
     /**
      * Overrides inline-axis alignment for this item within its cell.
      */
-    justifySelf?: 'auto' | 'normal' | 'start' | 'end' | 'center' | 'stretch' | 'baseline'
+    justifySelf?: "auto" | "normal" | "start" | "end" | "center" | "stretch" | "baseline";
   }
 
-  export type Props<C extends ElementType = 'div'> = BaseProps &
+  export type Props<C extends ElementType = "div"> = BaseProps &
     Omit<ComponentPropsWithoutRef<C>, keyof BaseProps> & {
-      as?: C
-    }
+      as?: C;
+    };
 }
 
 /**
@@ -44,7 +45,7 @@ export namespace GridItem {
  *
  * Intended for use as a direct child of `Grid`.
  */
-export function GridItem<C extends ElementType = 'div'>({
+export function GridItem<C extends ElementType = "div">({
   as,
   column,
   row,
@@ -55,7 +56,7 @@ export function GridItem<C extends ElementType = 'div'>({
   style,
   ...rest
 }: GridItem.Props<C>) {
-  const Element = as || 'div'
+  const Element = as || "div";
 
   const itemStyle: CSSProperties = {
     ...(column && { gridColumn: column }),
@@ -63,7 +64,9 @@ export function GridItem<C extends ElementType = 'div'>({
     ...(area && { gridArea: area }),
     ...(alignSelf && { alignSelf }),
     ...(justifySelf && { justifySelf }),
-  }
+  };
 
-  return <Element {...rest} className={cx(elGridItem, className)} style={{ ...style, ...itemStyle }} />
+  return (
+    <Element {...rest} className={cx(elGridItem, className)} style={{ ...style, ...itemStyle }} />
+  );
 }

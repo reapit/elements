@@ -1,5 +1,6 @@
-import { font } from '#src/utils/font'
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
+
+import { font } from "#src/utils/font";
 
 export const ElFormControlHelpText = styled.p`
   @layer elements.main {
@@ -13,12 +14,12 @@ export const ElFormControlHelpText = styled.p`
 
     /* By default, we simply inherit from the parent FormControl's font styles. These styles allow for
      * that sizing to be overridden. */
-    &[data-size='small'],
-    &[data-size='medium'] {
-      ${font('xs', 'regular')}
+    &[data-size="small"],
+    &[data-size="medium"] {
+      ${font("xs", "regular")}
     }
-    &[data-size='large'] {
-      ${font('sm', 'regular')}
+    &[data-size="large"] {
+      ${font("sm", "regular")}
     }
   }
-`
+`;

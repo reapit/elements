@@ -1,21 +1,22 @@
-import { FileUploaderRemoveButton } from '../remove-button'
-import { fireEvent, render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from "@testing-library/react";
 
-test('is labelled with the caller-provided accessible name', () => {
-  render(<FileUploaderRemoveButton aria-label="Remove Invoice.pdf" onClick={() => {}} />)
-  expect(screen.getByRole('button', { name: 'Remove Invoice.pdf' })).toBeVisible()
-})
+import { FileUploaderRemoveButton } from "../remove-button";
 
-test('calls onClick when clicked', () => {
-  const onClick = vi.fn()
-  render(<FileUploaderRemoveButton aria-label="Remove Invoice.pdf" onClick={onClick} />)
+test("is labelled with the caller-provided accessible name", () => {
+  render(<FileUploaderRemoveButton aria-label="Remove Invoice.pdf" onClick={() => {}} />);
+  expect(screen.getByRole("button", { name: "Remove Invoice.pdf" })).toBeVisible();
+});
 
-  fireEvent.click(screen.getByRole('button'))
+test("calls onClick when clicked", () => {
+  const onClick = vi.fn();
+  render(<FileUploaderRemoveButton aria-label="Remove Invoice.pdf" onClick={onClick} />);
 
-  expect(onClick).toHaveBeenCalledTimes(1)
-})
+  fireEvent.click(screen.getByRole("button"));
+
+  expect(onClick).toHaveBeenCalledTimes(1);
+});
 
 test('defaults to type="button" so it does not submit an enclosing form', () => {
-  render(<FileUploaderRemoveButton aria-label="Remove Invoice.pdf" onClick={() => {}} />)
-  expect(screen.getByRole('button')).toHaveAttribute('type', 'button')
-})
+  render(<FileUploaderRemoveButton aria-label="Remove Invoice.pdf" onClick={() => {}} />);
+  expect(screen.getByRole("button")).toHaveAttribute("type", "button");
+});

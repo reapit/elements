@@ -1,7 +1,8 @@
-import { ElTagGroupListItem } from './styles'
-import { Tag } from '#src/core/tag'
+import type { ComponentProps } from "react";
 
-import type { ComponentProps } from 'react'
+import { Tag } from "#src/core/tag";
+
+import { ElTagGroupListItem } from "./styles";
 
 export namespace TagGroupItem {
   export interface Props extends ComponentProps<typeof Tag> {}
@@ -15,7 +16,7 @@ export function TagGroupItem(props: TagGroupItem.Props) {
     <ElTagGroupListItem>
       <Tag {...props} />
     </ElTagGroupListItem>
-  )
+  );
 }
 
-TagGroupItem.displayName = 'TagGroup.Item'
+TagGroupItem.displayName = "TagGroup.Item";

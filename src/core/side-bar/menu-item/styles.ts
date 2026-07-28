@@ -1,6 +1,7 @@
-import { css } from '@linaria/core'
-import { styled } from '@linaria/react'
-import { font } from '#src/utils/font'
+import { css } from "@linaria/core";
+import { styled } from "@linaria/react";
+
+import { font } from "#src/utils/font";
 
 // NOTE: This class is used as the basis for the menu group's summary element as well. Changes here
 // will also affect that component.
@@ -9,7 +10,7 @@ export const elSideBarMenuItem = css`
     display: grid;
     align-items: center;
     justify-content: start;
-    grid-template-areas: 'icon label';
+    grid-template-areas: "icon label";
     grid-template-columns: auto 1fr;
 
     gap: var(--spacing-3);
@@ -29,7 +30,7 @@ export const elSideBarMenuItem = css`
       outline-offset: var(--border-width-default);
     }
   }
-`
+`;
 
 export const ElSideBarMenuItemLabel = styled.span`
   @layer elements.main {
@@ -42,14 +43,14 @@ export const ElSideBarMenuItemLabel = styled.span`
     padding-block: var(--spacing-half);
 
     color: var(--comp-navigation-colour-text-sidebar-default);
-    ${font('sm', 'regular')}
+    ${font("sm", "regular")}
 
-    [aria-current='page'] > & {
+    [aria-current="page"] > & {
       color: var(--comp-navigation-colour-text-sidebar-select);
-      ${font('sm', 'medium')}
+      ${font("sm", "medium")}
     }
   }
-`
+`;
 
 export const ElSideBarMenuItemIcon = styled.span`
   @layer elements.main {
@@ -67,8 +68,8 @@ export const ElSideBarMenuItemIcon = styled.span`
     height: var(--icon_size-md);
 
     color: var(--comp-navigation-colour-icon-sidebar-default);
-    [aria-current='page'] > & {
+    [aria-current="page"] > & {
       color: var(--comp-navigation-colour-icon-sidebar-select);
     }
   }
-`
+`;

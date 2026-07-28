@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/addon-docs/blocks'
+import { Meta } from "@storybook/addon-docs/blocks";
 
 # Working with Breakpoints
 
@@ -14,27 +14,27 @@ your JavaScript code, or directly in styled components using Linaria's `styled` 
 For example, in JavaScript code:
 
 ```tsx
-import { isWidthAtOrAbove, isWidthBelow } from '@reapit/elements/utils/breakpoints'
+import { isWidthAtOrAbove, isWidthBelow } from "@reapit/elements/utils/breakpoints";
 
 // true when width >= BreakpointMinimumDimensions.SM
-const isWidthAtOrAboveSM = useMatchMedia(isWidthAtOrAbove('SM'))
+const isWidthAtOrAboveSM = useMatchMedia(isWidthAtOrAbove("SM"));
 
 // true when width < BreakpointMinimumDimensions.MD
-const isWidthBelowMD = useMatchMedia(isWidthBelow('MD'))
+const isWidthBelowMD = useMatchMedia(isWidthBelow("MD"));
 ```
 
 Or in a styled component:
 
 ```tsx
-import { isWidthAtOrAbove } from '@reapit/elements/utils/breakpoints'
-import { styled } from '@linaria/react'
+import { isWidthAtOrAbove } from "@reapit/elements/utils/breakpoints";
+import { styled } from "@linaria/react";
 
 const MyResponsiveDiv = styled.div`
   background-color: blue;
 
   /* Equivalent to "@media (min-width: 1024px)" */
-  @media only screen and ${isWidthAtOrAbove('MD')} {
+  @media only screen and ${isWidthAtOrAbove("MD")} {
     background-color: red;
   }
-`
+`;
 ```

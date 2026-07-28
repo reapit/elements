@@ -1,5 +1,6 @@
-import { render, screen } from '@testing-library/react'
-import { SecondaryTabs } from '../secondary-tabs'
+import { render, screen } from "@testing-library/react";
+
+import { SecondaryTabs } from "../secondary-tabs";
 
 const children = [
   <SecondaryTabs.Item key="apples" href="#" aria-current={false}>
@@ -17,25 +18,25 @@ const children = [
   <SecondaryTabs.Item key="watermelon" aria-current={false} href="#">
     Watermelon
   </SecondaryTabs.Item>,
-]
+];
 
-test('renders as a navigation element with a list', () => {
-  render(<SecondaryTabs>{children}</SecondaryTabs>)
-  expect(screen.getByRole('navigation')).toBeVisible()
-  expect(screen.getByRole('list')).toBeVisible()
-})
+test("renders as a navigation element with a list", () => {
+  render(<SecondaryTabs>{children}</SecondaryTabs>);
+  expect(screen.getByRole("navigation")).toBeVisible();
+  expect(screen.getByRole("list")).toBeVisible();
+});
 
 test('has a default data-overflow of "visible"', () => {
-  render(<SecondaryTabs>{children}</SecondaryTabs>)
-  expect(screen.getByRole('navigation')).toHaveAttribute('data-overflow', 'visible')
-})
+  render(<SecondaryTabs>{children}</SecondaryTabs>);
+  expect(screen.getByRole("navigation")).toHaveAttribute("data-overflow", "visible");
+});
 
-test('allows overriding the data-overflow', () => {
-  render(<SecondaryTabs overflow="scroll">{children}</SecondaryTabs>)
-  expect(screen.getByRole('navigation')).toHaveAttribute('data-overflow', 'scroll')
-})
+test("allows overriding the data-overflow", () => {
+  render(<SecondaryTabs overflow="scroll">{children}</SecondaryTabs>);
+  expect(screen.getByRole("navigation")).toHaveAttribute("data-overflow", "scroll");
+});
 
-test('forwards additional props to the nav element', () => {
-  render(<SecondaryTabs data-testid="test">{children}</SecondaryTabs>)
-  expect(screen.getByTestId('test')).toBeVisible()
-})
+test("forwards additional props to the nav element", () => {
+  render(<SecondaryTabs data-testid="test">{children}</SecondaryTabs>);
+  expect(screen.getByTestId("test")).toBeVisible();
+});

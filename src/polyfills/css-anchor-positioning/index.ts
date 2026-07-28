@@ -5,5 +5,5 @@
  * - Use `isCSSAnchorPositioningSupported()` to check for native browser support
  * - For preloading the polyfill module, see `preload.ts` (exported separately as a build entry point)
  */
-export * from './is-css-anchor-positioning-supported'
-export * from './polyfill'
+export * from "./is-css-anchor-positioning-supported";
+export * from "./polyfill";

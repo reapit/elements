@@ -1,6 +1,6 @@
-import { ElFormControlHelpText } from './styles'
+import type { HTMLAttributes } from "react";
 
-import type { HTMLAttributes } from 'react'
+import { ElFormControlHelpText } from "./styles";
 
 export namespace FormControlHelpText {
   export interface Props extends HTMLAttributes<HTMLParagraphElement> {
@@ -8,12 +8,12 @@ export namespace FormControlHelpText {
      * The ID of the help text. Should be used to associate the form control with the help text
      * via `aria-describedby`.
      */
-    id: string
+    id: string;
     /**
      * The size of the help text. Should match the size of the actual input or other form control
      * element being labelled. By default, the text size will inherit from the parent `FormControl`.
      */
-    size?: 'small' | 'medium' | 'large'
+    size?: "small" | "medium" | "large";
   }
 }
 
@@ -25,7 +25,7 @@ export function FormControlHelpText({ children, size, ...rest }: FormControlHelp
     <ElFormControlHelpText {...rest} data-size={size}>
       {children}
     </ElFormControlHelpText>
-  )
+  );
 }
 
-FormControlHelpText.displayName = 'FormControl.HelpText'
+FormControlHelpText.displayName = "FormControl.HelpText";

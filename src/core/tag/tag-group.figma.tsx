@@ -1,9 +1,10 @@
-import figma from '@figma/code-connect'
-import { Tag } from './tag'
+import figma from "@figma/code-connect";
 
-figma.connect(Tag, '<TAG_URL>', {
+import { Tag } from "./tag";
+
+figma.connect(Tag, "<TAG_URL>", {
   props: {
-    children: figma.string('Label text'),
+    children: figma.string("Label text"),
   },
   example: ({ children }) => <Tag>{children}</Tag>,
-})
+});

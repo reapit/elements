@@ -1,20 +1,20 @@
 interface GetTooltipTriggerPropsInput {
   /** The ID of the trigger element. This must match what is provided to the Tooltip component. */
-  id: string
+  id: string;
   /** The ID of the tooltip element. This must match what is provided to the Tooltip component. */
-  tooltipId: string
+  tooltipId: string;
   /**
    * The purpose of the tooltip. Does it label the trigger, or does it describe it?
    * Typically, tooltips will describe their trigger via `aria-describedby`. However, there are cases
    * (like icon-only buttons) where they should label their trigger.
    */
-  tooltipPurpose: 'label' | 'describe'
+  tooltipPurpose: "label" | "describe";
 }
 
 interface GetTooltipTriggerPropsOutput {
-  'aria-describedby'?: string
-  'aria-labelledby'?: string
-  id: string
+  "aria-describedby"?: string;
+  "aria-labelledby"?: string;
+  id: string;
 }
 
 /**
@@ -30,15 +30,15 @@ export function getTooltipTriggerProps({
   tooltipId,
   tooltipPurpose,
 }: GetTooltipTriggerPropsInput): GetTooltipTriggerPropsOutput {
-  if (tooltipPurpose === 'describe') {
+  if (tooltipPurpose === "describe") {
     return {
-      'aria-describedby': tooltipId,
+      "aria-describedby": tooltipId,
       id,
-    }
+    };
   } else {
     return {
-      'aria-labelledby': tooltipId,
+      "aria-labelledby": tooltipId,
       id,
-    }
+    };
   }
 }

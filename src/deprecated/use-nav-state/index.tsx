@@ -8,35 +8,35 @@ import React, {
   useEffect,
   PropsWithChildren,
   FC,
-} from 'react'
+} from "react";
 
 /** @deprecated */
 export interface NavState {
-  navItemIndex: number | null
-  navMenuOpen: boolean
-  navSubMenuIndex: number | null
-  navSubItemIndex: number | null
-  callback?: () => void
+  navItemIndex: number | null;
+  navMenuOpen: boolean;
+  navSubMenuIndex: number | null;
+  navSubItemIndex: number | null;
+  callback?: () => void;
 }
 
 /** @deprecated */
 export interface NavStateContextProps {
-  navState: NavState
-  setNavState: Dispatch<SetStateAction<NavState>>
+  navState: NavState;
+  setNavState: Dispatch<SetStateAction<NavState>>;
 }
 
 /** @deprecated */
 export interface UseNavState {
-  navState: NavState
+  navState: NavState;
   setNavState: (
     newState: Partial<NavState>,
-  ) => (event?: MouseEvent<HTMLAnchorElement | HTMLDivElement | HTMLSpanElement>) => void
+  ) => (event?: MouseEvent<HTMLAnchorElement | HTMLDivElement | HTMLSpanElement>) => void;
 }
 
 /** @deprecated */
-export const NavStateContext = createContext<NavStateContextProps>({} as NavStateContextProps)
+export const NavStateContext = createContext<NavStateContextProps>({} as NavStateContextProps);
 
-const { Provider } = NavStateContext
+const { Provider } = NavStateContext;
 
 /** @deprecated */
 export const NavStateProvider: FC<PropsWithChildren> = ({ children }) => {
@@ -45,7 +45,7 @@ export const NavStateProvider: FC<PropsWithChildren> = ({ children }) => {
     navMenuOpen: false,
     navSubMenuIndex: null,
     navSubItemIndex: null,
-  })
+  });
 
   return (
     <Provider
@@ -56,41 +56,42 @@ export const NavStateProvider: FC<PropsWithChildren> = ({ children }) => {
     >
       {children}
     </Provider>
-  )
-}
+  );
+};
 
 /** @deprecated */
 export const useNavState = (
   defaultNavIndex: number | null = null,
   defaultNavSubIndex: number | null = null,
 ): UseNavState => {
-  const { navState, setNavState } = useContext(NavStateContext)
+  const { navState, setNavState } = useContext(NavStateContext);
 
   useEffect(() => {
     setNavState((currentState) => ({
       ...currentState,
       navItemIndex: defaultNavIndex,
       navSubMenuIndex: defaultNavSubIndex,
-    }))
-  }, [])
+    }));
+  }, []);
 
   const handleSetNavState =
-    (newState: Partial<NavState>) => (event?: MouseEvent<HTMLAnchorElement | HTMLDivElement | HTMLSpanElement>) => {
-      event?.preventDefault()
-      event?.stopPropagation()
+    (newState: Partial<NavState>) =>
+    (event?: MouseEvent<HTMLAnchorElement | HTMLDivElement | HTMLSpanElement>) => {
+      event?.preventDefault();
+      event?.stopPropagation();
 
       setNavState((currentState: NavState) => ({
         ...currentState,
         ...newState,
-      }))
+      }));
 
       if (newState.callback) {
-        newState.callback()
+        newState.callback();
       }
-    }
+    };
 
   return {
     navState,
     setNavState: handleSetNavState,
-  }
-}
+  };
+};

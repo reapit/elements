@@ -1,7 +1,7 @@
-import { ComboboxPopupDialog } from './popup-dialog'
-import { useComboboxContext } from './context'
+import { useComboboxContext } from "./context";
+import { ComboboxPopupDialog } from "./popup-dialog";
 
-type AttributesToOmit = 'aria-labelledby' | 'id'
+type AttributesToOmit = "aria-labelledby" | "id";
 
 export namespace ComboboxPopup {
   export interface Props extends Omit<ComboboxPopupDialog.Props, AttributesToOmit> {}
@@ -16,15 +16,15 @@ export namespace ComboboxPopup {
  * - **auto**: Displays as a drawer on XS breakpoint (< 768px), popover on SM and above
  */
 export function ComboboxPopup(props: ComboboxPopup.Props) {
-  const { comboboxId, popupId } = useComboboxContext()
+  const { comboboxId, popupId } = useComboboxContext();
   return (
     <ComboboxPopupDialog {...props} aria-labelledby={comboboxId} id={popupId}>
       {props.children}
     </ComboboxPopupDialog>
-  )
+  );
 }
 
-ComboboxPopup.displayName = 'Combobox.Popup'
+ComboboxPopup.displayName = "Combobox.Popup";
 
-ComboboxPopup.open = ComboboxPopupDialog.open
-ComboboxPopup.close = ComboboxPopupDialog.close
+ComboboxPopup.open = ComboboxPopupDialog.open;
+ComboboxPopup.close = ComboboxPopupDialog.close;

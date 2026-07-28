@@ -1,21 +1,22 @@
-import preview from '#.storybook/preview'
-import { AlertBannerOutlet } from './outlet'
-import { AlertBanner } from '../alert-banner'
-import { ErrorIcon } from '#src/icons/error'
-import { InfoIcon } from '#src/icons/info'
-import { Switch } from '#src/core/switch'
-import { useState } from 'react'
-import { WarningIcon } from '#src/icons/warning'
+import { useState } from "react";
 
-import { prioritiseByVariantAndDOMOrder } from './prioritiseByVariantAndDOMOrder'
+import preview from "#.storybook/preview";
+import { Switch } from "#src/core/switch";
+import { ErrorIcon } from "#src/icons/error";
+import { InfoIcon } from "#src/icons/info";
+import { WarningIcon } from "#src/icons/warning";
+
+import { AlertBanner } from "../alert-banner";
+import { AlertBannerOutlet } from "./outlet";
+import { prioritiseByVariantAndDOMOrder } from "./prioritiseByVariantAndDOMOrder";
 
 const meta = preview.meta({
-  title: 'Messaging/AlertBanner/Outlet',
+  title: "Messaging/AlertBanner/Outlet",
   component: AlertBannerOutlet,
   argTypes: {
     children: {
-      control: 'radio',
-      options: ['One', 'Some', 'Many'],
+      control: "radio",
+      options: ["One", "Some", "Many"],
       mapping: {
         One: <AlertBanner variant="info">Did you know about this?</AlertBanner>,
         Some: (
@@ -30,28 +31,30 @@ const meta = preview.meta({
             <AlertBanner variant="info">You might like to know about this.</AlertBanner>
             <AlertBanner variant="warning">Hmm, you should be a little concerned.</AlertBanner>
             <AlertBanner variant="warning">One more slightly concerning thing.</AlertBanner>
-            <AlertBanner variant="error">This is the second terrible thing that has happened!</AlertBanner>
+            <AlertBanner variant="error">
+              This is the second terrible thing that has happened!
+            </AlertBanner>
           </>
         ),
       },
     },
     id: {
-      control: 'text',
+      control: "text",
     },
     prioritise: {
       table: {
-        defaultValue: { summary: 'prioritiseByVariantAndDOMOrder' },
+        defaultValue: { summary: "prioritiseByVariantAndDOMOrder" },
       },
     },
   },
   decorators: [
     (Story) => (
-      <div style={{ containerType: 'inline-size' }}>
+      <div style={{ containerType: "inline-size" }}>
         <Story />
       </div>
     ),
   ],
-})
+});
 
 /**
  * Basic example showing a single alert banner within an outlet.
@@ -59,9 +62,9 @@ const meta = preview.meta({
  */
 export const Example = meta.story({
   args: {
-    children: 'One',
+    children: "One",
   },
-})
+});
 
 /**
  * Demonstrates priority-based visibility when multiple banners are present.
@@ -70,9 +73,9 @@ export const Example = meta.story({
  */
 export const Many = meta.story({
   args: {
-    children: 'Many',
+    children: "Many",
   },
-})
+});
 
 /**
  * Shows how the outlet responds to dynamic changes in banner visibility.
@@ -81,13 +84,13 @@ export const Many = meta.story({
  */
 export const DynamicDisplay = meta.story({
   render: () => {
-    const [showInfo, setShowInfo] = useState(false)
-    const [showWarning, setShowWarning] = useState(false)
-    const [showError, setShowError] = useState(false)
+    const [showInfo, setShowInfo] = useState(false);
+    const [showWarning, setShowWarning] = useState(false);
+    const [showError, setShowError] = useState(false);
 
     return (
       <div>
-        <div style={{ marginBottom: 'var(--spacing-6)', display: 'flex', gap: 'var(--spacing-6)' }}>
+        <div style={{ marginBottom: "var(--spacing-6)", display: "flex", gap: "var(--spacing-6)" }}>
           <Switch label="Info" onClick={() => setShowInfo(!showInfo)} />
           <Switch label="Warning" onClick={() => setShowWarning(!showWarning)} />
           <Switch label="Error" onClick={() => setShowError(!showError)} />
@@ -111,9 +114,9 @@ export const DynamicDisplay = meta.story({
           )}
         </AlertBannerOutlet>
       </div>
-    )
+    );
   },
-})
+});
 
 /**
  * Demonstrates how to implement a custom priority function.
@@ -133,7 +136,7 @@ export const Priority = meta.story({
         </AlertBanner>
       </>
     ),
-    id: 'custom-priority-outlet',
+    id: "custom-priority-outlet",
   },
 
   render: (args) => {
@@ -141,28 +144,28 @@ export const Priority = meta.story({
       HIGH: 3,
       MEDIUM: 2,
       LOW: 1,
-    }
+    };
 
     // Custom priority function that uses data-priority attribute
     const customPriority = (banners: HTMLElement[]): HTMLElement | null => {
-      if (banners.length === 0) return null
+      if (banners.length === 0) return null;
 
-      let bestBanner: HTMLElement | null = null
-      let bestPriority = 0
+      let bestBanner: HTMLElement | null = null;
+      let bestPriority = 0;
 
       for (const banner of banners) {
-        const priority = PRIORITY_VALUES[banner.dataset.priority ?? ''] ?? 0
+        const priority = PRIORITY_VALUES[banner.dataset.priority ?? ""] ?? 0;
 
         if (priority > bestPriority) {
-          bestBanner = banner
-          bestPriority = priority
+          bestBanner = banner;
+          bestPriority = priority;
         }
       }
 
       // Fall back to default priority if no data-priority attributes found
-      return bestBanner ?? prioritiseByVariantAndDOMOrder(banners)
-    }
+      return bestBanner ?? prioritiseByVariantAndDOMOrder(banners);
+    };
 
-    return <AlertBannerOutlet {...args} prioritise={customPriority} />
+    return <AlertBannerOutlet {...args} prioritise={customPriority} />;
   },
-})
+});

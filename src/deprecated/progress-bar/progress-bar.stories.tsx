@@ -1,4 +1,6 @@
-import preview from '#.storybook/preview'
+import preview from "#.storybook/preview";
+
+import { elProgressBarLabelRight, elProgressBarLabelLeft } from "./__styles__";
 import {
   ProgressBarPercentage,
   ProgressBarSteps,
@@ -6,23 +8,22 @@ import {
   ProgressBarInner,
   ProgressBarItem,
   ProgressBarLabel,
-} from './progress-bar'
-import { elProgressBarLabelRight, elProgressBarLabelLeft } from './__styles__'
+} from "./progress-bar";
 
 const meta = preview.meta({
-  title: 'Deprecated/ProgressBar',
+  title: "Deprecated/ProgressBar",
   component: ProgressBarSteps,
-})
+});
 
-export default meta
+export default meta;
 
 export const BasicExampleProgressBarPercentage = meta.story({
   render: () => (
     <ProgressBarContainer>
       <ProgressBarInner
         style={{
-          width: '50%',
-          transitionDuration: '1s',
+          width: "50%",
+          transitionDuration: "1s",
         }}
       >
         <ProgressBarItem />
@@ -31,16 +32,16 @@ export const BasicExampleProgressBarPercentage = meta.story({
     </ProgressBarContainer>
   ),
 
-  name: 'Basic Example - ProgressBarPercentage',
-})
+  name: "Basic Example - ProgressBarPercentage",
+});
 
 export const BasicExampleProgressBarSteps = meta.story({
   render: () => (
     <ProgressBarContainer>
       <ProgressBarInner
         style={{
-          width: '50%',
-          transitionDuration: '1s',
+          width: "50%",
+          transitionDuration: "1s",
         }}
       >
         <ProgressBarItem />
@@ -49,15 +50,15 @@ export const BasicExampleProgressBarSteps = meta.story({
     </ProgressBarContainer>
   ),
 
-  name: 'Basic Example - ProgressBarSteps',
-})
+  name: "Basic Example - ProgressBarSteps",
+});
 
 export const ReactExampleProgressBarPercentage = meta.story({
   render: () => <ProgressBarPercentage duration={20} />,
-  name: 'React Example - ProgressBarPercentage',
-})
+  name: "React Example - ProgressBarPercentage",
+});
 
 export const ReactExampleProgressBarSteps = meta.story({
   render: () => <ProgressBarSteps currentStep={7} numberSteps={7} />,
-  name: 'React Example - ProgressBarSteps',
-})
+  name: "React Example - ProgressBarSteps",
+});

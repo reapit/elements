@@ -1,12 +1,13 @@
-import { useTheme } from './use-theme'
+import type { ReactNode } from "react";
 
-import type { ReactNode } from 'react'
-import type { Theme } from '#src/tokens'
+import type { Theme } from "#src/tokens";
+
+import { useTheme } from "./use-theme";
 
 export namespace ThemeProvider {
   export interface Props {
-    children: ReactNode
-    theme: Theme
+    children: ReactNode;
+    theme: Theme;
   }
 }
 
@@ -24,6 +25,6 @@ export namespace ThemeProvider {
  * manually set the `data-theme` attribute on the document's root element in HTML document.
  */
 export function ThemeProvider({ children, theme }: ThemeProvider.Props) {
-  useTheme(theme)
-  return children
+  useTheme(theme);
+  return children;
 }

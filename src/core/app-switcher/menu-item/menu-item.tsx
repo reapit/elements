@@ -1,29 +1,29 @@
+import { useId } from "react";
+import type { HTMLAttributes, ReactNode } from "react";
+
 import {
   ElAppSwitcherMenuItemAnchor,
   ElAppSwitcherMenuItemAvatar,
   ElAppSwitcherMenuItemLabel,
   ElAppSwitcherMenuItemSupplementaryInfo,
-} from './styles'
-import { useId } from 'react'
-
-import type { HTMLAttributes, ReactNode } from 'react'
+} from "./styles";
 
 // The attributes we want to omit from the HTMLAnchorElement props:
 // - `aria-labelledby`: we want exclusive control over what text is used to label the menu item.
 // - `aria-describedby`: we want exclusive control over what text is used to describe the menu item.
-type AttributesToOmit = 'aria-labelledby' | 'aria-describedby'
+type AttributesToOmit = "aria-labelledby" | "aria-describedby";
 
 export namespace AppSwitcherMenuItem {
   export interface Props extends Omit<HTMLAttributes<HTMLAnchorElement>, AttributesToOmit> {
-    appName: string
-    supplementaryInfo: string
-    avatar: ReactNode
-    href: string
+    appName: string;
+    supplementaryInfo: string;
+    avatar: ReactNode;
+    href: string;
   }
 }
 
 /** @deprecated Use AppSwitcherMenuItem.Props instead */
-export type AppSwitcherMenuItemProps = AppSwitcherMenuItem.Props
+export type AppSwitcherMenuItemProps = AppSwitcherMenuItem.Props;
 
 /**
  * A basic menu item for the App Switcher. Displays a product's logo, name, and supplementary info. Typically,
@@ -40,8 +40,8 @@ export function AppSwitcherMenuItem({
   supplementaryInfo,
   ...rest
 }: AppSwitcherMenuItem.Props) {
-  const labelId = useId()
-  const descriptionId = useId()
+  const labelId = useId();
+  const descriptionId = useId();
 
   return (
     <ElAppSwitcherMenuItemAnchor
@@ -58,5 +58,5 @@ export function AppSwitcherMenuItem({
         {supplementaryInfo}
       </ElAppSwitcherMenuItemSupplementaryInfo>
     </ElAppSwitcherMenuItemAnchor>
-  )
+  );
 }

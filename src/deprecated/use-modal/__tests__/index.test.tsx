@@ -1,25 +1,26 @@
-import { render } from '@testing-library/react'
-import { useModal } from '../index'
-import { renderHook, act } from '@testing-library/react'
+import { render } from "@testing-library/react";
+import { renderHook, act } from "@testing-library/react";
 
-describe('useModal', () => {
-  it('should return UseModal type correctly', async () => {
-    const consoleWarn = vi.spyOn(console, 'warn').mockImplementation(() => {})
-    const { result } = renderHook(() => useModal('some-div'))
+import { useModal } from "../index";
 
-    expect(render(<result.current.Modal />).asFragment()).toMatchSnapshot()
+describe("useModal", () => {
+  it("should return UseModal type correctly", async () => {
+    const consoleWarn = vi.spyOn(console, "warn").mockImplementation(() => {});
+    const { result } = renderHook(() => useModal("some-div"));
 
-    act(() => {
-      result.current.openModal()
-    })
-
-    expect(result.current.modalIsOpen).toBe(true)
+    expect(render(<result.current.Modal />).asFragment()).toMatchSnapshot();
 
     act(() => {
-      result.current.closeModal()
-    })
+      result.current.openModal();
+    });
 
-    expect(result.current.modalIsOpen).toBe(false)
-    consoleWarn.mockRestore()
-  })
-})
+    expect(result.current.modalIsOpen).toBe(true);
+
+    act(() => {
+      result.current.closeModal();
+    });
+
+    expect(result.current.modalIsOpen).toBe(false);
+    consoleWarn.mockRestore();
+  });
+});

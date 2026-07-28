@@ -84,44 +84,44 @@ The `Snack` system (`SnackProvider`, `useSnack`, `Snack`, `SnackHolder`) has bee
 **Before:**
 
 ```tsx
-import { SnackProvider, useSnack } from '@reapit/elements'
+import { SnackProvider, useSnack } from "@reapit/elements";
 
 function Root() {
   return (
     <SnackProvider>
       <App />
     </SnackProvider>
-  )
+  );
 }
 
 function App() {
-  const snack = useSnack()
+  const snack = useSnack();
 
   const handleSave = async () => {
-    await save()
-    snack.success('Saved', 3000)
-  }
+    await save();
+    snack.success("Saved", 3000);
+  };
 }
 ```
 
 **After:**
 
 ```tsx
-import { Toaster, toast } from '@reapit/elements/core/toaster'
+import { Toaster, toast } from "@reapit/elements/core/toaster";
 
 function Root() {
   return (
     <Toaster>
       <App />
     </Toaster>
-  )
+  );
 }
 
 function App() {
   const handleSave = async () => {
-    await save()
-    toast.success('Saved', { duration: 3000 })
-  }
+    await save();
+    toast.success("Saved", { duration: 3000 });
+  };
 }
 ```
 

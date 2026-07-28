@@ -55,10 +55,13 @@ yarn dlx @reapit/elements@beta codemod apply rewrite-v4-imports src/ --facade-pa
 
 ```tsx
 // Before (with facade package @habio/design-system)
-import { Button, type ButtonProps } from '@habio/design-system/elements'
+import { Button, type ButtonProps } from "@habio/design-system/elements";
 
 // After running with --facade-package @habio/design-system
-import { DeprecatedButton as Button, type DeprecatedButtonProps as ButtonProps } from '@habio/design-system/elements'
+import {
+  DeprecatedButton as Button,
+  type DeprecatedButtonProps as ButtonProps,
+} from "@habio/design-system/elements";
 ```
 
 ## Background
@@ -172,24 +175,24 @@ The codemod automatically detects and transforms `Props` types for all supported
 
 ```tsx
 // After codemod runs:
-import { DeprecatedButton as Button } from '@reapit/elements'
+import { DeprecatedButton as Button } from "@reapit/elements";
 
 // Your existing usage works without changes:
-;<Button variant="primary">Click me</Button>
+<Button variant="primary">Click me</Button>;
 ```
 
 **Test Mock Updates**: Test mocks (Jest/Vitest) are not automatically updated. When tests fail after running this codemod, update your mocks to use the deprecated component names:
 
 ```typescript
 // Before
-jest.mock('@reapit/elements', () => ({
-  Button: 'Button',
-}))
+jest.mock("@reapit/elements", () => ({
+  Button: "Button",
+}));
 
 // After (manual update required)
-jest.mock('@reapit/elements', () => ({
-  DeprecatedButton: 'DeprecatedButton',
-}))
+jest.mock("@reapit/elements", () => ({
+  DeprecatedButton: "DeprecatedButton",
+}));
 ```
 
 ## Limitations
@@ -201,13 +204,13 @@ jest.mock('@reapit/elements', () => ({
 3. **Side-effect imports**: CSS imports and other side-effect imports are unchanged:
 
    ```typescript
-   import '@reapit/elements/styles.css' // Unchanged
+   import "@reapit/elements/styles.css"; // Unchanged
    ```
 
 4. **Default/namespace imports**: Default and namespace imports are unchanged:
    ```typescript
-   import Elements from '@reapit/elements' // Unchanged
-   import * as Elements from '@reapit/elements' // Unchanged
+   import Elements from "@reapit/elements"; // Unchanged
+   import * as Elements from "@reapit/elements"; // Unchanged
    ```
 
 ## Next Steps After Running This Codemod
@@ -225,11 +228,11 @@ jest.mock('@reapit/elements', () => ({
 **Before:**
 
 ```tsx
-import { Button, Badge, type ButtonProps, type BadgeProps } from '@reapit/elements'
-import { useState } from 'react'
+import { Button, Badge, type ButtonProps, type BadgeProps } from "@reapit/elements";
+import { useState } from "react";
 
 interface Props extends ButtonProps {
-  onClick: () => void
+  onClick: () => void;
 }
 
 export const MyComponent: React.FC<Props> = (props) => {
@@ -238,8 +241,8 @@ export const MyComponent: React.FC<Props> = (props) => {
       <Button {...props}>Click me</Button>
       <Badge>New</Badge>
     </div>
-  )
-}
+  );
+};
 ```
 
 **After:**
@@ -250,11 +253,11 @@ import {
   DeprecatedBadge as Badge,
   type DeprecatedButtonProps as ButtonProps,
   type DeprecatedBadgeProps as BadgeProps,
-} from '@reapit/elements'
-import { useState } from 'react'
+} from "@reapit/elements";
+import { useState } from "react";
 
 interface Props extends ButtonProps {
-  onClick: () => void
+  onClick: () => void;
 }
 
 export const MyComponent: React.FC<Props> = (props) => {
@@ -263,8 +266,8 @@ export const MyComponent: React.FC<Props> = (props) => {
       <Button {...props}>Click me</Button>
       <Badge>New</Badge>
     </div>
-  )
-}
+  );
+};
 ```
 
 Notice that only the import statement changed. All usage remains identical.

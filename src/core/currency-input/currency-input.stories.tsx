@@ -1,48 +1,49 @@
-import preview from '#.storybook/preview'
-import { CurrencyInput } from './currency-input'
+import preview from "#.storybook/preview";
+
+import { CurrencyInput } from "./currency-input";
 
 const meta = preview.meta({
-  title: 'Input and selection/CurrencyInput',
+  title: "Input and selection/CurrencyInput",
   component: CurrencyInput,
   argTypes: {
     currency: {
-      control: 'select',
-      options: ['GBP', 'USD', 'EUR', 'SEK', 'JPY', 'AUD', 'CHF'],
+      control: "select",
+      options: ["GBP", "USD", "EUR", "SEK", "JPY", "AUD", "CHF"],
     },
     locale: {
-      control: 'select',
-      options: ['en-AU', 'en-GB', 'en-US', 'de-DE', 'fr-FR', 'ja-JP', 'sv-SE'],
+      control: "select",
+      options: ["en-AU", "en-GB", "en-US", "de-DE", "fr-FR", "ja-JP", "sv-SE"],
     },
     size: {
-      control: 'select',
-      options: ['small', 'medium', 'large'],
+      control: "select",
+      options: ["small", "medium", "large"],
     },
     value: {
-      control: 'text',
+      control: "text",
       table: {
         type: {
-          summary: 'string | number | readonly string[] | undefined',
+          summary: "string | number | readonly string[] | undefined",
         },
       },
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
-    'aria-label': 'Amount',
-    currency: 'GBP',
-    defaultValue: '1234.5',
+    "aria-label": "Amount",
+    currency: "GBP",
+    defaultValue: "1234.5",
     disabled: false,
-    locale: 'en-GB',
-    name: 'amount',
-    placeholder: '',
+    locale: "en-GB",
+    name: "amount",
+    placeholder: "",
     readOnly: false,
     required: false,
     showValidity: false,
-    size: 'medium',
+    size: "medium",
   },
-})
+});
 
 /**
  * The currency symbol is placed automatically as a prefix or suffix based on the locale. The
@@ -59,7 +60,7 @@ export const Currencies = Example.extend({
   },
   decorators: [
     (Story) => (
-      <div style={{ display: 'flex', flexFlow: 'row wrap', gap: 'var(--spacing-6)' }}>
+      <div style={{ display: "flex", flexFlow: "row wrap", gap: "var(--spacing-6)" }}>
         <Story />
       </div>
     ),
@@ -73,7 +74,7 @@ export const Currencies = Example.extend({
       <CurrencyInput {...args} aria-label="JPY" currency="JPY" locale="ja-JP" defaultValue="1234" />
     </>
   ),
-})
+});
 
 /**
  * There are three sizes available: `small`, `medium` and `large`.
@@ -84,7 +85,7 @@ export const Sizes = Example.extend({
   },
   decorators: [
     (Story) => (
-      <div style={{ display: 'flex', flexFlow: 'row nowrap', gap: 'var(--spacing-6)' }}>
+      <div style={{ display: "flex", flexFlow: "row nowrap", gap: "var(--spacing-6)" }}>
         <Story />
       </div>
     ),
@@ -96,7 +97,7 @@ export const Sizes = Example.extend({
       <CurrencyInput {...args} size="large" />
     </>
   ),
-})
+});
 
 /**
  * Currency inputs can be disabled. A disabled input will not receive the `click` event, and is
@@ -106,15 +107,15 @@ export const Disabled = Example.extend({
   args: {
     disabled: true,
   },
-})
+});
 
 /**
  * Currency inputs can be marked as read-only. Unlike disabled inputs, read-only inputs
  * participate in form submission.
  */
 export const Readonly = Example.extend({
-  name: 'Read-only',
+  name: "Read-only",
   args: {
     readOnly: true,
   },
-})
+});

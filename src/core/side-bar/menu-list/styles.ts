@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
 
 export const ElSideBarMenuList = styled.ul`
   @layer elements.main {
@@ -15,10 +15,10 @@ export const ElSideBarMenuList = styled.ul`
     container-name: side-bar-menu-list;
     container-type: inline-size;
   }
-`
+`;
 
 export const ElSideBarMenuListItem = styled.li`
   @layer elements.main {
     display: block;
   }
-`
+`;

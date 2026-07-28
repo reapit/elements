@@ -1,8 +1,9 @@
-import { font } from '#src/utils/font'
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
+
+import { font } from "#src/utils/font";
 
 interface ElPrimaryTabProps {
-  'aria-current': 'page' | false
+  "aria-current": "page" | false;
 }
 
 export const ElPrimaryTab = styled.a<ElPrimaryTabProps>`
@@ -29,18 +30,18 @@ export const ElPrimaryTab = styled.a<ElPrimaryTabProps>`
       border-bottom-color: var(--comp-tab-colour-border-primary-hover);
     }
 
-    &[aria-current='page'] {
+    &[aria-current="page"] {
       color: var(--comp-tab-colour-text-primary-selected);
       border-bottom-color: var(--comp-tab-colour-border-primary-selected);
     }
   }
-`
+`;
 
 export const ElPrimaryTabLabel = styled.span`
   @layer elements.main {
     white-space: nowrap;
-    ${font('base', 'medium')}
+    ${font("base", "medium")}
 
     color: inherit;
   }
-`
+`;

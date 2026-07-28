@@ -1,4 +1,4 @@
-import { isCSSAnchorPositioningSupported } from './is-css-anchor-positioning-supported'
+import { isCSSAnchorPositioningSupported } from "./is-css-anchor-positioning-supported";
 
 export namespace applyCSSAnchorPositioningPolyfill {
   // This matches the `AnchorPositioningPolyfillOptions` type accepted by `@oddbird/css-anchor-positioning/fn`
@@ -9,7 +9,7 @@ export namespace applyCSSAnchorPositioningPolyfill {
      * This works by polyfilling each elements inline styles, if any. Any specified `<link>` and `<style>`
      * elements will also be polyfilled.
      */
-    elements?: HTMLElement[]
+    elements?: HTMLElement[];
     /**
      * When not defined or set to false, the polyfill will be applied to all elements that have eligible
      * inline styles, regardless of whether the elements option is defined. When set to true (the default),
@@ -18,7 +18,7 @@ export namespace applyCSSAnchorPositioningPolyfill {
      *
      * @default true
      */
-    excludeInlineStyles?: boolean
+    excludeInlineStyles?: boolean;
     /**
      * Determines whether anchor calculations should update on every animation frame (e.g. when the anchor
      * element is animated using transforms), in addition to always updating on scroll/resize. While this
@@ -26,7 +26,7 @@ export namespace applyCSSAnchorPositioningPolyfill {
      *
      * @default false
      */
-    useAnimationFrame?: boolean
+    useAnimationFrame?: boolean;
   }
 }
 
@@ -45,29 +45,29 @@ export async function applyCSSAnchorPositioningPolyfill({
   if (!isCSSAnchorPositioningSupported()) {
     // Dynamic import is cached by browser's module system - no repeated network requests
     // Uses dedicated entry point that can be preloaded via <link rel="modulepreload">
-    const { polyfill: polyfillFn } = await import('./preload')
+    const { polyfill: polyfillFn } = await import("./preload");
 
     if (elements) {
       // Because the import is async, we need to confirm our elements are still connected to the DOM
       // before applying the polyfill.
-      const connectedElements = elements.filter((element) => element.isConnected)
+      const connectedElements = elements.filter((element) => element.isConnected);
 
       if (connectedElements.length === 0) {
-        return
+        return;
       }
 
       await polyfillFn({
         elements: connectedElements,
         excludeInlineStyles,
         useAnimationFrame,
-      })
+      });
 
-      return
+      return;
     }
 
     await polyfillFn({
       excludeInlineStyles,
       useAnimationFrame,
-    })
+    });
   }
 }

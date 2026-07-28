@@ -4,5 +4,5 @@
  * @returns The search input element ID
  */
 export function getComboboxSearchInputId(comboboxId: string): string {
-  return `${comboboxId}-search-input`
+  return `${comboboxId}-search-input`;
 }

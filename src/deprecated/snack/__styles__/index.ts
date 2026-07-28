@@ -1,5 +1,6 @@
-import { css } from '@linaria/core'
-import { styled } from '@linaria/react'
+import { css } from "@linaria/core";
+import { styled } from "@linaria/react";
+
 import {
   elIntentPrimary,
   elIntentSuccess,
@@ -8,7 +9,7 @@ import {
   elIntentNeutral,
   elIntentDefault,
   elIntentPending,
-} from '../../../styles/deprecated-intent'
+} from "../../../styles/deprecated-intent";
 
 /** @deprecated */
 export const elSnackIcon = css`
@@ -18,7 +19,7 @@ export const elSnackIcon = css`
   margin-right: 1rem;
   width: var(--icon_size-md);
   height: var(--icon_size-md);
-`
+`;
 
 /** @deprecated */
 export const ElSnack = styled.div`
@@ -75,14 +76,14 @@ export const ElSnack = styled.div`
   &.${elIntentDefault} {
     background: var(--colour-fill-neutral-lightest);
   }
-`
+`;
 
 /** @deprecated */
 export const elSnackCloseIcon = css`
   cursor: pointer;
   padding-left: 0.5rem;
   color: var(--colour-text-primary);
-`
+`;
 
 /** @deprecated */
 export const ElSnackHolder = styled.div`
@@ -99,4 +100,4 @@ export const ElSnackHolder = styled.div`
     margin-bottom: 1rem;
     /* box-shadow: 3px 3px 5px var(--colour-fill-neutral-medium); */
   }
-`
+`;

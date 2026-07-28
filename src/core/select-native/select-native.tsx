@@ -1,13 +1,14 @@
-import { ChevronDownIcon } from '#src/icons/chevron-down'
-import { ElSelectNative, ElSelectNativeContainer, ElSelectNativeIconContainer } from './styles'
-import { forwardRef } from 'react'
+import { forwardRef } from "react";
+import type { ReactNode, SelectHTMLAttributes } from "react";
 
-import type { ReactNode, SelectHTMLAttributes } from 'react'
+import { ChevronDownIcon } from "#src/icons/chevron-down";
+
+import { ElSelectNative, ElSelectNativeContainer, ElSelectNativeIconContainer } from "./styles";
 
 // NOTE: We omit:
 // - `size` because we want our own string-based size prop to be available.
 // - `multiple` because it is incompatible with our compact select design.
-type AttributesToOmit = 'size' | 'multiple'
+type AttributesToOmit = "size" | "multiple";
 
 export namespace SelectNative {
   export interface Props extends Omit<SelectHTMLAttributes<HTMLSelectElement>, AttributesToOmit> {
@@ -19,28 +20,28 @@ export namespace SelectNative {
      *
      * Default's to `off` to avoid PII being used in forms.
      */
-    autoComplete?: 'off' | 'on' | (string & {})
+    autoComplete?: "off" | "on" | (string & {});
     /** The options for the select. Must be `<option>` or `<optgroup>` elements. */
-    children: ReactNode
+    children: ReactNode;
     /** Specifies the initially selected value. By default, the first option will be selected. */
-    defaultValue?: string
+    defaultValue?: string;
     /** The ID of the `<form>` element to associate this select with. */
-    form?: string
+    form?: string;
     /** The maximum width of the select */
-    maxWidth?: string
+    maxWidth?: string;
     /** The name of the control */
-    name?: string
+    name?: string;
     /** Used to indicate whether an option with a non-empty string value must be selected. */
-    required?: boolean
+    required?: boolean;
     /**
      * Whether the control's validity should be visually communicated or not. Typically, validity will only be shown
      * when the control has been touched (i.e. the user has interacted with it).
      */
-    showValidity?: boolean
+    showValidity?: boolean;
     /** The size of the select */
-    size: 'small' | 'medium' | 'large'
+    size: "small" | "medium" | "large";
     /** Controls which option is selected. Must match the value of some `<option>`. */
-    value?: string
+    value?: string;
   }
 }
 
@@ -49,13 +50,19 @@ export namespace SelectNative {
  * container. Importantly, it only supports single selection.
  */
 export const SelectNative = forwardRef<HTMLSelectElement, SelectNative.Props>(
-  ({ autoComplete = 'off', children, className, maxWidth, showValidity, size, style, ...rest }, ref) => {
+  (
+    { autoComplete = "off", children, className, maxWidth, showValidity, size, style, ...rest },
+    ref,
+  ) => {
     return (
       // NOTE: We have to wrap the select in a container so our chevron icon can be positioned absolutely
       // at the select's right edge. This is the simplest way for us to achieve the visual requirements of
       // the component while still using a native select element. The main downside is we have more DOM
       // elements involved than we would prefer.
-      <ElSelectNativeContainer className={className} style={{ ...style, '--select-max-width': maxWidth }}>
+      <ElSelectNativeContainer
+        className={className}
+        style={{ ...style, "--select-max-width": maxWidth }}
+      >
         <ElSelectNative
           {...rest}
           autoComplete={autoComplete}
@@ -69,9 +76,9 @@ export const SelectNative = forwardRef<HTMLSelectElement, SelectNative.Props>(
           <ChevronDownIcon />
         </ElSelectNativeIconContainer>
       </ElSelectNativeContainer>
-    )
+    );
   },
-)
+);
 
 /** @deprecated Use SelectNative.Props instead */
-export type SelectNativeProps = SelectNative.Props
+export type SelectNativeProps = SelectNative.Props;

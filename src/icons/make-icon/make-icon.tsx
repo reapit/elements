@@ -1,20 +1,20 @@
-import { cx } from '@linaria/core'
-import { elIcon } from './styles'
+import { cx } from "@linaria/core";
+import type { FunctionComponent, SVGProps } from "react";
 
-import type { IconColour, IconSize } from './types'
-import type { FunctionComponent, SVGProps } from 'react'
+import { elIcon } from "./styles";
+import type { IconColour, IconSize } from "./types";
 
 export interface IconProps extends SVGProps<SVGSVGElement> {
-  color?: IconColour
-  size?: IconSize
+  color?: IconColour;
+  size?: IconSize;
 }
 
 export function makeIcon(name: string, Svg: FunctionComponent<SVGProps<SVGSVGElement>>) {
-  function Icon({ className, color = 'inherit', size = '100%', ...rest }: IconProps) {
-    return <Svg {...rest} className={cx(elIcon, className)} color={color} data-size={size} />
+  function Icon({ className, color = "inherit", size = "100%", ...rest }: IconProps) {
+    return <Svg {...rest} className={cx(elIcon, className)} color={color} data-size={size} />;
   }
 
-  Icon.displayName = name
+  Icon.displayName = name;
 
-  return Icon
+  return Icon;
 }

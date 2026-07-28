@@ -1,2 +1,2 @@
-export { SearchInput } from './search-input'
-export { clearSearchInput } from './clear-search-input'
+export { SearchInput } from "./search-input";
+export { clearSearchInput } from "./clear-search-input";

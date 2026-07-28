@@ -1,17 +1,18 @@
-import { elButton } from '../../../core/button/styles'
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
+
+import { elButton } from "../../../core/button/styles";
 
 /** @deprecated */
 export const ElFileInputLabel = styled.label`
   font-size: 0.875rem /* was --font-size-small */;
   color: var(--colour-text-secondary);
-`
+`;
 
 /** @deprecated */
 export const ElFileInput = styled.input`
-  &[type='file'] {
+  &[type="file"] {
     font-family:
-      'Inter',
+      "Inter",
       /* was --font-sans-serif */ Helvetica,
       Arial,
       sans-serif;
@@ -27,7 +28,7 @@ export const ElFileInput = styled.input`
       width: 0;
     }
   }
-`
+`;
 
 /** @deprecated */
 export const ElFileInputWrap = styled.div`
@@ -43,13 +44,13 @@ export const ElFileInputWrap = styled.div`
     height: 1.25rem;
     display: block;
   }
-`
+`;
 
 /** @deprecated */
 export const ElFileInputIconContainer = styled.div`
   display: flex;
   height: 34px;
-`
+`;
 
 /** @deprecated */
 export const ElFileInputHidden = styled.input`
@@ -59,10 +60,10 @@ export const ElFileInputHidden = styled.input`
   width: 0;
   visibility: hidden;
   padding: 0;
-`
+`;
 
 /** @deprecated */
 export const ElFilePreviewImage = styled.img`
   max-width: 100%;
   max-height: 100%;
-`
+`;

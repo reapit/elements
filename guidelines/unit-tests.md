@@ -15,20 +15,20 @@ Vitest globals (`test`, `expect`, `describe`, `vi`, `afterEach`, etc.) are avail
 
 ```typescript
 // 1. Imports (Vitest globals are available without imports)
-import { Component } from '../component'
-import { render, screen } from '@testing-library/react'
+import { Component } from "../component";
+import { render, screen } from "@testing-library/react";
 
 // 2. Setup/cleanup (only when manually manipulating the DOM)
 // React Testing Library cleans up automatically after render()
 // Add afterEach cleanup only when using document.createElement or similar APIs
 afterEach(() => {
-  document.body.innerHTML = ''
-})
+  document.body.innerHTML = "";
+});
 
 // 3. Tests
-test('descriptive test name', () => {
+test("descriptive test name", () => {
   // test implementation
-})
+});
 
 // 4. Helpers
 function createTestElement() {
@@ -42,12 +42,12 @@ Vitest automocks all exports from a module. Use this feature instead of writing 
 
 ```typescript
 // Prefer automocking
-vi.mock('../../popup')
+vi.mock("../../popup");
 
 // Skip manual implementations
-vi.mock('../../popup', () => ({
+vi.mock("../../popup", () => ({
   showPopup: vi.fn(),
-}))
+}));
 ```
 
 Customize mock behavior by importing the mocked module and configuring it:
@@ -199,13 +199,13 @@ test('does not render supplementary info container when supplementaryInfo is not
 ### Namespace Properties
 
 ```typescript
-test('exposes Table.Body', () => {
-  expect(Table.Body).toBeDefined()
-})
+test("exposes Table.Body", () => {
+  expect(Table.Body).toBeDefined();
+});
 
-test('exposes Table.HeaderCell', () => {
-  expect(Table.HeaderCell).toBeDefined()
-})
+test("exposes Table.HeaderCell", () => {
+  expect(Table.HeaderCell).toBeDefined();
+});
 ```
 
 ### Context-Dependent Components
@@ -298,49 +298,49 @@ test('throws error when rendered outside context', () => {
 ### Pure Functions
 
 ```typescript
-test('returns null when pattern does not match pathname', () => {
-  const result = matchPath('/a', '/b')
-  expect(result).toBeNull()
-})
+test("returns null when pattern does not match pathname", () => {
+  const result = matchPath("/a", "/b");
+  expect(result).toBeNull();
+});
 
-test('extracts single path parameter', () => {
-  const result = matchPath('/a/:b', '/a/abc123')
+test("extracts single path parameter", () => {
+  const result = matchPath("/a/:b", "/a/abc123");
   expect(result).toEqual({
-    params: { b: 'abc123' },
-    pathname: '/a/abc123',
-    pattern: '/a/:b',
-  })
-})
+    params: { b: "abc123" },
+    pathname: "/a/abc123",
+    pattern: "/a/:b",
+  });
+});
 ```
 
 ### Type Safety
 
 ```typescript
-test('returns match object with correct types', () => {
-  const result = matchPath('/users/:userId', '/users/123')
+test("returns match object with correct types", () => {
+  const result = matchPath("/users/:userId", "/users/123");
   expectTypeOf(result).toEqualTypeOf<{
-    params: { userId: string }
-    pathname: string
-    pattern: string
-  } | null>()
-})
+    params: { userId: string };
+    pathname: string;
+    pattern: string;
+  } | null>();
+});
 ```
 
 ## Testing Hooks
 
 ```typescript
-import { renderHook } from '@testing-library/react'
+import { renderHook } from "@testing-library/react";
 
-test('can use the Reapit theme', () => {
-  renderHook(() => useTheme('reapit'))
-  expect(globalThis.document.documentElement).toHaveAttribute('data-theme', 'reapit')
-})
+test("can use the Reapit theme", () => {
+  renderHook(() => useTheme("reapit"));
+  expect(globalThis.document.documentElement).toHaveAttribute("data-theme", "reapit");
+});
 
-test('can change themes', () => {
-  const { rerender } = renderHook((theme: Theme) => useTheme(theme), { initialProps: 'reapit' })
-  rerender('payprop')
-  expect(globalThis.document.documentElement).toHaveAttribute('data-theme', 'payprop')
-})
+test("can change themes", () => {
+  const { rerender } = renderHook((theme: Theme) => useTheme(theme), { initialProps: "reapit" });
+  rerender("payprop");
+  expect(globalThis.document.documentElement).toHaveAttribute("data-theme", "payprop");
+});
 ```
 
 ## Parameterized Tests
@@ -348,11 +348,11 @@ test('can change themes', () => {
 Use `test.each` to test multiple similar cases:
 
 ```typescript
-const testCases = fontSizes.flatMap((size) => fontWeights.map((weight) => [size, weight] as const))
+const testCases = fontSizes.flatMap((size) => fontWeights.map((weight) => [size, weight] as const));
 
-test.each(testCases)('font(%s, %s) returns correct CSS', (size, weight) => {
-  expect(font(size, weight)).toMatchSnapshot()
-})
+test.each(testCases)("font(%s, %s) returns correct CSS", (size, weight) => {
+  expect(font(size, weight)).toMatchSnapshot();
+});
 ```
 
 ## DOM Manipulation
@@ -361,33 +361,37 @@ When manually creating DOM elements with `document.createElement` and similar AP
 
 ```typescript
 afterEach(() => {
-  document.body.innerHTML = ''
-})
+  document.body.innerHTML = "";
+});
 
-test('returns true when scrollWidth exceeds clientWidth', () => {
-  const scrollWidth = 150
-  const clientWidth = 100
-  createElementWithDimensions('test-element', scrollWidth, clientWidth)
+test("returns true when scrollWidth exceeds clientWidth", () => {
+  const scrollWidth = 150;
+  const clientWidth = 100;
+  createElementWithDimensions("test-element", scrollWidth, clientWidth);
 
-  const result = isTooltipNeeded('test-element')
-  expect(result).toBe(true)
-})
+  const result = isTooltipNeeded("test-element");
+  expect(result).toBe(true);
+});
 
-function createElementWithDimensions(id: string, scrollWidth: number, clientWidth: number): HTMLElement {
-  const element = document.createElement('div')
-  element.id = id
+function createElementWithDimensions(
+  id: string,
+  scrollWidth: number,
+  clientWidth: number,
+): HTMLElement {
+  const element = document.createElement("div");
+  element.id = id;
 
-  Object.defineProperty(element, 'scrollWidth', {
+  Object.defineProperty(element, "scrollWidth", {
     configurable: true,
     value: scrollWidth,
-  })
-  Object.defineProperty(element, 'clientWidth', {
+  });
+  Object.defineProperty(element, "clientWidth", {
     configurable: true,
     value: clientWidth,
-  })
+  });
 
-  document.body.appendChild(element)
-  return element
+  document.body.appendChild(element);
+  return element;
 }
 ```
 
@@ -424,15 +428,15 @@ test('renders correctly with specified props', () => {
 Test defaults, boundary conditions, error states, and both positive and negative cases.
 
 ```typescript
-test('returns true when no truncationTargetId is provided', () => {
-  const result = isTooltipNeeded()
-  expect(result).toBe(true)
-})
+test("returns true when no truncationTargetId is provided", () => {
+  const result = isTooltipNeeded();
+  expect(result).toBe(true);
+});
 
-test('returns true when element with given ID does not exist', () => {
-  const result = isTooltipNeeded('non-existent-element')
-  expect(result).toBe(true)
-})
+test("returns true when element with given ID does not exist", () => {
+  const result = isTooltipNeeded("non-existent-element");
+  expect(result).toBe(true);
+});
 ```
 
 ## Common Mistakes

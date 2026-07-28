@@ -1,16 +1,16 @@
-import { createContext, useContext } from 'react'
+import { createContext, useContext } from "react";
 
 export namespace ComboboxPopupDialogContext {
   export interface Value {
     /** Whether the popup contains a search input (Combobox.SearchInput). */
-    hasSearch: boolean
+    hasSearch: boolean;
     /**
      * Variant type:
      * - **auto**: Displays as a drawer on XS breakpoint, popover on SM and above
      * - **popover**: Displays as a popover anchored to the combobox button
      * - **drawer**: Displays as a drawer (full-screen modal on mobile)
      */
-    variant: 'popover' | 'drawer' | 'auto'
+    variant: "popover" | "drawer" | "auto";
   }
 }
 
@@ -19,16 +19,18 @@ export namespace ComboboxPopupDialogContext {
  * Exposes the popup dialog's variant so child components can adapt their behaviour
  * based on whether the popup is displayed as a popover, drawer, or auto.
  */
-export const ComboboxPopupDialogContext = createContext<ComboboxPopupDialogContext.Value | null>(null)
+export const ComboboxPopupDialogContext = createContext<ComboboxPopupDialogContext.Value | null>(
+  null,
+);
 
 /**
  * Returns ComboboxPopupDialogContext.Value from the nearest ComboboxPopupDialog ancestor.
  * @throws Error when called outside a ComboboxPopupDialog component.
  */
 export function useComboboxPopupDialogContext(): ComboboxPopupDialogContext.Value {
-  const context = useContext(ComboboxPopupDialogContext)
+  const context = useContext(ComboboxPopupDialogContext);
   if (!context) {
-    throw new Error('useComboboxPopupDialogContext requires a ComboboxPopupDialog ancestor')
+    throw new Error("useComboboxPopupDialogContext requires a ComboboxPopupDialog ancestor");
   }
-  return context
+  return context;
 }

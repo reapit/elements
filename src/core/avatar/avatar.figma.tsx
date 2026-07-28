@@ -1,20 +1,21 @@
-import { Avatar } from './avatar'
-import figma from '@figma/code-connect'
+import figma from "@figma/code-connect";
 
-figma.connect(Avatar, '<AVATAR_URL>', {
+import { Avatar } from "./avatar";
+
+figma.connect(Avatar, "<AVATAR_URL>", {
   props: {
-    children: figma.children('*'),
-    colour: figma.enum('Colour', {
-      Default: 'default',
-      Primary: 'primary',
+    children: figma.children("*"),
+    colour: figma.enum("Colour", {
+      Default: "default",
+      Primary: "primary",
     }),
-    shape: figma.enum('Shape', {
-      Circle: 'circle',
-      Square: 'square',
+    shape: figma.enum("Shape", {
+      Circle: "circle",
+      Square: "square",
     }),
-    size: figma.enum('Size', {
-      Medium: 'medium',
-      Small: 'small',
+    size: figma.enum("Size", {
+      Medium: "medium",
+      Small: "small",
     }),
   },
   example: (props) => (
@@ -22,22 +23,22 @@ figma.connect(Avatar, '<AVATAR_URL>', {
       {props.children}
     </Avatar>
   ),
-})
+});
 
 //
 // Deprecated Figma component support.
 //
 
-figma.connect(Avatar, '<AVATAR_CIRCLE_URL_DEPRECATED>', {
+figma.connect(Avatar, "<AVATAR_CIRCLE_URL_DEPRECATED>", {
   props: {
-    children: figma.children('*'),
-    colour: figma.enum('Colour', {
-      Default: 'default',
-      Primary: 'primary',
+    children: figma.children("*"),
+    colour: figma.enum("Colour", {
+      Default: "default",
+      Primary: "primary",
     }),
-    size: figma.enum('Size', {
-      Medium: 'medium',
-      Small: 'small',
+    size: figma.enum("Size", {
+      Medium: "medium",
+      Small: "small",
     }),
   },
   example: (props) => (
@@ -45,18 +46,18 @@ figma.connect(Avatar, '<AVATAR_CIRCLE_URL_DEPRECATED>', {
       {props.children}
     </Avatar>
   ),
-})
+});
 
-figma.connect(Avatar, '<AVATAR_SQUARE_URL_DEPRECATED>', {
+figma.connect(Avatar, "<AVATAR_SQUARE_URL_DEPRECATED>", {
   props: {
-    children: figma.children('*'),
-    colour: figma.enum('Colour', {
-      Default: 'default',
-      Primary: 'primary',
+    children: figma.children("*"),
+    colour: figma.enum("Colour", {
+      Default: "default",
+      Primary: "primary",
     }),
-    size: figma.enum('Size', {
-      Medium: 'medium',
-      Small: 'small',
+    size: figma.enum("Size", {
+      Medium: "medium",
+      Small: "small",
     }),
   },
   example: (props) => (
@@ -64,4 +65,4 @@ figma.connect(Avatar, '<AVATAR_SQUARE_URL_DEPRECATED>', {
       {props.children}
     </Avatar>
   ),
-})
+});

@@ -1,4 +1,4 @@
-import PinSvg from './svgs/pin.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import PinSvg from "./svgs/pin.svg?react";
 
-export const PinIcon = makeIcon('PinIcon', PinSvg)
+export const PinIcon = makeIcon("PinIcon", PinSvg);

@@ -1,7 +1,8 @@
-import { css } from '@linaria/core'
-import { styled } from '@linaria/react'
-import { ElDeprecatedAvatar } from '../../avatar'
-import { elIsActive } from '../../../styles/deprecated-states'
+import { css } from "@linaria/core";
+import { styled } from "@linaria/react";
+
+import { elIsActive } from "../../../styles/deprecated-states";
+import { ElDeprecatedAvatar } from "../../avatar";
 
 /** @deprecated */
 export const ElDeprecatedNavBg = styled.div`
@@ -18,7 +19,7 @@ export const ElDeprecatedNavBg = styled.div`
     display: block;
     position: fixed;
   }
-`
+`;
 
 /** @deprecated */
 export const ElDeprecatedNavControlsBg = styled.div`
@@ -32,7 +33,7 @@ export const ElDeprecatedNavControlsBg = styled.div`
     display: block;
     position: fixed;
   }
-`
+`;
 
 /** @deprecated */
 export const ElDeprecatedNavContainer = styled.nav`
@@ -56,7 +57,7 @@ export const ElDeprecatedNavContainer = styled.nav`
     justify-content: space-between;
     border-bottom: 1px solid var(--colour-border-neutral-light_default);
   }
-`
+`;
 
 /** @deprecated */
 export const ElDeprecatedNavSubContainer = styled.div`
@@ -66,15 +67,15 @@ export const ElDeprecatedNavSubContainer = styled.div`
   @media screen and (min-width: 768px) {
     display: none;
   }
-`
+`;
 
 /** @deprecated */
-export const elDeprecatedNavItemSecondary = css``
+export const elDeprecatedNavItemSecondary = css``;
 
 /** @deprecated */
 export const ElDeprecatedNavItem = styled.a`
   font-family:
-    'Inter',
+    "Inter",
     /* was --font-sans-serif */ Helvetica,
     Arial,
     sans-serif;
@@ -149,7 +150,7 @@ export const ElDeprecatedNavItem = styled.a`
       border-left: none;
     }
   }
-`
+`;
 
 /** @deprecated */
 export const elDeprecatedNavItemActive = css`
@@ -170,7 +171,7 @@ export const elDeprecatedNavItemActive = css`
       height: 2rem;
     }
   }
-`
+`;
 
 /** @deprecated */
 export const elDeprecatedNavItemExpanded = css`
@@ -188,20 +189,20 @@ export const elDeprecatedNavItemExpanded = css`
       border-bottom: 1px solid var(--colour-border-neutral-light_default);
     }
   }
-`
+`;
 
 /** @deprecated */
 export const elDeprecatedNavItemIcon = css`
   @media screen and (max-width: 767px) {
     margin-left: 0.75rem;
   }
-`
+`;
 
 /** @deprecated */
 export const ElDeprecatedNavSubItem = styled.a`
   height: 0;
   font-family:
-    'Inter',
+    "Inter",
     /* was --font-sans-serif */ Helvetica,
     Arial,
     sans-serif;
@@ -218,7 +219,7 @@ export const ElDeprecatedNavSubItem = styled.a`
   @media screen and (min-width: 768px) {
     display: none;
   }
-`
+`;
 
 /** @deprecated */
 export const elDeprecatedNavSubItemExpanded = css`
@@ -234,13 +235,13 @@ export const elDeprecatedNavSubItemExpanded = css`
       color: var(--colour-text-action);
     }
   }
-`
+`;
 
 /** @deprecated */
 export const elDeprecatedNavSubItemActive = css`
   color: var(--colour-text-action);
   margin-left: 1rem;
-`
+`;
 
 /** @deprecated */
 export const elDeprecatedNavItemHideDesktop = css`
@@ -251,12 +252,12 @@ export const elDeprecatedNavItemHideDesktop = css`
     padding: 0 !important;
     margin: 0 !important;
   }
-`
+`;
 
 /** @deprecated */
 export const elDeprecatedNavIsHidden = css`
   display: none;
-`
+`;
 
 /** @deprecated */
 export const ElDeprecatedNavMenu = styled.div`
@@ -272,7 +273,7 @@ export const ElDeprecatedNavMenu = styled.div`
   box-shadow: 0 4px 16px 0 rgb(34 43 51 / 0.16);
   border-radius: 4px;
   padding: 0.5rem 0;
-`
+`;
 
 /** @deprecated */
 export const ElDeprecatedNavMenuOption = styled.div`
@@ -295,7 +296,7 @@ export const ElDeprecatedNavMenuOption = styled.div`
     width: 1.5rem !important;
     margin-right: 0.5rem;
   }
-`
+`;
 
 /** @deprecated */
 export const ElDeprecatedNavMenuOptionDivider = styled.div`
@@ -303,7 +304,7 @@ export const ElDeprecatedNavMenuOptionDivider = styled.div`
   width: 100%;
   border-bottom: 1px solid var(--colour-border-neutral-light_default);
   margin: 0.5rem 0;
-`
+`;
 
 /** @deprecated */
 export const ElDeprecatedNavResponsiveAvatarWrap = styled.div`
@@ -335,9 +336,9 @@ export const ElDeprecatedNavResponsiveAvatarWrap = styled.div`
   &.${elDeprecatedNavIsHidden} {
     display: none;
   }
-`
+`;
 
-export const elAppSwitcherOpen = css``
+export const elAppSwitcherOpen = css``;
 
 export const ElNavResponsiveAppSwitcherWrap = styled.div`
   position: relative;
@@ -349,7 +350,7 @@ export const ElNavResponsiveAppSwitcherWrap = styled.div`
     left: 0;
     top: 46px;
   }
-`
+`;
 
 export const ElNavResponsiveAppSwitcherIconWrap = styled.div`
   height: 2.25rem;
@@ -366,7 +367,7 @@ export const ElNavResponsiveAppSwitcherIconWrap = styled.div`
       fill: var(--colour-fill-action-lightest);
     }
   }
-`
+`;
 
 export const elNewTopBarAppSwitcher = css`
   ${ElNavResponsiveAppSwitcherIconWrap} {
@@ -374,4 +375,4 @@ export const elNewTopBarAppSwitcher = css`
     padding: var(--spacing-half);
     box-sizing: content-box;
   }
-`
+`;

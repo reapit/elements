@@ -1,6 +1,7 @@
-import { css } from '@linaria/core'
-import { font } from '#src/utils/font'
-import { isWidthAtOrAbove } from '#src/utils/breakpoints'
+import { css } from "@linaria/core";
+
+import { isWidthAtOrAbove } from "#src/utils/breakpoints";
+import { font } from "#src/utils/font";
 
 export const elGalleryViewerDialogHeader = css`
   @layer elements.main {
@@ -14,25 +15,25 @@ export const elGalleryViewerDialogHeader = css`
     background: var(--colour-fill-white);
     border-bottom: var(--border-width-default) solid var(--colour-border-neutral-light_default);
 
-    @container ${isWidthAtOrAbove('SM')} {
+    @container ${isWidthAtOrAbove("SM")} {
       padding-left: var(--spacing-8);
     }
   }
-`
+`;
 
 export const elGalleryViewerDialogHeaderTitle = css`
   @layer elements.main {
     flex: 1 1 auto;
-    ${font('base', 'bold')}
+    ${font("base", "bold")}
     color: var(--colour-text-primary);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
-`
+`;
 
 export const elGalleryViewerDialogHeaderAction = css`
   @layer elements.main {
     display: flex;
   }
-`
+`;

@@ -1,9 +1,10 @@
-import figma from '@figma/code-connect'
-import { PageHeader } from '../page-header'
+import figma from "@figma/code-connect";
 
-figma.connect(PageHeader.SupplementaryInfo, '<PAGE_HEADER_SUPPLEMENTARY_INFO_URL>', {
+import { PageHeader } from "../page-header";
+
+figma.connect(PageHeader.SupplementaryInfo, "<PAGE_HEADER_SUPPLEMENTARY_INFO_URL>", {
   props: {
-    children: figma.children('*'),
+    children: figma.children("*"),
   },
   example: (props) => <PageHeader.SupplementaryInfo>{props.children}</PageHeader.SupplementaryInfo>,
-})
+});

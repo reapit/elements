@@ -1,9 +1,10 @@
-import figma from '@figma/code-connect'
-import { Table } from '../table'
+import figma from "@figma/code-connect";
 
-figma.connect(Table.HeaderRow, '<TABLE_HEADER_ROW_URL>', {
+import { Table } from "../table";
+
+figma.connect(Table.HeaderRow, "<TABLE_HEADER_ROW_URL>", {
   props: {
-    checkbox: figma.boolean('Selectable', {
+    checkbox: figma.boolean("Selectable", {
       true: (
         <Table.HeaderCell aria-label="Selection">
           <Table.Checkbox aria-label="Select all rows" />
@@ -11,12 +12,12 @@ figma.connect(Table.HeaderRow, '<TABLE_HEADER_ROW_URL>', {
       ),
       false: undefined,
     }),
-    moreActions: figma.boolean('More button', {
+    moreActions: figma.boolean("More button", {
       true: <Table.HeaderCell aria-label="Actions" />,
       false: undefined,
     }),
-    content: figma.nestedProps('Content', {
-      cells: figma.children('Header cell'),
+    content: figma.nestedProps("Content", {
+      cells: figma.children("Header cell"),
     }),
   },
   example: (props) => (
@@ -26,4 +27,4 @@ figma.connect(Table.HeaderRow, '<TABLE_HEADER_ROW_URL>', {
       {props.moreActions}
     </Table.HeaderRow>
   ),
-})
+});

@@ -1,8 +1,8 @@
-import { css } from '@linaria/core'
-import { styled } from '@linaria/react'
+import { css } from "@linaria/core";
+import { styled } from "@linaria/react";
 
 /** @deprecated */
-export const elAvatarSmall = css``
+export const elAvatarSmall = css``;
 
 /** @deprecated will be replaced by new v5 ElAvatarRectangle */
 export const ElDeprecatedAvatar = styled.div`
@@ -29,7 +29,7 @@ export const ElDeprecatedAvatar = styled.div`
       max-width: 2rem;
     }
   }
-`
+`;
 
 /** @deprecated will be removed in future version */
 export const ElDeprecatedAvatarImage = styled(ElDeprecatedAvatar)`
@@ -40,4 +40,4 @@ export const ElDeprecatedAvatarImage = styled(ElDeprecatedAvatar)`
   img {
     max-width: 4.5rem;
   }
-`
+`;

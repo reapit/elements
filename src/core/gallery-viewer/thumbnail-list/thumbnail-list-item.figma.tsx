@@ -1,7 +1,8 @@
-import { GalleryViewer } from '../gallery-viewer'
-import figma from '@figma/code-connect'
+import figma from "@figma/code-connect";
 
-figma.connect(GalleryViewer.ThumbnailButton, '<GALLERY_VIEWER_THUMBNAIL_URL>', {
+import { GalleryViewer } from "../gallery-viewer";
+
+figma.connect(GalleryViewer.ThumbnailButton, "<GALLERY_VIEWER_THUMBNAIL_URL>", {
   example: () => (
     // TODO: Use GalleryViewer.Thumbnail instead if using URLSearchParam navigation to control
     // the active image in the carousel. */}
@@ -11,4 +12,4 @@ figma.connect(GalleryViewer.ThumbnailButton, '<GALLERY_VIEWER_THUMBNAIL_URL>', {
       src="TODO: add image source"
     />
   ),
-})
+});

@@ -1,12 +1,12 @@
-import { ElSpinnerIndicator, ElSpinnerTrack } from './styles'
+import { ElSpinnerIndicator, ElSpinnerTrack } from "./styles";
 
-const SIZE = 32
+const SIZE = 32;
 // Equivalent to --border-width-triple. Kept as a JS constant, not read from the CSS custom property, because the
 // radius/circumference math below needs a concrete number at render time.
-const STROKE_WIDTH = 4
-const RADIUS = (SIZE - STROKE_WIDTH) / 2
-const CIRCUMFERENCE = 2 * Math.PI * RADIUS
-const INDICATOR_ARC_LENGTH = CIRCUMFERENCE * 0.25
+const STROKE_WIDTH = 4;
+const RADIUS = (SIZE - STROKE_WIDTH) / 2;
+const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
+const INDICATOR_ARC_LENGTH = CIRCUMFERENCE * 0.25;
 
 /**
  * An indeterminate circular spinner, shown on `FileUploaderMediaThumbnail`'s overlay while an item is
@@ -24,5 +24,5 @@ export function FileUploaderSpinner() {
         strokeWidth={STROKE_WIDTH}
       />
     </svg>
-  )
+  );
 }

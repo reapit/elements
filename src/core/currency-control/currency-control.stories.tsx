@@ -1,59 +1,60 @@
-import preview from '#.storybook/preview'
-import { CurrencyControl } from './currency-control'
+import preview from "#.storybook/preview";
+
+import { CurrencyControl } from "./currency-control";
 
 const meta = preview.meta({
-  title: 'Input and selection/CurrencyControl',
+  title: "Input and selection/CurrencyControl",
   component: CurrencyControl,
   argTypes: {
     currency: {
-      control: 'select',
-      options: ['GBP', 'USD', 'EUR', 'SEK', 'JPY', 'AUD', 'CHF'],
+      control: "select",
+      options: ["GBP", "USD", "EUR", "SEK", "JPY", "AUD", "CHF"],
     },
     errorText: {
-      control: 'text',
+      control: "text",
     },
     helpText: {
-      control: 'text',
+      control: "text",
     },
     label: {
-      control: 'text',
+      control: "text",
     },
     locale: {
-      control: 'select',
-      options: ['en-AU', 'en-GB', 'en-US', 'de-DE', 'fr-FR', 'ja-JP', 'sv-SE'],
+      control: "select",
+      options: ["en-AU", "en-GB", "en-US", "de-DE", "fr-FR", "ja-JP", "sv-SE"],
     },
     size: {
-      control: 'select',
-      options: ['small', 'medium', 'large'],
+      control: "select",
+      options: ["small", "medium", "large"],
     },
     value: {
-      control: 'text',
+      control: "text",
       table: {
         type: {
-          summary: 'string | number | readonly string[] | undefined',
+          summary: "string | number | readonly string[] | undefined",
         },
       },
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
-    currency: 'GBP',
-    defaultValue: '1234.5',
+    currency: "GBP",
+    defaultValue: "1234.5",
     disabled: false,
-    errorText: '',
-    helpText: '',
-    label: 'Amount',
-    locale: 'en-GB',
-    name: 'amount',
-    placeholder: '',
+    errorText: "",
+    helpText: "",
+    label: "Amount",
+    locale: "en-GB",
+    name: "amount",
+    placeholder: "",
     readOnly: false,
     required: false,
     showValidity: undefined,
-    size: 'medium',
+    size: "medium",
   },
-})
+});
 
 /**
  * The currency symbol is placed automatically as a prefix or suffix based on the locale. The
@@ -66,7 +67,7 @@ export const Currencies = Example.extend({
   },
   decorators: [
     (Story) => (
-      <div style={{ display: 'flex', flexFlow: 'row wrap', gap: 'var(--spacing-6)' }}>
+      <div style={{ display: "flex", flexFlow: "row wrap", gap: "var(--spacing-6)" }}>
         <Story />
       </div>
     ),
@@ -80,7 +81,7 @@ export const Currencies = Example.extend({
       <CurrencyControl {...args} label="JPY" currency="JPY" locale="ja-JP" defaultValue="1234" />
     </>
   ),
-})
+});
 
 /**
  * There are three sizes available: `small`, `medium` and `large`.
@@ -91,7 +92,7 @@ export const Sizes = Example.extend({
   },
   decorators: [
     (Story) => (
-      <div style={{ display: 'flex', flexFlow: 'row nowrap', gap: 'var(--spacing-6)' }}>
+      <div style={{ display: "flex", flexFlow: "row nowrap", gap: "var(--spacing-6)" }}>
         <Story />
       </div>
     ),
@@ -103,16 +104,16 @@ export const Sizes = Example.extend({
       <CurrencyControl {...args} size="large" />
     </>
   ),
-})
+});
 
 /**
  * Optional help text can be provided to give more context about the input.
  */
 export const HelpText = Example.extend({
   args: {
-    helpText: 'Enter the transaction amount',
+    helpText: "Enter the transaction amount",
   },
-})
+});
 
 /**
  * Like all form controls that visually communicate their validity, the input will display in an
@@ -123,11 +124,11 @@ export const HelpText = Example.extend({
  */
 export const Invalid = Example.extend({
   args: {
-    errorText: 'Amount is required',
+    errorText: "Amount is required",
     required: true,
     showValidity: true,
   },
-})
+});
 
 /**
  * Currency controls can be disabled. A disabled input will not receive the `click` event, and is
@@ -137,26 +138,26 @@ export const Disabled = Example.extend({
   args: {
     disabled: true,
   },
-})
+});
 
 /**
  * Currency controls can be marked as read-only. Unlike disabled inputs, read-only inputs
  * participate in form submission.
  */
 export const Readonly = Example.extend({
-  name: 'Read-only',
+  name: "Read-only",
   args: {
     readOnly: true,
   },
-})
+});
 
 /**
  * By default, currency controls fill their parent's width. This can be constrained by
  * providing a `maxWidth`.
  */
 export const MaxWidth = Example.extend({
-  name: 'Max-width',
+  name: "Max-width",
   args: {
-    maxWidth: 'var(--size-64)',
+    maxWidth: "var(--size-64)",
   },
-})
+});

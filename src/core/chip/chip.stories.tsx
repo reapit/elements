@@ -1,47 +1,48 @@
-import preview from '#.storybook/preview'
-import { Chip } from './chip'
-import { Tooltip } from '#src/core/tooltip'
+import { useId } from "react";
 
-import { useId } from 'react'
+import preview from "#.storybook/preview";
+import { Tooltip } from "#src/core/tooltip";
+
+import { Chip } from "./chip";
 
 const meta = preview.meta({
-  title: 'Indicators and status/Chip',
+  title: "Indicators and status/Chip",
   component: Chip,
   argTypes: {
-    'aria-disabled': {
-      control: 'boolean',
+    "aria-disabled": {
+      control: "boolean",
     },
     children: {
-      control: 'text',
+      control: "text",
     },
     disabled: {
-      control: 'boolean',
+      control: "boolean",
     },
     overflow: {
-      control: 'radio',
-      options: ['undefined', 'truncate'],
+      control: "radio",
+      options: ["undefined", "truncate"],
       mapping: {
         undefined: undefined,
-        truncate: 'truncate',
+        truncate: "truncate",
       },
     },
     variant: {
-      control: 'radio',
-      options: ['filter', 'selection'],
+      control: "radio",
+      options: ["filter", "selection"],
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
-    'aria-disabled': false,
-    children: 'Label',
+    "aria-disabled": false,
+    children: "Label",
     disabled: false,
     maxWidth: undefined,
     overflow: undefined,
-    variant: 'filter',
+    variant: "filter",
   },
-})
+});
 
 /**
  * The filter chip variant is primarily used in a filter bar to indicate what
@@ -49,9 +50,9 @@ export const Example = meta.story({
  */
 export const FilterChip = Example.extend({
   args: {
-    variant: 'filter',
+    variant: "filter",
   },
-})
+});
 
 /**
  * The selection chip variant is used in select controls and other similar
@@ -59,9 +60,9 @@ export const FilterChip = Example.extend({
  */
 export const SelectionChip = Example.extend({
   args: {
-    variant: 'selection',
+    variant: "selection",
   },
-})
+});
 
 /**
  * Chips can be disabled using `aria-disabled` or `disabled`. In both cases,
@@ -72,23 +73,27 @@ export const SelectionChip = Example.extend({
  */
 export const Disabled = FilterChip.extend({
   args: {
-    'aria-disabled': true,
+    "aria-disabled": true,
   },
   render: function DisabledChipStory(args) {
-    const chipId = useId()
+    const chipId = useId();
     return (
       <>
         <Chip
           {...args}
-          {...Tooltip.getTriggerProps({ id: chipId, tooltipId: 'tooltip', tooltipPurpose: 'describe' })}
+          {...Tooltip.getTriggerProps({
+            id: chipId,
+            tooltipId: "tooltip",
+            tooltipPurpose: "describe",
+          })}
         />
         <Tooltip id="tooltip" triggerId={chipId}>
           Because reasons
         </Tooltip>
       </>
-    )
+    );
   },
-})
+});
 
 /**
  * By default, long labels will wrap if there is not enough space is available.
@@ -99,12 +104,12 @@ export const Wrapping = FilterChip.extend({
   },
   decorators: [
     (Story) => (
-      <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', width: '300px' }}>
+      <div style={{ boxSizing: "content-box", border: "1px solid #FA00FF", width: "300px" }}>
         <Story />
       </div>
     ),
   ],
-})
+});
 
 /**
  * Line breaks within an otherwise unbreakable string are also permitted to prevent text
@@ -112,10 +117,11 @@ export const Wrapping = FilterChip.extend({
  */
 export const LongWords = Wrapping.extend({
   args: {
-    children: 'Taumatawhakatangihangakoauauotamateaturipukakapikimaungahoronukupokaiwhenuakitanatahu, NZ',
+    children:
+      "Taumatawhakatangihangakoauauotamateaturipukakapikimaungahoronukupokaiwhenuakitanatahu, NZ",
   },
   decorators: Wrapping.input.decorators,
-})
+});
 
 /**
  * Truncation is an optional behaviour that can be enabled to prevent the label from
@@ -123,20 +129,20 @@ export const LongWords = Wrapping.extend({
  */
 export const Truncation = FilterChip.extend({
   args: {
-    children: 'Truncation can be applied when necessary',
-    overflow: 'truncate',
+    children: "Truncation can be applied when necessary",
+    overflow: "truncate",
   },
   decorators: Wrapping.input.decorators,
-})
+});
 
 /**
  * In some cases, it may be necessary to limit the width of a chip directly, rather than
  * relying on its parent container.
  */
 export const MaxWidth = FilterChip.extend({
-  name: 'Max-width',
+  name: "Max-width",
   args: {
-    children: 'This chip has its own maximum width constraint',
-    maxWidth: '--size-80',
+    children: "This chip has its own maximum width constraint",
+    maxWidth: "--size-80",
   },
-})
+});

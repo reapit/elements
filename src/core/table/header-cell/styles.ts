@@ -1,6 +1,8 @@
-import { css } from '@linaria/core'
-import { elTableCellSortButton } from '../sort-button/styles'
-import { font } from '#src/utils/font'
+import { css } from "@linaria/core";
+
+import { font } from "#src/utils/font";
+
+import { elTableCellSortButton } from "../sort-button/styles";
 
 // NOTE: This is a plain class so that we have an exportable class name
 // available for consumers that want table cell styling on an element not
@@ -15,24 +17,24 @@ export const elTableHeaderCell = css`
     border: none;
     padding: var(--spacing-2);
 
-    ${font('2xs', 'bold')}
+    ${font("2xs", "bold")}
     color: var(--colour-text-secondary);
     text-align: var(--__table-column-justification);
     text-transform: uppercase;
 
-    &[data-has-no-padding='true'] {
+    &[data-has-no-padding="true"] {
       padding: 0;
     }
 
-    &[data-justify-self='start'] {
+    &[data-justify-self="start"] {
       --__table-column-justification: start;
       justify-self: start;
     }
-    &[data-justify-self='center'] {
+    &[data-justify-self="center"] {
       --__table-column-justification: center;
       justify-self: center;
     }
-    &[data-justify-self='end'] {
+    &[data-justify-self="end"] {
       --__table-column-justification: end;
       justify-self: end;
     }
@@ -43,4 +45,4 @@ export const elTableHeaderCell = css`
       padding-inline: 0;
     }
   }
-`
+`;

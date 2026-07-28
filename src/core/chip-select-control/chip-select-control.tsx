@@ -1,22 +1,22 @@
-import { ChipSelect } from '#src/core/chip-select'
-import { FormControl } from '#src/core/form-control'
-import { LabelText } from '#src/core/label-text'
-import { useId } from 'react'
+import { useId } from "react";
+import type { ReactNode } from "react";
 
-import type { ReactNode } from 'react'
+import { ChipSelect } from "#src/core/chip-select";
+import { FormControl } from "#src/core/form-control";
+import { LabelText } from "#src/core/label-text";
 
 export namespace ChipSelectControl {
   export interface Props extends ChipSelect.Props {
     /** Optional error text that communicates why the chip select's value is invalid. */
-    errorText?: ReactNode
+    errorText?: ReactNode;
     /** Optional help text that provides additional context about the chip select. */
-    helpText?: ReactNode
+    helpText?: ReactNode;
     /** The label for the chip select. */
-    label?: ReactNode
+    label?: ReactNode;
     /** Whether at least one option in the chip select must remain selected. */
-    required?: boolean
+    required?: boolean;
     /** The size of the chip select. */
-    size?: 'small' | 'medium' | 'large'
+    size?: "small" | "medium" | "large";
   }
 }
 
@@ -30,11 +30,11 @@ export function ChipSelectControl({
   helpText,
   label,
   required,
-  size = 'medium',
+  size = "medium",
   ...rest
 }: ChipSelectControl.Props) {
-  const helpTextId = useId()
-  const errorTextId = useId()
+  const helpTextId = useId();
+  const errorTextId = useId();
 
   return (
     <FormControl
@@ -56,11 +56,11 @@ export function ChipSelectControl({
         helpText && <FormControl.HelpText id={helpTextId}>{helpText}</FormControl.HelpText>
       )}
     </FormControl>
-  )
+  );
 }
 
-ChipSelectControl.Option = ChipSelect.Option
-ChipSelectControl.determineNextControlledState = ChipSelect.determineNextControlledState
+ChipSelectControl.Option = ChipSelect.Option;
+ChipSelectControl.determineNextControlledState = ChipSelect.determineNextControlledState;
 
-ChipSelectControl.Context = ChipSelect.Context
-ChipSelectControl.useContext = ChipSelect.useContext
+ChipSelectControl.Context = ChipSelect.Context;
+ChipSelectControl.useContext = ChipSelect.useContext;

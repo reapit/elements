@@ -1,26 +1,27 @@
-import preview from '#.storybook/preview'
-import { SideBarSubmenuItem } from './submenu-item'
-import { useSideBarContextDecorator } from '../__story__/use-side-bar-context-decorator'
-import { useSideBarWidthDecorator } from '../__story__/use-side-bar-width-decorator'
+import preview from "#.storybook/preview";
+
+import { useSideBarContextDecorator } from "../__story__/use-side-bar-context-decorator";
+import { useSideBarWidthDecorator } from "../__story__/use-side-bar-width-decorator";
+import { SideBarSubmenuItem } from "./submenu-item";
 
 const meta = preview.meta({
-  title: 'Navigation/SideBar/SubmenuItem',
+  title: "Navigation/SideBar/SubmenuItem",
   component: SideBarSubmenuItem,
   argTypes: {
     children: {
-      control: 'text',
+      control: "text",
     },
   },
   decorators: [useSideBarContextDecorator],
-})
+});
 
 export const Example = meta.story({
   args: {
-    'aria-current': false,
-    children: 'Submenu Item',
-    href: '#',
+    "aria-current": false,
+    children: "Submenu Item",
+    href: "#",
   },
-})
+});
 
 /**
  * When the item represents the current page, `aria-current="page"` should be supplied to communicate to visual and
@@ -28,9 +29,9 @@ export const Example = meta.story({
  */
 export const Selected = Example.extend({
   args: {
-    'aria-current': 'page',
+    "aria-current": "page",
   },
-})
+});
 
 /**
  * When there is not enough space to display the full label, it will be truncated with an ellipsis. That said,
@@ -42,9 +43,9 @@ export const Truncation = Example.extend({
   decorators: [useSideBarWidthDecorator],
 
   parameters: {
-    sideBar: { width: '100px' },
+    sideBar: { width: "100px" },
   },
-})
+});
 
 /**
  * When the `SideBar` is collapsed, the submenu item's label will be completely hidden. However, submenu's should not
@@ -55,6 +56,6 @@ export const Collapsed = Example.extend({
   decorators: [useSideBarWidthDecorator],
 
   parameters: {
-    sideBar: { state: 'collapsed' },
+    sideBar: { state: "collapsed" },
   },
-})
+});

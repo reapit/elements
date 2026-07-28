@@ -1,25 +1,25 @@
-import { cx } from '@linaria/core'
-import { elDescriptionList } from './styles'
-import { DescriptionListContext, useDescriptionListContext } from './context'
-import { DescriptionListItem } from './item'
+import { cx } from "@linaria/core";
+import type { HTMLAttributes } from "react";
 
-import type { HTMLAttributes } from 'react'
+import { DescriptionListContext, useDescriptionListContext } from "./context";
+import { DescriptionListItem } from "./item";
+import { elDescriptionList } from "./styles";
 
 export namespace DescriptionList {
   export interface ItemProps extends DescriptionListItem.Props {}
 
   export interface Props extends HTMLAttributes<HTMLDListElement> {
     /** CSS `gap` value to define the gap between grid items. */
-    gap?: string
+    gap?: string;
     /**
      * CSS `grid` value to define the grid layout. When not provided, items will stack vertically.
      * Required for tabular layout.
      */
-    grid?: string
+    grid?: string;
     /** The layout variant for description list items. */
-    layout?: 'stacked' | 'tabular' | 'inline'
+    layout?: "stacked" | "tabular" | "inline";
     /** The size of the description list items. */
-    size?: 'base' | 'sm'
+    size?: "base" | "sm";
   }
 }
 
@@ -39,7 +39,7 @@ export function DescriptionList({
   const contextValue: DescriptionListContext.Value = {
     layout,
     size,
-  }
+  };
 
   return (
     <DescriptionListContext.Provider value={contextValue}>
@@ -55,12 +55,12 @@ export function DescriptionList({
         {children}
       </dl>
     </DescriptionListContext.Provider>
-  )
+  );
 }
 
-DescriptionList.displayName = 'DescriptionList'
+DescriptionList.displayName = "DescriptionList";
 
-DescriptionList.Item = DescriptionListItem
+DescriptionList.Item = DescriptionListItem;
 
-DescriptionList.Context = DescriptionListContext
-DescriptionList.useContext = useDescriptionListContext
+DescriptionList.Context = DescriptionListContext;
+DescriptionList.useContext = useDescriptionListContext;

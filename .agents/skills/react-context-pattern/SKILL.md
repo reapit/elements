@@ -19,14 +19,14 @@ Invoke this skill when:
 All React contexts **MUST** follow this structure. The custom hook **throws by default**; see [Optional context hook](#optional-context-hook) for when a nullable return is appropriate instead.
 
 ```typescript
-import { createContext, useContext } from 'react'
+import { createContext, useContext } from "react";
 
 export namespace ComponentNameContext {
   export interface Value {
     /** JSDoc documentation for each property */
-    property: string
+    property: string;
     /** Optional properties should be marked as such */
-    optionalProperty?: boolean
+    optionalProperty?: boolean;
   }
 }
 
@@ -34,18 +34,18 @@ export namespace ComponentNameContext {
  * Context that ComponentName provides to descendants.
  * Describe what values this context exposes and why.
  */
-export const ComponentNameContext = createContext<ComponentNameContext.Value | null>(null)
+export const ComponentNameContext = createContext<ComponentNameContext.Value | null>(null);
 
 /**
  * Returns ComponentNameContext.Value from the nearest ComponentName ancestor.
  * @throws Error when called outside a ComponentName component.
  */
 export function useComponentNameContext(): ComponentNameContext.Value {
-  const context = useContext(ComponentNameContext)
+  const context = useContext(ComponentNameContext);
   if (!context) {
-    throw new Error('useComponentNameContext requires a ComponentName ancestor')
+    throw new Error("useComponentNameContext requires a ComponentName ancestor");
   }
-  return context
+  return context;
 }
 ```
 
@@ -66,9 +66,9 @@ export function useComponentNameContext(): ComponentNameContext.Value {
 export namespace DialogContext {
   export interface Value {
     /** The ID used for accessibility labelling */
-    titleId: string
+    titleId: string;
     /** Whether the dialog is currently open */
-    isOpen?: boolean
+    isOpen?: boolean;
   }
 }
 ```
@@ -105,23 +105,23 @@ export namespace DialogContext {}
  * Context that Dialog provides to descendants. Exposes titleId
  * for accessibility labelling and isOpen state for child components.
  */
-export const DialogContext = createContext<DialogContext.Value | null>(null)
+export const DialogContext = createContext<DialogContext.Value | null>(null);
 ```
 
 **Common mistakes:**
 
 ```typescript
 // ❌ Wrong: Not nullable (bypasses error checking)
-export const DialogContext = createContext<DialogContext.Value>({} as DialogContext.Value)
+export const DialogContext = createContext<DialogContext.Value>({} as DialogContext.Value);
 
 // ❌ Wrong: Missing JSDoc
-export const DialogContext = createContext<DialogContext.Value | null>(null)
+export const DialogContext = createContext<DialogContext.Value | null>(null);
 
 // ✅ Correct
 /**
  * Context that Dialog provides to descendants.
  */
-export const DialogContext = createContext<DialogContext.Value | null>(null)
+export const DialogContext = createContext<DialogContext.Value | null>(null);
 ```
 
 ### 3. Custom Hook
@@ -144,11 +144,11 @@ The hook should throw by default. Only return a nullable value when the context 
  * @throws Error when called outside a Dialog component.
  */
 export function useDialogContext(): DialogContext.Value {
-  const context = useContext(DialogContext)
+  const context = useContext(DialogContext);
   if (!context) {
-    throw new Error('useDialogContext requires a Dialog ancestor')
+    throw new Error("useDialogContext requires a Dialog ancestor");
   }
-  return context
+  return context;
 }
 ```
 
@@ -157,30 +157,30 @@ export function useDialogContext(): DialogContext.Value {
 ```typescript
 // ❌ Wrong: Returns nullable for a required context (forces null checks everywhere)
 export function useDialogContext(): DialogContext.Value | null {
-  return useContext(DialogContext)
+  return useContext(DialogContext);
 }
 
 // ❌ Wrong: Generic error message
 export function useDialogContext(): DialogContext.Value {
-  const context = useContext(DialogContext)
+  const context = useContext(DialogContext);
   if (!context) {
-    throw new Error('Context not found')
+    throw new Error("Context not found");
   }
-  return context
+  return context;
 }
 
 // ❌ Wrong: Missing error handling
 export function useDialogContext(): DialogContext.Value {
-  return useContext(DialogContext)!
+  return useContext(DialogContext)!;
 }
 
 // ✅ Correct
 export function useDialogContext(): DialogContext.Value {
-  const context = useContext(DialogContext)
+  const context = useContext(DialogContext);
   if (!context) {
-    throw new Error('useDialogContext requires a Dialog ancestor')
+    throw new Error("useDialogContext requires a Dialog ancestor");
   }
-  return context
+  return context;
 }
 ```
 
@@ -204,7 +204,7 @@ Use a nullable return when a component can render meaningfully without a parent 
  * provides the context.
  */
 export function useDrawerContext(): DrawerContext.Value | null {
-  return useContext(DrawerContext)
+  return useContext(DrawerContext);
 }
 ```
 
@@ -212,7 +212,7 @@ export function useDrawerContext(): DrawerContext.Value | null {
 
 ```typescript
 // The consumer handles the null case explicitly
-const { titleId } = useDrawerContext() ?? {}
+const { titleId } = useDrawerContext() ?? {};
 ```
 
 ## Context Value Examples
@@ -223,7 +223,7 @@ const { titleId } = useDrawerContext() ?? {}
 export namespace BottomBarContext {
   export interface Value {
     /** Whether the bottom bar is currently open */
-    isOpen: boolean
+    isOpen: boolean;
   }
 }
 ```
@@ -234,13 +234,13 @@ export namespace BottomBarContext {
 export namespace ChipSelectContext {
   export interface Value {
     /** The ID of the form to associate chip select options with */
-    form?: string
+    form?: string;
     /** Whether the chip select allows multiple selections */
-    multiple: boolean
+    multiple: boolean;
     /** The name each chip select option should have */
-    name?: string
+    name?: string;
     /** The size of options in the chip select */
-    size: ComponentProps<typeof ChipSelectChip>['size']
+    size: ComponentProps<typeof ChipSelectChip>["size"];
   }
 }
 ```
@@ -251,11 +251,11 @@ export namespace ChipSelectContext {
 export namespace SplitButtonContext {
   export interface Value {
     /** Whether the main action button, menu button, or neither, is busy */
-    busy: 'action' | 'menu-item' | undefined
+    busy: "action" | "menu-item" | undefined;
     /** The size of the main action and menu buttons */
-    size: ComponentProps<typeof SplitButton>['size']
+    size: ComponentProps<typeof SplitButton>["size"];
     /** The variant used by the main action and menu buttons */
-    variant: ComponentProps<typeof SplitButton>['variant']
+    variant: ComponentProps<typeof SplitButton>["variant"];
   }
 }
 ```
@@ -437,21 +437,21 @@ For required contexts, returning the raw `useContext` result without a null chec
 ```typescript
 // ❌ Wrong: No null check for a required context
 export function useDialogContext() {
-  return useContext(DialogContext)
+  return useContext(DialogContext);
 }
 
 // ✅ Correct: Throws descriptive error for a required context
 export function useDialogContext(): DialogContext.Value {
-  const context = useContext(DialogContext)
+  const context = useContext(DialogContext);
   if (!context) {
-    throw new Error('useDialogContext requires a Dialog ancestor')
+    throw new Error("useDialogContext requires a Dialog ancestor");
   }
-  return context
+  return context;
 }
 
 // ✅ Also correct: Nullable return for an optional context
 export function useDrawerContext(): DrawerContext.Value | null {
-  return useContext(DrawerContext)
+  return useContext(DrawerContext);
 }
 ```
 
@@ -459,11 +459,11 @@ export function useDrawerContext(): DrawerContext.Value | null {
 
 ```typescript
 // ❌ Wrong: Too generic
-throw new Error('Context not found')
-throw new Error('Invalid context')
+throw new Error("Context not found");
+throw new Error("Invalid context");
 
 // ✅ Correct: Specific to hook and component
-throw new Error('useDialogContext requires a Dialog ancestor')
+throw new Error("useDialogContext requires a Dialog ancestor");
 ```
 
 ### Missing Documentation
@@ -472,7 +472,7 @@ throw new Error('useDialogContext requires a Dialog ancestor')
 // ❌ Wrong: No JSDoc
 export namespace DialogContext {
   export interface Value {
-    titleId: string
+    titleId: string;
   }
 }
 
@@ -480,7 +480,7 @@ export namespace DialogContext {
 export namespace DialogContext {
   export interface Value {
     /** The ID used for accessibility labelling */
-    titleId: string
+    titleId: string;
   }
 }
 ```

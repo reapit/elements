@@ -1,16 +1,17 @@
-import { ElFolderTab, ElFolderTabContentContainer, elFolderTabWave } from './styles'
-import LeftWave from './left-wave.svg?react'
-import RightWave from './right-wave.svg?react'
-import type { AnchorHTMLAttributes, ReactNode } from 'react'
+import type { AnchorHTMLAttributes, ReactNode } from "react";
+
+import LeftWave from "./left-wave.svg?react";
+import RightWave from "./right-wave.svg?react";
+import { ElFolderTab, ElFolderTabContentContainer, elFolderTabWave } from "./styles";
 
 export namespace FolderTab {
   export interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
     /** Whether this tab represents the current page or not. */
-    'aria-current': 'page' | false
+    "aria-current": "page" | false;
     /** The tab's label text. Typically plain text or a `FolderTabs.CountLabel` element. */
-    children: ReactNode
+    children: ReactNode;
     /** The page this tab should navigate to. */
-    href: string
+    href: string;
   }
 }
 
@@ -28,7 +29,7 @@ export function FolderTab({ children, ...rest }: FolderTab.Props) {
        * that they may overlap the content. */}
       <ElFolderTabContentContainer>{children}</ElFolderTabContentContainer>
     </ElFolderTab>
-  )
+  );
 }
 
-FolderTab.displayName = 'FolderTabs.Item'
+FolderTab.displayName = "FolderTabs.Item";

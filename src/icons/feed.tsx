@@ -1,4 +1,4 @@
-import FeedSvg from './svgs/feed.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import FeedSvg from "./svgs/feed.svg?react";
 
-export const FeedIcon = makeIcon('FeedIcon', FeedSvg)
+export const FeedIcon = makeIcon("FeedIcon", FeedSvg);

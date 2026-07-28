@@ -1,24 +1,24 @@
-import { elSideBarMenuItem } from '../../menu-item/styles'
-import { elSideBarMenuGroupSummary } from '../styles'
-import { fireEvent, render, screen } from '@testing-library/react'
-import { SideBarMenuGroupSummary } from '../menu-group-summary'
-import { SideBarMenuGroupLabelIdContext } from '../menu-group-label-id-context'
+import { fireEvent, render, screen } from "@testing-library/react";
+import type { ReactNode } from "react";
 
-import type { ReactNode } from 'react'
+import { elSideBarMenuItem } from "../../menu-item/styles";
+import { SideBarMenuGroupLabelIdContext } from "../menu-group-label-id-context";
+import { SideBarMenuGroupSummary } from "../menu-group-summary";
+import { elSideBarMenuGroupSummary } from "../styles";
 
-test('renders a <summary> element', () => {
+test("renders a <summary> element", () => {
   render(
     <SideBarMenuGroupSummary data-testid="summary" icon="😎">
       Item
     </SideBarMenuGroupSummary>,
     { wrapper },
-  )
+  );
   // NOTE: <summary> elements have no implicit role, so we cannot use `getByRole` here to select <summary> element
   // See https://w3c.github.io/html-aria/#el-summary. While the spec suggests some user agents apply an implicit
   // button role, this does not appear to the case for React Testing Library
-  const summary = screen.getByTestId('summary')
-  expect(summary.tagName).toBe('SUMMARY')
-})
+  const summary = screen.getByTestId("summary");
+  expect(summary.tagName).toBe("SUMMARY");
+});
 
 test(`combines the .${elSideBarMenuItem}, .${elSideBarMenuGroupSummary} and consumer-supplied classes`, () => {
   render(
@@ -26,9 +26,11 @@ test(`combines the .${elSideBarMenuItem}, .${elSideBarMenuGroupSummary} and cons
       Item
     </SideBarMenuGroupSummary>,
     { wrapper },
-  )
-  expect(screen.getByTestId('summary')).toHaveClass(`${elSideBarMenuItem} ${elSideBarMenuGroupSummary} my-custom-class`)
-})
+  );
+  expect(screen.getByTestId("summary")).toHaveClass(
+    `${elSideBarMenuItem} ${elSideBarMenuGroupSummary} my-custom-class`,
+  );
+});
 
 test("the `id` published by the menu group is used for the summary's tooltip", () => {
   render(
@@ -36,19 +38,19 @@ test("the `id` published by the menu group is used for the summary's tooltip", (
       Item
     </SideBarMenuGroupSummary>,
     { wrapper },
-  )
-  expect(screen.getByRole('tooltip')).toHaveAttribute('id', 'test-label-id') // This `id` is provided by the wrapper
-})
+  );
+  expect(screen.getByRole("tooltip")).toHaveAttribute("id", "test-label-id"); // This `id` is provided by the wrapper
+});
 
-test('the summary element always has an ID', () => {
+test("the summary element always has an ID", () => {
   render(
     <SideBarMenuGroupSummary data-testid="summary" icon="😎">
       Item
     </SideBarMenuGroupSummary>,
     { wrapper },
-  )
-  expect(screen.getByTestId('summary')).toHaveAttribute('id')
-})
+  );
+  expect(screen.getByTestId("summary")).toHaveAttribute("id");
+});
 
 test("a consumer-supplied `id` will override the the summary element's default ID", () => {
   render(
@@ -56,34 +58,34 @@ test("a consumer-supplied `id` will override the the summary element's default I
       Item
     </SideBarMenuGroupSummary>,
     { wrapper },
-  )
-  expect(screen.getByTestId('summary')).toHaveAttribute('id', 'my-id')
-})
+  );
+  expect(screen.getByTestId("summary")).toHaveAttribute("id", "my-id");
+});
 
-test('icon is visible, but hidden from the accessibility tree', () => {
-  render(<SideBarMenuGroupSummary icon="😎">Item</SideBarMenuGroupSummary>, { wrapper })
-  const icon = screen.getByText('😎')
+test("icon is visible, but hidden from the accessibility tree", () => {
+  render(<SideBarMenuGroupSummary icon="😎">Item</SideBarMenuGroupSummary>, { wrapper });
+  const icon = screen.getByText("😎");
 
-  expect(icon).toBeVisible()
-  expect(icon).toHaveAttribute('aria-hidden')
-})
+  expect(icon).toBeVisible();
+  expect(icon).toHaveAttribute("aria-hidden");
+});
 
-test('calls a consumer-supplied `onClick` handler', () => {
-  const onClick = vi.fn()
+test("calls a consumer-supplied `onClick` handler", () => {
+  const onClick = vi.fn();
   render(
     <SideBarMenuGroupSummary data-testid="summary" icon="😎" onClick={onClick}>
       Item
     </SideBarMenuGroupSummary>,
     { wrapper },
-  )
-  const summaryText = screen.getByTestId('summary')
-  fireEvent.click(summaryText)
+  );
+  const summaryText = screen.getByTestId("summary");
+  fireEvent.click(summaryText);
 
-  expect(onClick).toHaveBeenCalledTimes(1)
-})
+  expect(onClick).toHaveBeenCalledTimes(1);
+});
 
-test('prevents default action for click events if the menu group contains a link for the current page', async () => {
-  const preventDefaultSpy = vi.spyOn(Event.prototype, 'preventDefault')
+test("prevents default action for click events if the menu group contains a link for the current page", async () => {
+  const preventDefaultSpy = vi.spyOn(Event.prototype, "preventDefault");
 
   render(
     <details open>
@@ -95,21 +97,21 @@ test('prevents default action for click events if the menu group contains a link
       </a>
     </details>,
     { wrapper },
-  )
+  );
   // NOTE: It's unclear why, but using getByTestId to retrieve the summary element directly,
   // like in other tests here, then firing a click event on it does not result in the prevent
   // action being defaulted, despite being able to confirm preventDefault is correctly called
   // on the click event.
-  const summaryText = screen.getByTestId('summary')
-  fireEvent.click(summaryText)
+  const summaryText = screen.getByTestId("summary");
+  fireEvent.click(summaryText);
 
   // Rather than asserting the details element is visible, we can only assert that preventDefault
   // was called because of the issue described above for Happy DOM's event handling.
-  expect(preventDefaultSpy).toHaveBeenCalled()
-})
+  expect(preventDefaultSpy).toHaveBeenCalled();
+});
 
-test('prevents default action for click events if the menu group is marked as active', async () => {
-  using preventDefaultSpy = vi.spyOn(Event.prototype, 'preventDefault')
+test("prevents default action for click events if the menu group is marked as active", async () => {
+  using preventDefaultSpy = vi.spyOn(Event.prototype, "preventDefault");
 
   render(
     <details data-is-active="true" open>
@@ -121,21 +123,21 @@ test('prevents default action for click events if the menu group is marked as ac
       </a>
     </details>,
     { wrapper },
-  )
+  );
   // NOTE: It's unclear why, but using getByTestId to retrieve the summary element directly,
   // like in other tests here, then firing a click event on it does not result in the prevent
   // action being defaulted, despite being able to confirm preventDefault is correctly called
   // on the click event.
-  const summaryText = screen.getByTestId('summary')
-  fireEvent.click(summaryText)
+  const summaryText = screen.getByTestId("summary");
+  fireEvent.click(summaryText);
 
   // Rather than asserting the details element is visible, we can only assert that preventDefault
   // was called because of the issue described above for Happy DOM's event handling.
-  expect(preventDefaultSpy).toHaveBeenCalled()
-})
+  expect(preventDefaultSpy).toHaveBeenCalled();
+});
 
-test('allows default action for click events if the menu group is not active and does not contain a link for the current page', async () => {
-  using preventDefaultSpy = vi.spyOn(Event.prototype, 'preventDefault')
+test("allows default action for click events if the menu group is not active and does not contain a link for the current page", async () => {
+  using preventDefaultSpy = vi.spyOn(Event.prototype, "preventDefault");
 
   render(
     <details open>
@@ -145,20 +147,22 @@ test('allows default action for click events if the menu group is not active and
       <a href="/">Link</a>
     </details>,
     { wrapper },
-  )
-  const summaryText = screen.getByTestId('summary')
-  fireEvent.click(summaryText)
+  );
+  const summaryText = screen.getByTestId("summary");
+  fireEvent.click(summaryText);
 
   // If the event was NOT prevented, the <details> element would be closed and thus not visible
-  await expect(screen.findByRole('group')).resolves.not.toBeVisible()
+  await expect(screen.findByRole("group")).resolves.not.toBeVisible();
 
   // NOTE: We additionally assert that preventDefault was not called because of the issue described
   // above for Happy DOM's event handling.
-  expect(preventDefaultSpy).not.toHaveBeenCalled()
-})
+  expect(preventDefaultSpy).not.toHaveBeenCalled();
+});
 
 function wrapper({ children }: { children: ReactNode }) {
   return (
-    <SideBarMenuGroupLabelIdContext.Provider value="test-label-id">{children}</SideBarMenuGroupLabelIdContext.Provider>
-  )
+    <SideBarMenuGroupLabelIdContext.Provider value="test-label-id">
+      {children}
+    </SideBarMenuGroupLabelIdContext.Provider>
+  );
 }

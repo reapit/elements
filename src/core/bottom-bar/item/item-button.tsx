@@ -1,17 +1,17 @@
-import { BottomBarItemBase } from './item-base'
+import type { ButtonHTMLAttributes, MouseEventHandler, ReactNode } from "react";
 
-import type { ButtonHTMLAttributes, MouseEventHandler, ReactNode } from 'react'
+import { BottomBarItemBase } from "./item-base";
 
 export namespace BottomBarItemButton {
   export interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
     /** The accessible name of the nav icon item. */
-    children: ReactNode
+    children: ReactNode;
     /** Optional badge to be displayed on the nav item */
-    hasBadge?: boolean
+    hasBadge?: boolean;
     /** The nav item's icon. */
-    icon: ReactNode
+    icon: ReactNode;
     /** The click handler for the nav item. */
-    onClick?: MouseEventHandler<HTMLButtonElement>
+    onClick?: MouseEventHandler<HTMLButtonElement>;
   }
 }
 
@@ -23,8 +23,8 @@ export namespace BottomBarItemButton {
  * in a list item (`<li>`) to ensure good semantics and accessibility when used with `BottomBar`.
  */
 export function BottomBarItemButton(props: BottomBarItemButton.Props) {
-  return <BottomBarItemBase as="button" {...props} />
+  return <BottomBarItemBase as="button" {...props} />;
 }
 
 /** @deprecated Use BottomBarItemButton.Props instead */
-export type BottomBarItemButtonProps = BottomBarItemButton.Props
+export type BottomBarItemButtonProps = BottomBarItemButton.Props;

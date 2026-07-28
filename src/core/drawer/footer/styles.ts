@@ -1,5 +1,6 @@
-import { DRAWER_CSS_CONTAINER_NAME, DRAWER_WIDTH_SM_2XL } from '../constants'
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
+
+import { DRAWER_CSS_CONTAINER_NAME, DRAWER_WIDTH_SM_2XL } from "../constants";
 
 export const ElDrawerFooter = styled.footer`
   @layer elements.main {
@@ -17,7 +18,8 @@ export const ElDrawerFooter = styled.footer`
     width: 100%;
 
     background: var(--colour-fill-white);
-    border-block-start: var(--border-width-default, 1px) solid var(--colour-border-neutral-light_default);
+    border-block-start: var(--border-width-default, 1px) solid
+      var(--colour-border-neutral-light_default);
 
     grid-auto-columns: 1fr;
     padding: var(--spacing-3) var(--spacing-6);
@@ -27,4 +29,4 @@ export const ElDrawerFooter = styled.footer`
       grid-auto-columns: auto;
     }
   }
-`
+`;

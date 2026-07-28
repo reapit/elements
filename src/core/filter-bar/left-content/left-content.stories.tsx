@@ -1,18 +1,19 @@
-import preview from '#.storybook/preview'
-import { Button } from '#src/core/button'
-import { ButtonGroup } from '#src/core/button-group'
-import { SearchInput } from '#src/core/search-input'
-import { FilterBar } from '../filter-bar'
-import { FilterIcon } from '#src/icons/filter'
+import preview from "#.storybook/preview";
+import { Button } from "#src/core/button";
+import { ButtonGroup } from "#src/core/button-group";
+import { SearchInput } from "#src/core/search-input";
+import { FilterIcon } from "#src/icons/filter";
+
+import { FilterBar } from "../filter-bar";
 
 const meta = preview.meta({
-  title: 'Input and selection/FilterBar/LeftContent',
+  title: "Input and selection/FilterBar/LeftContent",
   component: FilterBar.LeftContent,
   argTypes: {
     children: {
-      control: 'radio',
-      defaultValue: 'Button',
-      options: ['Search', 'Button', 'Both'],
+      control: "radio",
+      defaultValue: "Button",
+      options: ["Search", "Button", "Both"],
       mapping: {
         Search: <SearchInput aria-label="Search" placeholder="Search" size="small" />,
         Button: (
@@ -36,10 +37,10 @@ const meta = preview.meta({
       },
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
-    children: 'Button',
+    children: "Button",
   },
-})
+});

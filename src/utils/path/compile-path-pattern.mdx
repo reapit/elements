@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/addon-docs/blocks'
+import { Meta } from "@storybook/addon-docs/blocks";
 
 # compilePathPattern
 
@@ -13,7 +13,7 @@ The compiled regular expression is always case-insensitive.
 ## Syntax
 
 ```ts
-compilePathPattern(pattern)
+compilePathPattern(pattern);
 ```
 
 - `pattern`: The path pattern to compile into a regular expression. Should not have a trailing slash.
@@ -23,18 +23,18 @@ Returns a `RegExp` object that can be used to test and match pathnames against t
 ## Example
 
 ```ts
-import { compilePathPattern } from '@reapit/elements/utils/path'
+import { compilePathPattern } from "@reapit/elements/utils/path";
 
-const regex = compilePathPattern('/users/:id')
+const regex = compilePathPattern("/users/:id");
 
 // Test if a pathname matches
-regex.test('/users/123') // => true
-regex.test('/users') // => false
-regex.test('/posts/123') // => false
+regex.test("/users/123"); // => true
+regex.test("/users"); // => false
+regex.test("/posts/123"); // => false
 
 // Path parameter available as a named capture group
-const match = '/users/123'.match(regex)
+const match = "/users/123".match(regex);
 if (match) {
-  console.log(match.groups?.id) // => '123'
+  console.log(match.groups?.id); // => '123'
 }
 ```

@@ -1,13 +1,17 @@
-import { test, expect } from 'vitest'
-import { font } from '../font'
-import { fontSizes, fontWeights } from '../types'
+import { test, expect } from "vitest";
 
-const testCases = fontSizes.flatMap((size) => fontWeights.map((weight) => [size, weight] as const))
+import { font } from "../font";
+import { fontSizes, fontWeights } from "../types";
 
-test.each(testCases)('font(%s, %s) returns correct CSS', (size, weight) => {
-  expect(font(size, weight)).toMatchSnapshot()
-})
+const testCases = fontSizes.flatMap((size) => fontWeights.map((weight) => [size, weight] as const));
 
-test.each(fontWeights)("font('md', %s) resolves to the same CSS variables as font('base', ...)", (weight) => {
-  expect(font('md', weight).replace('text-md', 'text-base')).toEqual(font('base', weight))
-})
+test.each(testCases)("font(%s, %s) returns correct CSS", (size, weight) => {
+  expect(font(size, weight)).toMatchSnapshot();
+});
+
+test.each(fontWeights)(
+  "font('md', %s) resolves to the same CSS variables as font('base', ...)",
+  (weight) => {
+    expect(font("md", weight).replace("text-md", "text-base")).toEqual(font("base", weight));
+  },
+);

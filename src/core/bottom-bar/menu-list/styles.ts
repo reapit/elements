@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
 
 export const ElBottomBarMenuList = styled.menu`
   @layer elements.main {
@@ -13,11 +13,11 @@ export const ElBottomBarMenuList = styled.menu`
     padding-inline: 0;
     width: 100%;
   }
-`
+`;
 
 export const ElBottomBarMenuListItem = styled.li`
   @layer elements.main {
     display: block;
     flex-grow: 1;
   }
-`
+`;

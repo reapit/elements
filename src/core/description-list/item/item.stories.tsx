@@ -1,20 +1,21 @@
-import preview from '#.storybook/preview'
-import { DescriptionList } from '../description-list'
-import { Features } from '../../features'
-import { LineClamp } from '#src/utils/line-clamp'
+import preview from "#.storybook/preview";
+import { LineClamp } from "#src/utils/line-clamp";
+
+import { Features } from "../../features";
+import { DescriptionList } from "../description-list";
 
 const meta = preview.meta({
-  title: 'Content display/DescriptionList/Item',
+  title: "Content display/DescriptionList/Item",
   component: DescriptionList.Item,
   argTypes: {
     area: {
-      control: 'text',
+      control: "text",
     },
     children: {
-      control: 'select',
-      options: ['Short', 'Features', 'Multi-line', 'Multi-line disclosure'],
+      control: "select",
+      options: ["Short", "Features", "Multi-line", "Multi-line disclosure"],
       mapping: {
-        Short: 'An exceptional four-bedroom house.',
+        Short: "An exceptional four-bedroom house.",
         Features: (
           <>
             <Features size="base">
@@ -25,33 +26,35 @@ const meta = preview.meta({
             </Features>
           </>
         ),
-        'Multi-line': (
+        "Multi-line": (
           <>
-            This exceptional four-bedroom house, situated in the desirable MK17 0QL area, presents an attractive
-            opportunity for a discerning buyer seeking a comfortable and spacious home. With its impressive layout, the
-            property boasts four well-appointed bedrooms, ideal for families or professionals, and two modern bathrooms,
-            ensuring ample storage and convenience.
+            This exceptional four-bedroom house, situated in the desirable MK17 0QL area, presents
+            an attractive opportunity for a discerning buyer seeking a comfortable and spacious
+            home. With its impressive layout, the property boasts four well-appointed bedrooms,
+            ideal for families or professionals, and two modern bathrooms, ensuring ample storage
+            and convenience.
           </>
         ),
-        'Multi-line disclosure': (
+        "Multi-line disclosure": (
           <LineClamp as="span" clampTo={2}>
-            This exceptional four-bedroom house, situated in the desirable MK17 0QL area, presents an attractive
-            opportunity for a discerning buyer seeking a comfortable and spacious home. With its impressive layout, the
-            property boasts four well-appointed bedrooms, ideal for families or professionals, and two modern bathrooms,
-            ensuring ample storage and convenience.
+            This exceptional four-bedroom house, situated in the desirable MK17 0QL area, presents
+            an attractive opportunity for a discerning buyer seeking a comfortable and spacious
+            home. With its impressive layout, the property boasts four well-appointed bedrooms,
+            ideal for families or professionals, and two modern bathrooms, ensuring ample storage
+            and convenience.
           </LineClamp>
         ),
       },
     },
     label: {
-      control: 'text',
+      control: "text",
     },
     size: {
-      control: 'radio',
-      options: ['base', 'sm'],
+      control: "radio",
+      options: ["base", "sm"],
     },
   },
-})
+});
 
 /**
  * A basic description list item with a label and description. By default, the label
@@ -60,8 +63,8 @@ const meta = preview.meta({
 export const Example = meta.story({
   args: {
     area: undefined,
-    children: 'Short',
-    label: 'Description',
+    children: "Short",
+    label: "Description",
   },
   decorators: [
     (Story) => (
@@ -70,16 +73,16 @@ export const Example = meta.story({
       </DescriptionList>
     ),
   ],
-})
+});
 
 /**
  * The item's label and description can be displayed inline.
  */
 export const Inline = Example.extend({
   args: {
-    layout: 'inline',
+    layout: "inline",
   },
-})
+});
 
 /**
  * A tabular layout can also be achieved. In this case, the item will align to their ancestor's grid.
@@ -87,9 +90,9 @@ export const Inline = Example.extend({
  */
 export const Tabular = meta.story({
   args: {
-    children: 'Multi-line',
-    label: 'Description',
-    layout: 'tabular',
+    children: "Multi-line",
+    label: "Description",
+    layout: "tabular",
   },
   decorators: [
     (Story) => (
@@ -98,16 +101,16 @@ export const Tabular = meta.story({
       </DescriptionList>
     ),
   ],
-})
+});
 
 /**
  * Two sizes are supported: `base` and `sm`.
  */
 export const Size = Example.extend({
   args: {
-    size: 'sm',
+    size: "sm",
   },
-})
+});
 
 /**
  * The description can contain content like tag groups, supplementary information lists and any other
@@ -115,19 +118,19 @@ export const Size = Example.extend({
  */
 export const Content = Example.extend({
   args: {
-    children: 'Features',
-    label: 'Property features',
+    children: "Features",
+    label: "Property features",
   },
-})
+});
 
 /**
  * Like the description, the label content can wrap if it does not have sufficient space.
  */
 export const Wrapping = meta.story({
   args: {
-    children: 'Multi-line',
-    label: 'Property description',
-    layout: 'tabular',
+    children: "Multi-line",
+    label: "Property description",
+    layout: "tabular",
   },
   decorators: [
     (Story) => (
@@ -136,7 +139,7 @@ export const Wrapping = meta.story({
       </DescriptionList>
     ),
   ],
-})
+});
 
 /**
  * An item can also be configured to span multiple columns in the description list's grid.
@@ -145,11 +148,11 @@ export const Wrapping = meta.story({
  * on the syntax.
  */
 export const SpanningColumns = meta.story({
-  name: 'Spanning columns',
+  name: "Spanning columns",
   args: {
-    area: 'auto / span 2',
-    children: 'Multi-line',
-    label: 'Property description',
+    area: "auto / span 2",
+    children: "Multi-line",
+    label: "Property description",
   },
   decorators: [
     (Story) => (
@@ -158,4 +161,4 @@ export const SpanningColumns = meta.story({
       </DescriptionList>
     ),
   ],
-})
+});

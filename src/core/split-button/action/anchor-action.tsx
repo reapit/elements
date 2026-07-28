@@ -1,11 +1,12 @@
-import { SplitButtonActionBase } from './action-base'
+import type { AnchorHTMLAttributes } from "react";
 
-import type { AnchorHTMLAttributes } from 'react'
+import { SplitButtonActionBase } from "./action-base";
 
 export namespace SplitButtonAnchorAction {
-  export interface Props extends SplitButtonActionBase.CommonProps, AnchorHTMLAttributes<HTMLAnchorElement> {
+  export interface Props
+    extends SplitButtonActionBase.CommonProps, AnchorHTMLAttributes<HTMLAnchorElement> {
     /** The URL to which this anchor button navigates */
-    href: string
+    href: string;
   }
 }
 
@@ -14,7 +15,7 @@ export namespace SplitButtonAnchorAction {
  * version is available via `SplitButton.Action`.
  */
 export function SplitButtonAnchorAction(props: SplitButtonAnchorAction.Props) {
-  return <SplitButtonActionBase as="a" {...props} />
+  return <SplitButtonActionBase as="a" {...props} />;
 }
 
-SplitButtonAnchorAction.displayName = 'SplitButton.AnchorAction'
+SplitButtonAnchorAction.displayName = "SplitButton.AnchorAction";

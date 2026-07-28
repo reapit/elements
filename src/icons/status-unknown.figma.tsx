@@ -1,4 +1,5 @@
-import figma from '@figma/code-connect'
-import { StatusUnknownIcon } from './status-unknown'
+import figma from "@figma/code-connect";
 
-figma.connect(StatusUnknownIcon, 'https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=20-476')
+import { StatusUnknownIcon } from "./status-unknown";
+
+figma.connect(StatusUnknownIcon, "https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=20-476");

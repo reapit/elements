@@ -6,10 +6,10 @@
 directory under `src/core`/`src/utils`/`src/icons` (kebab-case), e.g.:
 
 ```tsx
-import { Button } from '@reapit/elements/core/button'
-import { Card } from '@reapit/elements/core/card'
-import { Flex } from '@reapit/elements/utils/flex'
-import { ThemeProvider } from '@reapit/elements/utils/theme-provider'
+import { Button } from "@reapit/elements/core/button";
+import { Card } from "@reapit/elements/core/card";
+import { Flex } from "@reapit/elements/utils/flex";
+import { ThemeProvider } from "@reapit/elements/utils/theme-provider";
 ```
 
 Never `import { Button } from '@reapit/elements'` — that import has nothing to resolve to.
@@ -21,10 +21,10 @@ without it, components fall back to whatever theme (if any) is already on `<html
 so colours/borders/spacing read as unstyled defaults. Wrap the app root once:
 
 ```tsx
-import { ThemeProvider } from '@reapit/elements/utils/theme-provider'
+import { ThemeProvider } from "@reapit/elements/utils/theme-provider";
 
 function App() {
-  return <ThemeProvider theme="reapit">{/* rest of the app */}</ThemeProvider>
+  return <ThemeProvider theme="reapit">{/* rest of the app */}</ThemeProvider>;
 }
 ```
 
@@ -57,16 +57,19 @@ Example — a custom flex wrapper around two Buttons, using the real `Button` AP
 spacing (not px):
 
 ```tsx
-import { Flex } from '@reapit/elements/utils/flex'
-import { Button } from '@reapit/elements/core/button'
+import { Flex } from "@reapit/elements/utils/flex";
+import { Button } from "@reapit/elements/core/button";
 
 function SaveCancelRow() {
   return (
-    <Flex gap="--spacing-2" style={{ padding: 'var(--spacing-4)', background: 'var(--colour-fill-neutral-lightest)' }}>
+    <Flex
+      gap="--spacing-2"
+      style={{ padding: "var(--spacing-4)", background: "var(--colour-fill-neutral-lightest)" }}
+    >
       <Button variant="primary">Save</Button>
       <Button variant="secondary">Cancel</Button>
     </Flex>
-  )
+  );
 }
 ```
 
@@ -100,10 +103,10 @@ usage rules or API.
 ## Build snippet
 
 ```tsx
-import { ThemeProvider } from '@reapit/elements/utils/theme-provider'
-import { Flex } from '@reapit/elements/utils/flex'
-import { Card } from '@reapit/elements/core/card'
-import { Button } from '@reapit/elements/core/button'
+import { ThemeProvider } from "@reapit/elements/utils/theme-provider";
+import { Flex } from "@reapit/elements/utils/flex";
+import { Card } from "@reapit/elements/core/card";
+import { Button } from "@reapit/elements/core/button";
 
 function ConfirmArchiveScreen() {
   return (
@@ -120,6 +123,6 @@ function ConfirmArchiveScreen() {
         </Flex>
       </Card>
     </ThemeProvider>
-  )
+  );
 }
 ```

@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
 
 export const ElSplitButton = styled.div`
   @layer elements.main {
@@ -8,4 +8,4 @@ export const ElSplitButton = styled.div`
     width: min-content;
     isolation: isolate;
   }
-`
+`;

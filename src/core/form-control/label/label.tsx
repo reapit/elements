@@ -1,39 +1,40 @@
-import { cx } from '@linaria/core'
-import { elFormControlLabel } from './styles'
-import { LabelText } from '#src/core/label-text'
-import { mapSizeToLabelTextSize } from './map-size-to-label-text-size'
+import { cx } from "@linaria/core";
+import type { LabelHTMLAttributes, HTMLAttributes } from "react";
 
-import type { LabelHTMLAttributes, HTMLAttributes } from 'react'
+import { LabelText } from "#src/core/label-text";
+
+import { mapSizeToLabelTextSize } from "./map-size-to-label-text-size";
+import { elFormControlLabel } from "./styles";
 
 export namespace FormControlLabel {
   interface CommonProps {
     /** Whether the label should indicate a value is required. */
-    isRequired?: boolean
+    isRequired?: boolean;
     /**
      * The size of the label text. Should match the size of the actual input or other form control
      * element being labelled. By default, the text size will inherit from the parent `FormControl`.
      */
-    size?: 'small' | 'medium' | 'large'
+    size?: "small" | "medium" | "large";
   }
 
   export interface AsLabelProps extends CommonProps, LabelHTMLAttributes<HTMLLabelElement> {
-    as?: 'label'
+    as?: "label";
     /** The ID of the form control this label is associated with. Optional when using aria-labelledby. */
-    htmlFor?: string
+    htmlFor?: string;
   }
 
   export interface AsLegendProps extends CommonProps, HTMLAttributes<HTMLLegendElement> {
-    as: 'legend'
+    as: "legend";
   }
 
-  export type Props = AsLabelProps | AsLegendProps
+  export type Props = AsLabelProps | AsLegendProps;
 }
 
 /**
  * The label for a form control.
  */
 export function FormControlLabel({
-  as: Element = 'label',
+  as: Element = "label",
   children,
   className,
   isRequired,
@@ -46,7 +47,7 @@ export function FormControlLabel({
         {children}
       </LabelText>
     </Element>
-  )
+  );
 }
 
-FormControlLabel.displayName = 'FormControl.Label'
+FormControlLabel.displayName = "FormControl.Label";

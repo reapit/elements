@@ -1,4 +1,5 @@
-import { css } from '@linaria/core'
+import { css } from "@linaria/core";
+
 import {
   elIntentDanger,
   elIntentDefault,
@@ -7,48 +8,48 @@ import {
   elIntentPrimary,
   elIntentSuccess,
   elIntentWarning,
-} from '../../../styles/deprecated-intent'
+} from "../../../styles/deprecated-intent";
 
 /** @deprecated */
-export const elHasGreyText = css``
+export const elHasGreyText = css``;
 
 /** @deprecated */
-export const elHasNoMargin = css``
+export const elHasNoMargin = css``;
 
 /** @deprecated */
-export const elHasRegularText = css``
+export const elHasRegularText = css``;
 
 /** @deprecated */
-export const elHasBoldText = css``
+export const elHasBoldText = css``;
 
 /** @deprecated */
-export const elHasMediumText = css``
+export const elHasMediumText = css``;
 
 /** @deprecated */
-export const elHasMargin = css``
+export const elHasMargin = css``;
 
 /** @deprecated */
-export const elHasItalicText = css``
+export const elHasItalicText = css``;
 
 /** @deprecated */
-export const elHasCenteredText = css``
+export const elHasCenteredText = css``;
 
 /** @deprecated */
-export const elHasSectionMargin = css``
+export const elHasSectionMargin = css``;
 
 /** @deprecated */
-export const elHasDisabledText = css``
+export const elHasDisabledText = css``;
 
 /** @deprecated */
-export const elHasCapitalisedText = css``
+export const elHasCapitalisedText = css``;
 
 /** @deprecated */
-export const elHasUpperCasedText = css``
+export const elHasUpperCasedText = css``;
 
 /** @deprecated */
 export const elTextBase = css`
   font-family:
-    'Inter',
+    "Inter",
     /* was --font-sans-serif */ Helvetica,
     Arial,
     sans-serif;
@@ -136,54 +137,54 @@ export const elTextBase = css`
   &.${elIntentDefault} {
     color: var(--colour-text-neutral);
   }
-`
+`;
 
 /** @deprecated */
 export const elText3XL = css`
   font-size: 32px;
   line-height: 40px;
-`
+`;
 
 /** @deprecated */
 export const elText2XL = css`
   font-size: 24px;
   line-height: 32px;
-`
+`;
 
 /** @deprecated */
 export const elTextXL = css`
   font-size: 20px;
   line-height: 28px;
-`
+`;
 
 /** @deprecated */
 export const elTextL = css`
   font-size: 18px;
   line-height: 24px;
-`
+`;
 
 /** @deprecated */
 export const elTextSM = css`
   font-size: 14px;
   line-height: 20px;
-`
+`;
 
 /** @deprecated */
 export const elTextXS = css`
   font-size: 13px;
   line-height: 16px;
-`
+`;
 
 /** @deprecated */
 export const elText2XS = css`
   font-size: 12px;
   line-height: 16px;
-`
+`;
 
 /** @deprecated */
 export const elTitle = css`
   font-family:
-    'Inter',
+    "Inter",
     /* was --font-sans-serif */ Helvetica,
     Arial,
     sans-serif;
@@ -265,12 +266,12 @@ export const elTitle = css`
   &.${elIntentDefault} {
     color: var(--colour-text-neutral);
   }
-`
+`;
 
 /** @deprecated */
 export const elSubtitle = css`
   font-family:
-    'Inter',
+    "Inter",
     /* was --font-sans-serif */ Helvetica,
     Arial,
     sans-serif;
@@ -352,12 +353,12 @@ export const elSubtitle = css`
   &.${elIntentDefault} {
     color: var(--colour-text-neutral);
   }
-`
+`;
 
 /** @deprecated */
 export const elBodyText = css`
   font-family:
-    'Inter',
+    "Inter",
     /* was --font-sans-serif */ Helvetica,
     Arial,
     sans-serif;
@@ -439,12 +440,12 @@ export const elBodyText = css`
   &.${elIntentDefault} {
     color: var(--colour-text-neutral);
   }
-`
+`;
 
 /** @deprecated */
 export const elSmallText = css`
   font-family:
-    'Inter',
+    "Inter",
     /* was --font-sans-serif */ Helvetica,
     Arial,
     sans-serif;
@@ -526,4 +527,4 @@ export const elSmallText = css`
   &.${elIntentDefault} {
     color: var(--colour-text-neutral);
   }
-`
+`;

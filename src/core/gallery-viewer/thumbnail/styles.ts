@@ -1,5 +1,5 @@
-import { css } from '@linaria/core'
-import { styled } from '@linaria/react'
+import { css } from "@linaria/core";
+import { styled } from "@linaria/react";
 
 export const elGalleryViewerThumbnail = css`
   @layer elements.main {
@@ -30,8 +30,8 @@ export const elGalleryViewerThumbnail = css`
     }
 
     /* Selected ring */
-    &[aria-current='location'],
-    &[aria-pressed='true'] {
+    &[aria-current="location"],
+    &[aria-pressed="true"] {
       outline: var(--border-width-double) solid var(--colour-border-action-default);
       outline-offset: var(--border-width-default);
     }
@@ -42,7 +42,7 @@ export const elGalleryViewerThumbnail = css`
       outline-offset: var(--border-width-default);
     }
   }
-`
+`;
 
 export const ElGalleryViewerThumbnailVideoOverlay = styled.div`
   @layer elements.main {
@@ -59,11 +59,11 @@ export const ElGalleryViewerThumbnailVideoOverlay = styled.div`
 
     pointer-events: none;
   }
-`
+`;
 
 export const ElGalleryViewerThumbnailPlayIcon = styled.div`
   @layer elements.main {
     width: var(--size-8);
     height: var(--size-8);
   }
-`
+`;

@@ -1,47 +1,52 @@
-import preview from '#.storybook/preview'
-import { AppSwitcher } from '../app-switcher'
-import { HelpIcon } from '#src/icons/help'
-import { Menu } from '#src/core/menu'
-import { NotificationIcon } from '#src/icons/notification'
-import { StarIcon } from '#src/icons/star'
-import { supportedAppNames } from './brand-logo'
-import { TopBar } from './top-bar'
+import type { Decorator } from "@storybook/react-vite";
 
-import type { Decorator } from '@storybook/react-vite'
+import preview from "#.storybook/preview";
+import { Menu } from "#src/core/menu";
+import { HelpIcon } from "#src/icons/help";
+import { NotificationIcon } from "#src/icons/notification";
+import { StarIcon } from "#src/icons/star";
 
-const href = '#'
+import { AppSwitcher } from "../app-switcher";
+import { supportedAppNames } from "./brand-logo";
+import { TopBar } from "./top-bar";
+
+const href = "#";
 
 const meta = preview.meta({
-  title: 'Navigation/TopBar',
+  title: "Navigation/TopBar",
   component: TopBar,
   argTypes: {
     appSwitcher: {
-      control: 'radio',
-      options: ['None', 'App Switcher'],
+      control: "radio",
+      options: ["None", "App Switcher"],
       mapping: {
         None: null,
-        'App Switcher': (
+        "App Switcher": (
           <AppSwitcher>
             <AppSwitcher.YourAppsMenuGroup>
-              {AppSwitcher.getDisplayableProductsForYourAppsGroup(['consoleCloud']).map((productId) => (
-                <AppSwitcher.ProductMenuItem key={productId} href={href} productId={productId} />
-              ))}
+              {AppSwitcher.getDisplayableProductsForYourAppsGroup(["consoleCloud"]).map(
+                (productId) => (
+                  <AppSwitcher.ProductMenuItem key={productId} href={href} productId={productId} />
+                ),
+              )}
             </AppSwitcher.YourAppsMenuGroup>
             <AppSwitcher.ExploreMenuGroup>
-              {AppSwitcher.getDisplayableProductsForExploreGroup(['consoleCloud']).map((productId) => (
-                <AppSwitcher.ProductMenuItem key={productId} href={href} productId={productId} />
-              ))}
+              {AppSwitcher.getDisplayableProductsForExploreGroup(["consoleCloud"]).map(
+                (productId) => (
+                  <AppSwitcher.ProductMenuItem key={productId} href={href} productId={productId} />
+                ),
+              )}
             </AppSwitcher.ExploreMenuGroup>
           </AppSwitcher>
         ),
       },
     },
     avatar: {
-      control: 'radio',
-      options: ['None', 'Avatar Menu'],
+      control: "radio",
+      options: ["None", "Avatar Menu"],
       mapping: {
         None: null,
-        'Avatar Menu': (
+        "Avatar Menu": (
           <TopBar.AvatarMenu initials="AB">
             <Menu.Item>User menu 1</Menu.Item>
             <Menu.Item>User menu 2</Menu.Item>
@@ -51,30 +56,30 @@ const meta = preview.meta({
       },
     },
     logo: {
-      control: 'select',
+      control: "select",
       options: supportedAppNames,
       mapping: {
         Reapit: <TopBar.BrandLogo appName="Reapit" href={href} />,
-        'Console Owner': <TopBar.BrandLogo appName="Console Owner" href={href} />,
-        'Console Pay': <TopBar.BrandLogo appName="Console Pay" href={href} />,
-        'Console Tenant': <TopBar.BrandLogo appName="Console Tenant" href={href} />,
-        'Reapit Connect': <TopBar.BrandLogo appName="Reapit Connect" href={href} />,
-        'Reapit Projector': <TopBar.BrandLogo appName="Reapit Projector" href={href} />,
-        'Reapit Sales': <TopBar.BrandLogo appName="Reapit Sales" href={href} />,
-        'Reapit Lettings': <TopBar.BrandLogo appName="Reapit Lettings" href={href} />,
-        'Reapit PM': <TopBar.BrandLogo appName="Reapit PM" href={href} />,
-        'PM Demo': <TopBar.BrandLogo appName="PM Demo" href={href} />,
-        'PM Sales': <TopBar.BrandLogo appName="PM Sales" href={href} />,
-        'PM Inspect': <TopBar.BrandLogo appName="PM Inspect" href={href} />,
-        'Reapit Forms': <TopBar.BrandLogo appName="Reapit Forms" href={href} />,
-        'Reapit Proposals': <TopBar.BrandLogo appName="Reapit Proposals" href={href} />,
+        "Console Owner": <TopBar.BrandLogo appName="Console Owner" href={href} />,
+        "Console Pay": <TopBar.BrandLogo appName="Console Pay" href={href} />,
+        "Console Tenant": <TopBar.BrandLogo appName="Console Tenant" href={href} />,
+        "Reapit Connect": <TopBar.BrandLogo appName="Reapit Connect" href={href} />,
+        "Reapit Projector": <TopBar.BrandLogo appName="Reapit Projector" href={href} />,
+        "Reapit Sales": <TopBar.BrandLogo appName="Reapit Sales" href={href} />,
+        "Reapit Lettings": <TopBar.BrandLogo appName="Reapit Lettings" href={href} />,
+        "Reapit PM": <TopBar.BrandLogo appName="Reapit PM" href={href} />,
+        "PM Demo": <TopBar.BrandLogo appName="PM Demo" href={href} />,
+        "PM Sales": <TopBar.BrandLogo appName="PM Sales" href={href} />,
+        "PM Inspect": <TopBar.BrandLogo appName="PM Inspect" href={href} />,
+        "Reapit Forms": <TopBar.BrandLogo appName="Reapit Forms" href={href} />,
+        "Reapit Proposals": <TopBar.BrandLogo appName="Reapit Proposals" href={href} />,
         KeyWhere: <TopBar.BrandLogo appName="KeyWhere" href={href} />,
-        'Auto Responder': <TopBar.BrandLogo appName="Auto Responder" href={href} />,
+        "Auto Responder": <TopBar.BrandLogo appName="Auto Responder" href={href} />,
       },
     },
     mainNav: {
-      control: 'radio',
-      options: ['None', 'Some', 'Many'],
+      control: "radio",
+      options: ["None", "Some", "Many"],
       mapping: {
         None: null,
         Some: (
@@ -120,8 +125,8 @@ const meta = preview.meta({
       control: false,
     },
     secondaryNav: {
-      control: 'radio',
-      options: ['None', 'Some'],
+      control: "radio",
+      options: ["None", "Some"],
       mapping: {
         None: null,
         Some: (
@@ -137,7 +142,12 @@ const meta = preview.meta({
               href={href}
               icon={<NotificationIcon />}
             />
-            <TopBar.NavIconItem aria-current={false} aria-label="Nav icon item 3" href={href} icon={<StarIcon />} />
+            <TopBar.NavIconItem
+              aria-current={false}
+              aria-label="Nav icon item 3"
+              href={href}
+              icon={<StarIcon />}
+            />
           </TopBar.SecondaryNav>
         ),
       },
@@ -145,17 +155,17 @@ const meta = preview.meta({
   },
   globals: {
     backgrounds: {
-      value: 'light',
+      value: "light",
     },
   },
-})
+});
 
 function useConstrainedWidthDecorator(width: string): Decorator {
   return (Story) => (
-    <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', width }}>
+    <div style={{ boxSizing: "content-box", border: "1px solid #FA00FF", width }}>
       <Story />
     </div>
-  )
+  );
 }
 
 /**
@@ -170,15 +180,17 @@ function useConstrainedWidthDecorator(width: string): Decorator {
  */
 export const Example = meta.story({
   args: {
-    appSwitcher: 'App Switcher',
-    avatar: 'Avatar Menu',
-    logo: 'Reapit',
-    mainNav: 'Many',
+    appSwitcher: "App Switcher",
+    avatar: "Avatar Menu",
+    logo: "Reapit",
+    mainNav: "Many",
     menu: (
       <TopBar.Menu>
         <TopBar.MenuContent>
           <TopBar.MenuMainNav>
-            <TopBar.MenuGroup summary={<TopBar.MenuGroupSummary>Properties</TopBar.MenuGroupSummary>}>
+            <TopBar.MenuGroup
+              summary={<TopBar.MenuGroupSummary>Properties</TopBar.MenuGroupSummary>}
+            >
               <TopBar.MenuSubmenu>
                 <TopBar.MenuSubmenuItem aria-current="page" href="#">
                   Residential
@@ -232,27 +244,27 @@ export const Example = meta.story({
         iconItem={<TopBar.NavSearchIconItem onClick={() => void 0} />}
       />
     ),
-    secondaryNav: 'Some',
+    secondaryNav: "Some",
   },
   decorators: [
     (Story) => (
-      <div style={{ height: '200px' }}>
+      <div style={{ height: "200px" }}>
         <Story />
       </div>
     ),
   ],
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
   },
-})
+});
 
 /**
  * For viewports under 768px, very few of the Top Bar's sections will be visible. Most will have collapsed
  * into the overflow menu, except for the product's "global" search entry point, if one is available.
  */
 export const XS = Example.extend({
-  decorators: [useConstrainedWidthDecorator('375px')],
-})
+  decorators: [useConstrainedWidthDecorator("375px")],
+});
 
 /**
  * For viewports under between 768px and 1024px, the App Switcher will be available directly in the Top Bar
@@ -260,20 +272,20 @@ export const XS = Example.extend({
  * navigation, and user profile menu will still be collapsed into the overflow menu.
  */
 export const SM = Example.extend({
-  decorators: [useConstrainedWidthDecorator('768px')],
-})
+  decorators: [useConstrainedWidthDecorator("768px")],
+});
 
 /**
  * For viewports between 1024px and 1440px, the user's profile menu will become available directly in the Top Bar.
  */
 export const MD = SM.extend({
-  decorators: [useConstrainedWidthDecorator('1024px')],
-})
+  decorators: [useConstrainedWidthDecorator("1024px")],
+});
 
 /**
  * For viewports 1440px and wider, the Top Bar will display all of its regions.
  */
 export const LG_2XL = MD.extend({
-  name: 'LG–2XL',
-  decorators: [useConstrainedWidthDecorator('1440px')],
-})
+  name: "LG–2XL",
+  decorators: [useConstrainedWidthDecorator("1440px")],
+});

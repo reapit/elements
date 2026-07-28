@@ -1,5 +1,5 @@
-import { css } from '@linaria/core'
-import { styled } from '@linaria/react'
+import { css } from "@linaria/core";
+import { styled } from "@linaria/react";
 
 /** @deprecated */
 export const ElProgressBarContainer = styled.div`
@@ -9,14 +9,14 @@ export const ElProgressBarContainer = styled.div`
   width: 100%;
   height: 3px;
   background-color: var(--colour-fill-neutral-light);
-`
+`;
 
 /** @deprecated */
 export const ElProgressBarLabel = styled.div`
   font-size: 0.875rem /* was --font-size-small */;
   flex-shrink: 0;
   margin-top: 0.5rem;
-`
+`;
 
 /** @deprecated */
 export const ElProgressBarInner = styled.div`
@@ -24,21 +24,21 @@ export const ElProgressBarInner = styled.div`
   display: flex;
   transition: width 0.5s linear;
   margin-right: 0.75rem;
-`
+`;
 
 /** @deprecated */
 export const ElProgressBarItem = styled.div`
   width: 100%;
   height: 3px;
   background-color: var(--colour-fill-action-dark);
-`
+`;
 
 /** @deprecated */
 export const elProgressBarLabelRight = css`
   margin-right: auto;
-`
+`;
 
 /** @deprecated */
 export const elProgressBarLabelLeft = css`
   margin-left: auto;
-`
+`;

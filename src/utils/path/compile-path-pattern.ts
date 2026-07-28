@@ -6,18 +6,18 @@ const REGEX_PATTERNS = {
   PATH_PARAM: /:(\w+)/g,
   LEADING_SPLAT_PARAM: /^\*\//,
   TRAILING_SPLAT_PARAM: /\/\*$/,
-} as const
+} as const;
 
 /**
  * Named capture group templates for different parameter types.
  */
 const CAPTURE_GROUPS = {
-  PATH_PARAM: '(?<$1>[^/]+)',
-  LEADING_SPLAT_PARAM: '^([\\w \\/.~-]+)/?',
+  PATH_PARAM: "(?<$1>[^/]+)",
+  LEADING_SPLAT_PARAM: "^([\\w \\/.~-]+)/?",
   // NOTE: the leading "/" is optional because we want "/files/*" to treat "/files/" and "/files"
   // the match "" as the splat parameter's value.
-  TRAILING_SPLAT_PARAM: '/?([\\w \\/.~-]*)',
-} as const
+  TRAILING_SPLAT_PARAM: "/?([\\w \\/.~-]*)",
+} as const;
 
 /**
  * Returns a regular expression that can be used to match a real pathname. Path parameters in
@@ -39,8 +39,8 @@ const CAPTURE_GROUPS = {
  */
 export function compilePathPattern(pathPattern: string): RegExp {
   // If our pattern is an empty string, we return a regex that only matches empty strings
-  if (pathPattern === '') {
-    return /^$/i
+  if (pathPattern === "") {
+    return /^$/i;
   }
 
   const regexPattern = pathPattern
@@ -51,7 +51,7 @@ export function compilePathPattern(pathPattern: string): RegExp {
     // Replace :param with named capture groups
     .replace(REGEX_PATTERNS.PATH_PARAM, CAPTURE_GROUPS.PATH_PARAM)
     // Escape forward slashes
-    .replace(REGEX_PATTERNS.FORWARD_SLASH, '\\/')
+    .replace(REGEX_PATTERNS.FORWARD_SLASH, "\\/");
 
-  return new RegExp(`${regexPattern}$`, 'i')
+  return new RegExp(`${regexPattern}$`, "i");
 }

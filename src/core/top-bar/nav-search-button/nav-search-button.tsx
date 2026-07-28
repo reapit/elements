@@ -1,11 +1,11 @@
+import type { ComponentProps, MouseEventHandler, ReactNode } from "react";
+
 import {
   ElTopBarNavSearchButton,
   ElTopBarNavSearchButtonIcon,
   ElTopBarNavSearchButtonPlaceholder,
   ElTopBarNavSearchButtonShortcutText,
-} from './styles'
-
-import type { ComponentProps, MouseEventHandler, ReactNode } from 'react'
+} from "./styles";
 
 export namespace TopBarNavSearchButton {
   export interface Props extends ComponentProps<typeof ElTopBarNavSearchButton> {
@@ -13,11 +13,11 @@ export namespace TopBarNavSearchButton {
      * Indicates the keyboard shortcut that has been implemented to activate this button. Should typically
      * be Ctrl+K or Meta+K depending on the platform used by the currently logged in user.
      */
-    'aria-keyshortcuts'?: string
+    "aria-keyshortcuts"?: string;
     /**
      * A click handler that launches the product's search experience.
      */
-    onClick: MouseEventHandler<HTMLButtonElement>
+    onClick: MouseEventHandler<HTMLButtonElement>;
     /**
      * The keyboard shortcut, if any, that a product uses to launch the search experience. Should typically
      * be Ctrl+K or ⌘K depending on the platform used by the currently logged in user. This only defines
@@ -27,7 +27,7 @@ export namespace TopBarNavSearchButton {
      * [aria-keyshortcuts](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-keyshortcuts)
      * attribute should also be supplied.
      */
-    shortcut?: ReactNode
+    shortcut?: ReactNode;
   }
 }
 
@@ -43,10 +43,12 @@ export function TopBarNavSearchButton({ shortcut, onClick, ...rest }: TopBarNavS
       <ElTopBarNavSearchButtonIcon aria-hidden="true" />
       <ElTopBarNavSearchButtonPlaceholder>Search</ElTopBarNavSearchButtonPlaceholder>
       {shortcut && (
-        <ElTopBarNavSearchButtonShortcutText aria-hidden="true">{shortcut}</ElTopBarNavSearchButtonShortcutText>
+        <ElTopBarNavSearchButtonShortcutText aria-hidden="true">
+          {shortcut}
+        </ElTopBarNavSearchButtonShortcutText>
       )}
     </ElTopBarNavSearchButton>
-  )
+  );
 }
 
-TopBarNavSearchButton.displayName = 'TopBar.SearchButton'
+TopBarNavSearchButton.displayName = "TopBar.SearchButton";

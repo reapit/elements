@@ -1,40 +1,41 @@
-import preview from '#.storybook/preview'
-import { ChipSelect } from './chip-select'
-import { StarIcon } from '#src/icons/star'
-import { useId, useState } from 'react'
+import type { Decorator } from "@storybook/react-vite";
+import { useId, useState } from "react";
+import type { ChangeEventHandler } from "react";
 
-import type { ChangeEventHandler } from 'react'
-import type { Decorator } from '@storybook/react-vite'
+import preview from "#.storybook/preview";
+import { StarIcon } from "#src/icons/star";
+
+import { ChipSelect } from "./chip-select";
 
 const meta = preview.meta({
-  title: 'Input and selection/ChipSelect',
+  title: "Input and selection/ChipSelect",
   component: ChipSelect,
   argTypes: {
     children: {
       control: false,
     },
     overflow: {
-      control: 'radio',
+      control: "radio",
     },
   },
   render: (args) => {
-    const formId = args.form ? `${args.form}-${useId()}` : useId()
+    const formId = args.form ? `${args.form}-${useId()}` : useId();
     return (
       <>
         <form id={formId} />
         <ChipSelect {...args} form={formId} />
       </>
-    )
+    );
   },
-})
+});
 
 const useNarrowParentDecorator: Decorator = (Story) => {
   return (
-    <div style={{ border: '1px solid #FA00FF', width: '397px' }}>
+    <div style={{ border: "1px solid #FA00FF", width: "397px" }}>
       <Story />
     </div>
-  )
-}
+  );
+};
 
 /**
  * By default, a chip select permits only a single selection. For uncontrolled chip selects, this
@@ -65,14 +66,14 @@ export const Example = meta.story({
         Watermelons
       </ChipSelect.Option>,
     ],
-    flow: 'wrap',
-    form: 'my-form',
+    flow: "wrap",
+    form: "my-form",
     multiple: false,
-    name: 'foo',
-    overflow: 'visible',
-    size: 'small',
+    name: "foo",
+    overflow: "visible",
+    size: "small",
   },
-})
+});
 
 /**
  * Multi-select behaviour (like a standard checkbox group) can be enabled using `multiple`. This
@@ -80,11 +81,11 @@ export const Example = meta.story({
  * a controlled (e.g. Formik) or uncontrolled (e.g. React Hook Form) approach.
  */
 export const MultiSelect = Example.extend({
-  name: 'Multi-select',
+  name: "Multi-select",
   args: {
     multiple: true,
   },
-})
+});
 
 /**
  * When controlling the checked state of each option, the consumer is responsible for managing
@@ -93,40 +94,50 @@ export const MultiSelect = Example.extend({
  */
 export const Controlled = Example.extend({
   argTypes: { children: { control: false } },
-  parameters: { docs: { source: { type: 'code' } } },
+  parameters: { docs: { source: { type: "code" } } },
 
   render: () => {
     // Our controlled state. We start with the option whose value is "1" checked.
-    const [state, setState] = useState(['1'])
+    const [state, setState] = useState(["1"]);
 
     const onChange: ChangeEventHandler<HTMLInputElement> = (event) => {
       // NOTE: we get a reference to the current target outside of our state setter function
       // because the state setter may be called after the synthetic event has been cleaned up
       // and it's reference to the current target lost.
-      const option = event.currentTarget
+      const option = event.currentTarget;
 
       // `determineNextControlledState` does the heavy lifting for us, returning the appropriate
       // next state given the current state and the option whose checked state has changed.
-      setState((state) => ChipSelect.determineNextControlledState(state, option))
-    }
+      setState((state) => ChipSelect.determineNextControlledState(state, option));
+    };
 
     // Since we're not using a form, we don't need to specify a name for each chip; rather,
     // we're directly controlling each chip's checked state.
     return (
       <ChipSelect size="small">
-        <ChipSelect.Option checked={state.includes('1')} icon={<StarIcon />} onChange={onChange} value="1" />
-        <ChipSelect.Option checked={state.includes('2')} icon={<StarIcon />} onChange={onChange} value="2" />
+        <ChipSelect.Option
+          checked={state.includes("1")}
+          icon={<StarIcon />}
+          onChange={onChange}
+          value="1"
+        />
+        <ChipSelect.Option
+          checked={state.includes("2")}
+          icon={<StarIcon />}
+          onChange={onChange}
+          value="2"
+        />
       </ChipSelect>
-    )
+    );
   },
-})
+});
 
 /**
  * By default, chips will wrap to other lines if there is insufficient space.
  */
 export const Wrapping = Example.extend({
   decorators: [useNarrowParentDecorator],
-})
+});
 
 /**
  * The default wrapping behaviour can be overridden using `flow="nowrap"`. This can be useful at
@@ -134,20 +145,20 @@ export const Wrapping = Example.extend({
  */
 export const NoWrapping = Example.extend({
   args: {
-    flow: 'nowrap',
+    flow: "nowrap",
   },
   decorators: [useNarrowParentDecorator],
-})
+});
 
 /**
  * When wrapping is disabled, it will often be useful to allow the chip group to scroll horizontally.
  */
 export const Overflow = NoWrapping.extend({
   args: {
-    overflow: 'auto',
+    overflow: "auto",
   },
   decorators: [useNarrowParentDecorator],
-})
+});
 
 /**
  * Whether wrapping or scrolling is used, chips will size themselves appropriately based on the
@@ -190,10 +201,10 @@ export const ChipSizing = Example.extend({
       </ChipSelect.Option>,
     ],
 
-    flow: 'wrap',
+    flow: "wrap",
   },
   decorators: [useNarrowParentDecorator],
-})
+});
 
 /**
  * When `required` is true, users cannot deselect all options — at least one must always remain
@@ -206,4 +217,4 @@ export const Required = Example.extend({
   args: {
     required: true,
   },
-})
+});

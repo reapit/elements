@@ -1,4 +1,4 @@
-import NoteSvg from './svgs/note.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import NoteSvg from "./svgs/note.svg?react";
 
-export const NoteIcon = makeIcon('NoteIcon', NoteSvg)
+export const NoteIcon = makeIcon("NoteIcon", NoteSvg);

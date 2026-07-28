@@ -1,18 +1,18 @@
-import { cx } from '@linaria/core'
-import { ElTopBarNavItemLabel, elTopBarNavItem } from './styles'
+import { cx } from "@linaria/core";
+import type { AnchorHTMLAttributes } from "react";
 
-import type { AnchorHTMLAttributes } from 'react'
+import { ElTopBarNavItemLabel, elTopBarNavItem } from "./styles";
 
 export namespace TopBarNavItem {
   export interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
     /**
      * Whether the nav item represents the current page.
      */
-    'aria-current': 'page' | false
+    "aria-current": "page" | false;
     /**
      * The URL to navigate to when this item is activated.
      */
-    href: string
+    href: string;
   }
 }
 
@@ -36,10 +36,15 @@ export namespace TopBarNavItem {
  * }
  * ```
  */
-export function TopBarNavItem({ 'aria-current': ariaCurrent, children, className, ...rest }: TopBarNavItem.Props) {
+export function TopBarNavItem({
+  "aria-current": ariaCurrent,
+  children,
+  className,
+  ...rest
+}: TopBarNavItem.Props) {
   return (
     <a {...rest} aria-current={ariaCurrent} className={cx(elTopBarNavItem, className)}>
       <ElTopBarNavItemLabel>{children}</ElTopBarNavItemLabel>
     </a>
-  )
+  );
 }

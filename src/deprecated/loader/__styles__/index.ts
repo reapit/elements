@@ -1,7 +1,8 @@
-import { styled } from '@linaria/react'
-import { elIsFullPage } from '../../../styles/deprecated-states'
+import { styled } from "@linaria/react";
 
-const ANIM_TIME = 1.2
+import { elIsFullPage } from "../../../styles/deprecated-states";
+
+const ANIM_TIME = 1.2;
 
 /** @deprecated */
 export const ElLoaderContainer = styled.div`
@@ -14,14 +15,14 @@ export const ElLoaderContainer = styled.div`
     transform: translate(-50%, -50%);
     position: fixed;
   }
-`
+`;
 
 /** @deprecated */
 export const ElLoaderLabel = styled.p`
   margin-right: 0.75rem;
   font-size: 0.9375rem /* was --font-size-default */;
   color: var(--colour-text-secondary);
-`
+`;
 
 /** @deprecated */
 export const ElLoader = styled.div`
@@ -29,7 +30,7 @@ export const ElLoader = styled.div`
   background: var(--colour-fill-neutral-light);
   height: 3px;
   width: 80px;
-`
+`;
 
 /** @deprecated */
 export const ElLoaderMovingBar = styled.div`
@@ -51,4 +52,4 @@ export const ElLoaderMovingBar = styled.div`
       width: 0;
     }
   }
-`
+`;

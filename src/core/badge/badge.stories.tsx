@@ -1,29 +1,30 @@
-import preview from '#.storybook/preview'
-import { Badge } from './badge'
-import { badgeColours } from './styles'
-import { ChevronLeftIcon } from '#src/icons/chevron-left'
-import { ChevronRightIcon } from '#src/icons/chevron-right'
-import { StarIcon } from '#src/icons/star'
+import preview from "#.storybook/preview";
+import { ChevronLeftIcon } from "#src/icons/chevron-left";
+import { ChevronRightIcon } from "#src/icons/chevron-right";
+import { StarIcon } from "#src/icons/star";
+
+import { Badge } from "./badge";
+import { badgeColours } from "./styles";
 
 const meta = preview.meta({
-  title: 'Indicators and status/Badge',
+  title: "Indicators and status/Badge",
   component: Badge,
   argTypes: {
     children: {
-      control: 'text',
+      control: "text",
     },
     colour: {
-      control: 'select',
+      control: "select",
       options: badgeColours,
       table: {
         type: {
-          summary: 'union',
+          summary: "union",
         },
       },
     },
     iconLeft: {
-      control: 'radio',
-      options: ['None', 'ChevronLeft', 'Star'],
+      control: "radio",
+      options: ["None", "ChevronLeft", "Star"],
       mapping: {
         None: null,
         ChevronLeft: <ChevronLeftIcon />,
@@ -31,8 +32,8 @@ const meta = preview.meta({
       },
     },
     iconRight: {
-      control: 'radio',
-      options: ['None', 'ChevronRight', 'Star'],
+      control: "radio",
+      options: ["None", "ChevronRight", "Star"],
       mapping: {
         None: null,
         ChevronRight: <ChevronRightIcon />,
@@ -40,29 +41,29 @@ const meta = preview.meta({
       },
     },
     variant: {
-      control: 'select',
-      options: ['default', 'reversed'],
+      control: "select",
+      options: ["default", "reversed"],
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
-    'aria-label': '',
-    children: 'Label',
-    colour: 'neutral',
-    iconLeft: 'None',
-    iconRight: 'None',
-    variant: 'default',
+    "aria-label": "",
+    children: "Label",
+    colour: "neutral",
+    iconLeft: "None",
+    iconRight: "None",
+    variant: "default",
   },
-})
+});
 
 /**
  * There are two variants of the badge: `default` and `reversed`.
  */
 export const Variants = Example.extend({
   args: {
-    variant: 'reversed',
+    variant: "reversed",
   },
   argTypes: {
     iconLeft: {
@@ -77,7 +78,7 @@ export const Variants = Example.extend({
   },
   decorators: [
     (Story: any) => (
-      <div style={{ display: 'flex', gap: 'var(--spacing-6)' }}>
+      <div style={{ display: "flex", gap: "var(--spacing-6)" }}>
         <Story />
       </div>
     ),
@@ -88,19 +89,19 @@ export const Variants = Example.extend({
       <Badge {...args} variant="reversed" />
     </>
   ),
-})
+});
 
 /**
  * Icons can be placed on the left or right side of the badge, regardless of the badge's variant.
  */
 export const Icons = Example.extend({
   args: {
-    iconLeft: 'ChevronLeft',
-    iconRight: 'ChevronRight',
+    iconLeft: "ChevronLeft",
+    iconRight: "ChevronRight",
   },
   decorators: [
     (Story: any) => (
-      <div style={{ display: 'flex', gap: 'var(--spacing-6)' }}>
+      <div style={{ display: "flex", gap: "var(--spacing-6)" }}>
         <Story />
       </div>
     ),
@@ -112,7 +113,7 @@ export const Icons = Example.extend({
       <Badge {...args} />
     </>
   ),
-})
+});
 
 /**
  * When there is not enough space available, an ARIA label can be provided in place of the visual label. In this case,
@@ -120,11 +121,11 @@ export const Icons = Example.extend({
  * not both.
  */
 export const IconOnly = Example.extend({
-  name: 'Icon-only',
+  name: "Icon-only",
   args: {
-    'aria-label': 'Label',
+    "aria-label": "Label",
     children: null,
-    iconLeft: 'Star',
+    iconLeft: "Star",
   },
   argTypes: {
     variant: {
@@ -133,7 +134,7 @@ export const IconOnly = Example.extend({
   },
   decorators: [
     (Story: any) => (
-      <div style={{ display: 'flex', gap: 'var(--spacing-6)' }}>
+      <div style={{ display: "flex", gap: "var(--spacing-6)" }}>
         <Story />
       </div>
     ),
@@ -144,17 +145,17 @@ export const IconOnly = Example.extend({
       <Badge {...args} variant="reversed" />
     </>
   ),
-})
+});
 
 /**
  * A number of semantic colours are available for the badge. The colour can be changed by setting the `colour` prop.
  */
 export const Colours = Example.extend({
   args: {
-    colour: 'danger',
-    iconLeft: 'Star',
+    colour: "danger",
+    iconLeft: "Star",
   },
-})
+});
 
 /**
  * If there is insufficient space available for the badge's label to be fully displayed, it will
@@ -162,13 +163,13 @@ export const Colours = Example.extend({
  */
 export const Overflow = Example.extend({
   args: {
-    children: 'A very long label that will overflow',
+    children: "A very long label that will overflow",
   },
   decorators: [
     (Story: any) => (
-      <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', width: '100px' }}>
+      <div style={{ boxSizing: "content-box", border: "1px solid #FA00FF", width: "100px" }}>
         <Story />
       </div>
     ),
   ],
-})
+});

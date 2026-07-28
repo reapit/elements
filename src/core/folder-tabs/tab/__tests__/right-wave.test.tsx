@@ -1,8 +1,9 @@
-import { render } from '@testing-library/react'
-import RightWaveSvg from '../right-wave.svg?react'
+import { render } from "@testing-library/react";
 
-test('right mask matches snapshot', () => {
-  const { asFragment } = render(<RightWaveSvg />)
+import RightWaveSvg from "../right-wave.svg?react";
+
+test("right mask matches snapshot", () => {
+  const { asFragment } = render(<RightWaveSvg />);
   expect(asFragment()).toMatchInlineSnapshot(`
     <DocumentFragment>
       <svg
@@ -17,5 +18,5 @@ test('right mask matches snapshot', () => {
         />
       </svg>
     </DocumentFragment>
-  `)
-})
+  `);
+});

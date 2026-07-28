@@ -1,15 +1,15 @@
-import { BreadcrumbItem } from './item'
-import { BreadcrumbLink } from './link'
-import { ElBreadcrumbs, ElBreadcrumbsList } from './styles'
+import type { HTMLAttributes } from "react";
 
-import type { HTMLAttributes } from 'react'
+import { BreadcrumbItem } from "./item";
+import { BreadcrumbLink } from "./link";
+import { ElBreadcrumbs, ElBreadcrumbsList } from "./styles";
 
 export namespace Breadcrumbs {
   export interface Props extends HTMLAttributes<HTMLElement> {
     /**
      * Force the breadcrumb trail to grow to its maximum content width, or to 100% of its parent container.
      */
-    overflow?: 'scroll' | 'truncate'
+    overflow?: "scroll" | "truncate";
   }
 }
 
@@ -30,11 +30,11 @@ export function Breadcrumbs({ children, overflow, ...rest }: Breadcrumbs.Props) 
     <ElBreadcrumbs {...rest} data-overflow={overflow}>
       <ElBreadcrumbsList>{children}</ElBreadcrumbsList>
     </ElBreadcrumbs>
-  )
+  );
 }
 
-Breadcrumbs.Item = BreadcrumbItem
-Breadcrumbs.Link = BreadcrumbLink
+Breadcrumbs.Item = BreadcrumbItem;
+Breadcrumbs.Link = BreadcrumbLink;
 
 /** @deprecated use Breadcrumbs.Props instead */
-export type BreadcrumbsProps = Breadcrumbs.Props
+export type BreadcrumbsProps = Breadcrumbs.Props;

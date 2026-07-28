@@ -1,25 +1,26 @@
-import preview from '#.storybook/preview'
-import { ComboboxCardDefaultContent } from './card-default-content'
-import { SupplementaryInfo } from '#src/core/supplementary-info'
+import preview from "#.storybook/preview";
+import { SupplementaryInfo } from "#src/core/supplementary-info";
+
+import { ComboboxCardDefaultContent } from "./card-default-content";
 
 const meta = preview.meta({
-  title: 'Utils/Combobox/CardDefaultContent',
+  title: "Utils/Combobox/CardDefaultContent",
   component: ComboboxCardDefaultContent,
   argTypes: {
     children: {
-      control: 'text',
+      control: "text",
     },
     additionalInfo: {
-      control: 'radio',
-      options: ['None', 'One line', 'Two lines'],
+      control: "radio",
+      options: ["None", "One line", "Two lines"],
       mapping: {
         None: undefined,
-        'One line': (
+        "One line": (
           <SupplementaryInfo>
             <SupplementaryInfo.Item>Supplementary info</SupplementaryInfo.Item>
           </SupplementaryInfo>
         ),
-        'Two lines': [
+        "Two lines": [
           <SupplementaryInfo key="line-1">
             <SupplementaryInfo.Item>Supplementary info</SupplementaryInfo.Item>
           </SupplementaryInfo>,
@@ -30,11 +31,11 @@ const meta = preview.meta({
       },
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
-    children: 'Selected item label',
-    additionalInfo: 'None',
+    children: "Selected item label",
+    additionalInfo: "None",
   },
-})
+});

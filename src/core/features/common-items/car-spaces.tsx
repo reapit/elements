@@ -1,12 +1,13 @@
-import { CarIcon } from '#src/icons/car'
-import { FeatureItem } from '../item'
+import type { ReactNode } from "react";
 
-import type { ReactNode } from 'react'
+import { CarIcon } from "#src/icons/car";
+
+import { FeatureItem } from "../item";
 
 export namespace FeaturesCarSpacesItem {
   export interface Props {
     /** The number of car spaces in the property. */
-    value: ReactNode
+    value: ReactNode;
   }
 }
 
@@ -14,8 +15,8 @@ export namespace FeaturesCarSpacesItem {
  * A feature item that represents the number of car spaces in a property.
  */
 export function FeaturesCarSpacesItem({ value }: FeaturesCarSpacesItem.Props) {
-  return <FeatureItem icon={<CarIcon />} label="Car spaces" value={value} />
+  return <FeatureItem icon={<CarIcon />} label="Car spaces" value={value} />;
 }
 
 /** @deprecated Use FeaturesCarSpacesItem.Props instead */
-export type FeaturesCarSpacesItemProps = FeaturesCarSpacesItem.Props
+export type FeaturesCarSpacesItemProps = FeaturesCarSpacesItem.Props;

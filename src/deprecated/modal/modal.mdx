@@ -1,7 +1,7 @@
-import { Meta, Story, Canvas, Controls } from '@storybook/addon-docs/blocks'
-import { Modal } from './index'
-import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
-import * as ModalStories from './modal.stories'
+import { Meta, Story, Canvas, Controls } from "@storybook/addon-docs/blocks";
+import { Modal } from "./index";
+import { RenderHtmlMarkup } from "../../storybook/render-html-markup";
+import * as ModalStories from "./modal.stories";
 
 <Meta of={ModalStories} />
 
@@ -37,10 +37,10 @@ While both `Modal` and `Dialog` components are used to display overlay content, 
 ### Before (Modal)
 
 ```tsx
-import { Modal } from '@reapit/elements/deprecated/modal'
+import { Modal } from "@reapit/elements/deprecated/modal";
 
 const MyModal = () => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
@@ -49,7 +49,11 @@ const MyModal = () => {
           Open Modal
         </Button>
       </ButtonGroup>
-      <Modal isOpen={isOpen} onModalClose={() => setIsOpen(false)} title="Welcome to the demo modal">
+      <Modal
+        isOpen={isOpen}
+        onModalClose={() => setIsOpen(false)}
+        title="Welcome to the demo modal"
+      >
         <TextBase>Here's some nice content for the inside of the modal.</TextBase>
         <ButtonGroup>
           <Button intent="secondary" onClick={() => setIsOpen(false)}>
@@ -61,17 +65,17 @@ const MyModal = () => {
         </ButtonGroup>
       </Modal>
     </>
-  )
-}
+  );
+};
 ```
 
 ### After (Dialog)
 
 ```tsx
-import { Dialog } from '@reapit/elements/core/dialog'
+import { Dialog } from "@reapit/elements/core/dialog";
 
 const MyDialog = () => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
@@ -99,8 +103,8 @@ const MyDialog = () => {
         </Dialog.Footer>
       </Dialog>
     </>
-  )
-}
+  );
+};
 ```
 
 ## Styles Only Usage
@@ -113,7 +117,7 @@ This class must be applied on two elements, `div.el-modal-bg` and also `div.el-m
 
 By default, the modal fills it's current container so you will likely wish to place it as high as possible up the DOM tree to achive an overlay effect.
 
-<Canvas of={ModalStories.StylesOnlyUsage} story={{ height: '300px' }} />
+<Canvas of={ModalStories.StylesOnlyUsage} story={{ height: "300px" }} />
 
 <RenderHtmlMarkup of={ModalStories.StylesOnlyUsage} />
 
@@ -129,4 +133,4 @@ Props available for the React version of the component;
 
 <Controls />
 
-<Canvas of={ModalStories.ReactUsage} story={{ height: '300px' }} />
+<Canvas of={ModalStories.ReactUsage} story={{ height: "300px" }} />

@@ -1,19 +1,19 @@
-import { BottomBarItemBase } from './item-base'
+import type { AnchorHTMLAttributes, ReactNode } from "react";
 
-import type { AnchorHTMLAttributes, ReactNode } from 'react'
+import { BottomBarItemBase } from "./item-base";
 
 export namespace BottomBarItemAnchor {
   export interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
     /** Whether the item represents the current page. */
-    'aria-current': 'page' | false
+    "aria-current": "page" | false;
     /** The visible name of the item. */
-    children: string
+    children: string;
     /** Optional badge to be displayed on the nav item */
-    hasBadge?: boolean
+    hasBadge?: boolean;
     /** The URL to navigate to when the item is clicked. */
-    href: string
+    href: string;
     /** The item's icon. */
-    icon: ReactNode
+    icon: ReactNode;
   }
 }
 
@@ -25,5 +25,5 @@ export namespace BottomBarItemAnchor {
  * list item (`<li>`) to ensure good semantics and accessibility when used with `BottomBar`.
  */
 export function BottomBarItemAnchor(props: BottomBarItemAnchor.Props) {
-  return <BottomBarItemBase {...props} as="a" />
+  return <BottomBarItemBase {...props} as="a" />;
 }

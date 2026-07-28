@@ -1,50 +1,50 @@
-import StyleDictionary from 'style-dictionary'
+import StyleDictionary from "style-dictionary";
+import type { Config } from "style-dictionary";
 
-import type { Config } from 'style-dictionary'
-import type { Theme } from './types'
+import type { Theme } from "./types";
 
-const themes = ['payprop', 'reapit'] as const satisfies Theme[]
+const themes = ["payprop", "reapit"] as const satisfies Theme[];
 
 // Maps the lowercase theme name to the title-cased segment used in the Semantics token filenames.
 // e.g. 'payprop' → 'Semantics.PayProp.tokens.json', 'reapit' → 'Semantics.Reapit.tokens.json'
 const themeFileSegment: Record<Theme, string> = {
-  payprop: 'PayProp',
-  reapit: 'Reapit',
-}
+  payprop: "PayProp",
+  reapit: "Reapit",
+};
 
 StyleDictionary.registerTransform({
-  name: 'name/custom-format',
-  type: 'name',
+  name: "name/custom-format",
+  type: "name",
   transform: (token) => {
     return (
       token.path
         .map((variable) => {
-          if (variable.includes('_')) {
+          if (variable.includes("_")) {
             // Preserve existing underscores (_)
-            return variable
+            return variable;
           }
           // Convert camelCase to kebab-case
-          return variable.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()
+          return variable.replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase();
         })
         // Use `-` as the separator between segments
-        .join('-')
-    )
+        .join("-")
+    );
   },
-})
+});
 
 function getConfig(themeName: Theme): Config {
   return {
     log: {
-      verbosity: 'verbose',
+      verbosity: "verbose",
     },
     source: [
-      './src/tokens/effect.styles.tokens.json',
-      './src/tokens/Primitives.Value.tokens.json',
+      "./src/tokens/effect.styles.tokens.json",
+      "./src/tokens/Primitives.Value.tokens.json",
       `./src/tokens/Semantics.${themeFileSegment[themeName]}.tokens.json`,
     ],
     platforms: {
       css: {
-        buildPath: 'src/tokens/dist/',
+        buildPath: "src/tokens/dist/",
         files: [
           {
             destination: `${themeName}.css`,
@@ -53,30 +53,33 @@ function getConfig(themeName: Theme): Config {
               // instead of referencing the primitives. This is important because we do not want to expose the
               // primitives to consumers, (1) to prevent their misuse, and (2) to minimise the number of CSS variables
               // at play.
-              const isSemanticToken = token.filePath.includes('Semantics')
+              const isSemanticToken = token.filePath.includes("Semantics");
 
               // Effect tokens (e.g. shadows) are theme-agnostic and stored separately from the semantic files.
-              const isEffectToken = token.filePath.includes('effect.styles')
+              const isEffectToken = token.filePath.includes("effect.styles");
 
               // Further, we only want to include tokens that are not internal. This is because internal tokens are
               // for use in Figma only.
-              const isInternalToken = token.path.some((pathSegment) => pathSegment === 'internal')
+              const isInternalToken = token.path.some((pathSegment) => pathSegment === "internal");
 
-              return (isSemanticToken || isEffectToken) && !isInternalToken
+              return (isSemanticToken || isEffectToken) && !isInternalToken;
             },
-            format: 'css/variables',
+            format: "css/variables",
           },
         ],
         options: {
-          selector: themeName === 'reapit' ? ':root, :root[data-theme="reapit"]' : `:root[data-theme="${themeName}"]`,
+          selector:
+            themeName === "reapit"
+              ? ':root, :root[data-theme="reapit"]'
+              : `:root[data-theme="${themeName}"]`,
         },
-        transforms: ['name/custom-format', 'attribute/cti', 'shadow/css/shorthand'],
+        transforms: ["name/custom-format", "attribute/cti", "shadow/css/shorthand"],
       },
     },
-  }
+  };
 }
 
 themes.map(async (theme) => {
-  const sd = new StyleDictionary(getConfig(theme))
-  sd.buildAllPlatforms()
-})
+  const sd = new StyleDictionary(getConfig(theme));
+  sd.buildAllPlatforms();
+});

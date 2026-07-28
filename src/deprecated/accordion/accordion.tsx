@@ -1,8 +1,11 @@
-import { Dispatch, FC, Fragment, SetStateAction, useState, useId } from 'react'
-import { cx } from '@linaria/core'
-import { elIsActive } from '../../styles/deprecated-states'
-import { handleKeyboardEvent } from '../../storybook/handle-keyboard-event'
-import { DeprecatedAccordionProps } from './types'
+import { cx } from "@linaria/core";
+import { Dispatch, FC, Fragment, SetStateAction, useState, useId } from "react";
+
+import { ChevronDownIcon } from "#src/icons/chevron-down";
+import { ChevronUpIcon } from "#src/icons/chevron-up";
+
+import { handleKeyboardEvent } from "../../storybook/handle-keyboard-event";
+import { elIsActive } from "../../styles/deprecated-states";
 import {
   DeprecatedAccordionContainer,
   DeprecatedAccordionContent,
@@ -10,48 +13,57 @@ import {
   DeprecatedAccordionTitle,
   DeprecatedAccordionTitleContent,
   DeprecatedAccordionTitleContentWrapper,
-} from './accordion.atoms'
-import { ChevronUpIcon } from '#src/icons/chevron-up'
-import { ChevronDownIcon } from '#src/icons/chevron-down'
+} from "./accordion.atoms";
+import { DeprecatedAccordionProps } from "./types";
 
 export const handleSetOpenItem =
-  (openItem: number, setOpenItem: Dispatch<SetStateAction<number | null>>, onClick?: () => void) => () => {
+  (openItem: number, setOpenItem: Dispatch<SetStateAction<number | null>>, onClick?: () => void) =>
+  () => {
     setOpenItem((currentItem) => {
       if (onClick) {
-        onClick()
+        onClick();
       }
 
       if (currentItem === openItem) {
-        return null
+        return null;
       }
-      return openItem
-    })
-  }
+      return openItem;
+    });
+  };
 
 /** @deprecated */
-export const DeprecatedAccordion: FC<DeprecatedAccordionProps> = ({ items, className, ...rest }) => {
-  const [openItem, setOpenItem] = useState<number | null>(null)
-  const itemContentId = useId()
-  const itemButtonId = useId()
+export const DeprecatedAccordion: FC<DeprecatedAccordionProps> = ({
+  items,
+  className,
+  ...rest
+}) => {
+  const [openItem, setOpenItem] = useState<number | null>(null);
+  const itemContentId = useId();
+  const itemButtonId = useId();
 
   return (
     <DeprecatedAccordionContainer className={className} {...rest}>
       {items.map((item, index) => (
         <Fragment key={index}>
           <DeprecatedAccordionItem
-            id={[itemButtonId, index].join('-')}
-            aria-controls={[itemContentId, index].join('-')}
+            id={[itemButtonId, index].join("-")}
+            aria-controls={[itemContentId, index].join("-")}
             aria-label="Accordion item, hit return to expand content"
             role="button"
             tabIndex={0}
             onClick={handleSetOpenItem(index, setOpenItem, item.onClick)}
-            onKeyDown={handleKeyboardEvent('Enter', handleSetOpenItem(index, setOpenItem, item.onClick))}
+            onKeyDown={handleKeyboardEvent(
+              "Enter",
+              handleSetOpenItem(index, setOpenItem, item.onClick),
+            )}
           >
             <DeprecatedAccordionTitle>{item.title}</DeprecatedAccordionTitle>
             <DeprecatedAccordionTitleContentWrapper>
               {item.titleItems &&
                 item.titleItems.map((titleItem, innerIndex) => (
-                  <DeprecatedAccordionTitleContent key={innerIndex}>{titleItem}</DeprecatedAccordionTitleContent>
+                  <DeprecatedAccordionTitleContent key={innerIndex}>
+                    {titleItem}
+                  </DeprecatedAccordionTitleContent>
                 ))}
               <DeprecatedAccordionTitleContent>
                 {openItem === index ? (
@@ -64,8 +76,8 @@ export const DeprecatedAccordion: FC<DeprecatedAccordionProps> = ({ items, class
           </DeprecatedAccordionItem>
           <DeprecatedAccordionContent
             role="region"
-            aria-labelledby={[itemButtonId, index].join('-')}
-            id={[itemContentId, index].join('-')}
+            aria-labelledby={[itemButtonId, index].join("-")}
+            id={[itemContentId, index].join("-")}
             aria-expanded={openItem === index}
             className={cx(openItem === index && elIsActive)}
           >
@@ -74,5 +86,5 @@ export const DeprecatedAccordion: FC<DeprecatedAccordionProps> = ({ items, class
         </Fragment>
       ))}
     </DeprecatedAccordionContainer>
-  )
-}
+  );
+};

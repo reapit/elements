@@ -1,4 +1,4 @@
-import InfoOutlineSvg from './svgs/info-outline.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import InfoOutlineSvg from "./svgs/info-outline.svg?react";
 
-export const InfoOutlineIcon = makeIcon('InfoOutlineIcon', InfoOutlineSvg)
+export const InfoOutlineIcon = makeIcon("InfoOutlineIcon", InfoOutlineSvg);

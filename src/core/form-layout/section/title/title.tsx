@@ -1,15 +1,15 @@
-import { cx } from '@linaria/core'
-import { useFormLayoutContext } from '../../context'
-import { elFormLayoutSectionTitle } from './styles'
+import { cx } from "@linaria/core";
+import type { HTMLAttributes, ReactNode } from "react";
 
-import type { HTMLAttributes, ReactNode } from 'react'
+import { useFormLayoutContext } from "../../context";
+import { elFormLayoutSectionTitle } from "./styles";
 
 export namespace FormLayoutSectionTitle {
   export interface Props extends HTMLAttributes<HTMLHeadingElement> {
     /** The heading level to render as. Defaults to `'h2'`. */
-    as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+    as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
     /** The section title text. */
-    children: ReactNode
+    children: ReactNode;
   }
 }
 
@@ -18,19 +18,19 @@ export namespace FormLayoutSectionTitle {
  * the heading level to fit the document outline.
  */
 export function FormLayoutSectionTitle({
-  as: Element = 'h2',
+  as: Element = "h2",
   children,
   className,
   id,
   ...rest
 }: FormLayoutSectionTitle.Props) {
-  const { titleId } = useFormLayoutContext()
+  const { titleId } = useFormLayoutContext();
 
   return (
     <Element {...rest} id={id ?? titleId} className={cx(elFormLayoutSectionTitle, className)}>
       {children}
     </Element>
-  )
+  );
 }
 
-FormLayoutSectionTitle.displayName = 'FormLayout.SectionTitle'
+FormLayoutSectionTitle.displayName = "FormLayout.SectionTitle";

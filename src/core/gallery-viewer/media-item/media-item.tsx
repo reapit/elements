@@ -1,12 +1,12 @@
-import { cx } from '@linaria/core'
-import { elGalleryViewerMediaItem } from './styles'
+import { cx } from "@linaria/core";
+import type { HTMLAttributes } from "react";
 
-import type { HTMLAttributes } from 'react'
+import { elGalleryViewerMediaItem } from "./styles";
 
 export namespace GalleryViewerMediaItem {
   export interface Props extends HTMLAttributes<HTMLElement> {
     /** Unique identifier for this media item. Used by the scroll observer to report which item is visible. */
-    id: string
+    id: string;
   }
 }
 
@@ -15,5 +15,5 @@ export namespace GalleryViewerMediaItem {
  * with an optional caption. The media content itself will usually be an `Image` or `Video`.
  */
 export function GalleryViewerMediaItem({ className, id, ...rest }: GalleryViewerMediaItem.Props) {
-  return <figure {...rest} className={cx(elGalleryViewerMediaItem, className)} id={id} />
+  return <figure {...rest} className={cx(elGalleryViewerMediaItem, className)} id={id} />;
 }

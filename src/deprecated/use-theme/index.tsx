@@ -1,16 +1,16 @@
 /* istanbul ignore file */
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from "react";
 
 /** @deprecated */
 export interface UseThemeInterface {
-  toggleTheme: (theme: string) => void
-  currentTheme: string
+  toggleTheme: (theme: string) => void;
+  currentTheme: string;
 }
 
 /** @deprecated */
-export const THEME_BODY_CLASS = 'reapit-theme'
+export const THEME_BODY_CLASS = "reapit-theme";
 /** @deprecated */
-export const THEME_LOCAL_STOREAGE_KEY = `reapit-foundations-${THEME_BODY_CLASS}`
+export const THEME_LOCAL_STOREAGE_KEY = `reapit-foundations-${THEME_BODY_CLASS}`;
 
 // TODO determine dark theme on default by using media selectors?
 // (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)
@@ -23,48 +23,48 @@ export const THEME_LOCAL_STOREAGE_KEY = `reapit-foundations-${THEME_BODY_CLASS}`
  * @deprecated
  */
 export const useDeprecatedTheme = ({
-  initialSelection = 'default',
+  initialSelection = "default",
 }: {
-  initialSelection?: string
+  initialSelection?: string;
 }): UseThemeInterface => {
   // Initial setting of theme from localStorage
   useEffect(() => {
     if (localStorage) {
-      const storedValue = localStorage.getItem(`reapit-foundations-${THEME_BODY_CLASS}`)
-      if (!storedValue) return
+      const storedValue = localStorage.getItem(`reapit-foundations-${THEME_BODY_CLASS}`);
+      if (!storedValue) return;
 
-      const json = JSON.parse(storedValue)
-      const initialSelection = json.theme
+      const json = JSON.parse(storedValue);
+      const initialSelection = json.theme;
 
-      if (typeof initialSelection === 'string') {
-        setTheme(initialSelection)
+      if (typeof initialSelection === "string") {
+        setTheme(initialSelection);
       }
     }
-  }, [])
+  }, []);
 
-  const [theme, setTheme] = useState<string>(initialSelection)
-  const themeRef = useRef<string>(initialSelection)
+  const [theme, setTheme] = useState<string>(initialSelection);
+  const themeRef = useRef<string>(initialSelection);
 
   // When theme is changed, toggle body classes and reset localStorage value
   useEffect(() => {
-    const body = document.getElementsByTagName('body')
+    const body = document.getElementsByTagName("body");
 
     if (body.length >= 1) {
-      body[0].classList.add(`${THEME_BODY_CLASS}-${theme}`)
+      body[0].classList.add(`${THEME_BODY_CLASS}-${theme}`);
 
       if (themeRef.current) {
-        body[0].classList.remove(`${THEME_BODY_CLASS}-${themeRef.current}`)
+        body[0].classList.remove(`${THEME_BODY_CLASS}-${themeRef.current}`);
       }
     }
 
-    themeRef.current = theme
-    if (localStorage) localStorage.setItem(THEME_LOCAL_STOREAGE_KEY, JSON.stringify({ theme }))
-  }, [theme])
+    themeRef.current = theme;
+    if (localStorage) localStorage.setItem(THEME_LOCAL_STOREAGE_KEY, JSON.stringify({ theme }));
+  }, [theme]);
 
-  const toggleTheme = (theme) => setTheme(theme)
+  const toggleTheme = (theme) => setTheme(theme);
 
   return {
     toggleTheme,
     currentTheme: theme,
-  }
-}
+  };
+};

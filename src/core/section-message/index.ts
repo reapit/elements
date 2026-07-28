@@ -1,1 +1,1 @@
-export { SectionMessage } from './section-message'
+export { SectionMessage } from "./section-message";

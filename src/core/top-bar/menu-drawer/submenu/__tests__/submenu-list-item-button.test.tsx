@@ -1,13 +1,14 @@
-import { render, screen } from '@testing-library/react'
-import { TopBarMenuDrawerSubmenuListItemButton } from '../submenu-list-item-button'
+import { render, screen } from "@testing-library/react";
 
-test('wraps children in a list item', () => {
+import { TopBarMenuDrawerSubmenuListItemButton } from "../submenu-list-item-button";
+
+test("wraps children in a list item", () => {
   render(
     <ul>
       <TopBarMenuDrawerSubmenuListItemButton>Test</TopBarMenuDrawerSubmenuListItemButton>
     </ul>,
-  )
+  );
 
-  const button = screen.getByRole('button')
-  expect(button.parentElement?.tagName).toBe('LI')
-})
+  const button = screen.getByRole("button");
+  expect(button.parentElement?.tagName).toBe("LI");
+});

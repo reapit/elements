@@ -47,10 +47,10 @@ yarn dlx @reapit/elements@beta codemod apply upgrade-deprecated-button src/ --fa
 
 ```tsx
 // Before (with facade package @habio/design-system)
-import { DeprecatedButton } from '@habio/design-system/elements'
+import { DeprecatedButton } from "@habio/design-system/elements";
 
 // After running with --facade-package @habio/design-system
-import { Button } from '@habio/design-system/core/button'
+import { Button } from "@habio/design-system/core/button";
 ```
 
 ## Background
@@ -136,18 +136,18 @@ If your code uses `<DeprecatedIcon>` within a DeprecatedButton component, the co
 
 ```tsx
 // Before
-import { DeprecatedButton } from '@reapit/elements'
+import { DeprecatedButton } from "@reapit/elements";
 
 function MyComponent() {
-  return <DeprecatedButton iconLeft={<DeprecatedIcon icon="home" />}>Home</DeprecatedButton>
+  return <DeprecatedButton iconLeft={<DeprecatedIcon icon="home" />}>Home</DeprecatedButton>;
 }
 
 // After
-import { DeprecatedIcon } from '@reapit/elements'
-import { Button } from '@reapit/elements/core/button'
+import { DeprecatedIcon } from "@reapit/elements";
+import { Button } from "@reapit/elements/core/button";
 
 function MyComponent() {
-  return <Button iconLeft={<DeprecatedIcon icon="home" />}>Home</Button>
+  return <Button iconLeft={<DeprecatedIcon icon="home" />}>Home</Button>;
 }
 ```
 
@@ -157,11 +157,11 @@ function MyComponent() {
 
 ```tsx
 // Codemod output (works correctly at runtime):
-;<Button href="/home">Home</Button>
+<Button href="/home">Home</Button>;
 
 // Manual refinement (better type safety):
-import { AnchorButton } from '@reapit/elements/core/button'
-;<AnchorButton href="/home">Home</AnchorButton>
+import { AnchorButton } from "@reapit/elements/core/button";
+<AnchorButton href="/home">Home</AnchorButton>;
 ```
 
 **Dynamic Props**: Props set via spread operators or computed at runtime are not transformed:
@@ -176,14 +176,14 @@ const buttonProps = { isDisabled: true }
 
 ```typescript
 // Before
-jest.mock('@reapit/elements', () => ({
-  DeprecatedButton: 'DeprecatedButton',
-}))
+jest.mock("@reapit/elements", () => ({
+  DeprecatedButton: "DeprecatedButton",
+}));
 
 // After (manual update required)
-jest.mock('@reapit/elements/core/button', () => ({
-  Button: 'Button',
-}))
+jest.mock("@reapit/elements/core/button", () => ({
+  Button: "Button",
+}));
 ```
 
 ## Limitations
@@ -226,21 +226,21 @@ jest.mock('@reapit/elements/core/button', () => ({
 **Before:**
 
 ```tsx
-import { DeprecatedButton, DeprecatedButtonProps } from '@reapit/elements'
-import { DeprecatedIcon } from '@reapit/elements'
-import { useState } from 'react'
+import { DeprecatedButton, DeprecatedButtonProps } from "@reapit/elements";
+import { DeprecatedIcon } from "@reapit/elements";
+import { useState } from "react";
 
 interface Props extends DeprecatedButtonProps {
-  onConfirm: () => void
+  onConfirm: () => void;
 }
 
 export const DeleteButton: React.FC<Props> = ({ onConfirm, ...rest }) => {
-  const [isDeleting, setIsDeleting] = useState(false)
+  const [isDeleting, setIsDeleting] = useState(false);
 
   const handleClick = () => {
-    setIsDeleting(true)
-    onConfirm()
-  }
+    setIsDeleting(true);
+    onConfirm();
+  };
 
   return (
     <>
@@ -259,28 +259,28 @@ export const DeleteButton: React.FC<Props> = ({ onConfirm, ...rest }) => {
         Cancel
       </DeprecatedButton>
     </>
-  )
-}
+  );
+};
 ```
 
 **After:**
 
 ```tsx
-import { DeprecatedIcon } from '@reapit/elements'
-import { Button } from '@reapit/elements/core/button'
-import { useState } from 'react'
+import { DeprecatedIcon } from "@reapit/elements";
+import { Button } from "@reapit/elements/core/button";
+import { useState } from "react";
 
 interface Props extends Button.Props {
-  onConfirm: () => void
+  onConfirm: () => void;
 }
 
 export const DeleteButton: React.FC<Props> = ({ onConfirm, ...rest }) => {
-  const [isDeleting, setIsDeleting] = useState(false)
+  const [isDeleting, setIsDeleting] = useState(false);
 
   const handleClick = () => {
-    setIsDeleting(true)
-    onConfirm()
-  }
+    setIsDeleting(true);
+    onConfirm();
+  };
 
   return (
     <>
@@ -300,8 +300,8 @@ export const DeleteButton: React.FC<Props> = ({ onConfirm, ...rest }) => {
         Cancel
       </Button>
     </>
-  )
-}
+  );
+};
 ```
 
 ## Key API Differences

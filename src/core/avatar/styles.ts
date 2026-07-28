@@ -1,10 +1,11 @@
-import { font } from '#src/utils/font'
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
+
+import { font } from "#src/utils/font";
 
 interface ElAvatarProps {
-  'data-colour': 'default' | 'primary'
-  'data-shape': 'circle' | 'square'
-  'data-size': 'small' | 'medium'
+  "data-colour": "default" | "primary";
+  "data-shape": "circle" | "square";
+  "data-size": "small" | "medium";
 }
 
 export const ElAvatar = styled.span<ElAvatarProps>`
@@ -17,35 +18,35 @@ export const ElAvatar = styled.span<ElAvatarProps>`
     align-items: center;
 
     /** Colour styles */
-    &[data-colour='default'] {
+    &[data-colour="default"] {
       background: var(--colour-fill-neutral-medium);
       color: var(--colour-text-white);
     }
 
-    &[data-colour='primary'] {
+    &[data-colour="primary"] {
       background: var(--colour-fill-action-lightest);
       color: var(--colour-text-action);
     }
 
     /** Shape styles */
-    &[data-shape='circle'] {
+    &[data-shape="circle"] {
       border-radius: var(--border-radius-3xl);
     }
 
-    &[data-shape='square'] {
+    &[data-shape="square"] {
       border-radius: var(--border-radius-l);
 
-      &[data-size='small'] {
+      &[data-size="small"] {
         border-radius: var(--border-radius-m);
       }
     }
 
     /** Size styles */
-    &[data-size='small'] {
+    &[data-size="small"] {
       width: var(--size-8);
       height: var(--size-8);
 
-      ${font('2xs', 'bold')}
+      ${font("2xs", "bold")}
 
       svg {
         width: var(--icon_size-sm);
@@ -54,10 +55,10 @@ export const ElAvatar = styled.span<ElAvatarProps>`
     }
 
     &,
-    &[data-size='medium'] {
+    &[data-size="medium"] {
       width: var(--size-10);
       height: var(--size-10);
-      ${font('base', 'bold')}
+      ${font("base", "bold")}
 
       svg {
         width: var(--icon_size-md);
@@ -65,4 +66,4 @@ export const ElAvatar = styled.span<ElAvatarProps>`
       }
     }
   }
-`
+`;

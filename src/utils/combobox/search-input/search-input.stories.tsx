@@ -1,45 +1,48 @@
-import preview from '#.storybook/preview'
-import { ComboboxContext } from '../context'
-import { ComboboxPopupDialogContext } from '../popup-dialog/context'
-import { ComboboxSearchInput } from './search-input'
+import preview from "#.storybook/preview";
+
+import { ComboboxContext } from "../context";
+import { ComboboxPopupDialogContext } from "../popup-dialog/context";
+import { ComboboxSearchInput } from "./search-input";
 
 const meta = preview.meta({
-  title: 'Utils/Combobox/SearchInput',
+  title: "Utils/Combobox/SearchInput",
   component: ComboboxSearchInput,
   decorators: [
     (Story, { parameters }) => (
       <ComboboxContext.Provider
         value={{
-          comboboxId: 'button-id',
+          comboboxId: "button-id",
           disabled: false,
-          listboxId: 'listbox-id',
+          listboxId: "listbox-id",
           multiple: false,
-          popupId: 'popup-id',
+          popupId: "popup-id",
           required: false,
-          searchInputId: 'search-input-id',
-          size: 'medium',
+          searchInputId: "search-input-id",
+          size: "medium",
         }}
       >
-        <ComboboxPopupDialogContext.Provider value={{ hasSearch: true, variant: parameters.popupVariant ?? 'auto' }}>
+        <ComboboxPopupDialogContext.Provider
+          value={{ hasSearch: true, variant: parameters.popupVariant ?? "auto" }}
+        >
           <Story />
         </ComboboxPopupDialogContext.Provider>
       </ComboboxContext.Provider>
     ),
   ],
-})
+});
 
 /**
  * When the popup variant is popover, the search input uses the default bordered style.
  */
 export const Example = meta.story({
   args: {
-    'aria-label': 'Filter options',
-    placeholder: 'Search...',
+    "aria-label": "Filter options",
+    placeholder: "Search...",
   },
   parameters: {
-    popupVariant: 'popover',
+    popupVariant: "popover",
   },
-})
+});
 
 /**
  * When the popup variant is drawer, the search input automatically uses a borderless style
@@ -47,9 +50,9 @@ export const Example = meta.story({
  */
 export const Drawer = Example.extend({
   parameters: {
-    popupVariant: 'drawer',
+    popupVariant: "drawer",
   },
-})
+});
 
 /**
  * When the popup variant is auto, the input style adapts based on the viewport width.
@@ -57,6 +60,6 @@ export const Drawer = Example.extend({
  */
 export const Auto = Example.extend({
   parameters: {
-    popupVariant: 'auto',
+    popupVariant: "auto",
   },
-})
+});

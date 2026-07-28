@@ -1,1 +1,1 @@
-export * from './content-sizing'
+export * from "./content-sizing";

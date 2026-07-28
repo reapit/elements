@@ -1,7 +1,7 @@
-import { highlight } from './highlight'
-import { useEffect } from 'react'
+import { useEffect } from "react";
+import type { RefObject } from "react";
 
-import type { RefObject } from 'react'
+import { highlight } from "./highlight";
 
 /**
  * Highlights each occurrence of `query` within the text content of the element referenced by `ref`, using the
@@ -27,8 +27,8 @@ export function useCSSCustomHighlights(
 ) {
   useEffect(() => {
     if (ref.current) {
-      const cleanup = highlight(name, query, ref.current)
-      return cleanup
+      const cleanup = highlight(name, query, ref.current);
+      return cleanup;
     }
-  }, [name, ref, query])
+  }, [name, ref, query]);
 }

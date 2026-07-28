@@ -1,4 +1,4 @@
-import { css } from '@linaria/core'
+import { css } from "@linaria/core";
 
 export const elLineClampText = css`
   @layer elements.main {
@@ -10,7 +10,7 @@ export const elLineClampText = css`
     max-height: calc(1lh * var(--line-clamp));
     overflow: hidden;
 
-    &[data-is-clamped='true'] {
+    &[data-is-clamped="true"] {
       /* mask-image hides overflowed text and works with any background colour applied by ancestors.
        * We stack two linear gradients to achieve a smooth transition from transparent to black for
        * the last line of text. */
@@ -23,19 +23,19 @@ export const elLineClampText = css`
         linear-gradient(to top, transparent 1lh, black 1lh);
     }
 
-    &[data-white-space='normal'] {
+    &[data-white-space="normal"] {
       white-space: normal;
     }
 
-    &[data-white-space='pre-line'] {
+    &[data-white-space="pre-line"] {
       white-space: pre-line;
     }
 
-    &[data-white-space='pre-wrap'] {
+    &[data-white-space="pre-wrap"] {
       white-space: pre-wrap;
     }
   }
-`
+`;
 
 export const elLineClampDisclosureButton = css`
   @layer elements.main {
@@ -50,4 +50,4 @@ export const elLineClampDisclosureButton = css`
       display: none;
     }
   }
-`
+`;

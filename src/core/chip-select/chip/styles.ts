@@ -1,8 +1,9 @@
-import { font } from '#src/utils/font'
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
+
+import { font } from "#src/utils/font";
 
 interface ElChipSelectChipProps {
-  'data-size': 'small' | 'medium' | 'large'
+  "data-size": "small" | "medium" | "large";
 }
 
 export const ElChipSelectChip = styled.label<ElChipSelectChipProps>`
@@ -19,7 +20,8 @@ export const ElChipSelectChip = styled.label<ElChipSelectChipProps>`
     background: var(--colour-white);
 
     align-items: center;
-    border: var(--comp-interactive_chip-border-width) solid var(--comp-interactive_chip-colour-border-default);
+    border: var(--comp-interactive_chip-border-width) solid
+      var(--comp-interactive_chip-colour-border-default);
     border-radius: var(--comp-interactive_chip-border-radius);
     cursor: pointer;
 
@@ -63,20 +65,20 @@ export const ElChipSelectChip = styled.label<ElChipSelectChipProps>`
       color: var(--comp-interactive_chip-colour-text-hover-selected);
     }
 
-    &[data-size='small'] {
+    &[data-size="small"] {
       height: var(--size-8);
       padding-inline: var(--spacing-3);
     }
-    &[data-size='medium'] {
+    &[data-size="medium"] {
       height: var(--size-9);
       padding-inline: var(--spacing-4);
     }
-    &[data-size='large'] {
+    &[data-size="large"] {
       height: var(--size-10);
       padding-inline: var(--spacing-4);
     }
   }
-`
+`;
 
 export const ElChipSelectChipInput = styled.input`
   @layer elements.main {
@@ -92,7 +94,7 @@ export const ElChipSelectChipInput = styled.input`
     outline: none;
     border: 0;
   }
-`
+`;
 
 export const ElChipSelectChipIconContainer = styled.span`
   @layer elements.main {
@@ -107,12 +109,12 @@ export const ElChipSelectChipIconContainer = styled.span`
 
     color: var(--comp-interactive_chip-colour-icon-default-unselected);
 
-    [data-size='small'] &,
-    [data-size='medium'] & {
+    [data-size="small"] &,
+    [data-size="medium"] & {
       width: var(--icon_size-sm);
       height: var(--icon_size-sm);
     }
-    [data-size='large'] & {
+    [data-size="large"] & {
       width: var(--icon_size-md);
       height: var(--icon_size-md);
     }
@@ -137,10 +139,10 @@ export const ElChipSelectChipIconContainer = styled.span`
       color: var(--comp-interactive_chip-colour-icon-hover-selected);
     }
   }
-`
+`;
 
 interface ElChipSelectChipLabelTextProps {
-  'data-overflow': 'truncate' | undefined
+  "data-overflow": "truncate" | undefined;
 }
 
 export const ElChipSelectChipLabelText = styled.span<ElChipSelectChipLabelTextProps>`
@@ -154,12 +156,12 @@ export const ElChipSelectChipLabelText = styled.span<ElChipSelectChipLabelTextPr
     text-overflow: ellipsis;
     white-space: nowrap;
 
-    [data-size='small'] &,
-    [data-size='medium'] & {
-      ${font('sm', 'medium')}
+    [data-size="small"] &,
+    [data-size="medium"] & {
+      ${font("sm", "medium")}
     }
-    [data-size='large'] & {
-      ${font('base', 'medium')}
+    [data-size="large"] & {
+      ${font("base", "medium")}
     }
   }
-`
+`;

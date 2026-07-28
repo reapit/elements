@@ -1,17 +1,23 @@
-import { ChevronDownIcon } from '#src/icons/chevron-down'
-import { Combobox } from '#src/utils/combobox'
-import { ElCompactSelectButton, ElCompactSelectButtonLabelText, ElCompactSelectIconContainer } from './styles'
-import { Tooltip } from '#src/core/tooltip'
-import { useId } from 'react'
+import { useId } from "react";
 
-type AttributesToOmit = 'aria-controls' | 'aria-expanded' | 'children' | 'id' | 'size'
+import { Tooltip } from "#src/core/tooltip";
+import { ChevronDownIcon } from "#src/icons/chevron-down";
+import { Combobox } from "#src/utils/combobox";
+
+import {
+  ElCompactSelectButton,
+  ElCompactSelectButtonLabelText,
+  ElCompactSelectIconContainer,
+} from "./styles";
+
+type AttributesToOmit = "aria-controls" | "aria-expanded" | "children" | "id" | "size";
 
 export namespace CompactSelectButton {
   export interface Props extends Omit<Combobox.ButtonProps, AttributesToOmit> {
     /** Render-prop function to customise selected content rendering. */
-    children?: Combobox.SelectedContentProps['children']
+    children?: Combobox.SelectedContentProps["children"];
     /** Default option to display when no selections have been made. */
-    defaultOptions?: Combobox.SelectedContentProps['defaultOptions']
+    defaultOptions?: Combobox.SelectedContentProps["defaultOptions"];
   }
 }
 
@@ -23,31 +29,35 @@ export function CompactSelectButton({
   children,
   defaultOptions,
   onClick,
-  placeholder = 'Select an option',
+  placeholder = "Select an option",
   ...rest
 }: CompactSelectButton.Props) {
-  const buttonProps = Combobox.useButton({ onClick })
-  const context = Combobox.useContext()
-  const hasSelection = Combobox.useHasSelection(context.listboxId)
+  const buttonProps = Combobox.useButton({ onClick });
+  const context = Combobox.useContext();
+  const hasSelection = Combobox.useHasSelection(context.listboxId);
 
-  const labelTextId = useId()
-  const tooltipId = useId()
+  const labelTextId = useId();
+  const tooltipId = useId();
 
   const content = hasSelection && (
     <Combobox.SelectedContent defaultOptions={defaultOptions} listboxId={context.listboxId}>
       {children}
     </Combobox.SelectedContent>
-  )
+  );
 
   return (
     <ElCompactSelectButton
       {...rest}
       {...buttonProps}
-      {...Tooltip.getTriggerProps({ id: buttonProps.id, tooltipId, tooltipPurpose: 'describe' })}
+      {...Tooltip.getTriggerProps({ id: buttonProps.id, tooltipId, tooltipPurpose: "describe" })}
       data-size={context.size}
       role="combobox"
     >
-      <ElCompactSelectButtonLabelText data-has-selection={hasSelection} data-placeholder={placeholder} id={labelTextId}>
+      <ElCompactSelectButtonLabelText
+        data-has-selection={hasSelection}
+        data-placeholder={placeholder}
+        id={labelTextId}
+      >
         {hasSelection ? content : placeholder}
       </ElCompactSelectButtonLabelText>
       <ElCompactSelectIconContainer>
@@ -57,5 +67,5 @@ export function CompactSelectButton({
         {content || placeholder}
       </Tooltip>
     </ElCompactSelectButton>
-  )
+  );
 }

@@ -1,13 +1,14 @@
-import { createPortal } from 'react-dom'
-import { DEFAULT_OUTLET_ID } from '../outlet/outlet'
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
+
+import { DEFAULT_OUTLET_ID } from "../outlet/outlet";
 
 export namespace AlertBannerPortal {
   export interface Props {
     /** The ID of the AlertBannerOutlet to render children into. Defaults to the default outlet ID. */
-    outletId?: string
+    outletId?: string;
     /** The content to render through the portal */
-    children: React.ReactNode
+    children: React.ReactNode;
   }
 }
 
@@ -24,19 +25,22 @@ export namespace AlertBannerPortal {
  *   <AlertBanner variant="info">Message</AlertBanner>
  * </AlertBannerPortal>
  */
-export function AlertBannerPortal({ children, outletId: id = DEFAULT_OUTLET_ID }: AlertBannerPortal.Props) {
-  const [portalElement, setPortalElement] = useState<HTMLElement | null>(null)
+export function AlertBannerPortal({
+  children,
+  outletId: id = DEFAULT_OUTLET_ID,
+}: AlertBannerPortal.Props) {
+  const [portalElement, setPortalElement] = useState<HTMLElement | null>(null);
 
   useEffect(() => {
     // Check if the outlet exists by ID lookup
-    const outlet = document.getElementById(id)
-    setPortalElement(outlet)
-  }, [id])
+    const outlet = document.getElementById(id);
+    setPortalElement(outlet);
+  }, [id]);
 
   // Don't render anything if the outlet doesn't exist
   if (!portalElement) {
-    return null
+    return null;
   }
 
-  return createPortal(children, portalElement)
+  return createPortal(children, portalElement);
 }

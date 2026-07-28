@@ -1,19 +1,19 @@
-import { cx } from '@linaria/core'
-import { elTopBarMenuDrawerSubmenuItem } from './styles'
-import { TopBarMenuDrawerSubmenuItemBase } from './submenu-item-base'
+import { cx } from "@linaria/core";
+import type { ButtonHTMLAttributes, ReactNode } from "react";
 
-import type { ButtonHTMLAttributes, ReactNode } from 'react'
+import { elTopBarMenuDrawerSubmenuItem } from "./styles";
+import { TopBarMenuDrawerSubmenuItemBase } from "./submenu-item-base";
 
 export namespace TopBarMenuDrawerSubmenuItemButton {
   export interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
     /**
      * The label of the menu item.
      */
-    children: ReactNode
+    children: ReactNode;
     /**
      * Whether the menu item has a notification badge.
      */
-    hasBadge?: boolean
+    hasBadge?: boolean;
   }
 }
 
@@ -27,12 +27,14 @@ export function TopBarMenuDrawerSubmenuItemButton({
   children,
   className,
   hasBadge,
-  type = 'button',
+  type = "button",
   ...rest
 }: TopBarMenuDrawerSubmenuItemButton.Props) {
   return (
     <button {...rest} type={type} className={cx(elTopBarMenuDrawerSubmenuItem, className)}>
-      <TopBarMenuDrawerSubmenuItemBase hasBadge={hasBadge}>{children}</TopBarMenuDrawerSubmenuItemBase>
+      <TopBarMenuDrawerSubmenuItemBase hasBadge={hasBadge}>
+        {children}
+      </TopBarMenuDrawerSubmenuItemBase>
     </button>
-  )
+  );
 }

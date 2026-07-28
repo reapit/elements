@@ -1,8 +1,9 @@
-import { styled } from '@linaria/react'
-import { isWidthAtOrAbove, isWidthBelow } from '#src/utils/breakpoints'
+import { styled } from "@linaria/react";
+
+import { isWidthAtOrAbove, isWidthBelow } from "#src/utils/breakpoints";
 
 interface ElBreadcrumbsProps {
-  'data-overflow'?: 'scroll' | 'truncate'
+  "data-overflow"?: "scroll" | "truncate";
 }
 
 export const ElBreadcrumbs = styled.nav<ElBreadcrumbsProps>`
@@ -11,13 +12,13 @@ export const ElBreadcrumbs = styled.nav<ElBreadcrumbsProps>`
 
     /* NOTE: Media and container queries come before data-overflow attribute styles to allow
      * the latter to take precedence */
-    @media screen and ${isWidthBelow('SM')} {
+    @media screen and ${isWidthBelow("SM")} {
       /* NOTE: This is generally considered bad practice */
       scrollbar-width: none;
       overflow-x: auto;
     }
 
-    @container ${isWidthBelow('SM')} {
+    @container ${isWidthBelow("SM")} {
       scrollbar-width: none;
       overflow-x: auto;
     }
@@ -25,7 +26,7 @@ export const ElBreadcrumbs = styled.nav<ElBreadcrumbsProps>`
     /* NOTE: This container query will override the default media query behaviour above if there's
      * an ancestor is a container. If there's no ancestral container, the media query will behave
      * as defined above. */
-    @container ${isWidthAtOrAbove('SM')} {
+    @container ${isWidthAtOrAbove("SM")} {
       scrollbar-width: initial;
       overflow-x: initial;
     }
@@ -35,7 +36,7 @@ export const ElBreadcrumbs = styled.nav<ElBreadcrumbsProps>`
       overflow-x: auto;
     }
   }
-`
+`;
 
 export const ElBreadcrumbsList = styled.ul`
   @layer elements.main {
@@ -54,18 +55,18 @@ export const ElBreadcrumbsList = styled.ul`
 
     /* NOTE: Media and container queries come before data-overflow attribute styles to allow
      * the latter to take precedence */
-    @media screen and ${isWidthBelow('SM')} {
+    @media screen and ${isWidthBelow("SM")} {
       width: max-content;
     }
 
-    @container ${isWidthBelow('SM')} {
+    @container ${isWidthBelow("SM")} {
       width: max-content;
     }
 
     /* NOTE: This container query will override the default media query behaviour above if there's
      * an ancestor is a container. If there's no ancestral container, the media query will behave
      * as defined above. */
-    @container ${isWidthAtOrAbove('SM')} {
+    @container ${isWidthAtOrAbove("SM")} {
       width: 100%;
     }
 
@@ -77,4 +78,4 @@ export const ElBreadcrumbsList = styled.ul`
       width: max-content;
     }
   }
-`
+`;

@@ -34,5 +34,5 @@
  * console.log(isListboxOptionSelected(singleSelectOption)) // true
  */
 export function isListboxOptionSelected(option: HTMLButtonElement): boolean {
-  return option.ariaChecked === 'true' || option.ariaSelected === 'true'
+  return option.ariaChecked === "true" || option.ariaSelected === "true";
 }

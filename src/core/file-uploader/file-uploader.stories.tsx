@@ -1,25 +1,28 @@
-import preview from '#.storybook/preview'
-import { CloudUploadIcon } from '#src/icons/cloud-upload'
-import { FileUploader } from './file-uploader'
+import type { ReactNode } from "react";
 
-import type { FileUploadQueue } from './file-upload-queue'
-import type { ReactNode } from 'react'
-import { FileUploadIcon } from '#src/icons/file-upload'
+import preview from "#.storybook/preview";
+import { CloudUploadIcon } from "#src/icons/cloud-upload";
+import { FileUploadIcon } from "#src/icons/file-upload";
+
+import type { FileUploadQueue } from "./file-upload-queue";
+import { FileUploader } from "./file-uploader";
 
 // Storybook's `meta()` can't infer args from a generic component reference — narrow to a concrete
 // `TResult` just for the `component:` reference; every story below still uses the real, generic
 // `FileUploader` in JSX.
-const FileUploaderComponent = FileUploader as (props: FileUploader.Props<string>) => ReturnType<typeof FileUploader>
+const FileUploaderComponent = FileUploader as (
+  props: FileUploader.Props<string>,
+) => ReturnType<typeof FileUploader>;
 
 const meta = preview.meta({
-  title: 'Input and selection/FileUploader',
+  title: "Input and selection/FileUploader",
   component: FileUploaderComponent,
   argTypes: {
     children: {
       control: false,
     },
   },
-})
+});
 
 /**
  * `FileUploader.FileList` renders no items of its own — every story wires up this same default
@@ -31,12 +34,14 @@ function renderFileList() {
       ? items.map((item) => (
           <FileUploader.File
             key={item.id}
-            errorText={item.status === 'error' ? item.errorMessage : (item.validationError ?? undefined)}
+            errorText={
+              item.status === "error" ? item.errorMessage : (item.validationError ?? undefined)
+            }
             item={item}
             onRemove={() => queue.removeItem(item.id)}
           />
         ))
-      : null
+      : null;
 }
 
 /**
@@ -64,7 +69,7 @@ export const Example = meta.story({
       <FileUploader.FileList>{renderFileList()}</FileUploader.FileList>
     </FileUploader>
   ),
-})
+});
 
 /**
  * A simple button-like trigger can be used. Like the dropzone, it opens the file picker when clicked
@@ -89,7 +94,7 @@ export const Button = Example.extend({
       <FileUploader.FileList variant="media">{renderFileList()}</FileUploader.FileList>
     </FileUploader>
   ),
-})
+});
 
 /**
  * When `accept` is restricted to images/videos, `FileUploader.FileList` defaults to `MediaCard`
@@ -115,19 +120,19 @@ export const Media = Example.extend({
       <FileUploader.FileList variant="media">{renderFileList()}</FileUploader.FileList>
     </FileUploader>
   ),
-})
+});
 
 /**
  * By default, the file uploader allows a single file to be selected. The file list is still needed to diplay
  * display the uploaded file, but the file picker will only allow one file to be selected at a time.
  */
 export const SingleSelect = Example.extend({
-  name: 'Single-select',
+  name: "Single-select",
   args: {
     onUpload: simulateUpload,
   },
   render: (args) => (
-    <div style={{ maxWidth: '400px' }}>
+    <div style={{ maxWidth: "400px" }}>
       <FileUploader {...args}>
         <FileUploader.ButtonControl iconLeft={<CloudUploadIcon />} label="Upload files">
           Browse files
@@ -136,7 +141,7 @@ export const SingleSelect = Example.extend({
       </FileUploader>
     </div>
   ),
-})
+});
 
 /**
  * The file uploader supports a special experience for single-select media uploads via
@@ -147,12 +152,12 @@ export const SingleSelect = Example.extend({
  * The example here is rendered within a width constrained container.
  */
 export const SingleSelectMedia = Example.extend({
-  name: 'Single-select media',
+  name: "Single-select media",
   args: {
     onUpload: simulateUpload,
   },
   render: (args) => (
-    <div style={{ maxWidth: '400px' }}>
+    <div style={{ maxWidth: "400px" }}>
       <FileUploader {...args}>
         <FileUploader.SingleSelectMediaControl
           accept="image/*"
@@ -166,7 +171,7 @@ export const SingleSelectMedia = Example.extend({
       </FileUploader>
     </div>
   ),
-})
+});
 
 /**
  * The file uploader supports the following constraints: `accept`, `maxFiles`, `maxFileSize`, `maxTotalSize`,
@@ -197,7 +202,7 @@ export const Constraints = Example.extend({
       <FileUploader.FileList>{renderFileList()}</FileUploader.FileList>
     </FileUploader>
   ),
-})
+});
 
 /**
  * The file uploader's error text is intended for validation errors that apply to the file uploader as a whole,
@@ -207,7 +212,7 @@ export const Constraints = Example.extend({
  * In either case, consumers are responsible for displaying an appropriate message to users.
  */
 export const WithError = Example.extend({
-  name: 'With error',
+  name: "With error",
   args: {
     onUpload: simulateUpload,
   },
@@ -226,7 +231,7 @@ export const WithError = Example.extend({
       <FileUploader.FileList>{renderFileList()}</FileUploader.FileList>
     </FileUploader>
   ),
-})
+});
 
 /**
  * Each `FileUploader.File` with a defined `name` (either directly or via `FileUploader.FileList`'s `name`)
@@ -239,13 +244,13 @@ export const Forms = Example.extend({
     onUpload: simulateUpload,
   },
   render: (args) => {
-    const fieldName = 'documentIds'
+    const fieldName = "documentIds";
     return (
       <form
         onSubmit={(event) => {
-          event.preventDefault()
-          const ids = new FormData(event.currentTarget).getAll(fieldName)
-          globalThis.alert(`Submitted document IDs: ${ids.join(', ') || '(none)'}`)
+          event.preventDefault();
+          const ids = new FormData(event.currentTarget).getAll(fieldName);
+          globalThis.alert(`Submitted document IDs: ${ids.join(", ") || "(none)"}`);
         }}
       >
         <FileUploader {...args}>
@@ -260,32 +265,32 @@ export const Forms = Example.extend({
           </FileUploader.DropzoneControl>
           <FileUploader.FileList name={fieldName}>{renderFileList()}</FileUploader.FileList>
         </FileUploader>
-        <button style={{ marginTop: 'var(--spacing-3)' }} type="submit">
+        <button style={{ marginTop: "var(--spacing-3)" }} type="submit">
           Submit
         </button>
       </form>
-    )
+    );
   },
-})
+});
 
 function simulateUpload(
   _file: File,
   helpers: { onProgress: (progress: number) => void; signal: AbortSignal },
 ): Promise<string> {
   return new Promise((resolve, reject) => {
-    let progress = 0
+    let progress = 0;
     const interval = globalThis.setInterval(() => {
-      progress += 20
-      helpers.onProgress(progress)
+      progress += 20;
+      helpers.onProgress(progress);
       if (progress >= 100) {
-        globalThis.clearInterval(interval)
-        resolve(crypto.randomUUID())
+        globalThis.clearInterval(interval);
+        resolve(crypto.randomUUID());
       }
-    }, 300)
+    }, 300);
 
-    helpers.signal.addEventListener('abort', () => {
-      globalThis.clearInterval(interval)
-      reject(new DOMException('Upload aborted', 'AbortError'))
-    })
-  })
+    helpers.signal.addEventListener("abort", () => {
+      globalThis.clearInterval(interval);
+      reject(new DOMException("Upload aborted", "AbortError"));
+    });
+  });
 }

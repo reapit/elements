@@ -1,1 +1,1 @@
-export { CurrencyControl } from './currency-control'
+export { CurrencyControl } from "./currency-control";

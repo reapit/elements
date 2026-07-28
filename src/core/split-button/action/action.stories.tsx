@@ -1,26 +1,27 @@
-import preview from '#.storybook/preview'
-import { AddIcon } from '#src/icons/add'
-import { SplitButton } from '../split-button'
-import type { SplitButtonAnchorAction } from './anchor-action'
-import { SplitButtonContext } from '../context'
-import { StarIcon } from '#src/icons/star'
+import preview from "#.storybook/preview";
+import { AddIcon } from "#src/icons/add";
+import { StarIcon } from "#src/icons/star";
+
+import { SplitButtonContext } from "../context";
+import { SplitButton } from "../split-button";
+import type { SplitButtonAnchorAction } from "./anchor-action";
 
 const meta = preview.meta({
-  title: 'Buttons/SplitButton/Action',
+  title: "Buttons/SplitButton/Action",
   component: SplitButton.Action,
   subcomponents: {
     AnchorAction: SplitButton.AnchorAction,
   },
   argTypes: {
-    'aria-disabled': {
-      control: 'boolean',
+    "aria-disabled": {
+      control: "boolean",
     },
     children: {
-      control: 'text',
+      control: "text",
     },
     iconLeft: {
-      control: 'radio',
-      options: ['None', 'Star', 'Add'],
+      control: "radio",
+      options: ["None", "Star", "Add"],
       mapping: {
         None: undefined,
         Star: <StarIcon />,
@@ -30,23 +31,23 @@ const meta = preview.meta({
   },
   decorators: [
     (Story) => (
-      <SplitButtonContext.Provider value={{ busy: undefined, size: 'medium', variant: 'primary' }}>
+      <SplitButtonContext.Provider value={{ busy: undefined, size: "medium", variant: "primary" }}>
         <Story />
       </SplitButtonContext.Provider>
     ),
   ],
-})
+});
 
 export const Example = meta.story({
   args: {
-    'aria-disabled': false,
-    children: 'Button',
+    "aria-disabled": false,
+    children: "Button",
     disabled: false,
-    iconLeft: 'None',
+    iconLeft: "None",
     isBusy: false,
     isDestructive: false,
   },
-})
+});
 
 /**
  * Actions the SplitButton's chosen variant: `primary` or `secondary`. Typically, there should
@@ -55,17 +56,21 @@ export const Example = meta.story({
 export const Variants = Example.extend({
   decorators: [
     (Story) => (
-      <div style={{ display: 'flex', gap: 'var(--spacing-6)' }}>
-        <SplitButtonContext.Provider value={{ busy: undefined, size: 'medium', variant: 'primary' }}>
+      <div style={{ display: "flex", gap: "var(--spacing-6)" }}>
+        <SplitButtonContext.Provider
+          value={{ busy: undefined, size: "medium", variant: "primary" }}
+        >
           <Story />
         </SplitButtonContext.Provider>
-        <SplitButtonContext.Provider value={{ busy: undefined, size: 'medium', variant: 'secondary' }}>
+        <SplitButtonContext.Provider
+          value={{ busy: undefined, size: "medium", variant: "secondary" }}
+        >
           <Story />
         </SplitButtonContext.Provider>
       </div>
     ),
   ],
-})
+});
 
 /**
  * Actions also respect the SplitButton's size: `small`, `medium`, and `large`. Medium and large buttons are
@@ -74,29 +79,35 @@ export const Variants = Example.extend({
 export const Sizes = Example.extend({
   decorators: [
     (Story) => (
-      <div style={{ display: 'flex', gap: 'var(--spacing-6)' }}>
-        <SplitButtonContext.Provider value={{ busy: undefined, size: 'small', variant: 'secondary' }}>
+      <div style={{ display: "flex", gap: "var(--spacing-6)" }}>
+        <SplitButtonContext.Provider
+          value={{ busy: undefined, size: "small", variant: "secondary" }}
+        >
           <Story />
         </SplitButtonContext.Provider>
-        <SplitButtonContext.Provider value={{ busy: undefined, size: 'medium', variant: 'secondary' }}>
+        <SplitButtonContext.Provider
+          value={{ busy: undefined, size: "medium", variant: "secondary" }}
+        >
           <Story />
         </SplitButtonContext.Provider>
-        <SplitButtonContext.Provider value={{ busy: undefined, size: 'large', variant: 'secondary' }}>
+        <SplitButtonContext.Provider
+          value={{ busy: undefined, size: "large", variant: "secondary" }}
+        >
           <Story />
         </SplitButtonContext.Provider>
       </div>
     ),
   ],
-})
+});
 
 /**
  * Icons can be placed on the left side of the `SplitButton.Action`.
  */
 export const Icons = Example.extend({
   args: {
-    iconLeft: 'Star',
+    iconLeft: "Star",
   },
-})
+});
 
 /**
  * Actions can be disabled using `aria-disabled` or `disabled`, just like a regular `Button`. In both
@@ -110,10 +121,10 @@ export const Icons = Example.extend({
  */
 export const Disabled = meta.story({
   args: {
-    children: 'Button',
+    children: "Button",
     disabled: true,
   },
-})
+});
 
 /**
  * Actions can be busy using `isBusy`. In this case, the button will be ARIA disabled and the loading spinner
@@ -121,10 +132,10 @@ export const Disabled = meta.story({
  */
 export const Busy = meta.story({
   args: {
-    children: 'Button',
+    children: "Button",
     isBusy: true,
   },
-})
+});
 
 /**
  * Destructive actions are used to indicate the action performed by the button is destructive or irreversible, like
@@ -132,10 +143,10 @@ export const Busy = meta.story({
  */
 export const Destructive = meta.story({
   args: {
-    children: 'Button',
+    children: "Button",
     isDestructive: true,
   },
-})
+});
 
 /**
  * `SplitButton.AnchorAction` is identical to `SplitButton.Action`, except it renders as an `<a>` element, which
@@ -146,10 +157,10 @@ export const Destructive = meta.story({
  */
 export const Anchors = meta.story({
   args: {
-    'aria-disabled': false,
-    children: 'Anchor button',
-    href: '#',
-    iconLeft: 'Add',
+    "aria-disabled": false,
+    children: "Anchor button",
+    href: "#",
+    iconLeft: "Add",
     isBusy: false,
     isDestructive: false,
   },
@@ -158,5 +169,7 @@ export const Anchors = meta.story({
       table: { disable: true },
     },
   },
-  render: (args) => <SplitButton.AnchorAction {...(args as unknown as SplitButtonAnchorAction.Props)} />,
-})
+  render: (args) => (
+    <SplitButton.AnchorAction {...(args as unknown as SplitButtonAnchorAction.Props)} />
+  ),
+});

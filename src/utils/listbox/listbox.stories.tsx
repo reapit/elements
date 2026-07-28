@@ -1,34 +1,35 @@
-import preview from '#.storybook/preview'
-import { Listbox } from './listbox'
-import { styled } from '@linaria/react'
-import { useId, useState } from 'react'
+import { styled } from "@linaria/react";
+import { useId, useState } from "react";
+import type { ChangeEventHandler } from "react";
 
-import type { ChangeEventHandler } from 'react'
+import preview from "#.storybook/preview";
+
+import { Listbox } from "./listbox";
 
 /** A barebones, custom listbox option component used by the listbox stories */
 const MyListboxOption = styled.button`
-  &:where([aria-checked='true'], [aria-selected='true'])::before {
-    content: '✅ ';
+  &:where([aria-checked="true"], [aria-selected="true"])::before {
+    content: "✅ ";
   }
 
-  &[data-is-active='true'] {
+  &[data-is-active="true"] {
     font-weight: bold;
   }
-`
+`;
 
 /** A barebones, custom listbox optgroup component used by the listbox stories */
 function MyListboxOptgroup({ children, label, ...rest }: Listbox.OptgroupProps) {
-  const labelId = useId()
+  const labelId = useId();
   return (
     <div {...rest} aria-labelledby={labelId}>
       {label && <div id={labelId}>{label}</div>}
       {children}
     </div>
-  )
+  );
 }
 
 const meta = preview.meta({
-  title: 'Utils/Listbox',
+  title: "Utils/Listbox",
   component: Listbox,
   argTypes: {
     children: {
@@ -44,12 +45,12 @@ const meta = preview.meta({
   render: (args) => {
     // NOTE: Since multiple stories may involve the same ID, we need to
     // make it unique for each instance to avoid collisions.
-    const prefix = useId()
-    const id = `${args.id}-${prefix}`
+    const prefix = useId();
+    const id = `${args.id}-${prefix}`;
 
-    return <Listbox {...args} id={id} />
+    return <Listbox {...args} id={id} />;
   },
-})
+});
 
 /**
  * At its most basic, `ListboxBaseListbox` renders the options (and option groups) provided to it alongside
@@ -58,10 +59,10 @@ const meta = preview.meta({
  */
 export const Example = meta.story({
   args: {
-    'aria-disabled': false,
-    'aria-multiselectable': false,
-    'aria-orientation': 'horizontal',
-    'aria-required': false,
+    "aria-disabled": false,
+    "aria-multiselectable": false,
+    "aria-orientation": "horizontal",
+    "aria-required": false,
     children: [
       <Listbox.Option key="1" as={MyListboxOption} value="1">
         Option 1
@@ -74,7 +75,7 @@ export const Example = meta.story({
       </Listbox.Option>,
     ],
   },
-})
+});
 
 /**
  * Single-select behaviour is the default. When used as a single-select, the first option of the combobox
@@ -82,31 +83,31 @@ export const Example = meta.story({
  * element when no other specific option is selected.
  */
 export const Single = Example.extend({
-  name: 'Single-select',
+  name: "Single-select",
   args: {
     defaultValue: [],
   },
-})
+});
 
 /**
  * Multi-select behaviour can be achieved using `multiple`.
  */
 export const Multiple = Example.extend({
-  name: 'Multi-select',
+  name: "Multi-select",
   args: {
-    'aria-multiselectable': true,
-    defaultValue: ['1', '2'],
+    "aria-multiselectable": true,
+    defaultValue: ["1", "2"],
   },
-})
+});
 
 /**
  * Listbox options can be disabled.
  */
 export const Disabled = Example.extend({
   args: {
-    'aria-disabled': true,
+    "aria-disabled": true,
   },
-})
+});
 
 /**
  * When a listbox has no options, tabbing into it still shows a focus outline on the
@@ -116,7 +117,7 @@ export const Empty = Example.extend({
   args: {
     children: [],
   },
-})
+});
 
 /**
  * Clicking an option's selection behaviour is controlled by `selectAction`. The default,
@@ -127,13 +128,13 @@ export const Empty = Example.extend({
  * forces toggle behaviour even for single-select listboxes.
  */
 export const SelectAction = Example.extend({
-  name: 'Select actions',
+  name: "Select actions",
   args: {
-    'aria-multiselectable': true,
-    defaultValue: ['1'],
-    selectAction: 'select',
+    "aria-multiselectable": true,
+    defaultValue: ["1"],
+    selectAction: "select",
   },
-})
+});
 
 /**
  * Options can be grouped using `Listbox.Optgroup` and `Listbox.Divider`.
@@ -166,9 +167,9 @@ export const Groups = Example.extend({
       </Listbox.Optgroup>,
     ],
 
-    defaultValue: ['1', '4'],
+    defaultValue: ["1", "4"],
   },
-})
+});
 
 /**
  * Since we rely on a native select element, the selected state can be controlled in the same manner
@@ -185,29 +186,29 @@ export const Controlled = Example.extend({
   args: {
     defaultValue: undefined,
   },
-  parameters: { docs: { source: { type: 'code' } } },
+  parameters: { docs: { source: { type: "code" } } },
   render: (args) => {
     // Our controlled state. We start with the option whose value is "1" checked.
-    const [value, setValue] = Listbox.useState('1')
+    const [value, setValue] = Listbox.useState("1");
 
     const handleChange: ChangeEventHandler<HTMLSelectElement> = (event) => {
       // NOTE: we get a reference to the current target outside of our state setter function
       // because the state setter may be called after the synthetic event has been cleaned up
       // and it's reference to the current target lost.
-      const selectElement = event.currentTarget
+      const selectElement = event.currentTarget;
 
       // `getValue` does the heavy lifting for us, returning the new state for the select.
-      setValue(Listbox.getValue(selectElement))
-    }
+      setValue(Listbox.getValue(selectElement));
+    };
 
     return (
       <>
-        <pre style={{ color: '#FA00FF' }}>{JSON.stringify(value)}</pre>
+        <pre style={{ color: "#FA00FF" }}>{JSON.stringify(value)}</pre>
         <Listbox {...args} onChange={handleChange} value={value} />
       </>
-    )
+    );
   },
-})
+});
 
 /**
  * For multi-select listboxes, the controlled value should be an array of strings. This example
@@ -217,34 +218,34 @@ export const Controlled = Example.extend({
  * manage the state.
  */
 export const ControlledMultiSelect = Example.extend({
-  name: 'Controlled (multi-select)',
+  name: "Controlled (multi-select)",
   args: {
-    'aria-multiselectable': true,
+    "aria-multiselectable": true,
     defaultValue: undefined,
   },
-  parameters: { docs: { source: { type: 'code' } } },
+  parameters: { docs: { source: { type: "code" } } },
   render: (args) => {
     // Our controlled state. We start with options "1" and "2" selected.
-    const [value, setValue] = Listbox.useState(['1', '2'])
+    const [value, setValue] = Listbox.useState(["1", "2"]);
 
     const handleChange: ChangeEventHandler<HTMLSelectElement> = (event) => {
       // NOTE: we get a reference to the current target outside of our state setter function
       // because the state setter may be called after the synthetic event has been cleaned up
       // and it's reference to the current target lost.
-      const selectElement = event.currentTarget
+      const selectElement = event.currentTarget;
 
       // `getValue` does the heavy lifting for us, returning the new state for the select.
-      setValue(Listbox.getValue(selectElement))
-    }
+      setValue(Listbox.getValue(selectElement));
+    };
 
     return (
       <>
         <pre>{JSON.stringify(value)}</pre>
         <Listbox {...args} onChange={handleChange} value={value} />
       </>
-    )
+    );
   },
-})
+});
 
 /**
  * Clearing the listbox's selection when it's value is controlled is trivial: the value can simply be
@@ -257,22 +258,29 @@ export const ControlledMultiSelect = Example.extend({
  * underlying select element so that consumers can react appropriately to the change.
  */
 export const ClearingState = Example.extend({
-  name: 'Clearing state',
+  name: "Clearing state",
   args: {
-    'aria-multiselectable': true,
-    defaultValue: ['1', '2'],
+    "aria-multiselectable": true,
+    defaultValue: ["1", "2"],
   },
   render: (args) => {
-    const fallbackId = useId()
-    const id = args.id ?? fallbackId
+    const fallbackId = useId();
+    const id = args.id ?? fallbackId;
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'start', gap: 'var(--spacing-2)' }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "start",
+          gap: "var(--spacing-2)",
+        }}
+      >
         <button onClick={() => Listbox.clearValue(id)}>Clear</button>
         <Listbox {...args} id={id} />
       </div>
-    )
+    );
   },
-})
+});
 
 /**
  * As with clearing state, observing the listboxes selection state is trivial when it is controlled and
@@ -284,30 +292,37 @@ export const ClearingState = Example.extend({
  * elements), allowing consumers to react to changes in the selection state as shown here.
  */
 export const ObservingState = Example.extend({
-  name: 'Observing state',
+  name: "Observing state",
   args: {
-    'aria-multiselectable': true,
+    "aria-multiselectable": true,
   },
   render: (args) => {
-    const fallbackId = useId()
-    const id = args.id ?? fallbackId
+    const fallbackId = useId();
+    const id = args.id ?? fallbackId;
 
-    const [output, setOutput] = useState('')
+    const [output, setOutput] = useState("");
 
     // NOTE: The callback passed to `Listbox.useSelectionObserver` does not need to be stable.
     Listbox.useSelectionObserver(id, (selectedOptions) => {
-      setOutput(selectedOptions.map((option) => option.textContent).join(', '))
-    })
+      setOutput(selectedOptions.map((option) => option.textContent).join(", "));
+    });
 
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'start', gap: 'var(--spacing-2)' }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "start",
+          gap: "var(--spacing-2)",
+        }}
+      >
         <button onClick={() => Listbox.clearValue(id)}>Clear</button>
         <Listbox {...args} id={id} />
         <output>{output}</output>
       </div>
-    )
+    );
   },
-})
+});
 
 /**
  * Any selected options will be included in the form data during submission. The following example
@@ -318,8 +333,8 @@ export const ObservingState = Example.extend({
  */
 export const Forms = Example.extend({
   args: {
-    'aria-multiselectable': true,
-    name: 'options',
+    "aria-multiselectable": true,
+    name: "options",
   },
   argTypes: {
     name: { control: false },
@@ -328,15 +343,20 @@ export const Forms = Example.extend({
     (Story) => (
       <form
         onSubmit={(e) => {
-          e.preventDefault()
-          const formData = new FormData(e.currentTarget)
-          alert(JSON.stringify({ options: formData.getAll('options') }))
+          e.preventDefault();
+          const formData = new FormData(e.currentTarget);
+          alert(JSON.stringify({ options: formData.getAll("options") }));
         }}
-        style={{ display: 'flex', flexDirection: 'column', alignItems: 'start', gap: 'var(--spacing-2)' }}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "start",
+          gap: "var(--spacing-2)",
+        }}
       >
         <button type="submit">Submit</button>
         <Story />
       </form>
     ),
   ],
-})
+});

@@ -1,20 +1,25 @@
-import { AtAGlance } from '../at-a-glance'
-import { SproutIcon } from '#src/icons/sprout'
+import { SproutIcon } from "#src/icons/sprout";
+
+import { AtAGlance } from "../at-a-glance";
 
 export namespace buildCards {
   export interface Input {
     /** The number of cards to generate. */
-    count?: 2 | 3 | 4 | 5 | 6 | 7 | 8
+    count?: 2 | 3 | 4 | 5 | 6 | 7 | 8;
     /** The layout of the card content. */
-    layout?: 'vertical' | 'compact' | 'horizontal'
+    layout?: "vertical" | "compact" | "horizontal";
     /** The kind of card to generate. */
-    variant?: 'simple' | 'with-link' | 'selectable'
+    variant?: "simple" | "with-link" | "selectable";
   }
 }
 
-export function buildCards({ count = 8, layout = 'vertical', variant = 'simple' }: buildCards.Input = {}) {
+export function buildCards({
+  count = 8,
+  layout = "vertical",
+  variant = "simple",
+}: buildCards.Input = {}) {
   return cards.slice(0, count).map((item, index) => {
-    if (variant === 'simple') {
+    if (variant === "simple") {
       return (
         <AtAGlance.GridItem key={item.label}>
           <AtAGlance.ArticleCard
@@ -25,14 +30,14 @@ export function buildCards({ count = 8, layout = 'vertical', variant = 'simple' 
             layout={layout}
           />
         </AtAGlance.GridItem>
-      )
+      );
     }
 
-    if (variant === 'with-link') {
+    if (variant === "with-link") {
       return (
         <AtAGlance.GridItem key={item.label}>
           <AtAGlance.AnchorCard
-            aria-current={index === 0 ? 'page' : undefined}
+            aria-current={index === 0 ? "page" : undefined}
             description={item.description}
             displayValue={item.value}
             href={href}
@@ -41,7 +46,7 @@ export function buildCards({ count = 8, layout = 'vertical', variant = 'simple' 
             layout={layout}
           />
         </AtAGlance.GridItem>
-      )
+      );
     }
 
     // variant === 'selectable'
@@ -55,51 +60,51 @@ export function buildCards({ count = 8, layout = 'vertical', variant = 'simple' 
         layout={layout}
         value={item.label}
       />
-    )
-  })
+    );
+  });
 }
 
-const href = '#'
+const href = "#";
 
 const cards = [
   {
-    label: 'Apple',
-    description: 'Crunchy and juicy',
-    value: '32',
+    label: "Apple",
+    description: "Crunchy and juicy",
+    value: "32",
   },
   {
-    label: 'Banana',
-    description: 'Soft and flavourless',
-    value: '25',
+    label: "Banana",
+    description: "Soft and flavourless",
+    value: "25",
   },
   {
-    label: 'Grape',
-    description: 'Nice and winey',
-    value: '0',
+    label: "Grape",
+    description: "Nice and winey",
+    value: "0",
   },
   {
-    label: 'Kiwi',
-    description: 'Full of Vitamin C',
-    value: '6',
+    label: "Kiwi",
+    description: "Full of Vitamin C",
+    value: "6",
   },
   {
-    label: 'Lemon',
-    description: 'Sour as they come',
-    value: '10',
+    label: "Lemon",
+    description: "Sour as they come",
+    value: "10",
   },
   {
-    label: 'Strawberry',
-    description: 'Red and sweet',
-    value: '35',
+    label: "Strawberry",
+    description: "Red and sweet",
+    value: "35",
   },
   {
-    label: 'Watermelon',
-    description: 'Refreshing and hydrating',
-    value: '17',
+    label: "Watermelon",
+    description: "Refreshing and hydrating",
+    value: "17",
   },
   {
-    label: 'Orange',
-    description: 'Citrusy goodness',
-    value: '51',
+    label: "Orange",
+    description: "Citrusy goodness",
+    value: "51",
   },
-] as const
+] as const;

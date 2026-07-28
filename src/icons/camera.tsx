@@ -1,4 +1,4 @@
-import CameraSvg from './svgs/camera.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import CameraSvg from "./svgs/camera.svg?react";
 
-export const CameraIcon = makeIcon('CameraIcon', CameraSvg)
+export const CameraIcon = makeIcon("CameraIcon", CameraSvg);

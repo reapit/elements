@@ -1,9 +1,10 @@
-import { render, screen } from '@testing-library/react'
-import { FeaturesCarSpacesItem } from '../car-spaces'
+import { render, screen } from "@testing-library/react";
 
-test('renders car spaces feature item with correct accessible name and value', () => {
-  render(<FeaturesCarSpacesItem value={2} />)
+import { FeaturesCarSpacesItem } from "../car-spaces";
 
-  expect(screen.getByRole('term', { name: 'Car spaces' })).toBeVisible()
-  expect(screen.getByRole('definition').textContent).toBe('2')
-})
+test("renders car spaces feature item with correct accessible name and value", () => {
+  render(<FeaturesCarSpacesItem value={2} />);
+
+  expect(screen.getByRole("term", { name: "Car spaces" })).toBeVisible();
+  expect(screen.getByRole("definition").textContent).toBe("2");
+});

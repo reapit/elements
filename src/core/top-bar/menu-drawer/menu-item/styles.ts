@@ -1,13 +1,14 @@
-import { css } from '@linaria/core'
-import { styled } from '@linaria/react'
-import { font } from '#src/utils/font'
+import { css } from "@linaria/core";
+import { styled } from "@linaria/react";
+
+import { font } from "#src/utils/font";
 
 export const elTopBarMenuDrawerMenuItem = css`
   @layer elements.main {
     display: grid;
     align-items: center;
     justify-content: start;
-    grid-template-areas: 'label badge';
+    grid-template-areas: "label badge";
     grid-template-columns: 1fr minmax(0, auto);
 
     padding: var(--spacing-2) var(--spacing-4);
@@ -31,7 +32,7 @@ export const elTopBarMenuDrawerMenuItem = css`
       outline-offset: var(--border-width-default);
     }
   }
-`
+`;
 
 export const ElTopBarMenuDrawerMenuItemLabel = styled.span`
   @layer elements.main {
@@ -42,14 +43,14 @@ export const ElTopBarMenuDrawerMenuItemLabel = styled.span`
     text-overflow: ellipsis;
 
     color: var(--comp-navigation-colour-text-mobile_nav-default);
-    ${font('base', 'regular')}
+    ${font("base", "regular")}
 
-    [aria-current='page'] > & {
-      ${font('base', 'medium')}
+    [aria-current="page"] > & {
+      ${font("base", "medium")}
       color: var(--comp-navigation-colour-text-mobile_nav-select);
     }
   }
-`
+`;
 
 // TODO: This should be handled by a Badge component. All our menu item should be responsible for is
 // positioning the badge correctly.
@@ -64,4 +65,4 @@ export const ElTopBarMenuDrawerMenuItemBadge = styled.span`
     /* Use margin instead of padding to keep the badge's content box square */
     margin-inline-start: var(--spacing-2);
   }
-`
+`;

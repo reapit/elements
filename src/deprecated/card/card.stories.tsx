@@ -1,4 +1,10 @@
-import preview from '#.storybook/preview'
+import preview from "#.storybook/preview";
+import { ContactIcon } from "#src/icons/contact";
+import { PropertyIcon } from "#src/icons/property";
+
+import { elMb5 } from "../../styles/deprecated-spacing";
+import { DeprecatedAvatar } from "../avatar";
+import { elCardFocussed, elCardSubHeadingWrapAvatar } from "./__styles__";
 import {
   CardWrap,
   CardHeading,
@@ -15,20 +21,15 @@ import {
   CardListItemTextSecondary,
   CardMainWrap,
   CardListMainWrap,
-} from './card'
-import { elCardFocussed, elCardSubHeadingWrapAvatar } from './__styles__'
-import { elMb5 } from '../../styles/deprecated-spacing'
-import { Card } from './card-components'
-import { DeprecatedAvatar } from '../avatar'
-import { PropertyIcon } from '#src/icons/property'
-import { ContactIcon } from '#src/icons/contact'
+} from "./card";
+import { Card } from "./card-components";
 
 const meta = preview.meta({
-  title: 'Deprecated/Card',
+  title: "Deprecated/Card",
   component: Card,
-})
+});
 
-export default meta
+export default meta;
 
 export const CardWithAvatar = meta.story({
   render: () => (
@@ -43,7 +44,7 @@ export const CardWithAvatar = meta.story({
       </CardMainWrap>
     </CardWrap>
   ),
-})
+});
 
 export const CardWithImage = meta.story({
   render: () => (
@@ -58,7 +59,7 @@ export const CardWithImage = meta.story({
       </CardMainWrap>
     </CardWrap>
   ),
-})
+});
 
 export const CardWithBody = meta.story({
   render: () => (
@@ -71,14 +72,14 @@ export const CardWithBody = meta.story({
         </CardHeadingWrap>
       </CardMainWrap>
       <CardBodyWrap>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+        voluptate velit esse cillum dolore eu fugiat nulla pariatur.
       </CardBodyWrap>
     </CardWrap>
   ),
-})
+});
 
 export const CardFocussed = meta.story({
   render: () => (
@@ -92,14 +93,14 @@ export const CardFocussed = meta.story({
         </CardHeadingWrap>
       </CardMainWrap>
       <CardBodyWrap>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+        voluptate velit esse cillum dolore eu fugiat nulla pariatur.
       </CardBodyWrap>
     </CardWrap>
   ),
-})
+});
 
 export const CardWithList = meta.story({
   render: () => (
@@ -128,7 +129,7 @@ export const CardWithList = meta.story({
       </CardListItem>
     </CardWrap>
   ),
-})
+});
 
 export const CardCompleteExample = meta.story({
   render: () => (
@@ -142,10 +143,10 @@ export const CardCompleteExample = meta.story({
         </CardHeadingWrap>
       </CardMainWrap>
       <CardBodyWrap className={elMb5}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+        voluptate velit esse cillum dolore eu fugiat nulla pariatur.
       </CardBodyWrap>
       <CardListMainWrap>
         <CardListHeading>Secondary Heading</CardListHeading>
@@ -171,7 +172,7 @@ export const CardCompleteExample = meta.story({
       </CardListItem>
     </CardWrap>
   ),
-})
+});
 
 export const ReactShorthandAvatarBody = meta.story({
   render: () => (
@@ -186,8 +187,8 @@ export const ReactShorthandAvatarBody = meta.story({
     />
   ),
 
-  name: 'React Shorthand Avatar & Body',
-})
+  name: "React Shorthand Avatar & Body",
+});
 
 export const ReactShorthandList = meta.story({
   render: () => (
@@ -197,21 +198,21 @@ export const ReactShorthandList = meta.story({
       listCardSubHeading="List Card Sub Heading"
       listCardItems={[
         {
-          listCardItemHeading: 'Applicant',
-          listCardItemSubHeading: 'Bob Smith',
-          listCardItemIcon: 'contact',
-          onClick: () => console.log('Clicking'),
+          listCardItemHeading: "Applicant",
+          listCardItemSubHeading: "Bob Smith",
+          listCardItemIcon: "contact",
+          onClick: () => console.log("Clicking"),
         },
         {
-          listCardItemHeading: 'Property',
-          listCardItemSubHeading: 'Some Address',
-          listCardItemIcon: 'property',
-          onClick: () => console.log('Clicking'),
+          listCardItemHeading: "Property",
+          listCardItemSubHeading: "Some Address",
+          listCardItemIcon: "property",
+          onClick: () => console.log("Clicking"),
         },
       ]}
     />
   ),
-})
+});
 
 export const ReactShorthandComplete = meta.story({
   render: () => (
@@ -227,18 +228,18 @@ export const ReactShorthandComplete = meta.story({
       listCardSubHeading="List Card Sub Heading"
       listCardItems={[
         {
-          listCardItemHeading: 'Applicant',
-          listCardItemSubHeading: 'Bob Smith',
-          listCardItemIcon: 'contact',
-          onClick: () => console.log('Clicking'),
+          listCardItemHeading: "Applicant",
+          listCardItemSubHeading: "Bob Smith",
+          listCardItemIcon: "contact",
+          onClick: () => console.log("Clicking"),
         },
         {
-          listCardItemHeading: 'Property',
-          listCardItemSubHeading: 'Some Address',
-          listCardItemIcon: 'property',
-          onClick: () => console.log('Clicking'),
+          listCardItemHeading: "Property",
+          listCardItemSubHeading: "Some Address",
+          listCardItemIcon: "property",
+          onClick: () => console.log("Clicking"),
         },
       ]}
     />
   ),
-})
+});

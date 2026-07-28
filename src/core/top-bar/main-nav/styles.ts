@@ -1,6 +1,6 @@
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
 
-export const ElTopBarMainNav = styled.nav``
+export const ElTopBarMainNav = styled.nav``;
 
 export const ElTopBarMainNavList = styled.ul`
   @layer elements.main {
@@ -12,11 +12,11 @@ export const ElTopBarMainNavList = styled.ul`
     margin: 0;
     padding: 0;
   }
-`
+`;
 
 export const ElTopBarMainNavListItem = styled.li`
   @layer elements.main {
     display: flex;
     align-items: center;
   }
-`
+`;

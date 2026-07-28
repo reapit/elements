@@ -1,29 +1,30 @@
-import preview from '#.storybook/preview'
-import { Toast } from './toast'
-import { MessageIcon } from '#src/icons/message'
+import preview from "#.storybook/preview";
+import { MessageIcon } from "#src/icons/message";
+
+import { Toast } from "./toast";
 
 const meta = preview.meta({
-  title: 'Messaging/Toast',
+  title: "Messaging/Toast",
   component: Toast,
   argTypes: {
     icon: {
-      control: 'radio',
-      options: ['None', 'Message'],
+      control: "radio",
+      options: ["None", "Message"],
       mapping: {
         None: undefined,
         Message: <MessageIcon />,
       },
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
-    children: 'This is a short message',
+    children: "This is a short message",
     duration: undefined,
-    variant: 'success',
+    variant: "success",
   },
-})
+});
 
 /**
  * Toasts support five variants: `success`, `error`, `warning`, `info`, and `neutral`. The
@@ -37,7 +38,7 @@ export const Variants = Example.extend({
   },
   decorators: [
     (Story) => (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-6)' }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "var(--spacing-6)" }}>
         <Story />
       </div>
     ),
@@ -51,7 +52,7 @@ export const Variants = Example.extend({
       <Toast {...args} variant="neutral" />
     </>
   ),
-})
+});
 
 /**
  * Toast messages are truncated at two lines. Longer content is clipped with a CSS line
@@ -60,10 +61,10 @@ export const Variants = Example.extend({
 export const Truncation = Example.extend({
   args: {
     children:
-      'This is a much longer message that is intended to exceed the two-line limit so that the truncation behaviour can be observed in the story.',
-    variant: 'info',
+      "This is a much longer message that is intended to exceed the two-line limit so that the truncation behaviour can be observed in the story.",
+    variant: "info",
   },
-})
+});
 
 /**
  * The toast's maximum width is 448px (`--size-112`). When placed inside a narrower
@@ -72,17 +73,17 @@ export const Truncation = Example.extend({
 export const MaxWidth = Example.extend({
   decorators: [
     (Story) => (
-      <div style={{ width: '320px' }}>
+      <div style={{ width: "320px" }}>
         <Story />
       </div>
     ),
   ],
   args: {
     children:
-      'This message demonstrates how the toast shrinks to fit a narrower container rather than overflowing beyond its boundaries.',
-    variant: 'error',
+      "This message demonstrates how the toast shrinks to fit a narrower container rather than overflowing beyond its boundaries.",
+    variant: "error",
   },
-})
+});
 
 /**
  * When a `duration` is provided (in milliseconds), a progress bar animates from zero to
@@ -92,9 +93,9 @@ export const MaxWidth = Example.extend({
 export const TimeoutBar = Example.extend({
   args: {
     duration: 5000,
-    variant: 'warning',
+    variant: "warning",
   },
-})
+});
 
 /**
  * When `isPaused` is `true`, the timeout bar animation is frozen in place.
@@ -109,4 +110,4 @@ export const Paused = TimeoutBar.extend({
     elapsed: 5000,
     isPaused: true,
   },
-})
+});

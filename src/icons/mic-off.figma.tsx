@@ -1,4 +1,5 @@
-import figma from '@figma/code-connect'
-import { MicOffIcon } from './mic-off'
+import figma from "@figma/code-connect";
 
-figma.connect(MicOffIcon, 'https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=20-509')
+import { MicOffIcon } from "./mic-off";
+
+figma.connect(MicOffIcon, "https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=20-509");

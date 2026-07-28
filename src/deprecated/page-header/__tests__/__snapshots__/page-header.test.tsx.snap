@@ -113,7 +113,7 @@ exports[`DeprecatedPageHeader component > should match a snapshot 1`] = `
           class="mocked-styled-0 el-deprecated-page-header-container"
         >
           <div
-            class="mocked-styled-7 el-deprecated-avatar el-deprecated-avatar-image el-deprecated-avatar"
+            class="mocked-styled-12 el-deprecated-avatar el-deprecated-avatar-image el-deprecated-avatar"
             role="img"
             title="An avatar image"
           >
@@ -134,31 +134,31 @@ exports[`DeprecatedPageHeader component > should match a snapshot 1`] = `
                 Page Title
               </h1>
               <ul
-                class="mocked-styled-8 el-tag-group-list"
+                class="mocked-styled-7 el-tag-group-list"
                 data-flow="wrap"
                 data-overflow="visible"
               >
                 <li
-                  class="mocked-styled-9 el-tag-group-list-item"
+                  class="mocked-styled-8 el-tag-group-list-item"
                 >
                   <span
                     class="el-intent-primary el-tag"
                   >
                     <span
-                      class="mocked-styled-11 el-tag-label"
+                      class="mocked-styled-10 el-tag-label"
                     >
                       Tag 1
                     </span>
                   </span>
                 </li>
                 <li
-                  class="mocked-styled-9 el-tag-group-list-item"
+                  class="mocked-styled-8 el-tag-group-list-item"
                 >
                   <span
                     class="el-intent-primary el-tag"
                   >
                     <span
-                      class="mocked-styled-11 el-tag-label"
+                      class="mocked-styled-10 el-tag-label"
                     >
                       Tag 2
                     </span>

@@ -1,25 +1,26 @@
-import { cx } from '@linaria/core'
-import { elFormControl } from './styles'
-import { FormControlErrorText } from './error-text'
-import { FormControlHelpText } from './help-text'
-import { FormControlLabel } from './label'
+import { cx } from "@linaria/core";
+import type { FieldsetHTMLAttributes, HTMLAttributes } from "react";
 
-import type { FieldsetHTMLAttributes, HTMLAttributes } from 'react'
+import { FormControlErrorText } from "./error-text";
+import { FormControlHelpText } from "./help-text";
+import { FormControlLabel } from "./label";
+import { elFormControl } from "./styles";
 
 export namespace FormControl {
   interface CommonProps {
     /** The maximum width of the form control. */
-    maxWidth?: string
+    maxWidth?: string;
     /** The size of the form control. Should match the size of the control being labelled. */
-    size?: 'small' | 'medium' | 'large'
+    size?: "small" | "medium" | "large";
   }
   export interface AsDivProps extends CommonProps, HTMLAttributes<HTMLDivElement> {
-    as?: 'div'
+    as?: "div";
   }
-  export interface AsFieldsetProps extends CommonProps, FieldsetHTMLAttributes<HTMLFieldSetElement> {
-    as: 'fieldset'
+  export interface AsFieldsetProps
+    extends CommonProps, FieldsetHTMLAttributes<HTMLFieldSetElement> {
+    as: "fieldset";
   }
-  export type Props = AsDivProps | AsFieldsetProps
+  export type Props = AsDivProps | AsFieldsetProps;
 }
 
 /**
@@ -27,7 +28,7 @@ export namespace FormControl {
  * control, such as standard inputs, checkbox or radio groups, chip selects, and more.
  */
 export function FormControl({
-  as: Element = 'div',
+  as: Element = "div",
   children,
   className,
   maxWidth,
@@ -44,9 +45,9 @@ export function FormControl({
     >
       {children}
     </Element>
-  )
+  );
 }
 
-FormControl.Label = FormControlLabel
-FormControl.HelpText = FormControlHelpText
-FormControl.ErrorText = FormControlErrorText
+FormControl.Label = FormControlLabel;
+FormControl.HelpText = FormControlHelpText;
+FormControl.ErrorText = FormControlErrorText;

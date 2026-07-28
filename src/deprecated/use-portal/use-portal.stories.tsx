@@ -1,12 +1,13 @@
-import preview from '#.storybook/preview'
-import { Portal } from '.'
+import preview from "#.storybook/preview";
+
+import { Portal } from ".";
 
 const meta = preview.meta({
-  title: 'Deprecated/Portal',
+  title: "Deprecated/Portal",
   component: Portal,
-})
+});
 
-export default meta
+export default meta;
 
 export const PortalUsage = meta.story({
   render: () => (
@@ -14,5 +15,5 @@ export const PortalUsage = meta.story({
       <div>I am a Portal Example!</div>
     </Portal>
   ),
-  name: 'Portal usage',
-})
+  name: "Portal usage",
+});

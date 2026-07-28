@@ -1,5 +1,6 @@
-import { font } from '#src/utils/font'
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
+
+import { font } from "#src/utils/font";
 
 export const ElOfficeItem = styled.button`
   @layer elements.main {
@@ -24,9 +25,9 @@ export const ElOfficeItem = styled.button`
 
     text-align: left;
 
-    ${font('sm', 'regular')}
+    ${font("sm", "regular")}
 
-    &[data-is-active='true'] {
+    &[data-is-active="true"] {
       outline: var(--border-width-double) solid var(--colour-border-focus);
       outline-offset: var(--border-width-default);
     }
@@ -36,15 +37,15 @@ export const ElOfficeItem = styled.button`
       --office-item-label-colour: var(--comp-office_switcher-colour-text-hover);
     }
 
-    &[aria-checked='true'],
-    &[aria-selected='true'] {
+    &[aria-checked="true"],
+    &[aria-selected="true"] {
       --office-item-check-icon-display: inline-flex;
       --office-item-label-colour: var(--comp-office_switcher-colour-text-action);
 
-      ${font('sm', 'medium')}
+      ${font("sm", "medium")}
     }
   }
-`
+`;
 
 export const ElOfficeItemLeftContent = styled.span`
   @layer elements.main {
@@ -54,7 +55,7 @@ export const ElOfficeItemLeftContent = styled.span`
     flex: 1 0 0;
     min-width: 0;
   }
-`
+`;
 
 export const ElOfficeItemTextContainer = styled.span`
   @layer elements.main {
@@ -65,7 +66,7 @@ export const ElOfficeItemTextContainer = styled.span`
     white-space: nowrap;
     flex-shrink: 1;
   }
-`
+`;
 
 export const ElOfficeItemBadgeContainer = styled.span`
   @layer elements.main {
@@ -73,7 +74,7 @@ export const ElOfficeItemBadgeContainer = styled.span`
     align-items: center;
     flex-shrink: 0;
   }
-`
+`;
 
 export const ElOfficeItemCheckIconContainer = styled.span`
   @layer elements.main {
@@ -87,4 +88,4 @@ export const ElOfficeItemCheckIconContainer = styled.span`
     height: var(--icon_size-md);
     width: var(--icon_size-md);
   }
-`
+`;

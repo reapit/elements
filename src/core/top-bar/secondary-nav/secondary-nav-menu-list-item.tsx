@@ -1,17 +1,18 @@
-import { ElTopBarSecondaryNavListItem } from './styles'
-import { Menu } from '#src/core/menu'
-import { TopBarNavIconItemButton } from '../nav-icon-item/nav-icon-item-button'
-import { useId } from 'react'
+import { useId } from "react";
+import type { ButtonHTMLAttributes, ReactNode } from "react";
 
-import type { ButtonHTMLAttributes, ReactNode } from 'react'
+import { Menu } from "#src/core/menu";
+
+import { TopBarNavIconItemButton } from "../nav-icon-item/nav-icon-item-button";
+import { ElTopBarSecondaryNavListItem } from "./styles";
 
 export namespace TopBarSecondaryNavMenuListItem {
   export interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
-    'aria-label': string
-    children: ReactNode
-    icon: ReactNode
-    maxWidth?: `--size-${string}`
-    maxHeight?: `--size-${string}`
+    "aria-label": string;
+    children: ReactNode;
+    icon: ReactNode;
+    maxWidth?: `--size-${string}`;
+    maxHeight?: `--size-${string}`;
   }
 }
 
@@ -20,20 +21,24 @@ export namespace TopBarSecondaryNavMenuListItem {
  * correct semantics and accessibility when used with `TopBar.SecondaryNav`.
  */
 export function TopBarSecondaryNavMenuListItem({
-  'aria-label': ariaLabel,
+  "aria-label": ariaLabel,
   children,
   icon,
   id,
   ...rest
 }: TopBarSecondaryNavMenuListItem.Props) {
-  const triggerId = id ?? useId()
-  const menuId = useId()
+  const triggerId = id ?? useId();
+  const menuId = useId();
 
   return (
     <ElTopBarSecondaryNavListItem>
       <TopBarNavIconItemButton
         {...rest}
-        {...Menu.getTriggerProps({ id: triggerId, popoverTarget: menuId, popoverTargetAction: 'toggle' })}
+        {...Menu.getTriggerProps({
+          id: triggerId,
+          popoverTarget: menuId,
+          popoverTargetAction: "toggle",
+        })}
         aria-label={ariaLabel}
         icon={icon}
       />
@@ -41,7 +46,7 @@ export function TopBarSecondaryNavMenuListItem({
         {children}
       </Menu>
     </ElTopBarSecondaryNavListItem>
-  )
+  );
 }
 
-TopBarSecondaryNavMenuListItem.displayName = 'TopBar.NavIconMenuItem'
+TopBarSecondaryNavMenuListItem.displayName = "TopBar.NavIconMenuItem";

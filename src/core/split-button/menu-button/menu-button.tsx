@@ -1,15 +1,16 @@
-import { Button } from '#src/core/button/index'
-import { ChevronDownIcon } from '#src/icons/chevron-down'
-import { cx } from '@linaria/core'
-import { elSplitButtonMenuButton } from './styles'
-import { useSplitButtonContext } from '../context'
+import { cx } from "@linaria/core";
+import type { ButtonHTMLAttributes } from "react";
 
-import type { ButtonHTMLAttributes } from 'react'
+import { Button } from "#src/core/button/index";
+import { ChevronDownIcon } from "#src/icons/chevron-down";
+
+import { useSplitButtonContext } from "../context";
+import { elSplitButtonMenuButton } from "./styles";
 
 // NOTE: We omit...
 // - children, because it has no visual label
 // - type, because it should always be type="button"
-type AttributesToOmit = 'children' | 'type'
+type AttributesToOmit = "children" | "type";
 
 export namespace SplitButtonMenuButton {
   export interface Props extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, AttributesToOmit> {
@@ -19,16 +20,16 @@ export namespace SplitButtonMenuButton {
      * Using `aria-disabled` is preferred when the action should still be focusable while it's disabled; for example,
      * to allow a tooltip to be displayed that explains why the action is disabled.
      */
-    'aria-disabled'?: boolean | 'true' | 'false'
+    "aria-disabled"?: boolean | "true" | "false";
     /** The button's label */
-    'aria-label': string
+    "aria-label": string;
     /**
      * Whether the button is disabled or not. Unlike `aria-disabled`, buttons disabled with this prop will not be
      * focusable or interactive.
      */
-    disabled?: boolean
+    disabled?: boolean;
     /** Whether the menu button is in a busy state */
-    isBusy?: boolean
+    isBusy?: boolean;
   }
 }
 
@@ -37,12 +38,12 @@ export namespace SplitButtonMenuButton {
  * be used via `SplitButton.Menu`, which includes the `Menu` component baked-in.
  */
 export function SplitButtonMenuButton({
-  'aria-disabled': ariaDisabled,
+  "aria-disabled": ariaDisabled,
   className,
   isBusy,
   ...rest
 }: SplitButtonMenuButton.Props) {
-  const { busy, size, variant } = useSplitButtonContext()
+  const { busy, size, variant } = useSplitButtonContext();
 
   return (
     <Button
@@ -50,13 +51,13 @@ export function SplitButtonMenuButton({
       // If the main action is busy, this menu button should be ARIA disabled. Importantly,
       // we do not allow `aria-disabled` to be forced to `false` when the split button
       // communicates the menu is busy.
-      aria-disabled={ariaDisabled || busy === 'action'}
+      aria-disabled={ariaDisabled || busy === "action"}
       className={cx(elSplitButtonMenuButton, className)}
       iconLeft={<ChevronDownIcon />}
-      isBusy={isBusy ?? busy === 'menu-item'}
+      isBusy={isBusy ?? busy === "menu-item"}
       size={size}
       type="button"
       variant={variant}
     />
-  )
+  );
 }

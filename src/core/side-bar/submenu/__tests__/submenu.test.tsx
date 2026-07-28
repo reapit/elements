@@ -1,19 +1,20 @@
-import { render, screen } from '@testing-library/react'
-import { SideBarSubmenu } from '../submenu'
+import { render, screen } from "@testing-library/react";
 
-test('renders a list', () => {
-  render(<SideBarSubmenu>Children</SideBarSubmenu>)
-  expect(screen.getByRole('list')).toBeVisible()
-})
+import { SideBarSubmenu } from "../submenu";
 
-test('all children are rendered', async () => {
+test("renders a list", () => {
+  render(<SideBarSubmenu>Children</SideBarSubmenu>);
+  expect(screen.getByRole("list")).toBeVisible();
+});
+
+test("all children are rendered", async () => {
   render(
     <SideBarSubmenu>
       <li>Item 1</li>
       <li>Item 2</li>
     </SideBarSubmenu>,
-  )
-  const items = await screen.findAllByRole('listitem')
+  );
+  const items = await screen.findAllByRole("listitem");
 
-  expect(items).toHaveLength(2)
-})
+  expect(items).toHaveLength(2);
+});

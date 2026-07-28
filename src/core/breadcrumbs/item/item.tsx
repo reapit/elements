@@ -1,14 +1,15 @@
-import { ChevronRightIcon } from '#src/icons/chevron-right'
-import { ElBreadcrumbItem, ElBreadcrumbItemSeparator } from './styles'
+import type { HTMLAttributes, ReactNode } from "react";
 
-import type { HTMLAttributes, ReactNode } from 'react'
+import { ChevronRightIcon } from "#src/icons/chevron-right";
+
+import { ElBreadcrumbItem, ElBreadcrumbItemSeparator } from "./styles";
 
 export namespace BreadcrumbItem {
   export interface Props extends HTMLAttributes<HTMLLIElement> {
     /**
      * The content of the breadcrumb item. Typically a `Breadcrumb.Link`.
      */
-    children: ReactNode
+    children: ReactNode;
   }
 }
 
@@ -24,10 +25,10 @@ export function BreadcrumbItem({ children, ...rest }: BreadcrumbItem.Props) {
         <ChevronRightIcon />
       </ElBreadcrumbItemSeparator>
     </ElBreadcrumbItem>
-  )
+  );
 }
 
-BreadcrumbItem.displayName = 'Breadcrumbs.Item'
+BreadcrumbItem.displayName = "Breadcrumbs.Item";
 
 /** @deprecated use BreadcrumbItem.Props instead */
-export type BreadcrumbItemProps = BreadcrumbItem.Props
+export type BreadcrumbItemProps = BreadcrumbItem.Props;

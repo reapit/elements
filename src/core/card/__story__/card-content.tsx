@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import type { ReactNode } from "react";
 
 interface CardContentProps {
   /**
@@ -6,7 +6,7 @@ interface CardContentProps {
    * Useful when a story needs to label the content with something specific,
    * e.g. the element name being demonstrated.
    */
-  children?: ReactNode
+  children?: ReactNode;
 }
 
 /**
@@ -20,25 +20,25 @@ export function CardContent({ children }: CardContentProps) {
   return (
     <div
       style={{
-        border: '1px dashed #FA00FF80',
-        borderRadius: 'var(--border-radius-m)',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: 'var(--spacing-10) var(--spacing-3)',
-        width: '100%',
-        boxSizing: 'border-box',
+        border: "1px dashed #FA00FF80",
+        borderRadius: "var(--border-radius-m)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "var(--spacing-10) var(--spacing-3)",
+        width: "100%",
+        boxSizing: "border-box",
       }}
     >
-      <div style={{ textAlign: 'center' }}>
+      <div style={{ textAlign: "center" }}>
         {children !== undefined ? (
           <p
             style={{
-              fontSize: 'var(--font-sm-medium-size)',
-              fontWeight: 'var(--font-sm-medium-weight)',
-              lineHeight: 'var(--font-sm-medium-line_height)',
-              letterSpacing: 'var(--font-sm-medium-letter_spacing)',
-              color: '#FA00FF',
+              fontSize: "var(--font-sm-medium-size)",
+              fontWeight: "var(--font-sm-medium-weight)",
+              lineHeight: "var(--font-sm-medium-line_height)",
+              letterSpacing: "var(--font-sm-medium-letter_spacing)",
+              color: "#FA00FF",
               margin: 0,
             }}
           >
@@ -48,11 +48,11 @@ export function CardContent({ children }: CardContentProps) {
           <>
             <p
               style={{
-                fontSize: 'var(--font-sm-medium-size)',
-                fontWeight: 'var(--font-sm-medium-weight)',
-                lineHeight: 'var(--font-sm-medium-line_height)',
-                letterSpacing: 'var(--font-sm-medium-letter_spacing)',
-                color: '#FA00FF',
+                fontSize: "var(--font-sm-medium-size)",
+                fontWeight: "var(--font-sm-medium-weight)",
+                lineHeight: "var(--font-sm-medium-line_height)",
+                letterSpacing: "var(--font-sm-medium-letter_spacing)",
+                color: "#FA00FF",
                 margin: 0,
               }}
             >
@@ -60,11 +60,11 @@ export function CardContent({ children }: CardContentProps) {
             </p>
             <p
               style={{
-                fontSize: 'var(--font-2xs-regular-size)',
-                fontWeight: 'var(--font-2xs-regular-weight)',
-                lineHeight: 'var(--font-2xs-regular-line_height)',
-                letterSpacing: 'var(--font-2xs-regular-letter_spacing)',
-                color: '#FA00FF',
+                fontSize: "var(--font-2xs-regular-size)",
+                fontWeight: "var(--font-2xs-regular-weight)",
+                lineHeight: "var(--font-2xs-regular-line_height)",
+                letterSpacing: "var(--font-2xs-regular-letter_spacing)",
+                color: "#FA00FF",
                 margin: 0,
               }}
             >
@@ -74,5 +74,5 @@ export function CardContent({ children }: CardContentProps) {
         )}
       </div>
     </div>
-  )
+  );
 }

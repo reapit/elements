@@ -1,4 +1,5 @@
-import figma from '@figma/code-connect'
-import { StatusIcon } from './status'
+import figma from "@figma/code-connect";
 
-figma.connect(StatusIcon, 'https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=459-7103')
+import { StatusIcon } from "./status";
+
+figma.connect(StatusIcon, "https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=459-7103");

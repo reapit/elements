@@ -1,1 +1,1 @@
-export { MediaFallback } from './media-fallback'
+export { MediaFallback } from "./media-fallback";

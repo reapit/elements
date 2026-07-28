@@ -1,20 +1,25 @@
-import { ChevronDownIcon } from '#src/icons/chevron-down'
-import { cx } from '@linaria/core'
-import { elTopBarNavDropdownButton, ElTopBarNavDropdownButtonIcon, ElTopBarNavDropdownButtonLabel } from './styles'
+import { cx } from "@linaria/core";
+import type { HTMLAttributes, ReactNode } from "react";
 
-import type { HTMLAttributes, ReactNode } from 'react'
+import { ChevronDownIcon } from "#src/icons/chevron-down";
+
+import {
+  elTopBarNavDropdownButton,
+  ElTopBarNavDropdownButtonIcon,
+  ElTopBarNavDropdownButtonLabel,
+} from "./styles";
 
 export namespace TopBarNavDropdownButton {
   export interface Props extends HTMLAttributes<HTMLButtonElement> {
     /**
      * The label of the dropdown button.
      */
-    children: ReactNode
+    children: ReactNode;
   }
 }
 
 /** @deprecated Use TopBarNavDropdownButton.Props instead */
-export type TopBarNavDropdownButtonProps = TopBarNavDropdownButton.Props
+export type TopBarNavDropdownButtonProps = TopBarNavDropdownButton.Props;
 
 /**
  * A simple dropdown button for use in the Top Bar's main navigation region. It can be used as an overflow menu when
@@ -27,7 +32,11 @@ export type TopBarNavDropdownButtonProps = TopBarNavDropdownButton.Props
  * is correctly wrapped by a list item (`<li>`) to ensure good semantics and accessibility when used with
  * `TopBar.MainNav`.
  */
-export function TopBarNavDropdownButton({ children, className, ...rest }: TopBarNavDropdownButton.Props) {
+export function TopBarNavDropdownButton({
+  children,
+  className,
+  ...rest
+}: TopBarNavDropdownButton.Props) {
   return (
     <button {...rest} className={cx(elTopBarNavDropdownButton, className)}>
       <ElTopBarNavDropdownButtonLabel>{children}</ElTopBarNavDropdownButtonLabel>
@@ -35,5 +44,5 @@ export function TopBarNavDropdownButton({ children, className, ...rest }: TopBar
         <ChevronDownIcon />
       </ElTopBarNavDropdownButtonIcon>
     </button>
-  )
+  );
 }

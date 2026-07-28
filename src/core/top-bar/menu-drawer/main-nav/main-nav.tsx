@@ -1,14 +1,14 @@
-import { ElTopBarMenuDrawerMainNav } from './styles'
-import { TopBarMenuDrawerMenuList } from '../menu-list'
+import { TopBarMenuDrawerMenuList } from "../menu-list";
+import { ElTopBarMenuDrawerMainNav } from "./styles";
 
 export namespace TopBarMenuDrawerMainNav {
-  export interface Props extends Omit<TopBarMenuDrawerMenuList.Props, 'aria-label'> {
+  export interface Props extends Omit<TopBarMenuDrawerMenuList.Props, "aria-label"> {
     /**
      * Accessible label for the main navigation menu list.
      *
      * @default "Main navigation"
      */
-    'aria-label'?: string
+    "aria-label"?: string;
   }
 }
 
@@ -20,7 +20,7 @@ export namespace TopBarMenuDrawerMainNav {
  * TopBar's main navigation area on larger screens.
  */
 export function TopBarMenuDrawerMainNav({
-  'aria-label': ariaLabel = 'Main navigation',
+  "aria-label": ariaLabel = "Main navigation",
   children,
   ...rest
 }: TopBarMenuDrawerMainNav.Props) {
@@ -28,7 +28,7 @@ export function TopBarMenuDrawerMainNav({
     <ElTopBarMenuDrawerMainNav aria-label={ariaLabel} {...rest}>
       {children}
     </ElTopBarMenuDrawerMainNav>
-  )
+  );
 }
 
-TopBarMenuDrawerMainNav.displayName = 'TopBar.MenuMainNav'
+TopBarMenuDrawerMainNav.displayName = "TopBar.MenuMainNav";

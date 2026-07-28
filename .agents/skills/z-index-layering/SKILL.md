@@ -49,13 +49,13 @@ Only three tokens exist because overlay components (`Dialog`, `Drawer`, `Menu`, 
 // ✅ Correct
 export const ElFolderTabs = styled.nav`
   isolation: isolate;
-`
+`;
 
 export const ElFolderTab = styled.a`
-  &[aria-current='page'] {
+  &[aria-current="page"] {
     z-index: var(--z-index-elevated);
   }
-`
+`;
 ```
 
 ### New component: multiple stacking levels within an isolated container
@@ -73,21 +73,21 @@ When a container has elements at different stacking levels (e.g., an `::after` o
 // ✅ Correct: explicit base/elevated pairing removes reliance on DOM order
 export const elTableBodyRow = css`
   isolation: isolate;
-`
+`;
 
 export const elTableRowPrimaryAction = css`
   z-index: var(--z-index-base); // ::after overlay sits at the base level
 
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
   }
-`
+`;
 
 export const elTableCellCheckbox = css`
   z-index: var(--z-index-elevated); // sits above the ::after overlay
-`
+`;
 ```
 
 ### New component: sticky or fixed positioning
@@ -104,7 +104,7 @@ export const elTopBar = css`
   position: sticky;
   top: 0;
   z-index: var(--z-index-sticky);
-`
+`;
 ```
 
 ### New component: overlay (modal, drawer, menu, tooltip, popup)
@@ -118,7 +118,7 @@ export const elTopBar = css`
 ```tsx
 // ✅ Correct — top-layer placement requires no z-index
 export function Modal({ children }: Modal.Props) {
-  return <dialog>{children}</dialog>
+  return <dialog>{children}</dialog>;
 }
 ```
 
@@ -139,25 +139,25 @@ export function Modal({ children }: Modal.Props) {
 // ❌ Wrong: z-index escapes and overlaps other page elements
 export const ElTabs = styled.div`
   display: flex;
-`
+`;
 
 export const ElTab = styled.a`
-  &[aria-current='page'] {
+  &[aria-current="page"] {
     z-index: 1;
   }
-`
+`;
 
 // ✅ Correct: container isolates the stacking context
 export const ElTabs = styled.div`
   display: flex;
   isolation: isolate;
-`
+`;
 
 export const ElTab = styled.a`
-  &[aria-current='page'] {
+  &[aria-current="page"] {
     z-index: var(--z-index-elevated);
   }
-`
+`;
 ```
 
 ### Hardcoded z-index values
@@ -180,11 +180,11 @@ z-index: var(--z-index-sticky);
 export const ElModal = styled.div`
   position: fixed;
   z-index: 9999;
-`
+`;
 
 // ✅ Correct: native browser API handles top-layer placement
 export function Modal({ children }: Modal.Props) {
-  return <dialog>{children}</dialog>
+  return <dialog>{children}</dialog>;
 }
 ```
 

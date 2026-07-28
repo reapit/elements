@@ -1,4 +1,5 @@
-import figma from '@figma/code-connect'
-import { SortAscendIcon } from './sort-ascend'
+import figma from "@figma/code-connect";
 
-figma.connect(SortAscendIcon, 'https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=20-505')
+import { SortAscendIcon } from "./sort-ascend";
+
+figma.connect(SortAscendIcon, "https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=20-505");

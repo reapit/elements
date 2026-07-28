@@ -1,8 +1,8 @@
-import { BottomBarListItem } from './menu-list-item'
-import { BottomBarMenuListItem } from './menu-list-menu-item'
-import { ElBottomBarMenuList } from './styles'
+import type { ComponentProps } from "react";
 
-import type { ComponentProps } from 'react'
+import { BottomBarListItem } from "./menu-list-item";
+import { BottomBarMenuListItem } from "./menu-list-menu-item";
+import { ElBottomBarMenuList } from "./styles";
 
 export namespace BottomBarMenuList {
   export interface Props extends ComponentProps<typeof ElBottomBarMenuList> {}
@@ -18,10 +18,10 @@ export namespace BottomBarMenuList {
  * it always has room on Storybook docs pages to render below its trigger.
  */
 export function BottomBarMenuList({ children, ...rest }: BottomBarMenuList.Props) {
-  return <ElBottomBarMenuList {...rest}>{children}</ElBottomBarMenuList>
+  return <ElBottomBarMenuList {...rest}>{children}</ElBottomBarMenuList>;
 }
 
-BottomBarMenuList.displayName = 'BottomBar.MenuList'
+BottomBarMenuList.displayName = "BottomBar.MenuList";
 
-BottomBarMenuList.Item = BottomBarListItem
-BottomBarMenuList.MenuItem = BottomBarMenuListItem
+BottomBarMenuList.Item = BottomBarListItem;
+BottomBarMenuList.MenuItem = BottomBarMenuListItem;

@@ -1,17 +1,17 @@
-import { ElSecondaryTab, ElSecondaryTabLabel } from './styles'
+import type { AnchorHTMLAttributes } from "react";
 
-import type { AnchorHTMLAttributes } from 'react'
+import { ElSecondaryTab, ElSecondaryTabLabel } from "./styles";
 
 export namespace SecondaryTab {
   export interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
     /**
      * Whether the tab item represents the current page/section.
      */
-    'aria-current': 'page' | false
+    "aria-current": "page" | false;
     /**
      * The URL to navigate to when this tab is activated.
      */
-    href: string
+    href: string;
   }
 }
 
@@ -22,10 +22,14 @@ export namespace SecondaryTab {
  * The selected state is determined by the `aria-current` prop, which should be set to 'page' when this
  * tab represents the current page.
  */
-export function SecondaryTab({ 'aria-current': ariaCurrent, children, ...rest }: SecondaryTab.Props) {
+export function SecondaryTab({
+  "aria-current": ariaCurrent,
+  children,
+  ...rest
+}: SecondaryTab.Props) {
   return (
     <ElSecondaryTab {...rest} aria-current={ariaCurrent}>
       <ElSecondaryTabLabel>{children}</ElSecondaryTabLabel>
     </ElSecondaryTab>
-  )
+  );
 }

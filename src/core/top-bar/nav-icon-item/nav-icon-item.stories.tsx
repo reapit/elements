@@ -1,27 +1,28 @@
-import preview from '#.storybook/preview'
-import { ContactIcon } from '#src/icons/contact'
-import { HelpIcon } from '#src/icons/help'
-import { NotificationIcon } from '#src/icons/notification'
-import { StarIcon } from '#src/icons/star'
-import { TopBarNavIconItem } from './nav-icon-item'
+import preview from "#.storybook/preview";
+import { ContactIcon } from "#src/icons/contact";
+import { HelpIcon } from "#src/icons/help";
+import { NotificationIcon } from "#src/icons/notification";
+import { StarIcon } from "#src/icons/star";
+
+import { TopBarNavIconItem } from "./nav-icon-item";
 
 const meta = preview.meta({
-  title: 'Navigation/TopBar/NavIconItem',
+  title: "Navigation/TopBar/NavIconItem",
   component: TopBarNavIconItem,
   argTypes: {
-    'aria-current': {
-      control: 'radio',
+    "aria-current": {
+      control: "radio",
       // NOTE: This is necessary because a `false` value in a Story will otherwise not correctly pre-select the
       // "false" option.
-      options: ['page', false],
+      options: ["page", false],
       mapping: {
-        page: 'page',
+        page: "page",
         false: false,
       },
     },
     icon: {
-      control: 'radio',
-      options: ['contact', 'help', 'notification', 'star'],
+      control: "radio",
+      options: ["contact", "help", "notification", "star"],
       mapping: {
         contact: <ContactIcon />,
         help: <HelpIcon />,
@@ -30,7 +31,7 @@ const meta = preview.meta({
       },
     },
   },
-})
+});
 
 /**
  * Most nav icon items will be used as a link to navigate users to another page in the product. When used as a link,
@@ -39,13 +40,13 @@ const meta = preview.meta({
  */
 export const Example = meta.story({
   args: {
-    'aria-current': false,
-    'aria-label': 'Nav icon item',
+    "aria-current": false,
+    "aria-label": "Nav icon item",
     hasBadge: false,
-    href: '#',
-    icon: 'star',
+    href: "#",
+    icon: "star",
   },
-})
+});
 
 /**
  * When the nav item represents the current page, `aria-current="page"` should be supplied. This indicates to visual
@@ -55,9 +56,9 @@ export const Example = meta.story({
  */
 export const Selected = Example.extend({
   args: {
-    'aria-current': 'page',
+    "aria-current": "page",
   },
-})
+});
 
 /**
  * Nav icon items may need to visually indicate that something new has occurred that the user should be aware of. When
@@ -66,8 +67,8 @@ export const Selected = Example.extend({
  */
 export const WithBadge = Example.extend({
   args: {
-    'aria-label': 'Notifications',
+    "aria-label": "Notifications",
     hasBadge: true,
-    icon: 'notification',
+    icon: "notification",
   },
-})
+});

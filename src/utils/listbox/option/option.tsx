@@ -1,25 +1,30 @@
-import { useId } from 'react'
-import { useListboxContext } from '../context'
-import { useListboxRenderContext } from '../render-context'
-import { updateOptionSelection } from './update-option-selection'
+import { useId } from "react";
+import type {
+  ButtonHTMLAttributes,
+  ComponentPropsWithoutRef,
+  ElementType,
+  MouseEventHandler,
+} from "react";
 
-import type { ButtonHTMLAttributes, ComponentPropsWithoutRef, ElementType, MouseEventHandler } from 'react'
+import { useListboxContext } from "../context";
+import { useListboxRenderContext } from "../render-context";
+import { updateOptionSelection } from "./update-option-selection";
 
 export namespace ListboxOption {
   export interface BaseProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     /** Option value used in form submission and selection tracking */
-    value: string
+    value: string;
   }
 
-  export type Props<C extends ElementType = 'button'> = BaseProps &
+  export type Props<C extends ElementType = "button"> = BaseProps &
     Omit<ComponentPropsWithoutRef<C>, keyof BaseProps> & {
       /**
        * Element type to render for the option. Must be button-based.
        * Forward all props to the underlying `<button>` element for proper accessibility
        * and functionality.
        */
-      as?: C
-    }
+      as?: C;
+    };
 }
 
 /**
@@ -41,7 +46,7 @@ export namespace ListboxOption {
  * **Important:** The `as` element type must be button-based and forward all props to the
  * underlying button for proper functionality.
  */
-export function ListboxOption<C extends ElementType = 'button'>({
+export function ListboxOption<C extends ElementType = "button">({
   as,
   children,
   disabled,
@@ -50,29 +55,30 @@ export function ListboxOption<C extends ElementType = 'button'>({
   value: optionValue,
   ...rest
 }: ListboxOption.Props<C>) {
-  const Element = as || 'button'
-  const context = useListboxContext()
-  const renderContext = useListboxRenderContext()
+  const Element = as || "button";
+  const context = useListboxContext();
+  const renderContext = useListboxRenderContext();
 
   // Called unconditionally before any early returns per rules of hooks.
   // Provides a stable ID for aria-activedescendant targeting when no id prop is supplied.
-  const generatedId = useId()
+  const generatedId = useId();
 
   const isSelected =
-    context.selectValue.includes(optionValue) || (optionValue === '' && context.selectValue.length === 0)
+    context.selectValue.includes(optionValue) ||
+    (optionValue === "" && context.selectValue.length === 0);
 
   // In native context, renders only unselected options. ListboxSelect renders selected
   // options automatically, preventing duplicates.
-  if (renderContext === 'native') {
-    return isSelected ? null : <option value={optionValue}>{children}</option>
+  if (renderContext === "native") {
+    return isSelected ? null : <option value={optionValue}>{children}</option>;
   }
 
   const handleClick: MouseEventHandler<HTMLButtonElement> = (event) => {
     // Call consumer's onClick handler first
-    onClick?.(event)
+    onClick?.(event);
 
-    updateOptionSelection(event)
-  }
+    updateOptionSelection(event);
+  };
 
   return (
     <Element
@@ -91,7 +97,7 @@ export function ListboxOption<C extends ElementType = 'button'>({
       disabled={context.disabled || disabled}
       id={id ?? generatedId}
       onClick={handleClick}
-      role={context.role === 'tree' ? 'treeitem' : 'option'}
+      role={context.role === "tree" ? "treeitem" : "option"}
       // tabIndex={-1} keeps options out of the tab sequence and prevents them receiving DOM
       // focus; keyboard navigation is driven by aria-activedescendant on the listbox
       // container/owner instead.
@@ -102,7 +108,7 @@ export function ListboxOption<C extends ElementType = 'button'>({
     >
       {children}
     </Element>
-  )
+  );
 }
 
-ListboxOption.displayName = 'Listbox.Option'
+ListboxOption.displayName = "Listbox.Option";

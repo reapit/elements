@@ -1,7 +1,7 @@
-import { ElSideBarSubmenuListItem } from './styles'
-import { SideBarSubmenuItem } from '../submenu-item'
+import type { ComponentProps } from "react";
 
-import type { ComponentProps } from 'react'
+import { SideBarSubmenuItem } from "../submenu-item";
+import { ElSideBarSubmenuListItem } from "./styles";
 
 export namespace SideBarSubmenuListItem {
   export interface Props extends ComponentProps<typeof SideBarSubmenuItem> {}
@@ -10,7 +10,7 @@ export namespace SideBarSubmenuListItem {
 /**
  * @deprecated Use `SideBarSubmenuListItem.Props` instead
  */
-export type SideBarSubmenuListItemProps = SideBarSubmenuListItem.Props
+export type SideBarSubmenuListItemProps = SideBarSubmenuListItem.Props;
 
 /**
  * A thin wrapper around `SideBarSubmenuItem` that ensures it is contained within a list item (`<li>`) for
@@ -23,7 +23,7 @@ export function SideBarSubmenuListItem({ children, ...props }: SideBarSubmenuLis
     <ElSideBarSubmenuListItem>
       <SideBarSubmenuItem {...props}>{children}</SideBarSubmenuItem>
     </ElSideBarSubmenuListItem>
-  )
+  );
 }
 
-SideBarSubmenuListItem.displayName = 'SideBar.SubmenuItem'
+SideBarSubmenuListItem.displayName = "SideBar.SubmenuItem";

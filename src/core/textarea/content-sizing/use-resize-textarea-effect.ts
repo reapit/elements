@@ -1,14 +1,14 @@
-import syncTextareaHeight from './sync-textarea-height'
-import { useLayoutEffect } from 'react'
+import { useLayoutEffect } from "react";
+import type { RefObject } from "react";
 
-import type { RefObject } from 'react'
+import syncTextareaHeight from "./sync-textarea-height";
 
 type UseResizeTextareaEffectConfig = {
-  isEnabled: boolean
-  shadowTextAreaRef: RefObject<HTMLTextAreaElement>
-  textAreaRef: RefObject<HTMLTextAreaElement>
-  value?: unknown
-}
+  isEnabled: boolean;
+  shadowTextAreaRef: RefObject<HTMLTextAreaElement>;
+  textAreaRef: RefObject<HTMLTextAreaElement>;
+  value?: unknown;
+};
 
 export default function useResizeTextareaEffect({
   isEnabled,
@@ -19,11 +19,11 @@ export default function useResizeTextareaEffect({
   useLayoutEffect(
     function syncTextAreaHeightEffect() {
       if (isEnabled && textAreaRef.current && shadowTextAreaRef.current) {
-        syncTextareaHeight(shadowTextAreaRef.current, textAreaRef.current)
+        syncTextareaHeight(shadowTextAreaRef.current, textAreaRef.current);
       }
     },
     // NOTE: We include `value` here to ensure this effect runs every time it changes. This allows
     // us to handle resizing of the text area when its value is controlled.
     [isEnabled, shadowTextAreaRef, textAreaRef, value],
-  )
+  );
 }

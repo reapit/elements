@@ -1,52 +1,52 @@
-import { act, renderHook } from '@testing-library/react'
-import { useImage } from '../use-image'
+import { act, renderHook } from "@testing-library/react";
+import type { SyntheticEvent } from "react";
 
-import type { SyntheticEvent } from 'react'
+import { useImage } from "../use-image";
 
-test('returns hasError as false by default', () => {
-  const { result } = renderHook(() => useImage())
-  expect(result.current.hasError).toBe(false)
-})
+test("returns hasError as false by default", () => {
+  const { result } = renderHook(() => useImage());
+  expect(result.current.hasError).toBe(false);
+});
 
-test('sets hasError to true when handleError is called', () => {
-  const { result } = renderHook(() => useImage())
-
-  act(() => {
-    result.current.handleError(new Event('error') as unknown as SyntheticEvent<HTMLImageElement>)
-  })
-
-  expect(result.current.hasError).toBe(true)
-})
-
-test('sets hasError to false when handleLoad is called after an error', () => {
-  const { result } = renderHook(() => useImage())
+test("sets hasError to true when handleError is called", () => {
+  const { result } = renderHook(() => useImage());
 
   act(() => {
-    result.current.handleError(new Event('error') as unknown as SyntheticEvent<HTMLImageElement>)
-    result.current.handleLoad(new Event('load') as unknown as SyntheticEvent<HTMLImageElement>)
-  })
+    result.current.handleError(new Event("error") as unknown as SyntheticEvent<HTMLImageElement>);
+  });
 
-  expect(result.current.hasError).toBe(false)
-})
+  expect(result.current.hasError).toBe(true);
+});
 
-test('calls onError when handleError is called', () => {
-  const onError = vi.fn()
-  const { result } = renderHook(() => useImage({ onError }))
+test("sets hasError to false when handleLoad is called after an error", () => {
+  const { result } = renderHook(() => useImage());
 
   act(() => {
-    result.current.handleError(new Event('error') as unknown as SyntheticEvent<HTMLImageElement>)
-  })
+    result.current.handleError(new Event("error") as unknown as SyntheticEvent<HTMLImageElement>);
+    result.current.handleLoad(new Event("load") as unknown as SyntheticEvent<HTMLImageElement>);
+  });
 
-  expect(onError).toHaveBeenCalledTimes(1)
-})
+  expect(result.current.hasError).toBe(false);
+});
 
-test('calls onLoad when handleLoad is called', () => {
-  const onLoad = vi.fn()
-  const { result } = renderHook(() => useImage({ onLoad }))
+test("calls onError when handleError is called", () => {
+  const onError = vi.fn();
+  const { result } = renderHook(() => useImage({ onError }));
 
   act(() => {
-    result.current.handleLoad(new Event('load') as unknown as SyntheticEvent<HTMLImageElement>)
-  })
+    result.current.handleError(new Event("error") as unknown as SyntheticEvent<HTMLImageElement>);
+  });
 
-  expect(onLoad).toHaveBeenCalledTimes(1)
-})
+  expect(onError).toHaveBeenCalledTimes(1);
+});
+
+test("calls onLoad when handleLoad is called", () => {
+  const onLoad = vi.fn();
+  const { result } = renderHook(() => useImage({ onLoad }));
+
+  act(() => {
+    result.current.handleLoad(new Event("load") as unknown as SyntheticEvent<HTMLImageElement>);
+  });
+
+  expect(onLoad).toHaveBeenCalledTimes(1);
+});

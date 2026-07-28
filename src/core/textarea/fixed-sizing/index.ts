@@ -1,1 +1,1 @@
-export * from './fixed-sizing'
+export * from "./fixed-sizing";

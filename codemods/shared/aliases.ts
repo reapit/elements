@@ -1,5 +1,6 @@
-import { SourceFile } from 'ts-morph'
-import { isElementsImport } from './elements-import.js'
+import { SourceFile } from "ts-morph";
+
+import { isElementsImport } from "./elements-import.js";
 
 /**
  * Collects all local aliases (including the original name when unaliased) for a
@@ -20,22 +21,26 @@ export function getImportAliases(
   facadePackage?: string,
   options?: { fallbackToName?: boolean },
 ): Set<string> {
-  const aliases = new Set<string>()
+  const aliases = new Set<string>();
 
   for (const importDecl of sourceFile.getImportDeclarations()) {
-    const moduleSpecifier = importDecl.getModuleSpecifierValue()
-    if (!isElementsImport(moduleSpecifier, facadePackage)) continue
+    const moduleSpecifier = importDecl.getModuleSpecifierValue();
+    if (!isElementsImport(moduleSpecifier, facadePackage)) continue;
 
     for (const namedImport of importDecl.getNamedImports()) {
       if (namedImport.getName() === importName) {
-        aliases.add(namedImport.getAliasNode()?.getText() ?? importName)
+        aliases.add(namedImport.getAliasNode()?.getText() ?? importName);
       }
     }
   }
 
-  if (options?.fallbackToName && aliases.size === 0 && sourceFile.getImportDeclarations().length === 0) {
-    aliases.add(importName)
+  if (
+    options?.fallbackToName &&
+    aliases.size === 0 &&
+    sourceFile.getImportDeclarations().length === 0
+  ) {
+    aliases.add(importName);
   }
 
-  return aliases
+  return aliases;
 }

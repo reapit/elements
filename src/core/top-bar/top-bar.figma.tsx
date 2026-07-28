@@ -1,17 +1,18 @@
-import { AppSwitcher } from '../app-switcher'
-import figma from '@figma/code-connect'
-import { TopBar } from './top-bar'
+import figma from "@figma/code-connect";
 
-figma.connect(TopBar, '<TOP_BAR_URL>', {
+import { AppSwitcher } from "../app-switcher";
+import { TopBar } from "./top-bar";
+
+figma.connect(TopBar, "<TOP_BAR_URL>", {
   props: {
-    appSwitcher: figma.boolean('App switcher', {
+    appSwitcher: figma.boolean("App switcher", {
       true: <AppSwitcher>TODO: add app switcher menu content</AppSwitcher>,
       false: undefined,
     }),
-    avatarButton: figma.children('Avatar button'),
-    brandLogo: figma.children('Brand logo'),
-    mainNav: figma.children('Main nav'),
-    search: figma.boolean('Search', {
+    avatarButton: figma.children("Avatar button"),
+    brandLogo: figma.children("Brand logo"),
+    mainNav: figma.children("Main nav"),
+    search: figma.boolean("Search", {
       // NOTE: We do this instead of using figma.children because the search icon button in
       // Figma is just a nav icon item and we can't differentiate it from the other nav icon
       // item present as an instance layer in the top bar's XS breakpoint variant.
@@ -23,7 +24,7 @@ figma.connect(TopBar, '<TOP_BAR_URL>', {
       ),
       false: undefined,
     }),
-    secondaryNav: figma.children('Secondary nav'),
+    secondaryNav: figma.children("Secondary nav"),
   },
   example: (props) => (
     <TopBar
@@ -35,4 +36,4 @@ figma.connect(TopBar, '<TOP_BAR_URL>', {
       secondaryNav={props.secondaryNav}
     />
   ),
-})
+});

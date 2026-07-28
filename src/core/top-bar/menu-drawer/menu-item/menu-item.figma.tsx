@@ -1,12 +1,13 @@
-import figma from '@figma/code-connect'
-import { TopBar } from '../../top-bar'
+import figma from "@figma/code-connect";
 
-figma.connect(TopBar, '<TOP_BAR_MENU_ITEM_URL>', {
-  variant: { Type: 'Simple' },
+import { TopBar } from "../../top-bar";
+
+figma.connect(TopBar, "<TOP_BAR_MENU_ITEM_URL>", {
+  variant: { Type: "Simple" },
   props: {
-    item: figma.nestedProps('Top item', {
-      hasBadge: figma.boolean('Notification badge'),
-      label: figma.string('Label'),
+    item: figma.nestedProps("Top item", {
+      hasBadge: figma.boolean("Notification badge"),
+      label: figma.string("Label"),
     }),
   },
   example: (props) => (
@@ -14,4 +15,4 @@ figma.connect(TopBar, '<TOP_BAR_MENU_ITEM_URL>', {
       {props.item.label}
     </TopBar.MenuItem>
   ),
-})
+});

@@ -1,1 +1,1 @@
-export { FileUploaderSingleSelectMediaCard } from './media-card'
+export { FileUploaderSingleSelectMediaCard } from "./media-card";

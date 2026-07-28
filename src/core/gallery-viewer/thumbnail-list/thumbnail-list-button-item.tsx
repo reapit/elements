@@ -1,5 +1,5 @@
-import { ElGalleryViewerThumbnailListItem } from './styles'
-import { GalleryViewerThumbnailButton } from '../thumbnail'
+import { GalleryViewerThumbnailButton } from "../thumbnail";
+import { ElGalleryViewerThumbnailListItem } from "./styles";
 
 export namespace GalleryViewerThumbnailListButtonItem {
   export interface Props extends GalleryViewerThumbnailButton.Props {}
@@ -12,12 +12,14 @@ export namespace GalleryViewerThumbnailListButtonItem {
  *
  * All props are passed through to `GalleryViewerThumbnailButton`.
  */
-export function GalleryViewerThumbnailListButtonItem(props: GalleryViewerThumbnailListButtonItem.Props) {
+export function GalleryViewerThumbnailListButtonItem(
+  props: GalleryViewerThumbnailListButtonItem.Props,
+) {
   return (
     <ElGalleryViewerThumbnailListItem>
       <GalleryViewerThumbnailButton {...props} />
     </ElGalleryViewerThumbnailListItem>
-  )
+  );
 }
 
-GalleryViewerThumbnailListButtonItem.displayName = 'GalleryViewer.ThumbnailButton'
+GalleryViewerThumbnailListButtonItem.displayName = "GalleryViewer.ThumbnailButton";

@@ -1,4 +1,5 @@
-import figma from '@figma/code-connect'
-import { PropertyCheckedIcon } from './property-checked'
+import figma from "@figma/code-connect";
 
-figma.connect(PropertyCheckedIcon, 'https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=20-521')
+import { PropertyCheckedIcon } from "./property-checked";
+
+figma.connect(PropertyCheckedIcon, "https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=20-521");

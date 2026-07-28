@@ -1,21 +1,21 @@
-import preview from '#.storybook/preview'
-import { FileUploader } from '../file-uploader'
-import { FileUploaderContext } from '../context'
+import preview from "#.storybook/preview";
 
-import type { FileUploadQueue } from '../file-upload-queue'
+import { FileUploaderContext } from "../context";
+import type { FileUploadQueue } from "../file-upload-queue";
+import { FileUploader } from "../file-uploader";
 
 // `FileUploader.FileList` always subscribes to its queue, even when `children` is a static
 // subtree rather than the items render function — so every story still needs a queue in context,
 // just not a real, uploading one. This stub satisfies the subscription without a `FileUploadQueue`
 // instance or a `FileUploader` ancestor.
-const emptyItems: FileUploadQueue.Item[] = []
+const emptyItems: FileUploadQueue.Item[] = [];
 const queue = {
   subscribe: () => () => {},
   getItemsSnapshot: () => emptyItems,
-} as unknown as FileUploadQueue<any>
+} as unknown as FileUploadQueue<any>;
 
 const meta = preview.meta({
-  title: 'Input and selection/FileUploader/FileList',
+  title: "Input and selection/FileUploader/FileList",
   component: FileUploader.FileList,
   subcomponents: { File: FileUploader.File },
   argTypes: {
@@ -23,18 +23,18 @@ const meta = preview.meta({
       control: false,
     },
     variant: {
-      control: 'radio',
-      options: ['file', 'media'],
+      control: "radio",
+      options: ["file", "media"],
     },
   },
   decorators: [
     (Story) => (
-      <FileUploaderContext.Provider value={{ queue, triggerId: 'trigger' }}>
+      <FileUploaderContext.Provider value={{ queue, triggerId: "trigger" }}>
         <Story />
       </FileUploaderContext.Provider>
     ),
   ],
-})
+});
 
 /**
  * Files will typically be sourced via the `children` render function. For this example,
@@ -45,24 +45,36 @@ export const Example = meta.story({
   args: {
     children: (
       <>
-        <FileUploader.File item={makeItem({ id: '1', status: 'queued' })} onRemove={() => {}} />
+        <FileUploader.File item={makeItem({ id: "1", status: "queued" })} onRemove={() => {}} />
         <FileUploader.File
-          item={makeItem({ id: '2', status: 'uploading', progress: 45, isLoadingIndicatorVisible: true })}
+          item={makeItem({
+            id: "2",
+            status: "uploading",
+            progress: 45,
+            isLoadingIndicatorVisible: true,
+          })}
           onRemove={() => {}}
         />
-        <FileUploader.File item={makeItem({ id: '3', status: 'uploaded', fileId: 'file-3', result: 'file-3' })} />
+        <FileUploader.File
+          item={makeItem({ id: "3", status: "uploaded", fileId: "file-3", result: "file-3" })}
+        />
         <FileUploader.File
           errorText="Upload failed"
-          item={makeItem({ id: '4', file: makeFile('invoice.pdf'), status: 'error', errorMessage: 'Upload failed' })}
+          item={makeItem({
+            id: "4",
+            file: makeFile("invoice.pdf"),
+            status: "error",
+            errorMessage: "Upload failed",
+          })}
           onRemove={() => {}}
         />
       </>
     ),
     columns: 2,
-    name: 'myFiles',
-    variant: 'file',
+    name: "myFiles",
+    variant: "file",
   },
-})
+});
 
 /**
  * When all the files are images/videos, the `media` variant can be used to show each file as a media card.
@@ -70,32 +82,32 @@ export const Example = meta.story({
  */
 export const Media = Example.extend({
   args: {
-    variant: 'media',
+    variant: "media",
     children: (
       <>
         <FileUploader.File
-          item={makeItem({ id: '1', file: makeFile('a.png', 'image/png'), status: 'uploaded' })}
+          item={makeItem({ id: "1", file: makeFile("a.png", "image/png"), status: "uploaded" })}
           onRemove={() => {}}
         />
         <FileUploader.File
           item={makeItem({
-            id: '2',
-            file: makeFile('b.png', 'image/png'),
-            status: 'uploading',
+            id: "2",
+            file: makeFile("b.png", "image/png"),
+            status: "uploading",
             progress: 70,
             isLoadingIndicatorVisible: true,
           })}
           onRemove={() => {}}
         />
         <FileUploader.File
-          item={makeItem({ id: '3', file: makeFile('c.png', 'image/png'), status: 'error' })}
+          item={makeItem({ id: "3", file: makeFile("c.png", "image/png"), status: "error" })}
           onRemove={() => {}}
         />
         <FileUploader.File
           item={makeItem({
-            id: '4',
-            file: makeFile('d.png', 'image/png'),
-            status: 'uploading',
+            id: "4",
+            file: makeFile("d.png", "image/png"),
+            status: "uploading",
             progress: 20,
             isLoadingIndicatorVisible: true,
           })}
@@ -104,7 +116,7 @@ export const Media = Example.extend({
       </>
     ),
   },
-})
+});
 
 /**
  * The `minItemHeight` and `minItemWidth` props control the size of each file/media card. The file
@@ -113,17 +125,17 @@ export const Media = Example.extend({
  */
 export const Sizing = Media.extend({
   args: {
-    minItemHeight: '300px',
-    minItemWidth: '150px',
+    minItemHeight: "300px",
+    minItemWidth: "150px",
   },
   decorators: [
     (Story) => (
-      <div style={{ maxWidth: '400px', border: '1px solid #FA00FF' }}>
+      <div style={{ maxWidth: "400px", border: "1px solid #FA00FF" }}>
         <Story />
       </div>
     ),
   ],
-})
+});
 
 /**
  * The `columns` prop sets an explicit column count for the `media` variant. It has no effect on
@@ -133,12 +145,14 @@ export const Columns = Media.extend({
   args: {
     columns: 3,
   },
-})
+});
 
-function makeFile(name: string, type = 'text/plain'): File {
-  return new File([new Uint8Array(10)], name, { type })
+function makeFile(name: string, type = "text/plain"): File {
+  return new File([new Uint8Array(10)], name, { type });
 }
 
-function makeItem(overrides: Partial<FileUploadQueue.Item> & { id: string; status: string }): FileUploadQueue.Item {
-  return { file: makeFile('document.pdf'), ...overrides } as FileUploadQueue.Item
+function makeItem(
+  overrides: Partial<FileUploadQueue.Item> & { id: string; status: string },
+): FileUploadQueue.Item {
+  return { file: makeFile("document.pdf"), ...overrides } as FileUploadQueue.Item;
 }

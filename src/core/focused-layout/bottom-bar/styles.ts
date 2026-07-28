@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
 
 export const ElFocusedLayoutBottomBar = styled.footer`
   @layer elements.main {
@@ -17,4 +17,4 @@ export const ElFocusedLayoutBottomBar = styled.footer`
     border-top: var(--comp-focused_overlay-border-width-bottom_bar) solid
       var(--comp-focused_overlay-colour-border-bottom_bar);
   }
-`
+`;

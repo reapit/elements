@@ -1,17 +1,18 @@
-import preview from '#.storybook/preview'
-import { ChipGroup } from './chip-group'
-import * as ChipStories from '../chip/chip.stories'
+import type { Decorator } from "@storybook/react-vite";
 
-import type { Decorator } from '@storybook/react-vite'
+import preview from "#.storybook/preview";
+
+import * as ChipStories from "../chip/chip.stories";
+import { ChipGroup } from "./chip-group";
 
 const meta = preview.meta({
-  title: 'Indicators and status/ChipGroup',
+  title: "Indicators and status/ChipGroup",
   component: ChipGroup,
   argTypes: {
     children: {
-      control: 'radio',
-      defaultValue: 'Fruit',
-      options: ['Fruit', 'Colours'],
+      control: "radio",
+      defaultValue: "Fruit",
+      options: ["Fruit", "Colours"],
       mapping: {
         Fruit: [
           <ChipGroup.Item key="1">Apples</ChipGroup.Item>,
@@ -32,36 +33,36 @@ const meta = preview.meta({
       },
     },
     overflow: {
-      control: 'radio',
+      control: "radio",
     },
     variant: {
-      control: 'radio',
-      options: ['filter', 'selection'],
+      control: "radio",
+      options: ["filter", "selection"],
     },
   },
-})
+});
 
 const useNarrowParentDecorator: Decorator = (Story) => {
   return (
-    <div style={{ border: '1px solid #FA00FF', width: '397px' }}>
+    <div style={{ border: "1px solid #FA00FF", width: "397px" }}>
       <Story />
     </div>
-  )
-}
+  );
+};
 
 /**
  * By default, a chip group will grow to whatever width it's parent allows.
  */
 export const Example = meta.story({
   args: {
-    'aria-disabled': false,
-    children: 'Fruit',
+    "aria-disabled": false,
+    children: "Fruit",
     disabled: false,
-    flow: 'wrap',
-    overflow: 'visible',
-    variant: 'filter',
+    flow: "wrap",
+    overflow: "visible",
+    variant: "filter",
   },
-})
+});
 
 /**
  * All chips in the group can be disabled. Individual chips can override the group's disabled state;
@@ -82,23 +83,23 @@ export const Disabled = Example.extend({
 
     disabled: true,
   },
-})
+});
 
 /**
  * The variant of all chips in the group can be set using `variant`.
  */
 export const Variants = Example.extend({
   args: {
-    variant: 'selection',
+    variant: "selection",
   },
-})
+});
 
 /**
  * By default, chips will wrap to other lines if there is insufficient space.
  */
 export const Wrapping = Example.extend({
   decorators: [useNarrowParentDecorator],
-})
+});
 
 /**
  * The default wrapping behaviour can be overridden using `flow="nowrap"`. This can be useful at
@@ -106,20 +107,20 @@ export const Wrapping = Example.extend({
  */
 export const NoWrapping = Example.extend({
   args: {
-    flow: 'nowrap',
+    flow: "nowrap",
   },
   decorators: [useNarrowParentDecorator],
-})
+});
 
 /**
  * When wrapping is disabled, it will often be useful to allow the chip group to scroll horizontally.
  */
 export const Overflow = NoWrapping.extend({
   args: {
-    overflow: 'auto',
+    overflow: "auto",
   },
   decorators: [useNarrowParentDecorator],
-})
+});
 
 /**
  * Whether wrapping or scrolling is used, chips will size themselves appropriately based on the
@@ -159,8 +160,8 @@ export const ChipSizing = meta.story({
       </ChipGroup.Item>,
       <ChipGroup.Item key="9" {...ChipStories.LongWords.input.args} />,
     ],
-    flow: 'wrap',
-    variant: 'filter',
+    flow: "wrap",
+    variant: "filter",
   },
   decorators: [useNarrowParentDecorator],
-})
+});

@@ -1,43 +1,45 @@
-import preview from '#.storybook/preview'
-import { ChipSelectControl } from './chip-select-control'
-import { ChipSelect } from '#src/core/chip-select'
-import { StarIcon } from '#src/icons/star'
-import { useId } from 'react'
+import { useId } from "react";
+
+import preview from "#.storybook/preview";
+import { ChipSelect } from "#src/core/chip-select";
+import { StarIcon } from "#src/icons/star";
+
+import { ChipSelectControl } from "./chip-select-control";
 
 const meta = preview.meta({
-  title: 'Input and selection/ChipSelectControl',
+  title: "Input and selection/ChipSelectControl",
   component: ChipSelectControl,
   argTypes: {
     children: {
       control: false,
     },
     errorText: {
-      control: 'text',
+      control: "text",
     },
     helpText: {
-      control: 'text',
+      control: "text",
     },
     label: {
-      control: 'text',
+      control: "text",
     },
     overflow: {
-      control: 'radio',
+      control: "radio",
     },
     size: {
-      control: 'select',
-      options: ['small', 'medium', 'large'],
+      control: "select",
+      options: ["small", "medium", "large"],
     },
   },
   render: (args) => {
-    const formId = args.form ? `${args.form}-${useId()}` : useId()
+    const formId = args.form ? `${args.form}-${useId()}` : useId();
     return (
       <>
         <form id={formId} />
         <ChipSelectControl {...args} form={formId} />
       </>
-    )
+    );
   },
-})
+});
 
 export const Example = meta.story({
   args: {
@@ -58,27 +60,27 @@ export const Example = meta.story({
         Strawberries
       </ChipSelect.Option>,
     ],
-    errorText: '',
-    flow: 'wrap',
-    form: 'my-form',
-    helpText: '',
-    label: 'Favorite Fruit',
+    errorText: "",
+    flow: "wrap",
+    form: "my-form",
+    helpText: "",
+    label: "Favorite Fruit",
     multiple: false,
-    name: 'fruit',
-    overflow: 'visible',
+    name: "fruit",
+    overflow: "visible",
     required: false,
-    size: 'small',
+    size: "small",
   },
-})
+});
 
 /**
  * Help text can be provided to give additional context about the chip select.
  */
 export const HelpText = Example.extend({
   args: {
-    helpText: 'Choose your favorite fruit',
+    helpText: "Choose your favorite fruit",
   },
-})
+});
 
 /**
  * Chip selects can be marked as required. When they are, a required indicator is automatically shown
@@ -88,13 +90,13 @@ export const Required = Example.extend({
   args: {
     required: true,
   },
-})
+});
 
 /**
  * An error message can also be provided to explain why the current value is invalid.
  */
 export const Invalid = Required.extend({
   args: {
-    errorText: 'Error message',
+    errorText: "Error message",
   },
-})
+});

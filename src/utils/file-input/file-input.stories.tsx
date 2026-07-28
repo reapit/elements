@@ -1,10 +1,12 @@
-import preview from '#.storybook/preview'
-import { FileInput } from './file-input'
-import { Button } from '#src/core/button'
-import { CloudUploadIcon } from '#src/icons/cloud-upload'
-import { FileUploadIcon } from '#src/icons/file-upload'
-import { styled } from '@linaria/react'
-import { useState } from 'react'
+import { styled } from "@linaria/react";
+import { useState } from "react";
+
+import preview from "#.storybook/preview";
+import { Button } from "#src/core/button";
+import { CloudUploadIcon } from "#src/icons/cloud-upload";
+import { FileUploadIcon } from "#src/icons/file-upload";
+
+import { FileInput } from "./file-input";
 
 // Demo-only dropzone chrome for the `Drag and drop` story below — `FileInput` renders none of
 // this itself. `:has(input:invalid)` reaches the real (visually hidden) input rendered by
@@ -16,7 +18,7 @@ const ElDropzone = styled.div`
   &:has(input:invalid) {
     --file-input-story-border-colour: var(--colour-border-error-default);
   }
-`
+`;
 
 const ElDropzoneContent = styled.div`
   display: flex;
@@ -32,31 +34,31 @@ const ElDropzoneContent = styled.div`
   cursor: pointer;
 
   &:hover,
-  &[data-dragging-over='true'] {
+  &[data-dragging-over="true"] {
     background: var(--comp-uploader-colour-fill-drop_area-hover);
   }
 
-  &[data-focused='true'] {
+  &[data-focused="true"] {
     outline: var(--border-width-double) solid var(--colour-border-focus);
     outline-offset: -2px;
   }
 
-  &[data-disabled='true'] {
+  &[data-disabled="true"] {
     background: var(--colour-fill-neutral-lightest);
     color: var(--colour-text-placeholder);
     cursor: not-allowed;
   }
-`
+`;
 
 const meta = preview.meta({
-  title: 'Utils/FileInput',
+  title: "Utils/FileInput",
   component: FileInput,
   argTypes: {
     children: {
       control: false,
       table: {
         type: {
-          summary: '(props: FileInput.RenderProps) => ReactNode',
+          summary: "(props: FileInput.RenderProps) => ReactNode",
         },
       },
     },
@@ -64,7 +66,7 @@ const meta = preview.meta({
       control: false,
       table: {
         type: {
-          summary: 'File[]',
+          summary: "File[]",
         },
       },
     },
@@ -72,16 +74,16 @@ const meta = preview.meta({
       control: false,
       table: {
         type: {
-          summary: 'File[]',
+          summary: "File[]",
         },
       },
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
-    'aria-label': 'Upload a file',
+    "aria-label": "Upload a file",
     accept: undefined,
     disabled: false,
     maxFileSize: undefined,
@@ -90,7 +92,7 @@ export const Example = meta.story({
     multiple: undefined,
     required: false,
   },
-})
+});
 
 /**
  * Set `multiple` to allow more than one file per browse round. Browsing again always replaces the
@@ -103,7 +105,7 @@ export const Multiple = Example.extend({
   args: {
     multiple: true,
   },
-})
+});
 
 /**
  * `accept` restricts which files the OS picker offers, using the same syntax as the native
@@ -111,9 +113,9 @@ export const Multiple = Example.extend({
  */
 export const Accept = Example.extend({
   args: {
-    accept: 'image/*',
+    accept: "image/*",
   },
-})
+});
 
 /**
  * `maxFileSize`, `maxFiles`, and `maxTotalSize` are custom constraints with no native attribute
@@ -122,7 +124,7 @@ export const Accept = Example.extend({
  * one larger than 1 KB, then submit to see the browser's validation message.
  */
 export const CustomConstraints = Example.extend({
-  name: 'Custom constraints',
+  name: "Custom constraints",
   args: {
     multiple: true,
     maxFiles: 2,
@@ -132,14 +134,19 @@ export const CustomConstraints = Example.extend({
     return (
       <form
         onSubmit={(e) => e.preventDefault()}
-        style={{ display: 'flex', flexFlow: 'row nowrap', gap: 'var(--spacing-3)', alignItems: 'center' }}
+        style={{
+          display: "flex",
+          flexFlow: "row nowrap",
+          gap: "var(--spacing-3)",
+          alignItems: "center",
+        }}
       >
         <FileInput {...args} />
         <button type="submit">Submit</button>
       </form>
-    )
+    );
   },
-})
+});
 
 /**
  * `disabled` prevents interaction and excludes the input from form submission, matching the native
@@ -149,7 +156,7 @@ export const Disabled = Example.extend({
   args: {
     disabled: true,
   },
-})
+});
 
 /**
  * Pass a `children` render function to fully replace the default rendered content while keeping
@@ -159,7 +166,7 @@ export const Disabled = Example.extend({
  * file, in a real composition) isn't caught up in it.
  */
 export const CustomTrigger = Example.extend({
-  name: 'Custom trigger',
+  name: "Custom trigger",
   args: {
     multiple: true,
     tabIndex: -1,
@@ -169,7 +176,12 @@ export const CustomTrigger = Example.extend({
       <FileInput {...args}>
         {({ files, disabled, openFilePicker }) => (
           <div
-            style={{ display: 'flex', flexFlow: 'column nowrap', gap: 'var(--spacing-2)', alignItems: 'flex-start' }}
+            style={{
+              display: "flex",
+              flexFlow: "column nowrap",
+              gap: "var(--spacing-2)",
+              alignItems: "flex-start",
+            }}
           >
             <Button
               type="button"
@@ -191,9 +203,9 @@ export const CustomTrigger = Example.extend({
           </div>
         )}
       </FileInput>
-    )
+    );
   },
-})
+});
 
 /**
  * Drag a file over the dropzone below to select it, as an alternative to clicking through to the
@@ -202,9 +214,9 @@ export const CustomTrigger = Example.extend({
  * plain CSS, wired up here by the story rather than by the component.
  */
 export const DragAndDrop = Example.extend({
-  name: 'Drag and drop',
+  name: "Drag and drop",
   args: {
-    accept: 'image/*,.pdf',
+    accept: "image/*,.pdf",
     multiple: true,
     maxFiles: 2,
   },
@@ -231,9 +243,9 @@ export const DragAndDrop = Example.extend({
           )}
         </FileInput>
       </ElDropzone>
-    )
+    );
   },
-})
+});
 
 /**
  * Passing `value` makes the component controlled: `FileInput` no longer tracks the selection
@@ -247,9 +259,16 @@ export const Controlled = Example.extend({
     multiple: true,
   },
   render: function Controlled(args) {
-    const [files, setFiles] = useState<File[]>([])
+    const [files, setFiles] = useState<File[]>([]);
     return (
-      <div style={{ display: 'flex', flexFlow: 'column nowrap', gap: 'var(--spacing-2)', alignItems: 'flex-start' }}>
+      <div
+        style={{
+          display: "flex",
+          flexFlow: "column nowrap",
+          gap: "var(--spacing-2)",
+          alignItems: "flex-start",
+        }}
+      >
         <FileInput
           {...args}
           value={files}
@@ -259,13 +278,15 @@ export const Controlled = Example.extend({
           <ul>
             {files.map((file, index) => (
               <li key={`${file.name}-${index}`}>
-                {file.name}{' '}
-                <button onClick={() => setFiles((prev) => prev.filter((_, i) => i !== index))}>Remove</button>
+                {file.name}{" "}
+                <button onClick={() => setFiles((prev) => prev.filter((_, i) => i !== index))}>
+                  Remove
+                </button>
               </li>
             ))}
           </ul>
         )}
       </div>
-    )
+    );
   },
-})
+});

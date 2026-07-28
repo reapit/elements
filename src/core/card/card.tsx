@@ -1,32 +1,32 @@
-import { cx } from '@linaria/core'
-import { elCard } from './styles'
+import { cx } from "@linaria/core";
+import type { CSSProperties, HTMLAttributes, ReactNode } from "react";
 
-import type { CSSProperties, HTMLAttributes, ReactNode } from 'react'
+import { elCard } from "./styles";
 
 export namespace Card {
   export interface Props extends HTMLAttributes<HTMLElement> {
     /** Card content. */
-    children?: ReactNode
+    children?: ReactNode;
     /**
      * The HTML element to render as the card's root.
      * Use `'article'` for self-contained content, `'aside'` for complementary content,
      * and `'section'` for thematic groupings. Defaults to `'div'`.
      */
-    as?: 'article' | 'aside' | 'div' | 'section'
+    as?: "article" | "aside" | "div" | "section";
     /**
      * Removes the card's border.
      */
-    isBorderless?: boolean
+    isBorderless?: boolean;
     /**
      * Overrides the card's border-radius using a design token reference.
      * Defaults to `--border-radius-xl`.
      */
-    borderRadius?: `--border-radius-${string}`
+    borderRadius?: `--border-radius-${string}`;
     /**
      * Overrides the card's padding using a spacing design token reference.
      * Defaults to `--spacing-4`.
      */
-    padding?: `--spacing-${string}`
+    padding?: `--spacing-${string}`;
   }
 }
 
@@ -40,7 +40,7 @@ export namespace Card {
  * For interactive cards that navigate to a URL, use `AnchorCard`.
  */
 export function Card({
-  as: Element = 'div',
+  as: Element = "div",
   isBorderless,
   borderRadius,
   children,
@@ -51,8 +51,8 @@ export function Card({
 }: Card.Props) {
   const overrides = {
     ...(borderRadius !== undefined && { borderRadius: `var(${borderRadius})` }),
-    ...(padding !== undefined && { '--card-padding': `var(${padding})` }),
-  } as const satisfies CSSProperties & { '--card-padding'?: string }
+    ...(padding !== undefined && { "--card-padding": `var(${padding})` }),
+  } as const satisfies CSSProperties & { "--card-padding"?: string };
 
   return (
     <Element
@@ -63,5 +63,5 @@ export function Card({
     >
       {children}
     </Element>
-  )
+  );
 }

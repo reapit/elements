@@ -1,8 +1,9 @@
-import { isWidthAtOrAbove } from '#src/utils/breakpoints'
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
+
+import { isWidthAtOrAbove } from "#src/utils/breakpoints";
 
 interface ElMainContainerProps {
-  'data-size': 'fluid' | 'wide' | 'narrow'
+  "data-size": "fluid" | "wide" | "narrow";
 }
 
 export const ElMainContainer = styled.div<ElMainContainerProps>`
@@ -16,7 +17,7 @@ export const ElMainContainer = styled.div<ElMainContainerProps>`
     /* NOTE: This is a default value; it can be overridden via inline styles */
     background-color: transparent;
 
-    @container ${isWidthAtOrAbove('MD')} {
+    @container ${isWidthAtOrAbove("MD")} {
       &[data-size='narrow'] {
         --main_container-max_width: 800px;
       }
@@ -24,7 +25,7 @@ export const ElMainContainer = styled.div<ElMainContainerProps>`
         --main_container-max_width: 1200px;
       }
     }
-    @container ${isWidthAtOrAbove('XL')} {
+    @container ${isWidthAtOrAbove("XL")} {
       &[data-size='narrow'] {
         --main_container-max_width: 1200px;
       }
@@ -32,7 +33,7 @@ export const ElMainContainer = styled.div<ElMainContainerProps>`
         --main_container-max_width: 1600px;
       }
     }
-    @container ${isWidthAtOrAbove('2XL')} {
+    @container ${isWidthAtOrAbove("2XL")} {
       &[data-size='narrow'] {
         --main_container-max_width: 1400px;
       }
@@ -41,15 +42,15 @@ export const ElMainContainer = styled.div<ElMainContainerProps>`
       }
     }
   }
-`
+`;
 
 interface ElMainContainerContentProps {
-  'data-template':
-    | 'single-column'
-    | 'two-columns-symmetrical'
-    | 'two-columns-asymmetrical-start'
-    | 'two-columns-asymmetrical-end'
-    | 'three-columns'
+  "data-template":
+    | "single-column"
+    | "two-columns-symmetrical"
+    | "two-columns-asymmetrical-start"
+    | "two-columns-asymmetrical-end"
+    | "three-columns";
 }
 
 export const ElMainContainerContent = styled.div<ElMainContainerContentProps>`
@@ -58,11 +59,11 @@ export const ElMainContainerContent = styled.div<ElMainContainerContentProps>`
 
     padding: var(--spacing-5);
 
-    @container ${isWidthAtOrAbove('SM')} {
+    @container ${isWidthAtOrAbove("SM")} {
       padding: var(--spacing-8);
     }
 
-    @container ${isWidthAtOrAbove('MD')} {
+    @container ${isWidthAtOrAbove("MD")} {
       padding: var(--spacing-10);
     }
 
@@ -93,11 +94,11 @@ export const ElMainContainerContent = styled.div<ElMainContainerContentProps>`
     &[data-template='two-columns-symmetrical'] {
       grid-template: auto / minmax(0, 1fr) minmax(0, 1fr);
 
-      @container ${isWidthAtOrAbove('SM')} {
+      @container ${isWidthAtOrAbove("SM")} {
         column-gap: var(--spacing-8);
       }
 
-      @container ${isWidthAtOrAbove('MD')} {
+      @container ${isWidthAtOrAbove("MD")} {
         column-gap: var(--spacing-10);
       }
     }
@@ -107,4 +108,4 @@ export const ElMainContainerContent = styled.div<ElMainContainerContentProps>`
       column-gap: var(--spacing-10);
     }
   }
-`
+`;

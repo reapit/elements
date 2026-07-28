@@ -7,8 +7,8 @@
  * These will be the data displayed in the table cells.
  */
 export interface Row {
-  id?: string
-  [key: string]: any
+  id?: string;
+  [key: string]: any;
 }
 
 /**
@@ -17,8 +17,8 @@ export interface Row {
  * @property {string} idKey - The key used to access the unique ID of each row (e.g., "id").
  */
 export interface TableContextProps {
-  rows: Row[]
-  idKey: string
+  rows: Row[];
+  idKey: string;
 }
 
 /**
@@ -28,7 +28,7 @@ export interface TableContextProps {
  * @property {React.ReactNode} children - The components that should have access to the table context.
  */
 export interface TableProviderProps {
-  rows: Row[]
-  idKey: string
-  children: React.ReactNode
+  rows: Row[];
+  idKey: string;
+  children: React.ReactNode;
 }

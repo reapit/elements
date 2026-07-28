@@ -1,4 +1,12 @@
-import { render } from '@testing-library/react'
+import { render } from "@testing-library/react";
+
+import { CarIcon } from "#src/icons/car";
+import { ChevronDownIcon } from "#src/icons/chevron-down";
+import { ChevronUpIcon } from "#src/icons/chevron-up";
+import { UserIcon } from "#src/icons/user";
+
+import { elMr1 } from "../../../styles/deprecated-spacing";
+import { elIsActive } from "../../../styles/deprecated-states";
 import {
   DeprecatedAccordionContainer,
   DeprecatedAccordionItem,
@@ -6,16 +14,10 @@ import {
   DeprecatedAccordionTitleContentWrapper,
   DeprecatedAccordionTitleContent,
   DeprecatedAccordionContent,
-} from '../accordion.atoms'
-import { CarIcon } from '#src/icons/car'
-import { UserIcon } from '#src/icons/user'
-import { ChevronUpIcon } from '#src/icons/chevron-up'
-import { ChevronDownIcon } from '#src/icons/chevron-down'
-import { elMr1 } from '../../../styles/deprecated-spacing'
-import { elIsActive } from '../../../styles/deprecated-states'
+} from "../accordion.atoms";
 
-describe('Accordion basic usage', () => {
-  it('should match a snapshot', () => {
+describe("Accordion basic usage", () => {
+  it("should match a snapshot", () => {
     const wrapper = render(
       <DeprecatedAccordionContainer>
         <DeprecatedAccordionItem onClick={console.log}>
@@ -32,7 +34,9 @@ describe('Accordion basic usage', () => {
             </DeprecatedAccordionTitleContent>
           </DeprecatedAccordionTitleContentWrapper>
         </DeprecatedAccordionItem>
-        <DeprecatedAccordionContent className={elIsActive}>Accordion Content 1</DeprecatedAccordionContent>
+        <DeprecatedAccordionContent className={elIsActive}>
+          Accordion Content 1
+        </DeprecatedAccordionContent>
         <DeprecatedAccordionItem onClick={console.log}>
           <DeprecatedAccordionTitle>Accordion Item 2</DeprecatedAccordionTitle>
           <DeprecatedAccordionTitleContentWrapper>
@@ -49,7 +53,7 @@ describe('Accordion basic usage', () => {
         </DeprecatedAccordionItem>
         <DeprecatedAccordionContent>Accordion Content 2</DeprecatedAccordionContent>
       </DeprecatedAccordionContainer>,
-    )
-    expect(wrapper.asFragment()).toMatchSnapshot()
-  })
-})
+    );
+    expect(wrapper.asFragment()).toMatchSnapshot();
+  });
+});

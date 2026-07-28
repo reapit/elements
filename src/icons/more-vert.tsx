@@ -1,4 +1,4 @@
-import MoreVertSvg from './svgs/more-vert.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import MoreVertSvg from "./svgs/more-vert.svg?react";
 
-export const MoreVertIcon = makeIcon('MoreVertIcon', MoreVertSvg)
+export const MoreVertIcon = makeIcon("MoreVertIcon", MoreVertSvg);

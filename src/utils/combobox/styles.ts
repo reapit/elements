@@ -1,13 +1,12 @@
-import { styled } from '@linaria/react'
-
-import type { CSSProperties } from 'react'
+import { styled } from "@linaria/react";
+import type { CSSProperties } from "react";
 
 interface ElComboboxProps {
   // NOTE: We use a CSS variable for the max-width rather than simply using the max-width inline
   // style because we want the max-width to be available to both the container and input elements.
   style?: CSSProperties & {
-    '--combobox-max-width'?: string
-  }
+    "--combobox-max-width"?: string;
+  };
 }
 
 export const ElCombobox = styled.div<ElComboboxProps>`
@@ -31,8 +30,8 @@ export const ElCombobox = styled.div<ElComboboxProps>`
     /* Error state: When the combobox contains an invalid select and showValidity is enabled,
      * override theme variables to display error styling. aria-invalid="true", when present on
      * the combobox element (the button) is also supported. */
-    &:has(select:invalid, select:user-invalid):where([data-show-validity='true']),
-    &:has(button[aria-invalid='true']):where([data-show-validity='true']) {
+    &:has(select:invalid, select:user-invalid):where([data-show-validity="true"]),
+    &:has(button[aria-invalid="true"]):where([data-show-validity="true"]) {
       --combobox-background: var(--comp-input-colour-fill-error-background);
       --combobox-border-colour: var(--comp-input-colour-border-error);
       --combobox-icon-colour: var(--comp-input-colour-icon-error);
@@ -60,4 +59,4 @@ export const ElCombobox = styled.div<ElComboboxProps>`
       --combobox-text-colour: var(--comp-input-colour-text-disabled-input);
     }
   }
-`
+`;

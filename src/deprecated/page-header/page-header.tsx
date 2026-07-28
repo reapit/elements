@@ -1,5 +1,17 @@
-import React, { FC, Fragment, HTMLAttributes } from 'react'
-import { cx } from '@linaria/core'
+import { cx } from "@linaria/core";
+import React, { FC, Fragment, HTMLAttributes } from "react";
+
+import { Button } from "#src/core/button";
+import { Tag } from "#src/core/tag";
+import { TagGroup } from "#src/core/tag-group";
+
+import { getIntentClassName, Intent } from "../../helpers/intent";
+import { elMb3, elMb6, elMr3 } from "../../styles/deprecated-spacing";
+import { DeprecatedAvatar, DeprecatedAvatarProps } from "../avatar";
+import { DeprecatedBreadCrumb, DeprecatedBreadCrumbProps } from "../breadcrumb";
+import { FlexContainer } from "../layout";
+import { Tabs, TabsProps } from "../tabs";
+import { Text2XL, TextL, TextBase, TypographyProps } from "../typography";
 import {
   ElDeprecatedPageHeaderContainer,
   ElDeprecatedPageHeaderSeparator,
@@ -8,55 +20,57 @@ import {
   ElDeprecatedPageHeaderWrapInner,
   elDeprecatedPageHeaderMaxWidth,
   ElDeprecatedPageHeaderButtons,
-} from './__styles__'
-import { Text2XL, TextL, TextBase, TypographyProps } from '../typography'
-import { FlexContainer } from '../layout'
-import { DeprecatedAvatar, DeprecatedAvatarProps } from '../avatar'
-import { Tag } from '#src/core/tag'
-import { TagGroup } from '#src/core/tag-group'
-import { Button } from '#src/core/button'
-import { DeprecatedBreadCrumb, DeprecatedBreadCrumbProps } from '../breadcrumb'
-import { elMb3, elMb6, elMr3 } from '../../styles/deprecated-spacing'
-import { Tabs, TabsProps } from '../tabs'
-import { getIntentClassName, Intent } from '../../helpers/intent'
+} from "./__styles__";
 
 export interface DeprecatedPageHeaderTagProps extends Tag.Props {
-  intent?: Intent
+  intent?: Intent;
 }
 
 /** @deprecated */
 export interface DeprecatedPageHeaderProps extends HTMLAttributes<HTMLDivElement> {
-  avatar?: DeprecatedAvatarProps
-  pageTitle: TypographyProps
-  pageSubtitle?: TypographyProps
-  pageInfo?: TypographyProps[]
-  breadcrumb?: DeprecatedBreadCrumbProps
-  tags?: DeprecatedPageHeaderTagProps[]
-  buttons?: Button.Props[]
-  tabs?: TabsProps
-  hasMaxWidth?: boolean
+  avatar?: DeprecatedAvatarProps;
+  pageTitle: TypographyProps;
+  pageSubtitle?: TypographyProps;
+  pageInfo?: TypographyProps[];
+  breadcrumb?: DeprecatedBreadCrumbProps;
+  tags?: DeprecatedPageHeaderTagProps[];
+  buttons?: Button.Props[];
+  tabs?: TabsProps;
+  hasMaxWidth?: boolean;
 }
 
 /** @deprecated */
-export const DeprecatedPageHeaderWrap: FC<HTMLAttributes<HTMLDivElement>> = ({ children, className, ...rest }) => (
+export const DeprecatedPageHeaderWrap: FC<HTMLAttributes<HTMLDivElement>> = ({
+  children,
+  className,
+  ...rest
+}) => (
   <ElDeprecatedPageHeaderWrap className={cx(className)} {...rest}>
     {children}
   </ElDeprecatedPageHeaderWrap>
-)
+);
 
 /** @deprecated */
-export const DeprecatedPageHeaderWrapInner: FC<HTMLAttributes<HTMLDivElement>> = ({ children, className, ...rest }) => (
+export const DeprecatedPageHeaderWrapInner: FC<HTMLAttributes<HTMLDivElement>> = ({
+  children,
+  className,
+  ...rest
+}) => (
   <ElDeprecatedPageHeaderWrapInner className={cx(className)} {...rest}>
     {children}
   </ElDeprecatedPageHeaderWrapInner>
-)
+);
 
 /** @deprecated */
-export const DeprecatedPageHeaderContainer: FC<HTMLAttributes<HTMLDivElement>> = ({ children, className, ...rest }) => (
+export const DeprecatedPageHeaderContainer: FC<HTMLAttributes<HTMLDivElement>> = ({
+  children,
+  className,
+  ...rest
+}) => (
   <ElDeprecatedPageHeaderContainer className={cx(className)} {...rest}>
     {children}
   </ElDeprecatedPageHeaderContainer>
-)
+);
 
 /** @deprecated */
 export const DeprecatedPageHeaderTitleContainer: FC<HTMLAttributes<HTMLDivElement>> = ({
@@ -67,7 +81,7 @@ export const DeprecatedPageHeaderTitleContainer: FC<HTMLAttributes<HTMLDivElemen
   <ElDeprecatedPageHeaderTitleContainer className={cx(className)} {...rest}>
     {children}
   </ElDeprecatedPageHeaderTitleContainer>
-)
+);
 
 /** @deprecated */
 export const DeprecatedPageHeader: FC<DeprecatedPageHeaderProps> = ({
@@ -132,5 +146,5 @@ export const DeprecatedPageHeader: FC<DeprecatedPageHeaderProps> = ({
         {tabs && <Tabs {...tabs} />}
       </DeprecatedPageHeaderWrapInner>
     </DeprecatedPageHeaderWrap>
-  )
-}
+  );
+};

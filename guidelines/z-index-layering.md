@@ -58,7 +58,7 @@ export const ElFolderTabs = styled.nav`
   container-name: ${FOLDER_TABS_CSS_CONTAINER_NAME};
   container-type: inline-size;
   isolation: isolate;
-`
+`;
 ```
 
 ```typescript
@@ -66,10 +66,10 @@ export const ElFolderTabs = styled.nav`
 export const ElFolderTab = styled.a`
   /* ... other styles ... */
 
-  &[aria-current='page'] {
+  &[aria-current="page"] {
     z-index: var(--z-index-elevated);
   }
-`
+`;
 ```
 
 ### Components With Multiple Stacking Levels
@@ -86,16 +86,16 @@ export const elTableRowPrimaryAction = css`
   z-index: var(--z-index-base);
 
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
   }
-`
+`;
 
 // ✅ Correct: Interactive elements explicitly elevated above the overlay
 export const elTableCellCheckbox = css`
   z-index: var(--z-index-elevated);
-`
+`;
 ```
 
 ### Sticky/Fixed Components
@@ -108,7 +108,7 @@ export const elTopBar = css`
   position: sticky;
   top: 0;
   z-index: var(--z-index-sticky);
-`
+`;
 ```
 
 ## Code Review Checklist
@@ -136,25 +136,25 @@ export const elTopBar = css`
 // ❌ Wrong: Z-index escapes and overlaps other page elements
 export const ElTabs = styled.div`
   display: flex;
-`
+`;
 
 export const ElTab = styled.a`
-  &[aria-current='page'] {
+  &[aria-current="page"] {
     z-index: 1;
   }
-`
+`;
 
 // ✅ Correct: Container isolates the stacking context
 export const ElTabs = styled.div`
   display: flex;
   isolation: isolate;
-`
+`;
 
 export const ElTab = styled.a`
-  &[aria-current='page'] {
+  &[aria-current="page"] {
     z-index: var(--z-index-elevated);
   }
-`
+`;
 ```
 
 ### Hardcoded Z-Index Values
@@ -177,11 +177,11 @@ z-index: var(--z-index-sticky);
 export const ElModal = styled.div`
   position: fixed;
   z-index: 9999;
-`
+`;
 
 // ✅ Correct: Use native browser APIs
 export function Modal({ children }: Modal.Props) {
-  return <dialog>{children}</dialog> // Automatically in top-layer
+  return <dialog>{children}</dialog>; // Automatically in top-layer
 }
 ```
 

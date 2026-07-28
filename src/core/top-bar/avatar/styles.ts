@@ -1,5 +1,6 @@
-import { css } from '@linaria/core'
-import { ElAvatar } from '#src/core/avatar/styles'
+import { css } from "@linaria/core";
+
+import { ElAvatar } from "#src/core/avatar/styles";
 
 export const elTopBarAvatarBase = css`
   @layer elements.main {
@@ -22,4 +23,4 @@ export const elTopBarAvatarBase = css`
       background: var(--comp-navigation-colour-fill-avatar_button-hover);
     }
   }
-`
+`;

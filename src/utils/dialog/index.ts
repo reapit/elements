@@ -1,6 +1,6 @@
-export { closeDialog } from './close-dialog'
-export { HTMLDialog } from './dialog'
-export { getClosestDialogElement } from './get-closest-dialog-element'
-export { openDialog } from './open-dialog'
-export { useDialogOpenController } from './use-dialog-open-controller'
-export { useDialogOpenState } from './use-dialog-open-state'
+export { closeDialog } from "./close-dialog";
+export { HTMLDialog } from "./dialog";
+export { getClosestDialogElement } from "./get-closest-dialog-element";
+export { openDialog } from "./open-dialog";
+export { useDialogOpenController } from "./use-dialog-open-controller";
+export { useDialogOpenState } from "./use-dialog-open-state";

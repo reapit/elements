@@ -1,1 +1,1 @@
-export { FileUploaderMediaThumbnail } from './media-thumbnail'
+export { FileUploaderMediaThumbnail } from "./media-thumbnail";

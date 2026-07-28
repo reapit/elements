@@ -1,1 +1,1 @@
-export { FormLayoutSectionTitle } from './title'
+export { FormLayoutSectionTitle } from "./title";

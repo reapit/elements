@@ -1,5 +1,6 @@
-import { css } from '@linaria/core'
-import { ElButtonIconContainer } from '../../button/styles'
+import { css } from "@linaria/core";
+
+import { ElButtonIconContainer } from "../../button/styles";
 
 // NOTE: This class is designed to be used in conjunction with the ElButton class.
 export const elSplitButtonMenuButton = css`
@@ -16,7 +17,7 @@ export const elSplitButtonMenuButton = css`
 
     /* NOTE: This pseudo-element is used to render the dividing border between the action and menu buttons. */
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       background-color: transparent;
       top: var(--__block-inset);
@@ -26,11 +27,11 @@ export const elSplitButtonMenuButton = css`
       pointer-events: none;
     }
 
-    &[data-variant='primary'] {
+    &[data-variant="primary"] {
       --__divider-colour: var(--comp-button-colour-border-primary-default);
     }
 
-    &[data-variant='secondary'] {
+    &[data-variant="secondary"] {
       --__divider-colour: var(--comp-button-colour-border-secondary-default);
 
       /* NOTE: We need to remove the border between the action and menu buttons, as we now facilitate it via the
@@ -47,7 +48,7 @@ export const elSplitButtonMenuButton = css`
     }
 
     &:disabled,
-    &[aria-disabled='true'] {
+    &[aria-disabled="true"] {
       --__divider-colour: var(--comp-button-colour-border-secondary-disabled);
 
       &:hover::before {
@@ -65,4 +66,4 @@ export const elSplitButtonMenuButton = css`
       transform: rotate(180deg);
     }
   }
-`
+`;

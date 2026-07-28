@@ -1,20 +1,21 @@
-import figma from '@figma/code-connect'
-import { PageHeader } from './page-header'
+import figma from "@figma/code-connect";
 
-figma.connect(PageHeader, '<PAGE_HEADER_URL>', {
+import { PageHeader } from "./page-header";
+
+figma.connect(PageHeader, "<PAGE_HEADER_URL>", {
   props: {
-    navigation: figma.nestedProps('Navigation', {
-      children: figma.children('*'),
+    navigation: figma.nestedProps("Navigation", {
+      children: figma.children("*"),
     }),
-    leadingElement: figma.children('Leading element'),
-    size: figma.enum('Main container size', {
-      Fluid: 'fluid',
-      Narrow: 'narrow',
-      Wide: 'wide',
+    leadingElement: figma.children("Leading element"),
+    size: figma.enum("Main container size", {
+      Fluid: "fluid",
+      Narrow: "narrow",
+      Wide: "wide",
     }),
-    subtitle: figma.children('Line 2'),
-    supplementaryInfo: figma.children('Line 3'),
-    title: figma.children('Title row'),
+    subtitle: figma.children("Line 2"),
+    supplementaryInfo: figma.children("Line 3"),
+    title: figma.children("Title row"),
   },
   example: (props) => (
     <PageHeader
@@ -26,4 +27,4 @@ figma.connect(PageHeader, '<PAGE_HEADER_URL>', {
       title={props.title}
     />
   ),
-})
+});

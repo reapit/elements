@@ -1,11 +1,11 @@
-import { ElDialogFooter } from './styles'
+import type { HTMLAttributes, ReactNode } from "react";
 
-import type { HTMLAttributes, ReactNode } from 'react'
+import { ElDialogFooter } from "./styles";
 
 export namespace DialogFooter {
   export interface Props extends HTMLAttributes<HTMLDivElement> {
     /** The footer actions. Typically one or more buttons. */
-    children: ReactNode
+    children: ReactNode;
   }
 }
 
@@ -14,7 +14,7 @@ export namespace DialogFooter {
  * "Save" and "Cancel" buttons when the dialog contains a form).
  */
 export function DialogFooter({ children, ...rest }: DialogFooter.Props) {
-  return <ElDialogFooter {...rest}>{children}</ElDialogFooter>
+  return <ElDialogFooter {...rest}>{children}</ElDialogFooter>;
 }
 
-DialogFooter.displayName = 'Dialog.Footer'
+DialogFooter.displayName = "Dialog.Footer";

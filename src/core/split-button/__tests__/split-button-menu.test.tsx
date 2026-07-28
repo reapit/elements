@@ -1,11 +1,12 @@
-import { Menu } from '#src/core/menu'
-import { render, screen } from '@testing-library/react'
-import { SplitButtonContext } from '../context'
-import { SplitButtonMenu } from '../split-button-menu'
+import { render, screen } from "@testing-library/react";
+import type { ReactNode } from "react";
 
-import type { ReactNode } from 'react'
+import { Menu } from "#src/core/menu";
 
-test('renders as a button', () => {
+import { SplitButtonContext } from "../context";
+import { SplitButtonMenu } from "../split-button-menu";
+
+test("renders as a button", () => {
   render(
     <SplitButtonMenu aria-label="More">
       <Menu.Item>Item 1</Menu.Item>
@@ -13,24 +14,24 @@ test('renders as a button', () => {
       <Menu.Item>Item 3</Menu.Item>
     </SplitButtonMenu>,
     { wrapper },
-  )
+  );
 
-  const button = screen.getByRole('button', { name: 'More' })
-  expect(button).toBeVisible()
-})
+  const button = screen.getByRole("button", { name: "More" });
+  expect(button).toBeVisible();
+});
 
-test('forwards props to the underlying button', () => {
+test("forwards props to the underlying button", () => {
   render(
     <SplitButtonMenu data-testid="nav-item" aria-label="More">
       Fake child
     </SplitButtonMenu>,
     { wrapper },
-  )
+  );
 
-  expect(screen.getByTestId('nav-item')).toBeInstanceOf(HTMLButtonElement)
-})
+  expect(screen.getByTestId("nav-item")).toBeInstanceOf(HTMLButtonElement);
+});
 
-test('will open the menu when clicked', () => {
+test("will open the menu when clicked", () => {
   render(
     <SplitButtonMenu aria-label="More">
       <Menu.Item>Item 1</Menu.Item>
@@ -38,27 +39,27 @@ test('will open the menu when clicked', () => {
       <Menu.Item>Item 3</Menu.Item>
     </SplitButtonMenu>,
     { wrapper },
-  )
+  );
 
-  const button = screen.getByRole('button')
-  const menu = screen.getByRole('menu')
+  const button = screen.getByRole("button");
+  const menu = screen.getByRole("menu");
 
-  expect(button).toHaveAttribute('popovertarget', menu.id)
-})
+  expect(button).toHaveAttribute("popovertarget", menu.id);
+});
 
-test('menu is labelled by the button', () => {
-  render(<SplitButtonMenu aria-label="More">Fake item</SplitButtonMenu>, { wrapper })
-  expect(screen.getByRole('menu', { name: 'More' })).toBeVisible()
-})
+test("menu is labelled by the button", () => {
+  render(<SplitButtonMenu aria-label="More">Fake item</SplitButtonMenu>, { wrapper });
+  expect(screen.getByRole("menu", { name: "More" })).toBeVisible();
+});
 
 interface WrapperProps {
-  children: ReactNode
+  children: ReactNode;
 }
 
 function wrapper({ children }: WrapperProps) {
   return (
-    <SplitButtonContext.Provider value={{ busy: undefined, size: 'medium', variant: 'primary' }}>
+    <SplitButtonContext.Provider value={{ busy: undefined, size: "medium", variant: "primary" }}>
       {children}
     </SplitButtonContext.Provider>
-  )
+  );
 }

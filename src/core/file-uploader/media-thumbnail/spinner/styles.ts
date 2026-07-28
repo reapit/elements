@@ -1,11 +1,11 @@
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
 
 export const ElSpinnerTrack = styled.circle`
   @layer elements.main {
     fill: none;
     stroke: var(--comp-uploader-colour-fill-spinner-background);
   }
-`
+`;
 
 export const ElSpinnerIndicator = styled.circle`
   @layer elements.main {
@@ -41,4 +41,4 @@ export const ElSpinnerIndicator = styled.circle`
       opacity: 0.4;
     }
   }
-`
+`;

@@ -1,5 +1,5 @@
-import { ElGalleryViewerMediaListItem } from './styles'
-import { GalleryViewerMediaItem } from '../media-item'
+import { GalleryViewerMediaItem } from "../media-item";
+import { ElGalleryViewerMediaListItem } from "./styles";
 
 export namespace GalleryViewerMediaListItem {
   export interface Props extends GalleryViewerMediaItem.Props {}
@@ -18,7 +18,7 @@ export function GalleryViewerMediaListItem(props: GalleryViewerMediaListItem.Pro
     <ElGalleryViewerMediaListItem>
       <GalleryViewerMediaItem {...props} />
     </ElGalleryViewerMediaListItem>
-  )
+  );
 }
 
-GalleryViewerMediaListItem.displayName = 'GalleryViewer.MediaListItem'
+GalleryViewerMediaListItem.displayName = "GalleryViewer.MediaListItem";

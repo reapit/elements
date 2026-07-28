@@ -1,5 +1,6 @@
-import { font } from '#src/utils/font'
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
+
+import { font } from "#src/utils/font";
 
 export const ElComboboxOption = styled.button`
   @layer elements.main {
@@ -8,7 +9,7 @@ export const ElComboboxOption = styled.button`
     --combobox-option-label-colour: var(--comp-menu-colour-text-default);
 
     display: grid;
-    grid: 'label check' auto / 1fr auto;
+    grid: "label check" auto / 1fr auto;
     grid-auto-flow: row;
     grid-auto-rows: auto;
     align-items: center;
@@ -28,7 +29,7 @@ export const ElComboboxOption = styled.button`
     text-align: left;
 
     &:focus-visible,
-    &[data-is-active='true'] {
+    &[data-is-active="true"] {
       outline: var(--border-width-double) solid var(--colour-border-focus);
       outline-offset: var(--border-width-default);
 
@@ -43,30 +44,30 @@ export const ElComboboxOption = styled.button`
     }
 
     &,
-    &[data-size='medium'] {
-      ${font('sm', 'regular')}
+    &[data-size="medium"] {
+      ${font("sm", "regular")}
     }
 
-    &[data-size='large'] {
-      ${font('base', 'regular')}
+    &[data-size="large"] {
+      ${font("base", "regular")}
     }
 
-    &[aria-checked='true'],
-    &[aria-selected='true'] {
+    &[aria-checked="true"],
+    &[aria-selected="true"] {
       --combobox-option-check-icon-display: inline-flex;
       --combobox-option-label-colour: var(--comp-menu-colour-text-default-action);
 
       &,
-      &[data-size='medium'] {
-        ${font('sm', 'bold')}
+      &[data-size="medium"] {
+        ${font("sm", "bold")}
       }
 
-      &[data-size='large'] {
-        ${font('base', 'bold')}
+      &[data-size="large"] {
+        ${font("base", "bold")}
       }
     }
   }
-`
+`;
 
 export const ElComboboxOptionCheckIconContainer = styled.span`
   @layer elements.main {
@@ -83,7 +84,7 @@ export const ElComboboxOptionCheckIconContainer = styled.span`
     width: var(--icon_size-md);
     margin-inline-start: var(--spacing-2);
   }
-`
+`;
 
 export const ElComboboxOptionLabel = styled.span`
   @layer elements.main {
@@ -91,7 +92,7 @@ export const ElComboboxOptionLabel = styled.span`
     font: inherit;
     color: inherit;
   }
-`
+`;
 
 export const ElComboboxOptionTextContainer = styled.span`
   @layer elements.main {
@@ -99,14 +100,14 @@ export const ElComboboxOptionTextContainer = styled.span`
     color: inherit;
     margin-inline-end: var(--spacing-2);
   }
-`
+`;
 
 export const ElComboboxOptionBadgeContainer = styled.span`
   @layer elements.main {
     display: inline-flex;
     align-items: center;
   }
-`
+`;
 
 export const ElComboboxOptionAdditionalInfoContainer = styled.span`
   @layer elements.main {
@@ -115,12 +116,12 @@ export const ElComboboxOptionAdditionalInfoContainer = styled.span`
     flex-flow: column nowrap;
     gap: var(--spacing-half);
 
-    ${font('xs', 'regular')}
+    ${font("xs", "regular")}
     color: var(--comp-menu-colour-text-default-secondary);
 
     margin-block-start: var(--spacing-half);
   }
-`
+`;
 
 export const ElComboboxOptionAdditionalInfo = styled.span`
   @layer elements.main {
@@ -128,7 +129,7 @@ export const ElComboboxOptionAdditionalInfo = styled.span`
     color: inherit;
     min-height: var(--size-5);
   }
-`
+`;
 
 export const ElComboboxOptionAdditionalInfoIconContainer = styled.span`
   @layer elements.main {
@@ -144,4 +145,4 @@ export const ElComboboxOptionAdditionalInfoIconContainer = styled.span`
     height: var(--icon_size-sm);
     width: var(--icon_size-sm);
   }
-`
+`;

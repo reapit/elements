@@ -1,78 +1,79 @@
-import preview from '#.storybook/preview'
-import { TextareaControl } from './textarea-control'
+import preview from "#.storybook/preview";
+
+import { TextareaControl } from "./textarea-control";
 
 const meta = preview.meta({
-  title: 'Input and selection/TextareaControl',
+  title: "Input and selection/TextareaControl",
   component: TextareaControl,
   argTypes: {
     errorText: {
-      control: 'text',
+      control: "text",
     },
     fieldSizing: {
-      control: 'select',
-      options: ['content', 'fixed', 'manual'],
+      control: "select",
+      options: ["content", "fixed", "manual"],
     },
     helpText: {
-      control: 'text',
+      control: "text",
     },
     label: {
-      control: 'text',
+      control: "text",
     },
     maxRows: {
-      control: 'number',
+      control: "number",
     },
     minRows: {
-      control: 'number',
+      control: "number",
     },
     placeholder: {
-      control: 'text',
+      control: "text",
     },
     rows: {
-      control: 'number',
+      control: "number",
     },
     size: {
-      control: 'select',
-      options: ['small', 'medium', 'large'],
+      control: "select",
+      options: ["small", "medium", "large"],
     },
     value: {
-      control: 'text',
+      control: "text",
       table: {
         type: {
-          summary: 'string | number | readonly string[] | undefined',
+          summary: "string | number | readonly string[] | undefined",
         },
       },
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
-    defaultValue: '',
+    defaultValue: "",
     disabled: false,
-    errorText: '',
-    fieldSizing: 'content',
-    helpText: '',
-    label: 'Label',
+    errorText: "",
+    fieldSizing: "content",
+    helpText: "",
+    label: "Label",
     maxLength: undefined,
     maxRows: undefined,
     minLength: undefined,
     minRows: 2,
-    name: 'myTextarea',
-    placeholder: '',
+    name: "myTextarea",
+    placeholder: "",
     readOnly: false,
     required: false,
     showValidity: undefined,
-    size: 'medium',
+    size: "medium",
     value: undefined,
   },
-})
+});
 
 /**
  * There are three sizes available: `small`, `medium` and `large`.
  */
 export const Sizes = Example.extend({
   args: {
-    defaultValue: 'Text content',
+    defaultValue: "Text content",
   },
   argTypes: {
     size: {
@@ -81,7 +82,7 @@ export const Sizes = Example.extend({
   },
   decorators: [
     (Story) => (
-      <div style={{ display: 'flex', flexFlow: 'row nowrap', gap: 'var(--spacing-6)' }}>
+      <div style={{ display: "flex", flexFlow: "row nowrap", gap: "var(--spacing-6)" }}>
         <Story />
       </div>
     ),
@@ -93,7 +94,7 @@ export const Sizes = Example.extend({
       <TextareaControl {...args} size="large" />
     </>
   ),
-})
+});
 
 /**
  * Text areas using the `content` field sizing option will resize based on their content. Their size can
@@ -101,32 +102,32 @@ export const Sizes = Example.extend({
  */
 export const ContentSizing = Example.extend({
   args: {
-    defaultValue: 'Type in me! I can dynamically resize between 2 and 8 rows.',
-    fieldSizing: 'content',
+    defaultValue: "Type in me! I can dynamically resize between 2 and 8 rows.",
+    fieldSizing: "content",
     maxRows: 8,
     minRows: 2,
   },
-})
+});
 
 /**
  * Similarly, text areas can be set to a fixed number of rows using the `rows` prop.
  */
 export const FixedSizing = Example.extend({
   args: {
-    defaultValue: 'I have a fixed height of 5 rows.',
-    fieldSizing: 'fixed',
+    defaultValue: "I have a fixed height of 5 rows.",
+    fieldSizing: "fixed",
     rows: 5,
   },
-})
+});
 
 /**
  * Optional help text can be provided to give more context about the textarea.
  */
 export const HelpText = Example.extend({
   args: {
-    helpText: 'Optional help text',
+    helpText: "Optional help text",
   },
-})
+});
 
 /**
  * Like all form controls that visually communicate their validity, the textarea will display in an
@@ -139,11 +140,11 @@ export const HelpText = Example.extend({
  */
 export const Invalid = Example.extend({
   args: {
-    errorText: 'Error message',
+    errorText: "Error message",
     required: true,
     showValidity: true,
   },
-})
+});
 
 /**
  * Textareas can be disabled. A disabled textarea will not receive the `click` event, and are not submitted
@@ -152,21 +153,21 @@ export const Invalid = Example.extend({
 export const Disabled = Example.extend({
   args: {
     disabled: true,
-    defaultValue: 'Text',
+    defaultValue: "Text",
   },
-})
+});
 
 /**
  * Textareas can be marked as read-only. Unlike disabled textareas, read-only textareas will participate
  * in form submission.
  */
 export const Readonly = Example.extend({
-  name: 'Read-only',
+  name: "Read-only",
   args: {
     readOnly: true,
-    defaultValue: 'Text',
+    defaultValue: "Text",
   },
-})
+});
 
 /**
  * Placeholder text can be provided to help users understand what the textarea is for. This is typically
@@ -174,20 +175,20 @@ export const Readonly = Example.extend({
  */
 export const Placeholder = Example.extend({
   args: {
-    placeholder: 'Enter your comments here...',
+    placeholder: "Enter your comments here...",
   },
-})
+});
 
 /**
  * By default, text areas will fill their parent's width. This can be constrained by providing a `maxWidth`.
  */
 export const MaxWidth = Example.extend({
-  name: 'Max-width',
+  name: "Max-width",
   args: {
-    maxWidth: 'var(--size-64)',
-    defaultValue: 'Text',
+    maxWidth: "var(--size-64)",
+    defaultValue: "Text",
   },
-})
+});
 
 /**
  * The label, help text and error text will all wrap naturally when the form control does not have sufficient
@@ -195,7 +196,7 @@ export const MaxWidth = Example.extend({
  */
 export const Wrapping = MaxWidth.extend({
   args: {
-    label: 'This is a long label that will not fit on a single line',
-    helpText: 'This is a long optional help text that will not fit on a single line',
+    label: "This is a long label that will not fit on a single line",
+    helpText: "This is a long optional help text that will not fit on a single line",
   },
-})
+});

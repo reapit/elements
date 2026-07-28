@@ -1,4 +1,4 @@
-import MessageTypingSvg from './svgs/message-typing.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import MessageTypingSvg from "./svgs/message-typing.svg?react";
 
-export const MessageTypingIcon = makeIcon('MessageTypingIcon', MessageTypingSvg)
+export const MessageTypingIcon = makeIcon("MessageTypingIcon", MessageTypingSvg);

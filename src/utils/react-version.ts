@@ -1,6 +1,6 @@
-import { version } from 'react'
+import { version } from "react";
 
-const reactMajor = Number(version.split('.')[0])
+const reactMajor = Number(version.split(".")[0]);
 
 /**
  * Returns the major version of React provided by the consumer.
@@ -10,7 +10,7 @@ const reactMajor = Number(version.split('.')[0])
  * compile-time type detection provided by {@link IsReact19}.
  */
 export function getReactMajor(): number {
-  return reactMajor
+  return reactMajor;
 }
 
 /**
@@ -28,4 +28,6 @@ export function getReactMajor(): number {
  *   ? { popoverTarget: string }
  *   : { popovertarget: string }
  */
-export type IsReact19 = 'popoverTarget' extends keyof React.ButtonHTMLAttributes<HTMLButtonElement> ? true : false
+export type IsReact19 = "popoverTarget" extends keyof React.ButtonHTMLAttributes<HTMLButtonElement>
+  ? true
+  : false;

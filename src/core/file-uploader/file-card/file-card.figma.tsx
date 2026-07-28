@@ -1,18 +1,19 @@
-import figma from '@figma/code-connect'
-import { FileUploaderFileCard } from './file-card'
-import { FileUploaderFileCardLeadingElement } from './leading-element/leading-element'
+import figma from "@figma/code-connect";
 
-figma.connect(FileUploaderFileCard, '<FILE_UPLOADER_FILE_CARD_URL>', {
+import { FileUploaderFileCard } from "./file-card";
+import { FileUploaderFileCardLeadingElement } from "./leading-element/leading-element";
+
+figma.connect(FileUploaderFileCard, "<FILE_UPLOADER_FILE_CARD_URL>", {
   props: {
-    fileName: figma.string('File name'),
-    status: figma.enum('State', {
-      Queued: 'queued',
-      Uploading: 'uploading',
-      Processing: 'processing',
-      Uploaded: 'uploaded',
-      Error: 'error',
+    fileName: figma.string("File name"),
+    status: figma.enum("State", {
+      Queued: "queued",
+      Uploading: "uploading",
+      Processing: "processing",
+      Uploaded: "uploaded",
+      Error: "error",
     }),
-    errorMessage: figma.string('Error message'),
+    errorMessage: figma.string("Error message"),
   },
   example: ({ fileName, status, errorMessage }) => (
     <FileUploaderFileCard
@@ -23,4 +24,4 @@ figma.connect(FileUploaderFileCard, '<FILE_UPLOADER_FILE_CARD_URL>', {
       leadingElement={<FileUploaderFileCardLeadingElement type="icon" />}
     />
   ),
-})
+});

@@ -1,1 +1,1 @@
-export * from './your-apps-menu-group'
+export * from "./your-apps-menu-group";

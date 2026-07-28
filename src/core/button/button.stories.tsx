@@ -1,24 +1,25 @@
-import preview from '#.storybook/preview'
-import { AddIcon } from '#src/icons/add'
-import { AnchorButton } from './anchor-button'
-import { Button } from './button'
-import { ChevronDownIcon } from '#src/icons/chevron-down'
-import { StarIcon } from '#src/icons/star'
+import preview from "#.storybook/preview";
+import { AddIcon } from "#src/icons/add";
+import { ChevronDownIcon } from "#src/icons/chevron-down";
+import { StarIcon } from "#src/icons/star";
+
+import { AnchorButton } from "./anchor-button";
+import { Button } from "./button";
 
 const meta = preview.meta({
-  title: 'Buttons/Button',
+  title: "Buttons/Button",
   component: Button,
   subcomponents: { AnchorButton },
   argTypes: {
-    'aria-disabled': {
-      control: 'boolean',
+    "aria-disabled": {
+      control: "boolean",
     },
     children: {
-      control: 'text',
+      control: "text",
     },
     iconLeft: {
-      control: 'radio',
-      options: ['None', 'Star', 'Add'],
+      control: "radio",
+      options: ["None", "Star", "Add"],
       mapping: {
         None: undefined,
         Star: <StarIcon />,
@@ -26,8 +27,8 @@ const meta = preview.meta({
       },
     },
     iconRight: {
-      control: 'radio',
-      options: ['None', 'Star', 'ChevronDown'],
+      control: "radio",
+      options: ["None", "Star", "ChevronDown"],
       mapping: {
         None: undefined,
         Star: <StarIcon />,
@@ -35,24 +36,24 @@ const meta = preview.meta({
       },
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
-    'aria-disabled': false,
-    children: 'Button',
+    "aria-disabled": false,
+    children: "Button",
     disabled: false,
     hasNoPadding: false,
-    iconLeft: 'None',
-    iconRight: 'None',
+    iconLeft: "None",
+    iconRight: "None",
     isBusy: false,
     isDestructive: false,
     useAIStyle: false,
-    size: 'medium',
+    size: "medium",
     useLinkStyle: false,
-    variant: 'primary',
+    variant: "primary",
   },
-})
+});
 
 /**
  * Buttons support three variants: `primary`, `secondary`, and `tertiary`. Typically, there should only be one primary
@@ -66,7 +67,7 @@ export const Variants = Example.extend({
   },
   decorators: [
     (Story) => (
-      <div style={{ display: 'flex', gap: 'var(--spacing-6)' }}>
+      <div style={{ display: "flex", gap: "var(--spacing-6)" }}>
         <Story />
       </div>
     ),
@@ -78,7 +79,7 @@ export const Variants = Example.extend({
       <Button {...args} variant="tertiary" />
     </>
   ),
-})
+});
 
 /**
  * Buttons support three sizes: `small`, `medium`, and `large`. Medium and large buttons are preferred on small
@@ -92,7 +93,7 @@ export const Sizes = Example.extend({
   },
   decorators: [
     (Story) => (
-      <div style={{ display: 'flex', gap: 'var(--spacing-6)' }}>
+      <div style={{ display: "flex", gap: "var(--spacing-6)" }}>
         <Story />
       </div>
     ),
@@ -104,15 +105,15 @@ export const Sizes = Example.extend({
       <Button {...args} size="large" />
     </>
   ),
-})
+});
 
 /**
  * Icons can be placed on the left or right side of the button, regardless of the button's variant or size.
  */
 export const Icons = Example.extend({
   args: {
-    iconLeft: 'Star',
-    iconRight: 'Star',
+    iconLeft: "Star",
+    iconRight: "Star",
   },
   argTypes: {
     variant: {
@@ -121,7 +122,7 @@ export const Icons = Example.extend({
   },
   decorators: [
     (Story) => (
-      <div style={{ display: 'flex', gap: 'var(--spacing-6)' }}>
+      <div style={{ display: "flex", gap: "var(--spacing-6)" }}>
         <Story />
       </div>
     ),
@@ -133,7 +134,7 @@ export const Icons = Example.extend({
       <Button {...args} />
     </>
   ),
-})
+});
 
 /**
  * Icon buttons can be achieved by providing a single icon, but no visual label. Consumers should ensure an accessible
@@ -141,12 +142,12 @@ export const Icons = Example.extend({
  * prop should be used, but the same result can be achieved by using `iconRight`.
  */
 export const IconOnly = Example.extend({
-  name: 'Icon-only',
+  name: "Icon-only",
   args: {
-    'aria-label': 'Button',
+    "aria-label": "Button",
     children: null,
-    iconLeft: 'Star',
-    iconRight: 'None',
+    iconLeft: "Star",
+    iconRight: "None",
   },
   argTypes: {
     variant: {
@@ -155,7 +156,7 @@ export const IconOnly = Example.extend({
   },
   decorators: [
     (Story) => (
-      <div style={{ display: 'flex', gap: 'var(--spacing-6)' }}>
+      <div style={{ display: "flex", gap: "var(--spacing-6)" }}>
         <Story />
       </div>
     ),
@@ -167,7 +168,7 @@ export const IconOnly = Example.extend({
       <Button {...args} variant="tertiary" />
     </>
   ),
-})
+});
 
 /**
  * Buttons can be disabled using `aria-disabled` or `disabled`. In both cases, click events will be ignored, however,
@@ -181,7 +182,7 @@ export const Disabled = Sizes.extend({
   args: {
     disabled: true,
   },
-})
+});
 
 /**
  * Buttons that have been clicked and are performing some asynchronous action should be marked as busy using `isBusy`.
@@ -202,7 +203,7 @@ export const Busy = Example.extend({
   },
   decorators: [
     (Story) => (
-      <div style={{ display: 'flex', gap: 'var(--spacing-6)' }}>
+      <div style={{ display: "flex", gap: "var(--spacing-6)" }}>
         <Story />
       </div>
     ),
@@ -214,7 +215,7 @@ export const Busy = Example.extend({
       <Button {...args} size="large" />
     </>
   ),
-})
+});
 
 /**
  * Destructive buttons are used to indicate the action performed by the button is destructive or irreversible, like
@@ -231,7 +232,7 @@ export const Destructive = Variants.extend({
   },
   decorators: [
     (Story) => (
-      <div style={{ display: 'flex', gap: 'var(--spacing-6)' }}>
+      <div style={{ display: "flex", gap: "var(--spacing-6)" }}>
         <Story />
       </div>
     ),
@@ -243,18 +244,18 @@ export const Destructive = Variants.extend({
       <Button {...args} variant="tertiary" />
     </>
   ),
-})
+});
 
 /**
  * Buttons can use the `useAIStyle` prop to apply an AI-themed visual style. This is available across all three
  * variants.
  */
 export const AIStyle = Variants.extend({
-  name: 'AI style',
+  name: "AI style",
   args: {
     useAIStyle: true,
   },
-})
+});
 
 /**
  * Tertiary buttons can also use the `useLinkStyle` prop to have the button appear more like a link. This prop is
@@ -263,9 +264,9 @@ export const AIStyle = Variants.extend({
 export const LinkStyle = Example.extend({
   args: {
     useLinkStyle: true,
-    variant: 'tertiary',
+    variant: "tertiary",
   },
-})
+});
 
 /**
  * Tertiary buttons can use the `hasNoPadding` prop to remove their padding. This prop is ignored for other button
@@ -274,9 +275,9 @@ export const LinkStyle = Example.extend({
 export const NoPadding = Example.extend({
   args: {
     hasNoPadding: true,
-    variant: 'tertiary',
+    variant: "tertiary",
   },
-})
+});
 
 /**
  * `AnchorButton` is identical to `Button`, except it renders as an `<a>` element, which allows consumers to navigate
@@ -287,18 +288,18 @@ export const NoPadding = Example.extend({
  */
 export const Anchors = meta.story({
   args: {
-    'aria-disabled': false,
-    children: 'Anchor button',
+    "aria-disabled": false,
+    children: "Anchor button",
     hasNoPadding: false,
-    iconLeft: 'Star',
-    iconRight: 'Star',
+    iconLeft: "Star",
+    iconRight: "Star",
     isBusy: false,
     isDestructive: false,
     useAIStyle: false,
-    href: '#',
-    size: 'medium',
+    href: "#",
+    size: "medium",
     useLinkStyle: false,
-    variant: 'primary',
+    variant: "primary",
   },
   argTypes: {
     disabled: {
@@ -306,4 +307,4 @@ export const Anchors = meta.story({
     },
   },
   render: (args) => <AnchorButton {...(args as unknown as AnchorButton.Props)} />,
-})
+});

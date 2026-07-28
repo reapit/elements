@@ -1,1 +1,1 @@
-export { FormLayoutSectionHeader } from './header'
+export { FormLayoutSectionHeader } from "./header";

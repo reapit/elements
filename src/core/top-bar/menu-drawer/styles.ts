@@ -1,14 +1,15 @@
-import { css } from '@linaria/core'
-import { isWidthAtOrAbove } from '#src/utils/breakpoints/conditions'
+import { css } from "@linaria/core";
 
-const BACKDROP_DURATION = '100ms'
-const DIALOG_DURATION = '200ms'
-const TOTAL_DURATION = '200ms'
+import { isWidthAtOrAbove } from "#src/utils/breakpoints/conditions";
 
-const BACKDROP_OUT_DELAY = '0ms'
-const DIALOG_IN_DELAY = '0ms'
+const BACKDROP_DURATION = "100ms";
+const DIALOG_DURATION = "200ms";
+const TOTAL_DURATION = "200ms";
 
-const TOP_BAR_MENU_DRAWER_WIDTH_SM_AND_ABOVE = '359px'
+const BACKDROP_OUT_DELAY = "0ms";
+const DIALOG_IN_DELAY = "0ms";
+
+const TOP_BAR_MENU_DRAWER_WIDTH_SM_AND_ABOVE = "359px";
 
 export const elTopBarMenuDrawer = css`
   @layer elements.main {
@@ -24,7 +25,7 @@ export const elTopBarMenuDrawer = css`
     width: 100%;
     max-width: 100dvw;
 
-    @media ${isWidthAtOrAbove('SM')} {
+    @media ${isWidthAtOrAbove("SM")} {
       /* For SM and above, fix at 359px. */
       max-width: ${TOP_BAR_MENU_DRAWER_WIDTH_SM_AND_ABOVE};
       min-width: ${TOP_BAR_MENU_DRAWER_WIDTH_SM_AND_ABOVE};
@@ -106,4 +107,4 @@ export const elTopBarMenuDrawer = css`
       }
     }
   }
-`
+`;

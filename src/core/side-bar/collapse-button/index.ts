@@ -1,1 +1,1 @@
-export * from './collapse-button'
+export * from "./collapse-button";

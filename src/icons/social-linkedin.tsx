@@ -1,4 +1,4 @@
-import SocialLinkedinSvg from './svgs/social-linkedin.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import SocialLinkedinSvg from "./svgs/social-linkedin.svg?react";
 
-export const SocialLinkedinIcon = makeIcon('SocialLinkedinIcon', SocialLinkedinSvg)
+export const SocialLinkedinIcon = makeIcon("SocialLinkedinIcon", SocialLinkedinSvg);

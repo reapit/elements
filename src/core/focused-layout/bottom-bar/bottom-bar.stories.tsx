@@ -1,16 +1,17 @@
-import preview from '#.storybook/preview'
-import { Button } from '#src/core/button'
-import { ButtonGroup } from '#src/core/button-group'
-import { Pattern } from '#src/core/drawer/__story__/Pattern'
-import { FocusedLayout } from '../focused-layout'
+import preview from "#.storybook/preview";
+import { Button } from "#src/core/button";
+import { ButtonGroup } from "#src/core/button-group";
+import { Pattern } from "#src/core/drawer/__story__/Pattern";
+
+import { FocusedLayout } from "../focused-layout";
 
 const meta = preview.meta({
-  title: 'Containers and layout/FocusedLayout/BottomBar',
+  title: "Containers and layout/FocusedLayout/BottomBar",
   component: FocusedLayout.BottomBar,
   argTypes: {
     children: {
-      control: 'select',
-      options: ['Simple', 'MultiStep', 'SingleAction'],
+      control: "select",
+      options: ["Simple", "MultiStep", "SingleAction"],
       mapping: {
         Simple: (
           <ButtonGroup>
@@ -44,7 +45,7 @@ const meta = preview.meta({
     },
   },
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
   },
   decorators: [
     (Story) => (
@@ -56,7 +57,7 @@ const meta = preview.meta({
       </FocusedLayout>
     ),
   ],
-})
+});
 
 /**
  * The bottom bar sticks to the bottom of the viewport and is always visible.
@@ -64,6 +65,6 @@ const meta = preview.meta({
  */
 export const Example = meta.story({
   args: {
-    children: 'Simple',
+    children: "Simple",
   },
-})
+});

@@ -1,7 +1,9 @@
-import { css } from '@linaria/core'
-import { isWidthAtOrAbove } from '#src/utils/breakpoints'
-import { styled } from '@linaria/react'
-import { TOP_BAR_CONTAINER_NAME } from './constants'
+import { css } from "@linaria/core";
+import { styled } from "@linaria/react";
+
+import { isWidthAtOrAbove } from "#src/utils/breakpoints";
+
+import { TOP_BAR_CONTAINER_NAME } from "./constants";
 
 export const ElTopBar = styled.header`
   @layer elements.main {
@@ -11,10 +13,11 @@ export const ElTopBar = styled.header`
     container-name: ${TOP_BAR_CONTAINER_NAME};
     container-type: inline-size;
 
-    border-bottom: var(--comp-navigation-border-width-top_bar) solid var(--comp-navigation-colour-border-top_bar);
+    border-bottom: var(--comp-navigation-border-width-top_bar) solid
+      var(--comp-navigation-colour-border-top_bar);
     background: var(--comp-navigation-colour-fill-top_bar);
   }
-`
+`;
 
 export const ElTopBarContentContainer = styled.div`
   @layer elements.main {
@@ -26,15 +29,15 @@ export const ElTopBarContentContainer = styled.div`
     padding-block: var(--spacing-2);
     padding-inline: var(--spacing-4) var(--spacing-2);
 
-    @container ${TOP_BAR_CONTAINER_NAME} ${isWidthAtOrAbove('SM')} {
+    @container ${TOP_BAR_CONTAINER_NAME} ${isWidthAtOrAbove("SM")} {
       padding-inline: var(--spacing-4);
     }
 
-    @container ${TOP_BAR_CONTAINER_NAME} ${isWidthAtOrAbove('LG')} {
+    @container ${TOP_BAR_CONTAINER_NAME} ${isWidthAtOrAbove("LG")} {
       padding-inline: var(--spacing-5);
     }
   }
-`
+`;
 
 export const ElTopBarAppSwitcherContainer = styled.div`
   @layer elements.main {
@@ -43,15 +46,15 @@ export const ElTopBarAppSwitcherContainer = styled.div`
     display: none;
     padding-inline-end: var(--spacing-4);
 
-    @container ${TOP_BAR_CONTAINER_NAME} ${isWidthAtOrAbove('SM')} {
+    @container ${TOP_BAR_CONTAINER_NAME} ${isWidthAtOrAbove("SM")} {
       display: block;
     }
 
-    @container ${TOP_BAR_CONTAINER_NAME} ${isWidthAtOrAbove('LG')} {
+    @container ${TOP_BAR_CONTAINER_NAME} ${isWidthAtOrAbove("LG")} {
       padding-inline-end: var(--spacing-5);
     }
   }
-`
+`;
 
 export const ElTopBarLogoContainer = styled.div`
   @layer elements.main {
@@ -62,7 +65,7 @@ export const ElTopBarLogoContainer = styled.div`
     padding-block: var(--spacing-2);
     padding-inline: var(--spacing-none) var(--spacing-2);
   }
-`
+`;
 
 export const ElTopBarAvatarContainer = styled.div`
   @layer elements.main {
@@ -71,11 +74,11 @@ export const ElTopBarAvatarContainer = styled.div`
 
     display: none;
 
-    @container ${TOP_BAR_CONTAINER_NAME} ${isWidthAtOrAbove('MD')} {
+    @container ${TOP_BAR_CONTAINER_NAME} ${isWidthAtOrAbove("MD")} {
       display: flex;
     }
   }
-`
+`;
 
 export const ElTopBarMainNavContainer = styled.div`
   @layer elements.main {
@@ -89,11 +92,11 @@ export const ElTopBarMainNavContainer = styled.div`
 
     display: none;
 
-    @container ${TOP_BAR_CONTAINER_NAME} ${isWidthAtOrAbove('LG')} {
+    @container ${TOP_BAR_CONTAINER_NAME} ${isWidthAtOrAbove("LG")} {
       display: block;
     }
   }
-`
+`;
 
 export const ElTopBarSecondaryNavContainer = styled.div`
   @layer elements.main {
@@ -102,11 +105,11 @@ export const ElTopBarSecondaryNavContainer = styled.div`
 
     display: none;
 
-    @container ${TOP_BAR_CONTAINER_NAME} ${isWidthAtOrAbove('LG')} {
+    @container ${TOP_BAR_CONTAINER_NAME} ${isWidthAtOrAbove("LG")} {
       display: block;
     }
   }
-`
+`;
 
 export const ElTopBarSearchContainer = styled.div`
   @layer elements.main {
@@ -116,13 +119,13 @@ export const ElTopBarSearchContainer = styled.div`
     padding-block: var(--spacing-none);
     padding-inline-end: var(--spacing-2);
 
-    @container ${TOP_BAR_CONTAINER_NAME} ${isWidthAtOrAbove('SM')} {
+    @container ${TOP_BAR_CONTAINER_NAME} ${isWidthAtOrAbove("SM")} {
       width: 216px;
       padding-block: var(--spacing-1);
       padding-inline-end: var(--spacing-4);
     }
   }
-`
+`;
 
 export const ElTopBarMenuContainer = styled.div`
   @layer elements.main {
@@ -131,15 +134,15 @@ export const ElTopBarMenuContainer = styled.div`
     display: block;
     padding-inline-end: 0;
 
-    @container ${TOP_BAR_CONTAINER_NAME} ${isWidthAtOrAbove('MD')} {
+    @container ${TOP_BAR_CONTAINER_NAME} ${isWidthAtOrAbove("MD")} {
       padding-inline-end: var(--spacing-2);
     }
 
-    @container ${TOP_BAR_CONTAINER_NAME} ${isWidthAtOrAbove('LG')} {
+    @container ${TOP_BAR_CONTAINER_NAME} ${isWidthAtOrAbove("LG")} {
       display: none;
     }
   }
-`
+`;
 
 export const elTopBarMenuPopover = css`
   @layer elements.main {
@@ -147,4 +150,4 @@ export const elTopBarMenuPopover = css`
      * The "important" rule is used to override the Menu's auto-anchor yOffset. */
     top: var(--spacing-10) !important;
   }
-`
+`;

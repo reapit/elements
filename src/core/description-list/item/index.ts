@@ -1,1 +1,1 @@
-export { DescriptionListItem } from './item'
+export { DescriptionListItem } from "./item";

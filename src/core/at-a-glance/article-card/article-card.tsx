@@ -1,33 +1,33 @@
-import { AtAGlanceCard } from '../card'
-import { AtAGlanceCardIcon } from '../card/icon'
-import { AtAGlanceCardLabel } from '../card/label'
-import { AtAGlanceCardDescription } from '../card/description'
-import { AtAGlanceCardValue } from '../card/value'
+import type { HTMLAttributes, ReactNode } from "react";
 
-import type { HTMLAttributes, ReactNode } from 'react'
+import { AtAGlanceCard } from "../card";
+import { AtAGlanceCardDescription } from "../card/description";
+import { AtAGlanceCardIcon } from "../card/icon";
+import { AtAGlanceCardLabel } from "../card/label";
+import { AtAGlanceCardValue } from "../card/value";
 
 // NOTE: we omit children because the component doesn't accept them
-type AttributesToOmit = 'children'
+type AttributesToOmit = "children";
 
 export namespace AtAGlanceArticleCard {
   export interface Props extends Omit<HTMLAttributes<HTMLElement>, AttributesToOmit> {
     /** Secondary text below the label. */
-    description?: ReactNode
+    description?: ReactNode;
     /** The display value/metric to show. */
-    displayValue: ReactNode
+    displayValue: ReactNode;
     /** Icon displayed in the icon grid area. */
-    icon?: ReactNode
+    icon?: ReactNode;
     /** The label text for the card content. */
-    label: ReactNode
+    label: ReactNode;
     /**
      * The layout for the card content.
      * @default 'vertical'
      */
-    layout?: 'vertical' | 'horizontal' | 'compact'
+    layout?: "vertical" | "horizontal" | "compact";
     /** Maximum width of the card. */
-    maxWidth?: string
+    maxWidth?: string;
     /** Minimum width of the card. */
-    minWidth?: string
+    minWidth?: string;
   }
 }
 
@@ -40,7 +40,7 @@ export function AtAGlanceArticleCard({
   displayValue,
   icon,
   label,
-  layout = 'vertical',
+  layout = "vertical",
   ...rest
 }: AtAGlanceArticleCard.Props) {
   return (
@@ -50,7 +50,7 @@ export function AtAGlanceArticleCard({
       {description && <AtAGlanceCardDescription>{description}</AtAGlanceCardDescription>}
       <AtAGlanceCardValue>{displayValue}</AtAGlanceCardValue>
     </AtAGlanceCard>
-  )
+  );
 }
 
-AtAGlanceArticleCard.displayName = 'AtAGlance.ArticleCard'
+AtAGlanceArticleCard.displayName = "AtAGlance.ArticleCard";

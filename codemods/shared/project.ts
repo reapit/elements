@@ -1,4 +1,4 @@
-import { Project, QuoteKind, SourceFile } from 'ts-morph'
+import { Project, QuoteKind, SourceFile } from "ts-morph";
 
 /**
  * Creates an in-memory ts-morph project configured for JSX transforms and
@@ -14,7 +14,7 @@ export function createProjectFromSource(source: string, filePath: string): Sourc
       quoteKind: QuoteKind.Single,
       useTrailingCommas: false,
     },
-  })
+  });
 
-  return project.createSourceFile(filePath, source)
+  return project.createSourceFile(filePath, source);
 }

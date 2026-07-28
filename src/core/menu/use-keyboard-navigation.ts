@@ -1,7 +1,7 @@
-import { handleArrowNavigation, handleLinkActivation } from '#src/utils/keyboard-navigation'
-import { useCallback } from 'react'
+import { useCallback } from "react";
+import type { KeyboardEventHandler } from "react";
 
-import type { KeyboardEventHandler } from 'react'
+import { handleArrowNavigation, handleLinkActivation } from "#src/utils/keyboard-navigation";
 
 /**
  * Returns a key down event handler that facilitates navigation through the menu items via arrow keys
@@ -12,13 +12,13 @@ export function useMenuKeyboardNavigation(
 ): KeyboardEventHandler<HTMLDivElement> {
   return useCallback(
     (event) => {
-      onKeyDown?.(event)
+      onKeyDown?.(event);
       if (event.defaultPrevented) {
-        return
+        return;
       }
-      handleLinkActivation(event)
-      handleArrowNavigation(event)
+      handleLinkActivation(event);
+      handleArrowNavigation(event);
     },
     [onKeyDown],
-  )
+  );
 }

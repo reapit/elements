@@ -1,4 +1,4 @@
-import { css } from '@linaria/core'
+import { css } from "@linaria/core";
 
 export const elDivider = css`
   @layer elements.main {
@@ -7,7 +7,7 @@ export const elDivider = css`
     border: none;
 
     &,
-    &[aria-orientation='horizontal'] {
+    &[aria-orientation="horizontal"] {
       height: 0;
       width: 100%;
       border-bottom: var(--comp-divider-border-width) var(--divider-border-style)
@@ -15,20 +15,21 @@ export const elDivider = css`
       margin: var(--spacing-2) 0;
     }
 
-    &[aria-orientation='vertical'] {
+    &[aria-orientation="vertical"] {
       height: 100%;
       width: 0;
-      border-left: var(--comp-divider-border-width) var(--divider-border-style) var(--comp-divider-colour-border-solid);
+      border-left: var(--comp-divider-border-width) var(--divider-border-style)
+        var(--comp-divider-colour-border-solid);
       margin: 0 var(--spacing-2);
     }
 
     &,
-    &[data-variant='solid'] {
+    &[data-variant="solid"] {
       --divider-border-style: solid;
     }
 
-    &[data-variant='dashed'] {
+    &[data-variant="dashed"] {
       --divider-border-style: dashed;
     }
   }
-`
+`;

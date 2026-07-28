@@ -1,4 +1,5 @@
-import figma from '@figma/code-connect'
-import { MonitorIcon } from './monitor'
+import figma from "@figma/code-connect";
 
-figma.connect(MonitorIcon, 'https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=13215-299')
+import { MonitorIcon } from "./monitor";
+
+figma.connect(MonitorIcon, "https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=13215-299");

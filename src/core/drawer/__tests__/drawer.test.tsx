@@ -1,70 +1,71 @@
-import { Drawer } from '../drawer'
-import { render, screen, waitFor } from '@testing-library/react'
+import { render, screen, waitFor } from "@testing-library/react";
 
-test('renders a dialog element', async () => {
-  render(<Drawer isOpen>Test content</Drawer>)
-  await waitFor(() => expect(screen.getByRole('dialog')).toBeVisible())
-})
+import { Drawer } from "../drawer";
 
-test('has correct accessible name when drawer header is present', () => {
+test("renders a dialog element", async () => {
+  render(<Drawer isOpen>Test content</Drawer>);
+  await waitFor(() => expect(screen.getByRole("dialog")).toBeVisible());
+});
+
+test("has correct accessible name when drawer header is present", () => {
   render(
     <Drawer isOpen>
       <Drawer.Header>Test Title</Drawer.Header>
     </Drawer>,
-  )
-  expect(screen.getByRole('dialog', { name: 'Test Title' })).toBeVisible()
-})
+  );
+  expect(screen.getByRole("dialog", { name: "Test Title" })).toBeVisible();
+});
 
-test('shows dialog when `isOpen` is true', async () => {
-  render(<Drawer isOpen>Test content</Drawer>)
-  await waitFor(() => expect(screen.getByRole('dialog')).toBeVisible())
-})
+test("shows dialog when `isOpen` is true", async () => {
+  render(<Drawer isOpen>Test content</Drawer>);
+  await waitFor(() => expect(screen.getByRole("dialog")).toBeVisible());
+});
 
-test('hides dialog when `isOpen` is false', () => {
-  render(<Drawer isOpen={false}>Test content</Drawer>)
-  expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
-})
+test("hides dialog when `isOpen` is false", () => {
+  render(<Drawer isOpen={false}>Test content</Drawer>);
+  expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
+});
 
-test('hides dialog when `isOpen` is undefined', () => {
-  render(<Drawer>Test content</Drawer>)
-  expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
-})
+test("hides dialog when `isOpen` is undefined", () => {
+  render(<Drawer>Test content</Drawer>);
+  expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
+});
 
-test('uses provided aria-labelledby when available', () => {
+test("uses provided aria-labelledby when available", () => {
   render(
     <Drawer isOpen aria-labelledby="custom-title">
       <Drawer.Header>
         <span id="custom-title">Test Title</span>
       </Drawer.Header>
     </Drawer>,
-  )
-  expect(screen.getByRole('dialog', { name: 'Test Title' })).toBeVisible()
-})
+  );
+  expect(screen.getByRole("dialog", { name: "Test Title" })).toBeVisible();
+});
 
-test('only mounts children when dialog is open', async () => {
-  const { rerender } = render(<Drawer isOpen={false}>Test content</Drawer>)
-  rerender(<Drawer isOpen>Test content</Drawer>)
+test("only mounts children when dialog is open", async () => {
+  const { rerender } = render(<Drawer isOpen={false}>Test content</Drawer>);
+  rerender(<Drawer isOpen>Test content</Drawer>);
 
-  await waitFor(() => expect(screen.getByText('Test content')).toBeVisible())
-})
+  await waitFor(() => expect(screen.getByText("Test content")).toBeVisible());
+});
 
-test('unmounts children when dialog closes', async () => {
-  const { rerender } = render(<Drawer isOpen>Test content</Drawer>)
-  rerender(<Drawer isOpen={false}>Test content</Drawer>)
+test("unmounts children when dialog closes", async () => {
+  const { rerender } = render(<Drawer isOpen>Test content</Drawer>);
+  rerender(<Drawer isOpen={false}>Test content</Drawer>);
 
-  await waitFor(() => expect(screen.queryByText('Test content')).not.toBeInTheDocument())
-})
+  await waitFor(() => expect(screen.queryByText("Test content")).not.toBeInTheDocument());
+});
 
-test('forwards className to the underlying dialog element', async () => {
+test("forwards className to the underlying dialog element", async () => {
   render(
     <Drawer className="custom-class" isOpen>
       Test content
     </Drawer>,
-  )
-  await waitFor(() => expect(screen.getByRole('dialog')).toHaveClass('custom-class'))
-})
+  );
+  await waitFor(() => expect(screen.getByRole("dialog")).toHaveClass("custom-class"));
+});
 
-test('forwards additional props to the dialog element', () => {
-  render(<Drawer data-testid="test-id">Test content</Drawer>)
-  expect(screen.getByTestId('test-id')).toBeInTheDocument()
-})
+test("forwards additional props to the dialog element", () => {
+  render(<Drawer data-testid="test-id">Test content</Drawer>);
+  expect(screen.getByTestId("test-id")).toBeInTheDocument();
+});

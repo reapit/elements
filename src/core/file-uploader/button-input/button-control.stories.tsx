@@ -1,54 +1,56 @@
-import preview from '#.storybook/preview'
-import { CloudUploadIcon } from '#src/icons/cloud-upload'
-import { FileImageIcon } from '#src/icons/file-image'
-import { FileUploader } from '../file-uploader'
-import { FileUploaderContext } from '../context'
-import { FileUploadIcon } from '#src/icons/file-upload'
-import { FileVideoIcon } from '#src/icons/file-video'
-import { useFileUploadQueue } from '../use-file-upload-queue'
-import { useSyncExternalStore } from 'react'
+import { useSyncExternalStore } from "react";
+
+import preview from "#.storybook/preview";
+import { CloudUploadIcon } from "#src/icons/cloud-upload";
+import { FileImageIcon } from "#src/icons/file-image";
+import { FileUploadIcon } from "#src/icons/file-upload";
+import { FileVideoIcon } from "#src/icons/file-video";
+
+import { FileUploaderContext } from "../context";
+import { FileUploader } from "../file-uploader";
+import { useFileUploadQueue } from "../use-file-upload-queue";
 
 const meta = preview.meta({
-  title: 'Input and selection/FileUploader/ButtonControl',
+  title: "Input and selection/FileUploader/ButtonControl",
   component: FileUploader.ButtonControl,
   argTypes: {
     errorText: {
-      control: 'text',
+      control: "text",
     },
     helpText: {
-      control: 'text',
+      control: "text",
     },
     iconLeft: {
-      control: 'select',
-      options: ['none', 'file-upload', 'cloud-upload', 'image', 'video'],
+      control: "select",
+      options: ["none", "file-upload", "cloud-upload", "image", "video"],
       mapping: {
         none: undefined,
-        'file-upload': <FileUploadIcon />,
-        'cloud-upload': <CloudUploadIcon />,
+        "file-upload": <FileUploadIcon />,
+        "cloud-upload": <CloudUploadIcon />,
         image: <FileImageIcon />,
         video: <FileVideoIcon />,
       },
     },
     iconRight: {
-      control: 'select',
-      options: ['none', 'file-upload', 'cloud-upload', 'image', 'video'],
+      control: "select",
+      options: ["none", "file-upload", "cloud-upload", "image", "video"],
       mapping: {
         none: undefined,
-        'file-upload': <FileUploadIcon />,
-        'cloud-upload': <CloudUploadIcon />,
+        "file-upload": <FileUploadIcon />,
+        "cloud-upload": <CloudUploadIcon />,
         image: <FileImageIcon />,
         video: <FileVideoIcon />,
       },
     },
     label: {
-      control: 'text',
+      control: "text",
     },
     size: {
-      control: 'select',
-      options: ['small', 'medium', 'large'],
+      control: "select",
+      options: ["small", "medium", "large"],
     },
   },
-})
+});
 
 /**
  * `FileUploader.ButtonControl` composes `FormControl` chrome (label/help text/error text) with
@@ -57,32 +59,39 @@ const meta = preview.meta({
  */
 export const Example = meta.story({
   args: {
-    children: 'Browse files',
+    children: "Browse files",
     disabled: false,
-    iconLeft: 'file-upload',
-    label: 'Upload a file',
+    iconLeft: "file-upload",
+    label: "Upload a file",
     multiple: true,
-    size: 'medium',
+    size: "medium",
   },
   render: function Example(args) {
-    const queue = useFileUploadQueue({ onUpload: async () => 'file-id' })
-    const items = useSyncExternalStore(queue.subscribe, queue.getItemsSnapshot)
+    const queue = useFileUploadQueue({ onUpload: async () => "file-id" });
+    const items = useSyncExternalStore(queue.subscribe, queue.getItemsSnapshot);
 
     return (
-      <div style={{ display: 'flex', flexFlow: 'column nowrap', gap: 'var(--spacing-2)', alignItems: 'flex-start' }}>
-        <FileUploaderContext.Provider value={{ queue, triggerId: 'trigger' }}>
+      <div
+        style={{
+          display: "flex",
+          flexFlow: "column nowrap",
+          gap: "var(--spacing-2)",
+          alignItems: "flex-start",
+        }}
+      >
+        <FileUploaderContext.Provider value={{ queue, triggerId: "trigger" }}>
           <FileUploader.ButtonControl {...args} />
           {items.length > 0 && (
             <ul
               style={{
-                border: '1px solid #FA00FF',
-                paddingBlock: 'var(--spacing-2)',
-                paddingInlineEnd: 'var(--spacing-2)',
+                border: "1px solid #FA00FF",
+                paddingBlock: "var(--spacing-2)",
+                paddingInlineEnd: "var(--spacing-2)",
               }}
             >
               {items.map((item) => (
                 <li key={item.id}>
-                  {item.file.name}{' '}
+                  {item.file.name}{" "}
                   <button type="button" onClick={() => queue.removeItem(item.id)}>
                     Remove
                   </button>
@@ -92,9 +101,9 @@ export const Example = meta.story({
           )}
         </FileUploaderContext.Provider>
       </div>
-    )
+    );
   },
-})
+});
 
 /**
  * The control's `size` affects the button's own visual size and its label/help/error text size.
@@ -108,14 +117,21 @@ export const Sizing = Example.extend({
   },
   decorators: [
     (Story, context) => (
-      <div style={{ display: 'flex', flexFlow: 'row nowrap', gap: 'var(--spacing-10)', alignItems: 'flex-start' }}>
-        <Story args={{ ...context.args, size: 'small' }} />
-        <Story args={{ ...context.args, size: 'medium' }} />
-        <Story args={{ ...context.args, size: 'large' }} />
+      <div
+        style={{
+          display: "flex",
+          flexFlow: "row nowrap",
+          gap: "var(--spacing-10)",
+          alignItems: "flex-start",
+        }}
+      >
+        <Story args={{ ...context.args, size: "small" }} />
+        <Story args={{ ...context.args, size: "medium" }} />
+        <Story args={{ ...context.args, size: "large" }} />
       </div>
     ),
   ],
-})
+});
 
 /**
  * The button supports the same visual customisations as the standard `Button`, such as variants, link
@@ -123,12 +139,12 @@ export const Sizing = Example.extend({
  */
 export const Styling = Example.extend({
   args: {
-    iconLeft: 'none',
-    iconRight: 'none',
-    size: 'large',
-    variant: 'primary',
+    iconLeft: "none",
+    iconRight: "none",
+    size: "large",
+    variant: "primary",
   },
-})
+});
 
 /**
  * Error text renders directly below the input, taking the help text's place.
@@ -139,9 +155,9 @@ export const Styling = Example.extend({
  */
 export const Invalid = Example.extend({
   args: {
-    errorText: 'At least one file is required',
+    errorText: "At least one file is required",
   },
-})
+});
 
 /**
  * For cases where you do not want label, help or error text, you can use `FileUploader.ButtonInput` directly.
@@ -149,27 +165,34 @@ export const Invalid = Example.extend({
  */
 export const Input = Example.extend({
   args: {
-    'aria-label': 'Upload a file',
+    "aria-label": "Upload a file",
   },
   render: function Input(args) {
-    const queue = useFileUploadQueue({ onUpload: async () => 'file-id' })
-    const items = useSyncExternalStore(queue.subscribe, queue.getItemsSnapshot)
+    const queue = useFileUploadQueue({ onUpload: async () => "file-id" });
+    const items = useSyncExternalStore(queue.subscribe, queue.getItemsSnapshot);
 
     return (
-      <div style={{ display: 'flex', flexFlow: 'column nowrap', gap: 'var(--spacing-2)', alignItems: 'flex-start' }}>
-        <FileUploaderContext.Provider value={{ queue, triggerId: 'trigger' }}>
+      <div
+        style={{
+          display: "flex",
+          flexFlow: "column nowrap",
+          gap: "var(--spacing-2)",
+          alignItems: "flex-start",
+        }}
+      >
+        <FileUploaderContext.Provider value={{ queue, triggerId: "trigger" }}>
           <FileUploader.ButtonInput {...args} />
           {items.length > 0 && (
             <ul
               style={{
-                border: '1px solid #FA00FF',
-                paddingBlock: 'var(--spacing-2)',
-                paddingInlineEnd: 'var(--spacing-2)',
+                border: "1px solid #FA00FF",
+                paddingBlock: "var(--spacing-2)",
+                paddingInlineEnd: "var(--spacing-2)",
               }}
             >
               {items.map((item) => (
                 <li key={item.id}>
-                  {item.file.name}{' '}
+                  {item.file.name}{" "}
                   <button type="button" onClick={() => queue.removeItem(item.id)}>
                     Remove
                   </button>
@@ -179,6 +202,6 @@ export const Input = Example.extend({
           )}
         </FileUploaderContext.Provider>
       </div>
-    )
+    );
   },
-})
+});

@@ -1,4 +1,4 @@
-import CircularRemoveSvg from './svgs/circular-remove.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import CircularRemoveSvg from "./svgs/circular-remove.svg?react";
 
-export const CircularRemoveIcon = makeIcon('CircularRemoveIcon', CircularRemoveSvg)
+export const CircularRemoveIcon = makeIcon("CircularRemoveIcon", CircularRemoveSvg);

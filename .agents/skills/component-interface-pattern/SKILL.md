@@ -27,7 +27,7 @@ export function ComponentName({ prop }: ComponentName.Props) {
 export namespace ComponentName {
   export interface Props {
     /** JSDoc for each prop */
-    prop: string
+    prop: string;
   }
 }
 ```
@@ -176,26 +176,26 @@ Utility functions follow a similar pattern using `Input` and `Output` interfaces
 export namespace formatCurrency {
   export interface Input {
     /** Amount in cents */
-    amount: number
+    amount: number;
     /** ISO 4217 currency code */
-    currency: string
+    currency: string;
   }
 
   export interface Output {
     /** Formatted currency string */
-    formatted: string
+    formatted: string;
   }
 }
 
 export function formatCurrency(input: formatCurrency.Input): formatCurrency.Output {
-  const formatter = new Intl.NumberFormat('en-US', {
-    style: 'currency',
+  const formatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
     currency: input.currency,
-  })
+  });
 
   return {
     formatted: formatter.format(input.amount / 100),
-  }
+  };
 }
 ```
 
@@ -217,9 +217,9 @@ export namespace useComboboxSelectedOptions {
   /** Represents a selected option with its label and value. */
   export interface Option {
     /** The option's label text */
-    label: string
+    label: string;
     /** The option's value */
-    value: string
+    value: string;
   }
 }
 
@@ -251,7 +251,7 @@ export namespace ButtonContextState {}
 ```typescript
 export namespace Dialog {
   export interface Props {
-    open: boolean // Missing JSDoc
+    open: boolean; // Missing JSDoc
   }
 }
 ```
@@ -274,8 +274,8 @@ export namespace Button {
 ```typescript
 // Wrong - data type not in namespace
 export interface ComboboxSelectedOption {
-  label: string
-  value: string
+  label: string;
+  value: string;
 }
 
 export function useComboboxSelectedOptions(): readonly ComboboxSelectedOption[] {
@@ -285,8 +285,8 @@ export function useComboboxSelectedOptions(): readonly ComboboxSelectedOption[] 
 // Correct - data type in namespace
 export namespace useComboboxSelectedOptions {
   export interface Option {
-    label: string
-    value: string
+    label: string;
+    value: string;
   }
 }
 
@@ -307,7 +307,7 @@ Three categories, each with its own naming rule:
 // Wrong: "is" prefix on a behavioural prop
 export namespace Dialog {
   export interface Props {
-    isKeepMounted?: boolean
+    isKeepMounted?: boolean;
   }
 }
 
@@ -315,14 +315,14 @@ export namespace Dialog {
 export namespace Dialog {
   export interface Props {
     /** Whether to keep the dialog mounted when closed */
-    keepMounted?: boolean
+    keepMounted?: boolean;
   }
 }
 
 // Wrong: wrapping a native HTML attribute
 export namespace Button {
   export interface Props {
-    isDisabled?: boolean
+    isDisabled?: boolean;
   }
 }
 
@@ -330,7 +330,7 @@ export namespace Button {
 export namespace Button {
   export interface Props {
     /** Whether the button is disabled */
-    disabled?: boolean
+    disabled?: boolean;
   }
 }
 ```
@@ -348,9 +348,9 @@ Multiple unrelated components may extend a single base interface:
 /** Base props for combobox popup components. */
 export interface BaseComboboxPopupProps extends HTMLAttributes<HTMLElement> {
   /** ID of the element that labels the popup. */
-  'aria-labelledby': string
+  "aria-labelledby": string;
   /** ID of the popup element. */
-  id: string
+  id: string;
 }
 ```
 

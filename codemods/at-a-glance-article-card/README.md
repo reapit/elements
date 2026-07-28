@@ -55,12 +55,12 @@ yarn dlx @reapit/elements@beta codemod apply at-a-glance-article-card src/ --fac
 
 ```tsx
 // Before (with facade package @habio/design-system)
-import { AtAGlanceCard } from '@habio/design-system/elements'
-;<AtAGlanceCard displayValue="42" label="Total" />
+import { AtAGlanceCard } from "@habio/design-system/elements";
+<AtAGlanceCard displayValue="42" label="Total" />;
 
 // After running with --facade-package @habio/design-system
-import { AtAGlance } from '@habio/design-system/elements'
-;<AtAGlance.ArticleCard displayValue="42" label="Total" />
+import { AtAGlance } from "@habio/design-system/elements";
+<AtAGlance.ArticleCard displayValue="42" label="Total" />;
 ```
 
 ## Background
@@ -99,12 +99,12 @@ The codemod removes `AtAGlanceCard` from imports when it is no longer used and a
 
 ```tsx
 // Before
-import { AtAGlanceCard } from '@reapit/elements'
-;<AtAGlanceCard displayValue="42" label="Total" />
+import { AtAGlanceCard } from "@reapit/elements";
+<AtAGlanceCard displayValue="42" label="Total" />;
 
 // After
-import { AtAGlance } from '@reapit/elements'
-;<AtAGlance.ArticleCard displayValue="42" label="Total" />
+import { AtAGlance } from "@reapit/elements";
+<AtAGlance.ArticleCard displayValue="42" label="Total" />;
 ```
 
 When `AtAGlanceCard` is still used with the new primitive API, the import is kept:

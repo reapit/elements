@@ -1,17 +1,19 @@
-import preview from '#.storybook/preview'
-import { Badge } from '#src/core/badge'
-import { ComboboxOptgroup } from './optgroup'
-import { ComboboxOption } from '../option'
-import { Text } from '#src/utils/text'
-import { useState } from 'react'
+import { useState } from "react";
+
+import preview from "#.storybook/preview";
+import { Badge } from "#src/core/badge";
+import { Text } from "#src/utils/text";
+
+import { ComboboxOption } from "../option";
+import { ComboboxOptgroup } from "./optgroup";
 
 const meta = preview.meta({
-  title: 'Utils/Combobox/Optgroup',
+  title: "Utils/Combobox/Optgroup",
   component: ComboboxOptgroup,
   argTypes: {
     children: {
-      control: 'select',
-      options: ['Simple', 'Fancy'],
+      control: "select",
+      options: ["Simple", "Fancy"],
       mapping: {
         Simple: (
           <>
@@ -28,7 +30,9 @@ const meta = preview.meta({
                   Badge
                 </Badge>
               }
-              additionalInfo={<ComboboxOption.AdditionalInfo>Supplementary info</ComboboxOption.AdditionalInfo>}
+              additionalInfo={
+                <ComboboxOption.AdditionalInfo>Supplementary info</ComboboxOption.AdditionalInfo>
+              }
               value="option-1"
             >
               Option 1
@@ -39,7 +43,9 @@ const meta = preview.meta({
                   Badge
                 </Badge>
               }
-              additionalInfo={<ComboboxOption.AdditionalInfo>Supplementary info</ComboboxOption.AdditionalInfo>}
+              additionalInfo={
+                <ComboboxOption.AdditionalInfo>Supplementary info</ComboboxOption.AdditionalInfo>
+              }
               value="option-2"
             >
               Option 2
@@ -50,7 +56,9 @@ const meta = preview.meta({
                   Badge
                 </Badge>
               }
-              additionalInfo={<ComboboxOption.AdditionalInfo>Supplementary info</ComboboxOption.AdditionalInfo>}
+              additionalInfo={
+                <ComboboxOption.AdditionalInfo>Supplementary info</ComboboxOption.AdditionalInfo>
+              }
               value="option-3"
             >
               Option 3
@@ -60,30 +68,30 @@ const meta = preview.meta({
       },
     },
     label: {
-      control: 'text',
+      control: "text",
     },
   },
-})
+});
 
 /**
  * An option group containing `Combobox.Option` components.
  */
 export const Example = meta.story({
   args: {
-    children: 'Simple',
-    label: 'Group label',
+    children: "Simple",
+    label: "Group label",
   },
-})
+});
 
 /**
  * Option groups without visual labels require an accessible label via `aria-label`.
  */
 export const NoLabel = Example.extend({
   args: {
-    'aria-label': 'Group label',
+    "aria-label": "Group label",
     label: undefined,
   },
-})
+});
 
 /**
  * Keep group labels concise. Text wraps to multiple lines when it exceeds available space.
@@ -94,15 +102,15 @@ export const Wrapping = Example.extend({
   },
   decorators: [
     (Story) => {
-      const [width, setWidth] = useState(300)
+      const [width, setWidth] = useState(300);
       return (
         <>
           <div
             style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: 'var(--spacing-2)',
-              marginBlockEnd: 'var(--spacing-2)',
+              display: "flex",
+              alignItems: "center",
+              gap: "var(--spacing-2)",
+              marginBlockEnd: "var(--spacing-2)",
             }}
           >
             <input
@@ -121,27 +129,36 @@ export const Wrapping = Example.extend({
               </Text>
             </output>
           </div>
-          <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', width: `${width}px` }}>
+          <div
+            style={{ boxSizing: "content-box", border: "1px solid #FA00FF", width: `${width}px` }}
+          >
             <Story />
           </div>
         </>
-      )
+      );
     },
   ],
-})
+});
 
 /**
  * Group labels stick to their position when the parent container scrolls.
  */
 export const StickyPositioning = Example.extend({
   args: {
-    children: 'Fancy',
+    children: "Fancy",
   },
   decorators: [
     (Story) => (
-      <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', maxHeight: '100px', overflow: 'auto' }}>
+      <div
+        style={{
+          boxSizing: "content-box",
+          border: "1px solid #FA00FF",
+          maxHeight: "100px",
+          overflow: "auto",
+        }}
+      >
         <Story />
       </div>
     ),
   ],
-})
+});

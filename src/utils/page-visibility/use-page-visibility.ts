@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect } from "react";
 
 /**
  * Calls `onChange` with the current `document.hidden` value whenever the
@@ -12,15 +12,15 @@ export function usePageVisibility(onChange: (hidden: boolean) => void): void {
   useEffect(
     function listenForPageVisibilityChange() {
       function handleVisibilityChange() {
-        onChange(document.hidden)
+        onChange(document.hidden);
       }
 
-      document.addEventListener('visibilitychange', handleVisibilityChange)
+      document.addEventListener("visibilitychange", handleVisibilityChange);
 
       return function removePageVisibilityListener() {
-        document.removeEventListener('visibilitychange', handleVisibilityChange)
-      }
+        document.removeEventListener("visibilitychange", handleVisibilityChange);
+      };
     },
     [onChange],
-  )
+  );
 }

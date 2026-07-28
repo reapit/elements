@@ -1,5 +1,6 @@
-import { css } from '@linaria/core'
-import { font } from '#src/utils/font'
+import { css } from "@linaria/core";
+
+import { font } from "#src/utils/font";
 
 /**
  * Base value/metric styling. Grid-positioned via grid-area.
@@ -11,9 +12,9 @@ export const elAtAGlanceCardValue = css`
     grid-area: value;
     align-self: var(--aag-card-value-align-self);
     color: var(--aag-card-value-colour, var(--colour-text-primary));
-    ${font('2xl', 'bold')}
+    ${font("2xl", "bold")}
     white-space: nowrap;
     margin: 0;
     padding: var(--aag-card-value-padding);
   }
-`
+`;

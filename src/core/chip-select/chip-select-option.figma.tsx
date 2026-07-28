@@ -1,15 +1,16 @@
-import { ChipSelect } from './chip-select'
-import figma from '@figma/code-connect'
+import figma from "@figma/code-connect";
 
-figma.connect(ChipSelect.Option, '<CHIP_SELECT_OPTION_URL>', {
-  variant: { 'Show label': true },
+import { ChipSelect } from "./chip-select";
+
+figma.connect(ChipSelect.Option, "<CHIP_SELECT_OPTION_URL>", {
+  variant: { "Show label": true },
   props: {
-    defaultChecked: figma.boolean('Selected'),
-    children: figma.string('Label'),
-    disabled: figma.enum('State', {
+    defaultChecked: figma.boolean("Selected"),
+    children: figma.string("Label"),
+    disabled: figma.enum("State", {
       Disabled: true,
     }),
-    icon: figma.instance('Icon'),
+    icon: figma.instance("Icon"),
   },
   example: (props) => (
     <ChipSelect.Option
@@ -21,16 +22,16 @@ figma.connect(ChipSelect.Option, '<CHIP_SELECT_OPTION_URL>', {
       {props.children}
     </ChipSelect.Option>
   ),
-})
+});
 
-figma.connect(ChipSelect.Option, '<CHIP_SELECT_OPTION_URL>', {
-  variant: { 'Show label': false },
+figma.connect(ChipSelect.Option, "<CHIP_SELECT_OPTION_URL>", {
+  variant: { "Show label": false },
   props: {
-    defaultChecked: figma.boolean('Selected'),
-    disabled: figma.enum('State', {
+    defaultChecked: figma.boolean("Selected"),
+    disabled: figma.enum("State", {
       Disabled: true,
     }),
-    icon: figma.instance('Icon'),
+    icon: figma.instance("Icon"),
   },
   example: (props) => (
     <ChipSelect.Option
@@ -40,4 +41,4 @@ figma.connect(ChipSelect.Option, '<CHIP_SELECT_OPTION_URL>', {
       value="change-me"
     />
   ),
-})
+});

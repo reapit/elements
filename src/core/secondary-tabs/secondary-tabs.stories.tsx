@@ -1,45 +1,46 @@
-import preview from '#.storybook/preview'
-import { SecondaryTabs } from './secondary-tabs'
+import preview from "#.storybook/preview";
 
-const href = '#'
+import { SecondaryTabs } from "./secondary-tabs";
+
+const href = "#";
 
 const meta = preview.meta({
-  title: 'Navigation/SecondaryTabs',
+  title: "Navigation/SecondaryTabs",
   component: SecondaryTabs,
   argTypes: {
     children: {
-      control: 'radio',
-      options: ['No selected tab', 'Selected tab'],
+      control: "radio",
+      options: ["No selected tab", "Selected tab"],
       mapping: {
-        'No selected tab': buildTabs('No selected tab'),
-        'Selected tab': buildTabs('Selected tab'),
+        "No selected tab": buildTabs("No selected tab"),
+        "Selected tab": buildTabs("Selected tab"),
       },
     },
     overflow: {
-      control: 'radio',
-      options: ['scroll', 'undefined'],
+      control: "radio",
+      options: ["scroll", "undefined"],
       mapping: {
-        scroll: 'scroll',
+        scroll: "scroll",
         undefined: undefined,
       },
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
-    children: 'No selected tab',
+    children: "No selected tab",
   },
-})
+});
 
 /**
  * If a tab represents the current page/section, it should be marked as "selected" with aria-current="page".
  */
 export const SelectedTab = meta.story({
   args: {
-    children: 'Selected tab',
+    children: "Selected tab",
   },
-})
+});
 
 /**
  * Ideally, overflowing should be avoided as much as possible. When it can't be avoided (e.g. small
@@ -48,23 +49,27 @@ export const SelectedTab = meta.story({
  */
 export const Overflow = meta.story({
   args: {
-    children: 'Selected tab',
-    overflow: 'scroll',
+    children: "Selected tab",
+    overflow: "scroll",
   },
   decorators: [
     (Story) => {
       return (
-        <div style={{ border: '1px solid #FA00FF', width: '397px' }}>
+        <div style={{ border: "1px solid #FA00FF", width: "397px" }}>
           <Story />
         </div>
-      )
+      );
     },
   ],
-})
+});
 
-function buildTabs(type: 'No selected tab' | 'Selected tab') {
+function buildTabs(type: "No selected tab" | "Selected tab") {
   return [
-    <SecondaryTabs.Item key="apples" href={href} aria-current={type === 'Selected tab' ? 'page' : false}>
+    <SecondaryTabs.Item
+      key="apples"
+      href={href}
+      aria-current={type === "Selected tab" ? "page" : false}
+    >
       Apples
     </SecondaryTabs.Item>,
     <SecondaryTabs.Item key="bananas" aria-current={false} href={href}>
@@ -79,5 +84,5 @@ function buildTabs(type: 'No selected tab' | 'Selected tab') {
     <SecondaryTabs.Item key="watermelon" aria-current={false} href={href}>
       Watermelon
     </SecondaryTabs.Item>,
-  ]
+  ];
 }

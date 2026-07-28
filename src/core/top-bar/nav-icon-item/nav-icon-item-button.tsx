@@ -1,22 +1,22 @@
-import { TopBarNavIconItemBase } from './nav-icon-item-base'
+import type { ButtonHTMLAttributes, MouseEventHandler, ReactNode } from "react";
 
-import type { ButtonHTMLAttributes, MouseEventHandler, ReactNode } from 'react'
+import { TopBarNavIconItemBase } from "./nav-icon-item-base";
 
 export namespace TopBarNavIconItemButton {
-  export interface Props extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'children'> {
+  export interface Props extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "children"> {
     /** The accessible name of the nav icon item. */
-    'aria-label': string
+    "aria-label": string;
     /** Optional badge to be displayed on the nav item */
-    hasBadge?: boolean
+    hasBadge?: boolean;
     /** The nav item's icon. */
-    icon: ReactNode
+    icon: ReactNode;
     /** The click handler for the nav item. */
-    onClick?: MouseEventHandler<HTMLButtonElement>
+    onClick?: MouseEventHandler<HTMLButtonElement>;
   }
 }
 
 /** @deprecated Use TopBarNavIconItemButton.Props instead */
-export type TopBarNavIconItemButtonProps = TopBarNavIconItemButton.Props
+export type TopBarNavIconItemButtonProps = TopBarNavIconItemButton.Props;
 
 /**
  * A simple icon-only button for use in the Top Bar's secondary navigation region. It will typically be used
@@ -29,5 +29,5 @@ export type TopBarNavIconItemButtonProps = TopBarNavIconItemButton.Props
  * list item (`<li>`) to ensure good semantics and accessibility when used with `TopBar.SecondaryNav`.
  */
 export function TopBarNavIconItemButton(props: TopBarNavIconItemButton.Props) {
-  return <TopBarNavIconItemBase as="button" {...props} />
+  return <TopBarNavIconItemBase as="button" {...props} />;
 }

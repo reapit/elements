@@ -1,5 +1,6 @@
-import { styled } from '@linaria/react'
-import { font } from '#src/utils/font'
+import { styled } from "@linaria/react";
+
+import { font } from "#src/utils/font";
 
 export const ElFileUploaderFileCardLeadingElement = styled.div`
   @layer elements.main {
@@ -12,7 +13,7 @@ export const ElFileUploaderFileCardLeadingElement = styled.div`
     border-radius: var(--border-radius-m);
     overflow: hidden;
 
-    &[data-type='image'] {
+    &[data-type="image"] {
       border: var(--border-width-default) solid var(--colour-border-neutral-light_default);
 
       img {
@@ -22,16 +23,16 @@ export const ElFileUploaderFileCardLeadingElement = styled.div`
       }
     }
 
-    &:is([data-type='file-type'], [data-type='icon']) {
+    &:is([data-type="file-type"], [data-type="icon"]) {
       background: var(--colour-fill-neutral-lightest);
     }
   }
-`
+`;
 
 export const ElFileUploaderFileCardLeadingElementLabel = styled.span`
   @layer elements.main {
-    ${font('3xs', 'bold')}
+    ${font("3xs", "bold")}
     color: var(--colour-text-secondary);
     text-align: center;
   }
-`
+`;

@@ -1,35 +1,36 @@
-import preview from '#.storybook/preview'
-import { iconColours, iconSizes } from '../make-icon/types'
-import { StarIcon } from '../star'
+import preview from "#.storybook/preview";
+
+import { iconColours, iconSizes } from "../make-icon/types";
+import { StarIcon } from "../star";
 
 const meta = preview.meta({
-  title: 'Icons/Icon',
+  title: "Icons/Icon",
   component: StarIcon,
   argTypes: {
     color: {
-      control: 'select',
+      control: "select",
       options: iconColours,
-      description: 'The colour of the icon.',
+      description: "The colour of the icon.",
       table: {
         defaultValue: {
-          summary: 'inherit',
+          summary: "inherit",
         },
       },
     },
     size: {
-      control: 'select',
+      control: "select",
       options: iconSizes,
-      description: 'The size of the icon.',
+      description: "The size of the icon.",
       table: {
         defaultValue: {
-          summary: '100%',
+          summary: "100%",
         },
       },
     },
   },
   globals: {
     backgrounds: {
-      value: 'light',
+      value: "light",
     },
   },
   parameters: {
@@ -40,14 +41,14 @@ const meta = preview.meta({
       },
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
-    color: 'primary',
-    size: 'lg',
+    color: "primary",
+    size: "lg",
   },
-})
+});
 
 /**
  * There are 12 colours available. The default is `inherit`, which enables the icon to be used in the context of another
@@ -55,7 +56,7 @@ export const Example = meta.story({
  */
 export const Colours = Example.extend({
   args: {
-    size: 'lg',
+    size: "lg",
   },
   argTypes: {
     color: {
@@ -66,19 +67,19 @@ export const Colours = Example.extend({
     return (
       <div
         style={{
-          color: '#FA00FF',
-          display: 'grid',
-          fontSize: 'var(--font-sm-regular-size)',
-          alignItems: 'center',
-          gridTemplateColumns: 'min-content min-content',
-          gap: 'var(--spacing-6)',
+          color: "#FA00FF",
+          display: "grid",
+          fontSize: "var(--font-sm-regular-size)",
+          alignItems: "center",
+          gridTemplateColumns: "min-content min-content",
+          gap: "var(--spacing-6)",
         }}
       >
         {iconColours.map((colour) => [colour, <StarIcon key={colour} {...args} color={colour} />])}
       </div>
-    )
+    );
   },
-})
+});
 
 /**
  * There are five sizes available. The default is `100%`, which is useful when you want the icons size to be determined
@@ -86,7 +87,7 @@ export const Colours = Example.extend({
  */
 export const Sizes = Example.extend({
   args: {
-    color: 'primary',
+    color: "primary",
   },
   argTypes: {
     size: {
@@ -97,16 +98,16 @@ export const Sizes = Example.extend({
     return (
       <div
         style={{
-          color: '#FA00FF',
-          display: 'grid',
-          fontSize: 'var(--font-sm-regular-size)',
-          alignItems: 'center',
-          gridTemplateColumns: 'min-content var(--icon_size-lg)',
-          gap: 'var(--spacing-6)',
+          color: "#FA00FF",
+          display: "grid",
+          fontSize: "var(--font-sm-regular-size)",
+          alignItems: "center",
+          gridTemplateColumns: "min-content var(--icon_size-lg)",
+          gap: "var(--spacing-6)",
         }}
       >
         {iconSizes.map((size) => [size, <StarIcon key={size} {...args} size={size} />])}
       </div>
-    )
+    );
   },
-})
+});

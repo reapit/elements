@@ -1,5 +1,6 @@
-import { styled } from '@linaria/react'
-import { isTablet } from '../../../styles/deprecated-media'
+import { styled } from "@linaria/react";
+
+import { isTablet } from "../../../styles/deprecated-media";
 
 /** @deprecated */
 export const ElKeyValueIconWrap = styled.div`
@@ -11,7 +12,7 @@ export const ElKeyValueIconWrap = styled.div`
   img {
     max-width: 1.25rem;
   }
-`
+`;
 
 /** @deprecated */
 export const ElKeyValueListWrap = styled.div`
@@ -21,4 +22,4 @@ export const ElKeyValueListWrap = styled.div`
   ${isTablet} {
     margin-bottom: 1.25rem;
   }
-`
+`;

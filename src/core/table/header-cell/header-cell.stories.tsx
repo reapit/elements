@@ -1,16 +1,17 @@
-import preview from '#.storybook/preview'
-import { Table } from '../table'
-import { Text } from '#src/utils/text'
-import { Tooltip } from '#src/core/tooltip'
-import { useTableDecorator } from '../__story__/use-table-decorator'
+import preview from "#.storybook/preview";
+import { Tooltip } from "#src/core/tooltip";
+import { Text } from "#src/utils/text";
+
+import { useTableDecorator } from "../__story__/use-table-decorator";
+import { Table } from "../table";
 
 const meta = preview.meta({
-  title: 'Data and tables/Table/HeaderCell',
+  title: "Data and tables/Table/HeaderCell",
   component: Table.HeaderCell,
   argTypes: {
-    'aria-sort': {
-      control: 'text',
-      description: 'The sort direction currently applied to the column.',
+    "aria-sort": {
+      control: "text",
+      description: "The sort direction currently applied to the column.",
       table: {
         type: {
           summary: "'ascending' | 'descending'",
@@ -19,7 +20,7 @@ const meta = preview.meta({
     },
     as: {
       control: false,
-      description: 'The element this table cell will render as.',
+      description: "The element this table cell will render as.",
       table: {
         type: {
           summary: "'th' | 'div'",
@@ -27,12 +28,12 @@ const meta = preview.meta({
       },
     },
     children: {
-      control: 'select',
-      description: 'The cell content.',
-      options: ['Plain text', 'Sort label'],
+      control: "select",
+      description: "The cell content.",
+      options: ["Plain text", "Sort label"],
       mapping: {
-        'Plain text': 'Property',
-        'Sort button': (
+        "Plain text": "Property",
+        "Sort button": (
           <Table.SortButton name="totalAmount" value="descending">
             Amount
           </Table.SortButton>
@@ -41,12 +42,12 @@ const meta = preview.meta({
       },
       table: {
         type: {
-          summary: 'ReactNode',
+          summary: "ReactNode",
         },
       },
     },
   },
-})
+});
 
 /**
  * At their simplest, body cell's will contain a single line of plain text. However, it's important
@@ -55,12 +56,12 @@ const meta = preview.meta({
  */
 export const Example = meta.story({
   args: {
-    'aria-sort': undefined,
-    as: 'th',
-    children: 'Plain text',
+    "aria-sort": undefined,
+    as: "th",
+    children: "Plain text",
   },
-  decorators: [useTableDecorator('header-cell')],
-})
+  decorators: [useTableDecorator("header-cell")],
+});
 
 /**
  * Often, some columns in a table will be sortable. In this case,
@@ -70,11 +71,11 @@ export const Example = meta.story({
  */
 export const Sortable = Example.extend({
   args: {
-    'aria-sort': 'descending',
-    children: 'Sort button',
+    "aria-sort": "descending",
+    children: "Sort button",
   },
-  decorators: [useTableDecorator('header-cell')],
-})
+  decorators: [useTableDecorator("header-cell")],
+});
 
 /**
  * Overflow should be avoided for column header cells as the columns should generally be sized
@@ -95,15 +96,22 @@ export const Truncation = Example.extend({
     ),
   },
   decorators: [
-    useTableDecorator('body-cell', '100px'),
+    useTableDecorator("body-cell", "100px"),
     (Story) => (
       // NOTE: This div wraps the entire table.
-      <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', display: 'flex', width: 'min-content' }}>
+      <div
+        style={{
+          boxSizing: "content-box",
+          border: "1px solid #FA00FF",
+          display: "flex",
+          width: "min-content",
+        }}
+      >
         <Story />
       </div>
     ),
   ],
-})
+});
 
 /**
  * Sometimes it may be necessary to render the table cell as a plain `<div>`. Providing
@@ -113,10 +121,10 @@ export const Truncation = Example.extend({
  */
 export const Divs = Example.extend({
   args: {
-    as: 'div',
+    as: "div",
     children: "I'm in a <div>",
   },
-})
+});
 
 /**
  * By default, the justification of the cell's content is determined by the table. However, individual
@@ -125,17 +133,17 @@ export const Divs = Example.extend({
  */
 export const Alignment = Example.extend({
   args: {
-    justifySelf: 'end',
+    justifySelf: "end",
   },
   decorators: [
-    useTableDecorator('header-cell', '150px'),
+    useTableDecorator("header-cell", "150px"),
     (Story) => (
-      <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', width: 'min-content' }}>
+      <div style={{ boxSizing: "content-box", border: "1px solid #FA00FF", width: "min-content" }}>
         <Story />
       </div>
     ),
   ],
-})
+});
 
 /**
  * In some cases, the content of the cell may want to fill the full height of the row and the full
@@ -149,16 +157,16 @@ export const Alignment = Example.extend({
  */
 export const NoPadding = Example.extend({
   args: {
-    children: 'Checkbox',
+    children: "Checkbox",
     hasNoPadding: true,
   },
   decorators: [
-    useTableDecorator('header-cell', 'var(--size-64)'),
+    useTableDecorator("header-cell", "var(--size-64)"),
     (Story) => (
       // NOTE: This div wraps the entire table.
-      <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', width: 'min-content' }}>
+      <div style={{ boxSizing: "content-box", border: "1px solid #FA00FF", width: "min-content" }}>
         <Story />
       </div>
     ),
   ],
-})
+});

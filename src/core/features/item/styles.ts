@@ -1,5 +1,6 @@
-import { styled } from '@linaria/react'
-import { font } from '#src/utils/font'
+import { styled } from "@linaria/react";
+
+import { font } from "#src/utils/font";
 
 export const ElFeatureItem = styled.div`
   @layer elements.main {
@@ -8,7 +9,7 @@ export const ElFeatureItem = styled.div`
     align-items: center;
     gap: var(--spacing-1);
   }
-`
+`;
 
 export const ElFeatureItemIcon = styled.dt`
   @layer elements.main {
@@ -20,7 +21,7 @@ export const ElFeatureItemIcon = styled.dt`
     width: var(--icon_size-sm);
     height: var(--icon_size-sm);
   }
-`
+`;
 
 export const ElFeatureItemValue = styled.dd`
   @layer elements.main {
@@ -36,20 +37,20 @@ export const ElFeatureItemValue = styled.dd`
     }
 
     &,
-    [data-size='2xs'] & {
-      ${font('2xs', 'regular')}
+    [data-size="2xs"] & {
+      ${font("2xs", "regular")}
     }
 
-    [data-size='xs'] & {
-      ${font('xs', 'regular')}
+    [data-size="xs"] & {
+      ${font("xs", "regular")}
     }
 
-    [data-size='sm'] & {
-      ${font('sm', 'regular')}
+    [data-size="sm"] & {
+      ${font("sm", "regular")}
     }
 
-    [data-size='base'] & {
-      ${font('base', 'regular')}
+    [data-size="base"] & {
+      ${font("base", "regular")}
     }
   }
-`
+`;

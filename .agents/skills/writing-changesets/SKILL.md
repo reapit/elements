@@ -23,7 +23,7 @@ Bad — one file covering an addition and two unrelated API changes:
 
 ```md
 ---
-'@reapit/elements': major
+"@reapit/elements": major
 ---
 
 Added: `Foo` component.
@@ -39,7 +39,7 @@ Good — three separate files, each scoped to its own change:
 
 ```md
 ---
-'@reapit/elements': minor
+"@reapit/elements": minor
 ---
 
 Added: `Foo` component.
@@ -49,7 +49,7 @@ Added: `Foo` component.
 
 ```md
 ---
-'@reapit/elements': major
+"@reapit/elements": major
 ---
 
 Changed: `Bar` prop renamed from `x` to `y`.
@@ -59,7 +59,7 @@ Changed: `Bar` prop renamed from `x` to `y`.
 
 ```md
 ---
-'@reapit/elements': major
+"@reapit/elements": major
 ---
 
 Changed: `Baz` now accepts `string[]` instead of `string`.
@@ -111,7 +111,7 @@ Or run the CLI and rename the generated file before committing.
 
 ```md
 ---
-'@reapit/elements': <bump-type>
+"@reapit/elements": <bump-type>
 ---
 
 <summary>
@@ -229,7 +229,7 @@ For breaking changes, include migration guidance in the summary. If a codemod ex
 
 ```md
 ---
-'@reapit/elements': major
+"@reapit/elements": major
 ---
 
 Removed: `DeprecatedBadge`, `DeprecatedBadgeGroup`, and related exports from `src/deprecated/badge`. Run the `upgrade-deprecated-badge` codemod to migrate.
@@ -243,7 +243,7 @@ For `Changed:` entries that break existing usage, describe the old behaviour and
 
 ```md
 ---
-'@reapit/elements': patch
+"@reapit/elements": patch
 ---
 
 Fix icon spacing in deprecated `Snack` and `TableCell` components after `DeprecatedIcon` removal
@@ -253,7 +253,7 @@ Fix icon spacing in deprecated `Snack` and `TableCell` components after `Depreca
 
 ```md
 ---
-'@reapit/elements': minor
+"@reapit/elements": minor
 ---
 
 Added: `Image` utility component. Supports fallback UI. On load failure, `Image` announces fallback text for meaningful images and keeps decorative images non-announcing.
@@ -263,7 +263,7 @@ Added: `Image` utility component. Supports fallback UI. On load failure, `Image`
 
 ```md
 ---
-'@reapit/elements': minor
+"@reapit/elements": minor
 ---
 
 Added: `whiteSpace` prop to `LineClamp`, supporting `normal`, `pre-line`, and `pre-wrap` values to control whitespace handling for static copy and user-authored API text.
@@ -273,7 +273,7 @@ Added: `whiteSpace` prop to `LineClamp`, supporting `normal`, `pre-line`, and `p
 
 ```md
 ---
-'@reapit/elements': major
+"@reapit/elements": major
 ---
 
 Changed: `useDrawerContext` now returns `DrawerContext.Value | null` instead of throwing when called outside a `Drawer`.
@@ -283,7 +283,7 @@ Changed: `useDrawerContext` now returns `DrawerContext.Value | null` instead of 
 
 ```md
 ---
-'@reapit/elements': major
+"@reapit/elements": major
 ---
 
 Changed: Move `Combobox` from `@reapit/elements/core/combobox` to `@reapit/elements/utils/combobox`. The component is also available from the `@reapit/elements/utils` barrel. Run the `rewrite-combobox-imports` codemod to migrate automatically.
@@ -293,7 +293,7 @@ Changed: Move `Combobox` from `@reapit/elements/core/combobox` to `@reapit/eleme
 
 ```md
 ---
-'@reapit/elements': minor
+"@reapit/elements": minor
 ---
 
 Deprecated: `SplitButton` from `@reapit/elements/core/split-button`. Use `ButtonGroup` instead. Run the `upgrade-deprecated-split-button` codemod to migrate.

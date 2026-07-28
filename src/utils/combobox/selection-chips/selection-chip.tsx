@@ -1,13 +1,14 @@
-import { ChipGroup } from '#src/core/chip-group'
-import { setListboxOptionSelectedState } from '#src/utils/listbox/dom-helpers'
-import { useComboboxSelectionChipsContext } from './context'
+import { ChipGroup } from "#src/core/chip-group";
+import { setListboxOptionSelectedState } from "#src/utils/listbox/dom-helpers";
+
+import { useComboboxSelectionChipsContext } from "./context";
 
 export namespace ComboboxSelectionChip {
-  export interface Props extends Omit<ChipGroup.ItemProps, 'variant'> {
+  export interface Props extends Omit<ChipGroup.ItemProps, "variant"> {
     /** The label of the chip */
-    children: string
+    children: string;
     /** The value of the combobox option this chip represents */
-    value: string
+    value: string;
   }
 }
 
@@ -16,7 +17,7 @@ export namespace ComboboxSelectionChip {
  * Clicking the chip deselects the corresponding option.
  */
 export function ComboboxSelectionChip({ children, value, ...rest }: ComboboxSelectionChip.Props) {
-  const context = useComboboxSelectionChipsContext()
+  const context = useComboboxSelectionChipsContext();
   return (
     <ChipGroup.Item
       {...rest}
@@ -27,5 +28,5 @@ export function ComboboxSelectionChip({ children, value, ...rest }: ComboboxSele
     >
       {children}
     </ChipGroup.Item>
-  )
+  );
 }

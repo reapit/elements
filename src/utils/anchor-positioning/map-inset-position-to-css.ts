@@ -2,28 +2,28 @@
  * CSS inset property value that uses the anchor() function or any valid CSS length.
  * Examples: `anchor(top)`, `anchor(bottom)`, `10px`, `var(--spacing-2)`
  */
-export type InsetProperty = `anchor(${string})` | (string & {})
+export type InsetProperty = `anchor(${string})` | (string & {});
 
 /**
  * CSS self-alignment property value for anchor positioning.
  * Currently supports 'anchor-center' to center the element relative to its anchor.
  */
-export type SelfAlignmentProperty = 'anchor-center'
+export type SelfAlignmentProperty = "anchor-center";
 
 export namespace mapInsetPositionToCSS {
   export interface Input {
     /** Aligns the positioned element vertically relative to the anchor. */
-    alignSelf?: SelfAlignmentProperty
+    alignSelf?: SelfAlignmentProperty;
     /** Distance from the bottom edge. Accepts anchor() function or CSS length. */
-    bottom?: InsetProperty
+    bottom?: InsetProperty;
     /** Aligns the positioned element horizontally relative to the anchor. */
-    justifySelf?: SelfAlignmentProperty
+    justifySelf?: SelfAlignmentProperty;
     /** Distance from the left edge. Accepts anchor() function or CSS length. */
-    left?: InsetProperty
+    left?: InsetProperty;
     /** Distance from the right edge. Accepts anchor() function or CSS length. */
-    right?: InsetProperty
+    right?: InsetProperty;
     /** Distance from the top edge. Accepts anchor() function or CSS length. */
-    top?: InsetProperty
+    top?: InsetProperty;
   }
 }
 
@@ -48,5 +48,5 @@ export function mapInsetPositionToCSS({
     top && `top: ${top};`,
   ]
     .filter(Boolean)
-    .join('\n')
+    .join("\n");
 }

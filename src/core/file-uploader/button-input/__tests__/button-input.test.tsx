@@ -1,96 +1,107 @@
-import { FileUploaderContext } from '../../context'
-import { FileUploaderButtonInput } from '../button-input'
-import { FileUploadQueue } from '../../file-upload-queue'
-import { fireEvent, render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from "@testing-library/react";
 
-function renderButton(children: React.ReactNode = 'Browse files', props: Partial<FileUploaderButtonInput.Props> = {}) {
-  const queue = new FileUploadQueue({ onUpload: async () => 'file-id' })
+import { FileUploaderContext } from "../../context";
+import { FileUploadQueue } from "../../file-upload-queue";
+import { FileUploaderButtonInput } from "../button-input";
+
+function renderButton(
+  children: React.ReactNode = "Browse files",
+  props: Partial<FileUploaderButtonInput.Props> = {},
+) {
+  const queue = new FileUploadQueue({ onUpload: async () => "file-id" });
   render(
-    <FileUploaderContext.Provider value={{ queue, triggerId: 'trigger' }}>
+    <FileUploaderContext.Provider value={{ queue, triggerId: "trigger" }}>
       <FileUploaderButtonInput {...props}>{children}</FileUploaderButtonInput>
     </FileUploaderContext.Provider>,
-  )
-  return { queue }
+  );
+  return { queue };
 }
 
-test('renders a button element with the given label', () => {
-  renderButton('Browse files')
-  expect(screen.getByRole('button', { name: 'Browse files' })).toBeVisible()
-})
+test("renders a button element with the given label", () => {
+  renderButton("Browse files");
+  expect(screen.getByRole("button", { name: "Browse files" })).toBeVisible();
+});
 
 test('defaults to type="button" so it does not submit an enclosing form', () => {
-  renderButton()
-  expect(screen.getByRole('button')).toHaveAttribute('type', 'button')
-})
+  renderButton();
+  expect(screen.getByRole("button")).toHaveAttribute("type", "button");
+});
 
-test('opens the file picker when clicked', () => {
-  renderButton()
-  const input = document.querySelector('input[type="file"]') as HTMLInputElement
-  const click = vi.spyOn(input, 'click')
+test("opens the file picker when clicked", () => {
+  renderButton();
+  const input = document.querySelector('input[type="file"]') as HTMLInputElement;
+  const click = vi.spyOn(input, "click");
 
-  fireEvent.click(screen.getByRole('button'))
+  fireEvent.click(screen.getByRole("button"));
 
-  expect(click).toHaveBeenCalledTimes(1)
-})
+  expect(click).toHaveBeenCalledTimes(1);
+});
 
-test('also calls a caller-supplied onClick when clicked', () => {
-  const onClick = vi.fn()
-  renderButton('Browse files', { onClick })
+test("also calls a caller-supplied onClick when clicked", () => {
+  const onClick = vi.fn();
+  renderButton("Browse files", { onClick });
 
-  fireEvent.click(screen.getByRole('button'))
+  fireEvent.click(screen.getByRole("button"));
 
-  expect(onClick).toHaveBeenCalledTimes(1)
-})
+  expect(onClick).toHaveBeenCalledTimes(1);
+});
 
-test('forwards Button-specific props like variant/useLinkStyle', () => {
-  renderButton('Browse files', { variant: 'primary', useLinkStyle: true })
-  const button = screen.getByRole('button')
-  expect(button).toHaveAttribute('data-variant', 'primary')
-  expect(button).toHaveAttribute('data-use-link-style', 'true')
-})
+test("forwards Button-specific props like variant/useLinkStyle", () => {
+  renderButton("Browse files", { variant: "primary", useLinkStyle: true });
+  const button = screen.getByRole("button");
+  expect(button).toHaveAttribute("data-variant", "primary");
+  expect(button).toHaveAttribute("data-use-link-style", "true");
+});
 
-test('forwards identity attributes like id/data-* to the native input, not the button', () => {
-  renderButton('Browse files', { id: 'my-input', 'data-testid': 'my-input' } as FileUploaderButtonInput.Props)
-  const input = screen.getByTestId('my-input')
-  expect(input.tagName).toBe('INPUT')
-  expect(input).toHaveAttribute('id', 'my-input')
-})
+test("forwards identity attributes like id/data-* to the native input, not the button", () => {
+  renderButton("Browse files", {
+    id: "my-input",
+    "data-testid": "my-input",
+  } as FileUploaderButtonInput.Props);
+  const input = screen.getByTestId("my-input");
+  expect(input.tagName).toBe("INPUT");
+  expect(input).toHaveAttribute("id", "my-input");
+});
 
-test('keeps the native input out of tab order by default', () => {
-  renderButton('Browse files', { 'data-testid': 'my-input' } as FileUploaderButtonInput.Props)
-  expect(screen.getByTestId('my-input')).toHaveAttribute('tabindex', '-1')
-})
+test("keeps the native input out of tab order by default", () => {
+  renderButton("Browse files", { "data-testid": "my-input" } as FileUploaderButtonInput.Props);
+  expect(screen.getByTestId("my-input")).toHaveAttribute("tabindex", "-1");
+});
 
-test('queues a picked file on the underlying native input', () => {
-  const { queue } = renderButton('Browse files', { 'data-testid': 'my-input' } as FileUploaderButtonInput.Props)
-  const file = new File([new Uint8Array(10)], 'a.txt', { type: 'text/plain' })
+test("queues a picked file on the underlying native input", () => {
+  const { queue } = renderButton("Browse files", {
+    "data-testid": "my-input",
+  } as FileUploaderButtonInput.Props);
+  const file = new File([new Uint8Array(10)], "a.txt", { type: "text/plain" });
 
-  fireEvent.change(screen.getByTestId('my-input'), { target: { files: [file] } })
+  fireEvent.change(screen.getByTestId("my-input"), { target: { files: [file] } });
 
-  expect(queue.getItemsSnapshot()).toMatchObject([{ status: 'uploading', file }])
-})
+  expect(queue.getItemsSnapshot()).toMatchObject([{ status: "uploading", file }]);
+});
 
-test('replaces the previous file with the next pick when multiple is not set', () => {
-  const { queue } = renderButton('Browse files', { 'data-testid': 'my-input' } as FileUploaderButtonInput.Props)
-  const first = new File([new Uint8Array(10)], 'a.txt', { type: 'text/plain' })
-  const second = new File([new Uint8Array(10)], 'b.txt', { type: 'text/plain' })
+test("replaces the previous file with the next pick when multiple is not set", () => {
+  const { queue } = renderButton("Browse files", {
+    "data-testid": "my-input",
+  } as FileUploaderButtonInput.Props);
+  const first = new File([new Uint8Array(10)], "a.txt", { type: "text/plain" });
+  const second = new File([new Uint8Array(10)], "b.txt", { type: "text/plain" });
 
-  fireEvent.change(screen.getByTestId('my-input'), { target: { files: [first] } })
-  fireEvent.change(screen.getByTestId('my-input'), { target: { files: [second] } })
+  fireEvent.change(screen.getByTestId("my-input"), { target: { files: [first] } });
+  fireEvent.change(screen.getByTestId("my-input"), { target: { files: [second] } });
 
-  expect(queue.getItemsSnapshot()).toMatchObject([{ file: second }])
-})
+  expect(queue.getItemsSnapshot()).toMatchObject([{ file: second }]);
+});
 
-test('adds to the existing selection on the next pick when multiple is set', () => {
-  const { queue } = renderButton('Browse files', {
-    'data-testid': 'my-input',
+test("adds to the existing selection on the next pick when multiple is set", () => {
+  const { queue } = renderButton("Browse files", {
+    "data-testid": "my-input",
     multiple: true,
-  } as FileUploaderButtonInput.Props)
-  const first = new File([new Uint8Array(10)], 'a.txt', { type: 'text/plain' })
-  const second = new File([new Uint8Array(10)], 'b.txt', { type: 'text/plain' })
+  } as FileUploaderButtonInput.Props);
+  const first = new File([new Uint8Array(10)], "a.txt", { type: "text/plain" });
+  const second = new File([new Uint8Array(10)], "b.txt", { type: "text/plain" });
 
-  fireEvent.change(screen.getByTestId('my-input'), { target: { files: [first] } })
-  fireEvent.change(screen.getByTestId('my-input'), { target: { files: [second] } })
+  fireEvent.change(screen.getByTestId("my-input"), { target: { files: [first] } });
+  fireEvent.change(screen.getByTestId("my-input"), { target: { files: [second] } });
 
-  expect(queue.getItemsSnapshot()).toMatchObject([{ file: first }, { file: second }])
-})
+  expect(queue.getItemsSnapshot()).toMatchObject([{ file: first }, { file: second }]);
+});

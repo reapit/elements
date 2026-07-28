@@ -1,9 +1,15 @@
-import { css } from '@linaria/core'
-import { styled } from '@linaria/react'
-import { isDesktop, isWideScreen, isTablet, isSuperWideScreen } from '../../../styles/deprecated-media'
+import { css } from "@linaria/core";
+import { styled } from "@linaria/react";
+
+import {
+  isDesktop,
+  isWideScreen,
+  isTablet,
+  isSuperWideScreen,
+} from "../../../styles/deprecated-media";
 
 /** @deprecated */
-export const elFormLayoutHasMargin = css``
+export const elFormLayoutHasMargin = css``;
 
 /** @deprecated */
 export const ElFormLayout = styled.div`
@@ -30,23 +36,23 @@ export const ElFormLayout = styled.div`
   &.${elFormLayoutHasMargin} {
     margin-bottom: 1.5rem;
   }
-`
+`;
 
 /** @deprecated */
 export const ElFormSectionDivider = styled.div`
   margin: 1.5rem 0;
   border-bottom: 1px solid var(--colour-border-neutral-light_default);
-`
+`;
 
 /** @deprecated */
 export const ElInputWrapSmall = styled.div`
   grid-column-end: span 2;
-`
+`;
 
 /** @deprecated */
 export const ElInputWrap = styled.div`
   grid-column-end: span 4;
-`
+`;
 
 /** @deprecated */
 export const ElInputWrapMed = styled.div`
@@ -63,7 +69,7 @@ export const ElInputWrapMed = styled.div`
   ${isSuperWideScreen} {
     grid-column-end: span 8;
   }
-`
+`;
 
 /** @deprecated */
 export const ElInputWrapFull = styled.div`
@@ -80,7 +86,7 @@ export const ElInputWrapFull = styled.div`
   ${isSuperWideScreen} {
     grid-column-end: span 16;
   }
-`
+`;
 
 /** @deprecated */
 export const ElInputWrapHalf = styled.div`
@@ -97,4 +103,4 @@ export const ElInputWrapHalf = styled.div`
   ${isSuperWideScreen} {
     grid-column-end: span 8;
   }
-`
+`;

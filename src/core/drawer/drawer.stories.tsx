@@ -1,30 +1,32 @@
-import preview from '#.storybook/preview'
-import { Button } from '#src/core/button'
-import { Breakpoint, useDrawerBreakpointDecorator } from './__story__/useDrawerBreakpointDecorator'
-import { Drawer } from './drawer'
-import { Pattern } from './__story__/Pattern'
-import { PrimaryTabs } from '#src/core/primary-tabs/index'
-import { SupplementaryInfo } from '../supplementary-info'
-import { useArgs } from 'storybook/preview-api'
-import { useDrawerContextDecorator } from './__story__/useDrawerContextDecorator'
-import { useState } from 'react'
+import { useState } from "react";
+import { useArgs } from "storybook/preview-api";
+
+import preview from "#.storybook/preview";
+import { Button } from "#src/core/button";
+import { PrimaryTabs } from "#src/core/primary-tabs/index";
+
+import { SupplementaryInfo } from "../supplementary-info";
+import { Pattern } from "./__story__/Pattern";
+import { Breakpoint, useDrawerBreakpointDecorator } from "./__story__/useDrawerBreakpointDecorator";
+import { useDrawerContextDecorator } from "./__story__/useDrawerContextDecorator";
+import { Drawer } from "./drawer";
 
 const meta = preview.meta({
-  title: 'Containers and layout/Drawer',
+  title: "Containers and layout/Drawer",
   component: Drawer,
   argTypes: {
     children: {
-      control: 'radio',
-      options: ['Simple', 'Tabbed', 'With Footer', 'Empty'],
+      control: "radio",
+      options: ["Simple", "Tabbed", "With Footer", "Empty"],
       mapping: {
         Simple: <ExampleSimpleLayout />,
         Tabbed: <ExampleSimpleLayout withTabs />,
-        'With Footer': <ExampleFooterLayout />,
+        "With Footer": <ExampleFooterLayout />,
         Empty: null,
       },
     },
   },
-})
+});
 
 /**
  * At its simplest, you can open and close a drawer by controlling it's `isOpen` state. However, a drawer's open
@@ -33,20 +35,20 @@ const meta = preview.meta({
  */
 export const Example = meta.story({
   args: {
-    children: 'Simple',
-    closedBy: 'closerequest',
+    children: "Simple",
+    closedBy: "closerequest",
     isOpen: false,
   },
   render: function Example(args) {
-    const [, setArgs] = useArgs()
+    const [, setArgs] = useArgs();
     return (
       <>
         <button onClick={() => setArgs({ isOpen: true })}>Open Drawer</button>
         <Drawer onClose={() => setArgs({ isOpen: false })} {...args} />
       </>
-    )
+    );
   },
-})
+});
 
 /**
  * The `closedBy` prop specifies the types of user actions that can be used to close the drawer. It
@@ -74,18 +76,18 @@ export const Example = meta.story({
  */
 export const ClosedBy = Example.extend({
   args: {
-    closedBy: 'any',
+    closedBy: "any",
   },
   render: function ClosedBy(args) {
-    const [isOpen, setIsOpen] = useState(false)
+    const [isOpen, setIsOpen] = useState(false);
     return (
       <>
         <button onClick={() => setIsOpen(true)}>Open Drawer</button>
         <Drawer onClose={() => setIsOpen(false)} {...args} isOpen={isOpen} />
       </>
-    )
+    );
   },
-})
+});
 
 /**
  * In future, we expect to enable the opening and closing of drawers using the new
@@ -97,8 +99,8 @@ export const ClosedBy = Example.extend({
  */
 export const InvokerCommands = meta.story({
   args: {
-    children: 'Simple',
-    closedBy: 'closerequest',
+    children: "Simple",
+    closedBy: "closerequest",
   },
   render: function Example(args) {
     return (
@@ -114,9 +116,9 @@ export const InvokerCommands = meta.story({
         </button>
         <Drawer id="my-drawer" {...args} />
       </>
-    )
+    );
   },
-})
+});
 
 /**
  * There's two main layout variations for drawer's and two sizes. The first layout has no footer and is typically
@@ -147,13 +149,13 @@ export const Breakpoints = meta.story({
   ),
   globals: {
     backgrounds: {
-      value: 'light',
+      value: "light",
     },
   },
-})
+});
 
 function ExampleSimpleLayout({ withTabs }: { withTabs?: boolean }) {
-  const href = '#'
+  const href = "#";
 
   return (
     <>
@@ -200,7 +202,7 @@ function ExampleSimpleLayout({ withTabs }: { withTabs?: boolean }) {
         <Pattern height="120cqh" />
       </Drawer.Body>
     </>
-  )
+  );
 }
 
 function ExampleFooterLayout() {
@@ -221,7 +223,7 @@ function ExampleFooterLayout() {
         <Pattern />
       </Drawer.Body>
       <Drawer.Footer>
-        <form style={{ display: 'contents' }}>
+        <form style={{ display: "contents" }}>
           <Button autoFocus formMethod="dialog" size="medium" variant="secondary">
             Cancel
           </Button>
@@ -231,5 +233,5 @@ function ExampleFooterLayout() {
         </Button>
       </Drawer.Footer>
     </>
-  )
+  );
 }

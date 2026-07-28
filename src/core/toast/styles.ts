@@ -1,10 +1,12 @@
-import { css } from '@linaria/core'
-import { styled } from '@linaria/react'
-import { font } from '#src/utils/font'
-import type { Toast } from './toast'
+import { css } from "@linaria/core";
+import { styled } from "@linaria/react";
+
+import { font } from "#src/utils/font";
+
+import type { Toast } from "./toast";
 
 interface ElToastProps {
-  'data-variant': Toast.Variant
+  "data-variant": Toast.Variant;
 }
 
 export const ElToast = styled.div<ElToastProps>`
@@ -26,42 +28,42 @@ export const ElToast = styled.div<ElToastProps>`
      * neutral colours so the component renders correctly even without a
      * data-variant attribute. */
     &,
-    &[data-variant='neutral'] {
+    &[data-variant="neutral"] {
       --toast-background: var(--comp-toast-colour-fill-background-neutral);
       --toast-text-colour: var(--comp-toast-colour-text-neutral);
       --toast-icon-colour: var(--comp-toast-colour-icon-neutral);
       --toast-bar-colour: var(--comp-toast-colour-fill-bar-neutral);
     }
 
-    &[data-variant='error'] {
+    &[data-variant="error"] {
       --toast-background: var(--comp-toast-colour-fill-background-error);
       --toast-text-colour: var(--comp-toast-colour-text-error);
       --toast-icon-colour: var(--comp-toast-colour-icon-error);
       --toast-bar-colour: var(--comp-toast-colour-fill-bar-error);
     }
 
-    &[data-variant='info'] {
+    &[data-variant="info"] {
       --toast-background: var(--comp-toast-colour-fill-background-info);
       --toast-text-colour: var(--comp-toast-colour-text-info);
       --toast-icon-colour: var(--comp-toast-colour-icon-info);
       --toast-bar-colour: var(--comp-toast-colour-fill-bar-info);
     }
 
-    &[data-variant='success'] {
+    &[data-variant="success"] {
       --toast-background: var(--comp-toast-colour-fill-background-success);
       --toast-text-colour: var(--comp-toast-colour-text-success);
       --toast-icon-colour: var(--comp-toast-colour-icon-success);
       --toast-bar-colour: var(--comp-toast-colour-fill-bar-success);
     }
 
-    &[data-variant='warning'] {
+    &[data-variant="warning"] {
       --toast-background: var(--comp-toast-colour-fill-background-warning);
       --toast-text-colour: var(--comp-toast-colour-text-warning);
       --toast-icon-colour: var(--comp-toast-colour-icon-warning);
       --toast-bar-colour: var(--comp-toast-colour-fill-bar-warning);
     }
   }
-`
+`;
 
 export const ElToastIconContainer = styled.div`
   @layer elements.main {
@@ -72,11 +74,11 @@ export const ElToastIconContainer = styled.div`
     height: var(--icon_size-md);
     color: var(--toast-icon-colour);
   }
-`
+`;
 
 export const ElToastMessage = styled.p`
   @layer elements.main {
-    ${font('sm', 'regular')}
+    ${font("sm", "regular")}
     flex: 1 0 0;
     min-width: 1px;
     margin: 0;
@@ -86,7 +88,7 @@ export const ElToastMessage = styled.p`
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
-`
+`;
 
 export const elToastTimeoutBar = css`
   @layer elements.main {
@@ -96,7 +98,7 @@ export const elToastTimeoutBar = css`
     right: 0;
     height: var(--size-1);
   }
-`
+`;
 
 export const ElToastTimeoutBarProgress = styled.div`
   @layer elements.main {
@@ -117,4 +119,4 @@ export const ElToastTimeoutBarProgress = styled.div`
     animation-timing-function: linear;
     animation-fill-mode: forwards;
   }
-`
+`;

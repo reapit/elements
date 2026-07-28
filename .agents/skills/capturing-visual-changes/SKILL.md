@@ -168,12 +168,17 @@ Screenshots must be **tightly cropped** to the component — do not capture the 
 3. **Measure the component bounding box** using `chrome-devtools_evaluate_script`:
 
    ```js
-   ;() => {
-     const el = document.querySelector('#storybook-root > :first-child')
-     if (!el) return null
-     const r = el.getBoundingClientRect()
-     return { w: Math.round(r.width), h: Math.round(r.height), x: Math.round(r.x), y: Math.round(r.y) }
-   }
+   () => {
+     const el = document.querySelector("#storybook-root > :first-child");
+     if (!el) return null;
+     const r = el.getBoundingClientRect();
+     return {
+       w: Math.round(r.width),
+       h: Math.round(r.height),
+       x: Math.round(r.x),
+       y: Math.round(r.y),
+     };
+   };
    ```
 
 4. **Resize the viewport** to match the component tightly (component height + padding on both axes) using `chrome-devtools_resize_page`. A padding of `16px` top and bottom (matching the Storybook default padding) works well — so total height is typically `h + 32`. Width is typically `1440` (full story width).
@@ -200,18 +205,20 @@ Screenshots must be **tightly cropped** to the component — do not capture the 
    - **Active/open** — click or trigger the open state (dropdowns, dialogs, tooltips). For open states, the popup/overlay extends below the trigger — measure the total height including the overlay:
 
      ```js
-     ;() => {
-       const root = document.querySelector('#storybook-root > :first-child')
-       const dialog = document.querySelector('[role="dialog"], [role="listbox"], [data-floating-ui-portal]')
-       if (!root) return null
-       const rootR = root.getBoundingClientRect()
-       let bottom = rootR.bottom
+     () => {
+       const root = document.querySelector("#storybook-root > :first-child");
+       const dialog = document.querySelector(
+         '[role="dialog"], [role="listbox"], [data-floating-ui-portal]',
+       );
+       if (!root) return null;
+       const rootR = root.getBoundingClientRect();
+       let bottom = rootR.bottom;
        if (dialog) {
-         const dR = dialog.getBoundingClientRect()
-         bottom = Math.max(bottom, dR.bottom)
+         const dR = dialog.getBoundingClientRect();
+         bottom = Math.max(bottom, dR.bottom);
        }
-       return { totalH: Math.round(bottom + 16) }
-     }
+       return { totalH: Math.round(bottom + 16) };
+     };
      ```
 
      Then resize to `{ width: 1440, height: totalH }`.

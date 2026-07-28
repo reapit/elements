@@ -1,4 +1,4 @@
-import ViewSvg from './svgs/view.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import ViewSvg from "./svgs/view.svg?react";
 
-export const ViewIcon = makeIcon('ViewIcon', ViewSvg)
+export const ViewIcon = makeIcon("ViewIcon", ViewSvg);

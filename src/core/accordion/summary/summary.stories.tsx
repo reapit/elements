@@ -1,19 +1,20 @@
-import preview from '#.storybook/preview'
-import { AccordionContext } from '../context'
-import { Accordion } from '../accordion'
-import { BathIcon } from '#src/icons/bath'
-import { Button } from '#src/core/button/button'
-import { BedIcon } from '#src/icons/bed'
-import { CarIcon } from '#src/icons/car'
-import { Features } from '#src/core/features/index'
+import preview from "#.storybook/preview";
+import { Button } from "#src/core/button/button";
+import { Features } from "#src/core/features/index";
+import { BathIcon } from "#src/icons/bath";
+import { BedIcon } from "#src/icons/bed";
+import { CarIcon } from "#src/icons/car";
+
+import { Accordion } from "../accordion";
+import { AccordionContext } from "../context";
 
 const meta = preview.meta({
-  title: 'Content display/Accordion/Summary',
+  title: "Content display/Accordion/Summary",
   component: Accordion.Summary,
   argTypes: {
     accessory: {
-      control: 'radio',
-      options: ['None', 'Features', 'Value', 'Clear Button'],
+      control: "radio",
+      options: ["None", "Features", "Value", "Clear Button"],
       mapping: {
         None: undefined,
         Features: (
@@ -23,8 +24,8 @@ const meta = preview.meta({
             <Features.Item icon={<CarIcon />} label="Cars" value="2" />
           </Features>
         ),
-        Value: '2',
-        'Clear Button': (
+        Value: "2",
+        "Clear Button": (
           <Button variant="tertiary" hasNoPadding>
             Clear
           </Button>
@@ -34,7 +35,7 @@ const meta = preview.meta({
   },
   decorators: [
     (Story) => (
-      <AccordionContext.Provider value={{ labelId: 'test-label-id' }}>
+      <AccordionContext.Provider value={{ labelId: "test-label-id" }}>
         <details>
           <Story />
         </details>
@@ -43,23 +44,23 @@ const meta = preview.meta({
     (Story, { parameters: { width } }) => {
       if (width) {
         return (
-          <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', width }}>
+          <div style={{ boxSizing: "content-box", border: "1px solid #FA00FF", width }}>
             <Story />
           </div>
-        )
+        );
       } else {
-        return <Story />
+        return <Story />;
       }
     },
   ],
-})
+});
 
 export const Example = meta.story({
   args: {
-    children: 'Accordion Title',
-    accessory: 'None',
+    children: "Accordion Title",
+    accessory: "None",
   },
-})
+});
 
 /**
  * The `accessory` prop allows for additional summary information to be displayed. For example, the `Features`
@@ -67,9 +68,9 @@ export const Example = meta.story({
  */
 export const WithFeatures = Example.extend({
   args: {
-    accessory: 'Features',
+    accessory: "Features",
   },
-})
+});
 
 /**
  * The `accessory` prop also allows for an action to be displayed. This is typically used when the accordion
@@ -78,9 +79,9 @@ export const WithFeatures = Example.extend({
  */
 export const WithClearButton = Example.extend({
   args: {
-    accessory: 'Clear Button',
+    accessory: "Clear Button",
   },
-})
+});
 
 /**
  * Titles should typically be concise for better scannability, but if they exceed the available space, they will wrap
@@ -88,9 +89,9 @@ export const WithClearButton = Example.extend({
  */
 export const Overflow = Example.extend({
   args: {
-    children: 'This is a very long title that wraps to a second line',
+    children: "This is a very long title that wraps to a second line",
   },
   parameters: {
-    width: '330px',
+    width: "330px",
   },
-})
+});

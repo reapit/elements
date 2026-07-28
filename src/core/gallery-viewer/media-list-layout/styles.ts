@@ -1,5 +1,6 @@
-import { css } from '@linaria/core'
-import { isWidthAtOrAbove } from '#src/utils/breakpoints'
+import { css } from "@linaria/core";
+
+import { isWidthAtOrAbove } from "#src/utils/breakpoints";
 
 export const elGalleryViewerMediaListLayout = css`
   @layer elements.main {
@@ -14,8 +15,8 @@ export const elGalleryViewerMediaListLayout = css`
     width: 100%;
     padding: var(--spacing-5);
 
-    @container ${isWidthAtOrAbove('SM')} {
+    @container ${isWidthAtOrAbove("SM")} {
       padding: var(--spacing-8);
     }
   }
-`
+`;

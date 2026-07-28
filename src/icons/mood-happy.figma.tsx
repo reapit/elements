@@ -1,4 +1,5 @@
-import figma from '@figma/code-connect'
-import { MoodHappyIcon } from './mood-happy'
+import figma from "@figma/code-connect";
 
-figma.connect(MoodHappyIcon, 'https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=20-492')
+import { MoodHappyIcon } from "./mood-happy";
+
+figma.connect(MoodHappyIcon, "https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=20-492");

@@ -1,7 +1,7 @@
-import { ElGalleryViewerMediaList } from './styles'
-import { GalleryViewerMediaListItem } from './media-list-item'
+import type { ComponentProps } from "react";
 
-import type { ComponentProps } from 'react'
+import { GalleryViewerMediaListItem } from "./media-list-item";
+import { ElGalleryViewerMediaList } from "./styles";
 
 export namespace GalleryViewerMediaList {
   export interface ItemProps extends GalleryViewerMediaListItem.Props {}
@@ -13,9 +13,9 @@ export namespace GalleryViewerMediaList {
  * is intended to contain `GalleryViewer.MediaListItem` components as children.
  */
 export function GalleryViewerMediaList({ children, ...rest }: GalleryViewerMediaList.Props) {
-  return <ElGalleryViewerMediaList {...rest}>{children}</ElGalleryViewerMediaList>
+  return <ElGalleryViewerMediaList {...rest}>{children}</ElGalleryViewerMediaList>;
 }
 
-GalleryViewerMediaList.displayName = 'GalleryViewer.MediaList'
+GalleryViewerMediaList.displayName = "GalleryViewer.MediaList";
 
-GalleryViewerMediaList.Item = GalleryViewerMediaListItem
+GalleryViewerMediaList.Item = GalleryViewerMediaListItem;

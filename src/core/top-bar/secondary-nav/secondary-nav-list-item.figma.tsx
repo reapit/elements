@@ -1,19 +1,20 @@
-import figma from '@figma/code-connect'
-import { TopBar } from '../top-bar'
+import figma from "@figma/code-connect";
 
-figma.connect(TopBar.NavIconItem, '<TOP_BAR_NAV_ICON_ITEM_URL>', {
+import { TopBar } from "../top-bar";
+
+figma.connect(TopBar.NavIconItem, "<TOP_BAR_NAV_ICON_ITEM_URL>", {
   props: {
-    ariaCurrent: figma.enum('State', {
+    ariaCurrent: figma.enum("State", {
       Default: false,
       Focus: false,
       Hover: false,
-      Select: 'page',
+      Select: "page",
     }),
-    tooltip: figma.nestedProps('Tooltip', {
-      description: figma.string('Description'),
+    tooltip: figma.nestedProps("Tooltip", {
+      description: figma.string("Description"),
     }),
-    hasBadge: figma.boolean('Badge'),
-    icon: figma.instance('Icon'),
+    hasBadge: figma.boolean("Badge"),
+    icon: figma.instance("Icon"),
   },
   example: (props) => (
     <TopBar.NavIconItem
@@ -24,4 +25,4 @@ figma.connect(TopBar.NavIconItem, '<TOP_BAR_NAV_ICON_ITEM_URL>', {
       icon={props.icon}
     />
   ),
-})
+});

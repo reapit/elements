@@ -1,20 +1,20 @@
-import preview from '#.storybook/preview'
-import { Button } from '#src/core/button'
-import { ChipGroup } from '#src/core/chip-group'
-import { FilterBar } from '../filter-bar'
-import { MatchMedia } from '#src/utils/match-media'
+import preview from "#.storybook/preview";
+import { Button } from "#src/core/button";
+import { ChipGroup } from "#src/core/chip-group";
+import { isWidthAtOrAbove, isWidthBelow } from "#src/utils/breakpoints";
+import { MatchMedia } from "#src/utils/match-media";
 
-import { isWidthAtOrAbove, isWidthBelow } from '#src/utils/breakpoints'
+import { FilterBar } from "../filter-bar";
 
 const meta = preview.meta({
-  title: 'Input and selection/FilterBar/AppliedFilters',
+  title: "Input and selection/FilterBar/AppliedFilters",
   component: FilterBar.AppliedFilters,
   argTypes: {
     children: {
-      control: 'radio',
-      options: ['Some Filters', 'Many Filters'],
+      control: "radio",
+      options: ["Some Filters", "Many Filters"],
       mapping: {
-        'Some Filters': (
+        "Some Filters": (
           <ChipGroup variant="filter">
             <ChipGroup.Item>Label</ChipGroup.Item>
             <ChipGroup.Item>Label</ChipGroup.Item>
@@ -24,7 +24,7 @@ const meta = preview.meta({
             </Button>
           </ChipGroup>
         ),
-        'Many Filters': (
+        "Many Filters": (
           <ChipGroup variant="filter">
             <ChipGroup.Item>Label</ChipGroup.Item>
             <ChipGroup.Item>Label</ChipGroup.Item>
@@ -48,11 +48,11 @@ const meta = preview.meta({
       },
     },
     action: {
-      control: 'radio',
-      options: ['None', 'Save Filters'],
+      control: "radio",
+      options: ["None", "Save Filters"],
       mapping: {
         None: undefined,
-        'Save Filters': (
+        "Save Filters": (
           <Button size="small" variant="tertiary" useLinkStyle>
             Save filters
           </Button>
@@ -60,35 +60,35 @@ const meta = preview.meta({
       },
     },
   },
-})
+});
 
 /**
  * By default, applied filters are displayed as a group of filter chips without any action buttons.
  */
 export const Example = meta.story({
   args: {
-    action: 'None',
-    children: 'Some Filters',
+    action: "None",
+    children: "Some Filters",
   },
-})
+});
 
 /**
  * An optional action element can be provided. Typically, this will be a "Save filters" action.
  */
 export const Action = Example.extend({
   args: {
-    action: 'Save Filters',
+    action: "Save Filters",
   },
-})
+});
 
 /**
  * When many filters are applied, the chip group will wrap to multiple lines by default.
  */
 export const Overflow = meta.story({
   args: {
-    children: 'Many Filters',
+    children: "Many Filters",
   },
-})
+});
 
 /**
  * When a chip group is configured to automatically scroll any overflowing chips, the filter bar's
@@ -123,7 +123,7 @@ export const Scrolling = Action.extend({
       control: false,
     },
   },
-})
+});
 
 /**
  * When multiple filters are active on the XS breakpoint, a single chip should be displayed that
@@ -138,7 +138,7 @@ export const Breakpoints = Action.extend({
   args: {
     children: (
       <ChipGroup variant="filter">
-        <MatchMedia condition={isWidthAtOrAbove('SM')}>
+        <MatchMedia condition={isWidthAtOrAbove("SM")}>
           <ChipGroup.Item>Label</ChipGroup.Item>
           <ChipGroup.Item>Label</ChipGroup.Item>
           <ChipGroup.Item>Label</ChipGroup.Item>
@@ -147,13 +147,13 @@ export const Breakpoints = Action.extend({
             Clear all
           </Button>
         </MatchMedia>
-        <MatchMedia condition={isWidthBelow('SM')}>
+        <MatchMedia condition={isWidthBelow("SM")}>
           <ChipGroup.Item>4 filters applied</ChipGroup.Item>
         </MatchMedia>
       </ChipGroup>
     ),
   },
   globals: {
-    viewport: { value: 'XS' },
+    viewport: { value: "XS" },
   },
-})
+});

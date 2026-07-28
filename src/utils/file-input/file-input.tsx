@@ -1,21 +1,21 @@
-import { ElFileInput, ElFileInputWrapper } from './styles'
-import { forwardRef, useId, useState } from 'react'
-import { getInputElement } from './get-input-element'
-import { useFileDropzone } from './use-file-dropzone'
-import { useFileInputValidity } from './use-file-input-validity'
+import { forwardRef, useId, useState } from "react";
+import type { ChangeEvent, FocusEvent, InputHTMLAttributes, ReactNode } from "react";
 
-import type { ChangeEvent, FocusEvent, InputHTMLAttributes, ReactNode } from 'react'
+import { getInputElement } from "./get-input-element";
+import { ElFileInput, ElFileInputWrapper } from "./styles";
+import { useFileDropzone } from "./use-file-dropzone";
+import { useFileInputValidity } from "./use-file-input-validity";
 
-type AttributesToOmit = 'children' | 'defaultValue' | 'onChange' | 'type' | 'value'
+type AttributesToOmit = "children" | "defaultValue" | "onChange" | "type" | "value";
 
 export namespace FileInput {
   /** Selection and interaction state exposed to a custom `children` render function. */
   export interface RenderProps {
     /** The current selection. */
-    files: File[]
+    files: File[];
     /** Whether a file is currently being dragged over the dropzone (the whole rendered area — the
      * native input plus `children`, if provided). */
-    isDraggingOver: boolean
+    isDraggingOver: boolean;
     /**
      * Whether the native input has focus. By default the native input is also where a keyboard
      * user's `Tab` lands on `FileInput` — see the doc comment on `tabIndex` on `Props`, below — so
@@ -23,9 +23,9 @@ export namespace FileInput {
      * content, the same way a visually-hidden native checkbox/radio's sibling reflects its
      * `:focus-visible` state.
      */
-    isFocused: boolean
+    isFocused: boolean;
     /** Whether the input is disabled. */
-    disabled: boolean
+    disabled: boolean;
     /**
      * Opens the native file picker, the same as clicking a default, unstyled `<input type="file">`.
      * `FileInput` renders no clickable wrapper of its own — wire this onto whichever element in
@@ -38,7 +38,7 @@ export namespace FileInput {
      * on `Props`, below — so the hidden input doesn't become a second, indicator-less tab stop ahead
      * of it.
      */
-    openFilePicker: () => void
+    openFilePicker: () => void;
   }
 
   export interface Props extends Omit<InputHTMLAttributes<HTMLInputElement>, AttributesToOmit> {
@@ -46,9 +46,9 @@ export namespace FileInput {
      * The selected files. Passing this prop makes the component controlled: `FileInput` no longer
      * tracks the selection itself, and you're responsible for updating this value from `onChange`.
      */
-    value?: File[]
+    value?: File[];
     /** The initial selected files, for uncontrolled usage. Ignored once `value` is provided. */
-    defaultValue?: File[]
+    defaultValue?: File[];
     /**
      * Called with the literal native `change` event whenever the selection changes — the same
      * convention `TextInput` uses, so React Hook Form's `register()`/`Controller` and Formik's
@@ -64,14 +64,14 @@ export namespace FileInput {
      * owns that itself, either from a controlled `value` (appending in its own `onChange` handler)
      * or via `FileUploadQueue`/`FileUploader`, which pair accumulation with removal by construction.
      */
-    onChange?: (event: ChangeEvent<HTMLInputElement>) => void
+    onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
     /**
      * The maximum size, in bytes, allowed for any single file. The offending file still lands in
      * `event.target.files`/the selection — see `onChange` above — but is dropped from the native
      * input's own `.files` (so a native form submission silently excludes it) rather than
      * invalidating the input.
      */
-    maxFileSize?: number
+    maxFileSize?: number;
     /**
      * The maximum number of files allowed in the current selection. Validated against whatever
      * `files`/controlled `value` currently holds — uncontrolled, `FileInput` never accumulates a
@@ -87,7 +87,7 @@ export namespace FileInput {
      * a `maxFiles` violation is a fact about the selection as a whole, not any one file, so the
      * excess files stay in `.files` and it invalidates the input instead.
      */
-    maxFiles?: number
+    maxFiles?: number;
     /**
      * The maximum cumulative size, in bytes, allowed across the current selection. As with
      * `maxFiles`, this is validated against whatever `files`/controlled `value` currently holds —
@@ -95,7 +95,7 @@ export namespace FileInput {
      * passes as `value`, including an accumulated one. A violation invalidates the input via
      * `setCustomValidity` rather than dropping files.
      */
-    maxTotalSize?: number
+    maxTotalSize?: number;
     /**
      * The minimum number of files required in the current selection. Validated the same way as
      * `maxFiles` — against whatever `files`/controlled `value` currently holds — and invalidates
@@ -107,7 +107,7 @@ export namespace FileInput {
      * browser's own separate `valueMissing` state. Pass `minFiles={0}` explicitly to opt out of
      * that default while keeping `required`'s native attribute/label semantics.
      */
-    minFiles?: number
+    minFiles?: number;
     /**
      * Native `required` attribute semantics — forwarded to the underlying `<input>` as-is, so
      * `:required`/`aria-required` and a plain, no-JS form's own submit-blocking behave exactly as
@@ -116,7 +116,7 @@ export namespace FileInput {
      * path as an explicit `minFiles` violation, not only through the browser's separate
      * `valueMissing` state.
      */
-    required?: boolean
+    required?: boolean;
     /**
      * Renders custom content in place of the default rendered content, given the current selection
      * and interaction state. The returned content still gets all of `FileInput`'s native mechanics —
@@ -125,7 +125,7 @@ export namespace FileInput {
      * composition uses this to swap in its own `MediaCard` once a file has been selected. See
      * `tabIndex` below for what stays unchanged on the native input while `children` is provided.
      */
-    children?: (props: FileInput.RenderProps) => ReactNode
+    children?: (props: FileInput.RenderProps) => ReactNode;
     /**
      * Left as the native default (focusable, in tab order) even while `children` replaces the
      * input's visible content — a visually-hidden input is still a real, keyboard-operable one,
@@ -139,14 +139,14 @@ export namespace FileInput {
      * hidden input becomes a second tab stop immediately before it, with nothing visible to show
      * for it.
      */
-    tabIndex?: number
+    tabIndex?: number;
     /**
      * Whether the input's validity should be visually communicated or not. Typically, validity
      * will only be shown once the input has been touched (e.g. blurred) — see `setCustomValidity`
      * usage above for how `minFiles`/`maxFiles`/`maxTotalSize` violations set that validity in the
      * first place.
      */
-    showValidity?: boolean
+    showValidity?: boolean;
   }
 }
 
@@ -197,28 +197,28 @@ export const FileInput = forwardRef<HTMLInputElement, FileInput.Props>(
     },
     ref,
   ) => {
-    const fallbackId = useId()
-    const inputId = rest.id ?? fallbackId
+    const fallbackId = useId();
+    const inputId = rest.id ?? fallbackId;
 
-    const isControlled = value !== undefined
-    const [uncontrolledFiles, setUncontrolledFiles] = useState<File[]>(defaultValue ?? [])
-    const files = isControlled ? value : uncontrolledFiles
+    const isControlled = value !== undefined;
+    const [uncontrolledFiles, setUncontrolledFiles] = useState<File[]>(defaultValue ?? []);
+    const files = isControlled ? value : uncontrolledFiles;
 
     // A `maxFiles` above `1` is unsatisfiable under single-select — `validateFiles` rejects a
     // second file as an overflow before `maxFiles` is ever consulted — so infer `multiple` from it
     // when the consumer hasn't set `multiple` explicitly. `maxTotalSize` isn't inferred the same
     // way: with one file, "total selection size" and "that file's size" are the same number, so it
     // degrades to `maxFileSize` rather than going dead.
-    const effectiveMultiple = multiple ?? (maxFiles !== undefined && maxFiles > 1)
+    const effectiveMultiple = multiple ?? (maxFiles !== undefined && maxFiles > 1);
 
     // `multiple`/`required` are native attributes with no bearing on `validateFiles` by
     // themselves — they're folded into the same `maxFiles`/`minFiles` custom constraints an
     // explicit value would use, rather than being a separate rule `validateFiles` has to know
     // about. An explicit `maxFiles`/`minFiles` always wins over the inferred default.
-    const effectiveMaxFiles = maxFiles ?? (effectiveMultiple ? Infinity : 1)
-    const effectiveMinFiles = minFiles ?? (required ? 1 : 0)
+    const effectiveMaxFiles = maxFiles ?? (effectiveMultiple ? Infinity : 1);
+    const effectiveMinFiles = minFiles ?? (required ? 1 : 0);
 
-    const [isFocused, setIsFocused] = useState(false)
+    const [isFocused, setIsFocused] = useState(false);
 
     useFileInputValidity({
       inputId,
@@ -228,14 +228,14 @@ export const FileInput = forwardRef<HTMLInputElement, FileInput.Props>(
       minFiles: effectiveMinFiles,
       maxFiles: effectiveMaxFiles,
       maxTotalSize,
-    })
+    });
 
     const { isDraggingOver, dropzoneProps } = useFileDropzone({
       inputId,
       disabled: !!disabled,
       accept,
       multiple: effectiveMultiple,
-    })
+    });
 
     function handleChange(event: ChangeEvent<HTMLInputElement>) {
       // Always replaces rather than accumulates onto the existing selection — matching plain
@@ -247,27 +247,32 @@ export const FileInput = forwardRef<HTMLInputElement, FileInput.Props>(
       // `useFileInputValidity` is the single source of truth for validity. Dropping a file goes
       // through this exact same handler — `useFileDropzone` dispatches a genuine native `change`
       // event on the input rather than taking a separate path.
-      if (!isControlled) setUncontrolledFiles(Array.from(event.currentTarget.files ?? []))
-      onChange?.(event)
+      if (!isControlled) setUncontrolledFiles(Array.from(event.currentTarget.files ?? []));
+      onChange?.(event);
     }
 
     function handleFocus(event: FocusEvent<HTMLInputElement>) {
-      setIsFocused(true)
-      rest.onFocus?.(event)
+      setIsFocused(true);
+      rest.onFocus?.(event);
     }
 
     function handleBlur(event: FocusEvent<HTMLInputElement>) {
-      setIsFocused(false)
-      rest.onBlur?.(event)
+      setIsFocused(false);
+      rest.onBlur?.(event);
     }
 
     function openFilePicker() {
-      if (disabled) return
-      getInputElement(inputId)?.click()
+      if (disabled) return;
+      getInputElement(inputId)?.click();
     }
 
     return (
-      <ElFileInputWrapper className={className} data-disabled={!!disabled} style={style} {...dropzoneProps}>
+      <ElFileInputWrapper
+        className={className}
+        data-disabled={!!disabled}
+        style={style}
+        {...dropzoneProps}
+      >
         <ElFileInput
           {...rest}
           accept={accept}
@@ -285,8 +290,8 @@ export const FileInput = forwardRef<HTMLInputElement, FileInput.Props>(
         />
         {children?.({ files, isDraggingOver, isFocused, disabled: !!disabled, openFilePicker })}
       </ElFileInputWrapper>
-    )
+    );
   },
-)
+);
 
-FileInput.displayName = 'FileInput'
+FileInput.displayName = "FileInput";

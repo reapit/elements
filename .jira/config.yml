@@ -8,8 +8,8 @@
 deployments:
   environmentMapping:
     testing:
-      - 'pr-*'
+      - "pr-*"
     staging:
-      - 'release'
+      - "release"
     production:
-      - 'production'
+      - "production"

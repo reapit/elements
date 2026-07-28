@@ -1,41 +1,41 @@
-import preview from '#.storybook/preview'
-import { Accordion } from '#src/core/accordion'
-import { AccordionGroup } from '#src/core/accordion-group'
-import { AddIcon } from '#src/icons/add'
-import { AnchorButton } from '#src/core/button'
-import { Badge } from '#src/core/badge'
-import { Breadcrumbs } from '#src/core/breadcrumbs'
-import { Button } from '#src/core/button'
-import { ButtonGroup } from '#src/core/button-group'
-import { Card } from '#src/core/card'
-import { DescriptionList } from '#src/core/description-list'
-import { Divider } from '#src/core/divider'
-import { Features } from '#src/core/features'
-import { Flex } from '#src/utils/flex'
-import { Grid } from '#src/utils/grid'
-import { Heading } from '#src/utils/heading'
-import { Image } from '#src/utils/image'
-import { isWidthAtOrAbove } from '#src/utils/breakpoints'
-import { LineClamp } from '#src/utils/line-clamp'
-import { MainContainer } from '#src/core/main-container'
-import { Menu } from '#src/core/menu'
-import { MoreIcon } from '#src/icons/more'
-import { OfficeSwitcher } from '#src/core/office-switcher'
-import { PageHeader } from '#src/core/page-header'
-import { PageLayout } from '#src/core/page-layout'
-import { PrimaryTabs } from '#src/core/primary-tabs'
-import { SupplementaryInfo } from '#src/core/supplementary-info'
-import { Text } from '#src/utils/text'
-import { TopBar } from '#src/core/top-bar'
-import { useMatchMedia } from '#src/utils/match-media'
-import { ChevronDownIcon } from '#src/icons/chevron-down'
+import preview from "#.storybook/preview";
+import { Accordion } from "#src/core/accordion";
+import { AccordionGroup } from "#src/core/accordion-group";
+import { Badge } from "#src/core/badge";
+import { Breadcrumbs } from "#src/core/breadcrumbs";
+import { AnchorButton } from "#src/core/button";
+import { Button } from "#src/core/button";
+import { ButtonGroup } from "#src/core/button-group";
+import { Card } from "#src/core/card";
+import { DescriptionList } from "#src/core/description-list";
+import { Divider } from "#src/core/divider";
+import { Features } from "#src/core/features";
+import { MainContainer } from "#src/core/main-container";
+import { Menu } from "#src/core/menu";
+import { OfficeSwitcher } from "#src/core/office-switcher";
+import { PageHeader } from "#src/core/page-header";
+import { PageLayout } from "#src/core/page-layout";
+import { PrimaryTabs } from "#src/core/primary-tabs";
+import { SupplementaryInfo } from "#src/core/supplementary-info";
+import { TopBar } from "#src/core/top-bar";
+import { AddIcon } from "#src/icons/add";
+import { ChevronDownIcon } from "#src/icons/chevron-down";
+import { MoreIcon } from "#src/icons/more";
+import { isWidthAtOrAbove } from "#src/utils/breakpoints";
+import { Flex } from "#src/utils/flex";
+import { Grid } from "#src/utils/grid";
+import { Heading } from "#src/utils/heading";
+import { Image } from "#src/utils/image";
+import { LineClamp } from "#src/utils/line-clamp";
+import { useMatchMedia } from "#src/utils/match-media";
+import { Text } from "#src/utils/text";
 
 const meta = preview.meta({
-  title: 'Blocks/PropertyDetail',
+  title: "Blocks/PropertyDetail",
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
   },
-})
+});
 
 /**
  * A full-page detail view for a single property record.
@@ -47,8 +47,8 @@ const meta = preview.meta({
  */
 export const Example = meta.story({
   render: () => {
-    const isWidthAtOrAboveSM = useMatchMedia(isWidthAtOrAbove('SM'))
-    const isWidthAtOrAboveMD = useMatchMedia(isWidthAtOrAbove('MD'))
+    const isWidthAtOrAboveSM = useMatchMedia(isWidthAtOrAbove("SM"));
+    const isWidthAtOrAboveMD = useMatchMedia(isWidthAtOrAbove("MD"));
 
     return (
       <PageLayout backgroundColour="--colour-fill-white" id="property-detail" scroll="body">
@@ -121,7 +121,9 @@ export const Example = meta.story({
               <OfficeSwitcher.Button />
               <OfficeSwitcher.Popup>
                 <OfficeSwitcher.Listbox defaultValue="cheltenham">
-                  <OfficeSwitcher.Option value="cheltenham">Cheltenham Central</OfficeSwitcher.Option>
+                  <OfficeSwitcher.Option value="cheltenham">
+                    Cheltenham Central
+                  </OfficeSwitcher.Option>
                   <OfficeSwitcher.Option value="gloucester">Gloucester East</OfficeSwitcher.Option>
                   <OfficeSwitcher.Option value="bristol">Bristol South</OfficeSwitcher.Option>
                 </OfficeSwitcher.Listbox>
@@ -163,7 +165,12 @@ export const Example = meta.story({
                     <Button iconLeft={<AddIcon />} size="medium" variant="secondary">
                       Add New
                     </Button>
-                    <Button aria-label="More actions" iconLeft={<MoreIcon />} size="medium" variant="secondary" />
+                    <Button
+                      aria-label="More actions"
+                      iconLeft={<MoreIcon />}
+                      size="medium"
+                      variant="secondary"
+                    />
                   </ButtonGroup>
                 }
               >
@@ -186,9 +193,16 @@ export const Example = meta.story({
             </PrimaryTabs>
           </MainContainer>
 
-          <MainContainer size="wide" template={isWidthAtOrAboveMD ? 'two-columns-asymmetrical-start' : 'single-column'}>
+          <MainContainer
+            size="wide"
+            template={isWidthAtOrAboveMD ? "two-columns-asymmetrical-start" : "single-column"}
+          >
             {/* Main column */}
-            <Flex direction="column" gap="--spacing-6" style={{ marginBottom: 'var(--spacing-12)' }}>
+            <Flex
+              direction="column"
+              gap="--spacing-6"
+              style={{ marginBottom: "var(--spacing-12)" }}
+            >
               {/* Property Features */}
               <Flex direction="column" gap="--spacing-4">
                 <Flex alignItems="center" justifyContent="space-between">
@@ -198,7 +212,7 @@ export const Example = meta.story({
                   </Button>
                 </Flex>
                 <DescriptionList
-                  grid={isWidthAtOrAboveSM ? 'auto-flow / 1fr 1fr 1fr' : 'auto-flow / 1fr'}
+                  grid={isWidthAtOrAboveSM ? "auto-flow / 1fr 1fr 1fr" : "auto-flow / 1fr"}
                   layout="stacked"
                 >
                   <DescriptionList.Item label="Property style">Property style</DescriptionList.Item>
@@ -208,22 +222,30 @@ export const Example = meta.story({
                     <>
                       <DescriptionList.Item label="Age">Modern</DescriptionList.Item>
                       <DescriptionList.Item label="Decoration">Good</DescriptionList.Item>
-                      <DescriptionList.Item label="Situation">Garden, Patio, Conservatory</DescriptionList.Item>
-                      <DescriptionList.Item label="Parking">Off street parking, Double garage</DescriptionList.Item>
+                      <DescriptionList.Item label="Situation">
+                        Garden, Patio, Conservatory
+                      </DescriptionList.Item>
+                      <DescriptionList.Item label="Parking">
+                        Off street parking, Double garage
+                      </DescriptionList.Item>
                       <DescriptionList.Item label="Special features">
                         Secondary accom, Swimming pool, Tennis court, Annexe
                       </DescriptionList.Item>
                       <DescriptionList.Item label="Keywords">
                         Sables, Bus links, Coastal, Train station
                       </DescriptionList.Item>
-                      <DescriptionList.Item label="Internal area measurements">100–130 sqm</DescriptionList.Item>
+                      <DescriptionList.Item label="Internal area measurements">
+                        100–130 sqm
+                      </DescriptionList.Item>
                       <DescriptionList.Item label="External area">1.5 acres</DescriptionList.Item>
                       <DescriptionList.Item label="EPC Rating">72 (C)</DescriptionList.Item>
-                      <DescriptionList.Item label="Potential EPC Rating">80 (C)</DescriptionList.Item>
+                      <DescriptionList.Item label="Potential EPC Rating">
+                        80 (C)
+                      </DescriptionList.Item>
                       <DescriptionList.Item label="Council Tax band">E</DescriptionList.Item>
                       <DescriptionList.Item label="Keys">38, 39</DescriptionList.Item>
                       <DescriptionList.Item
-                        area={isWidthAtOrAboveSM ? 'auto / span 3' : undefined}
+                        area={isWidthAtOrAboveSM ? "auto / span 3" : undefined}
                         label="Viewing notes"
                       >
                         Contact landlord two days in advance to arrange viewing
@@ -249,7 +271,7 @@ export const Example = meta.story({
                   </Button>
                 </Flex>
                 <DescriptionList
-                  grid={isWidthAtOrAboveSM ? 'auto-flow / 1fr 1fr 1fr' : 'auto-flow / 1fr'}
+                  grid={isWidthAtOrAboveSM ? "auto-flow / 1fr 1fr 1fr" : "auto-flow / 1fr"}
                   layout="stacked"
                 >
                   <DescriptionList.Item label="Selling price">£500,000</DescriptionList.Item>
@@ -273,13 +295,16 @@ export const Example = meta.story({
                   </Button>
                 </Flex>
                 <DescriptionList layout="stacked">
-                  <DescriptionList.Item label="Strapline">A beautiful cottage house</DescriptionList.Item>
+                  <DescriptionList.Item label="Strapline">
+                    A beautiful cottage house
+                  </DescriptionList.Item>
                   <DescriptionList.Item label="Description">
                     <LineClamp clampTo={3}>
-                      This exceptional four-bedroom house, situated in the desirable MK17 0QL area, presents an
-                      attractive opportunity for a discerning buyer seeking a comfortable and spacious home. With its
-                      impressive layout, the property boasts four well-appointed bedrooms, ideal for families or
-                      professionals, and two modern bathrooms, ensuring ample storage and convenience.
+                      This exceptional four-bedroom house, situated in the desirable MK17 0QL area,
+                      presents an attractive opportunity for a discerning buyer seeking a
+                      comfortable and spacious home. With its impressive layout, the property boasts
+                      four well-appointed bedrooms, ideal for families or professionals, and two
+                      modern bathrooms, ensuring ample storage and convenience.
                     </LineClamp>
                   </DescriptionList.Item>
                 </DescriptionList>
@@ -297,7 +322,7 @@ export const Example = meta.story({
                 </Flex>
                 <DescriptionList layout="stacked">
                   <DescriptionList.Item label="Accommodation summary">
-                    <ul style={{ paddingInlineStart: '20px' }}>
+                    <ul style={{ paddingInlineStart: "20px" }}>
                       <li>Grade II listed 18th century house</li>
                       <li>Four double bedrooms</li>
                       <li>Ensuite shower room</li>
@@ -314,28 +339,36 @@ export const Example = meta.story({
                     <DescriptionList layout="stacked">
                       <DescriptionList.Item label="Dimensions">5.0m x 4.0m</DescriptionList.Item>
                       <DescriptionList.Item label="Flooring">Hardwood</DescriptionList.Item>
-                      <DescriptionList.Item label="Features">Fireplace, Bay window</DescriptionList.Item>
+                      <DescriptionList.Item label="Features">
+                        Fireplace, Bay window
+                      </DescriptionList.Item>
                     </DescriptionList>
                   </Accordion>
                   <Accordion summary={<Accordion.Summary>Lounge</Accordion.Summary>}>
                     <DescriptionList layout="stacked">
                       <DescriptionList.Item label="Dimensions">4.5m x 3.5m</DescriptionList.Item>
                       <DescriptionList.Item label="Flooring">Carpet</DescriptionList.Item>
-                      <DescriptionList.Item label="Features">Built-in shelving, French doors</DescriptionList.Item>
+                      <DescriptionList.Item label="Features">
+                        Built-in shelving, French doors
+                      </DescriptionList.Item>
                     </DescriptionList>
                   </Accordion>
                   <Accordion summary={<Accordion.Summary>Bathroom</Accordion.Summary>}>
                     <DescriptionList layout="stacked">
                       <DescriptionList.Item label="Dimensions">2.5m x 2.0m</DescriptionList.Item>
                       <DescriptionList.Item label="Flooring">Tile</DescriptionList.Item>
-                      <DescriptionList.Item label="Features">Shower, Bathtub, Vanity unit</DescriptionList.Item>
+                      <DescriptionList.Item label="Features">
+                        Shower, Bathtub, Vanity unit
+                      </DescriptionList.Item>
                     </DescriptionList>
                   </Accordion>
                   <Accordion summary={<Accordion.Summary>Kitchen</Accordion.Summary>}>
                     <DescriptionList layout="stacked">
                       <DescriptionList.Item label="Dimensions">4.0m x 3.5m</DescriptionList.Item>
                       <DescriptionList.Item label="Flooring">Tile</DescriptionList.Item>
-                      <DescriptionList.Item label="Features">Island, Modern appliances</DescriptionList.Item>
+                      <DescriptionList.Item label="Features">
+                        Island, Modern appliances
+                      </DescriptionList.Item>
                     </DescriptionList>
                   </Accordion>
                 </AccordionGroup>
@@ -360,7 +393,7 @@ export const Example = meta.story({
                       width="100%"
                       src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&h=400&fit=crop"
                       style={{
-                        borderRadius: 'var(--border-radius-l)',
+                        borderRadius: "var(--border-radius-l)",
                       }}
                     />
                   </Grid.Item>
@@ -371,7 +404,7 @@ export const Example = meta.story({
                       width="100%"
                       src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=200&h=150&fit=crop"
                       style={{
-                        borderRadius: 'var(--border-radius-l)',
+                        borderRadius: "var(--border-radius-l)",
                       }}
                     />
                   </Grid.Item>
@@ -382,34 +415,38 @@ export const Example = meta.story({
                       width="100%"
                       src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=200&h=150&fit=crop"
                       style={{
-                        borderRadius: 'var(--border-radius-l)',
+                        borderRadius: "var(--border-radius-l)",
                       }}
                     />
                   </Grid.Item>
-                  <Grid.Item area="more" style={{ position: 'relative' }}>
+                  <Grid.Item area="more" style={{ position: "relative" }}>
                     <img
                       alt="Bedroom"
                       src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=200&h=150&fit=crop"
                       style={{
-                        display: 'block',
-                        width: '100%',
-                        aspectRatio: '4/3',
-                        objectFit: 'cover',
-                        borderRadius: 'var(--border-radius-l)',
+                        display: "block",
+                        width: "100%",
+                        aspectRatio: "4/3",
+                        objectFit: "cover",
+                        borderRadius: "var(--border-radius-l)",
                       }}
                     />
                     <div
                       style={{
-                        position: 'absolute',
+                        position: "absolute",
                         inset: 0,
-                        background: 'rgba(0,0,0,0.45)',
-                        borderRadius: 'var(--border-radius-l)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
+                        background: "rgba(0,0,0,0.45)",
+                        borderRadius: "var(--border-radius-l)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
                       }}
                     >
-                      <Text as="span" font="text-sm/bold" style={{ color: 'var(--colour-fill-white)' }}>
+                      <Text
+                        as="span"
+                        font="text-sm/bold"
+                        style={{ color: "var(--colour-fill-white)" }}
+                      >
                         +1
                       </Text>
                     </div>
@@ -429,9 +466,9 @@ export const Example = meta.story({
                 </Flex>
                 <Text as="p" font="text-sm/regular">
                   <LineClamp clampTo={3}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                    nostrud exercitation ullamco laboris nisi ut aliquip.
                   </LineClamp>
                 </Text>
               </Flex>
@@ -443,12 +480,21 @@ export const Example = meta.story({
                 <Heading font="text-base/bold">People</Heading>
                 <Card padding="--spacing-4">
                   <Badge colour="inactive">Negotiator</Badge>
-                  <Text as="p" font="text-sm/bold" style={{ margin: 'var(--spacing-2) 0 var(--spacing-1)' }}>
+                  <Text
+                    as="p"
+                    font="text-sm/bold"
+                    style={{ margin: "var(--spacing-2) 0 var(--spacing-1)" }}
+                  >
                     <AnchorButton href="#" hasNoPadding useLinkStyle variant="tertiary">
                       Robin Williams
                     </AnchorButton>
                   </Text>
-                  <Text as="p" colour="secondary" font="text-sm/regular" style={{ margin: '0 0 var(--spacing-1)' }}>
+                  <Text
+                    as="p"
+                    colour="secondary"
+                    font="text-sm/regular"
+                    style={{ margin: "0 0 var(--spacing-1)" }}
+                  >
                     0489 998 987
                   </Text>
                   <Text as="p" colour="secondary" font="text-sm/regular">
@@ -457,12 +503,21 @@ export const Example = meta.story({
                 </Card>
                 <Card padding="--spacing-4">
                   <Badge colour="inactive">Vendor</Badge>
-                  <Text as="p" font="text-sm/bold" style={{ margin: 'var(--spacing-2) 0 var(--spacing-1)' }}>
+                  <Text
+                    as="p"
+                    font="text-sm/bold"
+                    style={{ margin: "var(--spacing-2) 0 var(--spacing-1)" }}
+                  >
                     <AnchorButton href="#" hasNoPadding useLinkStyle variant="tertiary">
                       Helen White
                     </AnchorButton>
                   </Text>
-                  <Text as="p" colour="secondary" font="text-sm/regular" style={{ margin: '0 0 var(--spacing-1)' }}>
+                  <Text
+                    as="p"
+                    colour="secondary"
+                    font="text-sm/regular"
+                    style={{ margin: "0 0 var(--spacing-1)" }}
+                  >
                     0496 698 005
                   </Text>
                   <Text as="p" colour="secondary" font="text-sm/regular">
@@ -471,7 +526,11 @@ export const Example = meta.story({
                 </Card>
                 <Card padding="--spacing-4">
                   <Badge colour="inactive">Vendor</Badge>
-                  <Text as="p" font="text-sm/bold" style={{ margin: 'var(--spacing-2) 0 var(--spacing-1)' }}>
+                  <Text
+                    as="p"
+                    font="text-sm/bold"
+                    style={{ margin: "var(--spacing-2) 0 var(--spacing-1)" }}
+                  >
                     <AnchorButton href="#" hasNoPadding useLinkStyle variant="tertiary">
                       Eddie White
                     </AnchorButton>
@@ -485,6 +544,6 @@ export const Example = meta.story({
           </MainContainer>
         </PageLayout.BodyRegion>
       </PageLayout>
-    )
+    );
   },
-})
+});

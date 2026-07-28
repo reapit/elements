@@ -1,4 +1,4 @@
-import { css } from '@linaria/core'
+import { css } from "@linaria/core";
 
 /**
  * Base icon styling. Grid-positioned via grid-area.
@@ -16,4 +16,4 @@ export const elAtAGlanceCardIcon = css`
     padding: var(--aag-card-icon-padding);
     color: var(--colour-icon-primary);
   }
-`
+`;

@@ -1,21 +1,22 @@
-import { addons } from 'storybook/manager-api'
-import { create } from 'storybook/theming'
+import { addons } from "storybook/manager-api";
+import { create } from "storybook/theming";
+
 // @ts-ignore
-import brandImage from './public/reapitLogo.svg'
+import brandImage from "./public/reapitLogo.svg";
 
 addons.setConfig({
   sidebar: {
-    collapsedRoots: ['deprecated', 'lab'],
+    collapsedRoots: ["deprecated", "lab"],
   },
   theme: create({
-    base: 'light',
-    colorPrimary: '#4e56ea',
-    colorSecondary: '#4e56ea',
+    base: "light",
+    colorPrimary: "#4e56ea",
+    colorSecondary: "#4e56ea",
 
     // UI
-    appBg: '#fff',
-    appContentBg: '#fff',
-    appBorderColor: '#4e56ea',
+    appBg: "#fff",
+    appContentBg: "#fff",
+    appBorderColor: "#4e56ea",
     appBorderRadius: 0,
 
     // Typography
@@ -23,19 +24,19 @@ addons.setConfig({
     fontCode: "'Source Code Pro', monospace",
 
     // Text colors
-    textColor: '#222b33',
-    textInverseColor: '#fff',
+    textColor: "#222b33",
+    textInverseColor: "#fff",
 
     // Toolbar default and active colors
-    barTextColor: '#222b33',
-    barSelectedColor: '#4e56ea',
-    barBg: '#fff',
+    barTextColor: "#222b33",
+    barSelectedColor: "#4e56ea",
+    barBg: "#fff",
 
     // Form colors
-    inputBg: '#fff',
-    inputBorder: '#4e56ea',
-    inputTextColor: '#222b33',
+    inputBg: "#fff",
+    inputBorder: "#4e56ea",
+    inputTextColor: "#222b33",
     inputBorderRadius: 0,
     brandImage,
   }),
-})
+});

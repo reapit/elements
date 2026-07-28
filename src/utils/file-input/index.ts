@@ -1,2 +1,2 @@
-export { FileInput } from './file-input'
-export { validateFiles } from './validate-files'
+export { FileInput } from "./file-input";
+export { validateFiles } from "./validate-files";

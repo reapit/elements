@@ -1,13 +1,14 @@
-import { styled } from '@linaria/react'
-import { css } from '@linaria/core'
-import { isMobile, isTablet } from '../../../styles/deprecated-media'
-import { elIsActive } from '../../../styles/deprecated-states'
-import { elIntentDefault } from '../../../styles/deprecated-intent'
+import { css } from "@linaria/core";
+import { styled } from "@linaria/react";
+
+import { elIntentDefault } from "../../../styles/deprecated-intent";
+import { isMobile, isTablet } from "../../../styles/deprecated-media";
+import { elIsActive } from "../../../styles/deprecated-states";
 
 /** @deprecated */
 export const elMobileControlsVisible = css`
   display: flex;
-`
+`;
 
 /** @deprecated */
 export const ElMobileControlsBg = styled.div`
@@ -24,7 +25,7 @@ export const ElMobileControlsBg = styled.div`
     display: block;
     position: fixed;
   }
-`
+`;
 
 /** @deprecated */
 export const ElMobileControls = styled.div`
@@ -44,7 +45,7 @@ export const ElMobileControls = styled.div`
       display: flex;
     }
   }
-`
+`;
 
 /** @deprecated */
 export const elMobileControlsFloatingButton = css`
@@ -63,7 +64,7 @@ export const elMobileControlsFloatingButton = css`
     height: 2.5rem;
     margin: 0.5rem;
   }
-`
+`;
 
 /** @deprecated */
 export const ElMobileControlItem = styled.a`
@@ -74,7 +75,7 @@ export const ElMobileControlItem = styled.a`
   border: 1px solid var(--colour-border-neutral-light_default);
   font-size: 0.875rem /* was --font-size-small */;
   font-family:
-    'Inter',
+    "Inter",
     /* was --font-sans-serif */ Helvetica,
     Arial,
     sans-serif;
@@ -96,4 +97,4 @@ export const ElMobileControlItem = styled.a`
     border: 1px solid var(--colour-border-neutral-light_darker);
     color: var(--colour-text-tertiary);
   }
-`
+`;

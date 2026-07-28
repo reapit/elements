@@ -1,1 +1,1 @@
-export * from './manual-sizing'
+export * from "./manual-sizing";

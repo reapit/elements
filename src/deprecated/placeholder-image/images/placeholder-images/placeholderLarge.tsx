@@ -1,8 +1,14 @@
-import React, { memo } from 'react'
+import React, { memo } from "react";
 
 /** @deprecated */
 export default memo(() => (
-  <svg width="1em" height="1em" viewBox="0 0 183 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg
+    width="1em"
+    height="1em"
+    viewBox="0 0 183 200"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
     <ellipse cx="90.7692" cy="108.718" rx="90.7692" ry="91.2821" fill="#F2F2F2" />
     <path
       d="M149.769 59.9736L162.678 51.715C158.49 46.4795 153.74 41.7118 148.515 37.5054L136.008 47.114C141.106 50.822 145.733 55.1401 149.769 59.9736Z"
@@ -37,4 +43,4 @@ export default memo(() => (
       fill="white"
     />
   </svg>
-))
+));

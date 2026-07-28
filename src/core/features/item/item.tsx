@@ -1,14 +1,15 @@
-import { ElFeatureItem, ElFeatureItemValue, ElFeatureItemIcon } from './styles'
-import { Tooltip } from '#src/core/tooltip'
-import { useId } from 'react'
+import { useId } from "react";
+import type { HTMLAttributes, ReactNode } from "react";
 
-import type { HTMLAttributes, ReactNode } from 'react'
+import { Tooltip } from "#src/core/tooltip";
+
+import { ElFeatureItem, ElFeatureItemValue, ElFeatureItemIcon } from "./styles";
 
 export namespace FeatureItem {
   export interface Props extends HTMLAttributes<HTMLDivElement> {
-    icon: ReactNode
-    label: string
-    value: ReactNode
+    icon: ReactNode;
+    label: string;
+    value: ReactNode;
   }
 }
 
@@ -18,8 +19,8 @@ export namespace FeatureItem {
  * `Features.LandSize`.
  */
 export function FeatureItem({ icon, id, label, value, ...rest }: FeatureItem.Props) {
-  const tooltipId = useId()
-  const triggerId = id ?? useId()
+  const tooltipId = useId();
+  const triggerId = id ?? useId();
 
   return (
     <ElFeatureItem {...rest} id={triggerId}>
@@ -29,10 +30,10 @@ export function FeatureItem({ icon, id, label, value, ...rest }: FeatureItem.Pro
         {label}
       </Tooltip>
     </ElFeatureItem>
-  )
+  );
 }
 
-FeatureItem.displayName = 'Features.Item'
+FeatureItem.displayName = "Features.Item";
 
 /** @deprecated Use FeaturesItem.Props instead */
-export type FeaturesItemProps = FeatureItem.Props
+export type FeaturesItemProps = FeatureItem.Props;

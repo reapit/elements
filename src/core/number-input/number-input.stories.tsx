@@ -1,15 +1,16 @@
-import preview from '#.storybook/preview'
-import { CheckIcon } from '#src/icons/check'
-import { LocationIcon } from '#src/icons/location'
-import { NumberInput } from './number-input'
+import preview from "#.storybook/preview";
+import { CheckIcon } from "#src/icons/check";
+import { LocationIcon } from "#src/icons/location";
+
+import { NumberInput } from "./number-input";
 
 const meta = preview.meta({
-  title: 'Input and selection/NumberInput',
+  title: "Input and selection/NumberInput",
   component: NumberInput,
   argTypes: {
     leadingIcon: {
-      control: 'select',
-      options: ['None', 'Check', 'Location'],
+      control: "select",
+      options: ["None", "Check", "Location"],
       mapping: {
         None: undefined,
         Check: <CheckIcon />,
@@ -17,26 +18,26 @@ const meta = preview.meta({
       },
     },
     locale: {
-      control: 'select',
-      options: ['en-AU', 'en-GB', 'en-US', 'de-DE', 'fr-FR', 'ja-JP'],
+      control: "select",
+      options: ["en-AU", "en-GB", "en-US", "de-DE", "fr-FR", "ja-JP"],
     },
     inputMode: {
-      control: 'select',
-      options: ['decimal', 'numeric'],
+      control: "select",
+      options: ["decimal", "numeric"],
     },
     prefix: {
-      control: 'text',
+      control: "text",
     },
     size: {
-      control: 'select',
-      options: ['small', 'medium', 'large'],
+      control: "select",
+      options: ["small", "medium", "large"],
     },
     suffix: {
-      control: 'text',
+      control: "text",
     },
     trailingIcon: {
-      control: 'select',
-      options: ['None', 'Check', 'Location'],
+      control: "select",
+      options: ["None", "Check", "Location"],
       mapping: {
         None: undefined,
         Check: <CheckIcon />,
@@ -44,30 +45,30 @@ const meta = preview.meta({
       },
     },
     value: {
-      control: 'text',
+      control: "text",
       table: {
         type: {
-          summary: 'string | number | readonly string[] | undefined',
+          summary: "string | number | readonly string[] | undefined",
         },
       },
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
-    'aria-label': 'Amount',
-    defaultValue: '1234567.89',
+    "aria-label": "Amount",
+    defaultValue: "1234567.89",
     disabled: false,
-    locale: 'en-GB',
-    name: 'amount',
-    placeholder: '',
+    locale: "en-GB",
+    name: "amount",
+    placeholder: "",
     readOnly: false,
     required: false,
     showValidity: false,
-    size: 'medium',
+    size: "medium",
   },
-})
+});
 
 /**
  * The underlying `input.value` always uses a `.` decimal — locale affects only the display.
@@ -78,7 +79,7 @@ export const LocaleFormatting = Example.extend({
   },
   decorators: [
     (Story) => (
-      <div style={{ display: 'flex', flexFlow: 'row nowrap', gap: 'var(--spacing-6)' }}>
+      <div style={{ display: "flex", flexFlow: "row nowrap", gap: "var(--spacing-6)" }}>
         <Story />
       </div>
     ),
@@ -90,7 +91,7 @@ export const LocaleFormatting = Example.extend({
       <NumberInput {...args} locale="fr-FR" />
     </>
   ),
-})
+});
 
 /**
  * `formatOptions` accepts any `Intl.NumberFormatOptions` to control decimal places, grouping,
@@ -98,14 +99,14 @@ export const LocaleFormatting = Example.extend({
  */
 export const FormatOptions = Example.extend({
   args: {
-    defaultValue: '1234567.89',
+    defaultValue: "1234567.89",
   },
   argTypes: {
     formatOptions: { control: false },
   },
   decorators: [
     (Story) => (
-      <div style={{ display: 'flex', flexFlow: 'row nowrap', gap: 'var(--spacing-6)' }}>
+      <div style={{ display: "flex", flexFlow: "row nowrap", gap: "var(--spacing-6)" }}>
         <Story />
       </div>
     ),
@@ -120,7 +121,7 @@ export const FormatOptions = Example.extend({
       <NumberInput {...args} aria-label="No grouping" formatOptions={{ useGrouping: false }} />
     </>
   ),
-})
+});
 
 /**
  * Setting `inputMode="numeric"` restricts entry to integers: the decimal separator is rejected
@@ -128,10 +129,10 @@ export const FormatOptions = Example.extend({
  */
 export const Numeric = Example.extend({
   args: {
-    defaultValue: '1234',
-    inputMode: 'numeric',
+    defaultValue: "1234",
+    inputMode: "numeric",
   },
-})
+});
 
 /**
  * When `formatOptions.style` is `'currency'`, `'percent'`, or `'unit'`, the localised affix
@@ -147,7 +148,7 @@ export const Numeric = Example.extend({
 export const FormattingStyles = Example.extend({
   decorators: [
     (Story) => (
-      <div style={{ display: 'flex', flexFlow: 'row wrap', gap: 'var(--spacing-6)' }}>
+      <div style={{ display: "flex", flexFlow: "row wrap", gap: "var(--spacing-6)" }}>
         <Story />
       </div>
     ),
@@ -159,18 +160,23 @@ export const FormattingStyles = Example.extend({
         aria-label="Currency"
         defaultValue="1500"
         locale="en-GB"
-        formatOptions={{ style: 'currency', currency: 'GBP' }}
+        formatOptions={{ style: "currency", currency: "GBP" }}
       />
-      <NumberInput {...args} aria-label="Percent" defaultValue="0.255" formatOptions={{ style: 'percent' }} />
+      <NumberInput
+        {...args}
+        aria-label="Percent"
+        defaultValue="0.255"
+        formatOptions={{ style: "percent" }}
+      />
       <NumberInput
         {...args}
         aria-label="Unit"
         defaultValue="1500"
-        formatOptions={{ style: 'unit', unit: 'kilogram' }}
+        formatOptions={{ style: "unit", unit: "kilogram" }}
       />
     </>
   ),
-})
+});
 
 /**
  * Supplying any affix prop (`prefix`, `suffix`, `leadingIcon`, or `trailingIcon`) provides an
@@ -180,12 +186,12 @@ export const FormattingStyles = Example.extend({
  */
 export const Affixes = Example.extend({
   args: {
-    defaultValue: '1500',
-    prefix: '\u00A3',
+    defaultValue: "1500",
+    prefix: "\u00A3",
   },
   decorators: [
     (Story) => (
-      <div style={{ display: 'flex', flexFlow: 'row nowrap', gap: 'var(--spacing-6)' }}>
+      <div style={{ display: "flex", flexFlow: "row nowrap", gap: "var(--spacing-6)" }}>
         <Story />
       </div>
     ),
@@ -196,7 +202,7 @@ export const Affixes = Example.extend({
       <NumberInput {...args} prefix={undefined} suffix="/month" />
     </>
   ),
-})
+});
 
 /**
  * There are three sizes available: `small`, `medium` and `large`.
@@ -207,7 +213,7 @@ export const Sizes = Example.extend({
   },
   decorators: [
     (Story) => (
-      <div style={{ display: 'flex', flexFlow: 'row nowrap', gap: 'var(--spacing-6)' }}>
+      <div style={{ display: "flex", flexFlow: "row nowrap", gap: "var(--spacing-6)" }}>
         <Story />
       </div>
     ),
@@ -219,16 +225,16 @@ export const Sizes = Example.extend({
       <NumberInput {...args} size="large" />
     </>
   ),
-})
+});
 
 /**
  * The minus sign is permitted by default. Setting `min` to zero or above blocks negative input.
  */
 export const NegativeValues = Example.extend({
   args: {
-    defaultValue: '-42',
+    defaultValue: "-42",
   },
-})
+});
 
 /**
  * Number inputs can be disabled.
@@ -237,14 +243,14 @@ export const Disabled = Example.extend({
   args: {
     disabled: true,
   },
-})
+});
 
 /**
  * Number inputs can be marked as read-only.
  */
 export const Readonly = Example.extend({
-  name: 'Read-only',
+  name: "Read-only",
   args: {
     readOnly: true,
   },
-})
+});

@@ -1,11 +1,12 @@
-import preview from '#.storybook/preview'
-import { GridDemoBlockWithMargin } from '../storybook/demo-block'
+import preview from "#.storybook/preview";
+
+import { GridDemoBlockWithMargin } from "../storybook/demo-block";
 
 const meta = preview.meta({
-  title: 'Deprecated/Flexbox',
-})
+  title: "Deprecated/Flexbox",
+});
 
-export default meta
+export default meta;
 
 export const Flex = meta.story({
   render: () => (
@@ -14,8 +15,8 @@ export const Flex = meta.story({
       <GridDemoBlockWithMargin>Second Element</GridDemoBlockWithMargin>
     </div>
   ),
-  name: 'flex',
-})
+  name: "flex",
+});
 
 export const IsFlexColumn = meta.story({
   render: () => (
@@ -26,8 +27,8 @@ export const IsFlexColumn = meta.story({
       <GridDemoBlockWithMargin>4</GridDemoBlockWithMargin>
     </div>
   ),
-  name: 'is-flex-column',
-})
+  name: "is-flex-column",
+});
 
 export const FlexRow = meta.story({
   render: () => (
@@ -38,8 +39,8 @@ export const FlexRow = meta.story({
       <GridDemoBlockWithMargin>4</GridDemoBlockWithMargin>
     </div>
   ),
-  name: 'flex-row',
-})
+  name: "flex-row",
+});
 
 export const FlexRowReverse = meta.story({
   render: () => (
@@ -50,8 +51,8 @@ export const FlexRowReverse = meta.story({
       <GridDemoBlockWithMargin>4</GridDemoBlockWithMargin>
     </div>
   ),
-  name: 'flex-row-reverse',
-})
+  name: "flex-row-reverse",
+});
 
 export const FlexColumn = meta.story({
   render: () => (
@@ -62,8 +63,8 @@ export const FlexColumn = meta.story({
       <GridDemoBlockWithMargin>4</GridDemoBlockWithMargin>
     </div>
   ),
-  name: 'flex-column',
-})
+  name: "flex-column",
+});
 
 export const FlexColumnReverse = meta.story({
   render: () => (
@@ -74,116 +75,116 @@ export const FlexColumnReverse = meta.story({
       <GridDemoBlockWithMargin>4</GridDemoBlockWithMargin>
     </div>
   ),
-  name: 'flex-column-reverse',
-})
+  name: "flex-column-reverse",
+});
 
 export const FlexWrap = meta.story({
   render: () => (
     <div className="el-flex el-flex-row el-flex-wrap">
       <GridDemoBlockWithMargin
         style={{
-          width: '300px',
+          width: "300px",
         }}
       >
         1
       </GridDemoBlockWithMargin>
       <GridDemoBlockWithMargin
         style={{
-          width: '300px',
+          width: "300px",
         }}
       >
         2
       </GridDemoBlockWithMargin>
       <GridDemoBlockWithMargin
         style={{
-          width: '300px',
+          width: "300px",
         }}
       >
         3
       </GridDemoBlockWithMargin>
       <GridDemoBlockWithMargin
         style={{
-          width: '300px',
+          width: "300px",
         }}
       >
         4
       </GridDemoBlockWithMargin>
     </div>
   ),
-  name: 'flex-wrap',
-})
+  name: "flex-wrap",
+});
 
 export const FlexNoWrap = meta.story({
   render: () => (
     <div className="el-flex el-flex-row el-flex-no-wrap">
       <GridDemoBlockWithMargin
         style={{
-          width: '300px',
+          width: "300px",
         }}
       >
         1
       </GridDemoBlockWithMargin>
       <GridDemoBlockWithMargin
         style={{
-          width: '300px',
+          width: "300px",
         }}
       >
         2
       </GridDemoBlockWithMargin>
       <GridDemoBlockWithMargin
         style={{
-          width: '300px',
+          width: "300px",
         }}
       >
         3
       </GridDemoBlockWithMargin>
       <GridDemoBlockWithMargin
         style={{
-          width: '300px',
+          width: "300px",
         }}
       >
         4
       </GridDemoBlockWithMargin>
     </div>
   ),
-  name: 'flex-no-wrap',
-})
+  name: "flex-no-wrap",
+});
 
 export const FlexWrapReverse = meta.story({
   render: () => (
     <div className="el-flex el-flex-row el-flex-wrap-reverse">
       <GridDemoBlockWithMargin
         style={{
-          width: '300px',
+          width: "300px",
         }}
       >
         1
       </GridDemoBlockWithMargin>
       <GridDemoBlockWithMargin
         style={{
-          width: '300px',
+          width: "300px",
         }}
       >
         2
       </GridDemoBlockWithMargin>
       <GridDemoBlockWithMargin
         style={{
-          width: '300px',
+          width: "300px",
         }}
       >
         3
       </GridDemoBlockWithMargin>
       <GridDemoBlockWithMargin
         style={{
-          width: '300px',
+          width: "300px",
         }}
       >
         4
       </GridDemoBlockWithMargin>
     </div>
   ),
-  name: 'flex-wrap-reverse',
-})
+  name: "flex-wrap-reverse",
+});
 
 export const Flex1 = meta.story({
   render: () => (
@@ -194,8 +195,8 @@ export const Flex1 = meta.story({
       <GridDemoBlockWithMargin className="el-flex1">4</GridDemoBlockWithMargin>
     </div>
   ),
-  name: 'flex1',
-})
+  name: "flex1",
+});
 
 export const FlexAuto = meta.story({
   render: () => (
@@ -206,8 +207,8 @@ export const FlexAuto = meta.story({
       <GridDemoBlockWithMargin>4</GridDemoBlockWithMargin>
     </div>
   ),
-  name: 'flex-auto',
-})
+  name: "flex-auto",
+});
 
 export const FlexInitial = meta.story({
   render: () => (
@@ -218,8 +219,8 @@ export const FlexInitial = meta.story({
       <GridDemoBlockWithMargin>4</GridDemoBlockWithMargin>
     </div>
   ),
-  name: 'flex-initial',
-})
+  name: "flex-initial",
+});
 
 export const FlexGrow = meta.story({
   render: () => (
@@ -228,8 +229,8 @@ export const FlexGrow = meta.story({
       <GridDemoBlockWithMargin>2</GridDemoBlockWithMargin>
     </div>
   ),
-  name: 'flex-grow',
-})
+  name: "flex-grow",
+});
 
 export const FlexGrow0 = meta.story({
   render: () => (
@@ -238,8 +239,8 @@ export const FlexGrow0 = meta.story({
       <GridDemoBlockWithMargin className="el-flex-grow0">2</GridDemoBlockWithMargin>
     </div>
   ),
-  name: 'flex-grow0',
-})
+  name: "flex-grow0",
+});
 
 export const FlexShrink = meta.story({
   render: () => (
@@ -250,8 +251,8 @@ export const FlexShrink = meta.story({
       <GridDemoBlockWithMargin className="el-flex-grow">4</GridDemoBlockWithMargin>
     </div>
   ),
-  name: 'flex-shrink',
-})
+  name: "flex-shrink",
+});
 
 export const FlexShrink0 = meta.story({
   render: () => (
@@ -262,8 +263,8 @@ export const FlexShrink0 = meta.story({
       <GridDemoBlockWithMargin className="el-flex-grow">4</GridDemoBlockWithMargin>
     </div>
   ),
-  name: 'flex-shrink0',
-})
+  name: "flex-shrink0",
+});
 
 export const FlexJustifyCenter = meta.story({
   render: () => (
@@ -272,8 +273,8 @@ export const FlexJustifyCenter = meta.story({
       <GridDemoBlockWithMargin className="">2</GridDemoBlockWithMargin>
     </div>
   ),
-  name: 'flex-justify-center',
-})
+  name: "flex-justify-center",
+});
 
 export const FlexJustifyStart = meta.story({
   render: () => (
@@ -284,8 +285,8 @@ export const FlexJustifyStart = meta.story({
       <GridDemoBlockWithMargin>4</GridDemoBlockWithMargin>
     </div>
   ),
-  name: 'flex-justify-start',
-})
+  name: "flex-justify-start",
+});
 
 export const FlexJustifyEnd = meta.story({
   render: () => (
@@ -296,8 +297,8 @@ export const FlexJustifyEnd = meta.story({
       <GridDemoBlockWithMargin>4</GridDemoBlockWithMargin>
     </div>
   ),
-  name: 'flex-justify-end',
-})
+  name: "flex-justify-end",
+});
 
 export const FlexJustifyBetween = meta.story({
   render: () => (
@@ -308,8 +309,8 @@ export const FlexJustifyBetween = meta.story({
       <GridDemoBlockWithMargin>4</GridDemoBlockWithMargin>
     </div>
   ),
-  name: 'flex-justify-between',
-})
+  name: "flex-justify-between",
+});
 
 export const FlexJustifyAround = meta.story({
   render: () => (
@@ -320,8 +321,8 @@ export const FlexJustifyAround = meta.story({
       <GridDemoBlockWithMargin>4</GridDemoBlockWithMargin>
     </div>
   ),
-  name: 'flex-justify-around',
-})
+  name: "flex-justify-around",
+});
 
 export const FlexJustifyEvenly = meta.story({
   render: () => (
@@ -332,74 +333,74 @@ export const FlexJustifyEvenly = meta.story({
       <GridDemoBlockWithMargin>4</GridDemoBlockWithMargin>
     </div>
   ),
-  name: 'flex-justify-evenly',
-})
+  name: "flex-justify-evenly",
+});
 
 export const FlexAlignCenter = meta.story({
   render: () => (
     <div className="el-flex el-flex-column el-flex-align-center">
       <GridDemoBlockWithMargin
         style={{
-          width: '300px',
+          width: "300px",
         }}
       >
         1
       </GridDemoBlockWithMargin>
       <GridDemoBlockWithMargin
         style={{
-          width: '300px',
+          width: "300px",
         }}
       >
         2
       </GridDemoBlockWithMargin>
     </div>
   ),
-  name: 'flex-align-center',
-})
+  name: "flex-align-center",
+});
 
 export const FlexAlignStart = meta.story({
   render: () => (
     <div className="el-flex el-flex-column el-flex-align-start">
       <GridDemoBlockWithMargin
         style={{
-          width: '300px',
+          width: "300px",
         }}
       >
         1
       </GridDemoBlockWithMargin>
       <GridDemoBlockWithMargin
         style={{
-          width: '300px',
+          width: "300px",
         }}
       >
         2
       </GridDemoBlockWithMargin>
     </div>
   ),
-  name: 'flex-align-start',
-})
+  name: "flex-align-start",
+});
 
 export const FlexAlignEnd = meta.story({
   render: () => (
     <div className="el-flex el-flex-column el-flex-align-end">
       <GridDemoBlockWithMargin
         style={{
-          width: '300px',
+          width: "300px",
         }}
       >
         1
       </GridDemoBlockWithMargin>
       <GridDemoBlockWithMargin
         style={{
-          width: '300px',
+          width: "300px",
         }}
       >
         2
       </GridDemoBlockWithMargin>
     </div>
   ),
-  name: 'flex-align-end',
-})
+  name: "flex-align-end",
+});
 
 export const FlexAlignSelfCenter = meta.story({
   render: () => (
@@ -410,8 +411,8 @@ export const FlexAlignSelfCenter = meta.story({
       <GridDemoBlockWithMargin>4</GridDemoBlockWithMargin>
     </div>
   ),
-  name: 'flex-align-self-center',
-})
+  name: "flex-align-self-center",
+});
 
 export const FlexAlignSelfStart = meta.story({
   render: () => (
@@ -422,8 +423,8 @@ export const FlexAlignSelfStart = meta.story({
       <GridDemoBlockWithMargin>4</GridDemoBlockWithMargin>
     </div>
   ),
-  name: 'flex-align-self-start',
-})
+  name: "flex-align-self-start",
+});
 
 export const FlexAlignSelfEnd = meta.story({
   render: () => (
@@ -434,5 +435,5 @@ export const FlexAlignSelfEnd = meta.story({
       <GridDemoBlockWithMargin>4</GridDemoBlockWithMargin>
     </div>
   ),
-  name: 'flex-align-self-end',
-})
+  name: "flex-align-self-end",
+});

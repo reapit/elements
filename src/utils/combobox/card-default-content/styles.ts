@@ -1,10 +1,11 @@
-import { font } from '#src/utils/font'
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
+
+import { font } from "#src/utils/font";
 
 export const ElComboboxCardDefaultContent = styled.span`
   @layer elements.main {
     display: grid;
-    grid: 'label' auto 'additionalInfo' auto / 1fr;
+    grid: "label" auto "additionalInfo" auto / 1fr;
     grid-auto-flow: row;
     grid-auto-rows: auto;
     align-items: center;
@@ -13,7 +14,7 @@ export const ElComboboxCardDefaultContent = styled.span`
 
     padding: 0 0 var(--spacing-half) var(--spacing-half);
   }
-`
+`;
 
 export const ElComboboxCardDefaultContentLabel = styled.span`
   @layer elements.main {
@@ -24,14 +25,14 @@ export const ElComboboxCardDefaultContentLabel = styled.span`
     margin: 0;
     color: var(--comp-input-colour-text-default-input);
   }
-`
+`;
 
 export const ElComboboxCardDefaultContentAdditionalInfo = styled.span`
   @layer elements.main {
     grid-area: additionalInfo;
     display: contents;
 
-    ${font('xs', 'regular')}
+    ${font("xs", "regular")}
     color: var(--colour-text-secondary);
   }
-`
+`;

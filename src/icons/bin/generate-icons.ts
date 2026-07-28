@@ -8,28 +8,29 @@
 //   - A `FIGMA_ACCESS_TOKEN` environment variable set to a Figma personal access token with
 //     "File content" read scope
 
-import { basename, dirname, join } from 'node:path'
-import { client } from '@figma/code-connect'
-import { fileURLToPath } from 'node:url'
-import { mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs'
-import { styleText } from 'node:util'
-import { optimize } from 'svgo'
+import { mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
+import { basename, dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
+import { styleText } from "node:util";
 
-type FigmaComponent = Awaited<ReturnType<typeof client.getComponents>>[number]
+import { client } from "@figma/code-connect";
+import { optimize } from "svgo";
 
-const FIGMA_FILE_KEY = '6CaivqdlTX0UkFYJkpBKDu'
+type FigmaComponent = Awaited<ReturnType<typeof client.getComponents>>[number];
+
+const FIGMA_FILE_KEY = "6CaivqdlTX0UkFYJkpBKDu";
 
 // We read from and write SVGs to `src/icons/svgs`
-const iconsDir = join(dirname(fileURLToPath(import.meta.url)), '../svgs')
+const iconsDir = join(dirname(fileURLToPath(import.meta.url)), "../svgs");
 
 // We write generated files to `src/icons`
-const outputDir = join(dirname(fileURLToPath(import.meta.url)), '../')
+const outputDir = join(dirname(fileURLToPath(import.meta.url)), "../");
 
 function kebabToPascalCase(kebab: string): string {
   return kebab
-    .split('-')
+    .split("-")
     .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
-    .join('')
+    .join("");
 }
 
 /** Load icon components from Reapit DS Figma file. */
@@ -37,8 +38,8 @@ async function loadFigmaIcons(): Promise<FigmaComponent[]> {
   // The `?node-id=xxx` query param scopes the search to within the identified node — in this case
   // the "Icons list" auto layout layer which contains all icon component instances.
   return await client.getComponents(
-    'https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=20-727&m=dev',
-  )
+    "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=20-727&m=dev",
+  );
 }
 
 /**
@@ -46,31 +47,31 @@ async function loadFigmaIcons(): Promise<FigmaComponent[]> {
  * Returns a map of node ID → temporary S3 URL (or null if Figma could not render that node).
  */
 async function fetchSvgUrls(components: FigmaComponent[]): Promise<Record<string, string | null>> {
-  const token = process.env.FIGMA_ACCESS_TOKEN
+  const token = process.env.FIGMA_ACCESS_TOKEN;
   if (!token) {
     throw new Error(
-      'FIGMA_ACCESS_TOKEN environment variable is not set. ' +
+      "FIGMA_ACCESS_TOKEN environment variable is not set. " +
         'Set it to a Figma personal access token with "File content" read scope.',
-    )
+    );
   }
 
   // Figma node IDs use `:` (e.g. `20:487`) but must be comma-separated and URL-encoded in the
   // query string.
-  const ids = components.map((c) => c.id).join(',')
+  const ids = components.map((c) => c.id).join(",");
   const url =
     `https://api.figma.com/v1/images/${FIGMA_FILE_KEY}` +
-    `?ids=${encodeURIComponent(ids)}&format=svg&svg_include_id=false&svg_simplify_stroke=true`
+    `?ids=${encodeURIComponent(ids)}&format=svg&svg_include_id=false&svg_simplify_stroke=true`;
 
   const response = await fetch(url, {
-    headers: { 'X-Figma-Token': token },
-  })
+    headers: { "X-Figma-Token": token },
+  });
 
   if (!response.ok) {
-    throw new Error(`Figma Images API returned ${response.status} ${response.statusText}`)
+    throw new Error(`Figma Images API returned ${response.status} ${response.statusText}`);
   }
 
-  const data = (await response.json()) as { images: Record<string, string | null> }
-  return data.images
+  const data = (await response.json()) as { images: Record<string, string | null> };
+  return data.images;
 }
 
 /**
@@ -85,22 +86,22 @@ function processSvg(rawSvg: string): string {
     plugins: [
       // Standard optimisations. SVGO v4 preset-default preserves width, height, and viewBox by
       // default, so no overrides are needed.
-      'preset-default',
+      "preset-default",
       // Strip all hardcoded colour attributes from child elements so no colours are hard-coded.
       {
-        name: 'removeAttrs',
-        params: { attrs: ['fill', 'stroke', 'color'] },
+        name: "removeAttrs",
+        params: { attrs: ["fill", "stroke", "color"] },
       },
       // Re-apply fill="currentColor" to the <svg> root so colour can be controlled via CSS.
       // Note: all icons are fill-based. If stroke-based icons are used in future, the SVGO
       // processing will need to be updated.
       {
-        name: 'addAttributesToSVGElement',
-        params: { attributes: [{ fill: 'currentColor' }] },
+        name: "addAttributesToSVGElement",
+        params: { attributes: [{ fill: "currentColor" }] },
       },
     ],
-  })
-  return result.data
+  });
+  return result.data;
 }
 
 /**
@@ -111,44 +112,52 @@ async function downloadAndWriteSvgs(
   components: FigmaComponent[],
   svgUrls: Record<string, string | null>,
 ): Promise<void> {
-  let warnings = 0
+  let warnings = 0;
 
   await Promise.all(
     components.map(async (component) => {
-      const url = svgUrls[component.id]
+      const url = svgUrls[component.id];
 
       if (!url) {
         console.log(
-          styleText('yellow', `  ⚠️  No SVG URL returned by Figma for "${component.name}" (node ${component.id})`),
-        )
-        warnings++
-        return
+          styleText(
+            "yellow",
+            `  ⚠️  No SVG URL returned by Figma for "${component.name}" (node ${component.id})`,
+          ),
+        );
+        warnings++;
+        return;
       }
 
       try {
-        const response = await fetch(url)
+        const response = await fetch(url);
         if (!response.ok) {
-          throw new Error(`HTTP ${response.status} ${response.statusText}`)
+          throw new Error(`HTTP ${response.status} ${response.statusText}`);
         }
-        const rawSvg = await response.text()
-        const processedSvg = processSvg(rawSvg)
-        writeFileSync(join(iconsDir, `${component.name}.svg`), processedSvg)
+        const rawSvg = await response.text();
+        const processedSvg = processSvg(rawSvg);
+        writeFileSync(join(iconsDir, `${component.name}.svg`), processedSvg);
       } catch (error) {
-        console.log(styleText('yellow', `  ⚠️  Failed to fetch or process SVG for "${component.name}": ${error}`))
-        warnings++
+        console.log(
+          styleText(
+            "yellow",
+            `  ⚠️  Failed to fetch or process SVG for "${component.name}": ${error}`,
+          ),
+        );
+        warnings++;
       }
     }),
-  )
+  );
 
   const summary =
     warnings > 0
       ? styleText(
-          'yellow',
+          "yellow",
           `✔️  Fetched and processed ${components.length - warnings} SVGs from Figma (${warnings} warning(s))`,
         )
-      : styleText('green', `✔️  Fetched and processed ${components.length} SVGs from Figma`)
+      : styleText("green", `✔️  Fetched and processed ${components.length} SVGs from Figma`);
 
-  console.log(summary)
+  console.log(summary);
 }
 
 /**
@@ -156,14 +165,14 @@ async function downloadAndWriteSvgs(
  * These may have been removed or renamed in Figma and should be reviewed manually.
  */
 function warnAboutStaleIcons(components: FigmaComponent[], svgFiles: string[]): void {
-  const figmaNames = new Set(components.map((c) => c.name))
-  const stale = svgFiles.map((f) => basename(f, '.svg')).filter((name) => !figmaNames.has(name))
+  const figmaNames = new Set(components.map((c) => c.name));
+  const stale = svgFiles.map((f) => basename(f, ".svg")).filter((name) => !figmaNames.has(name));
 
-  if (stale.length === 0) return
+  if (stale.length === 0) return;
 
   console.log(
     styleText(
-      'yellow',
+      "yellow",
       [
         ``,
         `⚠️  ${stale.length} local SVG(s) were not found in Figma and may have been removed or renamed:`,
@@ -171,76 +180,79 @@ function warnAboutStaleIcons(components: FigmaComponent[], svgFiles: string[]): 
         ``,
         `    Review these manually. A deprecation script will be available in a future release.`,
         ``,
-      ].join('\n'),
+      ].join("\n"),
     ),
-  )
+  );
 }
 
 /** Create a file for a specific icon */
 function generateIconFile(svgFileName: string): void {
-  const baseName = basename(svgFileName, '.svg')
-  const pascalCaseName = kebabToPascalCase(baseName)
-  const svgImportPath = `./svgs/${baseName}.svg?react`
+  const baseName = basename(svgFileName, ".svg");
+  const pascalCaseName = kebabToPascalCase(baseName);
+  const svgImportPath = `./svgs/${baseName}.svg?react`;
 
   const fileContent = `import ${pascalCaseName}Svg from '${svgImportPath}'
 import { makeIcon } from './make-icon'
 
 export const ${pascalCaseName}Icon = makeIcon('${pascalCaseName}Icon', ${pascalCaseName}Svg)
-`
+`;
 
-  const outputPath = join(outputDir, `${baseName}.tsx`)
-  writeFileSync(outputPath, fileContent)
+  const outputPath = join(outputDir, `${baseName}.tsx`);
+  writeFileSync(outputPath, fileContent);
 }
 
 /** Create a Figma code connect file for a specific icon */
-function generateIconCodeConnectFile(svgFileName: string, figmaIconComponent?: FigmaComponent): void {
+function generateIconCodeConnectFile(
+  svgFileName: string,
+  figmaIconComponent?: FigmaComponent,
+): void {
   if (!figmaIconComponent) {
-    return
+    return;
   }
 
-  const baseName = basename(svgFileName, '.svg')
-  const pascalCaseName = kebabToPascalCase(baseName)
-  const iconComponentName = `${pascalCaseName}Icon`
-  const iconImportPath = `./${baseName}`
+  const baseName = basename(svgFileName, ".svg");
+  const pascalCaseName = kebabToPascalCase(baseName);
+  const iconComponentName = `${pascalCaseName}Icon`;
+  const iconImportPath = `./${baseName}`;
 
   const fileContent = `import figma from '@figma/code-connect'
 import { ${iconComponentName} } from '${iconImportPath}'
 
 figma.connect(${iconComponentName}, '${figmaIconComponent.figmaUrl}')
-`
+`;
 
-  const outputPath = join(outputDir, `${baseName}.figma.tsx`)
-  writeFileSync(outputPath, fileContent)
+  const outputPath = join(outputDir, `${baseName}.figma.tsx`);
+  writeFileSync(outputPath, fileContent);
 }
 
 /** Create a barrel file for all icons */
 function writeBarrelFile(svgFiles: string[]): void {
   const exports = svgFiles
     .map((file) => {
-      const baseName = basename(file, '.svg')
-      return `export * from '../${baseName}'`
+      const baseName = basename(file, ".svg");
+      return `export * from '../${baseName}'`;
     })
-    .join('\n')
+    .join("\n");
 
   // Emit a PascalName → kebabName map so consumers (e.g. the icon gallery story) can
   // recover the subpath name without parsing the export name — which is lossy for
   // names containing digits (e.g. `W3wIcon` could derive to either `w3w` or `w-3-w`).
   const kebabEntries = svgFiles
     .map((file) => {
-      const baseName = basename(file, '.svg')
-      const pascalCaseName = kebabToPascalCase(baseName)
-      return `  ${pascalCaseName}Icon: '${baseName}',`
+      const baseName = basename(file, ".svg");
+      const pascalCaseName = kebabToPascalCase(baseName);
+      return `  ${pascalCaseName}Icon: '${baseName}',`;
     })
-    .join('\n')
+    .join("\n");
 
   const fileContent = `${exports}
 
 export const ICON_KEBAB_NAMES: Record<string, string> = {
 ${kebabEntries}
 }
-`
+`;
 
-  writeFileSync(join(outputDir, 'docs', 'all-icons.ts'), fileContent)
+  writeFileSync(join(outputDir, "docs", "all-icons.ts"), fileContent);
 }
 
 /**
@@ -249,24 +261,26 @@ ${kebabEntries}
  * regeneration is never blocked by stale synonym data.
  */
 function warnAboutOrphanedSynonyms(svgFiles: string[]): void {
-  const synonymsPath = join(outputDir, 'docs', 'icon-synonyms.json')
-  let synonyms: Record<string, unknown>
+  const synonymsPath = join(outputDir, "docs", "icon-synonyms.json");
+  let synonyms: Record<string, unknown>;
 
   try {
-    synonyms = JSON.parse(readFileSync(synonymsPath, 'utf8'))
+    synonyms = JSON.parse(readFileSync(synonymsPath, "utf8"));
   } catch (error) {
-    console.log(styleText('yellow', `⚠️  Could not read icon-synonyms.json: ${error}`))
-    return
+    console.log(styleText("yellow", `⚠️  Could not read icon-synonyms.json: ${error}`));
+    return;
   }
 
-  const liveIconNames = new Set(svgFiles.map((f) => `${kebabToPascalCase(basename(f, '.svg'))}Icon`))
-  const orphaned = Object.keys(synonyms).filter((name) => !liveIconNames.has(name))
+  const liveIconNames = new Set(
+    svgFiles.map((f) => `${kebabToPascalCase(basename(f, ".svg"))}Icon`),
+  );
+  const orphaned = Object.keys(synonyms).filter((name) => !liveIconNames.has(name));
 
-  if (orphaned.length === 0) return
+  if (orphaned.length === 0) return;
 
   console.log(
     styleText(
-      'yellow',
+      "yellow",
       [
         ``,
         `⚠️  ${orphaned.length} entry/entries in icon-synonyms.json reference icons that no longer exist:`,
@@ -274,68 +288,71 @@ function warnAboutOrphanedSynonyms(svgFiles: string[]): void {
         ``,
         `    Prune these entries from src/icons/docs/icon-synonyms.json.`,
         ``,
-      ].join('\n'),
+      ].join("\n"),
     ),
-  )
+  );
 }
 
 /** Main script execution */
 async function main() {
-  mkdirSync(iconsDir, { recursive: true })
+  mkdirSync(iconsDir, { recursive: true });
 
   // 1. Fetch Figma component metadata (names, node IDs, figma URLs)
-  const figmaIcons = await loadFigmaIcons()
-  console.log(styleText('green', `✔️  Found ${figmaIcons.length} icon components in Figma`))
+  const figmaIcons = await loadFigmaIcons();
+  console.log(styleText("green", `✔️  Found ${figmaIcons.length} icon components in Figma`));
 
   // 2. Fetch temporary SVG export URLs from the Figma Images API
-  const svgUrls = await fetchSvgUrls(figmaIcons)
+  const svgUrls = await fetchSvgUrls(figmaIcons);
 
   // 3. Download, run SVGO monochrome processing, and write SVGs to src/icons/svgs/
-  await downloadAndWriteSvgs(figmaIcons, svgUrls)
+  await downloadAndWriteSvgs(figmaIcons, svgUrls);
 
   // 4. Read the now up-to-date SVG files from disk
-  const svgFiles = readdirSync(iconsDir).filter((file) => file.endsWith('.svg'))
+  const svgFiles = readdirSync(iconsDir).filter((file) => file.endsWith(".svg"));
 
   // 5. Warn about any local SVGs that have no Figma counterpart
-  warnAboutStaleIcons(figmaIcons, svgFiles)
+  warnAboutStaleIcons(figmaIcons, svgFiles);
 
   // 5a. Warn about any synonym entries whose icon no longer exists
-  warnAboutOrphanedSynonyms(svgFiles)
+  warnAboutOrphanedSynonyms(svgFiles);
 
   // 6. Generate React component files for all SVGs
-  svgFiles.forEach(generateIconFile)
-  console.log(styleText('green', `✔️  Generated ${svgFiles.length} icon files`))
+  svgFiles.forEach(generateIconFile);
+  console.log(styleText("green", `✔️  Generated ${svgFiles.length} icon files`));
 
   // 7. Generate Figma Code Connect files
   const failedCodeConnectFiles = svgFiles
     .map((file) => {
-      const figmaIcon = figmaIcons.find((icon) => icon.name === basename(file, '.svg'))
+      const figmaIcon = figmaIcons.find((icon) => icon.name === basename(file, ".svg"));
       try {
-        generateIconCodeConnectFile(file, figmaIcon)
+        generateIconCodeConnectFile(file, figmaIcon);
       } catch (error) {
-        console.log(styleText('red', `❌ Error generating code connect file for ${file}`))
-        return file
+        console.log(styleText("red", `❌ Error generating code connect file for ${file}`));
+        return file;
       }
     })
-    .filter(Boolean)
+    .filter(Boolean);
 
   if (failedCodeConnectFiles.length === 0) {
-    console.log(styleText('green', `✔️  Generated ${svgFiles.length} code connect files`))
+    console.log(styleText("green", `✔️  Generated ${svgFiles.length} code connect files`));
   } else {
     console.log(
-      styleText('yellow', `⚠️  Generated ${svgFiles.length - failedCodeConnectFiles.length} code connect files`),
-    )
+      styleText(
+        "yellow",
+        `⚠️  Generated ${svgFiles.length - failedCodeConnectFiles.length} code connect files`,
+      ),
+    );
   }
 
   // 8. Write the barrel file
-  writeBarrelFile(svgFiles)
-  console.log(styleText('green', '✔️  Generated icon barrel file'))
+  writeBarrelFile(svgFiles);
+  console.log(styleText("green", "✔️  Generated icon barrel file"));
 }
 
 try {
-  await main()
+  await main();
 } catch (error) {
-  console.error(styleText('red', '❌ An error occurred during icon generation:'))
-  console.error(error)
-  process.exit(1)
+  console.error(styleText("red", "❌ An error occurred during icon generation:"));
+  console.error(error);
+  process.exit(1);
 }

@@ -1,38 +1,38 @@
-import { cx } from '@linaria/core'
-import { elTableHeaderCell } from './styles'
+import { cx } from "@linaria/core";
+import type { HTMLAttributes, ReactNode, ThHTMLAttributes } from "react";
 
-import type { HTMLAttributes, ReactNode, ThHTMLAttributes } from 'react'
+import { elTableHeaderCell } from "./styles";
 
 export namespace TableHeaderCell {
   interface CommonProps {
     /** The cell content. */
-    children?: ReactNode
+    children?: ReactNode;
     /**
      * Remove default padding. Useful for cells that contain an interactive element whose hit area
      * should fill the entire cell.
      */
-    hasNoPadding?: boolean
+    hasNoPadding?: boolean;
     /** The alignment of the cell's content. */
-    justifySelf?: 'start' | 'center' | 'end'
+    justifySelf?: "start" | "center" | "end";
   }
 
   interface AsThProps
     extends
       CommonProps,
       // NOTE: we omit scope because it should always be "col"
-      Omit<ThHTMLAttributes<HTMLTableCellElement>, 'scope'> {
+      Omit<ThHTMLAttributes<HTMLTableCellElement>, "scope"> {
     /** The sort direction currently applied to the column. */
-    'aria-sort'?: 'ascending' | 'descending'
-    as?: 'th'
+    "aria-sort"?: "ascending" | "descending";
+    as?: "th";
   }
 
   interface AsDivProps extends CommonProps, HTMLAttributes<HTMLDivElement> {
     /** The sort direction currently applied to the column. */
-    'aria-sort'?: 'ascending' | 'descending'
-    as: 'div'
+    "aria-sort"?: "ascending" | "descending";
+    as: "div";
   }
 
-  export type Props = AsThProps | AsDivProps
+  export type Props = AsThProps | AsDivProps;
 }
 
 /**
@@ -40,7 +40,7 @@ export namespace TableHeaderCell {
  * `<div>` element. Typically used via `Table.HeaderCell`.
  */
 export function TableHeaderCell({
-  as: ElementProp = 'th',
+  as: ElementProp = "th",
   children,
   className,
   hasNoPadding,
@@ -49,8 +49,8 @@ export function TableHeaderCell({
 }: TableHeaderCell.Props) {
   // If there's no children (i.e. it's an empty cell), we need to render as a <td>, not a <th>, but this
   // only relevant if we're rendering as a <th> element in the first-place.
-  const Element = !children && ElementProp === 'th' ? 'td' : ElementProp
-  const thElementScope = Element === 'th' ? { scope: 'col' } : undefined
+  const Element = !children && ElementProp === "th" ? "td" : ElementProp;
+  const thElementScope = Element === "th" ? { scope: "col" } : undefined;
   return (
     <Element
       {...rest}
@@ -61,10 +61,10 @@ export function TableHeaderCell({
     >
       {children}
     </Element>
-  )
+  );
 }
 
-TableHeaderCell.displayName = 'Table.HeaderCell'
+TableHeaderCell.displayName = "Table.HeaderCell";
 
 // Backward compatibility
-export type TableHeaderCellProps = TableHeaderCell.Props
+export type TableHeaderCellProps = TableHeaderCell.Props;

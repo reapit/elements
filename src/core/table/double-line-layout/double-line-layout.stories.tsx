@@ -1,30 +1,33 @@
-import preview from '#.storybook/preview'
-import { Avatar } from '#src/core/avatar'
-import { AvatarRectangle } from '#src/core/avatar-rectangle'
-import { Skeleton } from '#src/core/skeleton'
-import { StarIcon } from '#src/icons/star'
-import { SupplementaryInfo } from '#src/core/supplementary-info'
-import { Table } from '../table'
-import { Text } from '#src/utils/text'
-import { Tooltip } from '#src/core/tooltip'
+import preview from "#.storybook/preview";
+import { Avatar } from "#src/core/avatar";
+import { AvatarRectangle } from "#src/core/avatar-rectangle";
+import { Skeleton } from "#src/core/skeleton";
+import { SupplementaryInfo } from "#src/core/supplementary-info";
+import { Tooltip } from "#src/core/tooltip";
+import { StarIcon } from "#src/icons/star";
+import { Text } from "#src/utils/text";
+
+import { Table } from "../table";
 
 const meta = preview.meta({
-  title: 'Data and tables/Table/DoubleLineLayout',
+  title: "Data and tables/Table/DoubleLineLayout",
   component: Table.DoubleLineLayout,
   argTypes: {
     children: {
-      control: 'select',
-      options: ['Address Line 1', 'Text + icon', 'Skeleton'],
+      control: "select",
+      options: ["Address Line 1", "Text + icon", "Skeleton"],
       mapping: {
-        'Address Line 1': '10 Elizabeth St',
-        'Contact name': 'Mary Jane',
-        'Text + icon': <Table.PrimaryData iconRight={<StarIcon />}>Alphanumeric value</Table.PrimaryData>,
+        "Address Line 1": "10 Elizabeth St",
+        "Contact name": "Mary Jane",
+        "Text + icon": (
+          <Table.PrimaryData iconRight={<StarIcon />}>Alphanumeric value</Table.PrimaryData>
+        ),
         Skeleton: <Skeleton />,
       },
     },
     mediaItem: {
-      control: 'radio',
-      options: ['None', 'Avatar', 'Image', 'Skeleton'],
+      control: "radio",
+      options: ["None", "Avatar", "Image", "Skeleton"],
       mapping: {
         None: null,
         Avatar: <Avatar>MJ</Avatar>,
@@ -33,12 +36,12 @@ const meta = preview.meta({
       },
     },
     supplementaryData: {
-      control: 'radio',
-      options: ['None', 'Address Line 2', 'Supplementary info', 'Skeleton'],
+      control: "radio",
+      options: ["None", "Address Line 2", "Supplementary info", "Skeleton"],
       mapping: {
         None: null,
-        'Address Line 2': 'Brisbane City 4000',
-        'Supplementary info': (
+        "Address Line 2": "Brisbane City 4000",
+        "Supplementary info": (
           <SupplementaryInfo size="xs">
             <SupplementaryInfo.Item>Value 1</SupplementaryInfo.Item>
             <SupplementaryInfo.Item>Value 2</SupplementaryInfo.Item>
@@ -49,7 +52,7 @@ const meta = preview.meta({
       },
     },
   },
-})
+});
 
 /**
  * [Table.PrimaryData](./?path=/docs/core-table-primarydata--docs) will often be used to display
@@ -57,22 +60,22 @@ const meta = preview.meta({
  */
 export const Example = meta.story({
   args: {
-    children: 'Text + icon',
-    mediaItem: 'None',
-    supplementaryData: 'Supplementary info',
+    children: "Text + icon",
+    mediaItem: "None",
+    supplementaryData: "Supplementary info",
   },
-})
+});
 
 /**
  * Media items like avatars and images can also be displayed.
  */
 export const MediaItems = Example.extend({
   args: {
-    children: 'Contact name',
-    mediaItem: 'Avatar',
-    supplementaryData: 'Supplementary info',
+    children: "Contact name",
+    mediaItem: "Avatar",
+    supplementaryData: "Supplementary info",
   },
-})
+});
 
 /**
  * In cases where the content has insufficient space, content will be clipped while the icons remain
@@ -82,12 +85,19 @@ export const MediaItems = Example.extend({
 export const Clipping = Example.extend({
   decorators: [
     (Story) => (
-      <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', display: 'flex', width: '120px' }}>
+      <div
+        style={{
+          boxSizing: "content-box",
+          border: "1px solid #FA00FF",
+          display: "flex",
+          width: "120px",
+        }}
+      >
         <Story />
       </div>
     ),
   ],
-})
+});
 
 /**
  * Where possible, content should be truncated, with a tooltip used to display the unabridged content
@@ -100,13 +110,18 @@ export const Truncation = Example.extend({
         <Text font="inherit" id="primary-text" overflow="truncate">
           10 Queen Elizabeth St
         </Text>
-        <Tooltip id="primary-tooltip" placement="top" triggerId="primary-text" truncationTargetId="primary-text">
+        <Tooltip
+          id="primary-tooltip"
+          placement="top"
+          triggerId="primary-text"
+          truncationTargetId="primary-text"
+        >
           10 Queen Elizabeth St
         </Tooltip>
       </>
     ),
 
-    mediaItem: 'Image',
+    mediaItem: "Image",
 
     supplementaryData: (
       <>
@@ -126,12 +141,19 @@ export const Truncation = Example.extend({
   },
   decorators: [
     (Story) => (
-      <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', display: 'flex', width: '150px' }}>
+      <div
+        style={{
+          boxSizing: "content-box",
+          border: "1px solid #FA00FF",
+          display: "flex",
+          width: "150px",
+        }}
+      >
         <Story />
       </div>
     ),
   ],
-})
+});
 
 /**
  * Skeletons can used for the content and the icons to communicate a loading state. The fidelity of
@@ -141,8 +163,8 @@ export const Truncation = Example.extend({
  */
 export const Loading = Example.extend({
   args: {
-    children: 'Skeleton',
-    mediaItem: 'Skeleton',
-    supplementaryData: 'Skeleton',
+    children: "Skeleton",
+    mediaItem: "Skeleton",
+    supplementaryData: "Skeleton",
   },
-})
+});

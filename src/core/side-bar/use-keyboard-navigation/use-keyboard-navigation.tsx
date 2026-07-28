@@ -1,9 +1,10 @@
-import { handleArrowNavigation } from './handle-arrow-navigation'
-import { handleCloseMenuGroup } from './handle-close-menu-group'
-import { handleLinkActivation } from '#src/utils/keyboard-navigation'
-import { useCallback } from 'react'
+import { useCallback } from "react";
+import type { KeyboardEventHandler } from "react";
 
-import type { KeyboardEventHandler } from 'react'
+import { handleLinkActivation } from "#src/utils/keyboard-navigation";
+
+import { handleArrowNavigation } from "./handle-arrow-navigation";
+import { handleCloseMenuGroup } from "./handle-close-menu-group";
 
 /**
  * Returns a key down event handler that facilitates navigation through the side bar's menu items via arrow keys,
@@ -12,10 +13,10 @@ import type { KeyboardEventHandler } from 'react'
 export function useSideBarKeyboardNavigation(): KeyboardEventHandler<HTMLDivElement> {
   return useCallback((event) => {
     if (event.defaultPrevented) {
-      return
+      return;
     }
-    handleLinkActivation(event)
-    handleArrowNavigation(event)
-    handleCloseMenuGroup(event)
-  }, [])
+    handleLinkActivation(event);
+    handleArrowNavigation(event);
+    handleCloseMenuGroup(event);
+  }, []);
 }

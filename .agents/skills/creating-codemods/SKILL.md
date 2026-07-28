@@ -53,15 +53,15 @@ Create `transform.ts`:
  */
 export default function transform(source: string, filePath: string): string {
   // Early return for unchanged code
-  if (!source.includes('OldComponent')) {
-    return source
+  if (!source.includes("OldComponent")) {
+    return source;
   }
 
   // Perform transformation
-  let result = source
-  result = result.replace(/<OldComponent(\s|>|\/)/g, '<NewComponent$1')
+  let result = source;
+  result = result.replace(/<OldComponent(\s|>|\/)/g, "<NewComponent$1");
 
-  return result
+  return result;
 }
 ```
 
@@ -131,32 +131,32 @@ Document what cannot be automated and requires manual intervention.
 Create `__tests__/transform.test.ts`:
 
 ```typescript
-import transform from '../transform'
+import transform from "../transform";
 
-test('transforms primary case', () => {
-  const input = `<OldComponent />`
-  const output = transform(input, 'test.tsx')
-  expect(output).toBe(`<NewComponent />`)
-})
+test("transforms primary case", () => {
+  const input = `<OldComponent />`;
+  const output = transform(input, "test.tsx");
+  expect(output).toBe(`<NewComponent />`);
+});
 
-test('handles multiple occurrences', () => {
-  const input = `<OldComponent />\n<OldComponent prop="value" />`
-  const output = transform(input, 'test.tsx')
-  expect(output).toContain('<NewComponent />')
-  expect(output).toContain('<NewComponent prop="value" />')
-})
+test("handles multiple occurrences", () => {
+  const input = `<OldComponent />\n<OldComponent prop="value" />`;
+  const output = transform(input, "test.tsx");
+  expect(output).toContain("<NewComponent />");
+  expect(output).toContain('<NewComponent prop="value" />');
+});
 
-test('returns unchanged when no matches', () => {
-  const input = `<SomeOtherComponent />`
-  const output = transform(input, 'test.tsx')
-  expect(output).toBe(input)
-})
+test("returns unchanged when no matches", () => {
+  const input = `<SomeOtherComponent />`;
+  const output = transform(input, "test.tsx");
+  expect(output).toBe(input);
+});
 
-test('handles edge case with children', () => {
-  const input = `<OldComponent><span>Content</span></OldComponent>`
-  const output = transform(input, 'test.tsx')
-  expect(output).toBe(`<NewComponent><span>Content</span></NewComponent>`)
-})
+test("handles edge case with children", () => {
+  const input = `<OldComponent><span>Content</span></OldComponent>`;
+  const output = transform(input, "test.tsx");
+  expect(output).toBe(`<NewComponent><span>Content</span></NewComponent>`);
+});
 ```
 
 **Test coverage checklist:**
@@ -243,24 +243,24 @@ Before considering the codemod complete:
 For complex cases (renaming imports accurately, modifying prop values, restructuring hierarchies), consider using `ts-morph`:
 
 ```typescript
-import { Project, SyntaxKind } from 'ts-morph'
+import { Project, SyntaxKind } from "ts-morph";
 
 export default function transform(source: string, filePath: string): string {
-  if (!source.includes('OldComponent')) {
-    return source
+  if (!source.includes("OldComponent")) {
+    return source;
   }
 
-  const project = new Project({ useInMemoryFileSystem: true })
-  const sourceFile = project.createSourceFile('temp.tsx', source)
+  const project = new Project({ useInMemoryFileSystem: true });
+  const sourceFile = project.createSourceFile("temp.tsx", source);
 
   sourceFile.getDescendantsOfKind(SyntaxKind.JsxElement).forEach((element) => {
-    const tagName = element.getOpeningElement().getTagNameNode()
-    if (tagName.getText() === 'OldComponent') {
-      tagName.replaceWithText('NewComponent')
+    const tagName = element.getOpeningElement().getTagNameNode();
+    if (tagName.getText() === "OldComponent") {
+      tagName.replaceWithText("NewComponent");
     }
-  })
+  });
 
-  return sourceFile.getFullText()
+  return sourceFile.getFullText();
 }
 ```
 

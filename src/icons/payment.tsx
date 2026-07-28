@@ -1,4 +1,4 @@
-import PaymentSvg from './svgs/payment.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import PaymentSvg from "./svgs/payment.svg?react";
 
-export const PaymentIcon = makeIcon('PaymentIcon', PaymentSvg)
+export const PaymentIcon = makeIcon("PaymentIcon", PaymentSvg);

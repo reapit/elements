@@ -1,8 +1,9 @@
-import { styled } from '@linaria/react'
-import { FOCUSED_LAYOUT_CSS_CONTAINER_NAME } from './constants'
+import { styled } from "@linaria/react";
+
+import { FOCUSED_LAYOUT_CSS_CONTAINER_NAME } from "./constants";
 
 interface ElFocusedLayoutProps {
-  'data-background': 'light' | 'dark'
+  "data-background": "light" | "dark";
 }
 
 export const ElFocusedLayout = styled.div<ElFocusedLayoutProps>`
@@ -17,12 +18,12 @@ export const ElFocusedLayout = styled.div<ElFocusedLayoutProps>`
     overflow-y: auto;
     isolation: isolate;
 
-    &[data-background='light'] {
+    &[data-background="light"] {
       background-color: var(--colour-fill-white);
     }
 
-    &[data-background='dark'] {
+    &[data-background="dark"] {
       background-color: var(--colour-fill-neutral-light);
     }
   }
-`
+`;

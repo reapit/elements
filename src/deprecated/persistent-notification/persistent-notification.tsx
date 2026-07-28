@@ -1,5 +1,10 @@
-import { cx } from '@linaria/core'
-import React, { FC, HTMLAttributes, ReactNode } from 'react'
+import { cx } from "@linaria/core";
+import React, { FC, HTMLAttributes, ReactNode } from "react";
+
+import { InfoIcon } from "#src/icons/info";
+
+import { Intent, getIntentClassName } from "../../helpers/intent";
+import { elIsActive } from "../../styles/deprecated-states";
 import {
   ElPersistentNotification,
   elPnIcon,
@@ -7,27 +12,24 @@ import {
   elPnIsFullWidth,
   elPnIsFixed,
   elPnIsInline,
-} from './__styles__'
-import { elIsActive } from '../../styles/deprecated-states'
-import { Intent, getIntentClassName } from '../../helpers/intent'
-import { InfoIcon } from '#src/icons/info'
+} from "./__styles__";
 
 /** @deprecated */
 export interface PersistentNotificationProps extends HTMLAttributes<HTMLDivElement> {
-  icon?: ReactNode
-  intent?: Intent
-  className?: string
-  isExpanded?: boolean
-  isFullWidth?: boolean
-  isFixed?: boolean
-  isInline?: boolean
-  onExpansionToggle?: (newState: boolean) => void
+  icon?: ReactNode;
+  intent?: Intent;
+  className?: string;
+  isExpanded?: boolean;
+  isFullWidth?: boolean;
+  isFixed?: boolean;
+  isInline?: boolean;
+  onExpansionToggle?: (newState: boolean) => void;
 }
 
 /** @deprecated */
 export const PersistentNotification: FC<PersistentNotificationProps> = ({
   icon = <InfoIcon />,
-  intent = 'primary',
+  intent = "primary",
   className,
   isExpanded = false,
   isFullWidth = false,
@@ -37,7 +39,7 @@ export const PersistentNotification: FC<PersistentNotificationProps> = ({
   children,
   ...rest
 }) => {
-  const intentClassName = getIntentClassName(intent)
+  const intentClassName = getIntentClassName(intent);
   const combinedClassName = cx(
     className,
     intentClassName,
@@ -45,7 +47,7 @@ export const PersistentNotification: FC<PersistentNotificationProps> = ({
     isFullWidth && elPnIsFullWidth,
     isFixed && elPnIsFixed,
     isInline && elPnIsInline,
-  )
+  );
 
   return (
     <ElPersistentNotification role="status" className={combinedClassName} {...rest}>
@@ -60,5 +62,5 @@ export const PersistentNotification: FC<PersistentNotificationProps> = ({
         {children}
       </div>
     </ElPersistentNotification>
-  )
-}
+  );
+};

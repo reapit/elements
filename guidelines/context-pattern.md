@@ -9,14 +9,14 @@ React contexts follow a consistent pattern to ensure type safety, clear document
 ### Basic Context Structure
 
 ```typescript
-import { createContext, useContext } from 'react'
+import { createContext, useContext } from "react";
 
 export namespace ComponentNameContext {
   export interface Value {
     /** JSDoc documentation for each property */
-    property: string
+    property: string;
     /** Optional properties should be marked as such */
-    optionalProperty?: boolean
+    optionalProperty?: boolean;
   }
 }
 
@@ -24,18 +24,18 @@ export namespace ComponentNameContext {
  * Context that ComponentName provides to descendants.
  * Describe what values this context exposes and why.
  */
-export const ComponentNameContext = createContext<ComponentNameContext.Value | null>(null)
+export const ComponentNameContext = createContext<ComponentNameContext.Value | null>(null);
 
 /**
  * Returns ComponentNameContext.Value from the nearest ComponentName ancestor.
  * @throws Error when called outside a ComponentName component.
  */
 export function useComponentNameContext(): ComponentNameContext.Value {
-  const context = useContext(ComponentNameContext)
+  const context = useContext(ComponentNameContext);
   if (!context) {
-    throw new Error('useComponentNameContext requires a ComponentName ancestor')
+    throw new Error("useComponentNameContext requires a ComponentName ancestor");
   }
-  return context
+  return context;
 }
 ```
 
@@ -51,7 +51,7 @@ export function useComponentNameContext(): ComponentNameContext.Value {
 export namespace DialogContext {
   export interface Value {
     /** The ID used for accessibility labeling */
-    titleId: string
+    titleId: string;
   }
 }
 ```
@@ -67,7 +67,7 @@ export namespace DialogContext {
  * Context that Dialog provides to descendants. Exposes titleId
  * for accessibility labeling.
  */
-export const DialogContext = createContext<DialogContext.Value | null>(null)
+export const DialogContext = createContext<DialogContext.Value | null>(null);
 ```
 
 ### 3. Custom Hook
@@ -83,11 +83,11 @@ export const DialogContext = createContext<DialogContext.Value | null>(null)
  * @throws Error when called outside a Dialog component.
  */
 export function useDialogContext(): DialogContext.Value {
-  const context = useContext(DialogContext)
+  const context = useContext(DialogContext);
   if (!context) {
-    throw new Error('useDialogContext requires a Dialog ancestor')
+    throw new Error("useDialogContext requires a Dialog ancestor");
   }
-  return context
+  return context;
 }
 ```
 
@@ -99,7 +99,7 @@ export function useDialogContext(): DialogContext.Value {
 export namespace BottomBarContext {
   export interface Value {
     /** Whether the bottom bar is currently open */
-    isOpen: boolean
+    isOpen: boolean;
   }
 }
 ```
@@ -110,13 +110,13 @@ export namespace BottomBarContext {
 export namespace ChipSelectContext {
   export interface Value {
     /** The ID of the form to associate chip select options with */
-    form?: string
+    form?: string;
     /** Whether the chip select allows multiple selections */
-    multiple: boolean
+    multiple: boolean;
     /** The name each chip select option should have */
-    name?: string
+    name?: string;
     /** The size of options in the chip select */
-    size: ComponentProps<typeof ChipSelectChip>['size']
+    size: ComponentProps<typeof ChipSelectChip>["size"];
   }
 }
 ```
@@ -127,11 +127,11 @@ export namespace ChipSelectContext {
 export namespace SplitButtonContext {
   export interface Value {
     /** Whether the main action button, menu button, or neither, is busy */
-    busy: 'action' | 'menu-item' | undefined
+    busy: "action" | "menu-item" | undefined;
     /** The size of the main action and menu buttons */
-    size: ComponentProps<typeof SplitButton>['size']
+    size: ComponentProps<typeof SplitButton>["size"];
     /** The variant used by the main action and menu buttons */
-    variant: ComponentProps<typeof SplitButton>['variant']
+    variant: ComponentProps<typeof SplitButton>["variant"];
   }
 }
 ```
@@ -155,15 +155,15 @@ export namespace ButtonContext {} // ✅ Correct
 ```typescript
 // Hook must throw when context is null
 export function useDialogContext(): DialogContext.Value | null {
-  return useContext(DialogContext) // ❌ Wrong: returns null
+  return useContext(DialogContext); // ❌ Wrong: returns null
 }
 
 export function useDialogContext(): DialogContext.Value {
-  const context = useContext(DialogContext)
+  const context = useContext(DialogContext);
   if (!context) {
-    throw new Error('useDialogContext requires a Dialog ancestor')
+    throw new Error("useDialogContext requires a Dialog ancestor");
   }
-  return context // ✅ Correct: throws on null, returns non-null value
+  return context; // ✅ Correct: throws on null, returns non-null value
 }
 ```
 
@@ -171,8 +171,8 @@ export function useDialogContext(): DialogContext.Value {
 
 ```typescript
 // Specify hook name and required ancestor
-throw new Error('Context not found') // ❌ Wrong: too generic
-throw new Error('useDialogContext requires a Dialog ancestor') // ✅ Correct
+throw new Error("Context not found"); // ❌ Wrong: too generic
+throw new Error("useDialogContext requires a Dialog ancestor"); // ✅ Correct
 ```
 
 ### Missing Documentation
@@ -180,14 +180,14 @@ throw new Error('useDialogContext requires a Dialog ancestor') // ✅ Correct
 ```typescript
 export namespace DialogContext {
   export interface Value {
-    titleId: string // ❌ Wrong: missing JSDoc
+    titleId: string; // ❌ Wrong: missing JSDoc
   }
 }
 
 export namespace DialogContext {
   export interface Value {
     /** The ID used for accessibility labeling */
-    titleId: string // ✅ Correct: includes JSDoc
+    titleId: string; // ✅ Correct: includes JSDoc
   }
 }
 ```
@@ -229,10 +229,10 @@ export function ComponentName({ children, ...props }: ComponentName.Props) {
 
 ```typescript
 // In child components
-import { useComponentNameContext } from '../context'
+import { useComponentNameContext } from "../context";
 
 export function ChildComponent() {
-  const { property } = useComponentNameContext()
+  const { property } = useComponentNameContext();
   // Use context values
 }
 ```

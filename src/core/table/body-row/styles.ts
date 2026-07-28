@@ -1,5 +1,6 @@
-import { css } from '@linaria/core'
-import { elTableRowPrimaryAction } from '../primary-action/styles'
+import { css } from "@linaria/core";
+
+import { elTableRowPrimaryAction } from "../primary-action/styles";
 
 // NOTE: This is a plain class so that we have an exportable class name
 // available for consumers that want table row styling on an element not
@@ -48,4 +49,4 @@ export const elTableBodyRow = css`
       z-index: var(--z-index-elevated);
     }
   }
-`
+`;

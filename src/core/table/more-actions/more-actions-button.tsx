@@ -1,14 +1,15 @@
-import { cx } from '@linaria/core'
-import { elTableRowMoreActionsButton } from './styles'
-import { MoreIcon } from '#src/icons/more'
-import { useCallback } from 'react'
+import { cx } from "@linaria/core";
+import { useCallback } from "react";
+import type { ButtonHTMLAttributes, MouseEventHandler } from "react";
 
-import type { ButtonHTMLAttributes, MouseEventHandler } from 'react'
+import { MoreIcon } from "#src/icons/more";
+
+import { elTableRowMoreActionsButton } from "./styles";
 
 // NOTE: we omit...
 // - children, because the more actions button should never have a visual label
 // - type, because the more actions button should never act as a submit button
-type AttributesToOmit = 'children' | 'type'
+type AttributesToOmit = "children" | "type";
 
 export namespace TableRowMoreActionsButton {
   export interface Props extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, AttributesToOmit> {
@@ -18,17 +19,17 @@ export namespace TableRowMoreActionsButton {
      * is preferred when the button should still be focusable while it's disabled; for example, to allow
      * a tooltip to be displayed that explains why the button is disabled.
      */
-    'aria-disabled'?: boolean
+    "aria-disabled"?: boolean;
     /**
      * The accessible name for this button. Take care to ensure it is descriptive of the table row
      * to which it's related.
      */
-    'aria-label': string
+    "aria-label": string;
     /**
      * Whether the button is disabled or not. Unlike `aria-disabled`, buttons disabled with this prop will
      * not be focusable or interactive.
      */
-    disabled?: boolean
+    disabled?: boolean;
   }
 }
 
@@ -38,7 +39,7 @@ export namespace TableRowMoreActionsButton {
  * instead, as it comes with a built-in menu.
  */
 export function TableRowMoreActionsButton({
-  'aria-disabled': ariaDisabled,
+  "aria-disabled": ariaDisabled,
   className,
   disabled,
   onClick,
@@ -46,22 +47,22 @@ export function TableRowMoreActionsButton({
 }: TableRowMoreActionsButton.Props) {
   const handleClick = useCallback<MouseEventHandler<HTMLElement>>(
     (event) => {
-      const element = event.currentTarget
+      const element = event.currentTarget;
       // NOTE: Since click events will still be fired when `aria-disabled='true'`, we need to prevent
       // any default action for the button from occuring, stop it propagating to ancestors and avoid
       // calling the consumer-supplied `onClick` callback.
-      if (element.getAttribute('aria-disabled') === 'true') {
-        event.preventDefault()
-        event.stopPropagation()
-        return
+      if (element.getAttribute("aria-disabled") === "true") {
+        event.preventDefault();
+        event.stopPropagation();
+        return;
       }
 
       // NOTE: We use a type assertion here to avoid having to narrow the type of `event` based on the
       // specific `Element` type.
-      onClick?.(event as any)
+      onClick?.(event as any);
     },
     [onClick],
-  )
+  );
 
   return (
     <button
@@ -74,8 +75,8 @@ export function TableRowMoreActionsButton({
     >
       <MoreIcon />
     </button>
-  )
+  );
 }
 
 // Backward compatibility
-export type TableRowMoreActionsButtonProps = TableRowMoreActionsButton.Props
+export type TableRowMoreActionsButtonProps = TableRowMoreActionsButton.Props;

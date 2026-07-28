@@ -1,2 +1,2 @@
-export * from './__styles__'
-export * from './tile'
+export * from "./__styles__";
+export * from "./tile";

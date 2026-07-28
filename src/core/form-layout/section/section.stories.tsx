@@ -1,10 +1,11 @@
-import preview from '#.storybook/preview'
-import { TextControl } from '#src/core/text-control'
-import { Grid } from '#src/utils/grid'
-import { FormLayout } from '../form-layout'
+import preview from "#.storybook/preview";
+import { TextControl } from "#src/core/text-control";
+import { Grid } from "#src/utils/grid";
+
+import { FormLayout } from "../form-layout";
 
 const meta = preview.meta({
-  title: 'Containers and layout/FormLayout/Section',
+  title: "Containers and layout/FormLayout/Section",
   component: FormLayout.Section,
   decorators: [
     (Story) => (
@@ -14,9 +15,9 @@ const meta = preview.meta({
     ),
   ],
   parameters: {
-    docs: { source: { type: 'code' } },
+    docs: { source: { type: "code" } },
   },
-})
+});
 
 export const Example = meta.story({
   render: function Example() {
@@ -32,9 +33,9 @@ export const Example = meta.story({
         <TextControl label="Last name" />
         <TextControl label="Email address" type="email" />
       </FormLayout.Section>
-    )
+    );
   },
-})
+});
 
 /**
  * When fields are logically paired, a CSS grid wrapper creates a two-column layout within the
@@ -57,6 +58,6 @@ export const TwoColumn = Example.extend({
           <TextControl label="Phone number" type="tel" />
         </Grid>
       </FormLayout.Section>
-    )
+    );
   },
-})
+});

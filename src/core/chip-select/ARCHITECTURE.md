@@ -107,7 +107,7 @@ For controlled usage, consumers use `ChipSelect.determineNextControlledState` to
 next state array from the current state and the changed option:
 
 ```ts
-setState((state) => ChipSelect.determineNextControlledState(state, event.currentTarget))
+setState((state) => ChipSelect.determineNextControlledState(state, event.currentTarget));
 ```
 
 The helper is self-contained: it reads `data-exclusive` from the input element rather than

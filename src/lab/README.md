@@ -34,16 +34,16 @@ All styled components **MUST** use the `ElExperimental` prefix:
 const ElExperimentalButton = styled.button`
   padding: var(--spacing-2);
   border-radius: var(--corner-md);
-`
+`;
 
 const ElExperimentalContainer = styled.div`
   display: flex;
   flex-direction: column;
-`
+`;
 
 // ❌ Incorrect - missing ElExperimental prefix
-const ElButton = styled.button`...`
-const MyButton = styled.button`...`
+const ElButton = styled.button`...`;
+const MyButton = styled.button`...`;
 ```
 
 ### CSS Class Names
@@ -55,16 +55,16 @@ All CSS class names **MUST** use the `elExperimental` prefix:
 const elExperimentalButton = css`
   padding: var(--spacing-2);
   border-radius: var(--corner-md);
-`
+`;
 
 const elExperimentalContainer = css`
   display: flex;
   flex-direction: column;
-`
+`;
 
 // ❌ Incorrect - missing elExperimental prefix
-const elButton = css`...`
-const myButton = css`...`
+const elButton = css`...`;
+const myButton = css`...`;
 ```
 
 ## Migration to Core

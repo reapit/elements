@@ -1,23 +1,24 @@
-import preview from '#.storybook/preview'
-import { Breadcrumbs } from '../breadcrumbs'
+import preview from "#.storybook/preview";
 
-const href = '#'
+import { Breadcrumbs } from "../breadcrumbs";
+
+const href = "#";
 
 const meta = preview.meta({
-  title: 'Navigation/Breadcrumbs/Item',
+  title: "Navigation/Breadcrumbs/Item",
   component: Breadcrumbs.Item,
   argTypes: {
     children: {
       control: false,
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
     children: <Breadcrumbs.Link href={href}>Properties</Breadcrumbs.Link>,
   },
-})
+});
 
 /**
  * When there are multiple sibling items, the separator will be displayed by all except the last item.
@@ -28,7 +29,15 @@ export const Separator = meta.story({
   },
   decorators: [
     (Story) => (
-      <ul style={{ listStyle: 'none', display: 'inline-flex', margin: 0, padding: 0, width: 'fit-content' }}>
+      <ul
+        style={{
+          listStyle: "none",
+          display: "inline-flex",
+          margin: 0,
+          padding: 0,
+          width: "fit-content",
+        }}
+      >
         <Breadcrumbs.Item>
           <Breadcrumbs.Link href={href}>Properties</Breadcrumbs.Link>
         </Breadcrumbs.Item>
@@ -36,7 +45,7 @@ export const Separator = meta.story({
       </ul>
     ),
   ],
-})
+});
 
 /**
  * Overflow should be avoided as much as possible. When space becomes limited, an item's text will truncate
@@ -48,9 +57,9 @@ export const Overflow = meta.story({
   },
   decorators: [
     (Story) => (
-      <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', width: '100px' }}>
+      <div style={{ boxSizing: "content-box", border: "1px solid #FA00FF", width: "100px" }}>
         <Story />
       </div>
     ),
   ],
-})
+});

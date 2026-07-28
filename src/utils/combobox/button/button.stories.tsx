@@ -1,20 +1,21 @@
-import preview from '#.storybook/preview'
-import { ComboboxButton } from './button'
-import { ElCombobox } from '../styles'
-import { SearchIcon } from '#src/icons/search'
+import type { CSSProperties } from "react";
 
-import type { CSSProperties } from 'react'
+import preview from "#.storybook/preview";
+import { SearchIcon } from "#src/icons/search";
+
+import { ElCombobox } from "../styles";
+import { ComboboxButton } from "./button";
 
 const meta = preview.meta({
-  title: 'Utils/Combobox/Button',
+  title: "Utils/Combobox/Button",
   component: ComboboxButton,
   argTypes: {
-    'aria-controls': {
+    "aria-controls": {
       control: false,
     },
     action: {
-      control: 'select',
-      options: ['Toggle', 'Clear'],
+      control: "select",
+      options: ["Toggle", "Clear"],
       mapping: {
         Toggle: <ComboboxButton.OpenPopupButton aria-controls="my-combobox" />,
         Clear: <ComboboxButton.ClearButton aria-controls="my-combobox-button" />,
@@ -23,12 +24,12 @@ const meta = preview.meta({
   },
   decorators: [
     (Story) => (
-      <div style={{ position: 'relative' }}>
+      <div style={{ position: "relative" }}>
         <Story />
       </div>
     ),
   ],
-})
+});
 
 /**
  * The combobox button will often be styled as a button with a dropdown icon to mimic a classic select
@@ -37,17 +38,17 @@ const meta = preview.meta({
  */
 export const Example = meta.story({
   args: {
-    action: 'Clear',
-    'aria-controls': 'my-combobox',
-    'aria-expanded': false,
-    children: 'John Smith',
-    id: 'my-combobox-button',
+    action: "Clear",
+    "aria-controls": "my-combobox",
+    "aria-expanded": false,
+    children: "John Smith",
+    id: "my-combobox-button",
     maxWidth: undefined,
-    placeholder: 'Select an option',
-    size: 'medium',
-    variant: 'default',
+    placeholder: "Select an option",
+    size: "medium",
+    variant: "default",
   },
-})
+});
 
 /**
  * When the button's label matches the specified placeholder text, its text will be styled like
@@ -56,11 +57,11 @@ export const Example = meta.story({
  */
 export const Placeholder = Example.extend({
   args: {
-    action: 'Toggle',
+    action: "Toggle",
     children: null,
-    placeholder: 'Select an option',
+    placeholder: "Select an option",
   },
-})
+});
 
 /**
  * When options can be filtered or searched for, the combobox button will often be styled like a
@@ -69,10 +70,10 @@ export const Placeholder = Example.extend({
 export const Search = Placeholder.extend({
   args: {
     action: null,
-    placeholder: 'Search...',
+    placeholder: "Search...",
     leadingIcon: <SearchIcon />,
   },
-})
+});
 
 /**
  * The parent combobox provides styles to the combobox button via CSS variables. When
@@ -91,7 +92,7 @@ export const Disabled = Placeholder.extend({
       </ElCombobox>
     ),
   ],
-})
+});
 
 /**
  * Likewise, when the parent combobox has an invalid state, it sets CSS variables to values that help
@@ -106,7 +107,7 @@ export const Invalid = Placeholder.extend({
       </ElCombobox>
     ),
   ],
-})
+});
 
 /**
  * The combobox button also reflects an invalid state when `aria-invalid="true"` and
@@ -115,7 +116,7 @@ export const Invalid = Placeholder.extend({
  * here.
  */
 export const AriaInvalid = Placeholder.extend({
-  name: 'Aria Invalid',
+  name: "Aria Invalid",
 
   decorators: [
     (Story) => (
@@ -125,7 +126,7 @@ export const AriaInvalid = Placeholder.extend({
       </ElCombobox>
     ),
   ],
-})
+});
 
 /**
  * When the button is embedded in a surface that provides its own border or background — such as
@@ -135,39 +136,39 @@ export const AriaInvalid = Placeholder.extend({
  */
 export const Borderless = Placeholder.extend({
   args: {
-    action: 'Toggle',
-    variant: 'borderless',
+    action: "Toggle",
+    variant: "borderless",
   },
-})
+});
 
 /**
  * By default, combobox buttons will fill their parent's width. This can be constrained by providing
  * a `maxWidth` to the combobox.
  */
 export const MaxWidth = Placeholder.extend({
-  name: 'Max-width',
+  name: "Max-width",
   args: {
     action: null,
-    placeholder: 'Search...',
-    children: 'Search...',
+    placeholder: "Search...",
+    children: "Search...",
     leadingIcon: <SearchIcon />,
   },
   decorators: [
     (Story) => (
       // This CSS variable is set by ElCombobox when Combobox is constrained by its maxWidth prop.
-      <div style={{ '--combobox-max-width': 'var(--size-40)' } as CSSProperties}>
+      <div style={{ "--combobox-max-width": "var(--size-40)" } as CSSProperties}>
         <Story />
       </div>
     ),
   ],
-})
+});
 
 /**
  * When the label text is too long, it will be truncated.
  */
 export const Truncation = Example.extend({
   args: {
-    children: 'Long label text that will not fit within the available space',
+    children: "Long label text that will not fit within the available space",
   },
   decorators: MaxWidth.input.decorators,
-})
+});

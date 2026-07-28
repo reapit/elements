@@ -1,10 +1,11 @@
-import { CloseIcon } from '#src/icons/close'
-import { ElFileUploaderRemoveButton, ElFileUploaderRemoveButtonBackground } from './styles'
+import type { ButtonHTMLAttributes } from "react";
 
-import type { ButtonHTMLAttributes } from 'react'
+import { CloseIcon } from "#src/icons/close";
+
+import { ElFileUploaderRemoveButton, ElFileUploaderRemoveButtonBackground } from "./styles";
 
 export namespace FileUploaderRemoveButton {
-  export interface Props extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> {}
+  export interface Props extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "type"> {}
 }
 
 /**
@@ -17,5 +18,5 @@ export function FileUploaderRemoveButton({ onClick, ...rest }: FileUploaderRemov
         <CloseIcon aria-hidden color="tertiary" size="sm" />
       </ElFileUploaderRemoveButtonBackground>
     </ElFileUploaderRemoveButton>
-  )
+  );
 }

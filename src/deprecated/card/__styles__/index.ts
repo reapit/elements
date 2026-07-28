@@ -1,12 +1,13 @@
-import { styled } from '@linaria/react'
-import { css } from '@linaria/core'
-import { isTablet } from '../../../styles/deprecated-media'
-import { ElDeprecatedAvatar } from '../../avatar'
+import { css } from "@linaria/core";
+import { styled } from "@linaria/react";
+
+import { isTablet } from "../../../styles/deprecated-media";
+import { ElDeprecatedAvatar } from "../../avatar";
 
 /** @deprecated */
 export const elCardFocussed = css`
   background-color: var(--colour-fill-action-lightest);
-`
+`;
 
 /** @deprecated */
 export const ElCardWrap = styled.div`
@@ -24,10 +25,10 @@ export const ElCardWrap = styled.div`
   &.${elCardFocussed} {
     background-color: var(--colour-fill-action-lightest);
   }
-`
+`;
 
 /** @deprecated */
-export const elCardSubHeadingWrapAvatar = css``
+export const elCardSubHeadingWrapAvatar = css``;
 
 /** @deprecated */
 export const ElCardHeadingWrap = styled.div`
@@ -40,7 +41,7 @@ export const ElCardHeadingWrap = styled.div`
     flex-flow: row wrap;
     justify-content: space-between;
   }
-`
+`;
 
 /** @deprecated */
 export const ElCardMainWrap = styled.div`
@@ -54,7 +55,7 @@ export const ElCardMainWrap = styled.div`
       margin-right: 1.25rem;
     }
   }
-`
+`;
 
 /** @deprecated */
 export const ElCardHeading = styled.h5`
@@ -66,7 +67,7 @@ export const ElCardHeading = styled.h5`
   margin-bottom: 0.25rem;
   width: 100%;
   font-size: 0.875rem /* was --font-size-small */;
-`
+`;
 
 /** @deprecated */
 export const ElCardSubHeading = styled.h6`
@@ -75,9 +76,9 @@ export const ElCardSubHeading = styled.h6`
   white-space: nowrap;
   overflow: hidden;
   font-size: 0.8125rem /* was --font-size-smallest */;
-`
+`;
 
-export const elCardSubHeadingAdditionalExpanded = css``
+export const elCardSubHeadingAdditionalExpanded = css``;
 
 /** @deprecated */
 export const ElCardSubHeadingAdditional = styled.h6`
@@ -89,9 +90,9 @@ export const ElCardSubHeadingAdditional = styled.h6`
   overflow: hidden;
   display: flex;
   justify-content: space-between;
-`
+`;
 
-export const elCardBodyWrapExpanded = css``
+export const elCardBodyWrapExpanded = css``;
 
 /** @deprecated */
 export const ElCardBodyWrap = styled.div`
@@ -111,12 +112,12 @@ export const ElCardBodyWrap = styled.div`
     height: 3.25rem;
     font-size: 0.875rem /* was --font-size-small */;
   }
-`
+`;
 
 export const elMobileListToggle = css`
   top: 1.5rem;
   right: 0;
-`
+`;
 
 /** @deprecated */
 export const ElCardAvatarWrap = styled.div`
@@ -135,7 +136,7 @@ export const ElCardAvatarWrap = styled.div`
     max-width: 2.5rem;
     border-radius: 50%;
   }
-`
+`;
 
 /** @deprecated */
 export const ElCardImageWrap = styled(ElCardAvatarWrap)`
@@ -147,22 +148,22 @@ export const ElCardImageWrap = styled(ElCardAvatarWrap)`
     max-width: 4.5rem;
     border-radius: 0;
   }
-`
+`;
 
 /** @deprecated */
 export const ElCardList = styled.div`
   display: flex;
-`
+`;
 
 /** @deprecated */
-export const elCardListMainWrapExpanded = css``
+export const elCardListMainWrapExpanded = css``;
 
 /** @deprecated */
 export const ElCardListMainWrap = styled.div`
   display: flex;
   flex-flow: column nowrap;
   position: relative;
-`
+`;
 
 /** @deprecated */
 export const ElCardListHeading = styled.h5`
@@ -172,7 +173,7 @@ export const ElCardListHeading = styled.h5`
   overflow: hidden;
   font-size: 0.875rem /* was --font-size-small */;
   margin-bottom: 0.25rem;
-`
+`;
 
 /** @deprecated */
 export const ElCardListSubHeading = styled.h6`
@@ -182,7 +183,7 @@ export const ElCardListSubHeading = styled.h6`
   white-space: nowrap;
   overflow: hidden;
   margin-bottom: 0.75rem;
-`
+`;
 
 /** @deprecated */
 export const elCardListItemExpanded = css`
@@ -192,7 +193,7 @@ export const elCardListItemExpanded = css`
   &:last-of-type {
     margin-bottom: 0;
   }
-`
+`;
 
 /** @deprecated */
 export const ElCardListItem = styled.div`
@@ -204,7 +205,7 @@ export const ElCardListItem = styled.div`
   &:last-of-type {
     margin-bottom: 0;
   }
-`
+`;
 
 /** @deprecated */
 export const ElCardListItemTextWrap = styled.div`
@@ -213,12 +214,12 @@ export const ElCardListItemTextWrap = styled.div`
   flex-direction: column;
   justify-content: space-between;
   cursor: pointer;
-`
+`;
 
 /** @deprecated */
 export const ElCardListItemTextPrimary = styled.div`
   color: var(--colour-text-primary);
-`
+`;
 
 /** @deprecated */
 export const ElCardListItemTextSecondary = styled.div`
@@ -228,7 +229,7 @@ export const ElCardListItemTextSecondary = styled.div`
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   overflow: hidden;
-`
+`;
 
 /** @deprecated */
 export const ElCardListIcon = styled.div`
@@ -239,4 +240,4 @@ export const ElCardListIcon = styled.div`
   width: 2em;
   margin-right: 0.5rem;
   flex-shrink: 0;
-`
+`;

@@ -1,12 +1,13 @@
-import { ElDrawerBody } from './styles'
-import type { HTMLAttributes, ReactNode } from 'react'
+import type { HTMLAttributes, ReactNode } from "react";
+
+import { ElDrawerBody } from "./styles";
 
 export namespace DrawerBody {
   export interface Props extends HTMLAttributes<HTMLDivElement> {
     /**
      * The content of the drawer's body.
      */
-    children: ReactNode
+    children: ReactNode;
   }
 }
 
@@ -16,7 +17,7 @@ export namespace DrawerBody {
  * adjusts its padding based on the inline-size of the drawer.
  */
 export function DrawerBody({ children, ...rest }: DrawerBody.Props) {
-  return <ElDrawerBody {...rest}>{children}</ElDrawerBody>
+  return <ElDrawerBody {...rest}>{children}</ElDrawerBody>;
 }
 
-DrawerBody.displayName = 'Drawer.Body'
+DrawerBody.displayName = "Drawer.Body";

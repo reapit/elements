@@ -1,4 +1,4 @@
-import EuroSvg from './svgs/euro.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import EuroSvg from "./svgs/euro.svg?react";
 
-export const EuroIcon = makeIcon('EuroIcon', EuroSvg)
+export const EuroIcon = makeIcon("EuroIcon", EuroSvg);

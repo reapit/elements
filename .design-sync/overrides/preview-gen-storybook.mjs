@@ -33,8 +33,9 @@
 //    `parameters.backgrounds.options` (light: --colour-fill-neutral-lightest,
 //    dark: --colour-fill-neutral-darkest) — repo-specific, which is exactly
 //    why this lives in a fork rather than the generic base lib.
-import { relative } from 'node:path'
-import { exportName } from '../../.ds-sync/lib/common.mjs'
+import { relative } from "node:path";
+
+import { exportName } from "../../.ds-sync/lib/common.mjs";
 
 const COMPOSE = `function compose(S: any, key: string) {
   const meta: any = S.default ?? {};
@@ -122,7 +123,7 @@ const COMPOSE = `function compose(S: any, key: string) {
     );
   }
   return composed;
-}`
+}`;
 
 // Generate the preview .tsx body for one component — or null when nothing
 // paired, in which case no wrapper is written and the html shows the floor
@@ -132,14 +133,16 @@ export function generatePreviewSource(c, opts) {
   // Story-module tier: needs the story source path and at least one visible
   // story paired to a module export (pairing happens in source-storybook.mjs
   // — c.storyIds[].exportKey).
-  const skipSet = new Set(opts.skip ?? [])
-  const visible = (c.storyIds ?? []).filter((s) => !skipSet.has(s.id))
-  const paired = visible.filter((s) => s.exportKey)
+  const skipSet = new Set(opts.skip ?? []);
+  const visible = (c.storyIds ?? []).filter((s) => !skipSet.has(s.id));
+  const paired = visible.filter((s) => s.exportKey);
   if (!c.storySrc || paired.length === 0) {
     if (c.storySrc && visible.length > 0) {
-      console.error(`  (preview: ${c.name} — no story exports paired (storyName overrides?); showing the floor card)`)
+      console.error(
+        `  (preview: ${c.name} — no story exports paired (storyName overrides?); showing the floor card)`,
+      );
     }
-    return null
+    return null;
   }
   // Location-independent import: `@ds-stories/<path relative to the repo
   // root>` (forward slashes for machine portability), resolved by the
@@ -150,14 +153,14 @@ export function generatePreviewSource(c, opts) {
   // story module, in first-paired order; S is the first (and for
   // single-module components the only) one.
   const toSpec = (p) => {
-    const rel = relative(process.cwd(), p).replace(/\\/g, '/')
-    return JSON.stringify(`@ds-stories/${rel}`.replace(/\.[cm]?[jt]sx?$/, ''))
-  }
-  const modVars = new Map() // story source path -> import identifier
+    const rel = relative(process.cwd(), p).replace(/\\/g, "/");
+    return JSON.stringify(`@ds-stories/${rel}`.replace(/\.[cm]?[jt]sx?$/, ""));
+  };
+  const modVars = new Map(); // story source path -> import identifier
   const modVarFor = (p) => {
-    if (!modVars.has(p)) modVars.set(p, modVars.size === 0 ? 'S' : `S${modVars.size + 1}`)
-    return modVars.get(p)
-  }
+    if (!modVars.has(p)) modVars.set(p, modVars.size === 0 ? "S" : `S${modVars.size + 1}`);
+    return modVars.get(p);
+  };
   // Emitted export names are PascalCased via exportName (the html mount loop
   // only renders /^[A-Z]/ exports; CSF allows camelCase keys) — compare's
   // squash pairing is case-insensitive, so pairing is unaffected. compose()
@@ -168,29 +171,33 @@ export function generatePreviewSource(c, opts) {
   // (s.emitted, carried into the stories-map) — labels are deduped when the
   // same key appears in several modules ("Default" + "Default2"), so compare
   // must pair on the emitted label, not a fuzzy match of the raw key.
-  const seen = new Set()
-  const used = new Set()
-  const lines = []
+  const seen = new Set();
+  const used = new Set();
+  const lines = [];
   for (const s of paired) {
-    const mod = modVarFor(s.storySrc ?? c.storySrc)
-    const dupKey = `${mod}:${s.exportKey}`
+    const mod = modVarFor(s.storySrc ?? c.storySrc);
+    const dupKey = `${mod}:${s.exportKey}`;
     if (seen.has(dupKey)) {
       console.error(
         `  (preview: ${c.name} — story "${s.name}" pairs to already-emitted export ${s.exportKey}; skipping duplicate)`,
-      )
-      continue
+      );
+      continue;
     }
-    seen.add(dupKey)
-    const label = exportName(s.exportKey, used)
-    s.emitted = label
-    lines.push(`export const ${label} = /* ${s.name} */ compose(${mod}, ${JSON.stringify(s.exportKey)});`)
+    seen.add(dupKey);
+    const label = exportName(s.exportKey, used);
+    s.emitted = label;
+    lines.push(
+      `export const ${label} = /* ${s.name} */ compose(${mod}, ${JSON.stringify(s.exportKey)});`,
+    );
   }
-  const imports = [...modVars.entries()].map(([p, v]) => `import * as ${v} from ${toSpec(p)};`).join('\n')
+  const imports = [...modVars.entries()]
+    .map(([p, v]) => `import * as ${v} from ${toSpec(p)};`)
+    .join("\n");
   return `import * as React from 'react';
 ${imports}
 
 ${COMPOSE}
 
-${lines.join('\n')}
-`
+${lines.join("\n")}
+`;
 }

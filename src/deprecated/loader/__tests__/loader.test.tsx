@@ -1,9 +1,10 @@
-import { render } from '@testing-library/react'
-import { Loader } from '..'
+import { render } from "@testing-library/react";
 
-describe('Loader component', () => {
-  it('should match a snapshot', () => {
-    const wrapper = render(<Loader />)
-    expect(wrapper.asFragment()).toMatchSnapshot()
-  })
-})
+import { Loader } from "..";
+
+describe("Loader component", () => {
+  it("should match a snapshot", () => {
+    const wrapper = render(<Loader />);
+    expect(wrapper.asFragment()).toMatchSnapshot();
+  });
+});

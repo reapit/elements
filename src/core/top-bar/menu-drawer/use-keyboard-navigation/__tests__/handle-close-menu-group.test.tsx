@@ -1,5 +1,6 @@
-import { handleCloseMenuGroup } from '../handle-close-menu-group'
-import { render, screen, fireEvent } from '@testing-library/react'
+import { render, screen, fireEvent } from "@testing-library/react";
+
+import { handleCloseMenuGroup } from "../handle-close-menu-group";
 
 test("focuses the <summary> of the key down event target's ancestral <details> element", () => {
   render(
@@ -9,11 +10,11 @@ test("focuses the <summary> of the key down event target's ancestral <details> e
         <a href="/" />
       </details>
     </div>,
-  )
-  fireEvent.keyDown(screen.getByRole('link'), { key: 'Escape', code: 'Escape' })
+  );
+  fireEvent.keyDown(screen.getByRole("link"), { key: "Escape", code: "Escape" });
 
-  expect(screen.getByTestId('summary')).toHaveFocus()
-})
+  expect(screen.getByTestId("summary")).toHaveFocus();
+});
 
 test("closes the key down event target's ancestral <details> element if one of its descendants are not the current page", () => {
   render(
@@ -23,11 +24,11 @@ test("closes the key down event target's ancestral <details> element if one of i
         <a href="/" />
       </details>
     </div>,
-  )
-  fireEvent.keyDown(screen.getByRole('link'), { key: 'Escape', code: 'Escape' })
+  );
+  fireEvent.keyDown(screen.getByRole("link"), { key: "Escape", code: "Escape" });
 
-  expect(screen.getByRole('group')).not.toBeVisible()
-})
+  expect(screen.getByRole("group")).not.toBeVisible();
+});
 
 test("does NOT close the key down event target's ancestral <details> element if one of its descendants are the current page", () => {
   render(
@@ -37,8 +38,8 @@ test("does NOT close the key down event target's ancestral <details> element if 
         <a href="/" aria-current="page" />
       </details>
     </div>,
-  )
-  fireEvent.keyDown(screen.getByRole('link'), { key: 'Escape', code: 'Escape' })
+  );
+  fireEvent.keyDown(screen.getByRole("link"), { key: "Escape", code: "Escape" });
 
-  expect(screen.getByRole('group')).toBeVisible()
-})
+  expect(screen.getByRole("group")).toBeVisible();
+});

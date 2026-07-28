@@ -1,1 +1,1 @@
-export * from './avatar-menu'
+export * from "./avatar-menu";

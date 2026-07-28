@@ -1,1 +1,1 @@
-export { GalleryViewerMediaItem } from './media-item'
+export { GalleryViewerMediaItem } from "./media-item";

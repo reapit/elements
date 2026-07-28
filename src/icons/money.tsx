@@ -1,4 +1,4 @@
-import MoneySvg from './svgs/money.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import MoneySvg from "./svgs/money.svg?react";
 
-export const MoneyIcon = makeIcon('MoneyIcon', MoneySvg)
+export const MoneyIcon = makeIcon("MoneyIcon", MoneySvg);

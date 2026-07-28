@@ -1,11 +1,12 @@
-import { styled } from '@linaria/react'
-import { elIsActive } from '../../../styles/deprecated-states'
+import { styled } from "@linaria/react";
+
+import { elIsActive } from "../../../styles/deprecated-states";
 
 /** @deprecated */
 export const ElSecondaryNav = styled.div`
   transform: translate3d(-1.5rem, -1.5rem, 0);
   width: 14rem;
-`
+`;
 
 /** @deprecated */
 export const ElSecondaryNavItem = styled.div`
@@ -26,4 +27,4 @@ export const ElSecondaryNavItem = styled.div`
     border-left: 3px solid var(--colour-fill-action-dark);
     background-color: var(--colour-fill-action-lightest);
   }
-`
+`;

@@ -4,5 +4,5 @@
  * @returns The listbox element ID
  */
 export function getComboboxListboxId(comboboxId: string): string {
-  return `${comboboxId}-listbox`
+  return `${comboboxId}-listbox`;
 }

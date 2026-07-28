@@ -1,47 +1,48 @@
-import { TopBarMenuDrawer } from '../menu-drawer'
-import { render, screen } from '@testing-library/react'
+import { render, screen } from "@testing-library/react";
 
-test('renders dialog element', () => {
+import { TopBarMenuDrawer } from "../menu-drawer";
+
+test("renders dialog element", () => {
   render(
     <TopBarMenuDrawer isOpen>
       <div>Menu content</div>
     </TopBarMenuDrawer>,
-  )
+  );
 
-  expect(screen.getByRole('dialog')).toBeVisible()
-})
+  expect(screen.getByRole("dialog")).toBeVisible();
+});
 
-test('renders children', () => {
+test("renders children", () => {
   render(
     <TopBarMenuDrawer isOpen>
       <div>Menu content</div>
     </TopBarMenuDrawer>,
-  )
+  );
 
-  expect(screen.getByText('Menu content')).toBeVisible()
-})
+  expect(screen.getByText("Menu content")).toBeVisible();
+});
 
-test('applies custom className', () => {
+test("applies custom className", () => {
   render(
     <TopBarMenuDrawer isOpen className="custom-class" data-testid="menu-drawer">
       <div>Content</div>
     </TopBarMenuDrawer>,
-  )
+  );
 
-  expect(screen.getByTestId('menu-drawer')).toHaveClass('custom-class')
-})
+  expect(screen.getByTestId("menu-drawer")).toHaveClass("custom-class");
+});
 
-test('uses aria-label when provided', () => {
+test("uses aria-label when provided", () => {
   render(
     <TopBarMenuDrawer isOpen aria-label="Navigation menu">
       <div>Content</div>
     </TopBarMenuDrawer>,
-  )
+  );
 
-  expect(screen.getByRole('dialog', { name: 'Navigation menu' })).toBeVisible()
-})
+  expect(screen.getByRole("dialog", { name: "Navigation menu" })).toBeVisible();
+});
 
-test('uses aria-labelledby when provided and no aria-label', () => {
+test("uses aria-labelledby when provided and no aria-label", () => {
   render(
     <>
       <h2 id="menu-title">Menu Title</h2>
@@ -49,25 +50,25 @@ test('uses aria-labelledby when provided and no aria-label', () => {
         <div>Content</div>
       </TopBarMenuDrawer>
     </>,
-  )
+  );
 
-  expect(screen.getByRole('dialog', { name: 'Menu Title' })).toBeVisible()
-})
+  expect(screen.getByRole("dialog", { name: "Menu Title" })).toBeVisible();
+});
 
-test('forwards additional props to dialog element', () => {
+test("forwards additional props to dialog element", () => {
   render(
     <TopBarMenuDrawer isOpen data-testid="menu-drawer">
       <div>Content</div>
     </TopBarMenuDrawer>,
-  )
+  );
 
-  expect(screen.getByTestId('menu-drawer')).toBeVisible()
-})
+  expect(screen.getByTestId("menu-drawer")).toBeVisible();
+});
 
-test('exposes TopBarMenuDrawer.Header', () => {
-  expect(TopBarMenuDrawer.Header).toBeDefined()
-})
+test("exposes TopBarMenuDrawer.Header", () => {
+  expect(TopBarMenuDrawer.Header).toBeDefined();
+});
 
-test('exposes TopBarMenuDrawer.getClosestDialogElement', () => {
-  expect(TopBarMenuDrawer.getClosestDialogElement).toBeDefined()
-})
+test("exposes TopBarMenuDrawer.getClosestDialogElement", () => {
+  expect(TopBarMenuDrawer.getClosestDialogElement).toBeDefined();
+});

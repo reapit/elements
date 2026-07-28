@@ -1,15 +1,16 @@
-import { AtAGlanceGrid } from '../grid'
-import { Button } from '#src/core/button'
-import { ChevronLeftIcon } from '#src/icons/chevron-left'
-import { ChevronRightIcon } from '#src/icons/chevron-right'
-import { cx } from '@linaria/core'
-import { ElAtAGlanceCarousel, elAtAGlanceCarouselButton, elAtAGlanceCarouselGrid } from './styles'
-import { scrollContainerLeft } from './scroll-container-left'
-import { scrollContainerRight } from './scroll-container-right'
-import { useId } from 'react'
-import { useScrollObserver } from './use-scroll-observer'
+import { cx } from "@linaria/core";
+import { useId } from "react";
+import type { HTMLAttributes } from "react";
 
-import type { HTMLAttributes } from 'react'
+import { Button } from "#src/core/button";
+import { ChevronLeftIcon } from "#src/icons/chevron-left";
+import { ChevronRightIcon } from "#src/icons/chevron-right";
+
+import { AtAGlanceGrid } from "../grid";
+import { scrollContainerLeft } from "./scroll-container-left";
+import { scrollContainerRight } from "./scroll-container-right";
+import { ElAtAGlanceCarousel, elAtAGlanceCarouselButton, elAtAGlanceCarouselGrid } from "./styles";
+import { useScrollObserver } from "./use-scroll-observer";
 
 export namespace AtAGlanceCarousel {
   export interface Props extends HTMLAttributes<HTMLDivElement> {
@@ -18,11 +19,11 @@ export namespace AtAGlanceCarousel {
      * [grid-auto-columns](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/grid-auto-columns)
      * value.
      */
-    columns?: string
+    columns?: string;
     /**
      * The gap between the grid's rows and columns. Defaults to `--spacing-4`.
      */
-    gap?: `--spacing-${string}`
+    gap?: `--spacing-${string}`;
   }
 }
 
@@ -30,13 +31,22 @@ export namespace AtAGlanceCarousel {
  * A carousel component for displaying at-a-glance cards with horizontal scrolling.
  * Navigation buttons show/hide based on scroll position.
  */
-export function AtAGlanceCarousel({ children, className, columns = '1fr', id, ...rest }: AtAGlanceCarousel.Props) {
-  const fallbackId = useId()
-  const scrollContainerId = id ?? fallbackId
-  const { canScrollLeft, canScrollRight } = useScrollObserver(scrollContainerId)
+export function AtAGlanceCarousel({
+  children,
+  className,
+  columns = "1fr",
+  id,
+  ...rest
+}: AtAGlanceCarousel.Props) {
+  const fallbackId = useId();
+  const scrollContainerId = id ?? fallbackId;
+  const { canScrollLeft, canScrollRight } = useScrollObserver(scrollContainerId);
 
   return (
-    <ElAtAGlanceCarousel data-can-scroll-left={canScrollLeft} data-can-scroll-right={canScrollRight}>
+    <ElAtAGlanceCarousel
+      data-can-scroll-left={canScrollLeft}
+      data-can-scroll-right={canScrollRight}
+    >
       <Button
         aria-label="Previous"
         className={elAtAGlanceCarouselButton}
@@ -77,5 +87,5 @@ export function AtAGlanceCarousel({ children, className, columns = '1fr', id, ..
         variant="secondary"
       />
     </ElAtAGlanceCarousel>
-  )
+  );
 }

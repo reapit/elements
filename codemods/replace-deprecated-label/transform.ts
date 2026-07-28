@@ -1,6 +1,6 @@
-import { createComponentMigration } from '../shared/migration-engine.js'
+import { createComponentMigration } from "../shared/migration-engine.js";
 
-const TARGET_SPECIFIER = '@reapit/elements/core/label-text'
+const TARGET_SPECIFIER = "@reapit/elements/core/label-text";
 
 /**
  * Codemod to replace DeprecatedLabel with the new LabelText component.
@@ -22,18 +22,18 @@ const TARGET_SPECIFIER = '@reapit/elements/core/label-text'
 const transform = createComponentMigration({
   identifiers: [
     {
-      from: 'DeprecatedLabel',
-      to: 'LabelText',
+      from: "DeprecatedLabel",
+      to: "LabelText",
       targetSpecifier: TARGET_SPECIFIER,
     },
   ],
   props: [
     {
-      from: 'DeprecatedLabelProps',
-      to: 'LabelText.Props',
+      from: "DeprecatedLabelProps",
+      to: "LabelText.Props",
       targetSpecifier: TARGET_SPECIFIER,
     },
   ],
-})
+});
 
-export default transform
+export default transform;

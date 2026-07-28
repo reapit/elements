@@ -1,19 +1,22 @@
-import preview from '#.storybook/preview'
-import { GalleryViewerMediaItem } from './media-item'
-import { GalleryViewerMediaItemCaption } from '../media-item-caption'
-import { Image } from '#src/utils/image'
-import { Video } from '#src/utils/video'
+import preview from "#.storybook/preview";
+import { Image } from "#src/utils/image";
+import { Video } from "#src/utils/video";
 
-const EXAMPLE_IMAGE = 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=600&fit=crop'
-const EXAMPLE_VIDEO_SRC = 'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm'
+import { GalleryViewerMediaItemCaption } from "../media-item-caption";
+import { GalleryViewerMediaItem } from "./media-item";
+
+const EXAMPLE_IMAGE =
+  "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=600&fit=crop";
+const EXAMPLE_VIDEO_SRC =
+  "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm";
 
 const meta = preview.meta({
-  title: 'Content display/GalleryViewer/MediaItem',
+  title: "Content display/GalleryViewer/MediaItem",
   component: GalleryViewerMediaItem,
   argTypes: {
     children: { control: false },
   },
-})
+});
 
 /**
  * A media item containing an image. The item fills the full width and height
@@ -21,14 +24,14 @@ const meta = preview.meta({
  */
 export const Example = meta.story({
   args: {
-    id: 'item-1',
+    id: "item-1",
   },
   render: (args) => (
     <GalleryViewerMediaItem {...args}>
       <Image alt="Front view" height="100%" objectFit="cover" src={EXAMPLE_IMAGE} width="100%" />
     </GalleryViewerMediaItem>
   ),
-})
+});
 
 /**
  * A caption pill can be placed inside the item using `GalleryViewerMediaItemCaption`.
@@ -41,7 +44,7 @@ export const WithCaption = Example.extend({
       <GalleryViewerMediaItemCaption>Front view</GalleryViewerMediaItemCaption>
     </GalleryViewerMediaItem>
   ),
-})
+});
 
 /**
  * A media item can contain a `Video` element. Use `objectFit="contain"` to
@@ -53,7 +56,7 @@ export const WithVideo = Example.extend({
       <Video controls height="100%" objectFit="contain" src={EXAMPLE_VIDEO_SRC} width="100%" />
     </GalleryViewerMediaItem>
   ),
-})
+});
 
 /**
  * When an image fails to load, the `Image` component displays a fallback state
@@ -62,7 +65,13 @@ export const WithVideo = Example.extend({
 export const Fallback = Example.extend({
   render: (args) => (
     <GalleryViewerMediaItem {...args}>
-      <Image alt="Broken image" height="100%" objectFit="cover" src="https://invalid.example/broken.jpg" width="100%" />
+      <Image
+        alt="Broken image"
+        height="100%"
+        objectFit="cover"
+        src="https://invalid.example/broken.jpg"
+        width="100%"
+      />
     </GalleryViewerMediaItem>
   ),
-})
+});

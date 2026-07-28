@@ -1,4 +1,4 @@
-import { css } from '@linaria/core'
+import { css } from "@linaria/core";
 
 export const elFormLayout = css`
   @layer elements.main {
@@ -6,4 +6,4 @@ export const elFormLayout = css`
     flex-direction: column;
     gap: var(--spacing-10);
   }
-`
+`;

@@ -1,17 +1,26 @@
-import { ElStatusIndicator } from './styles'
-import type { HTMLAttributes, ReactNode } from 'react'
+import type { HTMLAttributes, ReactNode } from "react";
+
+import { ElStatusIndicator } from "./styles";
 
 // We omit:
 // - aria-label and aria-labelledby by because they are prohibited for <strong> elements
 //   by the WAI-ARIA guidelines (they should only be used for interactive content).
-type AttributesToOmit = 'aria-label' | 'aria-labelledby'
+type AttributesToOmit = "aria-label" | "aria-labelledby";
 
 export namespace StatusIndicator {
   export interface Props extends Omit<HTMLAttributes<HTMLElement>, AttributesToOmit> {
     /** The label of the status indicator. */
-    children: ReactNode
+    children: ReactNode;
     /** The variant of the status indicator. */
-    variant: 'neutral' | 'success' | 'pending' | 'warning' | 'danger' | 'inactive' | 'accent_1' | 'accent_2'
+    variant:
+      | "neutral"
+      | "success"
+      | "pending"
+      | "warning"
+      | "danger"
+      | "inactive"
+      | "accent_1"
+      | "accent_2";
   }
 }
 
@@ -23,5 +32,5 @@ export function StatusIndicator({ children, variant, ...rest }: StatusIndicator.
     <ElStatusIndicator {...rest} data-variant={variant}>
       {children}
     </ElStatusIndicator>
-  )
+  );
 }

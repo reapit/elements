@@ -1,5 +1,6 @@
-import type { FC, ReactNode } from 'react'
-import { DeprecatedMenuItemContainer, type DeprecatedMenuItemContainerProps } from './menu.atoms'
+import type { FC, ReactNode } from "react";
+
+import { DeprecatedMenuItemContainer, type DeprecatedMenuItemContainerProps } from "./menu.atoms";
 import {
   ElDeprecatedMenuItemContent,
   ElDeprecatedMenuItemIcon,
@@ -7,15 +8,18 @@ import {
   ElDeprecatedMenuItemLabelContainer,
   elDeprecatedMenuItemLeftIcon,
   ElDeprecatedMenuItemSupplementaryInfo,
-} from './styles'
+} from "./styles";
 
 /** @deprecated */
-export interface DeprecatedMenuItemProps extends Omit<DeprecatedMenuItemContainerProps, 'children'> {
-  label: string
-  supplementaryInfo?: string
-  badge?: ReactNode
-  leftIcon?: ReactNode
-  rightIcon?: ReactNode
+export interface DeprecatedMenuItemProps extends Omit<
+  DeprecatedMenuItemContainerProps,
+  "children"
+> {
+  label: string;
+  supplementaryInfo?: string;
+  badge?: ReactNode;
+  leftIcon?: ReactNode;
+  rightIcon?: ReactNode;
 }
 
 /** @deprecated */
@@ -30,7 +34,9 @@ export const DeprecatedMenuItem: FC<DeprecatedMenuItemProps> = ({
   return (
     <DeprecatedMenuItemContainer {...(props as DeprecatedMenuItemContainerProps)}>
       {leftIcon && (
-        <ElDeprecatedMenuItemIcon className={elDeprecatedMenuItemLeftIcon}>{leftIcon}</ElDeprecatedMenuItemIcon>
+        <ElDeprecatedMenuItemIcon className={elDeprecatedMenuItemLeftIcon}>
+          {leftIcon}
+        </ElDeprecatedMenuItemIcon>
       )}
       <ElDeprecatedMenuItemContent>
         <ElDeprecatedMenuItemLabelContainer>
@@ -38,10 +44,12 @@ export const DeprecatedMenuItem: FC<DeprecatedMenuItemProps> = ({
           {badge}
         </ElDeprecatedMenuItemLabelContainer>
         {supplementaryInfo && (
-          <ElDeprecatedMenuItemSupplementaryInfo>{supplementaryInfo}</ElDeprecatedMenuItemSupplementaryInfo>
+          <ElDeprecatedMenuItemSupplementaryInfo>
+            {supplementaryInfo}
+          </ElDeprecatedMenuItemSupplementaryInfo>
         )}
       </ElDeprecatedMenuItemContent>
       {rightIcon && <ElDeprecatedMenuItemIcon>{rightIcon}</ElDeprecatedMenuItemIcon>}
     </DeprecatedMenuItemContainer>
-  )
-}
+  );
+};

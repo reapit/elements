@@ -1,3 +1,8 @@
+import type { HTMLAttributes, ReactNode } from "react";
+
+import { MainContainer } from "#src/core/main-container";
+
+import { PageHeaderLeadingElement } from "./leading-element";
 import {
   ElPageHeader,
   ElPageHeaderBreadcrumbsContainer,
@@ -5,39 +10,35 @@ import {
   ElPageHeaderSubtitleContainer,
   ElPageHeaderSupplementaryInfoContainer,
   ElPageHeaderTitleContainer,
-} from './styles'
-import { MainContainer } from '#src/core/main-container'
-import { PageHeaderLeadingElement } from './leading-element'
-import { PageHeaderSubtitle } from './subtitle'
-import { PageHeaderSupplementaryInfo } from './supplementary-info'
-import { PageHeaderTitle } from './title'
-
-import type { HTMLAttributes, ReactNode } from 'react'
+} from "./styles";
+import { PageHeaderSubtitle } from "./subtitle";
+import { PageHeaderSupplementaryInfo } from "./supplementary-info";
+import { PageHeaderTitle } from "./title";
 
 export namespace PageHeader {
   // NOTE: We omit...
   // - `children`, because the page title's "children" are spread across multiple props.
   // - `title`, because we want to use that prop name for the page header title.
-  type AttributesToOmit = 'children' | 'title'
+  type AttributesToOmit = "children" | "title";
 
   export interface Props extends Omit<HTMLAttributes<HTMLElement>, AttributesToOmit> {
     /**
      * The background colour of the page header. When no value is provided (the default), the background will be
      * transparent.
      */
-    backgroundColour?: `--colour-fill-${string}`
+    backgroundColour?: `--colour-fill-${string}`;
     /** The leading element, like an image or product icon. */
-    leadingElement?: ReactNode
+    leadingElement?: ReactNode;
     /** The breadcrumbs for the current page. */
-    navigation?: ReactNode
+    navigation?: ReactNode;
     /** The size of the page header container. */
-    size: 'fluid' | 'wide' | 'narrow'
+    size: "fluid" | "wide" | "narrow";
     /** The page subtitle. */
-    subtitle?: ReactNode
+    subtitle?: ReactNode;
     /** The supplementary info. */
-    supplementaryInfo?: ReactNode
+    supplementaryInfo?: ReactNode;
     /** The page title. */
-    title: ReactNode
+    title: ReactNode;
   }
 }
 
@@ -55,21 +56,35 @@ export function PageHeader({
   supplementaryInfo,
 }: PageHeader.Props) {
   return (
-    <MainContainer as="div" backgroundColour={backgroundColour} hasNoBottomPadding hasNoTopPadding size={size}>
+    <MainContainer
+      as="div"
+      backgroundColour={backgroundColour}
+      hasNoBottomPadding
+      hasNoTopPadding
+      size={size}
+    >
       <ElPageHeader>
-        {breadcrumbs && <ElPageHeaderBreadcrumbsContainer>{breadcrumbs}</ElPageHeaderBreadcrumbsContainer>}
-        {leadingElement && <ElPageHeaderLeadingElementContainer>{leadingElement}</ElPageHeaderLeadingElementContainer>}
+        {breadcrumbs && (
+          <ElPageHeaderBreadcrumbsContainer>{breadcrumbs}</ElPageHeaderBreadcrumbsContainer>
+        )}
+        {leadingElement && (
+          <ElPageHeaderLeadingElementContainer>
+            {leadingElement}
+          </ElPageHeaderLeadingElementContainer>
+        )}
         <ElPageHeaderTitleContainer>{title}</ElPageHeaderTitleContainer>
         {subtitle && <ElPageHeaderSubtitleContainer>{subtitle}</ElPageHeaderSubtitleContainer>}
         {supplementaryInfo && (
-          <ElPageHeaderSupplementaryInfoContainer>{supplementaryInfo}</ElPageHeaderSupplementaryInfoContainer>
+          <ElPageHeaderSupplementaryInfoContainer>
+            {supplementaryInfo}
+          </ElPageHeaderSupplementaryInfoContainer>
         )}
       </ElPageHeader>
     </MainContainer>
-  )
+  );
 }
 
-PageHeader.LeadingElement = PageHeaderLeadingElement
-PageHeader.Subtitle = PageHeaderSubtitle
-PageHeader.SupplementaryInfo = PageHeaderSupplementaryInfo
-PageHeader.Title = PageHeaderTitle
+PageHeader.LeadingElement = PageHeaderLeadingElement;
+PageHeader.Subtitle = PageHeaderSubtitle;
+PageHeader.SupplementaryInfo = PageHeaderSupplementaryInfo;
+PageHeader.Title = PageHeaderTitle;

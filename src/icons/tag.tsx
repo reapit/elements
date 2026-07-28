@@ -1,4 +1,4 @@
-import TagSvg from './svgs/tag.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import TagSvg from "./svgs/tag.svg?react";
 
-export const TagIcon = makeIcon('TagIcon', TagSvg)
+export const TagIcon = makeIcon("TagIcon", TagSvg);

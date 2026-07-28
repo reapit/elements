@@ -1,19 +1,19 @@
-import { cx } from '@linaria/core'
-import { elMediaFallback, elMediaFallbackIcon, elMediaFallbackMessage } from './styles'
+import { cx } from "@linaria/core";
+import type { HTMLAttributes, ReactNode } from "react";
 
-import type { HTMLAttributes, ReactNode } from 'react'
+import { elMediaFallback, elMediaFallbackIcon, elMediaFallbackMessage } from "./styles";
 
 export namespace MediaFallback {
   export interface Props extends HTMLAttributes<HTMLDivElement> {
     /**
      * Optional message content shown below the icon. When omitted, no message is rendered.
      */
-    children?: ReactNode
+    children?: ReactNode;
 
     /**
      * Optional icon rendered above the message.
      */
-    icon?: ReactNode
+    icon?: ReactNode;
   }
 }
 
@@ -30,7 +30,7 @@ export function MediaFallback({ children, className, icon, ...rest }: MediaFallb
       )}
       {children && <p className={elMediaFallbackMessage}>{children}</p>}
     </div>
-  )
+  );
 }
 
-MediaFallback.displayName = 'MediaFallback'
+MediaFallback.displayName = "MediaFallback";

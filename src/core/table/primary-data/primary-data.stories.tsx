@@ -1,23 +1,24 @@
-import preview from '#.storybook/preview'
-import { Badge } from '#src/core/badge'
-import { Features } from '#src/core/features'
-import { Skeleton } from '#src/core/skeleton'
-import { StarIcon } from '#src/icons/star'
-import { StatusIndicator } from '#src/core/status-indicator'
-import { Table } from '../table'
-import { TagGroup } from '#src/core/tag-group'
-import { Text } from '#src/utils/text'
-import { Tooltip } from '#src/core/tooltip'
+import preview from "#.storybook/preview";
+import { Badge } from "#src/core/badge";
+import { Features } from "#src/core/features";
+import { Skeleton } from "#src/core/skeleton";
+import { StatusIndicator } from "#src/core/status-indicator";
+import { TagGroup } from "#src/core/tag-group";
+import { Tooltip } from "#src/core/tooltip";
+import { StarIcon } from "#src/icons/star";
+import { Text } from "#src/utils/text";
+
+import { Table } from "../table";
 
 const meta = preview.meta({
-  title: 'Data and tables/Table/PrimaryData',
+  title: "Data and tables/Table/PrimaryData",
   component: Table.PrimaryData,
   argTypes: {
     children: {
-      control: 'select',
-      options: ['Plain text', 'Badge', 'Features', 'Status indicator', 'Tag group', 'Skeleton'],
+      control: "select",
+      options: ["Plain text", "Badge", "Features", "Status indicator", "Tag group", "Skeleton"],
       mapping: {
-        'Plain text': '10 Hay St, Melbourne 3100',
+        "Plain text": "10 Hay St, Melbourne 3100",
         Badge: <Badge colour="neutral">Label</Badge>,
         Features: (
           <Features size="2xs" wrap="nowrap">
@@ -26,8 +27,8 @@ const meta = preview.meta({
             <Features.CarSpaces value={2} />
           </Features>
         ),
-        'Status indicator': <StatusIndicator variant="neutral">Status indicator</StatusIndicator>,
-        'Tag group': (
+        "Status indicator": <StatusIndicator variant="neutral">Status indicator</StatusIndicator>,
+        "Tag group": (
           <TagGroup flow="nowrap">
             <TagGroup.Item>Tag 1</TagGroup.Item>
             <TagGroup.Item>Tag 2</TagGroup.Item>
@@ -38,8 +39,8 @@ const meta = preview.meta({
       },
     },
     iconLeft: {
-      control: 'radio',
-      options: ['None', 'Star', 'Skeleton'],
+      control: "radio",
+      options: ["None", "Star", "Skeleton"],
       mapping: {
         None: null,
         Star: <StarIcon />,
@@ -47,8 +48,8 @@ const meta = preview.meta({
       },
     },
     iconRight: {
-      control: 'radio',
-      options: ['None', 'Star', 'Skeleton'],
+      control: "radio",
+      options: ["None", "Star", "Skeleton"],
       mapping: {
         None: null,
         Star: <StarIcon />,
@@ -56,15 +57,15 @@ const meta = preview.meta({
       },
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
-    children: 'Plain text',
-    iconLeft: 'None',
-    iconRight: 'None',
+    children: "Plain text",
+    iconLeft: "None",
+    iconRight: "None",
   },
-})
+});
 
 /**
  * Icons can be placed to the left or right of the content. When the content overflows the cell,
@@ -72,10 +73,10 @@ export const Example = meta.story({
  */
 export const Icons = Example.extend({
   args: {
-    iconLeft: 'Star',
-    iconRight: 'Star',
+    iconLeft: "Star",
+    iconRight: "Star",
   },
-})
+});
 
 /**
  * Any content can be displayed such as badges and tag groups. Typically, icons will be used
@@ -83,11 +84,11 @@ export const Icons = Example.extend({
  */
 export const Content = Example.extend({
   args: {
-    children: 'Badge',
-    iconLeft: 'Star',
-    iconRight: 'Star',
+    children: "Badge",
+    iconLeft: "Star",
+    iconRight: "Star",
   },
-})
+});
 
 /**
  * In cases where the content has insufficient space, content will be clipped while the icons remain
@@ -95,16 +96,23 @@ export const Content = Example.extend({
  */
 export const Clipping = Icons.extend({
   args: {
-    children: 'Tag group',
+    children: "Tag group",
   },
   decorators: [
     (Story) => (
-      <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', display: 'flex', width: '150px' }}>
+      <div
+        style={{
+          boxSizing: "content-box",
+          border: "1px solid #FA00FF",
+          display: "flex",
+          width: "150px",
+        }}
+      >
         <Story />
       </div>
     ),
   ],
-})
+});
 
 /**
  * Where possible, content should be truncated, with a tooltip used to display the unabridged content
@@ -125,12 +133,19 @@ export const Truncation = Icons.extend({
   },
   decorators: [
     (Story) => (
-      <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', display: 'flex', width: '150px' }}>
+      <div
+        style={{
+          boxSizing: "content-box",
+          border: "1px solid #FA00FF",
+          display: "flex",
+          width: "150px",
+        }}
+      >
         <Story />
       </div>
     ),
   ],
-})
+});
 
 /**
  * Skeletons can used for the content and the icons to communicate a loading state. The fidelity of
@@ -140,8 +155,8 @@ export const Truncation = Icons.extend({
  */
 export const Loading = Example.extend({
   args: {
-    children: 'Skeleton',
-    iconLeft: 'Skeleton',
-    iconRight: 'None',
+    children: "Skeleton",
+    iconLeft: "Skeleton",
+    iconRight: "None",
   },
-})
+});

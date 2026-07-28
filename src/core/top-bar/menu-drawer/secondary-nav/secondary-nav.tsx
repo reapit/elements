@@ -1,14 +1,14 @@
-import { ElTopBarMenuDrawerSecondaryNav } from './styles'
-import { TopBarMenuDrawerMenuList } from '../menu-list'
+import { TopBarMenuDrawerMenuList } from "../menu-list";
+import { ElTopBarMenuDrawerSecondaryNav } from "./styles";
 
 export namespace TopBarMenuDrawerSecondaryNav {
-  export interface Props extends Omit<TopBarMenuDrawerMenuList.Props, 'aria-label'> {
+  export interface Props extends Omit<TopBarMenuDrawerMenuList.Props, "aria-label"> {
     /**
      * Accessible label for the secondary navigation menu list.
      *
      * @default "Secondary navigation"
      */
-    'aria-label'?: string
+    "aria-label"?: string;
   }
 }
 
@@ -20,7 +20,7 @@ export namespace TopBarMenuDrawerSecondaryNav {
  * the TopBar's secondary navigation area on larger screens.
  */
 export function TopBarMenuDrawerSecondaryNav({
-  'aria-label': ariaLabel = 'Secondary navigation',
+  "aria-label": ariaLabel = "Secondary navigation",
   children,
   ...rest
 }: TopBarMenuDrawerSecondaryNav.Props) {
@@ -28,7 +28,7 @@ export function TopBarMenuDrawerSecondaryNav({
     <ElTopBarMenuDrawerSecondaryNav aria-label={ariaLabel} {...rest}>
       {children}
     </ElTopBarMenuDrawerSecondaryNav>
-  )
+  );
 }
 
-TopBarMenuDrawerSecondaryNav.displayName = 'TopBar.MenuSecondaryNav'
+TopBarMenuDrawerSecondaryNav.displayName = "TopBar.MenuSecondaryNav";

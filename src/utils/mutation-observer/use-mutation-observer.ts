@@ -1,5 +1,5 @@
-import { useEffect } from 'react'
-import type { RefObject } from 'react'
+import { useEffect } from "react";
+import type { RefObject } from "react";
 
 /**
  * Creates a `MutationObserver` that invokes the supplied callback when DOM changes occur for the
@@ -34,26 +34,27 @@ export function useMutationObserver(
 ) {
   useEffect(
     function observeElementWithMutationObserver() {
-      const element = typeof refOrId === 'string' ? document.getElementById(refOrId) : refOrId.current
+      const element =
+        typeof refOrId === "string" ? document.getElementById(refOrId) : refOrId.current;
 
       if (element instanceof HTMLElement) {
-        const observer = new MutationObserver(callback)
+        const observer = new MutationObserver(callback);
 
-        observer.observe(element, options)
+        observer.observe(element, options);
 
         // Any change to the element, callback or options requires that we process any pending
         // mutations that have not yet been passed to the observer's callback.
         return function disconnectMutationObserverFromElement() {
-          const pendingMutations = observer.takeRecords()
+          const pendingMutations = observer.takeRecords();
 
-          observer.disconnect()
+          observer.disconnect();
 
           if (pendingMutations.length > 0) {
-            callback(pendingMutations, observer)
+            callback(pendingMutations, observer);
           }
-        }
+        };
       }
     },
     [refOrId, callback, options],
-  )
+  );
 }

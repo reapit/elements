@@ -1,12 +1,13 @@
-import preview from '#.storybook/preview'
-import { DeprecatedChip as Chip, DeprecatedChipGroup as ChipGroup } from '.'
+import preview from "#.storybook/preview";
+
+import { DeprecatedChip as Chip, DeprecatedChipGroup as ChipGroup } from ".";
 
 const meta = preview.meta({
-  title: 'Deprecated/DeprecatedChip',
+  title: "Deprecated/DeprecatedChip",
   component: Chip,
-})
+});
 
-export default meta
+export default meta;
 
 export const BasicUsage = meta.story({
   render: () => (
@@ -14,7 +15,7 @@ export const BasicUsage = meta.story({
       <Chip>Content</Chip>
     </ChipGroup>
   ),
-})
+});
 
 export const ChipGroupUsage = meta.story({
   render: () => (
@@ -24,4 +25,4 @@ export const ChipGroupUsage = meta.story({
       <Chip>Content</Chip>
     </ChipGroup>
   ),
-})
+});

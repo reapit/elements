@@ -1,25 +1,25 @@
-import { shouldSideBarMenuGroupBeOpen } from './menu-group'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef } from "react";
 
-import type { useSideBar } from './use-side-bar'
+import { shouldSideBarMenuGroupBeOpen } from "./menu-group";
+import type { useSideBar } from "./use-side-bar";
 
 /**
  * A simple effect that observes changes to which item represents the current page (or active group) and
  * ensures all menu groups are closed.
  */
 export function useSideBarController(sideBarState: useSideBar.State) {
-  const ref = useRef<HTMLDivElement>(null)
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(
     function closeAllMenuGroupsWhenAriaCurrentOrDataIsActiveChange() {
-      if (!ref.current) return
+      if (!ref.current) return;
 
       // If the side bar is collapsed, all the groups will be closed and we don't need to watch
       // for changes to `aria-current` or `data-is-active`
-      if (sideBarState === 'collapsed') return
+      if (sideBarState === "collapsed") return;
 
-      const element = ref.current
-      const allMenuGroups = element.querySelectorAll('details')
+      const element = ref.current;
+      const allMenuGroups = element.querySelectorAll("details");
 
       const observer = new MutationObserver(() => {
         allMenuGroups.forEach((menuGroup) => {
@@ -35,22 +35,22 @@ export function useSideBarController(sideBarState: useSideBar.State) {
           // This is why we only target open menu groups. Any closed menu groups will open themselves
           // if one of their children is now the current page.
           if (menuGroup.open) {
-            menuGroup.open = shouldSideBarMenuGroupBeOpen(menuGroup)
+            menuGroup.open = shouldSideBarMenuGroupBeOpen(menuGroup);
           }
-        })
-      })
+        });
+      });
 
       observer.observe(element, {
-        attributeFilter: ['aria-current', 'data-is-active'],
+        attributeFilter: ["aria-current", "data-is-active"],
         subtree: true,
-      })
+      });
 
       return () => {
-        observer.disconnect()
-      }
+        observer.disconnect();
+      };
     },
     [sideBarState],
-  )
+  );
 
-  return ref
+  return ref;
 }

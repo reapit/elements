@@ -1,6 +1,6 @@
 export interface FrontMatter {
-  description?: string
-  body: string
+  description?: string;
+  body: string;
 }
 
 /**
@@ -23,15 +23,15 @@ export interface FrontMatter {
  * ```
  */
 export function parseFrontMatter(content: string): FrontMatter {
-  const match = content.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/)
-  if (!match) return { body: content }
+  const match = content.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
+  if (!match) return { body: content };
 
-  const frontMatter = match[1]
-  const body = match[2]
-  const descMatch = frontMatter.match(/^description:\s*(.+)$/m)
+  const frontMatter = match[1];
+  const body = match[2];
+  const descMatch = frontMatter.match(/^description:\s*(.+)$/m);
 
   return {
     description: descMatch?.[1],
     body: body.trim(),
-  }
+  };
 }

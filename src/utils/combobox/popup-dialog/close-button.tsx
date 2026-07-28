@@ -1,7 +1,8 @@
-import { Button } from '#src/core/button'
-import { CloseIcon } from '#src/icons/close'
-import { getClosestDialogElement } from '#src/utils/dialog'
-import type { MouseEventHandler } from 'react'
+import type { MouseEventHandler } from "react";
+
+import { Button } from "#src/core/button";
+import { CloseIcon } from "#src/icons/close";
+import { getClosestDialogElement } from "#src/utils/dialog";
 
 /**
  * Close button for the combobox popup. Uses a form element with the
@@ -11,9 +12,9 @@ import type { MouseEventHandler } from 'react'
  */
 export function ComboboxPopupDialogCloseButton() {
   const onClick: MouseEventHandler<HTMLButtonElement> = (event) => {
-    const dialogElement = getClosestDialogElement(event.currentTarget)
-    dialogElement?.close()
-  }
+    const dialogElement = getClosestDialogElement(event.currentTarget);
+    dialogElement?.close();
+  };
   return (
     <Button
       aria-label="Close"
@@ -23,5 +24,5 @@ export function ComboboxPopupDialogCloseButton() {
       type="button"
       variant="tertiary"
     />
-  )
+  );
 }

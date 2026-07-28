@@ -1,12 +1,13 @@
-import { font } from '#src/utils/font'
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
+
+import { font } from "#src/utils/font";
 
 export const ElPageHeaderTitle = styled.div`
   @layer elements.main {
     display: grid;
     align-items: start;
     gap: var(--spacing-2);
-    grid-template: 'content actions' / 1fr auto;
+    grid-template: "content actions" / 1fr auto;
 
     padding-block: var(--spacing-half);
 
@@ -15,7 +16,7 @@ export const ElPageHeaderTitle = styled.div`
     container-name: page-header-title;
     container-type: inline-size;
   }
-`
+`;
 
 export const ElPageHeaderTitleContent = styled.div`
   @layer elements.main {
@@ -27,15 +28,15 @@ export const ElPageHeaderTitleContent = styled.div`
 
     padding-block: var(--spacing-1);
   }
-`
+`;
 
 export const ElPageHeaderTitleText = styled.h1`
   display: inline;
   margin: 0;
   color: var(--colour-text-primary);
 
-  ${font('xl', 'bold')}
-`
+  ${font("xl", "bold")}
+`;
 
 export const ElPageHeaderTitleAdditionalInfo = styled.p`
   @layer elements.main {
@@ -45,7 +46,7 @@ export const ElPageHeaderTitleAdditionalInfo = styled.p`
     gap: var(--spacing-2);
     margin: 0;
   }
-`
+`;
 
 export const ElPageHeaderTitleActions = styled.div`
   @layer elements.main {
@@ -56,4 +57,4 @@ export const ElPageHeaderTitleActions = styled.div`
     gap: var(--spacing-2);
     flex-shrink: 0;
   }
-`
+`;

@@ -1,6 +1,7 @@
-import { AutocompleteButton } from './autocomplete-button'
-import { AutocompletePopup } from './autocomplete-popup'
-import { Combobox } from '#src/utils/combobox'
+import { Combobox } from "#src/utils/combobox";
+
+import { AutocompleteButton } from "./autocomplete-button";
+import { AutocompletePopup } from "./autocomplete-popup";
 
 export namespace Autocomplete {
   export interface ButtonProps extends AutocompleteButton.Props {}
@@ -25,23 +26,23 @@ export namespace Autocomplete {
  * preloaded or fetched on demand.
  */
 export function Autocomplete(props: Autocomplete.Props) {
-  return <Combobox {...props} />
+  return <Combobox {...props} />;
 }
 
-Autocomplete.getValue = Combobox.getListboxValue
-Autocomplete.getListboxId = Combobox.getListboxId
-Autocomplete.getPopupId = Combobox.getPopupId
-Autocomplete.Button = AutocompleteButton
-Autocomplete.CardDefaultContent = Combobox.CardDefaultContent
-Autocomplete.Divider = Combobox.Divider
-Autocomplete.DefaultOptionsContext = Combobox.DefaultOptionsContext
-Autocomplete.Listbox = Combobox.Listbox
-Autocomplete.Option = Combobox.Option
-Autocomplete.OptionAdditionalInfo = Combobox.OptionAdditionalInfo
-Autocomplete.Optgroup = Combobox.Optgroup
-Autocomplete.Placeholder = Combobox.ListboxPlaceholder
-Autocomplete.Popup = AutocompletePopup
-Autocomplete.SearchInput = Combobox.SearchInput
-Autocomplete.SelectionChips = Combobox.SelectionChips
-Autocomplete.SelectionChipsItem = Combobox.SelectionChipsItem
-Autocomplete.useState = Combobox.useState
+Autocomplete.getValue = Combobox.getListboxValue;
+Autocomplete.getListboxId = Combobox.getListboxId;
+Autocomplete.getPopupId = Combobox.getPopupId;
+Autocomplete.Button = AutocompleteButton;
+Autocomplete.CardDefaultContent = Combobox.CardDefaultContent;
+Autocomplete.Divider = Combobox.Divider;
+Autocomplete.DefaultOptionsContext = Combobox.DefaultOptionsContext;
+Autocomplete.Listbox = Combobox.Listbox;
+Autocomplete.Option = Combobox.Option;
+Autocomplete.OptionAdditionalInfo = Combobox.OptionAdditionalInfo;
+Autocomplete.Optgroup = Combobox.Optgroup;
+Autocomplete.Placeholder = Combobox.ListboxPlaceholder;
+Autocomplete.Popup = AutocompletePopup;
+Autocomplete.SearchInput = Combobox.SearchInput;
+Autocomplete.SelectionChips = Combobox.SelectionChips;
+Autocomplete.SelectionChipsItem = Combobox.SelectionChipsItem;
+Autocomplete.useState = Combobox.useState;

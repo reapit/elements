@@ -1,4 +1,4 @@
-import GridSvg from './svgs/grid.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import GridSvg from "./svgs/grid.svg?react";
 
-export const GridIcon = makeIcon('GridIcon', GridSvg)
+export const GridIcon = makeIcon("GridIcon", GridSvg);

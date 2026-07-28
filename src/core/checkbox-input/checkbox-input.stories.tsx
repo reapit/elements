@@ -1,50 +1,51 @@
-import preview from '#.storybook/preview'
-import { CheckboxInput } from './checkbox-input'
-import { useArgs } from 'storybook/preview-api'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef } from "react";
+import type { ChangeEventHandler } from "react";
+import { useArgs } from "storybook/preview-api";
 
-import type { ChangeEventHandler } from 'react'
+import preview from "#.storybook/preview";
+
+import { CheckboxInput } from "./checkbox-input";
 
 const meta = preview.meta({
-  title: 'Input and selection/CheckboxInput',
+  title: "Input and selection/CheckboxInput",
   component: CheckboxInput,
   argTypes: {
     checked: {
-      control: 'boolean',
+      control: "boolean",
     },
     value: {
-      control: 'text',
+      control: "text",
       table: {
         type: {
-          summary: 'string | number | readonly string[] | undefined',
+          summary: "string | number | readonly string[] | undefined",
         },
       },
     },
   },
-})
+});
 
 /**
  * Like any native input, the checkbox can be controlled or uncontrolled by consumers.
  */
 export const Example = meta.story({
   args: {
-    'aria-label': 'My checkbox',
+    "aria-label": "My checkbox",
     disabled: false,
-    name: 'myInput',
+    name: "myInput",
     readOnly: false,
     required: false,
     showValidity: false,
-    type: 'checkbox',
-    value: 'Hello!',
+    type: "checkbox",
+    value: "Hello!",
   },
   render: (args) => {
-    const [, setArgs] = useArgs()
+    const [, setArgs] = useArgs();
     const onChange: ChangeEventHandler<HTMLInputElement> = (event) => {
-      setArgs({ checked: event.currentTarget.checked })
-    }
-    return <CheckboxInput {...args} onChange={onChange} />
+      setArgs({ checked: event.currentTarget.checked });
+    };
+    return <CheckboxInput {...args} onChange={onChange} />;
   },
-})
+});
 
 /**
  * While it does not support an indeterminate prop that can be controlled by consumers, the checkbox
@@ -55,15 +56,15 @@ export const Example = meta.story({
  */
 export const Indeterminate = Example.extend({
   render: (args) => {
-    const inputRef = useRef<HTMLInputElement>(null)
+    const inputRef = useRef<HTMLInputElement>(null);
     useEffect(() => {
       if (inputRef.current) {
-        inputRef.current.indeterminate = true
+        inputRef.current.indeterminate = true;
       }
-    }, [])
-    return <CheckboxInput {...args} ref={inputRef} />
+    }, []);
+    return <CheckboxInput {...args} ref={inputRef} />;
   },
-})
+});
 
 /**
  * Checkboxes can be disabled. When they are, they do not participate in form submission.
@@ -72,7 +73,7 @@ export const Disabled = Example.extend({
   args: {
     disabled: true,
   },
-})
+});
 
 /**
  * Like all form controls that visually communicate their validity, the checkbox will display in an
@@ -85,7 +86,7 @@ export const Invalid = Example.extend({
     required: true,
     showValidity: true,
   },
-})
+});
 
 /**
  * The checkbox also displays in an invalid state when `aria-invalid="true"` and `showValidity` is
@@ -93,9 +94,9 @@ export const Invalid = Example.extend({
  * logic that does not use the browser's constraint validation API.
  */
 export const AriaInvalid = Example.extend({
-  name: 'Aria Invalid',
+  name: "Aria Invalid",
   args: {
-    'aria-invalid': true,
+    "aria-invalid": true,
     showValidity: true,
   },
-})
+});

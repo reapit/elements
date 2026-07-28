@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
 
 export const ElPageHeaderSupplementaryInfo = styled.div`
   @layer elements.main {
@@ -8,4 +8,4 @@ export const ElPageHeaderSupplementaryInfo = styled.div`
 
     padding-block-start: var(--spacing-1);
   }
-`
+`;

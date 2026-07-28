@@ -1,6 +1,7 @@
-import { DRAWER_CSS_CONTAINER_NAME, DRAWER_WIDTH_SM_2XL } from '../constants'
-import { ElDrawerFooter } from '../footer/styles'
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
+
+import { DRAWER_CSS_CONTAINER_NAME, DRAWER_WIDTH_SM_2XL } from "../constants";
+import { ElDrawerFooter } from "../footer/styles";
 
 export const ElDrawerBody = styled.article`
   @layer elements.main {
@@ -21,4 +22,4 @@ export const ElDrawerBody = styled.article`
       padding-block-start: 0;
     }
   }
-`
+`;

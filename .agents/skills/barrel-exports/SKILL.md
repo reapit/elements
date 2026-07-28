@@ -25,10 +25,10 @@ Top-level barrel files (`src/core/<name>/index.ts`, `src/utils/<name>/index.ts`,
 
 ```typescript
 // CORRECT
-export { ChipSelect } from './chip-select'
+export { ChipSelect } from "./chip-select";
 
 // WRONG — leaks every export from the module
-export * from './chip-select'
+export * from "./chip-select";
 ```
 
 ### 2. Export only the intended public API
@@ -39,11 +39,11 @@ Sub-components accessed through the namespace pattern (e.g. `ChipSelect.Option`)
 
 ```typescript
 // CORRECT — one component, sub-components on the namespace
-export { ChipSelect } from './chip-select'
+export { ChipSelect } from "./chip-select";
 
 // WRONG — sub-component exported separately
-export { ChipSelect } from './chip-select'
-export { Chip } from './chip'
+export { ChipSelect } from "./chip-select";
+export { Chip } from "./chip";
 ```
 
 ### 3. Exceptions are explicit
@@ -52,17 +52,17 @@ Some folders intentionally export more than one symbol (e.g. a component and a c
 
 ```typescript
 // Acceptable — two sibling components
-export { AnchorButton } from './anchor-button'
-export { Button } from './button'
+export { AnchorButton } from "./anchor-button";
+export { Button } from "./button";
 
 // Acceptable — component plus companion utility
-export { SearchInput } from './search-input'
-export { clearSearchInput } from './clear-search-input'
+export { SearchInput } from "./search-input";
+export { clearSearchInput } from "./clear-search-input";
 
 // Acceptable — component plus public types
-export { AppSwitcher } from './app-switcher'
-export { isProductAccessible } from './is-product-accessible'
-export type { SupportedProductId, ProductConfig } from './config'
+export { AppSwitcher } from "./app-switcher";
+export { isProductAccessible } from "./is-product-accessible";
+export type { SupportedProductId, ProductConfig } from "./config";
 ```
 
 ### 4. Intermediate sub-barrels may use `export *`
@@ -74,7 +74,7 @@ Only **top-level** barrels (the `index.ts` sitting directly inside `src/core/<na
 When re-exporting types, use `export type` to make the intent clear and to support `isolatedModules`.
 
 ```typescript
-export type { FontSize, FontWeight, FontStyle } from './types'
+export type { FontSize, FontWeight, FontStyle } from "./types";
 ```
 
 ## Process

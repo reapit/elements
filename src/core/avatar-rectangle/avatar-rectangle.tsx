@@ -1,4 +1,5 @@
-import { useEffect, useState, type FC, type HTMLAttributes } from 'react'
+import { useEffect, useState, type FC, type HTMLAttributes } from "react";
+
 import {
   ElAvatarRectangle,
   ElAvatarRectBottomImage,
@@ -7,63 +8,72 @@ import {
   ElAvatarRectCommercialSmallPlaceholder,
   ElAvatarRectResidentialPlaceholder,
   ElAvatarRectResidentialSmallPlaceholder,
-} from './styles'
+} from "./styles";
 
 export namespace AvatarRectangle {
   export interface Props extends HTMLAttributes<HTMLDivElement> {
-    variant: 'residential' | 'commercial'
-    size: 'medium' | 'small'
-    src?: string
-    alt?: string
+    variant: "residential" | "commercial";
+    size: "medium" | "small";
+    src?: string;
+    alt?: string;
   }
 }
 
 /** @deprecated Use AvatarRectangle.Props instead */
-export type AvatarRectangle = AvatarRectangle.Props
+export type AvatarRectangle = AvatarRectangle.Props;
 
 /**
  * A versatile component designed to render property image.
  */
 export const AvatarRectangle: FC<AvatarRectangle.Props> = ({
-  size = 'medium',
-  variant = 'residential',
+  size = "medium",
+  variant = "residential",
   src,
   alt,
   ...props
 }) => {
-  const [isError, setIsError] = useState(false)
+  const [isError, setIsError] = useState(false);
 
   const handleError = () => {
-    setIsError(true)
-  }
+    setIsError(true);
+  };
 
   useEffect(() => {
     if (src) {
-      setIsError(false)
+      setIsError(false);
     }
-  }, [src])
+  }, [src]);
 
-  const hasImageError = !src || isError
+  const hasImageError = !src || isError;
 
   const PlaceholderComponent =
-    variant == 'residential'
-      ? size === 'medium'
+    variant == "residential"
+      ? size === "medium"
         ? ElAvatarRectResidentialPlaceholder
         : ElAvatarRectResidentialSmallPlaceholder
-      : size === 'medium'
+      : size === "medium"
         ? ElAvatarRectCommercialPlaceholder
-        : ElAvatarRectCommercialSmallPlaceholder
+        : ElAvatarRectCommercialSmallPlaceholder;
 
-  const CommercialBottomImage = size === 'medium' ? ElAvatarRectBottomImage : ElAvatarRectBottomSmallPlaceholder
+  const CommercialBottomImage =
+    size === "medium" ? ElAvatarRectBottomImage : ElAvatarRectBottomSmallPlaceholder;
 
   return hasImageError ? (
-    <PlaceholderComponent {...(props as HTMLAttributes<HTMLOrSVGElement>)} aria-label="Image placeholder" />
+    <PlaceholderComponent
+      {...(props as HTMLAttributes<HTMLOrSVGElement>)}
+      aria-label="Image placeholder"
+    />
   ) : (
-    <ElAvatarRectangle {...props} data-size={size} data-variant={variant} data-placeholder={!hasImageError}>
+    <ElAvatarRectangle
+      {...props}
+      data-size={size}
+      data-variant={variant}
+      data-placeholder={!hasImageError}
+    >
       <img src={src} alt={alt} onError={handleError} />
       {/* commercial image have additional bottom image placeholder,
           see https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=383-10175&t=KuONuvNexPnMttGy-4 */}
-      {variant === 'commercial' && <CommercialBottomImage aria-hidden="true" />}
+      {variant === "commercial" && <CommercialBottomImage aria-hidden="true" />}
     </ElAvatarRectangle>
-  )
-}
+  );
+};

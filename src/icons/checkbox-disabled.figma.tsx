@@ -1,4 +1,8 @@
-import figma from '@figma/code-connect'
-import { CheckboxDisabledIcon } from './checkbox-disabled'
+import figma from "@figma/code-connect";
 
-figma.connect(CheckboxDisabledIcon, 'https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=20-562')
+import { CheckboxDisabledIcon } from "./checkbox-disabled";
+
+figma.connect(
+  CheckboxDisabledIcon,
+  "https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=20-562",
+);

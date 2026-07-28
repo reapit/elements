@@ -1,8 +1,8 @@
-import { cx } from '@linaria/core'
-import { elGalleryViewerCarouselTrack } from './styles'
-import { useGalleryViewerCarouselContext } from './context'
+import { cx } from "@linaria/core";
+import type { HTMLAttributes } from "react";
 
-import type { HTMLAttributes } from 'react'
+import { useGalleryViewerCarouselContext } from "./context";
+import { elGalleryViewerCarouselTrack } from "./styles";
 
 export namespace GalleryViewerCarouselTrack {
   export interface Props extends HTMLAttributes<HTMLDivElement> {}
@@ -15,8 +15,12 @@ export namespace GalleryViewerCarouselTrack {
  * the track renders with `data-read-only` and disables scrolling so the user cannot swipe
  * away from the controlled value.
  */
-export function GalleryViewerCarouselTrack({ children, className, ...rest }: GalleryViewerCarouselTrack.Props) {
-  const { isReadOnly, trackRef } = useGalleryViewerCarouselContext()
+export function GalleryViewerCarouselTrack({
+  children,
+  className,
+  ...rest
+}: GalleryViewerCarouselTrack.Props) {
+  const { isReadOnly, trackRef } = useGalleryViewerCarouselContext();
 
   return (
     <div
@@ -27,7 +31,7 @@ export function GalleryViewerCarouselTrack({ children, className, ...rest }: Gal
     >
       {children}
     </div>
-  )
+  );
 }
 
-GalleryViewerCarouselTrack.displayName = 'GalleryViewer.CarouselTrack'
+GalleryViewerCarouselTrack.displayName = "GalleryViewer.CarouselTrack";

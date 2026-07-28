@@ -1,60 +1,60 @@
-import { cx } from '@linaria/core'
-import { parseFont } from '../font'
-import { elText } from './styles'
+import { cx } from "@linaria/core";
+import type { HTMLAttributes, QuoteHTMLAttributes, TimeHTMLAttributes } from "react";
 
-import type { FontStyle, FontSize, FontWeight } from '../font'
-import type { TextColour } from './types'
-import type { HTMLAttributes, QuoteHTMLAttributes, TimeHTMLAttributes } from 'react'
+import { parseFont } from "../font";
+import type { FontStyle, FontSize, FontWeight } from "../font";
+import { elText } from "./styles";
+import type { TextColour } from "./types";
 
 export namespace Text {
   interface BaseProps {
-    colour?: TextColour
+    colour?: TextColour;
     /**
      * Defines the font style the text should use. Defaults to `inherit` when not provided.
      * When both `font` and `size`/`weight` are provided, `font` takes precedence.
      */
-    font?: FontStyle
-    overflow?: 'truncate'
+    font?: FontStyle;
+    overflow?: "truncate";
     /** @deprecated Use `font` prop instead */
-    size?: FontSize
+    size?: FontSize;
     /** @deprecated Use `font` prop instead */
-    weight?: FontWeight
+    weight?: FontWeight;
   }
 
   interface AsAbbrProps extends BaseProps, HTMLAttributes<HTMLElement> {
-    as: 'abbr'
+    as: "abbr";
   }
 
   interface AsEmProps extends BaseProps, HTMLAttributes<HTMLElement> {
-    as: 'em'
+    as: "em";
   }
 
   interface AsMarkProps extends BaseProps, HTMLAttributes<HTMLElement> {
-    as: 'mark'
+    as: "mark";
   }
 
   interface AsParagraphProps extends BaseProps, HTMLAttributes<HTMLParagraphElement> {
-    as: 'p'
+    as: "p";
   }
 
   interface AsQuoteProps extends BaseProps, QuoteHTMLAttributes<HTMLQuoteElement> {
-    as: 'q'
+    as: "q";
   }
 
   interface AsStrikethroughProps extends BaseProps, HTMLAttributes<HTMLElement> {
-    as: 's'
+    as: "s";
   }
 
   interface AsSpanProps extends BaseProps, HTMLAttributes<HTMLSpanElement> {
-    as?: 'span'
+    as?: "span";
   }
 
   interface AsStrongProps extends BaseProps, HTMLAttributes<HTMLElement> {
-    as: 'strong'
+    as: "strong";
   }
 
   interface AsTimeProps extends BaseProps, TimeHTMLAttributes<HTMLTimeElement> {
-    as: 'time'
+    as: "time";
   }
 
   export type Props =
@@ -66,7 +66,7 @@ export namespace Text {
     | AsStrikethroughProps
     | AsSpanProps
     | AsStrongProps
-    | AsTimeProps
+    | AsTimeProps;
 }
 
 /**
@@ -83,9 +83,9 @@ export namespace Text {
  * component to be minimally useful.
  */
 export function Text({
-  as: Element = 'span',
+  as: Element = "span",
   className,
-  colour = 'inherit',
+  colour = "inherit",
   font,
   overflow,
   size: deprecatedSizeProp,
@@ -95,21 +95,22 @@ export function Text({
   // We use the deprecated props if neither font, size nor weight are specified, OR if no font is specified
   // but at least one of size or weight are.
   const useDeprecatedProps =
-    (!font && !deprecatedSizeProp && !deprecatedWeightProp) || (!font && (deprecatedSizeProp || deprecatedWeightProp))
+    (!font && !deprecatedSizeProp && !deprecatedWeightProp) ||
+    (!font && (deprecatedSizeProp || deprecatedWeightProp));
 
   // NOTE: we default `font` to "inherit" here, instead of in our props destructuring above, because
   // we need to know when `font` is explicitly provided vs when it's not so we can know whether we
   // should be using the size and weight derived from it versus using the deprecated size/weight props.
-  const { size, weight } = parseFont(font ?? 'inherit')
+  const { size, weight } = parseFont(font ?? "inherit");
 
   return (
     <Element
       className={cx(elText, className)}
       data-colour={colour}
       data-overflow={overflow}
-      data-font-size={useDeprecatedProps ? (deprecatedSizeProp ?? 'base') : size}
-      data-font-weight={useDeprecatedProps ? (deprecatedWeightProp ?? 'regular') : weight}
+      data-font-size={useDeprecatedProps ? (deprecatedSizeProp ?? "base") : size}
+      data-font-weight={useDeprecatedProps ? (deprecatedWeightProp ?? "regular") : weight}
       {...(rest as HTMLAttributes<HTMLElement>)}
     />
-  )
+  );
 }

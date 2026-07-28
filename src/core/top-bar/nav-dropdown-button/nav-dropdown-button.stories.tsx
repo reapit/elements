@@ -1,23 +1,25 @@
-import preview from '#.storybook/preview'
-import { TopBarNavDropdownButton } from '.'
-import { Menu } from '#src/core/menu'
-import { useId } from 'react'
+import { useId } from "react";
+
+import preview from "#.storybook/preview";
+import { Menu } from "#src/core/menu";
+
+import { TopBarNavDropdownButton } from ".";
 
 const meta = preview.meta({
-  title: 'Navigation/TopBar/NavDropdownButton',
+  title: "Navigation/TopBar/NavDropdownButton",
   component: TopBarNavDropdownButton,
   argTypes: {
     children: {
-      control: 'text',
+      control: "text",
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
-    children: 'More',
+    children: "More",
   },
-})
+});
 
 /**
  * When there is not enough space to display the full label, it will not wrap to a new line; rather, it will overflow
@@ -27,40 +29,44 @@ export const Example = meta.story({
 export const Overflow = Example.extend({
   decorators: [
     (Story) => (
-      <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', width: '50px' }}>
+      <div style={{ boxSizing: "content-box", border: "1px solid #FA00FF", width: "50px" }}>
         <Story />
       </div>
     ),
   ],
-})
+});
 
 /**
  * The following example demonstrates the use of `TopBar.NavDropdownButton` with the `Menu` component.
  */
 export const WithAMenu = Example.extend({
-  name: 'With a Menu',
+  name: "With a Menu",
 
   argTypes: {
-    'aria-expanded': {
+    "aria-expanded": {
       control: false,
     },
   },
 
   decorators: [
     (Story) => (
-      <div style={{ height: '200px' }}>
+      <div style={{ height: "200px" }}>
         <Story />
       </div>
     ),
   ],
 
   render: ({ children }) => {
-    const triggerId = useId()
-    const menuId = useId()
+    const triggerId = useId();
+    const menuId = useId();
     return (
       <>
         <TopBarNavDropdownButton
-          {...Menu.getTriggerProps({ id: triggerId, popoverTarget: menuId, popoverTargetAction: 'toggle' })}
+          {...Menu.getTriggerProps({
+            id: triggerId,
+            popoverTarget: menuId,
+            popoverTargetAction: "toggle",
+          })}
         >
           {children}
         </TopBarNavDropdownButton>
@@ -70,6 +76,6 @@ export const WithAMenu = Example.extend({
           <Menu.Item>Menu Item 3</Menu.Item>
         </Menu>
       </>
-    )
+    );
   },
-})
+});

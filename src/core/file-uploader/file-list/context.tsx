@@ -1,22 +1,21 @@
-import { createContext, useContext } from 'react'
-
-import type { RefObject } from 'react'
+import { createContext, useContext } from "react";
+import type { RefObject } from "react";
 
 export namespace FileUploaderFileListContext {
   export interface Value {
     /** Whether `FileUploader.File` renders each item as a `FileCard` row or a `MediaCard` tile. */
-    variant: 'file' | 'media'
+    variant: "file" | "media";
     /**
      * `FileUploader.FileList`'s `name`, used by `FileUploader.File` to render its own hidden input.
      * A `name` passed directly to a `FileUploader.File` instance takes precedence over this.
      */
-    name?: string
+    name?: string;
     /**
      * Ref to the `<ul>` element. Used by `FileUploader.File` to perform DOM-based sibling focus
      * management after a removal — finding the next or previous item's remove button without
      * needing explicit knowledge of sibling components.
      */
-    listRef: RefObject<HTMLUListElement>
+    listRef: RefObject<HTMLUListElement>;
   }
 }
 
@@ -25,7 +24,9 @@ export namespace FileUploaderFileListContext {
  * every item renders consistently — all `FileCard` rows or all `MediaCard` tiles, never a mix —
  * and so a custom `children` render function doesn't have to re-pass `name` to every item.
  */
-export const FileUploaderFileListContext = createContext<FileUploaderFileListContext.Value | null>(null)
+export const FileUploaderFileListContext = createContext<FileUploaderFileListContext.Value | null>(
+  null,
+);
 
 /**
  * Returns the current FileUploaderFileListContext value.
@@ -34,11 +35,11 @@ export const FileUploaderFileListContext = createContext<FileUploaderFileListCon
  * @throws {Error} when used outside a FileUploader.FileList
  */
 export function useFileUploaderFileListContext(
-  callee = 'useFileUploaderFileListContext',
+  callee = "useFileUploaderFileListContext",
 ): FileUploaderFileListContext.Value {
-  const context = useContext(FileUploaderFileListContext)
+  const context = useContext(FileUploaderFileListContext);
   if (!context) {
-    throw new Error(`${callee} must be used within a FileUploader.FileList`)
+    throw new Error(`${callee} must be used within a FileUploader.FileList`);
   }
-  return context
+  return context;
 }

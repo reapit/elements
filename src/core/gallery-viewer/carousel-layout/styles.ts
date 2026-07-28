@@ -1,4 +1,4 @@
-import { css } from '@linaria/core'
+import { css } from "@linaria/core";
 
 export const elGalleryViewerCarouselLayout = css`
   @layer elements.main {
@@ -11,7 +11,7 @@ export const elGalleryViewerCarouselLayout = css`
     min-width: 0;
     overflow: clip;
   }
-`
+`;
 
 export const elGalleryViewerCarouselLayoutMain = css`
   @layer elements.main {
@@ -24,7 +24,7 @@ export const elGalleryViewerCarouselLayoutMain = css`
     padding-left: var(--spacing-8);
     padding-block: var(--spacing-8);
   }
-`
+`;
 
 export const elGalleryViewerCarouselLayoutSidebar = css`
   @layer elements.main {
@@ -38,4 +38,4 @@ export const elGalleryViewerCarouselLayoutSidebar = css`
     overflow-y: auto;
     overscroll-behavior: none;
   }
-`
+`;

@@ -1,14 +1,15 @@
-import preview from '#.storybook/preview'
-import { Table } from '../table'
-import { useTableDecorator } from '../__story__/use-table-decorator'
+import preview from "#.storybook/preview";
+
+import { useTableDecorator } from "../__story__/use-table-decorator";
+import { Table } from "../table";
 
 const meta = preview.meta({
-  title: 'Data and tables/Table/HeaderRow',
+  title: "Data and tables/Table/HeaderRow",
   component: Table.HeaderRow,
   argTypes: {
     as: {
       control: false,
-      description: 'The element this table row will render as.',
+      description: "The element this table row will render as.",
       table: {
         type: {
           summary: "'tr' | 'div'",
@@ -16,11 +17,11 @@ const meta = preview.meta({
       },
     },
     children: {
-      control: 'select',
-      description: 'The row content.',
-      options: ['Static text', 'Sortable columns'],
+      control: "select",
+      description: "The row content.",
+      options: ["Static text", "Sortable columns"],
       mapping: {
-        'Static text': (
+        "Static text": (
           <>
             <Table.HeaderCell>Property</Table.HeaderCell>
             <Table.HeaderCell>Ownership</Table.HeaderCell>
@@ -28,7 +29,7 @@ const meta = preview.meta({
             <Table.HeaderCell aria-label="Actions">{null}</Table.HeaderCell>
           </>
         ),
-        'Sortable columns': (
+        "Sortable columns": (
           <>
             <Table.HeaderCell>Property</Table.HeaderCell>
             <Table.HeaderCell>
@@ -47,12 +48,12 @@ const meta = preview.meta({
       },
       table: {
         type: {
-          summary: 'ReactNode',
+          summary: "ReactNode",
         },
       },
     },
   },
-})
+});
 
 /**
  * By default, rows do not exhibit any cursor-based interactivity, such has hover styles. This is because
@@ -60,11 +61,11 @@ const meta = preview.meta({
  */
 export const Example = meta.story({
   args: {
-    as: 'tr',
-    children: 'Static text',
+    as: "tr",
+    children: "Static text",
   },
-  decorators: [useTableDecorator('header-row')],
-})
+  decorators: [useTableDecorator("header-row")],
+});
 
 /**
  * Any number of columns in the table can be sortable. In this example, two columns have sort buttons
@@ -72,11 +73,11 @@ export const Example = meta.story({
  */
 export const SortableColumns = meta.story({
   args: {
-    as: 'tr',
-    children: 'Sortable columns',
+    as: "tr",
+    children: "Sortable columns",
   },
-  decorators: [useTableDecorator('header-row')],
-})
+  decorators: [useTableDecorator("header-row")],
+});
 
 /**
  * Sometimes it may be necessary to render the table row as a plain `<div>`. Providing
@@ -89,7 +90,7 @@ export const SortableColumns = meta.story({
  */
 export const Divs = meta.story({
   args: {
-    as: 'div',
+    as: "div",
     children: <Table.HeaderCell as="div">I&apos;m all divs and no a11y 😬</Table.HeaderCell>,
   },
   argTypes: {
@@ -97,4 +98,4 @@ export const Divs = meta.story({
       control: false,
     },
   },
-})
+});

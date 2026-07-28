@@ -1,5 +1,5 @@
-import { styled } from '@linaria/react'
-import { css } from '@linaria/core'
+import { css } from "@linaria/core";
+import { styled } from "@linaria/react";
 
 /** @deprecated */
 export const ElDeprecatedToolTipChild = styled.div`
@@ -20,17 +20,17 @@ export const ElDeprecatedToolTipChild = styled.div`
     left: calc(50% - 0.25rem);
     border: 0.25rem solid transparent;
     border-top-color: var(--colour-fill-neutral-darkest);
-    content: '';
+    content: "";
   }
-`
+`;
 
 /** @deprecated */
 export const elToolTipActive = css`
   display: block;
-`
+`;
 
 /** @deprecated */
 export const ElDeprecatedToolTipContainer = styled.div`
   position: relative;
   padding: 0.25rem;
-`
+`;

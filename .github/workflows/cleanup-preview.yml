@@ -5,7 +5,7 @@ on:
     types: [closed]
   schedule:
     # Weekly Monday 3 am UTC — sweep orphaned preview Workers.
-    - cron: '0 3 * * 1'
+    - cron: "0 3 * * 1"
 
 permissions:
   contents: read
@@ -44,7 +44,7 @@ jobs:
         with:
           apiToken: ${{ secrets.ANZ_CLOUDFLARE_TOKEN }}
           accountId: ${{ secrets.ANZ_CLOUDFLARE_ACCOUNT_ID }}
-          wranglerVersion: '4'
+          wranglerVersion: "4"
           command: delete --env preview --name gbl-ds-elements-pr-${{ github.event.pull_request.number }} --force
       - name: Update PR comment
         env:

@@ -1,3 +1,10 @@
+import { useId } from "react";
+import type { ButtonHTMLAttributes, ReactNode } from "react";
+
+import { CheckIcon } from "#src/icons/check";
+
+import { getOptionLabel } from "./get-option-label";
+import { ComboboxOptionAdditionalInfo } from "./option-additional-info";
 import {
   ElComboboxOption,
   ElComboboxOptionAdditionalInfoContainer,
@@ -5,44 +12,46 @@ import {
   ElComboboxOptionCheckIconContainer,
   ElComboboxOptionLabel,
   ElComboboxOptionTextContainer,
-} from './styles'
-import { CheckIcon } from '#src/icons/check'
-import { ComboboxOptionAdditionalInfo } from './option-additional-info'
-import { getOptionLabel } from './get-option-label'
-import { useId } from 'react'
-
-import type { ButtonHTMLAttributes, ReactNode } from 'react'
+} from "./styles";
 
 // Omit `role` because it must always be "option"
-type AttributesToOmit = 'role'
+type AttributesToOmit = "role";
 
 export namespace ComboboxOption {
   export interface AdditionalInfoProps extends ComboboxOptionAdditionalInfo.Props {}
 
   export interface Props extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, AttributesToOmit> {
     /** Badge displayed after the label */
-    badge?: ReactNode
+    badge?: ReactNode;
     /** Option label text */
-    children?: ReactNode
+    children?: ReactNode;
     /** Additional info lines. Pass one or more `Combobox.OptionAdditionalInfo` */
-    additionalInfo?: ReactNode
+    additionalInfo?: ReactNode;
     /** Option size. Influences the option's label text. */
-    size?: 'medium' | 'large'
+    size?: "medium" | "large";
     /** Option value */
-    value: string
+    value: string;
   }
 }
 
 /**
  * A Combobox option. Use via `Combobox.Option`.
  */
-export function ComboboxOption({ badge, children, additionalInfo, size = 'medium', ...rest }: ComboboxOption.Props) {
-  const badgeId = useId()
-  const labelId = useId()
-  const additionalInfoId = useId()
+export function ComboboxOption({
+  badge,
+  children,
+  additionalInfo,
+  size = "medium",
+  ...rest
+}: ComboboxOption.Props) {
+  const badgeId = useId();
+  const labelId = useId();
+  const additionalInfoId = useId();
 
   // We only use the detail the option if the associated badge or additional info are present.
-  const ariaDetails = [badge && badgeId, additionalInfo && additionalInfoId].filter((x) => !!x).join(' ') || undefined
+  const ariaDetails =
+    [badge && badgeId, additionalInfo && additionalInfoId].filter((x) => !!x).join(" ") ||
+    undefined;
 
   return (
     <ElComboboxOption
@@ -58,7 +67,9 @@ export function ComboboxOption({ badge, children, additionalInfo, size = 'medium
       </ElComboboxOptionCheckIconContainer>
       <ElComboboxOptionLabel>
         <ElComboboxOptionTextContainer id={labelId}>{children}</ElComboboxOptionTextContainer>
-        {badge && <ElComboboxOptionBadgeContainer id={badgeId}>{badge}</ElComboboxOptionBadgeContainer>}
+        {badge && (
+          <ElComboboxOptionBadgeContainer id={badgeId}>{badge}</ElComboboxOptionBadgeContainer>
+        )}
       </ElComboboxOptionLabel>
       {additionalInfo && (
         <ElComboboxOptionAdditionalInfoContainer id={additionalInfoId}>
@@ -66,8 +77,8 @@ export function ComboboxOption({ badge, children, additionalInfo, size = 'medium
         </ElComboboxOptionAdditionalInfoContainer>
       )}
     </ElComboboxOption>
-  )
+  );
 }
 
-ComboboxOption.getOptionLabel = getOptionLabel
-ComboboxOption.AdditionalInfo = ComboboxOptionAdditionalInfo
+ComboboxOption.getOptionLabel = getOptionLabel;
+ComboboxOption.AdditionalInfo = ComboboxOptionAdditionalInfo;

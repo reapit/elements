@@ -1,1 +1,1 @@
-export { SplitButton } from './split-button'
+export { SplitButton } from "./split-button";

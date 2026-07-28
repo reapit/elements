@@ -1,12 +1,14 @@
-import { applyCSSAnchorPositioningPolyfill } from '#src/polyfills/css-anchor-positioning'
-import { buildAnchorPositioningCSS } from './build-anchor-positioning-css'
-import { useLayoutEffect, useRef } from 'react'
+import { useLayoutEffect, useRef } from "react";
+import type { HTMLAttributes } from "react";
 
-import type { HTMLAttributes } from 'react'
+import { applyCSSAnchorPositioningPolyfill } from "#src/polyfills/css-anchor-positioning";
+
+import { buildAnchorPositioningCSS } from "./build-anchor-positioning-css";
 
 export namespace AnchorPositioning {
   export interface PositioningProps extends buildAnchorPositioningCSS.Input {}
-  export interface Props extends buildAnchorPositioningCSS.Input, HTMLAttributes<HTMLStyleElement> {}
+  export interface Props
+    extends buildAnchorPositioningCSS.Input, HTMLAttributes<HTMLStyleElement> {}
 }
 
 /**
@@ -22,7 +24,7 @@ export function AnchorPositioning({
   alignSelf,
   anchorElementId,
   bottom,
-  gap = '0',
+  gap = "0",
   justifySelf,
   left,
   maxWidth,
@@ -30,11 +32,11 @@ export function AnchorPositioning({
   placement,
   position,
   positionedElementId,
-  positionTryFallbacks = 'none',
+  positionTryFallbacks = "none",
   right,
   top,
 }: AnchorPositioning.Props) {
-  const styleRef = useRef<HTMLStyleElement>(null)
+  const styleRef = useRef<HTMLStyleElement>(null);
 
   // The polyfill supports inline styles, but React's dynamic rendering would require passing both
   // the anchor and positioned element refs to the polyfill. This creates an awkward API requiring
@@ -57,18 +59,18 @@ export function AnchorPositioning({
     positionTryFallbacks,
     right,
     top,
-  })
+  });
 
   // Apply the polyfill if needed; `applyCSSAnchorPositioningPolyfill` is a no-op if the browser
   // natively supports anchor positioning.
   useLayoutEffect(
     function polyfillCSSAnchorPositioning() {
       if (styleRef.current) {
-        applyCSSAnchorPositioningPolyfill({ elements: [styleRef.current] })
+        applyCSSAnchorPositioningPolyfill({ elements: [styleRef.current] });
       }
     },
     [anchorPositioningCSS],
-  )
+  );
 
-  return <style ref={styleRef}>{anchorPositioningCSS}</style>
+  return <style ref={styleRef}>{anchorPositioningCSS}</style>;
 }

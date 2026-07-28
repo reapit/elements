@@ -1,23 +1,24 @@
-import preview from '#.storybook/preview'
-import { BottomBar } from './bottom-bar'
-import { Menu } from '#src/core/menu'
-import { Pattern } from '../drawer/__story__/Pattern'
-import { StarIcon } from '#src/icons/star'
+import preview from "#.storybook/preview";
+import { Menu } from "#src/core/menu";
+import { StarIcon } from "#src/icons/star";
+
+import { Pattern } from "../drawer/__story__/Pattern";
+import { BottomBar } from "./bottom-bar";
 
 // Placeholder href for all menu items in this story.
-const href = '#'
+const href = "#";
 
 const meta = preview.meta({
-  title: 'Navigation/BottomBar',
+  title: "Navigation/BottomBar",
   component: BottomBar,
   argTypes: {
     children: {
-      control: 'radio',
-      options: ['No selected item', 'Selected item', 'With overflow menu'],
+      control: "radio",
+      options: ["No selected item", "Selected item", "With overflow menu"],
       mapping: {
-        'No selected item': buildMenu('No selected item'),
-        'Selected item': buildMenu('Selected item'),
-        'With overflow menu': buildMenu('With overflow menu'),
+        "No selected item": buildMenu("No selected item"),
+        "Selected item": buildMenu("Selected item"),
+        "With overflow menu": buildMenu("With overflow menu"),
       },
     },
     scrollContainerId: {
@@ -26,7 +27,7 @@ const meta = preview.meta({
   },
   globals: {
     backgrounds: {
-      value: 'light',
+      value: "light",
     },
   },
   render: ({ scrollContainerId, ...rest }) => {
@@ -34,23 +35,23 @@ const meta = preview.meta({
       <div
         id={scrollContainerId}
         style={{
-          boxSizing: 'content-box',
-          border: '1px solid #FA00FF',
-          height: '300px',
-          overflow: 'auto',
+          boxSizing: "content-box",
+          border: "1px solid #FA00FF",
+          height: "300px",
+          overflow: "auto",
         }}
       >
         <Pattern height="100vh" />
-        <div style={{ position: 'sticky', bottom: 0 }}>
+        <div style={{ position: "sticky", bottom: 0 }}>
           <BottomBar {...rest} scrollContainerId={scrollContainerId} />
         </div>
       </div>
-    )
+    );
   },
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
   },
-})
+});
 
 /**
  * Without a scroll container ID, the bottom bar will be extended and, if it is a descendant of the
@@ -58,11 +59,11 @@ const meta = preview.meta({
  */
 export const Example = meta.story({
   args: {
-    'aria-label': 'Bottom navigation',
-    children: 'With overflow menu',
+    "aria-label": "Bottom navigation",
+    children: "With overflow menu",
     scrollContainerId: undefined,
   },
-})
+});
 
 /**
  * By specifying a scroll container ID, the bottom bar will dynamically retract as the user
@@ -70,14 +71,18 @@ export const Example = meta.story({
  */
 export const Retractable = Example.extend({
   args: {
-    scrollContainerId: 'scroll-container-id',
+    scrollContainerId: "scroll-container-id",
   },
-})
+});
 
-function buildMenu(type: 'No selected item' | 'Selected item' | 'With overflow menu') {
+function buildMenu(type: "No selected item" | "Selected item" | "With overflow menu") {
   return (
     <BottomBar.MenuList>
-      <BottomBar.Item aria-current={type !== 'No selected item' ? 'page' : false} icon={<StarIcon />} href={href}>
+      <BottomBar.Item
+        aria-current={type !== "No selected item" ? "page" : false}
+        icon={<StarIcon />}
+        href={href}
+      >
         Menu 1
       </BottomBar.Item>
       <BottomBar.Item aria-current={false} icon={<StarIcon />} href={href} hasBadge>
@@ -89,7 +94,7 @@ function buildMenu(type: 'No selected item' | 'Selected item' | 'With overflow m
       <BottomBar.Item aria-current={false} icon={<StarIcon />} href={href}>
         Menu 4
       </BottomBar.Item>
-      {type === 'With overflow menu' ? (
+      {type === "With overflow menu" ? (
         <BottomBar.MenuItem>
           <Menu.Item>Menu item 5</Menu.Item>
           <Menu.Item>Menu item 6</Menu.Item>
@@ -101,5 +106,5 @@ function buildMenu(type: 'No selected item' | 'Selected item' | 'With overflow m
         </BottomBar.Item>
       )}
     </BottomBar.MenuList>
-  )
+  );
 }

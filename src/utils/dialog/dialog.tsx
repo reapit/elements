@@ -1,9 +1,10 @@
-import { forwardRef } from 'react'
-import { maybeCloseOnBackdropClick } from './close-on-backdrop-click'
-import { useCancelCloseRequests } from './use-cancel-close-requests'
-import { useWithStopPropagation } from '#src/utils/events'
+import { forwardRef } from "react";
+import type { DialogHTMLAttributes, MouseEventHandler, ReactNode } from "react";
 
-import type { DialogHTMLAttributes, MouseEventHandler, ReactNode } from 'react'
+import { useWithStopPropagation } from "#src/utils/events";
+
+import { maybeCloseOnBackdropClick } from "./close-on-backdrop-click";
+import { useCancelCloseRequests } from "./use-cancel-close-requests";
 
 export namespace HTMLDialog {
   export interface Props extends DialogHTMLAttributes<HTMLDialogElement> {
@@ -14,9 +15,9 @@ export namespace HTMLDialog {
      * - `closerequest`: Dialog can be dismissed with platform action or developer mechanism (default)
      * - `none`: Dialog cannot be closed by the user
      */
-    closedBy?: 'any' | 'closerequest' | 'none'
+    closedBy?: "any" | "closerequest" | "none";
     /** Dialog content */
-    children: ReactNode
+    children: ReactNode;
     /**
      * Only relevant when `closedBy` is `'any'`. Whether a backdrop click should be fully
      * consumed by dismissal, preventing the same click from also activating an element on
@@ -39,7 +40,7 @@ export namespace HTMLDialog {
      *
      * @default true
      */
-    consumeBackdropClick?: boolean
+    consumeBackdropClick?: boolean;
   }
 }
 
@@ -57,19 +58,30 @@ export namespace HTMLDialog {
  * using <dialog> directly.
  */
 export const HTMLDialog = forwardRef<HTMLDialogElement, HTMLDialog.Props>(
-  ({ closedBy = 'closerequest', consumeBackdropClick = true, onCancel, onClose, onClick, children, ...rest }, ref) => {
-    const handleCancel = useCancelCloseRequests(closedBy, onCancel)
-    const handleClose = useWithStopPropagation(onClose)
+  (
+    {
+      closedBy = "closerequest",
+      consumeBackdropClick = true,
+      onCancel,
+      onClose,
+      onClick,
+      children,
+      ...rest
+    },
+    ref,
+  ) => {
+    const handleCancel = useCancelCloseRequests(closedBy, onCancel);
+    const handleClose = useWithStopPropagation(onClose);
 
     const handleClick: MouseEventHandler<HTMLDialogElement> = (event) => {
-      onClick?.(event)
-      maybeCloseOnBackdropClick(event, closedBy, consumeBackdropClick)
-    }
+      onClick?.(event);
+      maybeCloseOnBackdropClick(event, closedBy, consumeBackdropClick);
+    };
 
     // Render 'closerequest' instead of 'any' when consuming backdrop clicks ourselves - this
     // disables native light-dismiss (see `maybeCloseOnBackdropClick`) while still permitting
     // Esc/platform close-request natively.
-    const realClosedBy = closedBy === 'any' && consumeBackdropClick ? 'closerequest' : closedBy
+    const realClosedBy = closedBy === "any" && consumeBackdropClick ? "closerequest" : closedBy;
 
     return (
       <dialog
@@ -83,6 +95,6 @@ export const HTMLDialog = forwardRef<HTMLDialogElement, HTMLDialog.Props>(
       >
         {children}
       </dialog>
-    )
+    );
   },
-)
+);

@@ -1,23 +1,24 @@
-import { ElBadge, ElBadgeLabelContainer, ElBadgeIconContainer } from './styles'
-import { Tooltip } from '#src/core/tooltip'
+import { useId, type HTMLAttributes, type ReactNode } from "react";
 
-import type { BadgeColour } from './styles'
-import { useId, type HTMLAttributes, type ReactNode } from 'react'
+import { Tooltip } from "#src/core/tooltip";
+
+import { ElBadge, ElBadgeLabelContainer, ElBadgeIconContainer } from "./styles";
+import type { BadgeColour } from "./styles";
 
 export namespace Badge {
   export interface Props extends HTMLAttributes<HTMLSpanElement> {
     /** The label for the badge. This is considered mandatory for icon-only badges. */
-    'aria-label'?: string
+    "aria-label"?: string;
     /** The badge label. */
-    children?: ReactNode
+    children?: ReactNode;
     /** The colour of the badge. */
-    colour: BadgeColour
+    colour: BadgeColour;
     /** The left icon of the badge. */
-    iconLeft?: ReactNode
+    iconLeft?: ReactNode;
     /** The right icon of the badge. */
-    iconRight?: ReactNode
+    iconRight?: ReactNode;
     /** Whether the badge is reversed. */
-    variant?: 'default' | 'reversed'
+    variant?: "default" | "reversed";
   }
 }
 
@@ -25,21 +26,21 @@ export namespace Badge {
  * Badges are visual indicators that appear for new notifications, numeric counts, statuses, or some other metadata.
  */
 export function Badge({
-  'aria-label': ariaLabel,
+  "aria-label": ariaLabel,
   children,
   colour,
   iconLeft,
   iconRight,
   id,
-  variant = 'default',
+  variant = "default",
   ...rest
 }: Badge.Props) {
   // It's an icon-only badge if there's no label text and only one icon
-  const isIconOnly = !children && (iconLeft || iconRight) && !(iconLeft && iconRight)
-  const useTooltip = isIconOnly && ariaLabel
+  const isIconOnly = !children && (iconLeft || iconRight) && !(iconLeft && iconRight);
+  const useTooltip = isIconOnly && ariaLabel;
 
-  const badgeId = id ?? useId()
-  const tooltipId = useId()
+  const badgeId = id ?? useId();
+  const tooltipId = useId();
 
   // For icon-only badges, the `aria-label` will be used as the tooltip's text rather than the
   // badge's `aria-label` label because the tooltip will label the badge via `aria-labelledby`.
@@ -50,11 +51,11 @@ export function Badge({
   // tooltip, it'll be nuked by the `aria-labelledby` value we get from
   // `Tooltip.getTooltipTriggerProps`. 🤷‍♂️
   const a11yProps = useTooltip
-    ? Tooltip.getTriggerProps({ id: badgeId, tooltipId, tooltipPurpose: 'label' })
+    ? Tooltip.getTriggerProps({ id: badgeId, tooltipId, tooltipPurpose: "label" })
     : {
-        'aria-label': ariaLabel,
+        "aria-label": ariaLabel,
         id: badgeId,
-      }
+      };
 
   return (
     <ElBadge {...rest} {...a11yProps} data-colour={colour} data-variant={variant}>
@@ -67,5 +68,5 @@ export function Badge({
       {children && <ElBadgeLabelContainer>{children}</ElBadgeLabelContainer>}
       {iconRight && <ElBadgeIconContainer aria-hidden>{iconRight}</ElBadgeIconContainer>}
     </ElBadge>
-  )
+  );
 }

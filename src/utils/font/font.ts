@@ -1,4 +1,4 @@
-import type { FontSize, FontStyle, FontWeight } from './types'
+import type { FontSize, FontStyle, FontWeight } from "./types";
 
 /**
  * A helper function for generating a collection of font-related CSS properties for a given font size and
@@ -15,26 +15,30 @@ import type { FontSize, FontStyle, FontWeight } from './types'
  */
 export function font(size: FontSize, weight: FontWeight) {
   // 'md' has no corresponding design token; treat it as an alias for 'base' so it resolves to real CSS variables.
-  const tokenSize = size === 'md' ? 'base' : size
-  const fontFamily = `var(--font-${tokenSize}-${weight}-family)`
-  const fontSize = `var(--font-${tokenSize}-${weight}-size)`
-  const fontWeight = `var(--font-${tokenSize}-${weight}-weight)`
-  const letterSpacing = `var(--font-${tokenSize}-${weight}-letter_spacing)`
-  const lineHeight = `var(--font-${tokenSize}-${weight}-line_height)`
+  const tokenSize = size === "md" ? "base" : size;
+  const fontFamily = `var(--font-${tokenSize}-${weight}-family)`;
+  const fontSize = `var(--font-${tokenSize}-${weight}-size)`;
+  const fontWeight = `var(--font-${tokenSize}-${weight}-weight)`;
+  const letterSpacing = `var(--font-${tokenSize}-${weight}-letter_spacing)`;
+  const lineHeight = `var(--font-${tokenSize}-${weight}-line_height)`;
 
   return `
     /* text-${size}/${weight} */
     font: ${fontWeight} ${fontSize}/${lineHeight} ${fontFamily};
     letter-spacing: ${letterSpacing};
-  `
+  `;
 }
 
-export type InferFontSize<T extends FontStyle> = T extends `text-${infer Size}/${string}` ? Size : 'inherit'
-export type InferFontWeight<T extends FontStyle> = T extends `text-${string}/${infer Weight}` ? Weight : 'inherit'
+export type InferFontSize<T extends FontStyle> = T extends `text-${infer Size}/${string}`
+  ? Size
+  : "inherit";
+export type InferFontWeight<T extends FontStyle> = T extends `text-${string}/${infer Weight}`
+  ? Weight
+  : "inherit";
 
 export interface ParseFontResult<T extends FontStyle> {
-  size: InferFontSize<T>
-  weight: InferFontWeight<T>
+  size: InferFontSize<T>;
+  weight: InferFontWeight<T>;
 }
 
 /**
@@ -45,12 +49,12 @@ export interface ParseFontResult<T extends FontStyle> {
  * // size === 'base' and weight === 'regular'
  */
 export function parseFont<T extends FontStyle>(font: T): ParseFontResult<T> {
-  if (font === 'inherit') {
-    return { size: 'inherit', weight: 'inherit' } as ParseFontResult<T>
+  if (font === "inherit") {
+    return { size: "inherit", weight: "inherit" } as ParseFontResult<T>;
   }
 
-  const [textSize, weight] = font.split('/')
-  const size = textSize.replace('text-', '')
+  const [textSize, weight] = font.split("/");
+  const size = textSize.replace("text-", "");
 
-  return { size, weight } as ParseFontResult<T>
+  return { size, weight } as ParseFontResult<T>;
 }

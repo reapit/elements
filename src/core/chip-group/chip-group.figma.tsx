@@ -1,20 +1,21 @@
-import { ChipGroup } from './chip-group'
-import figma from '@figma/code-connect'
+import figma from "@figma/code-connect";
 
-figma.connect(ChipGroup, '<CHIP_GROUP_URL>', {
+import { ChipGroup } from "./chip-group";
+
+figma.connect(ChipGroup, "<CHIP_GROUP_URL>", {
   props: {
-    children: figma.slot('Content slot').connectedInstances,
-    firstChip: figma.nestedProps('Chip', {
-      variant: figma.enum('Variant', {
-        Filter: 'filter',
-        Selection: 'selection',
+    children: figma.slot("Content slot").connectedInstances,
+    firstChip: figma.nestedProps("Chip", {
+      variant: figma.enum("Variant", {
+        Filter: "filter",
+        Selection: "selection",
       }),
     }),
-    flow: figma.enum('Overflow', {
-      Scroll: 'nowrap',
+    flow: figma.enum("Overflow", {
+      Scroll: "nowrap",
     }),
-    overflow: figma.enum('Overflow', {
-      Scroll: 'auto',
+    overflow: figma.enum("Overflow", {
+      Scroll: "auto",
     }),
   },
   example: ({ children, firstChip, flow, overflow }) => (
@@ -24,4 +25,4 @@ figma.connect(ChipGroup, '<CHIP_GROUP_URL>', {
       {children}
     </ChipGroup>
   ),
-})
+});

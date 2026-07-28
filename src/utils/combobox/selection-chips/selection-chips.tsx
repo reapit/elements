@@ -1,28 +1,29 @@
-import { ChipGroup } from '#src/core/chip-group'
-import { ComboboxSelectionChip } from './selection-chip'
-import { ComboboxSelectionChipsContext } from './context'
-import { cx } from '@linaria/core'
-import { elComboboxSelectionChips } from './styles'
-import { useComboboxDefaultOptionsContext } from '../default-options-context'
-import { useComboboxSelectedOptions } from '../use-selected-options'
+import { cx } from "@linaria/core";
+import type { ReactNode } from "react";
 
-import type { ReactNode } from 'react'
+import { ChipGroup } from "#src/core/chip-group";
 
-type AttributesToOmit = 'children' | 'variant'
-type Option = useComboboxSelectedOptions.Option
+import { useComboboxDefaultOptionsContext } from "../default-options-context";
+import { useComboboxSelectedOptions } from "../use-selected-options";
+import { ComboboxSelectionChipsContext } from "./context";
+import { ComboboxSelectionChip } from "./selection-chip";
+import { elComboboxSelectionChips } from "./styles";
+
+type AttributesToOmit = "children" | "variant";
+type Option = useComboboxSelectedOptions.Option;
 
 export namespace ComboboxSelectionChips {
   export interface ItemProps extends ComboboxSelectionChip.Props {}
 
   export interface Props extends Omit<ChipGroup.Props, AttributesToOmit> {
     /** Render-prop function to customise selection chip rendering. */
-    children?: (options: readonly [Option, ...Option[]]) => ReactNode
+    children?: (options: readonly [Option, ...Option[]]) => ReactNode;
     /** Selected options to be displayed on first render. */
-    defaultOptions?: readonly Option[]
+    defaultOptions?: readonly Option[];
     /** Whether the selection chips are disabled. */
-    disabled?: boolean
+    disabled?: boolean;
     /** ID of the combobox listbox */
-    listboxId: string
+    listboxId: string;
   }
 }
 
@@ -39,10 +40,10 @@ export function ComboboxSelectionChips({
   listboxId,
   ...rest
 }: ComboboxSelectionChips.Props) {
-  const defaultOptions = useComboboxDefaultOptionsContext()
-  const options = useComboboxSelectedOptions(listboxId, defaultOptionsProp ?? defaultOptions)
+  const defaultOptions = useComboboxDefaultOptionsContext();
+  const options = useComboboxSelectedOptions(listboxId, defaultOptionsProp ?? defaultOptions);
 
-  if (!hasOptions(options)) return null
+  if (!hasOptions(options)) return null;
 
   const chips =
     children?.(options) ??
@@ -50,18 +51,20 @@ export function ComboboxSelectionChips({
       <ComboboxSelectionChip key={option.value} value={option.value}>
         {option.label}
       </ComboboxSelectionChip>
-    ))
+    ));
 
   return (
     <ChipGroup {...rest} className={cx(elComboboxSelectionChips, className)} variant="selection">
-      <ComboboxSelectionChipsContext.Provider value={{ listboxId }}>{chips}</ComboboxSelectionChipsContext.Provider>
+      <ComboboxSelectionChipsContext.Provider value={{ listboxId }}>
+        {chips}
+      </ComboboxSelectionChipsContext.Provider>
     </ChipGroup>
-  )
+  );
 }
 
 /** Validates the given options array has at least one option. */
 function hasOptions(options: readonly Option[]): options is [Option, ...Option[]] {
-  return options.length > 0
+  return options.length > 0;
 }
 
-ComboboxSelectionChips.Item = ComboboxSelectionChip
+ComboboxSelectionChips.Item = ComboboxSelectionChip;

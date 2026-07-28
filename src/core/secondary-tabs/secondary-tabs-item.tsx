@@ -1,7 +1,7 @@
-import { ElSecondaryTabsListItem, ElSecondaryTabsListItemSeparator } from './styles'
-import { SecondaryTab } from './tab'
+import type { ComponentProps } from "react";
 
-import type { ComponentProps } from 'react'
+import { ElSecondaryTabsListItem, ElSecondaryTabsListItemSeparator } from "./styles";
+import { SecondaryTab } from "./tab";
 
 export namespace SecondaryTabsItem {
   export interface Props extends ComponentProps<typeof SecondaryTab> {}
@@ -19,7 +19,7 @@ export function SecondaryTabsItem(props: SecondaryTabsItem.Props) {
       <SecondaryTab {...props} />
       <ElSecondaryTabsListItemSeparator aria-hidden />
     </ElSecondaryTabsListItem>
-  )
+  );
 }
 
-SecondaryTabsItem.displayName = 'SecondaryTabs.Item'
+SecondaryTabsItem.displayName = "SecondaryTabs.Item";

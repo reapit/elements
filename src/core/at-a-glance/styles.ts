@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
 
 export const ElAtAGlance = styled.section`
   @layer elements.main {
@@ -6,4 +6,4 @@ export const ElAtAGlance = styled.section`
     flex-flow: column nowrap;
     gap: var(--spacing-4);
   }
-`
+`;

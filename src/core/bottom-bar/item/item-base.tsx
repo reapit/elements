@@ -1,25 +1,30 @@
-import { cx } from '@linaria/core'
-import { ElBottomBarItemBadge, ElBottomBarItemIcon, ElBottomBarItemLabel, elBottomBarItem } from './styles'
+import { cx } from "@linaria/core";
+import type { AnchorHTMLAttributes, ButtonHTMLAttributes, HTMLAttributes, ReactNode } from "react";
 
-import type { AnchorHTMLAttributes, ButtonHTMLAttributes, HTMLAttributes, ReactNode } from 'react'
+import {
+  ElBottomBarItemBadge,
+  ElBottomBarItemIcon,
+  ElBottomBarItemLabel,
+  elBottomBarItem,
+} from "./styles";
 
 export namespace BottomBarItemBase {
   interface CommonProps {
-    hasBadge?: boolean
-    icon: ReactNode
+    hasBadge?: boolean;
+    icon: ReactNode;
   }
 
   export interface AsAnchorProps extends CommonProps, AnchorHTMLAttributes<HTMLAnchorElement> {
-    as: 'a'
-    children: ReactNode
+    as: "a";
+    children: ReactNode;
   }
 
   export interface AsButtonProps extends CommonProps, ButtonHTMLAttributes<HTMLButtonElement> {
-    as: 'button'
-    children: ReactNode
+    as: "button";
+    children: ReactNode;
   }
 
-  export type Props = AsAnchorProps | AsButtonProps
+  export type Props = AsAnchorProps | AsButtonProps;
 }
 
 /**
@@ -43,14 +48,14 @@ export function BottomBarItemBase({
       </ElBottomBarItemIcon>
       <ElBottomBarItemLabel>{children}</ElBottomBarItemLabel>
     </Element>
-  )
+  );
 }
 
 /** @deprecated Use BottomBarItemBase.AsAnchorProps instead */
-export type BottomBarItemAsAnchorProps = BottomBarItemBase.AsAnchorProps
+export type BottomBarItemAsAnchorProps = BottomBarItemBase.AsAnchorProps;
 
 /** @deprecated Use BottomBarItemBase.AsButtonProps instead */
-export type BottomBarItemAsButtonProps = BottomBarItemBase.AsButtonProps
+export type BottomBarItemAsButtonProps = BottomBarItemBase.AsButtonProps;
 
 /** @deprecated Use BottomBarItemBase.Props instead */
-export type BottomBarItemBaseProps = BottomBarItemBase.Props
+export type BottomBarItemBaseProps = BottomBarItemBase.Props;

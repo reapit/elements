@@ -1,11 +1,11 @@
+import type { HTMLAttributes, ReactNode } from "react";
+
 import {
   ElTableCellDoubleLineLayout,
   ElTableCellDoubleLineLayoutMediaItem,
   ElTableCellDoubleLineLayoutPrimaryData,
   ElTableCellDoubleLineLayoutSupplementaryData,
-} from './styles'
-
-import type { HTMLAttributes, ReactNode } from 'react'
+} from "./styles";
 
 export namespace TableCellDoubleLineLayout {
   export interface Props extends HTMLAttributes<HTMLDivElement> {
@@ -13,11 +13,11 @@ export namespace TableCellDoubleLineLayout {
      * The primary data being displayed in the table cell. Typically used with alphanumeric
      * information like addresses, dates, times, and names.
      */
-    children: ReactNode
+    children: ReactNode;
     /** The media item to display. Typically an image or avatar. */
-    mediaItem?: ReactNode
+    mediaItem?: ReactNode;
     /** The trailing icon displayed after the content. */
-    supplementaryData?: ReactNode
+    supplementaryData?: ReactNode;
   }
 }
 
@@ -33,16 +33,20 @@ export function TableCellDoubleLineLayout({
 }: TableCellDoubleLineLayout.Props) {
   return (
     <ElTableCellDoubleLineLayout {...rest}>
-      {mediaItem && <ElTableCellDoubleLineLayoutMediaItem>{mediaItem}</ElTableCellDoubleLineLayoutMediaItem>}
+      {mediaItem && (
+        <ElTableCellDoubleLineLayoutMediaItem>{mediaItem}</ElTableCellDoubleLineLayoutMediaItem>
+      )}
       <ElTableCellDoubleLineLayoutPrimaryData>{children}</ElTableCellDoubleLineLayoutPrimaryData>
       {supplementaryData && (
-        <ElTableCellDoubleLineLayoutSupplementaryData>{supplementaryData}</ElTableCellDoubleLineLayoutSupplementaryData>
+        <ElTableCellDoubleLineLayoutSupplementaryData>
+          {supplementaryData}
+        </ElTableCellDoubleLineLayoutSupplementaryData>
       )}
     </ElTableCellDoubleLineLayout>
-  )
+  );
 }
 
-TableCellDoubleLineLayout.displayName = 'Table.DoubleLineLayout'
+TableCellDoubleLineLayout.displayName = "Table.DoubleLineLayout";
 
 // Backward compatibility
-export type TableCellDoubleLineLayoutProps = TableCellDoubleLineLayout.Props
+export type TableCellDoubleLineLayoutProps = TableCellDoubleLineLayout.Props;

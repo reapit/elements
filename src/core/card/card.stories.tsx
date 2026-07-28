@@ -1,37 +1,38 @@
-import preview from '#.storybook/preview'
-import { AnchorCard } from './anchor-card'
-import { ButtonCard } from './button-card'
-import { Card } from './card'
-import { CardContent } from './__story__/card-content'
+import preview from "#.storybook/preview";
+
+import { CardContent } from "./__story__/card-content";
+import { AnchorCard } from "./anchor-card";
+import { ButtonCard } from "./button-card";
+import { Card } from "./card";
 
 const meta = preview.meta({
-  title: 'Containers and layout/Card',
+  title: "Containers and layout/Card",
   component: Card,
   subcomponents: { ButtonCard, AnchorCard },
   argTypes: {
     as: {
-      control: 'select',
-      options: ['div', 'article', 'aside', 'section'],
+      control: "select",
+      options: ["div", "article", "aside", "section"],
     },
     children: {
       control: false,
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
-    as: 'div',
-    borderRadius: '--border-radius-xl',
+    as: "div",
+    borderRadius: "--border-radius-xl",
     isBorderless: false,
-    padding: '--spacing-4',
+    padding: "--spacing-4",
   },
   render: (args) => (
     <Card {...args}>
       <CardContent />
     </Card>
   ),
-})
+});
 
 /**
  * Setting `isBorderless` removes the card's border, leaving only the background
@@ -42,10 +43,10 @@ export const Borderless = Example.extend({
   args: { isBorderless: true },
   globals: {
     backgrounds: {
-      value: 'light',
+      value: "light",
     },
   },
-})
+});
 
 /**
  * The `borderRadius` and `padding` props accept design token references,
@@ -53,12 +54,12 @@ export const Borderless = Example.extend({
  * or more rounded card.
  */
 export const OverriddenSurface = Example.extend({
-  name: 'Overridden surface',
+  name: "Overridden surface",
   args: {
-    borderRadius: '--border-radius-m',
-    padding: '--spacing-2',
+    borderRadius: "--border-radius-m",
+    padding: "--spacing-2",
   },
-})
+});
 
 /**
  * Use the `as` prop to render the card as a semantically appropriate HTML element.
@@ -66,13 +67,13 @@ export const OverriddenSurface = Example.extend({
  * content, and `'section'` for thematic groupings of related content.
  */
 export const SemanticElement = Example.extend({
-  name: 'Semantic element',
+  name: "Semantic element",
   argTypes: {
     as: { control: false },
   },
   decorators: [
     (Story) => (
-      <div style={{ display: 'flex', gap: 'var(--spacing-6)' }}>
+      <div style={{ display: "flex", gap: "var(--spacing-6)" }}>
         <Story />
       </div>
     ),
@@ -80,17 +81,17 @@ export const SemanticElement = Example.extend({
   render: (args) => (
     <>
       <Card {...args} as="article">
-        <CardContent>{'<article>'}</CardContent>
+        <CardContent>{"<article>"}</CardContent>
       </Card>
       <Card {...args} as="aside">
-        <CardContent>{'<aside>'}</CardContent>
+        <CardContent>{"<aside>"}</CardContent>
       </Card>
       <Card {...args} as="section">
-        <CardContent>{'<section>'}</CardContent>
+        <CardContent>{"<section>"}</CardContent>
       </Card>
     </>
   ),
-})
+});
 
 /**
  * `Card` stretches to fill its container. Constrain it by wrapping it in an
@@ -99,12 +100,12 @@ export const SemanticElement = Example.extend({
 export const Constrained = Example.extend({
   decorators: [
     (Story) => (
-      <div style={{ width: '320px' }}>
+      <div style={{ width: "320px" }}>
         <Story />
       </div>
     ),
   ],
-})
+});
 
 /**
  * When the entire card must be interactive — triggering an action or navigating
@@ -122,7 +123,7 @@ export const Interactive = Example.extend({
   },
   decorators: [
     (Story) => (
-      <div style={{ display: 'flex', gap: 'var(--spacing-6)' }}>
+      <div style={{ display: "flex", gap: "var(--spacing-6)" }}>
         <Story />
       </div>
     ),
@@ -130,14 +131,18 @@ export const Interactive = Example.extend({
   render: (args) => (
     <>
       <ButtonCard borderRadius={args.borderRadius} padding={args.padding}>
-        <CardContent>{'<ButtonCard>'}</CardContent>
+        <CardContent>{"<ButtonCard>"}</CardContent>
       </ButtonCard>
-      <AnchorCard borderRadius={args.borderRadius} href="https://www.reapit.com" padding={args.padding}>
-        <CardContent>{'<AnchorCard>'}</CardContent>
+      <AnchorCard
+        borderRadius={args.borderRadius}
+        href="https://www.reapit.com"
+        padding={args.padding}
+      >
+        <CardContent>{"<AnchorCard>"}</CardContent>
       </AnchorCard>
     </>
   ),
-})
+});
 
 /**
  * Use `aria-pressed` on `ButtonCard` to communicate a toggled or selected state
@@ -149,7 +154,7 @@ export const Selected = Interactive.extend({
   render: (args) => (
     <>
       <ButtonCard aria-pressed="true" borderRadius={args.borderRadius} padding={args.padding}>
-        <CardContent>{'<ButtonCard>'}</CardContent>
+        <CardContent>{"<ButtonCard>"}</CardContent>
       </ButtonCard>
       <AnchorCard
         aria-current="page"
@@ -157,8 +162,8 @@ export const Selected = Interactive.extend({
         href="https://www.reapit.com"
         padding={args.padding}
       >
-        <CardContent>{'<AnchorCard>'}</CardContent>
+        <CardContent>{"<AnchorCard>"}</CardContent>
       </AnchorCard>
     </>
   ),
-})
+});

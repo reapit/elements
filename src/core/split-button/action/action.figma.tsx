@@ -1,10 +1,11 @@
-import figma from '@figma/code-connect'
-import { SplitButton } from '../split-button'
+import figma from "@figma/code-connect";
 
-figma.connect(SplitButton.Action, '<SPLIT_BUTTON_ACTION_URL>', {
+import { SplitButton } from "../split-button";
+
+figma.connect(SplitButton.Action, "<SPLIT_BUTTON_ACTION_URL>", {
   props: {
-    children: figma.string('Label'),
-    disabled: figma.enum('State', {
+    children: figma.string("Label"),
+    disabled: figma.enum("State", {
       Disabled: true,
     }),
   },
@@ -14,4 +15,4 @@ figma.connect(SplitButton.Action, '<SPLIT_BUTTON_ACTION_URL>', {
       {props.children}
     </SplitButton.Action>
   ),
-})
+});

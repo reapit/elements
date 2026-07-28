@@ -1,7 +1,8 @@
-import { render, screen } from '@testing-library/react'
-import { GalleryViewerThumbnailListItem } from '../thumbnail-list-item'
+import { render, screen } from "@testing-library/react";
 
-test('renders an <a> element as child of a <li>', () => {
+import { GalleryViewerThumbnailListItem } from "../thumbnail-list-item";
+
+test("renders an <a> element as child of a <li>", () => {
   render(
     <GalleryViewerThumbnailListItem
       aria-current={false}
@@ -9,16 +10,16 @@ test('renders an <a> element as child of a <li>', () => {
       href="/gallery?image=1"
       src="https://fake.url/for/image.jpg"
     />,
-  )
-  const listItem = screen.getByRole('listitem')
-  const anchor = screen.getByRole('link', { name: 'View photo 1' })
+  );
+  const listItem = screen.getByRole("listitem");
+  const anchor = screen.getByRole("link", { name: "View photo 1" });
 
-  expect(listItem).toBeVisible()
-  expect(anchor).toBeVisible()
-  expect(listItem.firstChild).toBe(anchor)
-})
+  expect(listItem).toBeVisible();
+  expect(anchor).toBeVisible();
+  expect(listItem.firstChild).toBe(anchor);
+});
 
-test('forwards additional props to the underlying GalleryViewerThumbnail', () => {
+test("forwards additional props to the underlying GalleryViewerThumbnail", () => {
   render(
     <GalleryViewerThumbnailListItem
       aria-current="location"
@@ -26,6 +27,9 @@ test('forwards additional props to the underlying GalleryViewerThumbnail', () =>
       href="/gallery?image=1"
       src="https://fake.url/for/image.jpg"
     />,
-  )
-  expect(screen.getByRole('link', { name: 'View photo 1' })).toHaveAttribute('aria-current', 'location')
-})
+  );
+  expect(screen.getByRole("link", { name: "View photo 1" })).toHaveAttribute(
+    "aria-current",
+    "location",
+  );
+});

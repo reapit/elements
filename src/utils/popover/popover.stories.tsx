@@ -1,14 +1,15 @@
-import preview from '#.storybook/preview'
-import { getPopoverTriggerProps } from './get-popover-trigger-props'
-import { placements } from '#src/utils/anchor-positioning'
-import { Popover } from './popover'
-import { MyPopoverContent } from './__story__/styles'
-import { useId, useLayoutEffect, useState } from 'react'
+import { useId, useLayoutEffect, useState } from "react";
 
-import type { Placement } from '#src/utils/anchor-positioning'
+import preview from "#.storybook/preview";
+import { placements } from "#src/utils/anchor-positioning";
+import type { Placement } from "#src/utils/anchor-positioning";
+
+import { MyPopoverContent } from "./__story__/styles";
+import { getPopoverTriggerProps } from "./get-popover-trigger-props";
+import { Popover } from "./popover";
 
 const meta = preview.meta({
-  title: 'Utils/Popover',
+  title: "Utils/Popover",
   component: Popover,
   argTypes: {
     children: {
@@ -16,30 +17,34 @@ const meta = preview.meta({
     },
   },
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
   render: (args) => {
     // NOTE: because we have multiple stories on the one docs page, we append a "suffix" to
     // the IDs so they are unique per story. Then ensures our positioning of the popover will
     // be anchored to the correct element.
-    const suffix = useId()
+    const suffix = useId();
     const props = {
       ...args,
       anchorId: `${args.anchorId}-${suffix}`,
       id: `${args.id}-${suffix}`,
-    }
+    };
     return (
       <>
         <button
-          {...getPopoverTriggerProps({ id: props.anchorId, popoverTarget: props.id, popoverTargetAction: 'toggle' })}
+          {...getPopoverTriggerProps({
+            id: props.anchorId,
+            popoverTarget: props.id,
+            popoverTargetAction: "toggle",
+          })}
         >
           Anchor
         </button>
         <Popover {...props} />
       </>
-    )
+    );
   },
-})
+});
 
 /**
  * Popovers come with no styling: no background, no padding, no border. They are intended to be a blank
@@ -50,15 +55,15 @@ const meta = preview.meta({
  */
 export const Example = meta.story({
   args: {
-    anchorId: 'anchor',
+    anchorId: "anchor",
     children: <MyPopoverContent>Popover content</MyPopoverContent>,
-    elevation: 'none',
-    gap: 'var(--spacing-1)',
-    id: 'popover',
-    placement: 'top-start',
-    positionTryFallbacks: 'flip-block, flip-inline',
+    elevation: "none",
+    gap: "var(--spacing-1)",
+    id: "popover",
+    placement: "top-start",
+    positionTryFallbacks: "flip-block, flip-inline",
   },
-})
+});
 
 /**
  * The distance, or gap, between the popover and its anchor can be customised. By default, there will be
@@ -67,9 +72,9 @@ export const Example = meta.story({
  */
 export const Gap = Example.extend({
   args: {
-    gap: 'var(--spacing-6)',
+    gap: "var(--spacing-6)",
   },
-})
+});
 
 /**
  * A number of common positions for popovers relative to their anchor are available as simple string-based
@@ -80,30 +85,36 @@ export const Placements = Example.extend({
     controls: {
       disable: true,
     },
-    layout: 'padded',
+    layout: "padded",
   },
 
   render: () => {
-    const [currentPlacement, setCurrentPlacement] = useState<Placement>('top')
+    const [currentPlacement, setCurrentPlacement] = useState<Placement>("top");
 
     useLayoutEffect(() => {
       // We want the popover immediately visible.
-      document.getElementById('popover')?.showPopover()
-    }, [])
+      document.getElementById("popover")?.showPopover();
+    }, []);
 
     return (
-      <div style={{ display: 'grid', grid: '"demo options" auto / 1fr max-content', placeItems: 'center' }}>
+      <div
+        style={{
+          display: "grid",
+          grid: '"demo options" auto / 1fr max-content',
+          placeItems: "center",
+        }}
+      >
         <div
           id="anchor"
           style={{
-            gridArea: 'demo',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            background: 'var(--colour-fill-neutral-light',
-            borderRadius: 'var(--border-radius-xl)',
-            width: '200px',
-            height: '100px',
+            gridArea: "demo",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            background: "var(--colour-fill-neutral-light",
+            borderRadius: "var(--border-radius-xl)",
+            width: "200px",
+            height: "100px",
           }}
         >
           Anchor
@@ -121,10 +132,10 @@ export const Placements = Example.extend({
         </Popover>
         <div
           style={{
-            display: 'grid',
-            grid: 'auto-flow / repeat(3, auto)',
-            gridArea: 'options',
-            gap: 'var(--spacing-2)',
+            display: "grid",
+            grid: "auto-flow / repeat(3, auto)",
+            gridArea: "options",
+            gap: "var(--spacing-2)",
           }}
         >
           {placements.map((placement) => (
@@ -141,9 +152,9 @@ export const Placements = Example.extend({
           ))}
         </div>
       </div>
-    )
+    );
   },
-})
+});
 
 /**
  * When the predefined placements are insufficient, the `placement` prop can also accept an object with
@@ -155,16 +166,16 @@ export const Placements = Example.extend({
  */
 export const CustomPositioning = meta.story({
   args: {
-    anchorId: 'anchor',
-    children: <MyPopoverContent style={{ textAlign: 'center' }}>🚀</MyPopoverContent>,
-    elevation: 'none',
-    id: 'popover',
-    justifySelf: 'anchor-center',
-    minWidth: 'calc(anchor-size(width) + var(--spacing-4))',
-    positionTryFallbacks: 'flip-block, flip-inline',
-    top: 'anchor(top)',
+    anchorId: "anchor",
+    children: <MyPopoverContent style={{ textAlign: "center" }}>🚀</MyPopoverContent>,
+    elevation: "none",
+    id: "popover",
+    justifySelf: "anchor-center",
+    minWidth: "calc(anchor-size(width) + var(--spacing-4))",
+    positionTryFallbacks: "flip-block, flip-inline",
+    top: "anchor(top)",
   },
-})
+});
 
 /**
  * The border radius of the popover element can be adjusted with the `borderRadius` prop. While
@@ -173,9 +184,9 @@ export const CustomPositioning = meta.story({
  */
 export const BorderRadius = Example.extend({
   args: {
-    borderRadius: 'var(--border-radius-xl)',
+    borderRadius: "var(--border-radius-xl)",
   },
-})
+});
 
 /**
  * By default, popovers will grow to the width of their content. To constrain this behaviour, a maximum
@@ -187,19 +198,19 @@ export const BorderRadius = Example.extend({
  * to ensure it doesn't become wider than its anchor.
  */
 export const MaxWidth = Example.extend({
-  name: 'Max-width',
+  name: "Max-width",
   args: {
     children: (
       <MyPopoverContent>
-        This popover has a lot of words, which increases the element&apos;s width to the point that it overflows the
-        popover&apos;s maximum width constraint. In this case, the text flows to additional lines, increasing the
-        intrinic height of the popover.
+        This popover has a lot of words, which increases the element&apos;s width to the point that
+        it overflows the popover&apos;s maximum width constraint. In this case, the text flows to
+        additional lines, increasing the intrinic height of the popover.
       </MyPopoverContent>
     ),
 
-    maxWidth: 'var(--size-36)',
+    maxWidth: "var(--size-36)",
   },
-})
+});
 
 /**
  * A minimum width can also be specified. While the minimum width can be defined using any valid CSS
@@ -207,12 +218,12 @@ export const MaxWidth = Example.extend({
  * value is also supported, allowing the popover to ensure it doesn't become narrower than its anchor.
  */
 export const MinWidth = Example.extend({
-  name: 'Min-width',
+  name: "Min-width",
   args: {
     children: <MyPopoverContent>👋</MyPopoverContent>,
-    minWidth: 'anchor-size()',
+    minWidth: "anchor-size()",
   },
-})
+});
 
 /**
  * Similarly, popovers will grow, by default, to the height of their content. To constrain this behaviour,
@@ -222,11 +233,11 @@ export const MinWidth = Example.extend({
  * should typically be a `--size-*` CSS variable.
  */
 export const MaxHeight = MaxWidth.extend({
-  name: 'Max-height',
+  name: "Max-height",
   args: {
-    maxHeight: 'var(--size-36)',
+    maxHeight: "var(--size-36)",
   },
-})
+});
 
 /**
  * Since popovers are an elevated, non-modal material, it's common for them to cast a shadow on the
@@ -235,6 +246,6 @@ export const MaxHeight = MaxWidth.extend({
  */
 export const Elevation = Example.extend({
   args: {
-    elevation: 'xl',
+    elevation: "xl",
   },
-})
+});

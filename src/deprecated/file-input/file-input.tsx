@@ -8,12 +8,18 @@ import React, {
   MouseEvent,
   useEffect,
   FC,
-} from 'react'
-import { useId } from '../../storybook/random-id'
-import { elMl3, elMr4 } from '../../styles/deprecated-spacing'
-import { Button } from '#src/core/button'
-import { FlexContainer } from '../../deprecated/layout'
-import { handleSetNativeInput } from '../../deprecated/multi-select'
+} from "react";
+
+import { Button } from "#src/core/button";
+import { CloseIcon } from "#src/icons/close";
+import { ViewIcon } from "#src/icons/view";
+
+import { FlexContainer } from "../../deprecated/layout";
+import { handleSetNativeInput } from "../../deprecated/multi-select";
+import { PlaceholderImage } from "../../deprecated/placeholder-image";
+import { TextSM } from "../../deprecated/typography";
+import { useId } from "../../storybook/random-id";
+import { elMl3, elMr4 } from "../../styles/deprecated-spacing";
 import {
   ElFileInput,
   ElFileInputHidden,
@@ -21,41 +27,37 @@ import {
   ElFileInputLabel,
   ElFileInputWrap,
   ElFilePreviewImage,
-} from './__styles__'
-import { PlaceholderImage } from '../../deprecated/placeholder-image'
-import { TextSM } from '../../deprecated/typography'
-import { ViewIcon } from '#src/icons/view'
-import { CloseIcon } from '#src/icons/close'
+} from "./__styles__";
 
 /** @deprecated */
 export interface FileInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  onFileUpload?: (uploadImageModel: CreateImageUploadModel) => Promise<any | ImageUploadModel>
-  onFileView?: (base64: string) => void
-  placeholderText?: string
-  defaultValue?: string
-  label?: string
-  fileName?: string
+  onFileUpload?: (uploadImageModel: CreateImageUploadModel) => Promise<any | ImageUploadModel>;
+  onFileView?: (base64: string) => void;
+  placeholderText?: string;
+  defaultValue?: string;
+  label?: string;
+  fileName?: string;
 }
 
 /** @deprecated */
 export interface FilePreviewImageProps {
-  src?: string | null
+  src?: string | null;
 }
 
 /** @deprecated */
 export type FileInputWrapped = React.ForwardRefExoticComponent<
   FileInputProps & React.RefAttributes<React.InputHTMLAttributes<HTMLInputElement>>
->
+>;
 
 /** @deprecated */
 export interface CreateImageUploadModel {
-  name?: string
-  imageData?: string
+  name?: string;
+  imageData?: string;
 }
 
 /** @deprecated */
 export interface ImageUploadModel {
-  Url: string
+  Url: string;
 }
 
 /** @deprecated */
@@ -67,86 +69,97 @@ export const handleFileChange =
   ) =>
   (event: ChangeEvent<HTMLInputElement>) => {
     if (event.target && event.target.files && event.target.files[0]) {
-      const file = event.target.files[0]
+      const file = event.target.files[0];
 
-      const fileUrl = URL.createObjectURL(file)
+      const fileUrl = URL.createObjectURL(file);
 
-      if (typeof fileUrl === 'string') {
-        setFileName(fileUrl)
+      if (typeof fileUrl === "string") {
+        setFileName(fileUrl);
       }
 
-      const reader = new FileReader()
-      reader.readAsDataURL(file)
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
       reader.onload = async () => {
-        const base64 = reader.result
+        const base64 = reader.result;
 
-        if (onFileUpload && typeof base64 === 'string') {
+        if (onFileUpload && typeof base64 === "string") {
           const uploaded = await onFileUpload({
             imageData: base64,
             name: `${fileName ? fileName : file.name}`,
-          })
+          });
 
           if (uploaded && (uploaded as ImageUploadModel).Url) {
-            setFileName((uploaded as ImageUploadModel).Url)
+            setFileName((uploaded as ImageUploadModel).Url);
           }
         }
-      }
+      };
       reader.onerror = (error) => {
-        console.error(`file upload error: ${error}`)
-      }
+        console.error(`file upload error: ${error}`);
+      };
 
-      return reader
+      return reader;
     }
-  }
+  };
 
 /** @deprecated */
 export const handleFileClear =
   (setFileName: Dispatch<SetStateAction<string>>) => (event: MouseEvent<HTMLSpanElement>) => {
-    event.stopPropagation()
-    event.preventDefault()
+    event.stopPropagation();
+    event.preventDefault();
 
-    setFileName('')
-  }
+    setFileName("");
+  };
 
 /** @deprecated */
 export const handleFileView =
-  (onFileView: (fileUrl: string) => void, fileUrl: string) => (event: MouseEvent<HTMLSpanElement>) => {
-    event.stopPropagation()
-    event.preventDefault()
-    onFileView(fileUrl)
-  }
+  (onFileView: (fileUrl: string) => void, fileUrl: string) =>
+  (event: MouseEvent<HTMLSpanElement>) => {
+    event.stopPropagation();
+    event.preventDefault();
+    onFileView(fileUrl);
+  };
 
 /** @deprecated */
 export const FilePreviewImage: FC<FilePreviewImageProps> = ({ src }) => {
-  if (!src) return <PlaceholderImage placeholder="placeholderSmall" size={120} fillAvailable />
+  if (!src) return <PlaceholderImage placeholder="placeholderSmall" size={120} fillAvailable />;
 
-  return <ElFilePreviewImage src={src} />
-}
+  return <ElFilePreviewImage src={src} />;
+};
 
 /** @deprecated */
 export const FileInput: FileInputWrapped = forwardRef(
   (
-    { onFileView, onFileUpload, defaultValue, label, placeholderText, fileName = '', accept, id, ...rest },
+    {
+      onFileView,
+      onFileUpload,
+      defaultValue,
+      label,
+      placeholderText,
+      fileName = "",
+      accept,
+      id,
+      ...rest
+    },
     ref: React.ForwardedRef<React.InputHTMLAttributes<HTMLInputElement>>,
   ) => {
-    const [fileUrl, setFileName] = useState<string>(defaultValue ?? '')
+    const [fileUrl, setFileName] = useState<string>(defaultValue ?? "");
 
-    const inputId = useId(id)
+    const inputId = useId(id);
 
-    useEffect(handleSetNativeInput(inputId, [fileUrl]), [fileUrl])
+    useEffect(handleSetNativeInput(inputId, [fileUrl]), [fileUrl]);
 
     useEffect(() => {
       if (defaultValue) {
-        setFileName(defaultValue)
+        setFileName(defaultValue);
       }
-    }, [defaultValue])
+    }, [defaultValue]);
 
     return (
       <ElFileInputWrap>
         {label && <ElFileInputLabel>{label}</ElFileInputLabel>}
         <FlexContainer isFlexAlignCenter>
           <Button className={elMr4} type="button">
-            {fileUrl ? 'Change' : 'Upload'}
+            {fileUrl ? "Change" : "Upload"}
           </Button>
           <ElFileInput
             data-testid="el-file-input"
@@ -175,11 +188,11 @@ export const FileInput: FileInputWrapped = forwardRef(
             </ElFileInputIconContainer>
           ) : (
             <TextSM className={elMl3} hasGreyText hasNoMargin>
-              {placeholderText || 'Upload File'}
+              {placeholderText || "Upload File"}
             </TextSM>
           )}
         </FlexContainer>
       </ElFileInputWrap>
-    )
+    );
   },
-)
+);

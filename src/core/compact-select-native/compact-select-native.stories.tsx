@@ -1,13 +1,14 @@
-import preview from '#.storybook/preview'
-import { CompactSelectNative } from './compact-select-native'
+import preview from "#.storybook/preview";
+
+import { CompactSelectNative } from "./compact-select-native";
 
 const meta = preview.meta({
-  title: 'Input and selection/CompactSelectNative',
+  title: "Input and selection/CompactSelectNative",
   component: CompactSelectNative,
   argTypes: {
     children: {
-      control: 'radio',
-      options: ['Simple', 'With Groups'],
+      control: "radio",
+      options: ["Simple", "With Groups"],
       mapping: {
         Simple: (
           <>
@@ -18,7 +19,7 @@ const meta = preview.meta({
             <option value="portfolio4">Portfolio 4 with a long name</option>
           </>
         ),
-        'With Groups': (
+        "With Groups": (
           <>
             <option value="">Select portfolio</option>
             <optgroup label="Preferred Portfolios">
@@ -35,28 +36,28 @@ const meta = preview.meta({
       },
     },
     size: {
-      control: 'radio',
-      options: ['small', 'medium', 'large'],
+      control: "radio",
+      options: ["small", "medium", "large"],
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
-    'aria-label': 'Portfolio',
-    children: 'Simple',
-    size: 'small',
+    "aria-label": "Portfolio",
+    children: "Simple",
+    size: "small",
   },
-})
+});
 
 /**
  * Options for the select can be grouped using the native `optgroup` element.
  */
 export const OptionGroups = Example.extend({
   args: {
-    children: 'With Groups',
+    children: "With Groups",
   },
-})
+});
 
 /**
  * The compact select supports three sizes: `small`, `medium`, and `large`.
@@ -70,7 +71,7 @@ export const Sizes = Example.extend({
 
   decorators: [
     (Story) => (
-      <div style={{ display: 'flex', gap: 'var(--spacing-6)', alignItems: 'center' }}>
+      <div style={{ display: "flex", gap: "var(--spacing-6)", alignItems: "center" }}>
         <Story />
       </div>
     ),
@@ -83,17 +84,17 @@ export const Sizes = Example.extend({
       <CompactSelectNative {...args} size="large" />
     </>
   ),
-})
+});
 
 /**
  * The initial value of the select, when it's value is not controlled, can be provided using `defaultValue`.
  */
 export const DefaultValue = Example.extend({
-  name: 'Default value',
+  name: "Default value",
   args: {
-    defaultValue: 'portfolio1',
+    defaultValue: "portfolio1",
   },
-})
+});
 
 /**
  * The value of the select can be controlled by providing an explicit `value`. In this example, the select's value is
@@ -101,37 +102,44 @@ export const DefaultValue = Example.extend({
  * not change.
  */
 export const ControlledValue = Example.extend({
-  name: 'Controlled value',
+  name: "Controlled value",
   args: {
-    value: 'portfolio1',
+    value: "portfolio1",
   },
-})
+});
 
 /**
  * When the selected option is too long for the available space, it will truncate.
  */
 export const Overflow = Example.extend({
   args: {
-    defaultValue: 'portfolio4',
+    defaultValue: "portfolio4",
   },
   decorators: [
     (Story) => (
-      <div style={{ display: 'flex', alignItems: 'center', border: '1px solid #FA00FF', maxWidth: '150px' }}>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          border: "1px solid #FA00FF",
+          maxWidth: "150px",
+        }}
+      >
         <Story />
       </div>
     ),
   ],
-})
+});
 
 /**
  * The `maxWidth` prop can also be used to limit how wide the select will grow. This can be useful
  * when we don't want to allow the select to grow as wide as its container.
  */
 export const MaxWidth = Overflow.extend({
-  name: 'Max-width',
+  name: "Max-width",
   args: {
-    defaultValue: 'portfolio4',
-    maxWidth: '100px',
+    defaultValue: "portfolio4",
+    maxWidth: "100px",
   },
   decorators: Overflow.input.decorators,
-})
+});

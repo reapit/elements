@@ -10,10 +10,10 @@
  * Parsed and derived constraint values from the raw `min`/`max` props.
  */
 export interface NumberConstraints {
-  parsedMin: number
-  parsedMax: number
+  parsedMin: number;
+  parsedMax: number;
   /** `true` when the min constraint does not exclude negative numbers. */
-  allowNegative: boolean
+  allowNegative: boolean;
 }
 
 /**
@@ -25,19 +25,19 @@ export interface NumberConstraints {
  * - `allowNegative` is `true` unless `parsedMin` is a finite number >= 0.
  */
 export function parseConstraints(min?: number | string, max?: number | string): NumberConstraints {
-  const parsedMin = parseConstraint(min)
-  const parsedMax = parseConstraint(max)
-  const allowNegative = Number.isNaN(parsedMin) || parsedMin < 0
+  const parsedMin = parseConstraint(min);
+  const parsedMax = parseConstraint(max);
+  const allowNegative = Number.isNaN(parsedMin) || parsedMin < 0;
 
-  return { parsedMin, parsedMax, allowNegative }
+  return { parsedMin, parsedMax, allowNegative };
 }
 
 function parseConstraint(value?: number | string): number {
-  if (value === undefined) return NaN
-  const trimmed = typeof value === 'string' ? value.trim() : value
-  if (trimmed === '') return NaN
-  const n = Number(trimmed)
-  return Number.isFinite(n) ? n : NaN
+  if (value === undefined) return NaN;
+  const trimmed = typeof value === "string" ? value.trim() : value;
+  if (trimmed === "") return NaN;
+  const n = Number(trimmed);
+  return Number.isFinite(n) ? n : NaN;
 }
 
 // ---------------------------------------------------------------------------
@@ -61,14 +61,14 @@ export function validateRange(
   raw: string,
   parsedMin: number,
   parsedMax: number,
-): '' | 'badInput' | 'rangeUnderflow' | 'rangeOverflow' {
-  if (raw === '' || raw === '-') return ''
+): "" | "badInput" | "rangeUnderflow" | "rangeOverflow" {
+  if (raw === "" || raw === "-") return "";
 
-  const num = Number(raw)
-  if (Number.isNaN(num)) return 'badInput'
+  const num = Number(raw);
+  if (Number.isNaN(num)) return "badInput";
 
-  if (!Number.isNaN(parsedMin) && num < parsedMin) return 'rangeUnderflow'
-  if (!Number.isNaN(parsedMax) && num > parsedMax) return 'rangeOverflow'
+  if (!Number.isNaN(parsedMin) && num < parsedMin) return "rangeUnderflow";
+  if (!Number.isNaN(parsedMax) && num > parsedMax) return "rangeOverflow";
 
-  return ''
+  return "";
 }

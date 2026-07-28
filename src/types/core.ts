@@ -1,12 +1,12 @@
 /** @deprecated */
 export interface StringMap {
-  [key: string]: string
+  [key: string]: string;
 }
 
 /** @deprecated */
 export interface PropsWithChildren {
   // Not ideal but need to polyfill while we wait to upgrade to React 18
-  children?: any
+  children?: any;
 }
 
-export type sizeType = `--size-${string}`
+export type sizeType = `--size-${string}`;

@@ -123,7 +123,7 @@
   blockquote::after,
   q::before,
   q::after {
-    content: '';
+    content: "";
     content: none;
   }
 
@@ -165,7 +165,7 @@
 
   code,
   pre {
-    font-family: 'Source Code Pro', monospace;
+    font-family: "Source Code Pro", monospace;
   }
 
   strong {

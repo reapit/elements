@@ -1,16 +1,17 @@
-import { useEffect, useRef, useState } from 'react'
-import { calculateScrollState } from './calculate-scroll-state'
+import { useEffect, useRef, useState } from "react";
+
+import { calculateScrollState } from "./calculate-scroll-state";
 
 export namespace useScrollObserver {
   export interface Result {
     /**
      * Whether the container can scroll left (has content before current view)
      */
-    canScrollLeft: boolean
+    canScrollLeft: boolean;
     /**
      * Whether the container can scroll right (has content after current view)
      */
-    canScrollRight: boolean
+    canScrollRight: boolean;
   }
 }
 
@@ -39,18 +40,18 @@ export function useScrollObserver(containerId: string): useScrollObserver.Result
   const [result, setResult] = useState<useScrollObserver.Result>({
     canScrollLeft: false,
     canScrollRight: false,
-  })
+  });
 
-  const animationFrameRef = useRef<number | null>(null)
+  const animationFrameRef = useRef<number | null>(null);
 
   useEffect(() => {
-    const element = document.getElementById(containerId)
-    if (!element) return
+    const element = document.getElementById(containerId);
+    if (!element) return;
 
     function updateScrollState() {
       // Cancel any pending animation frame
       if (animationFrameRef.current !== null) {
-        cancelAnimationFrame(animationFrameRef.current)
+        cancelAnimationFrame(animationFrameRef.current);
       }
 
       // Use requestAnimationFrame to batch updates and avoid layout thrashing
@@ -62,49 +63,49 @@ export function useScrollObserver(containerId: string): useScrollObserver.Result
               scrollWidth: element.scrollWidth,
               clientWidth: element.clientWidth,
             }),
-          )
+          );
         }
-      })
+      });
     }
 
     // Set initial state
-    updateScrollState()
+    updateScrollState();
 
     // Create abort controller for event listeners
-    const abortController = new AbortController()
+    const abortController = new AbortController();
 
     // Listen for scroll events
-    element.addEventListener('scroll', updateScrollState, {
+    element.addEventListener("scroll", updateScrollState, {
       signal: abortController.signal,
       passive: true,
-    })
+    });
 
     // Listen for resize events on the window to handle container size changes
-    window.addEventListener('resize', updateScrollState, {
+    window.addEventListener("resize", updateScrollState, {
       signal: abortController.signal,
       passive: true,
-    })
+    });
 
     // Use ResizeObserver to detect when the element's size changes
-    const resizeObserver = new ResizeObserver(updateScrollState)
-    resizeObserver.observe(element)
+    const resizeObserver = new ResizeObserver(updateScrollState);
+    resizeObserver.observe(element);
 
     // Use MutationObserver to detect when children are added/removed (affects scroll width)
-    const mutationObserver = new MutationObserver(updateScrollState)
+    const mutationObserver = new MutationObserver(updateScrollState);
     mutationObserver.observe(element, {
       childList: true,
       subtree: true,
-    })
+    });
 
     return () => {
-      abortController.abort()
-      resizeObserver.disconnect()
-      mutationObserver.disconnect()
+      abortController.abort();
+      resizeObserver.disconnect();
+      mutationObserver.disconnect();
       if (animationFrameRef.current !== null) {
-        cancelAnimationFrame(animationFrameRef.current)
+        cancelAnimationFrame(animationFrameRef.current);
       }
-    }
-  }, [containerId])
+    };
+  }, [containerId]);
 
-  return result
+  return result;
 }

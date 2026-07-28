@@ -5,8 +5,8 @@
  * @param to The text area element whose height we want to set
  */
 export default function syncTextareaHeight(from: HTMLTextAreaElement, to: HTMLTextAreaElement) {
-  const currentHeight = from.scrollHeight
+  const currentHeight = from.scrollHeight;
   // NOTE: We use block-size instead of height because the latter is not writing-mode aware.
   // @see https://developer.mozilla.org/en-US/docs/Web/CSS/writing-mode
-  to.style.blockSize = `${currentHeight}px`
+  to.style.blockSize = `${currentHeight}px`;
 }

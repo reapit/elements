@@ -1,50 +1,51 @@
-import { styled } from '@linaria/react'
-import ResidentialPlaceholderIcon from './icons/residential-placeholder.svg?react'
-import ResidentialSmallPlaceholderIcon from './icons/residential-placeholder-small.svg?react'
-import CommercialPlaceholderIcon from './icons/commercial-placeholder.svg?react'
-import CommercialSmallPlaceholderIcon from './icons/commercial-placeholder-small.svg?react'
-import CommercialBottomImage from './icons/bottom-commercial-image.svg?react'
-import CommercialSmallBottomImage from './icons/bottom-commercial-image-small.svg?react'
+import { styled } from "@linaria/react";
+
+import CommercialSmallBottomImage from "./icons/bottom-commercial-image-small.svg?react";
+import CommercialBottomImage from "./icons/bottom-commercial-image.svg?react";
+import CommercialSmallPlaceholderIcon from "./icons/commercial-placeholder-small.svg?react";
+import CommercialPlaceholderIcon from "./icons/commercial-placeholder.svg?react";
+import ResidentialSmallPlaceholderIcon from "./icons/residential-placeholder-small.svg?react";
+import ResidentialPlaceholderIcon from "./icons/residential-placeholder.svg?react";
 
 const baseAvatarRectMediumSize = `
   width: var(--size-18);
   height: 54px;
-`
+`;
 
 const baseAvatarRectSmallSize = `
   width: var(--size-12);
   height: var(--size-10);
-`
+`;
 
 // The commercial consists of two sections: the commercial image and the bottom placeholder.
 const baseCommercialMediumImagesSize = `
   width: 54px;
   height: var(--size-10);
-`
+`;
 
 const baseCommercialBottomSmallPlaceholderSize = `
   width: 40px;
   height: 32px;
-`
+`;
 
 const baseCommercialBottomImagePosition = `
   position: absolute;
   bottom: 0;
   right: 0;
-`
+`;
 
 export const ElAvatarRectBottomImage = styled(CommercialBottomImage)`
   @layer elements.main {
     ${baseCommercialMediumImagesSize}
     ${baseCommercialBottomImagePosition}
   }
-`
+`;
 export const ElAvatarRectBottomSmallPlaceholder = styled(CommercialSmallBottomImage)`
   @layer elements.main {
     ${baseCommercialMediumImagesSize}
     ${baseCommercialBottomImagePosition}
   }
-`
+`;
 
 export const ElAvatarRectangle = styled.div`
   @layer elements.main {
@@ -59,7 +60,7 @@ export const ElAvatarRectangle = styled.div`
       height: 100%;
     }
 
-    &[data-variant='commercial'] {
+    &[data-variant="commercial"] {
       position: relative;
 
       img {
@@ -70,10 +71,10 @@ export const ElAvatarRectangle = styled.div`
       }
     }
 
-    &[data-size='small'] {
+    &[data-size="small"] {
       ${baseAvatarRectSmallSize}
 
-      &[data-variant='commercial'] {
+      &[data-variant="commercial"] {
         img,
         ${ElAvatarRectBottomImage}, ${ElAvatarRectBottomSmallPlaceholder} {
           ${baseCommercialBottomSmallPlaceholderSize}
@@ -81,28 +82,28 @@ export const ElAvatarRectangle = styled.div`
       }
     }
   }
-`
+`;
 
 export const ElAvatarRectResidentialPlaceholder = styled(ResidentialPlaceholderIcon)`
   @layer elements.main {
     ${baseAvatarRectMediumSize}
   }
-`
+`;
 
 export const ElAvatarRectResidentialSmallPlaceholder = styled(ResidentialSmallPlaceholderIcon)`
   @layer elements.main {
     ${baseAvatarRectSmallSize}
   }
-`
+`;
 
 export const ElAvatarRectCommercialPlaceholder = styled(CommercialPlaceholderIcon)`
   @layer elements.main {
     ${baseAvatarRectMediumSize}
   }
-`
+`;
 
 export const ElAvatarRectCommercialSmallPlaceholder = styled(CommercialSmallPlaceholderIcon)`
   @layer elements.main {
     ${baseAvatarRectSmallSize}
   }
-`
+`;

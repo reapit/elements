@@ -1,12 +1,13 @@
-import { BathIcon } from '#src/icons/bath'
-import { FeatureItem } from '../item'
+import type { ReactNode } from "react";
 
-import type { ReactNode } from 'react'
+import { BathIcon } from "#src/icons/bath";
+
+import { FeatureItem } from "../item";
 
 export namespace FeaturesBathroomsItem {
   export interface Props {
     /** The number of bathrooms in the property. Can be a decimal. */
-    value: ReactNode
+    value: ReactNode;
   }
 }
 
@@ -14,8 +15,8 @@ export namespace FeaturesBathroomsItem {
  * A feature item that represents the number of bathrooms in a property.
  */
 export function FeaturesBathroomsItem({ value }: FeaturesBathroomsItem.Props) {
-  return <FeatureItem icon={<BathIcon />} label="Bathrooms" value={value} />
+  return <FeatureItem icon={<BathIcon />} label="Bathrooms" value={value} />;
 }
 
 /** @deprecated Use FeaturesBathroomsItem.Props instead */
-export type FeaturesBathroomsItemProps = FeaturesBathroomsItem.Props
+export type FeaturesBathroomsItemProps = FeaturesBathroomsItem.Props;

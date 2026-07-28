@@ -1,4 +1,4 @@
-import { dispatchInputEvent, getListboxSelectElement } from './common'
+import { dispatchInputEvent, getListboxSelectElement } from "./common";
 
 /**
  * Clears all selected options in a listbox.
@@ -24,15 +24,15 @@ import { dispatchInputEvent, getListboxSelectElement } from './common'
  * }
  */
 export function clearListboxValue(listboxId: string): void {
-  const selectElement = getListboxSelectElement(listboxId)
-  const hadSelectedOptions = selectElement.selectedOptions.length > 0
+  const selectElement = getListboxSelectElement(listboxId);
+  const hadSelectedOptions = selectElement.selectedOptions.length > 0;
 
   for (const option of Array.from(selectElement.selectedOptions)) {
-    option.selected = false
+    option.selected = false;
   }
 
   // Dispatches an event only when options were deselected
   if (hadSelectedOptions) {
-    dispatchInputEvent(selectElement)
+    dispatchInputEvent(selectElement);
   }
 }

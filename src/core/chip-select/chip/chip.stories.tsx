@@ -1,21 +1,22 @@
-import preview from '#.storybook/preview'
-import { ChipSelectChip } from './chip'
-import { SproutIcon } from '#src/icons/sprout'
-import { StarIcon } from '#src/icons/star'
+import preview from "#.storybook/preview";
+import { SproutIcon } from "#src/icons/sprout";
+import { StarIcon } from "#src/icons/star";
+
+import { ChipSelectChip } from "./chip";
 
 const meta = preview.meta({
-  title: 'Input and selection/ChipSelect/Chip',
+  title: "Input and selection/ChipSelect/Chip",
   component: ChipSelectChip,
   argTypes: {
     checked: {
-      control: 'boolean',
+      control: "boolean",
     },
     children: {
-      control: 'text',
+      control: "text",
     },
     icon: {
-      control: 'select',
-      options: ['None', 'Star', 'Sprout'],
+      control: "select",
+      options: ["None", "Star", "Sprout"],
       mapping: {
         None: undefined,
         Star: <StarIcon />,
@@ -23,24 +24,24 @@ const meta = preview.meta({
       },
     },
     disabled: {
-      control: 'boolean',
+      control: "boolean",
     },
     maxWidth: {
-      control: 'text',
-      table: { type: { summary: '--size-*' } },
+      control: "text",
+      table: { type: { summary: "--size-*" } },
     },
     onChange: {
       control: false,
     },
     overflow: {
-      control: 'text',
+      control: "text",
       table: { type: { summary: '"truncate"' } },
     },
     value: {
-      control: 'text',
+      control: "text",
     },
   },
-})
+});
 
 /**
  * In their simplest form, chips consist of a visual label. Importantly, all chips within a `ChipSelect`
@@ -48,21 +49,21 @@ const meta = preview.meta({
  */
 export const Example = meta.story({
   args: {
-    'aria-label': undefined,
+    "aria-label": undefined,
     checked: undefined,
-    children: 'Label',
+    children: "Label",
     disabled: false,
     form: undefined,
-    icon: 'None',
+    icon: "None",
     maxWidth: undefined,
-    name: 'foo',
+    name: "foo",
     onChange: undefined,
     overflow: undefined,
     readOnly: false,
-    size: 'small',
-    value: 'abc-123',
+    size: "small",
+    value: "abc-123",
   },
-})
+});
 
 /**
  * Icons can be placed in front of the chip's label. Again, if one chip in the `ChipSelect` has an icon,
@@ -70,9 +71,9 @@ export const Example = meta.story({
  */
 export const Icons = Example.extend({
   args: {
-    icon: 'Sprout',
+    icon: "Sprout",
   },
-})
+});
 
 /**
  * When no visual label is provided, an icon and accessible label should both be considered mandatory.
@@ -80,13 +81,13 @@ export const Icons = Example.extend({
  * an icon-only style.
  */
 export const IconOnly = Example.extend({
-  name: 'Icon-only',
+  name: "Icon-only",
   args: {
-    'aria-label': 'Label',
+    "aria-label": "Label",
     children: undefined,
-    icon: 'Sprout',
+    icon: "Sprout",
   },
-})
+});
 
 /**
  * There are three sizes available for chips. Like labels and icons, all chips within a `ChipSelect`
@@ -101,7 +102,7 @@ export const Sizes = Icons.extend({
 
   decorators: [
     (Story) => (
-      <div style={{ display: 'flex', gap: 'var(--spacing-6)' }}>
+      <div style={{ display: "flex", gap: "var(--spacing-6)" }}>
         <Story />
       </div>
     ),
@@ -114,7 +115,7 @@ export const Sizes = Icons.extend({
       <ChipSelectChip {...args} size="large" />
     </>
   ),
-})
+});
 
 /**
  * When a chip is selected, it's checked state will be true. This can either be controlled, just like
@@ -125,18 +126,18 @@ export const Selected = Example.extend({
   args: {
     defaultChecked: true,
   },
-})
+});
 
 /**
  * Chips can be read-only. When they are, they will still be focusable and, if checked, will participate
  * in form submission, but their checked state will not be changed when clicked or activated.
  */
 export const ReadOnly = Example.extend({
-  name: 'Read-only',
+  name: "Read-only",
   args: {
     readOnly: true,
   },
-})
+});
 
 /**
  * Chips can also be disabled. While they look the same as readonly chips, disabled chips do not
@@ -146,33 +147,33 @@ export const Disabled = Example.extend({
   args: {
     disabled: true,
   },
-})
+});
 
 /**
  * Long labels will truncate when there is not enough space available.
  */
 export const Truncation = Example.extend({
   args: {
-    children: 'Truncation can be applied when necessary',
-    overflow: 'truncate',
+    children: "Truncation can be applied when necessary",
+    overflow: "truncate",
   },
   decorators: [
     (Story) => (
-      <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', width: '300px' }}>
+      <div style={{ boxSizing: "content-box", border: "1px solid #FA00FF", width: "300px" }}>
         <Story />
       </div>
     ),
   ],
-})
+});
 
 /**
  * In some cases, it may be necessary to limit the width of an option directly, rather than rely on
  * its parent container. This is achieved using the `maxWidth` prop.
  */
 export const MaxWidth = Example.extend({
-  name: 'Max-width',
+  name: "Max-width",
   args: {
-    children: 'This chip option has its own maximum width constraint',
-    maxWidth: '--size-80',
+    children: "This chip option has its own maximum width constraint",
+    maxWidth: "--size-80",
   },
-})
+});

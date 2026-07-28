@@ -12,7 +12,7 @@
  * `FileUploadQueue` removes an item.
  */
 export function syncInputFiles(input: HTMLInputElement, files: File[]): void {
-  const dataTransfer = new DataTransfer()
-  for (const file of files) dataTransfer.items.add(file)
-  input.files = dataTransfer.files
+  const dataTransfer = new DataTransfer();
+  for (const file of files) dataTransfer.items.add(file);
+  input.files = dataTransfer.files;
 }

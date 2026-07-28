@@ -1,13 +1,14 @@
-import preview from '#.storybook/preview'
-import { Breadcrumbs } from './breadcrumbs'
+import preview from "#.storybook/preview";
+
+import { Breadcrumbs } from "./breadcrumbs";
 
 const meta = preview.meta({
-  title: 'Navigation/Breadcrumbs',
+  title: "Navigation/Breadcrumbs",
   component: Breadcrumbs,
   argTypes: {
     children: {
-      control: 'radio',
-      options: ['One', 'Some', 'Many'],
+      control: "radio",
+      options: ["One", "Some", "Many"],
       mapping: {
         One: (
           <>
@@ -45,13 +46,13 @@ const meta = preview.meta({
       },
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
-    children: 'Some',
+    children: "Some",
   },
-})
+});
 
 /**
  * Overflowing should be avoided as much as possible. On SM viewport or container sizes and larger, or
@@ -62,16 +63,16 @@ export const Example = meta.story({
  */
 export const Overflow = meta.story({
   args: {
-    children: 'Many',
+    children: "Many",
   },
   decorators: [
     (Story) => (
-      <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', width: '343px' }}>
+      <div style={{ boxSizing: "content-box", border: "1px solid #FA00FF", width: "343px" }}>
         <Story />
       </div>
     ),
   ],
-})
+});
 
 /**
  * In XS viewport or container sizes, or when `overflow="scroll"` is specified, the breadcrumbs will be
@@ -80,14 +81,14 @@ export const Overflow = meta.story({
  */
 export const Scrolling = meta.story({
   args: {
-    children: 'Many',
-    overflow: 'scroll',
+    children: "Many",
+    overflow: "scroll",
   },
   decorators: [
     (Story) => (
-      <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', width: '343px' }}>
+      <div style={{ boxSizing: "content-box", border: "1px solid #FA00FF", width: "343px" }}>
         <Story />
       </div>
     ),
   ],
-})
+});

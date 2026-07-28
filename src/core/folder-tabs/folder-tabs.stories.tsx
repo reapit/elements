@@ -1,35 +1,36 @@
-import preview from '#.storybook/preview'
-import { FolderTabs } from './folder-tabs'
+import preview from "#.storybook/preview";
 
-const href = '#'
+import { FolderTabs } from "./folder-tabs";
+
+const href = "#";
 
 const meta = preview.meta({
-  title: 'Navigation/FolderTabs',
+  title: "Navigation/FolderTabs",
   component: FolderTabs,
   argTypes: {
     children: {
-      control: 'radio',
-      options: ['Two tabs', 'Three tabs', 'Many tabs', 'With counts'],
+      control: "radio",
+      options: ["Two tabs", "Three tabs", "Many tabs", "With counts"],
       mapping: {
-        'Two tabs': buildTabs('Two tabs'),
-        'Three tabs': buildTabs('Three tabs'),
-        'Many tabs': buildTabs('Many tabs'),
-        'With counts': buildTabs('With counts'),
+        "Two tabs": buildTabs("Two tabs"),
+        "Three tabs": buildTabs("Three tabs"),
+        "Many tabs": buildTabs("Many tabs"),
+        "With counts": buildTabs("With counts"),
       },
     },
   },
   globals: {
     backgrounds: {
-      value: 'light',
+      value: "light",
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
-    children: 'Many tabs',
+    children: "Many tabs",
   },
-})
+});
 
 /**
  * When the tabs are constrained by their container, they will display in a compact vertical layout
@@ -38,48 +39,52 @@ export const Example = meta.story({
  */
 export const Breakpoints = meta.story({
   args: {
-    children: 'With counts',
+    children: "With counts",
   },
   decorators: [
     (Story) => {
       return (
-        <div style={{ border: '1px solid #FA00FF', width: '397px' }}>
+        <div style={{ border: "1px solid #FA00FF", width: "397px" }}>
           <Story />
         </div>
-      )
+      );
     },
   ],
-})
+});
 
-function buildTabs(type: 'Two tabs' | 'Three tabs' | 'Many tabs' | 'With counts') {
+function buildTabs(type: "Two tabs" | "Three tabs" | "Many tabs" | "With counts") {
   const renderLabel = (label: string) => {
-    return type === 'With counts' ? <FolderTabs.CountLabel count="00">{label}</FolderTabs.CountLabel> : label
-  }
+    return type === "With counts" ? (
+      <FolderTabs.CountLabel count="00">{label}</FolderTabs.CountLabel>
+    ) : (
+      label
+    );
+  };
   return (
     <>
       <FolderTabs.Item key="apples" href={href} aria-current={false}>
-        {renderLabel('Apples')}
+        {renderLabel("Apples")}
       </FolderTabs.Item>
       <FolderTabs.Item key="bananas" aria-current="page" href={href}>
-        {renderLabel('Bananas')}
+        {renderLabel("Bananas")}
       </FolderTabs.Item>
-      {type !== 'Two tabs' && (
+      {type !== "Two tabs" && (
         <>
           <FolderTabs.Item key="peaches" aria-current={false} href={href}>
-            {renderLabel('Peaches')}
+            {renderLabel("Peaches")}
           </FolderTabs.Item>
-          {type !== 'Three tabs' && (
+          {type !== "Three tabs" && (
             <>
               <FolderTabs.Item key="strawberries" aria-current={false} href={href}>
-                {renderLabel('Strawberries')}
+                {renderLabel("Strawberries")}
               </FolderTabs.Item>
               <FolderTabs.Item key="watermelon" aria-current={false} href={href}>
-                {renderLabel('Watermelon')}
+                {renderLabel("Watermelon")}
               </FolderTabs.Item>
             </>
           )}
         </>
       )}
     </>
-  )
+  );
 }

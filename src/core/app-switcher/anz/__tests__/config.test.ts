@@ -1,14 +1,14 @@
 import {
   productConfigs,
   productDisplayOrder_DO_NOT_ADD_PRODUCTS_TO_THIS_UNLESS_APPROVED_FOR_DISPLAY_AND_SSO_CAPABLE,
-} from '../config'
+} from "../config";
 
 // IMPORTANT: This test is to ensure that the product display order does not change accidentally/unintentionally.
 //
 // Products should only be added to the `productConfigs` object if they are intended to be available in the App
 // Switcher in the future. Similarly, product config content for existing products should only be changed if
 // explicitly approved by the Product and Design teams.
-test('product configs should not change without updating this test', () => {
+test("product configs should not change without updating this test", () => {
   expect(productConfigs).toMatchInlineSnapshot(`
     {
       "agentBox": {
@@ -56,8 +56,8 @@ test('product configs should not change without updating this test', () => {
         "supplementaryInfo": "AML/CTF compliance",
       },
     }
-  `)
-})
+  `);
+});
 
 // IMPORTANT: This test is to ensure that the product display order does not change accidentally/unintentionally.
 //
@@ -66,9 +66,10 @@ test('product configs should not change without updating this test', () => {
 //
 // Further, the order of the products in this array is defined by the Product and Design teams and should not be
 // changed without their explicit approval.
-test('product display order should not change without updating this test', () => {
-  expect(productDisplayOrder_DO_NOT_ADD_PRODUCTS_TO_THIS_UNLESS_APPROVED_FOR_DISPLAY_AND_SSO_CAPABLE)
-    .toMatchInlineSnapshot(`
+test("product display order should not change without updating this test", () => {
+  expect(
+    productDisplayOrder_DO_NOT_ADD_PRODUCTS_TO_THIS_UNLESS_APPROVED_FOR_DISPLAY_AND_SSO_CAPABLE,
+  ).toMatchInlineSnapshot(`
       [
         "ireWeb",
         "consoleCloud",
@@ -80,5 +81,5 @@ test('product display order should not change without updating this test', () =>
         "reapitProposals",
         "verifyweb",
       ]
-    `)
-})
+    `);
+});

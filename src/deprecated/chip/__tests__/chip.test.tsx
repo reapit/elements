@@ -1,21 +1,22 @@
-import { render } from '@testing-library/react'
-import { DeprecatedChip as Chip, DeprecatedChipGroup as ChipGroup } from '..'
+import { render } from "@testing-library/react";
 
-describe('Chip component', () => {
-  it('should match a snapshot', () => {
-    const wrapper = render(<Chip>Some Content</Chip>)
-    expect(wrapper.asFragment()).toMatchSnapshot()
-  })
-})
+import { DeprecatedChip as Chip, DeprecatedChipGroup as ChipGroup } from "..";
 
-describe('ChipGroup component', () => {
-  it('should match a snapshot', () => {
+describe("Chip component", () => {
+  it("should match a snapshot", () => {
+    const wrapper = render(<Chip>Some Content</Chip>);
+    expect(wrapper.asFragment()).toMatchSnapshot();
+  });
+});
+
+describe("ChipGroup component", () => {
+  it("should match a snapshot", () => {
     const wrapper = render(
       <ChipGroup>
         <Chip>Some Content</Chip>
         <Chip>Some Content</Chip>
       </ChipGroup>,
-    )
-    expect(wrapper.asFragment()).toMatchSnapshot()
-  })
-})
+    );
+    expect(wrapper.asFragment()).toMatchSnapshot();
+  });
+});

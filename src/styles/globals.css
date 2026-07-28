@@ -3,7 +3,7 @@
  * for why these rules live in a plain `.css` file rather than a Linaria
  * `css` tagged template.
  */
-@import 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Code+Pro&display=swap';
+@import "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Code+Pro&display=swap";
 
 @layer elements.base {
   *,

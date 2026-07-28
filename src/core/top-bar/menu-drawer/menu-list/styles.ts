@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
 
 export const ElTopBarMenuDrawerMenuList = styled.ul`
   @layer elements.main {
@@ -17,10 +17,10 @@ export const ElTopBarMenuDrawerMenuList = styled.ul`
       border-top: none;
     }
   }
-`
+`;
 
 export const ElTopBarMenuDrawerMenuListItem = styled.li`
   @layer elements.main {
     display: block;
   }
-`
+`;

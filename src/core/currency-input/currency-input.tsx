@@ -1,10 +1,11 @@
-import { NumberInput } from '#src/core/number-input'
-import { forwardRef, useMemo } from 'react'
+import { forwardRef, useMemo } from "react";
+
+import { NumberInput } from "#src/core/number-input";
 
 export namespace CurrencyInput {
   export interface Props extends Omit<
     NumberInput.Props,
-    'formatOptions' | 'inputMode' | 'prefix' | 'suffix' | 'leadingIcon' | 'trailingIcon'
+    "formatOptions" | "inputMode" | "prefix" | "suffix" | "leadingIcon" | "trailingIcon"
   > {
     /**
      * ISO 4217 currency code (e.g. `'GBP'`, `'USD'`, `'EUR'`).
@@ -13,18 +14,18 @@ export namespace CurrencyInput {
      * accepted (e.g. 2 for GBP/USD/EUR, 0 for JPY). See `ARCHITECTURE.md` for why this
      * cannot be inferred from `locale`.
      */
-    currency: string
+    currency: string;
     /**
      * How the currency symbol is displayed. Defaults to `'narrowSymbol'`, which prefers the
      * shortest unambiguous form (e.g. `'$'` rather than `'US$'`).
      */
-    currencyDisplay?: Intl.NumberFormatOptions['currencyDisplay']
+    currencyDisplay?: Intl.NumberFormatOptions["currencyDisplay"];
     /**
      * How negative amounts are displayed. Defaults to `'standard'` (e.g. `-£5.00`).
      * Use `'accounting'` to display negative values in parentheses (e.g. `(£5.00)`),
      * which is conventional in financial and accounting contexts.
      */
-    currencySign?: Intl.NumberFormatOptions['currencySign']
+    currencySign?: Intl.NumberFormatOptions["currencySign"];
   }
 }
 
@@ -38,16 +39,18 @@ export namespace CurrencyInput {
  * The currency symbol is rendered once, as an affix (prefix or suffix), and is omitted from
  * the formatted overlay to avoid duplication.
  */
-export const CurrencyInput = forwardRef<HTMLInputElement, CurrencyInput.Props>(function CurrencyInput(
-  { currency, currencyDisplay = 'narrowSymbol', currencySign, locale, ...rest },
-  ref,
-) {
-  const formatOptions = useMemo<Intl.NumberFormatOptions>(
-    () => ({ style: 'currency', currency, currencyDisplay, currencySign }),
-    [currency, currencyDisplay, currencySign],
-  )
+export const CurrencyInput = forwardRef<HTMLInputElement, CurrencyInput.Props>(
+  function CurrencyInput(
+    { currency, currencyDisplay = "narrowSymbol", currencySign, locale, ...rest },
+    ref,
+  ) {
+    const formatOptions = useMemo<Intl.NumberFormatOptions>(
+      () => ({ style: "currency", currency, currencyDisplay, currencySign }),
+      [currency, currencyDisplay, currencySign],
+    );
 
-  return <NumberInput {...rest} ref={ref} formatOptions={formatOptions} locale={locale} />
-})
+    return <NumberInput {...rest} ref={ref} formatOptions={formatOptions} locale={locale} />;
+  },
+);
 
-CurrencyInput.displayName = 'CurrencyInput'
+CurrencyInput.displayName = "CurrencyInput";

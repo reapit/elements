@@ -1,4 +1,4 @@
-import FullscreenSvg from './svgs/fullscreen.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import FullscreenSvg from "./svgs/fullscreen.svg?react";
 
-export const FullscreenIcon = makeIcon('FullscreenIcon', FullscreenSvg)
+export const FullscreenIcon = makeIcon("FullscreenIcon", FullscreenSvg);

@@ -1,55 +1,56 @@
-import { fireEvent, render, screen } from '@testing-library/react'
-import { useCloseTopBarMenuDrawerOnClick } from '../use-close-menu-on-click'
+import { fireEvent, render, screen } from "@testing-library/react";
+
+import { useCloseTopBarMenuDrawerOnClick } from "../use-close-menu-on-click";
 
 beforeEach(() => {
-  if (!('isTrusted' in MouseEvent.prototype)) {
-    Object.defineProperty(MouseEvent.prototype, 'isTrusted', { value: true })
+  if (!("isTrusted" in MouseEvent.prototype)) {
+    Object.defineProperty(MouseEvent.prototype, "isTrusted", { value: true });
   }
-})
+});
 
-test('closes the dialog by default for anchor click events', () => {
-  render(<TestComponent />)
+test("closes the dialog by default for anchor click events", () => {
+  render(<TestComponent />);
 
-  const dialog = screen.getByTestId('test-dialog')
-  const element = screen.getByRole('link', { name: 'Item 1' })
+  const dialog = screen.getByTestId("test-dialog");
+  const element = screen.getByRole("link", { name: "Item 1" });
 
-  expect(dialog).toBeVisible()
+  expect(dialog).toBeVisible();
 
-  fireEvent.click(element)
+  fireEvent.click(element);
 
-  expect(screen.getByTestId('test-dialog')).not.toBeVisible()
-})
+  expect(screen.getByTestId("test-dialog")).not.toBeVisible();
+});
 
-test('closes the dialog by default for anchor descendant click events', () => {
-  render(<TestComponent />)
+test("closes the dialog by default for anchor descendant click events", () => {
+  render(<TestComponent />);
 
-  const element = screen.getByTestId('item-2-inner-span')
+  const element = screen.getByTestId("item-2-inner-span");
 
-  fireEvent.click(element)
+  fireEvent.click(element);
 
-  expect(screen.getByTestId('test-dialog')).not.toBeVisible()
-})
+  expect(screen.getByTestId("test-dialog")).not.toBeVisible();
+});
 
-test('closes the dialog when default action has been prevented by an anchor element', () => {
-  render(<TestComponent />)
+test("closes the dialog when default action has been prevented by an anchor element", () => {
+  render(<TestComponent />);
 
-  const element = screen.getByRole('link', { name: 'Anchor that prevents default' })
-  fireEvent.click(element)
+  const element = screen.getByRole("link", { name: "Anchor that prevents default" });
+  fireEvent.click(element);
 
-  expect(screen.getByTestId('test-dialog')).not.toBeVisible()
-})
+  expect(screen.getByTestId("test-dialog")).not.toBeVisible();
+});
 
-test('does not close the dialog when event target is not an anchor or anchor descendant', () => {
-  render(<TestComponent />)
+test("does not close the dialog when event target is not an anchor or anchor descendant", () => {
+  render(<TestComponent />);
 
-  const element = screen.getByRole('button', { name: 'Button that will not close the menu' })
-  fireEvent.click(element)
+  const element = screen.getByRole("button", { name: "Button that will not close the menu" });
+  fireEvent.click(element);
 
-  expect(screen.getByTestId('test-dialog')).toBeVisible()
-})
+  expect(screen.getByTestId("test-dialog")).toBeVisible();
+});
 
 function TestComponent() {
-  const handleClick = useCloseTopBarMenuDrawerOnClick()
+  const handleClick = useCloseTopBarMenuDrawerOnClick();
 
   return (
     <dialog data-testid="test-dialog" open>
@@ -64,5 +65,5 @@ function TestComponent() {
         <button>Button that will not close the menu</button>
       </div>
     </dialog>
-  )
+  );
 }

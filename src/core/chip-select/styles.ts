@@ -1,8 +1,8 @@
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
 
 interface ElChipSelectProps {
-  'data-flow': 'wrap' | 'nowrap'
-  'data-overflow': 'auto' | 'visible'
+  "data-flow": "wrap" | "nowrap";
+  "data-overflow": "auto" | "visible";
 }
 
 export const ElChipSelect = styled.div<ElChipSelectProps>`
@@ -16,21 +16,21 @@ export const ElChipSelect = styled.div<ElChipSelectProps>`
     width: 100%;
 
     &,
-    &[data-flow='wrap'] {
+    &[data-flow="wrap"] {
       flex-flow: row wrap;
     }
 
-    &[data-flow='nowrap'] {
+    &[data-flow="nowrap"] {
       flex-flow: row nowrap;
     }
 
     &,
-    &[data-overflow='visible'] {
+    &[data-overflow="visible"] {
       overflow: visible;
     }
 
-    &[data-overflow='auto'] {
+    &[data-overflow="auto"] {
       overflow: auto;
     }
   }
-`
+`;

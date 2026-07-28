@@ -1,18 +1,20 @@
-import preview from '#.storybook/preview'
-import { Badge } from '#src/core/badge'
-import { Menu } from './menu'
-import { StarIcon } from '#src/icons/star'
-import { useId } from 'react'
+import { useId } from "react";
 
-const href = '#'
+import preview from "#.storybook/preview";
+import { Badge } from "#src/core/badge";
+import { StarIcon } from "#src/icons/star";
+
+import { Menu } from "./menu";
+
+const href = "#";
 
 const meta = preview.meta({
-  title: 'Input and selection/Menu',
+  title: "Input and selection/Menu",
   component: Menu,
   argTypes: {
     children: {
-      control: 'select',
-      options: ['Simple', 'Fancy'],
+      control: "select",
+      options: ["Simple", "Fancy"],
       mapping: {
         Simple: (
           <>
@@ -68,26 +70,26 @@ const meta = preview.meta({
       },
     },
     gap: {
-      control: 'text',
+      control: "text",
       table: {
         type: {
-          summary: '--spacing-*',
+          summary: "--spacing-*",
         },
       },
     },
     maxHeight: {
-      control: 'text',
+      control: "text",
       table: {
         type: {
-          summary: '--size-*',
+          summary: "--size-*",
         },
       },
     },
     maxWidth: {
-      control: 'text',
+      control: "text",
       table: {
         type: {
-          summary: '--size-*',
+          summary: "--size-*",
         },
       },
     },
@@ -96,12 +98,12 @@ const meta = preview.meta({
     // NOTE: because we have multiple stories on the one docs page, we append a "suffix" to
     // the IDs so they are unique per story. Then ensures our positioning of the menu will
     // be anchored to the correct element.
-    const suffix = useId()
+    const suffix = useId();
     const props = {
       ...args,
-      'aria-labelledby': `${args['aria-labelledby']}-${suffix}`,
+      "aria-labelledby": `${args["aria-labelledby"]}-${suffix}`,
       id: `${args.id}-${suffix}`,
-    }
+    };
 
     return (
       <>
@@ -109,29 +111,29 @@ const meta = preview.meta({
           aria-controls={props.id}
           aria-haspopup="menu"
           {...Menu.getTriggerProps({
-            id: props['aria-labelledby'],
+            id: props["aria-labelledby"],
             popoverTarget: props.id,
-            popoverTargetAction: 'toggle',
+            popoverTargetAction: "toggle",
           })}
         >
           Click me!
         </button>
         <Menu {...props} />
       </>
-    )
+    );
   },
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
-})
+});
 
 export const Example = meta.story({
   args: {
-    'aria-labelledby': 'anchor',
-    children: 'Simple',
-    id: 'menu',
+    "aria-labelledby": "anchor",
+    children: "Simple",
+    id: "menu",
   },
-})
+});
 
 /**
  * The distance, or gap, between the menu and its trigger can be customised. By default, there will be
@@ -139,31 +141,31 @@ export const Example = meta.story({
  */
 export const Gap = Example.extend({
   args: {
-    gap: '--spacing-6',
+    gap: "--spacing-6",
   },
-})
+});
 
 /**
  * By default, a menu will grow to the width of its widest item. A maximum width can be specified to
  * constrain how wide it can grow. Menu item content that would otherwise to wider will subsequently wrap.
  */
 export const MaxWidth = Example.extend({
-  name: 'Max-width',
+  name: "Max-width",
   args: {
     children: (
       <>
         <Menu.Item>Item 1</Menu.Item>
         <Menu.Item>Item 2</Menu.Item>
         <Menu.Item>
-          An item with a really long label that will wrap to additional lines because the menu&apos;s width is
-          constrained
+          An item with a really long label that will wrap to additional lines because the
+          menu&apos;s width is constrained
         </Menu.Item>
       </>
     ),
 
-    maxWidth: '--size-40',
+    maxWidth: "--size-40",
   },
-})
+});
 
 /**
  * By default, a menu will grow to the height of its items. A maximum height can be specified to
@@ -172,9 +174,9 @@ export const MaxWidth = Example.extend({
  */
 export const MaxHeight = Example.extend({
   args: {
-    maxHeight: '--size-40',
+    maxHeight: "--size-40",
   },
-})
+});
 
 /**
  * By default, a menu will automatically close when one of its menu items are clicked. This behaviour
@@ -187,12 +189,14 @@ export const PreventingClosure = Example.extend({
   args: {
     children: (
       <>
-        <Menu.Item onClick={(event) => event.preventDefault()}>I won&apos;t let the menu close</Menu.Item>
+        <Menu.Item onClick={(event) => event.preventDefault()}>
+          I won&apos;t let the menu close
+        </Menu.Item>
         <Menu.Item>But I will</Menu.Item>
       </>
     ),
   },
-})
+});
 
 /**
  * If a menu item prevents the automatic closure of the menu, it's likely it will need to manually close
@@ -220,13 +224,13 @@ export const ImperativeClosure = Example.extend({
       <>
         <Menu.Item
           onClick={async (event) => {
-            event.preventDefault()
-            const menu = Menu.getClosestMenuElement(event.currentTarget)
+            event.preventDefault();
+            const menu = Menu.getClosestMenuElement(event.currentTarget);
 
             // Simulate an async action
-            await new Promise((resolve) => setTimeout(resolve, 1000))
+            await new Promise((resolve) => setTimeout(resolve, 1000));
 
-            menu?.hidePopover()
+            menu?.hidePopover();
           }}
         >
           I&apos;ll close the menu in a second
@@ -235,4 +239,4 @@ export const ImperativeClosure = Example.extend({
       </>
     ),
   },
-})
+});

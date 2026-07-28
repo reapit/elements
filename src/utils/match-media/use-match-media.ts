@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from "react";
 
 /**
  * A hook that tracks whether a media query condition matches.
@@ -13,27 +13,27 @@ import { useEffect, useState } from 'react'
  * ```
  */
 export function useMatchMedia(condition: string): boolean {
-  const [matches, setMatches] = useState(() => globalThis.matchMedia(condition).matches)
+  const [matches, setMatches] = useState(() => globalThis.matchMedia(condition).matches);
 
   useEffect(
     function setupMediaQueryListener() {
-      const mediaQuery = globalThis.matchMedia(condition)
+      const mediaQuery = globalThis.matchMedia(condition);
 
       // If the condition changes, we update the state immediately
-      setMatches(mediaQuery.matches)
+      setMatches(mediaQuery.matches);
 
       const handleChange = (event: MediaQueryListEvent) => {
-        setMatches(event.matches)
-      }
+        setMatches(event.matches);
+      };
 
-      mediaQuery.addEventListener('change', handleChange)
+      mediaQuery.addEventListener("change", handleChange);
 
       return () => {
-        mediaQuery.removeEventListener('change', handleChange)
-      }
+        mediaQuery.removeEventListener("change", handleChange);
+      };
     },
     [condition],
-  )
+  );
 
-  return matches
+  return matches;
 }

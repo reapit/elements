@@ -1,5 +1,6 @@
-import { css } from '@linaria/core'
-import { font } from '#src/utils/font'
+import { css } from "@linaria/core";
+
+import { font } from "#src/utils/font";
 
 export const elMediaFallback = css`
   @layer elements.main {
@@ -16,14 +17,14 @@ export const elMediaFallback = css`
     background: var(--colour-fill-neutral-light);
     padding: var(--spacing-4);
   }
-`
+`;
 
 export const elMediaFallbackOverlay = css`
   @layer elements.main {
     position: absolute;
     inset: 0;
   }
-`
+`;
 
 export const elMediaFallbackIcon = css`
   @layer elements.main {
@@ -32,7 +33,7 @@ export const elMediaFallbackIcon = css`
     justify-content: center;
     color: var(--colour-icon-primary);
   }
-`
+`;
 
 export const elMediaFallbackMessage = css`
   @layer elements.main {
@@ -40,6 +41,6 @@ export const elMediaFallbackMessage = css`
     color: var(--colour-text-placeholder);
     text-align: center;
 
-    ${font('sm', 'regular')}
+    ${font("sm", "regular")}
   }
-`
+`;

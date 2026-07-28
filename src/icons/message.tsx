@@ -1,4 +1,4 @@
-import MessageSvg from './svgs/message.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import MessageSvg from "./svgs/message.svg?react";
 
-export const MessageIcon = makeIcon('MessageIcon', MessageSvg)
+export const MessageIcon = makeIcon("MessageIcon", MessageSvg);

@@ -46,10 +46,10 @@ Exports that belong to the same module are grouped into a single import statemen
 
 ```tsx
 // Before
-import { Button, AnchorButton } from '@reapit/elements'
+import { Button, AnchorButton } from "@reapit/elements";
 
 // After
-import { Button, AnchorButton } from '@reapit/elements/core/button'
+import { Button, AnchorButton } from "@reapit/elements/core/button";
 ```
 
 ### Multiple exports — different modules (split)
@@ -58,14 +58,14 @@ Exports that belong to different modules are split into separate import statemen
 
 ```tsx
 // Before
-import { Button, Link, DeprecatedIcon, Popover, MoreIcon } from '@reapit/elements'
+import { Button, Link, DeprecatedIcon, Popover, MoreIcon } from "@reapit/elements";
 
 // After
-import { Button } from '@reapit/elements/core/button'
-import { Link } from '@reapit/elements/core/link'
-import { DeprecatedIcon } from '@reapit/elements/deprecated/icon'
-import { Popover } from '@reapit/elements/utils/popover'
-import { MoreIcon } from '@reapit/elements/icons/more'
+import { Button } from "@reapit/elements/core/button";
+import { Link } from "@reapit/elements/core/link";
+import { DeprecatedIcon } from "@reapit/elements/deprecated/icon";
+import { Popover } from "@reapit/elements/utils/popover";
+import { MoreIcon } from "@reapit/elements/icons/more";
 ```
 
 ### Mixed: subpath-eligible and root-only exports
@@ -76,11 +76,11 @@ and the root-only exports remain in a residual barrel import:
 
 ```tsx
 // Before
-import { Button, elGlobals } from '@reapit/elements'
+import { Button, elGlobals } from "@reapit/elements";
 
 // After
-import { Button } from '@reapit/elements/core/button'
-import { elGlobals } from '@reapit/elements'
+import { Button } from "@reapit/elements/core/button";
+import { elGlobals } from "@reapit/elements";
 ```
 
 Deprecated style utilities, `Intent`, and `getIntentClassName` are now mapped to
@@ -88,20 +88,20 @@ Deprecated style utilities, `Intent`, and `getIntentClassName` are now mapped to
 
 ```tsx
 // Before
-import { elFlex, getIntentClassName } from '@reapit/elements'
+import { elFlex, getIntentClassName } from "@reapit/elements";
 
 // After
-import { elFlex, getIntentClassName } from '@reapit/elements/deprecated/styles'
+import { elFlex, getIntentClassName } from "@reapit/elements/deprecated/styles";
 ```
 
 The `Theme` type is now available from `@reapit/elements/utils/theme-provider`:
 
 ```tsx
 // Before
-import type { Theme } from '@reapit/elements'
+import type { Theme } from "@reapit/elements";
 
 // After
-import type { Theme } from '@reapit/elements/utils/theme-provider'
+import type { Theme } from "@reapit/elements/utils/theme-provider";
 ```
 
 ### Type imports
@@ -110,12 +110,12 @@ Type-only import declarations and inline `type` specifiers are fully preserved:
 
 ```tsx
 // Before
-import type { Accordion, AccordionProps } from '@reapit/elements'
-import { Button, type AccordionProps } from '@reapit/elements'
+import type { Accordion, AccordionProps } from "@reapit/elements";
+import { Button, type AccordionProps } from "@reapit/elements";
 
 // After
-import type { Accordion, AccordionProps } from '@reapit/elements/core/accordion'
-import { Button, type AccordionProps } from '@reapit/elements/core/accordion'
+import type { Accordion, AccordionProps } from "@reapit/elements/core/accordion";
+import { Button, type AccordionProps } from "@reapit/elements/core/accordion";
 ```
 
 ### Aliased imports
@@ -124,10 +124,10 @@ Custom aliases are preserved:
 
 ```tsx
 // Before
-import { Button as Btn } from '@reapit/elements'
+import { Button as Btn } from "@reapit/elements";
 
 // After
-import { Button as Btn } from '@reapit/elements/core/button'
+import { Button as Btn } from "@reapit/elements/core/button";
 ```
 
 ### Existing subpath imports (unchanged)
@@ -135,7 +135,7 @@ import { Button as Btn } from '@reapit/elements/core/button'
 Imports that already use subpath specifiers are left untouched:
 
 ```tsx
-import { Button } from '@reapit/elements/core/button' // No change
+import { Button } from "@reapit/elements/core/button"; // No change
 ```
 
 ## Root-only Exports

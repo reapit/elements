@@ -1,23 +1,25 @@
-import preview from '#.storybook/preview'
-import { Badge } from '#src/core/badge'
-import { ComboboxOption } from './option'
-import { StarIcon } from '#src/icons/star'
-import { Text } from '#src/utils/text'
-import { useState } from 'react'
+import { useState } from "react";
+
+import preview from "#.storybook/preview";
+import { Badge } from "#src/core/badge";
+import { StarIcon } from "#src/icons/star";
+import { Text } from "#src/utils/text";
+
+import { ComboboxOption } from "./option";
 
 const meta = preview.meta({
-  title: 'Utils/Combobox/Option',
+  title: "Utils/Combobox/Option",
   component: ComboboxOption,
   argTypes: {
-    'aria-checked': {
-      control: 'boolean',
+    "aria-checked": {
+      control: "boolean",
     },
-    'aria-selected': {
-      control: 'boolean',
+    "aria-selected": {
+      control: "boolean",
     },
     badge: {
-      control: 'radio',
-      options: ['None', 'Badge'],
+      control: "radio",
+      options: ["None", "Badge"],
       mapping: {
         None: undefined,
         Badge: <Badge colour="neutral">Badge</Badge>,
@@ -27,11 +29,11 @@ const meta = preview.meta({
       control: false,
     },
     additionalInfo: {
-      control: 'radio',
-      options: ['None', 'One line', 'Two lines'],
+      control: "radio",
+      options: ["None", "One line", "Two lines"],
       mapping: {
         None: undefined,
-        'One line': (
+        "One line": (
           <ComboboxOption.AdditionalInfo
             badge={<Badge colour="neutral">Badge</Badge>}
             icon={<StarIcon aria-label="Preferred" />}
@@ -39,7 +41,7 @@ const meta = preview.meta({
             Optional info
           </ComboboxOption.AdditionalInfo>
         ),
-        'Two lines': [
+        "Two lines": [
           <ComboboxOption.AdditionalInfo
             key="1"
             badge={<Badge colour="neutral">Badge</Badge>}
@@ -58,22 +60,22 @@ const meta = preview.meta({
       },
     },
     value: {
-      control: 'text',
+      control: "text",
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
-    'aria-checked': undefined,
-    'aria-selected': undefined,
-    badge: 'None',
-    children: 'Label',
-    additionalInfo: 'None',
-    size: 'medium',
-    value: 'option-1',
+    "aria-checked": undefined,
+    "aria-selected": undefined,
+    badge: "None",
+    children: "Label",
+    additionalInfo: "None",
+    size: "medium",
+    value: "option-1",
   },
-})
+});
 
 /**
  *
@@ -85,7 +87,14 @@ export const Sizes = Example.extend({
 
   decorators: [
     (Story) => (
-      <div style={{ display: 'flex', flexFlow: 'row nowrap', alignItems: 'center', gap: 'var(--spacing-6)' }}>
+      <div
+        style={{
+          display: "flex",
+          flexFlow: "row nowrap",
+          alignItems: "center",
+          gap: "var(--spacing-6)",
+        }}
+      >
         <Story />
       </div>
     ),
@@ -97,7 +106,7 @@ export const Sizes = Example.extend({
       <ComboboxOption {...args} size="large" />
     </>
   ),
-})
+});
 
 /**
  * Each option manages its selection state internally. Single-select comboboxes use the
@@ -105,27 +114,27 @@ export const Sizes = Example.extend({
  */
 export const Selected = Example.extend({
   args: {
-    'aria-selected': true,
+    "aria-selected": true,
   },
-})
+});
 
 /**
  * Multi-select comboboxes use the `aria-checked` attribute to mark selected options.
  */
 export const Checked = Example.extend({
   args: {
-    'aria-checked': true,
+    "aria-checked": true,
   },
-})
+});
 
 /**
  * Badges provide additional context. Place them after the option label or within supplementary info.
  */
 export const Badges = Example.extend({
   args: {
-    badge: 'Badge',
+    badge: "Badge",
   },
-})
+});
 
 /**
  * Supplementary information helps users choose the right option. Provide up to two lines, each with
@@ -133,9 +142,9 @@ export const Badges = Example.extend({
  */
 export const SupplementaryInfo = Example.extend({
   args: {
-    additionalInfo: 'Two lines',
+    additionalInfo: "Two lines",
   },
-})
+});
 
 /**
  * Keep labels and supplementary information concise. Text wraps to multiple lines when it exceeds
@@ -144,7 +153,7 @@ export const SupplementaryInfo = Example.extend({
 export const Wrapping = Selected.extend({
   args: {
     badge: <Badge colour="neutral">Commercial</Badge>,
-    children: '456B Heritage Boulevard, Upper Brookfield Heights, Brisbane QLD 4069',
+    children: "456B Heritage Boulevard, Upper Brookfield Heights, Brisbane QLD 4069",
 
     additionalInfo: [
       <ComboboxOption.AdditionalInfo key="1" badge={<Badge colour="inactive">Sales</Badge>}>
@@ -157,15 +166,15 @@ export const Wrapping = Selected.extend({
   },
   decorators: [
     (Story) => {
-      const [width, setWidth] = useState(300)
+      const [width, setWidth] = useState(300);
       return (
         <>
           <div
             style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: 'var(--spacing-2)',
-              marginBlockEnd: 'var(--spacing-2)',
+              display: "flex",
+              alignItems: "center",
+              gap: "var(--spacing-2)",
+              marginBlockEnd: "var(--spacing-2)",
             }}
           >
             <input
@@ -184,11 +193,13 @@ export const Wrapping = Selected.extend({
               </Text>
             </output>
           </div>
-          <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', width: `${width}px` }}>
+          <div
+            style={{ boxSizing: "content-box", border: "1px solid #FA00FF", width: `${width}px` }}
+          >
             <Story />
           </div>
         </>
-      )
+      );
     },
   ],
-})
+});

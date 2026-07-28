@@ -1,2 +1,2 @@
-export * from './__styles__'
-export * from './page-header'
+export * from "./__styles__";
+export * from "./page-header";

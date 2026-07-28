@@ -1,36 +1,37 @@
-import { cx } from '@linaria/core'
-import { forwardRef } from 'react'
-import { CheckboxInput } from '#src/core/checkbox-input'
-import { elTableCellCheckbox } from './styles'
+import { cx } from "@linaria/core";
+import { forwardRef } from "react";
+import type { InputHTMLAttributes } from "react";
 
-import type { InputHTMLAttributes } from 'react'
+import { CheckboxInput } from "#src/core/checkbox-input";
+
+import { elTableCellCheckbox } from "./styles";
 
 // NOTE: we omit...
 // - defaultChecked, because we control state via checked
 // - type, because we internally control the input type
-type AttributesToOmit = 'defaultChecked' | 'type'
+type AttributesToOmit = "defaultChecked" | "type";
 
 export namespace TableCellCheckbox {
   export interface Props extends Omit<InputHTMLAttributes<HTMLInputElement>, AttributesToOmit> {
     /** The accessible name for the checkbox. */
-    'aria-label': string
+    "aria-label": string;
     /** Indicates whether the checkbox or radio is checked. */
-    checked?: boolean
+    checked?: boolean;
     /** Whether the checkbox is disabled. Typically, row selection checkboxes should avoid being disabled. */
-    disabled?: boolean
+    disabled?: boolean;
     /** The form this checkbox is associated with. */
-    form?: string
+    form?: string;
     /**
      * Name of the checkbox. Submitted as part of a name/value pair. Will typically be the same name as
      * other row selection checkboxes in the table.
      */
-    name?: string
+    name?: string;
     /** Callback fired when the checkbox state changes. */
-    onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
+    onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
     /** The accessible name for the checkbox when used in a table header for selecting all rows. */
-    title?: string
+    title?: string;
     /** The value of the checkbox. Submitted as part of a name/value pair. */
-    value?: string
+    value?: string;
   }
 }
 
@@ -40,11 +41,18 @@ export namespace TableCellCheckbox {
  */
 export const TableCellCheckbox = forwardRef<HTMLInputElement, TableCellCheckbox.Props>(
   ({ className, ...rest }, ref) => {
-    return <CheckboxInput {...rest} className={cx(elTableCellCheckbox, className)} ref={ref} type="checkbox" />
+    return (
+      <CheckboxInput
+        {...rest}
+        className={cx(elTableCellCheckbox, className)}
+        ref={ref}
+        type="checkbox"
+      />
+    );
   },
-)
+);
 
-TableCellCheckbox.displayName = 'Table.Checkbox'
+TableCellCheckbox.displayName = "Table.Checkbox";
 
 // Backward compatibility
-export type TableCellCheckboxProps = TableCellCheckbox.Props
+export type TableCellCheckboxProps = TableCellCheckbox.Props;

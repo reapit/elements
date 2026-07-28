@@ -1,15 +1,16 @@
-import preview from '#.storybook/preview'
-import { OfficeSwitcher } from './office-switcher'
+import preview from "#.storybook/preview";
+
+import { OfficeSwitcher } from "./office-switcher";
 
 const meta = preview.meta({
-  title: 'Input and selection/OfficeSwitcher/Select',
+  title: "Input and selection/OfficeSwitcher/Select",
   component: OfficeSwitcher.Select,
   argTypes: {
     children: {
       control: false,
     },
   },
-})
+});
 
 /**
  * For simple use-cases, the select can display a simple list of options.
@@ -29,4 +30,4 @@ export const Example = meta.story({
       </OfficeSwitcher.Select>
     ),
   },
-})
+});

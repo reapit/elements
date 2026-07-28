@@ -1,17 +1,17 @@
-import { font } from '#src/utils/font'
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
+import type { CSSProperties } from "react";
 
-import type { CSSProperties } from 'react'
+import { font } from "#src/utils/font";
 
 interface ElChipCSSProperties extends CSSProperties {
   /** Used to determine the maximum width of the chip because the browser does not support
    * [CSS' advanced attr() syntax](https://developer.mozilla.org/en-US/docs/Web/CSS/attr) */
-  '--chip-max-width'?: `var(--size-${string})`
+  "--chip-max-width"?: `var(--size-${string})`;
 }
 
 interface ElChipProps {
-  'data-variant': 'filter' | 'selection'
-  style: ElChipCSSProperties
+  "data-variant": "filter" | "selection";
+  style: ElChipCSSProperties;
 }
 
 export const ElChip = styled.button<ElChipProps>`
@@ -36,12 +36,12 @@ export const ElChip = styled.button<ElChipProps>`
     }
 
     &:disabled,
-    &[aria-disabled='true'] {
+    &[aria-disabled="true"] {
       cursor: not-allowed;
       color: var(--comp-chip-colour-text-disabled);
     }
 
-    &[data-variant='filter'] {
+    &[data-variant="filter"] {
       background: var(--comp-chip-colour-fill-filter-default);
 
       &:hover {
@@ -50,13 +50,13 @@ export const ElChip = styled.button<ElChipProps>`
 
       &:disabled,
       &:disabled:hover,
-      &[aria-disabled='true'],
-      &[aria-disabled='true']:hover {
+      &[aria-disabled="true"],
+      &[aria-disabled="true"]:hover {
         background: var(--comp-chip-colour-fill-filter-disabled);
       }
     }
 
-    &[data-variant='selection'] {
+    &[data-variant="selection"] {
       background: var(--comp-chip-colour-fill-selection-default);
 
       &:hover {
@@ -65,16 +65,16 @@ export const ElChip = styled.button<ElChipProps>`
 
       &:disabled,
       &:disabled:hover,
-      &[aria-disabled='true'],
-      &[aria-disabled='true']:hover {
+      &[aria-disabled="true"],
+      &[aria-disabled="true"]:hover {
         background: var(--comp-chip-colour-fill-selection-disabled);
       }
     }
   }
-`
+`;
 
 interface ElChipLabelProps {
-  'data-overflow': 'truncate' | undefined
+  "data-overflow": "truncate" | undefined;
 }
 
 export const ElChipLabel = styled.span<ElChipLabelProps>`
@@ -84,22 +84,22 @@ export const ElChipLabel = styled.span<ElChipLabelProps>`
     /* Allows long words to be broken and wrapped onto the next line. */
     overflow-wrap: anywhere;
 
-    ${font('sm', 'regular')}
+    ${font("sm", "regular")}
 
     text-align: left;
 
-    &[data-overflow='truncate'] {
+    &[data-overflow="truncate"] {
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
     }
 
     :disabled &,
-    [aria-disabled='true'] & {
+    [aria-disabled="true"] & {
       color: var(--colour-text-placeholder);
     }
   }
-`
+`;
 
 export const ElChipClearIcon = styled.div`
   @layer elements.main {
@@ -111,8 +111,8 @@ export const ElChipClearIcon = styled.div`
     width: var(--icon_size-sm) !important;
 
     :disabled &,
-    [aria-disabled='true'] & {
+    [aria-disabled="true"] & {
       color: var(--comp-chip-colour-icon-disabled) !important;
     }
   }
-`
+`;

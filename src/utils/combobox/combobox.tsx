@@ -1,24 +1,28 @@
-import { ComboboxButton } from './button'
-import { ComboboxCard } from './card'
-import { ComboboxCardDefaultContent } from './card-default-content'
-import { ComboboxContext, useComboboxContext } from './context'
-import { ComboboxDefaultOptionsContext, useComboboxDefaultOptionsContext } from './default-options-context'
-import { ComboboxListbox } from './listbox'
-import { ComboboxPopup } from './combobox-popup'
-import { ComboboxSearchInput } from './search-input'
-import { ComboboxSelectedContent } from './selected-content'
-import { ComboboxSelectionChips } from './selection-chips'
-import { ElCombobox } from './styles'
-import { getComboboxListboxId } from './get-listbox-id'
-import { getComboboxPopupId } from './get-popup-id'
-import { getComboboxSearchInputId } from './get-search-input-id'
-import { Listbox } from '#src/utils/listbox'
-import { useComboboxButton } from './use-button'
-import { useComboboxHasSelection } from './use-has-selection'
-import { useComboboxSelectedOptions } from './use-selected-options'
-import { useId } from 'react'
+import { useId } from "react";
+import type { HTMLAttributes } from "react";
 
-import type { HTMLAttributes } from 'react'
+import { Listbox } from "#src/utils/listbox";
+
+import { ComboboxButton } from "./button";
+import { ComboboxCard } from "./card";
+import { ComboboxCardDefaultContent } from "./card-default-content";
+import { ComboboxPopup } from "./combobox-popup";
+import { ComboboxContext, useComboboxContext } from "./context";
+import {
+  ComboboxDefaultOptionsContext,
+  useComboboxDefaultOptionsContext,
+} from "./default-options-context";
+import { getComboboxListboxId } from "./get-listbox-id";
+import { getComboboxPopupId } from "./get-popup-id";
+import { getComboboxSearchInputId } from "./get-search-input-id";
+import { ComboboxListbox } from "./listbox";
+import { ComboboxSearchInput } from "./search-input";
+import { ComboboxSelectedContent } from "./selected-content";
+import { ComboboxSelectionChips } from "./selection-chips";
+import { ElCombobox } from "./styles";
+import { useComboboxButton } from "./use-button";
+import { useComboboxHasSelection } from "./use-has-selection";
+import { useComboboxSelectedOptions } from "./use-selected-options";
 
 export namespace Combobox {
   export interface ButtonProps extends ComboboxButton.Props {}
@@ -42,19 +46,19 @@ export namespace Combobox {
 
   export interface Props extends HTMLAttributes<HTMLElement> {
     /** Combobox button, popup, and other child components */
-    children?: React.ReactNode
+    children?: React.ReactNode;
     /** Whether the combobox is disabled */
-    disabled?: boolean
+    disabled?: boolean;
     /** Maximum width of the combobox. Defaults to 100% */
-    maxWidth?: string
+    maxWidth?: string;
     /** Whether the combobox supports multiple selections. */
-    multiple?: boolean
+    multiple?: boolean;
     /** Whether a selection is required */
-    required?: boolean
+    required?: boolean;
     /** Whether to show validation state styling */
-    showValidity?: boolean
+    showValidity?: boolean;
     /** Size of the combobox */
-    size?: 'small' | 'medium' | 'large'
+    size?: "small" | "medium" | "large";
   }
 }
 
@@ -80,10 +84,10 @@ export namespace Combobox {
  * ```
  */
 export function Combobox({
-  'aria-describedby': ariaDescribedBy,
-  'aria-errormessage': ariaErrorMessage,
-  'aria-invalid': ariaInvalid,
-  'aria-labelledby': ariaLabelledBy,
+  "aria-describedby": ariaDescribedBy,
+  "aria-errormessage": ariaErrorMessage,
+  "aria-invalid": ariaInvalid,
+  "aria-labelledby": ariaLabelledBy,
   children,
   disabled = false,
   id,
@@ -91,15 +95,15 @@ export function Combobox({
   multiple = false,
   required = false,
   showValidity = false,
-  size = 'medium',
+  size = "medium",
   style,
   ...rest
 }: Combobox.Props) {
-  const fallbackComboboxId = useId()
-  const comboboxId = id ?? fallbackComboboxId
-  const listboxId = getComboboxListboxId(comboboxId)
-  const popupId = getComboboxPopupId(comboboxId)
-  const searchInputId = getComboboxSearchInputId(comboboxId)
+  const fallbackComboboxId = useId();
+  const comboboxId = id ?? fallbackComboboxId;
+  const listboxId = getComboboxListboxId(comboboxId);
+  const popupId = getComboboxPopupId(comboboxId);
+  const searchInputId = getComboboxSearchInputId(comboboxId);
 
   return (
     <ComboboxContext.Provider
@@ -118,42 +122,46 @@ export function Combobox({
         size,
       }}
     >
-      <ElCombobox {...rest} data-show-validity={showValidity} style={{ '--combobox-max-width': maxWidth, ...style }}>
+      <ElCombobox
+        {...rest}
+        data-show-validity={showValidity}
+        style={{ "--combobox-max-width": maxWidth, ...style }}
+      >
         {children}
       </ElCombobox>
     </ComboboxContext.Provider>
-  )
+  );
 }
 
-Combobox.getOptionLabel = ComboboxListbox.getOptionLabel
-Combobox.getListboxValue = Listbox.getValue
-Combobox.getListboxId = getComboboxListboxId
-Combobox.getPopupId = getComboboxPopupId
-Combobox.closePopup = ComboboxPopup.close
-Combobox.openPopup = ComboboxPopup.open
+Combobox.getOptionLabel = ComboboxListbox.getOptionLabel;
+Combobox.getListboxValue = Listbox.getValue;
+Combobox.getListboxId = getComboboxListboxId;
+Combobox.getPopupId = getComboboxPopupId;
+Combobox.closePopup = ComboboxPopup.close;
+Combobox.openPopup = ComboboxPopup.open;
 
-Combobox.Button = ComboboxButton
-Combobox.Card = ComboboxCard
-Combobox.CardDefaultContent = ComboboxCardDefaultContent
-Combobox.ClearButton = ComboboxButton.ClearButton
-Combobox.Divider = ComboboxListbox.Divider
-Combobox.Listbox = ComboboxListbox
-Combobox.ListboxPlaceholder = ComboboxListbox.Placeholder
-Combobox.OpenPopupButton = ComboboxButton.OpenPopupButton
-Combobox.Optgroup = ComboboxListbox.Optgroup
-Combobox.Option = ComboboxListbox.Option
-Combobox.OptionAdditionalInfo = ComboboxListbox.OptionAdditionalInfo
-Combobox.Popup = ComboboxPopup
-Combobox.SearchInput = ComboboxSearchInput
-Combobox.SelectedContent = ComboboxSelectedContent
-Combobox.SelectionChips = ComboboxSelectionChips
-Combobox.SelectionChipsItem = ComboboxSelectionChips.Item
+Combobox.Button = ComboboxButton;
+Combobox.Card = ComboboxCard;
+Combobox.CardDefaultContent = ComboboxCardDefaultContent;
+Combobox.ClearButton = ComboboxButton.ClearButton;
+Combobox.Divider = ComboboxListbox.Divider;
+Combobox.Listbox = ComboboxListbox;
+Combobox.ListboxPlaceholder = ComboboxListbox.Placeholder;
+Combobox.OpenPopupButton = ComboboxButton.OpenPopupButton;
+Combobox.Optgroup = ComboboxListbox.Optgroup;
+Combobox.Option = ComboboxListbox.Option;
+Combobox.OptionAdditionalInfo = ComboboxListbox.OptionAdditionalInfo;
+Combobox.Popup = ComboboxPopup;
+Combobox.SearchInput = ComboboxSearchInput;
+Combobox.SelectedContent = ComboboxSelectedContent;
+Combobox.SelectionChips = ComboboxSelectionChips;
+Combobox.SelectionChipsItem = ComboboxSelectionChips.Item;
 
-Combobox.Context = ComboboxContext
-Combobox.DefaultOptionsContext = ComboboxDefaultOptionsContext
-Combobox.useButton = useComboboxButton
-Combobox.useContext = useComboboxContext
-Combobox.useDefaultOptionsContext = useComboboxDefaultOptionsContext
-Combobox.useHasSelection = useComboboxHasSelection
-Combobox.useSelectedOptions = useComboboxSelectedOptions
-Combobox.useState = ComboboxListbox.useState
+Combobox.Context = ComboboxContext;
+Combobox.DefaultOptionsContext = ComboboxDefaultOptionsContext;
+Combobox.useButton = useComboboxButton;
+Combobox.useContext = useComboboxContext;
+Combobox.useDefaultOptionsContext = useComboboxDefaultOptionsContext;
+Combobox.useHasSelection = useComboboxHasSelection;
+Combobox.useSelectedOptions = useComboboxSelectedOptions;
+Combobox.useState = ComboboxListbox.useState;

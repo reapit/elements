@@ -1,17 +1,15 @@
-import { styled } from '@linaria/react'
-import { isTablet } from '../../../styles/deprecated-media'
-import { ElDeprecatedAvatar, ElDeprecatedAvatarImage } from '../../avatar'
-import { elTextL, elTextBase } from '../../typography'
-import { css } from '@linaria/core'
+import { css } from "@linaria/core";
+import { styled } from "@linaria/react";
+
+import { isTablet } from "../../../styles/deprecated-media";
+import { ElDeprecatedAvatar, ElDeprecatedAvatarImage } from "../../avatar";
+import { elTextL, elTextBase } from "../../typography";
 
 /** @deprecated */
-const dot = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-<path d="M12 14C13.1046 14 14 13.1046 14 12C14 10.8954 13.1046 10 12 10C10.8954 10 10 10.8954 10 12C10 13.1046 10.8954 14 12 14Z" fill="slategrey"/>
-</svg>
-`
+const dot = `'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 14C13.1046 14 14 13.1046 14 12C14 10.8954 13.1046 10 12 10C10.8954 10 10 10.8954 10 12C10 13.1046 10.8954 14 12 14Z" fill="slategrey"/></svg>'`;
 
 /** @deprecated */
-export const elDeprecatedPageHeaderMaxWidth = css``
+export const elDeprecatedPageHeaderMaxWidth = css``;
 
 /** @deprecated */
 export const ElDeprecatedPageHeaderContainer = styled.div`
@@ -36,7 +34,7 @@ export const ElDeprecatedPageHeaderContainer = styled.div`
       margin-bottom: 0.5rem;
     }
   }
-`
+`;
 
 /** @deprecated */
 export const ElDeprecatedPageHeaderTitleContainer = styled.div`
@@ -49,7 +47,7 @@ export const ElDeprecatedPageHeaderTitleContainer = styled.div`
     flex-direction: row;
     align-items: center;
   }
-`
+`;
 
 /** @deprecated */
 export const ElDeprecatedPageHeaderWrapInner = styled.div`
@@ -65,7 +63,7 @@ export const ElDeprecatedPageHeaderWrapInner = styled.div`
   ${isTablet} {
     padding: 2.5rem 1.5rem 0;
   }
-`
+`;
 
 /** @deprecated */
 export const ElDeprecatedPageHeaderWrap = styled.div`
@@ -112,7 +110,7 @@ export const ElDeprecatedPageHeaderWrap = styled.div`
       }
     }
   }
-`
+`;
 
 /** @deprecated */
 export const ElDeprecatedPageHeaderButtons = styled.div`
@@ -121,7 +119,7 @@ export const ElDeprecatedPageHeaderButtons = styled.div`
   gap: 0.75rem;
   width: fit-content;
   height: fit-content;
-`
+`;
 
 /** @deprecated */
 export const ElDeprecatedPageHeaderSeparator = styled.span`
@@ -131,13 +129,13 @@ export const ElDeprecatedPageHeaderSeparator = styled.span`
   color: var(--colour-text-secondary);
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
-    background-image: url('${dot}');
+    background-image: url(${dot});
     background-position: center center;
     background-repeat: no-repeat;
     height: 1.5rem;
     width: 1.5rem;
     right: 0;
   }
-`
+`;

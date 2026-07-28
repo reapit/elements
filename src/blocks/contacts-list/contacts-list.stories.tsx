@@ -1,179 +1,179 @@
-import preview from '#.storybook/preview'
-import { AtAGlance } from '#src/core/at-a-glance'
-import { Avatar } from '#src/core/avatar'
-import { Button } from '#src/core/button'
-import { CompactSelectNative } from '#src/core/compact-select-native'
-import { FilterBar } from '#src/core/filter-bar'
-import { Flex } from '#src/utils/flex'
-import { MainContainer } from '#src/core/main-container'
-import { Menu } from '#src/core/menu'
-import { OfficeSwitcher } from '#src/core/office-switcher'
-import { PageHeader } from '#src/core/page-header'
-import { PageLayout } from '#src/core/page-layout'
-import { Pagination } from '#src/core/pagination'
-import { SearchInput } from '#src/core/search-input'
-import { SplitButton } from '#src/core/split-button'
-import { Table } from '#src/core/table'
-import { TagGroup } from '#src/core/tag-group'
-import { TopBar } from '#src/core/top-bar'
-import { isWidthAtOrAbove } from '#src/utils/breakpoints'
-import { useMatchMedia } from '#src/utils/match-media'
+import preview from "#.storybook/preview";
+import { AtAGlance } from "#src/core/at-a-glance";
+import { Avatar } from "#src/core/avatar";
+import { Button } from "#src/core/button";
+import { CompactSelectNative } from "#src/core/compact-select-native";
+import { FilterBar } from "#src/core/filter-bar";
+import { MainContainer } from "#src/core/main-container";
+import { Menu } from "#src/core/menu";
+import { OfficeSwitcher } from "#src/core/office-switcher";
+import { PageHeader } from "#src/core/page-header";
+import { PageLayout } from "#src/core/page-layout";
+import { Pagination } from "#src/core/pagination";
+import { SearchInput } from "#src/core/search-input";
+import { SplitButton } from "#src/core/split-button";
+import { Table } from "#src/core/table";
+import { TagGroup } from "#src/core/tag-group";
+import { TopBar } from "#src/core/top-bar";
+import { isWidthAtOrAbove } from "#src/utils/breakpoints";
+import { Flex } from "#src/utils/flex";
+import { useMatchMedia } from "#src/utils/match-media";
 
 type ContactClass =
-  | 'Buyer'
-  | 'Developer'
-  | 'Investor'
-  | 'Landlord'
-  | 'Prospective Buyer'
-  | 'Prospective Vendor'
-  | 'Tenant'
-  | 'Vendor'
+  | "Buyer"
+  | "Developer"
+  | "Investor"
+  | "Landlord"
+  | "Prospective Buyer"
+  | "Prospective Vendor"
+  | "Tenant"
+  | "Vendor";
 
 interface Contact {
-  id: string
-  initials: string
-  name: string
-  propertyCount: number
-  streetAddress: string
-  suburb: string
-  state: string
-  postcode: string
-  phone: string
-  email: string
-  contactClasses: ContactClass[]
-  lastContactDate: string
-  lastContactType: 'E-Newsletter' | 'Enquiry'
+  id: string;
+  initials: string;
+  name: string;
+  propertyCount: number;
+  streetAddress: string;
+  suburb: string;
+  state: string;
+  postcode: string;
+  phone: string;
+  email: string;
+  contactClasses: ContactClass[];
+  lastContactDate: string;
+  lastContactType: "E-Newsletter" | "Enquiry";
 }
 
 const CONTACTS: Contact[] = [
   {
-    id: 'CON240001',
-    initials: 'AA',
-    name: 'Aaron Abbott',
+    id: "CON240001",
+    initials: "AA",
+    name: "Aaron Abbott",
     propertyCount: 4,
-    streetAddress: '42 Darling Street',
-    suburb: 'Balmain',
-    state: 'NSW',
-    postcode: '2041',
-    phone: '0452 123 456',
-    email: 'abroadbent@acme.com.au',
-    contactClasses: ['Buyer', 'Landlord', 'Investor', 'Developer'],
-    lastContactDate: '01 Jun 2024',
-    lastContactType: 'Enquiry',
+    streetAddress: "42 Darling Street",
+    suburb: "Balmain",
+    state: "NSW",
+    postcode: "2041",
+    phone: "0452 123 456",
+    email: "abroadbent@acme.com.au",
+    contactClasses: ["Buyer", "Landlord", "Investor", "Developer"],
+    lastContactDate: "01 Jun 2024",
+    lastContactType: "Enquiry",
   },
   {
-    id: 'CON240002',
-    initials: 'RE',
-    name: 'Ralph Edwards',
+    id: "CON240002",
+    initials: "RE",
+    name: "Ralph Edwards",
     propertyCount: 8,
-    streetAddress: '15 Norton Street',
-    suburb: 'Leichhardt',
-    state: 'NSW',
-    postcode: '2040',
-    phone: '0405 070 809',
-    email: 'ralphedw@gmail.com',
-    contactClasses: ['Prospective Buyer', 'Buyer', 'Investor'],
-    lastContactDate: '24 May 2023',
-    lastContactType: 'Enquiry',
+    streetAddress: "15 Norton Street",
+    suburb: "Leichhardt",
+    state: "NSW",
+    postcode: "2040",
+    phone: "0405 070 809",
+    email: "ralphedw@gmail.com",
+    contactClasses: ["Prospective Buyer", "Buyer", "Investor"],
+    lastContactDate: "24 May 2023",
+    lastContactType: "Enquiry",
   },
   {
-    id: 'CON240003',
-    initials: 'RW',
-    name: 'Ray White Newtown',
+    id: "CON240003",
+    initials: "RW",
+    name: "Ray White Newtown",
     propertyCount: 0,
-    streetAddress: '100 King Street',
-    suburb: 'Newtown',
-    state: 'NSW',
-    postcode: '2042',
-    phone: '0452 226 397',
-    email: 'contact@raywhited.com.au',
-    contactClasses: ['Buyer'],
-    lastContactDate: '05 Mar 2024',
-    lastContactType: 'Enquiry',
+    streetAddress: "100 King Street",
+    suburb: "Newtown",
+    state: "NSW",
+    postcode: "2042",
+    phone: "0452 226 397",
+    email: "contact@raywhited.com.au",
+    contactClasses: ["Buyer"],
+    lastContactDate: "05 Mar 2024",
+    lastContactType: "Enquiry",
   },
   {
-    id: 'CON240004',
-    initials: 'DL',
-    name: 'Devon Lane',
+    id: "CON240004",
+    initials: "DL",
+    name: "Devon Lane",
     propertyCount: 6,
-    streetAddress: '50 Addison Road',
-    suburb: 'Marrickville',
-    state: 'NSW',
-    postcode: '2204',
-    phone: '07 8844 5841',
-    email: 'dlane@yahoo.com',
-    contactClasses: ['Buyer', 'Vendor', 'Investor'],
-    lastContactDate: '17 Apr 2024',
-    lastContactType: 'E-Newsletter',
+    streetAddress: "50 Addison Road",
+    suburb: "Marrickville",
+    state: "NSW",
+    postcode: "2204",
+    phone: "07 8844 5841",
+    email: "dlane@yahoo.com",
+    contactClasses: ["Buyer", "Vendor", "Investor"],
+    lastContactDate: "17 Apr 2024",
+    lastContactType: "E-Newsletter",
   },
   {
-    id: 'CON240005',
-    initials: 'AC',
-    name: 'Arlene McCoy',
+    id: "CON240005",
+    initials: "AC",
+    name: "Arlene McCoy",
     propertyCount: 4,
-    streetAddress: '32 Stanmore Road',
-    suburb: 'Stanmore',
-    state: 'NSW',
-    postcode: '2048',
-    phone: '0412 223 669',
-    email: 'arlene78@google.com',
-    contactClasses: ['Prospective Vendor', 'Vendor'],
-    lastContactDate: '22 Mar 2024',
-    lastContactType: 'Enquiry',
+    streetAddress: "32 Stanmore Road",
+    suburb: "Stanmore",
+    state: "NSW",
+    postcode: "2048",
+    phone: "0412 223 669",
+    email: "arlene78@google.com",
+    contactClasses: ["Prospective Vendor", "Vendor"],
+    lastContactDate: "22 Mar 2024",
+    lastContactType: "Enquiry",
   },
   {
-    id: 'CON240006',
-    initials: 'JW',
-    name: 'Jenny Wilson',
+    id: "CON240006",
+    initials: "JW",
+    name: "Jenny Wilson",
     propertyCount: 4,
-    streetAddress: '77 Ramsay Street',
-    suburb: 'Haberfield',
-    state: 'NSW',
-    postcode: '2045',
-    phone: '0498 887 003',
-    email: 'jennywilson@cc.com.au',
-    contactClasses: ['Buyer', 'Tenant', 'Landlord'],
-    lastContactDate: '17 Apr 2024',
-    lastContactType: 'Enquiry',
+    streetAddress: "77 Ramsay Street",
+    suburb: "Haberfield",
+    state: "NSW",
+    postcode: "2045",
+    phone: "0498 887 003",
+    email: "jennywilson@cc.com.au",
+    contactClasses: ["Buyer", "Tenant", "Landlord"],
+    lastContactDate: "17 Apr 2024",
+    lastContactType: "Enquiry",
   },
   {
-    id: 'CON240007',
-    initials: 'JC',
-    name: 'Jane Cooper',
+    id: "CON240007",
+    initials: "JC",
+    name: "Jane Cooper",
     propertyCount: 6,
-    streetAddress: '12 Liverpool Road',
-    suburb: 'Ashfield',
-    state: 'NSW',
-    postcode: '2131',
-    phone: '0452 123 456',
-    email: 'abroadbent@acme.com.au',
-    contactClasses: ['Buyer', 'Developer'],
-    lastContactDate: '15 May 2024',
-    lastContactType: 'Enquiry',
+    streetAddress: "12 Liverpool Road",
+    suburb: "Ashfield",
+    state: "NSW",
+    postcode: "2131",
+    phone: "0452 123 456",
+    email: "abroadbent@acme.com.au",
+    contactClasses: ["Buyer", "Developer"],
+    lastContactDate: "15 May 2024",
+    lastContactType: "Enquiry",
   },
   {
-    id: 'CON240008',
-    initials: 'KW',
-    name: 'Kristin Watson',
+    id: "CON240008",
+    initials: "KW",
+    name: "Kristin Watson",
     propertyCount: 7,
-    streetAddress: '66 Victoria Road',
-    suburb: 'Dulwich Hill',
-    state: 'NSW',
-    postcode: '2203',
-    phone: '07 8844 5841',
-    email: 'kristin@watson.com.au',
-    contactClasses: ['Vendor', 'Investor', 'Landlord'],
-    lastContactDate: '24 May 2023',
-    lastContactType: 'E-Newsletter',
+    streetAddress: "66 Victoria Road",
+    suburb: "Dulwich Hill",
+    state: "NSW",
+    postcode: "2203",
+    phone: "07 8844 5841",
+    email: "kristin@watson.com.au",
+    contactClasses: ["Vendor", "Investor", "Landlord"],
+    lastContactDate: "24 May 2023",
+    lastContactType: "E-Newsletter",
   },
-]
+];
 
 const meta = preview.meta({
-  title: 'Blocks/ContactsList',
+  title: "Blocks/ContactsList",
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
   },
-})
+});
 
 /**
  * A full-page list view for browsing and managing contacts.
@@ -184,14 +184,14 @@ const meta = preview.meta({
  */
 export const Example = meta.story({
   render: () => {
-    const showContactClasses = useMatchMedia(isWidthAtOrAbove('LG'))
-    const showHomeAddress = useMatchMedia(isWidthAtOrAbove('MD'))
+    const showContactClasses = useMatchMedia(isWidthAtOrAbove("LG"));
+    const showHomeAddress = useMatchMedia(isWidthAtOrAbove("MD"));
 
     const columns = showContactClasses
-      ? 'min-content 1.5fr 1.5fr 1.5fr 1.5fr 1fr min-content'
+      ? "min-content 1.5fr 1.5fr 1.5fr 1.5fr 1fr min-content"
       : showHomeAddress
-        ? 'min-content 1.5fr 1.5fr 1.5fr 1fr min-content'
-        : 'min-content 1.5fr 1.5fr 1fr min-content'
+        ? "min-content 1.5fr 1.5fr 1.5fr 1fr min-content"
+        : "min-content 1.5fr 1.5fr 1fr min-content";
 
     return (
       <PageLayout backgroundColour="--colour-fill-white" id="contacts-list" scroll="body">
@@ -264,7 +264,9 @@ export const Example = meta.story({
               <OfficeSwitcher.Button />
               <OfficeSwitcher.Popup>
                 <OfficeSwitcher.Listbox defaultValue="cheltenham">
-                  <OfficeSwitcher.Option value="cheltenham">Cheltenham Central</OfficeSwitcher.Option>
+                  <OfficeSwitcher.Option value="cheltenham">
+                    Cheltenham Central
+                  </OfficeSwitcher.Option>
                   <OfficeSwitcher.Option value="gloucester">Gloucester East</OfficeSwitcher.Option>
                   <OfficeSwitcher.Option value="bristol">Bristol South</OfficeSwitcher.Option>
                 </OfficeSwitcher.Listbox>
@@ -310,9 +312,17 @@ export const Example = meta.story({
               <AtAGlance>
                 <AtAGlance.Carousel columns="200px">
                   <AtAGlance.ButtonCard displayValue={807} label="Buyer" onClick={() => {}} />
-                  <AtAGlance.ButtonCard displayValue={4609} label="Prospective Buyer" onClick={() => {}} />
+                  <AtAGlance.ButtonCard
+                    displayValue={4609}
+                    label="Prospective Buyer"
+                    onClick={() => {}}
+                  />
                   <AtAGlance.ButtonCard displayValue={2399} label="Vendor" onClick={() => {}} />
-                  <AtAGlance.ButtonCard displayValue={3009} label="Prospective Vendor" onClick={() => {}} />
+                  <AtAGlance.ButtonCard
+                    displayValue={3009}
+                    label="Prospective Vendor"
+                    onClick={() => {}}
+                  />
                   <AtAGlance.ButtonCard displayValue={56} label="The Hot List" onClick={() => {}} />
                 </AtAGlance.Carousel>
               </AtAGlance>
@@ -344,9 +354,13 @@ export const Example = meta.story({
                         <Table.HeaderCell as="th" justifySelf="start">
                           Name
                         </Table.HeaderCell>
-                        {showHomeAddress && <Table.HeaderCell as="th">Home Address</Table.HeaderCell>}
+                        {showHomeAddress && (
+                          <Table.HeaderCell as="th">Home Address</Table.HeaderCell>
+                        )}
                         <Table.HeaderCell as="th">Contact</Table.HeaderCell>
-                        {showContactClasses && <Table.HeaderCell as="th">Contact Class</Table.HeaderCell>}
+                        {showContactClasses && (
+                          <Table.HeaderCell as="th">Contact Class</Table.HeaderCell>
+                        )}
                         <Table.HeaderCell as="th">Last Contact</Table.HeaderCell>
                         <Table.HeaderCell aria-label="Actions" as="th" />
                       </Table.HeaderRow>
@@ -362,10 +376,16 @@ export const Example = meta.story({
                             />
                           </Table.BodyCell>
                           <Table.BodyCell as="th" justifySelf="start">
-                            <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-3)' }}>
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "var(--spacing-3)",
+                              }}
+                            >
                               <Avatar size="small">{contact.initials}</Avatar>
                               <Table.DoubleLineLayout
-                                supplementaryData={`${contact.propertyCount} ${contact.propertyCount === 1 ? 'property' : 'properties'}`}
+                                supplementaryData={`${contact.propertyCount} ${contact.propertyCount === 1 ? "property" : "properties"}`}
                               >
                                 <Table.PrimaryAction href="#">{contact.name}</Table.PrimaryAction>
                               </Table.DoubleLineLayout>
@@ -392,7 +412,9 @@ export const Example = meta.story({
                                   <TagGroup.Item key={cls}>{cls}</TagGroup.Item>
                                 ))}
                                 {contact.contactClasses.length > 1 && (
-                                  <TagGroup.Item>+{contact.contactClasses.length - 1}</TagGroup.Item>
+                                  <TagGroup.Item>
+                                    +{contact.contactClasses.length - 1}
+                                  </TagGroup.Item>
                                 )}
                               </TagGroup>
                             </Table.BodyCell>
@@ -420,6 +442,6 @@ export const Example = meta.story({
           </MainContainer>
         </PageLayout.BodyRegion>
       </PageLayout>
-    )
+    );
   },
-})
+});

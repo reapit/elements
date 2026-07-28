@@ -1,12 +1,12 @@
-import { cx } from '@linaria/core'
-import { useId } from 'react'
-import { FormLayoutContext } from '../context'
-import { FormLayoutSectionDescription } from './description'
-import { FormLayoutSectionHeader } from './header'
-import { FormLayoutSectionTitle } from './title'
-import { elFormLayoutSection } from './styles'
+import { cx } from "@linaria/core";
+import { useId } from "react";
+import type { HTMLAttributes, ReactNode } from "react";
 
-import type { HTMLAttributes, ReactNode } from 'react'
+import { FormLayoutContext } from "../context";
+import { FormLayoutSectionDescription } from "./description";
+import { FormLayoutSectionHeader } from "./header";
+import { elFormLayoutSection } from "./styles";
+import { FormLayoutSectionTitle } from "./title";
 
 export namespace FormLayoutSection {
   export interface HeaderProps extends FormLayoutSectionHeader.Props {}
@@ -15,7 +15,7 @@ export namespace FormLayoutSection {
 
   export interface Props extends HTMLAttributes<HTMLElement> {
     /** The section content. */
-    children?: ReactNode
+    children?: ReactNode;
   }
 }
 
@@ -25,15 +25,15 @@ export namespace FormLayoutSection {
  * to provide a heading and description above the section's form controls.
  */
 export function FormLayoutSection({
-  'aria-label': ariaLabel,
-  'aria-labelledby': ariaLabelledBy,
-  'aria-describedby': ariaDescribedBy,
+  "aria-label": ariaLabel,
+  "aria-labelledby": ariaLabelledBy,
+  "aria-describedby": ariaDescribedBy,
   children,
   className,
   ...rest
 }: FormLayoutSection.Props) {
-  const titleId = useId()
-  const descriptionId = useId()
+  const titleId = useId();
+  const descriptionId = useId();
 
   return (
     // NOTE: we do not wire-up aria-labelledby when aria-label is provided. By default, aria-labelledby takes
@@ -45,12 +45,14 @@ export function FormLayoutSection({
       aria-describedby={ariaDescribedBy ?? descriptionId}
       className={cx(elFormLayoutSection, className)}
     >
-      <FormLayoutContext.Provider value={{ titleId, descriptionId }}>{children}</FormLayoutContext.Provider>
+      <FormLayoutContext.Provider value={{ titleId, descriptionId }}>
+        {children}
+      </FormLayoutContext.Provider>
     </section>
-  )
+  );
 }
 
-FormLayoutSection.displayName = 'FormLayout.Section'
-FormLayoutSection.Header = FormLayoutSectionHeader
-FormLayoutSection.Title = FormLayoutSectionTitle
-FormLayoutSection.Description = FormLayoutSectionDescription
+FormLayoutSection.displayName = "FormLayout.Section";
+FormLayoutSection.Header = FormLayoutSectionHeader;
+FormLayoutSection.Title = FormLayoutSectionTitle;
+FormLayoutSection.Description = FormLayoutSectionDescription;

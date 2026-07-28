@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import React, { memo } from "react";
 
 /** @deprecated */
 export default memo(() => (
@@ -8,4 +8,4 @@ export default memo(() => (
       fill="#E3E3E3"
     />
   </svg>
-))
+));

@@ -1,4 +1,4 @@
-import { SELECTED_OPTION_SELECTOR } from './selectors'
+import { SELECTED_OPTION_SELECTOR } from "./selectors";
 
 /**
  * Returns an array of the selected display options (button elements) from a listbox.
@@ -42,6 +42,6 @@ import { SELECTED_OPTION_SELECTOR } from './selectors'
 export function getListboxSelectedOptions(listboxElement: HTMLElement): HTMLButtonElement[] {
   return Array.from(listboxElement.querySelectorAll(SELECTED_OPTION_SELECTOR)).filter(
     // Need to exclude options with an empty value.
-    (option) => option instanceof HTMLButtonElement && option.value !== '',
-  ) as HTMLButtonElement[]
+    (option) => option instanceof HTMLButtonElement && option.value !== "",
+  ) as HTMLButtonElement[];
 }

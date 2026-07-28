@@ -1,8 +1,8 @@
-import { ElGalleryViewerThumbnailList } from './styles'
-import { GalleryViewerThumbnailListItem } from './thumbnail-list-item'
-import { GalleryViewerThumbnailListButtonItem } from './thumbnail-list-button-item'
+import type { ComponentProps } from "react";
 
-import type { ComponentProps } from 'react'
+import { ElGalleryViewerThumbnailList } from "./styles";
+import { GalleryViewerThumbnailListButtonItem } from "./thumbnail-list-button-item";
+import { GalleryViewerThumbnailListItem } from "./thumbnail-list-item";
 
 export namespace GalleryViewerThumbnailList {
   export interface ItemProps extends GalleryViewerThumbnailListItem.Props {}
@@ -19,11 +19,14 @@ export namespace GalleryViewerThumbnailList {
  * Does not render a `<nav>` landmark — consumers using anchor-based items
  * should wrap this component in a `<nav aria-label="…">` themselves.
  */
-export function GalleryViewerThumbnailList({ children, ...rest }: GalleryViewerThumbnailList.Props) {
-  return <ElGalleryViewerThumbnailList {...rest}>{children}</ElGalleryViewerThumbnailList>
+export function GalleryViewerThumbnailList({
+  children,
+  ...rest
+}: GalleryViewerThumbnailList.Props) {
+  return <ElGalleryViewerThumbnailList {...rest}>{children}</ElGalleryViewerThumbnailList>;
 }
 
-GalleryViewerThumbnailList.displayName = 'GalleryViewerThumbnailList'
+GalleryViewerThumbnailList.displayName = "GalleryViewerThumbnailList";
 
-GalleryViewerThumbnailList.Item = GalleryViewerThumbnailListItem
-GalleryViewerThumbnailList.ButtonItem = GalleryViewerThumbnailListButtonItem
+GalleryViewerThumbnailList.Item = GalleryViewerThumbnailListItem;
+GalleryViewerThumbnailList.ButtonItem = GalleryViewerThumbnailListButtonItem;

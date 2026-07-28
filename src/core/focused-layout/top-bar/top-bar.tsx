@@ -1,3 +1,5 @@
+import type { HTMLAttributes, ReactNode } from "react";
+
 import {
   ElFocusedLayoutTopBar,
   ElFocusedLayoutTopBarActions,
@@ -5,16 +7,14 @@ import {
   ElFocusedLayoutTopBarLogoContainer,
   ElFocusedLayoutTopBarTitle,
   ElFocusedLayoutTopBarTitleContainer,
-} from './styles'
-
-import type { HTMLAttributes, ReactNode } from 'react'
+} from "./styles";
 
 export namespace FocusedLayoutTopBar {
   export interface Props extends HTMLAttributes<HTMLElement> {
     /** The logo element to display in the top bar */
-    logo?: ReactNode
+    logo?: ReactNode;
     /** The page title */
-    title: string
+    title: string;
   }
 }
 
@@ -34,7 +34,7 @@ export function FocusedLayoutTopBar({ children, logo, title, ...rest }: FocusedL
       </ElFocusedLayoutTopBarContainer>
       {children && <ElFocusedLayoutTopBarActions>{children}</ElFocusedLayoutTopBarActions>}
     </ElFocusedLayoutTopBar>
-  )
+  );
 }
 
-FocusedLayoutTopBar.displayName = 'FocusedLayout.TopBar'
+FocusedLayoutTopBar.displayName = "FocusedLayout.TopBar";

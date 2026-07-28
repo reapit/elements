@@ -1,5 +1,6 @@
-import { css } from '@linaria/core'
-import { font } from '#src/utils/font'
+import { css } from "@linaria/core";
+
+import { font } from "#src/utils/font";
 
 export const elGalleryViewerMediaItemCaption = css`
   @layer elements.main {
@@ -11,9 +12,9 @@ export const elGalleryViewerMediaItemCaption = css`
     border-radius: var(--border-radius-2xl);
     background: var(--comp-gallery_viewer-colour-fill-caption-light);
     color: var(--comp-gallery_viewer-colour-text-caption-dark);
-    ${font('sm', 'regular')}
+    ${font("sm", "regular")}
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
-`
+`;

@@ -1,4 +1,4 @@
-import { css } from '@linaria/core'
+import { css } from "@linaria/core";
 
 export const elTableBody = css`
   @layer elements.main {
@@ -8,4 +8,4 @@ export const elTableBody = css`
     grid-auto-rows: auto;
     grid-template-columns: subgrid;
   }
-`
+`;

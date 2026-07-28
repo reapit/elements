@@ -1,22 +1,22 @@
-import { css } from '@linaria/core'
-import { font } from '#src/utils/font'
-import { styled } from '@linaria/react'
+import { css } from "@linaria/core";
+import { styled } from "@linaria/react";
+import type { CSSProperties } from "react";
 
-import type { CSSProperties } from 'react'
+import { font } from "#src/utils/font";
 
 interface ElTextInputContainerProps {
   // NOTE: We use a CSS variable for the max-width rather than simply using the max-width inline
   // style because we want the max-width to be available to both the container and input elements.
   style?: CSSProperties & {
-    '--input-max-width'?: string
-  }
+    "--input-max-width"?: string;
+  };
 }
 
 export const ElTextInputContainer = styled.div<ElTextInputContainerProps>`
   @layer elements.main {
     position: relative;
     display: inline-grid;
-    grid-template-areas: 'before input after';
+    grid-template-areas: "before input after";
     grid-template-columns: auto 1fr auto;
     align-items: center;
     max-width: var(--input-max-width, 100%);
@@ -25,10 +25,10 @@ export const ElTextInputContainer = styled.div<ElTextInputContainerProps>`
     --input-padding-start: var(--spacing-3);
     --input-padding-end: var(--spacing-3);
 
-    &:has(> [data-position='before']) {
+    &:has(> [data-position="before"]) {
       --input-padding-start: 0;
     }
-    &:has(> [data-position='after']) {
+    &:has(> [data-position="after"]) {
       --input-padding-end: 0;
     }
 
@@ -42,8 +42,8 @@ export const ElTextInputContainer = styled.div<ElTextInputContainerProps>`
     --input-placeholder-colour: var(--comp-input-colour-text-default-placeholder);
     --input-text-colour: var(--comp-input-colour-text-default-input);
 
-    &[data-size='small'] {
-      ${font('xs', 'regular')}
+    &[data-size="small"] {
+      ${font("xs", "regular")}
       height: var(--size-8);
       /* Padding between an addon (affix text or icon) and the container border */
       --input-addon-outer-padding: var(--spacing-2);
@@ -51,20 +51,20 @@ export const ElTextInputContainer = styled.div<ElTextInputContainerProps>`
     }
     /* NOTE: medium is the default size */
     &,
-    &[data-size='medium'] {
-      ${font('sm', 'regular')}
+    &[data-size="medium"] {
+      ${font("sm", "regular")}
       height: var(--size-9);
       --input-addon-outer-padding: var(--spacing-3);
       --input-icon-size: var(--icon_size-sm);
     }
-    &[data-size='large'] {
-      ${font('base', 'regular')}
+    &[data-size="large"] {
+      ${font("base", "regular")}
       height: var(--size-10);
       --input-addon-outer-padding: var(--spacing-3);
       --input-icon-size: var(--icon_size-md);
     }
 
-    &[data-variant='borderless'] {
+    &[data-variant="borderless"] {
       border-style: none;
     }
 
@@ -73,9 +73,9 @@ export const ElTextInputContainer = styled.div<ElTextInputContainerProps>`
      * the specificity of our selector, otherwise these styles would override our focus styles.
      * aria-invalid="true" is also supported as an alternative to the native :invalid pseudo-class,
      * for cases where the element is not natively invalid (e.g. server-side validation). */
-    &:has(input:invalid:where([data-show-validity='true'])),
-    &:has(input:user-invalid:where([data-show-validity='true'])),
-    &:has(input:where([aria-invalid='true'][data-show-validity='true'])) {
+    &:has(input:invalid:where([data-show-validity="true"])),
+    &:has(input:user-invalid:where([data-show-validity="true"])),
+    &:has(input:where([aria-invalid="true"][data-show-validity="true"])) {
       background: var(--comp-input-colour-fill-error-background);
       border-color: var(--comp-input-colour-border-error);
       --input-affix-colour: var(--comp-input-colour-text-error-placeholder);
@@ -97,11 +97,11 @@ export const ElTextInputContainer = styled.div<ElTextInputContainerProps>`
     /* NOTE: the borderless variant hides the border via border-style: none, which persists
      * through state-based border-color changes. We restore the border only on focus so the
      * focus ring is visible. */
-    &[data-variant='borderless']:has(input:focus-visible) {
+    &[data-variant="borderless"]:has(input:focus-visible) {
       border-style: solid;
     }
 
-    &[aria-busy='true'] {
+    &[aria-busy="true"] {
       background: var(--comp-input-colour-fill-busy-background);
       border-color: var(--comp-input-colour-border-busy);
       --input-affix-colour: var(--comp-input-colour-text-busy-placeholder);
@@ -140,11 +140,11 @@ export const ElTextInputContainer = styled.div<ElTextInputContainerProps>`
       }
     }
   }
-`
+`;
 
 interface ElTextInputProps {
-  'data-show-validity': boolean
-  'data-text-align': 'left' | 'right' | undefined
+  "data-show-validity": boolean;
+  "data-text-align": "left" | "right" | undefined;
 }
 
 export const ElTextInput = styled.input<ElTextInputProps>`
@@ -181,14 +181,14 @@ export const ElTextInput = styled.input<ElTextInputProps>`
     }
 
     &,
-    &[data-text-align='left'] {
+    &[data-text-align="left"] {
       text-align: left;
     }
-    &[data-text-align='right'] {
+    &[data-text-align="right"] {
       text-align: right;
     }
   }
-`
+`;
 
 export const ElTextInputIconContainer = styled.span`
   @layer elements.main {
@@ -203,16 +203,16 @@ export const ElTextInputIconContainer = styled.span`
 
     color: var(--input-icon-colour);
 
-    &[data-position='before'] {
+    &[data-position="before"] {
       grid-area: before;
       padding-inline: var(--input-addon-outer-padding) var(--spacing-2);
     }
-    &[data-position='after'] {
+    &[data-position="after"] {
       grid-area: after;
       padding-inline: var(--spacing-2) var(--input-addon-outer-padding);
     }
   }
-`
+`;
 
 export const ElTextInputAffixContainer = styled.span`
   @layer elements.main {
@@ -225,16 +225,16 @@ export const ElTextInputAffixContainer = styled.span`
 
     color: var(--input-affix-colour);
 
-    &[data-position='before'] {
+    &[data-position="before"] {
       grid-area: before;
       padding-inline: var(--input-addon-outer-padding) var(--spacing-2);
     }
-    &[data-position='after'] {
+    &[data-position="after"] {
       grid-area: after;
       padding-inline: var(--spacing-2) var(--input-addon-outer-padding);
     }
   }
-`
+`;
 
 export const elTextInputSpinner = css`
   @layer elements.main {
@@ -249,10 +249,10 @@ export const elTextInputSpinner = css`
       transform: rotate(360deg);
     }
   }
-`
+`;
 
 interface ElTextInputOverlayProps {
-  'data-text-align': 'left' | 'right'
+  "data-text-align": "left" | "right";
 }
 
 export const ElTextInputOverlay = styled.span<ElTextInputOverlayProps>`
@@ -267,10 +267,10 @@ export const ElTextInputOverlay = styled.span<ElTextInputOverlayProps>`
     padding-inline: var(--input-padding-start) var(--input-padding-end);
 
     &,
-    &[data-text-align='left'] {
+    &[data-text-align="left"] {
       justify-content: flex-start;
     }
-    &[data-text-align='right'] {
+    &[data-text-align="right"] {
       justify-content: flex-end;
     }
 
@@ -281,4 +281,4 @@ export const ElTextInputOverlay = styled.span<ElTextInputOverlayProps>`
     text-overflow: ellipsis;
     white-space: nowrap;
   }
-`
+`;

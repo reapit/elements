@@ -1,4 +1,4 @@
-import FilterSvg from './svgs/filter.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import FilterSvg from "./svgs/filter.svg?react";
 
-export const FilterIcon = makeIcon('FilterIcon', FilterSvg)
+export const FilterIcon = makeIcon("FilterIcon", FilterSvg);

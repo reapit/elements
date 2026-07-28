@@ -1,18 +1,23 @@
-import { render, screen } from '@testing-library/react'
-import { TopBarMenuDrawerMenuListGroup } from '../menu-list-group'
+import { render, screen } from "@testing-library/react";
 
-test('renders a <details> element as the child of a <li>', () => {
-  render(<TopBarMenuDrawerMenuListGroup summary={<summary>Item</summary>}>Children</TopBarMenuDrawerMenuListGroup>)
-  const listItem = screen.getByRole('listitem')
-  const details = screen.getByRole('group')
+import { TopBarMenuDrawerMenuListGroup } from "../menu-list-group";
 
-  expect(listItem).toBeVisible()
+test("renders a <details> element as the child of a <li>", () => {
+  render(
+    <TopBarMenuDrawerMenuListGroup summary={<summary>Item</summary>}>
+      Children
+    </TopBarMenuDrawerMenuListGroup>,
+  );
+  const listItem = screen.getByRole("listitem");
+  const details = screen.getByRole("group");
+
+  expect(listItem).toBeVisible();
   // NOTE: <details> is only considered visible if it has an open attribute
-  expect(details).toBeInTheDocument()
-  expect(listItem.firstChild).toBe(details)
-})
+  expect(details).toBeInTheDocument();
+  expect(listItem.firstChild).toBe(details);
+});
 
-test('forwards props to the underlying TopBarMenuDrawerMenuGroup', () => {
+test("forwards props to the underlying TopBarMenuDrawerMenuGroup", () => {
   render(
     <TopBarMenuDrawerMenuListGroup
       summary={<summary>Item</summary>}
@@ -22,10 +27,10 @@ test('forwards props to the underlying TopBarMenuDrawerMenuGroup', () => {
     >
       Children
     </TopBarMenuDrawerMenuListGroup>,
-  )
-  const details = screen.getByRole('group')
+  );
+  const details = screen.getByRole("group");
 
-  expect(details).toHaveAttribute('open')
-  expect(details).toHaveAttribute('data-testid', 'menu-group')
-  expect(details).toHaveClass('custom-class')
-})
+  expect(details).toHaveAttribute("open");
+  expect(details).toHaveAttribute("data-testid", "menu-group");
+  expect(details).toHaveClass("custom-class");
+});

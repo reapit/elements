@@ -1,28 +1,33 @@
-import { fireEvent, render, screen } from '@testing-library/react'
-import { Image } from '../image'
-import { elImage } from '../styles'
+import { fireEvent, render, screen } from "@testing-library/react";
 
-test('renders the default fallback UI when the image fails to load', () => {
-  render(<Image alt="A test image" height="300px" src="https://picsum.photos/200/300" width="200px" />)
+import { Image } from "../image";
+import { elImage } from "../styles";
 
-  const image = screen.getByRole('img')
-  fireEvent.error(image)
+test("renders the default fallback UI when the image fails to load", () => {
+  render(
+    <Image alt="A test image" height="300px" src="https://picsum.photos/200/300" width="200px" />,
+  );
 
-  expect(screen.getByRole('status')).toHaveTextContent('The image could not be loaded: A test image')
-  expect(screen.getByRole('img', { hidden: true })).toHaveAttribute('aria-hidden', 'true')
-  expect(screen.getByRole('img', { hidden: true })).toHaveClass(elImage) // provides opacity: 0 styles
-})
+  const image = screen.getByRole("img");
+  fireEvent.error(image);
 
-test('keeps fallback non-announcing for decorative images', () => {
-  render(<Image alt="" height="300px" src="https://picsum.photos/200/300" width="200px" />)
+  expect(screen.getByRole("status")).toHaveTextContent(
+    "The image could not be loaded: A test image",
+  );
+  expect(screen.getByRole("img", { hidden: true })).toHaveAttribute("aria-hidden", "true");
+  expect(screen.getByRole("img", { hidden: true })).toHaveClass(elImage); // provides opacity: 0 styles
+});
 
-  fireEvent.error(screen.getByRole('presentation'))
+test("keeps fallback non-announcing for decorative images", () => {
+  render(<Image alt="" height="300px" src="https://picsum.photos/200/300" width="200px" />);
 
-  expect(screen.queryByRole('status')).toBeNull()
-  expect(screen.getByText('The image could not be loaded')).toBeVisible()
-})
+  fireEvent.error(screen.getByRole("presentation"));
 
-test('renders custom fallback content when provided', () => {
+  expect(screen.queryByRole("status")).toBeNull();
+  expect(screen.getByText("The image could not be loaded")).toBeVisible();
+});
+
+test("renders custom fallback content when provided", () => {
   render(
     <Image
       alt="A test image"
@@ -31,57 +36,80 @@ test('renders custom fallback content when provided', () => {
       src="https://picsum.photos/200/300"
       width="200px"
     />,
-  )
+  );
 
-  fireEvent.error(screen.getByRole('img', { hidden: true }))
+  fireEvent.error(screen.getByRole("img", { hidden: true }));
 
-  expect(screen.getByText('Custom fallback')).toBeVisible()
-  expect(screen.queryByRole('status')).toBeNull()
-})
+  expect(screen.getByText("Custom fallback")).toBeVisible();
+  expect(screen.queryByRole("status")).toBeNull();
+});
 
-test('calls onError when the image fails to load', () => {
-  const onError = vi.fn()
+test("calls onError when the image fails to load", () => {
+  const onError = vi.fn();
 
   render(
-    <Image alt="A test image" height="300px" onError={onError} src="https://picsum.photos/200/300" width="200px" />,
-  )
-  fireEvent.error(screen.getByRole('img', { hidden: true }))
+    <Image
+      alt="A test image"
+      height="300px"
+      onError={onError}
+      src="https://picsum.photos/200/300"
+      width="200px"
+    />,
+  );
+  fireEvent.error(screen.getByRole("img", { hidden: true }));
 
-  expect(onError).toHaveBeenCalledTimes(1)
-})
+  expect(onError).toHaveBeenCalledTimes(1);
+});
 
-test('keeps fallback visible until a subsequent load event', () => {
+test("keeps fallback visible until a subsequent load event", () => {
   const { rerender } = render(
-    <Image alt="A test image" height="300px" src="https://example.com/invalid-a.jpg" width="200px" />,
-  )
+    <Image
+      alt="A test image"
+      height="300px"
+      src="https://example.com/invalid-a.jpg"
+      width="200px"
+    />,
+  );
 
-  fireEvent.error(screen.getByRole('img', { hidden: true }))
-  expect(screen.getByText('The image could not be loaded: A test image')).toBeVisible()
+  fireEvent.error(screen.getByRole("img", { hidden: true }));
+  expect(screen.getByText("The image could not be loaded: A test image")).toBeVisible();
 
-  rerender(<Image alt="A test image" height="300px" src="https://example.com/valid-b.jpg" width="200px" />)
-  expect(screen.getByText('The image could not be loaded: A test image')).toBeVisible()
+  rerender(
+    <Image alt="A test image" height="300px" src="https://example.com/valid-b.jpg" width="200px" />,
+  );
+  expect(screen.getByText("The image could not be loaded: A test image")).toBeVisible();
 
-  fireEvent.load(screen.getByRole('img', { hidden: true }))
-  expect(screen.queryByText('The image could not be loaded: A test image')).toBeNull()
-  expect(screen.getByRole('img')).toHaveAttribute('src', 'https://example.com/valid-b.jpg')
-  expect(screen.getByRole('img')).not.toHaveAttribute('aria-hidden')
-})
+  fireEvent.load(screen.getByRole("img", { hidden: true }));
+  expect(screen.queryByText("The image could not be loaded: A test image")).toBeNull();
+  expect(screen.getByRole("img")).toHaveAttribute("src", "https://example.com/valid-b.jpg");
+  expect(screen.getByRole("img")).not.toHaveAttribute("aria-hidden");
+});
 
-test('clears error state on image load', () => {
-  render(<Image alt="A test image" height="300px" src="https://example.com/image.jpg" width="200px" />)
+test("clears error state on image load", () => {
+  render(
+    <Image alt="A test image" height="300px" src="https://example.com/image.jpg" width="200px" />,
+  );
 
-  fireEvent.error(screen.getByRole('img', { hidden: true }))
-  expect(screen.getByText('The image could not be loaded: A test image')).toBeVisible()
+  fireEvent.error(screen.getByRole("img", { hidden: true }));
+  expect(screen.getByText("The image could not be loaded: A test image")).toBeVisible();
 
-  fireEvent.load(screen.getByRole('img', { hidden: true }))
-  expect(screen.queryByText('The image could not be loaded: A test image')).toBeNull()
-})
+  fireEvent.load(screen.getByRole("img", { hidden: true }));
+  expect(screen.queryByText("The image could not be loaded: A test image")).toBeNull();
+});
 
-test('calls onLoad when the image loads', () => {
-  const onLoad = vi.fn()
+test("calls onLoad when the image loads", () => {
+  const onLoad = vi.fn();
 
-  render(<Image alt="A test image" height="300px" onLoad={onLoad} src="https://example.com/image.jpg" width="200px" />)
-  fireEvent.load(screen.getByRole('img', { hidden: true }))
+  render(
+    <Image
+      alt="A test image"
+      height="300px"
+      onLoad={onLoad}
+      src="https://example.com/image.jpg"
+      width="200px"
+    />,
+  );
+  fireEvent.load(screen.getByRole("img", { hidden: true }));
 
-  expect(onLoad).toHaveBeenCalledTimes(1)
-})
+  expect(onLoad).toHaveBeenCalledTimes(1);
+});

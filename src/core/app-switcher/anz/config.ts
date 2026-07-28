@@ -1,6 +1,6 @@
 export interface ProductConfig {
-  appName: string
-  supplementaryInfo: string
+  appName: string;
+  supplementaryInfo: string;
 }
 
 /**
@@ -8,17 +8,17 @@ export interface ProductConfig {
  * available through `AppAvatar` and a related config in the `productConfigs` object.
  */
 export type SupportedProductId =
-  | 'agentBox' // Reapit Sales
-  | 'autoResponder'
-  | 'consoleCloud' // Reapit PM
-  | 'ireBdm' // Lettings BDM
-  | 'ireWeb' // Reapit Lettings
-  | 'keyWhere'
-  | 'mmiWeb'
-  | 'reapitforms'
-  | 'reapitProposals'
-  | 'reapitWebsites'
-  | 'verifyweb'
+  | "agentBox" // Reapit Sales
+  | "autoResponder"
+  | "consoleCloud" // Reapit PM
+  | "ireBdm" // Lettings BDM
+  | "ireWeb" // Reapit Lettings
+  | "keyWhere"
+  | "mmiWeb"
+  | "reapitforms"
+  | "reapitProposals"
+  | "reapitWebsites"
+  | "verifyweb";
 
 /**
  * The configuration for each product that is supported by the ANZ App Switcher.
@@ -31,44 +31,44 @@ export type SupportedProductId =
  */
 export const productConfigs = {
   autoResponder: {
-    appName: 'Auto Responder',
-    supplementaryInfo: 'Auto-enquiry follow up',
+    appName: "Auto Responder",
+    supplementaryInfo: "Auto-enquiry follow up",
   },
-  agentBox: { appName: 'Reapit Sales', supplementaryInfo: 'Real estate CRM' },
-  consoleCloud: { appName: 'Reapit PM', supplementaryInfo: 'Property management' },
+  agentBox: { appName: "Reapit Sales", supplementaryInfo: "Real estate CRM" },
+  consoleCloud: { appName: "Reapit PM", supplementaryInfo: "Property management" },
   ireBdm: {
-    appName: 'Lettings BDM',
-    supplementaryInfo: 'Business development',
+    appName: "Lettings BDM",
+    supplementaryInfo: "Business development",
   },
   ireWeb: {
-    appName: 'Reapit Lettings',
-    supplementaryInfo: 'Leasing management',
+    appName: "Reapit Lettings",
+    supplementaryInfo: "Leasing management",
   },
   keyWhere: {
-    appName: 'KeyWhere',
-    supplementaryInfo: 'Key management',
+    appName: "KeyWhere",
+    supplementaryInfo: "Key management",
   },
   mmiWeb: {
-    appName: 'Move Me In',
-    supplementaryInfo: 'Utility connections service',
+    appName: "Move Me In",
+    supplementaryInfo: "Utility connections service",
   },
   reapitforms: {
-    appName: 'Reapit Forms',
-    supplementaryInfo: 'Documents & digital signing',
+    appName: "Reapit Forms",
+    supplementaryInfo: "Documents & digital signing",
   },
   reapitProposals: {
-    appName: 'Reapit Proposals',
-    supplementaryInfo: 'Interactive digital proposals',
+    appName: "Reapit Proposals",
+    supplementaryInfo: "Interactive digital proposals",
   },
   reapitWebsites: {
-    appName: 'Reapit Websites',
-    supplementaryInfo: 'Website builder',
+    appName: "Reapit Websites",
+    supplementaryInfo: "Website builder",
   },
   verifyweb: {
-    appName: 'Reapit Verify',
-    supplementaryInfo: 'AML/CTF compliance',
+    appName: "Reapit Verify",
+    supplementaryInfo: "AML/CTF compliance",
   },
-} as const satisfies Record<SupportedProductId, ProductConfig>
+} as const satisfies Record<SupportedProductId, ProductConfig>;
 
 /**
  * The order of products in this array determines the order they will be displayed in the ANZ App Switcher.
@@ -81,16 +81,17 @@ export const productConfigs = {
  *
  * @deprecated Will be removed in a future release.
  */
-export const productDisplayOrder_DO_NOT_ADD_PRODUCTS_TO_THIS_UNLESS_APPROVED_FOR_DISPLAY_AND_SSO_CAPABLE = [
-  // Primary apps here (should be alphabetically ordered by configured app name)
-  'ireWeb', // => Reapit Lettings
-  'consoleCloud', // => Reapit PM
-  'agentBox', // => Reapit Sales
-  // Secondary apps here (should be alphabetically ordered by configured app name)
-  'keyWhere',
-  'ireBdm', // => Lettings BDM
-  'mmiWeb',
-  'reapitforms',
-  'reapitProposals',
-  'verifyweb',
-] as const satisfies SupportedProductId[]
+export const productDisplayOrder_DO_NOT_ADD_PRODUCTS_TO_THIS_UNLESS_APPROVED_FOR_DISPLAY_AND_SSO_CAPABLE =
+  [
+    // Primary apps here (should be alphabetically ordered by configured app name)
+    "ireWeb", // => Reapit Lettings
+    "consoleCloud", // => Reapit PM
+    "agentBox", // => Reapit Sales
+    // Secondary apps here (should be alphabetically ordered by configured app name)
+    "keyWhere",
+    "ireBdm", // => Lettings BDM
+    "mmiWeb",
+    "reapitforms",
+    "reapitProposals",
+    "verifyweb",
+  ] as const satisfies SupportedProductId[];

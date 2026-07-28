@@ -1,6 +1,7 @@
-import { css } from '@linaria/core'
-import { font } from '#src/utils/font'
-import { styled } from '@linaria/react'
+import { css } from "@linaria/core";
+import { styled } from "@linaria/react";
+
+import { font } from "#src/utils/font";
 
 export const elBottomBarItem = css`
   @layer elements.main {
@@ -30,7 +31,7 @@ export const elBottomBarItem = css`
       cursor: pointer;
     }
   }
-`
+`;
 
 export const ElBottomBarItemIcon = styled.span`
   @layer elements.main {
@@ -42,25 +43,25 @@ export const ElBottomBarItemIcon = styled.span`
     height: var(--icon_size-lg);
 
     /* NOTE: we only apply the current page styles to anchor-based items. */
-    :is(a)[aria-current='page'] & {
+    :is(a)[aria-current="page"] & {
       color: var(--comp-navigation-colour-icon-bottom_bar-select);
     }
   }
-`
+`;
 
 export const ElBottomBarItemLabel = styled.span`
   @layer elements.main {
     color: var(--comp-navigation-colour-text-bottom_bar-default);
     text-align: center;
 
-    ${font('3xs', 'medium')}
+    ${font("3xs", "medium")}
 
     /* NOTE: we only apply the current page styles to anchor-based items. */
-    :is(a)[aria-current='page'] & {
+    :is(a)[aria-current="page"] & {
       color: var(--comp-navigation-colour-text-bottom_bar-select);
     }
   }
-`
+`;
 
 // TODO: This should be handled by a Badge component. All our NavIconItem should be responsible for is
 // positioning the badge correctly.
@@ -74,4 +75,4 @@ export const ElBottomBarItemBadge = styled.span`
     background-color: var(--comp-navigation-colour-fill-notification_badge);
     border-radius: 100%;
   }
-`
+`;

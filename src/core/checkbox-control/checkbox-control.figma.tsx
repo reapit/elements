@@ -1,21 +1,22 @@
-import { CheckboxControl } from './checkbox-control'
-import figma from '@figma/code-connect'
+import figma from "@figma/code-connect";
 
-figma.connect(CheckboxControl, '<CHECKBOX_URL>', {
+import { CheckboxControl } from "./checkbox-control";
+
+figma.connect(CheckboxControl, "<CHECKBOX_URL>", {
   props: {
-    disabled: figma.enum('State', {
+    disabled: figma.enum("State", {
       Disabled: true,
     }),
-    errorText: figma.enum('State', {
-      Error: figma.string('Error message'),
+    errorText: figma.enum("State", {
+      Error: figma.string("Error message"),
     }),
-    isIndeterminate: figma.enum('Indeterminate', {
+    isIndeterminate: figma.enum("Indeterminate", {
       True: true,
       False: false,
     }),
-    label: figma.string('Label'),
-    supplementaryInfo: figma.boolean('Show supplementary info', {
-      true: figma.string('Supplementary info'),
+    label: figma.string("Label"),
+    supplementaryInfo: figma.boolean("Show supplementary info", {
+      true: figma.string("Supplementary info"),
       false: undefined,
     }),
   },
@@ -28,4 +29,4 @@ figma.connect(CheckboxControl, '<CHECKBOX_URL>', {
       supplementaryInfo={supplementaryInfo}
     />
   ),
-})
+});

@@ -1,13 +1,14 @@
-import { font } from '#src/utils/font'
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
 
-export type LinkSize = 'base' | 'sm' | 'xs'
-export type LinkVariant = 'primary' | 'secondary' | 'reversed'
+import { font } from "#src/utils/font";
+
+export type LinkSize = "base" | "sm" | "xs";
+export type LinkVariant = "primary" | "secondary" | "reversed";
 
 interface ElLinkProps {
-  'data-is-quiet'?: boolean
-  'data-size'?: LinkSize
-  'data-variant'?: LinkVariant
+  "data-is-quiet"?: boolean;
+  "data-size"?: LinkSize;
+  "data-variant"?: LinkVariant;
 }
 
 export const ElLink = styled.a<ElLinkProps>`
@@ -15,39 +16,39 @@ export const ElLink = styled.a<ElLinkProps>`
     cursor: pointer;
 
     &,
-    &[data-is-quiet='false'] {
+    &[data-is-quiet="false"] {
       text-decoration: underline;
       text-decoration-style: dotted;
       text-underline-offset: 25%;
     }
 
-    &[data-is-quiet='true'] {
+    &[data-is-quiet="true"] {
       text-decoration: none;
     }
 
     &,
-    &[data-size='base'] {
-      ${font('base', 'regular')}
+    &[data-size="base"] {
+      ${font("base", "regular")}
     }
 
-    &[data-size='sm'] {
-      ${font('sm', 'medium')}
+    &[data-size="sm"] {
+      ${font("sm", "medium")}
     }
 
-    &[data-size='xs'] {
-      ${font('xs', 'medium')}
+    &[data-size="xs"] {
+      ${font("xs", "medium")}
     }
 
     &,
-    &[data-variant='primary'] {
+    &[data-variant="primary"] {
       color: var(--colour-text-action);
     }
 
-    &[data-variant='secondary'] {
+    &[data-variant="secondary"] {
       color: var(--colour-text-secondary);
     }
 
-    &[data-variant='reversed'] {
+    &[data-variant="reversed"] {
       color: var(--colour-text-white);
     }
 
@@ -61,4 +62,4 @@ export const ElLink = styled.a<ElLinkProps>`
       outline-offset: var(--border-width-default);
     }
   }
-`
+`;

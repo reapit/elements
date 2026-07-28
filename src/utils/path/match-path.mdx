@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/addon-docs/blocks'
+import { Meta } from "@storybook/addon-docs/blocks";
 
 # matchPath
 
@@ -11,7 +11,7 @@ Trailing slashes in both the pattern and the pathname are ignored for consistent
 ## Syntax
 
 ```ts
-matchPath(pattern, pathname)
+matchPath(pattern, pathname);
 ```
 
 - `pattern`: A pattern describing the path and, optionally, any path parameters it may include.
@@ -28,25 +28,25 @@ The `PathMatch` object contains:
 ## Example
 
 ```ts
-import { matchPath } from '@reapit/elements/utils/path'
+import { matchPath } from "@reapit/elements/utils/path";
 
 // No match
-matchPath('/users', '/posts')
+matchPath("/users", "/posts");
 // => null
 
 // Exact match with no parameters
-matchPath('/users', '/users')
+matchPath("/users", "/users");
 // => { params: {}, pathname: '/users', pattern: '/users' }
 
 // Single parameter
-matchPath('/users/:id', '/users/123')
+matchPath("/users/:id", "/users/123");
 // => { params: { id: '123' }, pathname: '/users/123', pattern: '/users/:id' }
 
 // Multiple parameters
-matchPath('/users/:userId/posts/:postId', '/users/456/posts/789')
+matchPath("/users/:userId/posts/:postId", "/users/456/posts/789");
 // => { params: { userId: '456', postId: '789' }, pathname: '/users/456/posts/789', pattern: '/users/:userId/posts/:postId' }
 
 // Splat matching remaining path
-matchPath('/docs/*', '/docs/api/users')
+matchPath("/docs/*", "/docs/api/users");
 // => { params: { '*': 'api/users' }, pathname: '/docs/api/users', pattern: '/docs/*' }
 ```

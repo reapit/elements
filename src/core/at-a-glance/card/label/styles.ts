@@ -1,5 +1,6 @@
-import { css } from '@linaria/core'
-import { font } from '#src/utils/font'
+import { css } from "@linaria/core";
+
+import { font } from "#src/utils/font";
 
 /**
  * Base label/heading styling. Grid-positioned via grid-area.
@@ -8,8 +9,8 @@ export const elAtAGlanceCardLabel = css`
   @layer elements.main {
     grid-area: label;
     color: var(--colour-text-primary);
-    ${font('base', 'medium')}
+    ${font("base", "medium")}
     margin: 0;
     padding: 0;
   }
-`
+`;

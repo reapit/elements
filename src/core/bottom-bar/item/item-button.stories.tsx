@@ -1,18 +1,19 @@
-import preview from '#.storybook/preview'
-import { BottomBar } from '../bottom-bar'
-import { ContactIcon } from '#src/icons/contact'
-import { HelpIcon } from '#src/icons/help'
-import { Menu } from '#src/core/menu'
-import { NotificationIcon } from '#src/icons/notification'
-import { StarIcon } from '#src/icons/star'
+import preview from "#.storybook/preview";
+import { Menu } from "#src/core/menu";
+import { ContactIcon } from "#src/icons/contact";
+import { HelpIcon } from "#src/icons/help";
+import { NotificationIcon } from "#src/icons/notification";
+import { StarIcon } from "#src/icons/star";
+
+import { BottomBar } from "../bottom-bar";
 
 const meta = preview.meta({
-  title: 'Navigation/BottomBar/ItemButton',
+  title: "Navigation/BottomBar/ItemButton",
   component: BottomBar.ItemButton,
   argTypes: {
     icon: {
-      control: 'radio',
-      options: ['Contact', 'Help', 'Notification', 'Star'],
+      control: "radio",
+      options: ["Contact", "Help", "Notification", "Star"],
       mapping: {
         Contact: <ContactIcon />,
         Help: <HelpIcon />,
@@ -21,7 +22,7 @@ const meta = preview.meta({
       },
     },
   },
-})
+});
 
 /**
  * Button-based items are typically used to group a number of related items within a dropdown menu. Unlike link-based
@@ -29,12 +30,12 @@ const meta = preview.meta({
  */
 export const Example = meta.story({
   args: {
-    children: 'Label',
+    children: "Label",
     hasBadge: false,
-    icon: 'Star',
+    icon: "Star",
     onClick: () => void 0,
   },
-})
+});
 
 /**
  * Items may need to visually indicate that something new has occurred that the user should be aware of. When
@@ -43,24 +44,24 @@ export const Example = meta.story({
  */
 export const WithBadge = Example.extend({
   args: {
-    children: 'Notifications',
+    children: "Notifications",
     hasBadge: true,
-    icon: 'Notification',
+    icon: "Notification",
   },
-})
+});
 
 /**
  * Button-based items are typically used to group a number of related items within a dropdown menu.
  */
 export const WithMenu = meta.story({
   args: {
-    children: 'Help menu',
-    icon: 'Help',
+    children: "Help menu",
+    icon: "Help",
     onClick: () => void 0,
   },
   decorators: [
     (Story) => (
-      <div style={{ height: '200px' }}>
+      <div style={{ height: "200px" }}>
         <Story />
       </div>
     ),
@@ -70,7 +71,11 @@ export const WithMenu = meta.story({
       <>
         <BottomBar.ItemButton
           {...args}
-          {...Menu.getTriggerProps({ id: 'trigger', popoverTarget: 'menu', popoverTargetAction: 'toggle' })}
+          {...Menu.getTriggerProps({
+            id: "trigger",
+            popoverTarget: "menu",
+            popoverTargetAction: "toggle",
+          })}
         />
         <Menu aria-labelledby="trigger" id="menu" placement="top-end">
           <Menu.Item>Menu Item 1</Menu.Item>
@@ -78,6 +83,6 @@ export const WithMenu = meta.story({
           <Menu.Item>Menu Item 3</Menu.Item>
         </Menu>
       </>
-    )
+    );
   },
-})
+});

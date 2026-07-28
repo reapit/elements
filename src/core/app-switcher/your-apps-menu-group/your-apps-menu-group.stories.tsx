@@ -1,17 +1,19 @@
-import preview from '#.storybook/preview'
-import type { Decorator } from '@storybook/react-vite'
-import { AppSwitcher } from '../app-switcher'
+import type { Decorator } from "@storybook/react-vite";
+
+import preview from "#.storybook/preview";
+
+import { AppSwitcher } from "../app-switcher";
 
 const useParentDecorator: Decorator = (Story) => {
   return (
-    <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF' }}>
+    <div style={{ boxSizing: "content-box", border: "1px solid #FA00FF" }}>
       <Story />
     </div>
-  )
-}
+  );
+};
 
 const meta = preview.meta({
-  title: 'Navigation/AppSwitcher/YourAppsMenuGroup',
+  title: "Navigation/AppSwitcher/YourAppsMenuGroup",
   component: AppSwitcher.YourAppsMenuGroup,
   argTypes: {
     children: {
@@ -19,7 +21,7 @@ const meta = preview.meta({
     },
   },
   decorators: [useParentDecorator],
-})
+});
 
 /**
  * `YourAppsMenuGroup` wraps its children in a context that signals the current user has access to the products
@@ -35,11 +37,16 @@ export const Default = meta.story({
       <AppSwitcher.YourAppsMenuGroup>
         <AppSwitcher.MenuItem
           appName="App name"
-          avatar={<div aria-hidden style={{ background: 'currentColor', borderRadius: 4, height: 32, width: 32 }} />}
+          avatar={
+            <div
+              aria-hidden
+              style={{ background: "currentColor", borderRadius: 4, height: 32, width: 32 }}
+            />
+          }
           supplementaryInfo="Supplementary info"
           href="#"
         />
       </AppSwitcher.YourAppsMenuGroup>
-    )
+    );
   },
-})
+});

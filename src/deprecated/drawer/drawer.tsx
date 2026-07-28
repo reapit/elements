@@ -1,5 +1,9 @@
-import React, { FC, HTMLAttributes, ReactNode, createRef, useEffect } from 'react'
-import { cx } from '@linaria/core'
+import { cx } from "@linaria/core";
+import React, { FC, HTMLAttributes, ReactNode, createRef, useEffect } from "react";
+
+import { CloseIcon } from "#src/icons/close";
+
+import { elIsActive } from "../../styles/deprecated-states";
 import {
   ElDeprecatedDrawerBg as ElDrawerBg,
   ElDeprecatedDrawer as ElDrawer,
@@ -8,19 +12,17 @@ import {
   ElDeprecatedDrawerTitle as ElDrawerTitle,
   ElDeprecatedDrawerFooter as ElDrawerFooter,
   ElDeprecatedDrawerSubtitle as ElDrawerSubtitle,
-} from './__styles__'
-import { elIsActive } from '../../styles/deprecated-states'
-import { CloseIcon } from '#src/icons/close'
+} from "./__styles__";
 
 /** @deprecated */
 export interface DeprecatedDrawerProps extends HTMLAttributes<HTMLDivElement> {
-  isOpen: boolean
-  onDrawerClose: () => void
-  title?: string
-  subtitle?: string
-  className?: string
-  footerItems?: ReactNode
-  canDismiss?: boolean
+  isOpen: boolean;
+  onDrawerClose: () => void;
+  title?: string;
+  subtitle?: string;
+  className?: string;
+  footerItems?: ReactNode;
+  canDismiss?: boolean;
 }
 
 /** @deprecated */
@@ -35,7 +37,7 @@ export const DeprecatedDrawerBg: FC<DeprecatedDrawerBaseProps> = ({
   <ElDrawerBg className={cx(className)} {...rest}>
     {children}
   </ElDrawerBg>
-)
+);
 
 /** @deprecated */
 export const DeprecatedDrawerContainer: FC<DeprecatedDrawerBaseProps> = ({
@@ -46,7 +48,7 @@ export const DeprecatedDrawerContainer: FC<DeprecatedDrawerBaseProps> = ({
   <ElDrawer className={cx(className)} {...rest}>
     {children}
   </ElDrawer>
-)
+);
 
 /** @deprecated */
 export const DeprecatedDrawerHeader: FC<DeprecatedDrawerBaseProps> = ({
@@ -57,7 +59,7 @@ export const DeprecatedDrawerHeader: FC<DeprecatedDrawerBaseProps> = ({
   <ElDrawerHeader className={cx(className)} {...rest}>
     {children}
   </ElDrawerHeader>
-)
+);
 
 /** @deprecated */
 export const DeprecatedDrawerTitle: FC<DeprecatedDrawerBaseProps> = ({
@@ -68,7 +70,7 @@ export const DeprecatedDrawerTitle: FC<DeprecatedDrawerBaseProps> = ({
   <ElDrawerTitle className={cx(className)} {...rest}>
     {children}
   </ElDrawerTitle>
-)
+);
 
 /** @deprecated */
 export const DeprecatedDrawerSubtitle: FC<DeprecatedDrawerBaseProps> = ({
@@ -79,7 +81,7 @@ export const DeprecatedDrawerSubtitle: FC<DeprecatedDrawerBaseProps> = ({
   <ElDrawerSubtitle className={cx(className)} {...rest}>
     {children}
   </ElDrawerSubtitle>
-)
+);
 
 /** @deprecated */
 export const DeprecatedDrawerBody: FC<DeprecatedDrawerBaseProps> = ({
@@ -90,7 +92,7 @@ export const DeprecatedDrawerBody: FC<DeprecatedDrawerBaseProps> = ({
   <ElDrawerBody className={cx(className)} {...rest}>
     {children}
   </ElDrawerBody>
-)
+);
 
 /** @deprecated */
 export const DeprecatedDrawerFooter: FC<DeprecatedDrawerBaseProps> = ({
@@ -101,14 +103,15 @@ export const DeprecatedDrawerFooter: FC<DeprecatedDrawerBaseProps> = ({
   <ElDrawerFooter className={cx(className)} {...rest}>
     {children}
   </ElDrawerFooter>
-)
+);
 
 /** @deprecated */
-export const handleDrawerFocus = (drawerRef: React.RefObject<HTMLDivElement>, isOpen: boolean) => () => {
-  if (isOpen && drawerRef.current) {
-    drawerRef.current.focus()
-  }
-}
+export const handleDrawerFocus =
+  (drawerRef: React.RefObject<HTMLDivElement>, isOpen: boolean) => () => {
+    if (isOpen && drawerRef.current) {
+      drawerRef.current.focus();
+    }
+  };
 
 /** @deprecated */
 export const DeprecatedDrawer: FC<DeprecatedDrawerProps> = ({
@@ -122,12 +125,12 @@ export const DeprecatedDrawer: FC<DeprecatedDrawerProps> = ({
   canDismiss,
   ...rest
 }) => {
-  const drawerCombinedClassname = cx(className, elIsActive)
-  const drawerRef = createRef<HTMLDivElement>()
+  const drawerCombinedClassname = cx(className, elIsActive);
+  const drawerRef = createRef<HTMLDivElement>();
 
-  useEffect(handleDrawerFocus(drawerRef, isOpen), [drawerRef, isOpen])
+  useEffect(handleDrawerFocus(drawerRef, isOpen), [drawerRef, isOpen]);
 
-  if (!isOpen) return null
+  if (!isOpen) return null;
 
   return (
     <>
@@ -144,5 +147,5 @@ export const DeprecatedDrawer: FC<DeprecatedDrawerProps> = ({
         {footerItems && <ElDrawerFooter>{footerItems}</ElDrawerFooter>}
       </ElDrawer>
     </>
-  )
-}
+  );
+};

@@ -1,10 +1,11 @@
-import preview from '#.storybook/preview'
-import { Pagination } from './pagination'
+import preview from "#.storybook/preview";
 
-const href = '#'
+import { Pagination } from "./pagination";
+
+const href = "#";
 
 const meta = preview.meta({
-  title: 'Navigation/Pagination',
+  title: "Navigation/Pagination",
   component: Pagination,
   argTypes: {
     leftAction: {
@@ -14,7 +15,7 @@ const meta = preview.meta({
       control: false,
     },
   },
-})
+});
 
 /**
  * The pagination actions can either be links or buttons. In either case, the left action should be
@@ -27,12 +28,14 @@ const meta = preview.meta({
  */
 export const Example = meta.story({
   args: {
-    leftAction: <Pagination.Link {...Pagination.getLinkProps('previous-page', 1, 10)} href={href} />,
+    leftAction: (
+      <Pagination.Link {...Pagination.getLinkProps("previous-page", 1, 10)} href={href} />
+    ),
     pageCount: 10,
     pageNumber: 1,
-    rightAction: <Pagination.Link {...Pagination.getLinkProps('next-page', 1, 10)} href={href} />,
+    rightAction: <Pagination.Link {...Pagination.getLinkProps("next-page", 1, 10)} href={href} />,
   },
-})
+});
 
 /**
  * In some cases, it may be necessary to use button elements, rather than anchor elements, for the
@@ -40,9 +43,9 @@ export const Example = meta.story({
  */
 export const Buttons = meta.story({
   args: {
-    leftAction: <Pagination.LinkButton {...Pagination.getLinkProps('previous-page', 5, 10)} />,
+    leftAction: <Pagination.LinkButton {...Pagination.getLinkProps("previous-page", 5, 10)} />,
     pageCount: 10,
     pageNumber: 5,
-    rightAction: <Pagination.LinkButton {...Pagination.getLinkProps('next-page', 5, 10)} />,
+    rightAction: <Pagination.LinkButton {...Pagination.getLinkProps("next-page", 5, 10)} />,
   },
-})
+});

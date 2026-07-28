@@ -1,4 +1,4 @@
-import RadioSvg from './svgs/radio.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import RadioSvg from "./svgs/radio.svg?react";
 
-export const RadioIcon = makeIcon('RadioIcon', RadioSvg)
+export const RadioIcon = makeIcon("RadioIcon", RadioSvg);

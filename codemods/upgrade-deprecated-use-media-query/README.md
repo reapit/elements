@@ -110,13 +110,13 @@ instead:
 
 ```tsx
 // Before
-const media = useMediaQuery()
-return media.isMobile ? <Mobile /> : <Desktop />
+const media = useMediaQuery();
+return media.isMobile ? <Mobile /> : <Desktop />;
 
 // After (manual migration required)
 // TODO: Migrate to useMatchMedia — see @reapit/elements migration guide
-const media = useMediaQuery()
-return media.isMobile ? <Mobile /> : <Desktop />
+const media = useMediaQuery();
+return media.isMobile ? <Mobile /> : <Desktop />;
 ```
 
 Migrate each property access manually to a separate `useMatchMedia` call.

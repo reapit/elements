@@ -1,12 +1,12 @@
-import { cx } from '@linaria/core'
-import { elFormLayoutFooter } from './styles'
+import { cx } from "@linaria/core";
+import type { HTMLAttributes, ReactNode } from "react";
 
-import type { HTMLAttributes, ReactNode } from 'react'
+import { elFormLayoutFooter } from "./styles";
 
 export namespace FormLayoutFooter {
   export interface Props extends HTMLAttributes<HTMLElement> {
     /** The form footer content, typically a button group. */
-    children: ReactNode
+    children: ReactNode;
   }
 }
 
@@ -15,7 +15,7 @@ export function FormLayoutFooter({ children, className, ...rest }: FormLayoutFoo
     <footer {...rest} className={cx(elFormLayoutFooter, className)}>
       {children}
     </footer>
-  )
+  );
 }
 
-FormLayoutFooter.displayName = 'FormLayout.Footer'
+FormLayoutFooter.displayName = "FormLayout.Footer";

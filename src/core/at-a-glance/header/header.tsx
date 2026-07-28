@@ -1,12 +1,13 @@
-import type { HTMLAttributes, ReactNode } from 'react'
-import { ElAtAGlanceHeader, ElAtAGlanceHeaderTitle } from './styles'
+import type { HTMLAttributes, ReactNode } from "react";
+
+import { ElAtAGlanceHeader, ElAtAGlanceHeaderTitle } from "./styles";
 
 export namespace AtAGlanceHeader {
   export interface Props extends HTMLAttributes<HTMLElement> {
     /** The heading text or content. Typically displays the section title like "At a glance". */
-    children?: ReactNode
+    children?: ReactNode;
     /** Element to display after the title (e.g., a settings button or switch). */
-    accessory?: ReactNode
+    accessory?: ReactNode;
   }
 }
 
@@ -37,7 +38,7 @@ export function AtAGlanceHeader({ accessory, children, ...rest }: AtAGlanceHeade
       <ElAtAGlanceHeaderTitle>{children}</ElAtAGlanceHeaderTitle>
       {accessory}
     </ElAtAGlanceHeader>
-  )
+  );
 }
 
-AtAGlanceHeader.displayName = 'AtAGlance.Header'
+AtAGlanceHeader.displayName = "AtAGlance.Header";

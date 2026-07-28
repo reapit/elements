@@ -1,7 +1,9 @@
-import { getListboxSelectedOptions, getListboxValue } from './dom-helpers'
-import { useCallback, useEffect, useRef } from 'react'
-import { useMutationObserver } from '#src/utils/mutation-observer'
-import { getListboxSelectId } from './get-select-id'
+import { useCallback, useEffect, useRef } from "react";
+
+import { useMutationObserver } from "#src/utils/mutation-observer";
+
+import { getListboxSelectedOptions, getListboxValue } from "./dom-helpers";
+import { getListboxSelectId } from "./get-select-id";
 
 /**
  * Observes selection changes in a listbox and invokes a callback with the selected options.
@@ -21,7 +23,7 @@ export function useListboxSelectionObserver(
   listboxId: string,
   callback: (visibleOptions: HTMLButtonElement[], listboxState: string | readonly string[]) => void,
 ): void {
-  const callbackRef = useRef(callback)
+  const callbackRef = useRef(callback);
 
   // Syncs the callback to our ref to prevent `observeSelectedOptions` from being invalidated
   // too often when consumers provide unstable callbacks.
@@ -29,32 +31,36 @@ export function useListboxSelectionObserver(
   // before the effect runs.
   useEffect(
     function syncCallbackRef() {
-      callbackRef.current = callback
+      callbackRef.current = callback;
     },
     [callback],
-  )
+  );
 
   // Ignores the mutation records; we only need to know when a change occurs to update
   // the consumer with the new selected options.
   // TODO: Replace useCallback with useEffectEvent when we upgrade to React 19
   const observeSelectedOptions = useCallback(() => {
-    const listboxElement = document.getElementById(listboxId)
+    const listboxElement = document.getElementById(listboxId);
     if (listboxElement) {
-      const listboxState = getListboxValue(listboxId)
-      const visibleOptions = getListboxSelectedOptions(listboxElement)
-      callbackRef.current(visibleOptions, listboxState)
+      const listboxState = getListboxValue(listboxId);
+      const visibleOptions = getListboxSelectedOptions(listboxElement);
+      callbackRef.current(visibleOptions, listboxState);
     }
-  }, [listboxId])
+  }, [listboxId]);
 
   // The mutation observer fires only for changes after the initial render. We observe
   // the initially selected options to let consumers act on that state immediately.
   useEffect(function observeInitialSelection() {
-    observeSelectedOptions()
+    observeSelectedOptions();
     /* oxlint-disable-next-line react/exhaustive-deps -- won't be necessary once we have useEffectEvent */
-  }, [])
+  }, []);
 
-  useMutationObserver(listboxId, observeSelectedOptions, listboxObserverOptions)
-  useMutationObserver(getListboxSelectId(listboxId), observeSelectedOptions, listboxSelectObserverOptions)
+  useMutationObserver(listboxId, observeSelectedOptions, listboxObserverOptions);
+  useMutationObserver(
+    getListboxSelectId(listboxId),
+    observeSelectedOptions,
+    listboxSelectObserverOptions,
+  );
 }
 
 /**
@@ -64,10 +70,10 @@ export function useListboxSelectionObserver(
  */
 const listboxObserverOptions: MutationObserverInit = {
   // Observe attribute changes
-  attributeFilter: ['aria-checked', 'aria-selected'],
+  attributeFilter: ["aria-checked", "aria-selected"],
   // Observe full subtree
   subtree: true,
-}
+};
 
 /**
  * Configuration for the MutationObserver that watches for the addition or removal
@@ -76,4 +82,4 @@ const listboxObserverOptions: MutationObserverInit = {
 const listboxSelectObserverOptions: MutationObserverInit = {
   // Observe addition/removal of child elements (the native <option> elements)
   childList: true,
-}
+};

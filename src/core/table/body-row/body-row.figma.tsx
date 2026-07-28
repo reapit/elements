@@ -1,9 +1,10 @@
-import figma from '@figma/code-connect'
-import { Table } from '../table'
+import figma from "@figma/code-connect";
 
-figma.connect(Table.BodyRow, '<TABLE_BODY_ROW_URL>', {
+import { Table } from "../table";
+
+figma.connect(Table.BodyRow, "<TABLE_BODY_ROW_URL>", {
   props: {
-    checkbox: figma.boolean('Selectable', {
+    checkbox: figma.boolean("Selectable", {
       true: (
         <Table.BodyCell>
           <Table.Checkbox aria-label="Select XXX" />
@@ -11,7 +12,7 @@ figma.connect(Table.BodyRow, '<TABLE_BODY_ROW_URL>', {
       ),
       false: undefined,
     }),
-    moreActions: figma.boolean('More button', {
+    moreActions: figma.boolean("More button", {
       true: (
         <Table.BodyCell>
           <Table.MoreActions aria-label="Replace me">TODO: add menu items</Table.MoreActions>
@@ -19,8 +20,8 @@ figma.connect(Table.BodyRow, '<TABLE_BODY_ROW_URL>', {
       ),
       false: undefined,
     }),
-    content: figma.nestedProps('Content', {
-      cells: figma.children('*'),
+    content: figma.nestedProps("Content", {
+      cells: figma.children("*"),
     }),
   },
   example: (props) => (
@@ -30,4 +31,4 @@ figma.connect(Table.BodyRow, '<TABLE_BODY_ROW_URL>', {
       {props.moreActions}
     </Table.BodyRow>
   ),
-})
+});

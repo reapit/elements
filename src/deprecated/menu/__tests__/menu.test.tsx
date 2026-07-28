@@ -1,8 +1,9 @@
-import { render } from '@testing-library/react'
-import { DeprecatedMenu } from '../menu'
+import { render } from "@testing-library/react";
 
-describe('Menu list component', () => {
-  it('should render menu with list components and match snapshots', () => {
+import { DeprecatedMenu } from "../menu";
+
+describe("Menu list component", () => {
+  it("should render menu with list components and match snapshots", () => {
     const { asFragment } = render(
       <DeprecatedMenu>
         <DeprecatedMenu.List>
@@ -12,7 +13,7 @@ describe('Menu list component', () => {
           </DeprecatedMenu.Group>
         </DeprecatedMenu.List>
       </DeprecatedMenu>,
-    )
-    expect(asFragment()).toMatchSnapshot()
-  })
-})
+    );
+    expect(asFragment()).toMatchSnapshot();
+  });
+});

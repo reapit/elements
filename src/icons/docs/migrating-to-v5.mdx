@@ -1,6 +1,6 @@
-import { Meta } from '@storybook/addon-docs/blocks'
-import { Text } from '#src/utils/text'
-import { NewAndRemovedIconsTable } from './new-and-removed-icons-table'
+import { Meta } from "@storybook/addon-docs/blocks";
+import { Text } from "#src/utils/text";
+import { NewAndRemovedIconsTable } from "./new-and-removed-icons-table";
 
 <Meta title="Icons/Migrating to v5" />
 
@@ -11,17 +11,17 @@ a single `Icon` component, they are now available as individual components. For 
 previously used by doing:
 
 ```tsx
-import { Icon } from '@reapit/elements'
+import { Icon } from "@reapit/elements";
 
-const starIcon = <Icon name="star" />
+const starIcon = <Icon name="star" />;
 ```
 
 It is now available as:
 
 ```tsx
-import { StarIcon } from '@reapit/elements/icons/star'
+import { StarIcon } from "@reapit/elements/icons/star";
 
-const starIcon = <StarIcon />
+const starIcon = <StarIcon />;
 ```
 
 This allows for more granular control over bundle size, as only those icons explicitly imported and used will be included

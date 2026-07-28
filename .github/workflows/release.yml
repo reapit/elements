@@ -8,20 +8,20 @@ on:
   workflow_dispatch:
     inputs:
       ref:
-        description: 'Git ref (SHA, branch, or tag) to check out and release from. For recovery, use the full commit SHA of the version-bump merge commit.'
+        description: "Git ref (SHA, branch, or tag) to check out and release from. For recovery, use the full commit SHA of the version-bump merge commit."
         type: string
         required: true
       tag:
-        description: 'Git tag to create. Omit to derive from package.json at the specified ref (e.g. v5.0.0-beta.81). Provide a value only to override the default format.'
+        description: "Git tag to create. Omit to derive from package.json at the specified ref (e.g. v5.0.0-beta.81). Provide a value only to override the default format."
         type: string
         required: false
       create_github_release:
-        description: 'Create a GitHub Release using release notes extracted from CHANGELOG.md. Skipped if the release already exists.'
+        description: "Create a GitHub Release using release notes extracted from CHANGELOG.md. Skipped if the release already exists."
         type: boolean
         required: false
         default: true
       publish_npm:
-        description: 'Publish to npm. Skipped if the version is already present on npm.'
+        description: "Publish to npm. Skipped if the version is already present on npm."
         type: boolean
         required: false
         default: true
@@ -144,8 +144,8 @@ jobs:
         with:
           version: yarn changeset version
           publish: yarn changeset publish
-          title: 'chore: version packages'
-          commit: 'chore: version packages'
+          title: "chore: version packages"
+          commit: "chore: version packages"
           github-token: ${{ steps.app-token.outputs.token }}
         env:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}

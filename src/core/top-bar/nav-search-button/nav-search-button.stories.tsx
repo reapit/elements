@@ -1,25 +1,26 @@
-import preview from '#.storybook/preview'
-import { TopBar } from '../top-bar'
+import preview from "#.storybook/preview";
+
+import { TopBar } from "../top-bar";
 
 const meta = preview.meta({
-  title: 'Navigation/TopBar/NavSearchButton',
+  title: "Navigation/TopBar/NavSearchButton",
   component: TopBar.NavSearchButton,
   argTypes: {
     onClick: {
       control: false,
     },
     shortcut: {
-      control: 'text',
+      control: "text",
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
     onClick: () => void 0,
-    shortcut: '',
+    shortcut: "",
   },
-})
+});
 
 /**
  * For products that facilitate a keyboard shortcut to launch the search experience, a `shortcut` can be supplied to
@@ -32,7 +33,7 @@ export const Example = meta.story({
  */
 export const Shortcut = Example.extend({
   args: {
-    'aria-keyshortcuts': 'Meta+K',
-    shortcut: '⌘K',
+    "aria-keyshortcuts": "Meta+K",
+    shortcut: "⌘K",
   },
-})
+});

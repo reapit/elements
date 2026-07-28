@@ -1,7 +1,7 @@
-import { ElTopBarMenuDrawerMenuListItem } from './styles'
-import { TopBarMenuDrawerMenuGroup } from '../menu-group'
+import type { ComponentProps } from "react";
 
-import type { ComponentProps } from 'react'
+import { TopBarMenuDrawerMenuGroup } from "../menu-group";
+import { ElTopBarMenuDrawerMenuListItem } from "./styles";
 
 export namespace TopBarMenuDrawerMenuListGroup {
   export interface SummaryProps extends TopBarMenuDrawerMenuGroup.SummaryProps {}
@@ -15,14 +15,17 @@ export namespace TopBarMenuDrawerMenuListGroup {
  *
  * All props are passed through to `TopBarMenuDrawerMenuGroup`.
  */
-export function TopBarMenuDrawerMenuListGroup({ children, ...props }: TopBarMenuDrawerMenuListGroup.Props) {
+export function TopBarMenuDrawerMenuListGroup({
+  children,
+  ...props
+}: TopBarMenuDrawerMenuListGroup.Props) {
   return (
     <ElTopBarMenuDrawerMenuListItem>
       <TopBarMenuDrawerMenuGroup {...props}>{children}</TopBarMenuDrawerMenuGroup>
     </ElTopBarMenuDrawerMenuListItem>
-  )
+  );
 }
 
-TopBarMenuDrawerMenuListGroup.displayName = 'TopBar.MenuGroup'
+TopBarMenuDrawerMenuListGroup.displayName = "TopBar.MenuGroup";
 
-TopBarMenuDrawerMenuListGroup.Summary = TopBarMenuDrawerMenuGroup.Summary
+TopBarMenuDrawerMenuListGroup.Summary = TopBarMenuDrawerMenuGroup.Summary;

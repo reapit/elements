@@ -1,12 +1,13 @@
-import preview from '#.storybook/preview'
-import { Pattern } from '#src/core/drawer/__story__/Pattern'
-import { FocusedLayout } from '../focused-layout'
+import preview from "#.storybook/preview";
+import { Pattern } from "#src/core/drawer/__story__/Pattern";
+
+import { FocusedLayout } from "../focused-layout";
 
 const meta = preview.meta({
-  title: 'Containers and layout/FocusedLayout/Content',
+  title: "Containers and layout/FocusedLayout/Content",
   component: FocusedLayout.Content,
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
   },
   decorators: [
     (Story) => (
@@ -15,7 +16,7 @@ const meta = preview.meta({
       </FocusedLayout>
     ),
   ],
-})
+});
 
 /**
  * The content area is where the main page content is placed. It has responsive padding
@@ -28,4 +29,4 @@ export const Example = meta.story({
   args: {
     children: <Pattern height="100px" />,
   },
-})
+});

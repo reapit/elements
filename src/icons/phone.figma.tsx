@@ -1,4 +1,5 @@
-import figma from '@figma/code-connect'
-import { PhoneIcon } from './phone'
+import figma from "@figma/code-connect";
 
-figma.connect(PhoneIcon, 'https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=20-488')
+import { PhoneIcon } from "./phone";
+
+figma.connect(PhoneIcon, "https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=20-488");

@@ -1,6 +1,8 @@
-import { styled } from '@linaria/react'
-import { FOCUSED_LAYOUT_CSS_CONTAINER_NAME } from '../constants'
-import { isWidthAtOrAbove } from '#src/utils/breakpoints'
+import { styled } from "@linaria/react";
+
+import { isWidthAtOrAbove } from "#src/utils/breakpoints";
+
+import { FOCUSED_LAYOUT_CSS_CONTAINER_NAME } from "../constants";
 
 export const ElFocusedLayoutContent = styled.main`
   @layer elements.main {
@@ -18,12 +20,12 @@ export const ElFocusedLayoutContent = styled.main`
     padding: var(--spacing-5);
 
     /* SM breakpoint: 24px vertical, 32px horizontal */
-    @container ${FOCUSED_LAYOUT_CSS_CONTAINER_NAME} ${isWidthAtOrAbove('SM')} {
+    @container ${FOCUSED_LAYOUT_CSS_CONTAINER_NAME} ${isWidthAtOrAbove("SM")} {
       padding: var(--spacing-6) var(--spacing-8);
     }
 
     /* MD+ breakpoint: 32px vertical, 40px horizontal */
-    @container ${FOCUSED_LAYOUT_CSS_CONTAINER_NAME} ${isWidthAtOrAbove('MD')} {
+    @container ${FOCUSED_LAYOUT_CSS_CONTAINER_NAME} ${isWidthAtOrAbove("MD")} {
       padding: var(--spacing-8) var(--spacing-10);
     }
 
@@ -32,4 +34,4 @@ export const ElFocusedLayoutContent = styled.main`
       padding: 0;
     }
   }
-`
+`;

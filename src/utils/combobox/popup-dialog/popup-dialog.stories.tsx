@@ -1,40 +1,46 @@
-import preview from '#.storybook/preview'
-import { Badge } from '#src/core/badge'
-import { ComboboxContext } from '../context'
-import { ComboboxListbox } from '../listbox'
-import { ComboboxPopupDialog } from './popup-dialog'
-import { ComboboxSearchInput } from '../search-input'
-import { useId } from 'react'
+import { useId } from "react";
+
+import preview from "#.storybook/preview";
+import { Badge } from "#src/core/badge";
+
+import { ComboboxContext } from "../context";
+import { ComboboxListbox } from "../listbox";
+import { ComboboxSearchInput } from "../search-input";
+import { ComboboxPopupDialog } from "./popup-dialog";
 
 const meta = preview.meta({
-  title: 'Utils/Combobox/Popup',
+  title: "Utils/Combobox/Popup",
   component: ComboboxPopupDialog,
   argTypes: {
-    'aria-labelledby': {
+    "aria-labelledby": {
       control: false,
     },
     children: {
-      control: 'select',
-      options: ['Simple', 'Detailed', 'Filterable', 'Multi-select'],
+      control: "select",
+      options: ["Simple", "Detailed", "Filterable", "Multi-select"],
       mapping: {
         Simple: (
-          <ComboboxListbox defaultValue={['1']}>
+          <ComboboxListbox defaultValue={["1"]}>
             <ComboboxListbox.Option value="1">Option 1</ComboboxListbox.Option>
             <ComboboxListbox.Option value="2">Option 2</ComboboxListbox.Option>
             <ComboboxListbox.Option value="3">Option 3</ComboboxListbox.Option>
           </ComboboxListbox>
         ),
         Detailed: (
-          <ComboboxListbox defaultValue={['1']}>
+          <ComboboxListbox defaultValue={["1"]}>
             <ComboboxListbox.Optgroup label="Recommended">
               <ComboboxListbox.Option
                 badge={<Badge colour="neutral">Commercial</Badge>}
                 additionalInfo={
                   <>
-                    <ComboboxListbox.OptionAdditionalInfo badge={<Badge colour="inactive">Sales</Badge>}>
+                    <ComboboxListbox.OptionAdditionalInfo
+                      badge={<Badge colour="inactive">Sales</Badge>}
+                    >
                       John Smith
                     </ComboboxListbox.OptionAdditionalInfo>
-                    <ComboboxListbox.OptionAdditionalInfo badge={<Badge colour="inactive">Owner</Badge>}>
+                    <ComboboxListbox.OptionAdditionalInfo
+                      badge={<Badge colour="inactive">Owner</Badge>}
+                    >
                       Sarah Johnson
                     </ComboboxListbox.OptionAdditionalInfo>
                   </>
@@ -50,10 +56,14 @@ const meta = preview.meta({
                 badge={<Badge colour="neutral">Residential</Badge>}
                 additionalInfo={
                   <>
-                    <ComboboxListbox.OptionAdditionalInfo badge={<Badge colour="inactive">Sales</Badge>}>
+                    <ComboboxListbox.OptionAdditionalInfo
+                      badge={<Badge colour="inactive">Sales</Badge>}
+                    >
                       Bob Brown
                     </ComboboxListbox.OptionAdditionalInfo>
-                    <ComboboxListbox.OptionAdditionalInfo badge={<Badge colour="inactive">Owner</Badge>}>
+                    <ComboboxListbox.OptionAdditionalInfo
+                      badge={<Badge colour="inactive">Owner</Badge>}
+                    >
                       Betty White
                     </ComboboxListbox.OptionAdditionalInfo>
                   </>
@@ -65,7 +75,9 @@ const meta = preview.meta({
               <ComboboxListbox.Option
                 badge={<Badge colour="neutral">Residential</Badge>}
                 additionalInfo={
-                  <ComboboxListbox.OptionAdditionalInfo badge={<Badge colour="inactive">Owner</Badge>}>
+                  <ComboboxListbox.OptionAdditionalInfo
+                    badge={<Badge colour="inactive">Owner</Badge>}
+                  >
                     Bernard Black
                   </ComboboxListbox.OptionAdditionalInfo>
                 }
@@ -77,14 +89,14 @@ const meta = preview.meta({
           </ComboboxListbox>
         ),
         Filterable: [
-          <ComboboxListbox key="listbox" defaultValue={['1']}>
+          <ComboboxListbox key="listbox" defaultValue={["1"]}>
             <ComboboxListbox.Option value="1">Option 1</ComboboxListbox.Option>
             <ComboboxListbox.Option value="2">Option 2</ComboboxListbox.Option>
             <ComboboxListbox.Option value="3">Option 3</ComboboxListbox.Option>
           </ComboboxListbox>,
         ],
-        'Multi-select': [
-          <ComboboxListbox key="listbox" defaultValue={['1']}>
+        "Multi-select": [
+          <ComboboxListbox key="listbox" defaultValue={["1"]}>
             <ComboboxListbox.Option value="1">Option 1</ComboboxListbox.Option>
             <ComboboxListbox.Option value="2">Option 2</ComboboxListbox.Option>
             <ComboboxListbox.Option value="3">Option 3</ComboboxListbox.Option>
@@ -96,24 +108,24 @@ const meta = preview.meta({
       control: false,
     },
     maxWidth: {
-      control: 'text',
+      control: "text",
     },
     search: {
-      control: 'boolean',
+      control: "boolean",
       mapping: {
         true: <ComboboxSearchInput aria-label="Search" />,
         false: null,
       },
     },
     variant: {
-      control: 'radio',
-      options: ['drawer', 'popover', 'auto'],
+      control: "radio",
+      options: ["drawer", "popover", "auto"],
     },
   },
   render: (args, { parameters }) => {
-    const comboboxId = useId()
-    const listboxId = useId()
-    const popupId = useId()
+    const comboboxId = useId();
+    const listboxId = useId();
+    const popupId = useId();
 
     return (
       <ComboboxContext.Provider
@@ -125,7 +137,7 @@ const meta = preview.meta({
           popupId,
           required: false,
           searchInputId: useId(),
-          size: 'medium',
+          size: "medium",
         }}
       >
         <button
@@ -138,9 +150,9 @@ const meta = preview.meta({
         </button>
         <ComboboxPopupDialog {...args} aria-labelledby={comboboxId} id={popupId} />
       </ComboboxContext.Provider>
-    )
+    );
   },
-})
+});
 
 /**
  * Many popups will function as simple popovers that present the available options to the user.
@@ -149,14 +161,14 @@ const meta = preview.meta({
  */
 export const Example = meta.story({
   args: {
-    'aria-labelledby': 'button-id',
-    children: 'Simple',
-    closeOnSelection: 'auto',
-    id: 'popup-id',
+    "aria-labelledby": "button-id",
+    children: "Simple",
+    closeOnSelection: "auto",
+    id: "popup-id",
     maxWidth: undefined,
-    variant: 'popover',
+    variant: "popover",
   },
-})
+});
 
 /**
  * By default, popover-style popups are slightly wider than their anchor element to accommodate
@@ -165,13 +177,13 @@ export const Example = meta.story({
  * typically be preferred.
  */
 export const MaxWidth = Example.extend({
-  name: 'Max-width',
+  name: "Max-width",
   args: {
-    children: 'Detailed',
-    maxWidth: 'fit-content',
-    variant: 'popover',
+    children: "Detailed",
+    maxWidth: "fit-content",
+    variant: "popover",
   },
-})
+});
 
 /**
  * In some cases, such as on devices with small viewports, it can be preferrable to have the popup
@@ -179,9 +191,9 @@ export const MaxWidth = Example.extend({
  */
 export const Drawer = Example.extend({
   args: {
-    variant: 'drawer',
+    variant: "drawer",
   },
-})
+});
 
 /**
  * The `auto` variant displays as a drawer on XS breakpoint (< 768px) and as a popover on SM
@@ -189,22 +201,22 @@ export const Drawer = Example.extend({
  */
 export const Auto = Example.extend({
   args: {
-    variant: 'auto',
+    variant: "auto",
   },
-})
+});
 
 /**
  * A search input can be included in the popup to allow the options to be filtered/searched.
  */
 export const Filterable = Example.extend({
   args: {
-    children: 'Filterable',
+    children: "Filterable",
     search: true,
   },
   parameters: {
     multiple: true,
   },
-})
+});
 
 /**
  * For single-select comboboxes, the popup will close when a selection is made. For multi-select
@@ -216,12 +228,12 @@ export const Filterable = Example.extend({
  */
 export const Closing = Example.extend({
   args: {
-    children: 'Multi-select',
-    closeOnSelection: 'never',
+    children: "Multi-select",
+    closeOnSelection: "never",
     search: true,
-    variant: 'popover',
+    variant: "popover",
   },
-})
+});
 
 /**
  * By default, the search input, if present, will be cleared when the popup is closed. This can be
@@ -234,4 +246,4 @@ export const PreserveSearch = Filterable.extend({
   parameters: {
     multiple: true,
   },
-})
+});

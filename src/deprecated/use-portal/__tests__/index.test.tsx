@@ -1,18 +1,19 @@
-import React from 'react'
-import { render } from '@testing-library/react'
-import { usePortal, Portal } from '../index'
-import { renderHook } from '@testing-library/react'
+import { render } from "@testing-library/react";
+import { renderHook } from "@testing-library/react";
+import React from "react";
 
-describe('usePortal', () => {
-  it('should return a target  div correctly', async () => {
-    const { result } = renderHook<{}, {}>(() => usePortal('some-div'))
+import { usePortal, Portal } from "../index";
 
-    expect(result.current).toMatchSnapshot()
-  })
-})
+describe("usePortal", () => {
+  it("should return a target  div correctly", async () => {
+    const { result } = renderHook<{}, {}>(() => usePortal("some-div"));
 
-describe('Portal', () => {
-  it('should match a snapshot and render children', async () => {
-    expect(render(<Portal id="some-id">I am some content</Portal>).asFragment()).toMatchSnapshot()
-  })
-})
+    expect(result.current).toMatchSnapshot();
+  });
+});
+
+describe("Portal", () => {
+  it("should match a snapshot and render children", async () => {
+    expect(render(<Portal id="some-id">I am some content</Portal>).asFragment()).toMatchSnapshot();
+  });
+});

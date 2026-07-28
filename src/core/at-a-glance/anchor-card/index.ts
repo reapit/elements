@@ -1,1 +1,1 @@
-export * from './anchor-card'
+export * from "./anchor-card";

@@ -1,60 +1,61 @@
-import preview from '#.storybook/preview'
-import { RadioInput } from './radio-input'
-import { useArgs } from 'storybook/preview-api'
+import type { ChangeEventHandler } from "react";
+import { useArgs } from "storybook/preview-api";
 
-import type { ChangeEventHandler } from 'react'
+import preview from "#.storybook/preview";
+
+import { RadioInput } from "./radio-input";
 
 const meta = preview.meta({
-  title: 'Input and selection/RadioInput',
+  title: "Input and selection/RadioInput",
   component: RadioInput,
   argTypes: {
     checked: {
-      control: 'boolean',
+      control: "boolean",
     },
     value: {
-      control: 'text',
+      control: "text",
       table: {
         type: {
-          summary: 'string | number | readonly string[] | undefined',
+          summary: "string | number | readonly string[] | undefined",
         },
       },
     },
   },
-})
+});
 
 /**
  * Like any native input, the radio button can be controlled or uncontrolled by consumers.
  */
 export const Example = meta.story({
   args: {
-    'aria-label': 'My radio button',
+    "aria-label": "My radio button",
     checked: undefined,
     disabled: false,
-    name: 'myInput',
+    name: "myInput",
     readOnly: false,
     required: false,
     showValidity: false,
-    type: 'radio',
-    value: 'option1',
+    type: "radio",
+    value: "option1",
   },
   render: (args) => {
-    const [, setArgs] = useArgs()
+    const [, setArgs] = useArgs();
     const onChange: ChangeEventHandler<HTMLInputElement> = (event) => {
-      setArgs({ checked: event.currentTarget.checked })
-    }
-    return <RadioInput {...args} onChange={onChange} />
+      setArgs({ checked: event.currentTarget.checked });
+    };
+    return <RadioInput {...args} onChange={onChange} />;
   },
-})
+});
 
 /**
  * Radio buttons can be disabled. When they are, they do not participate in form submission.
  */
 export const Disabled = Example.extend({
   args: {
-    name: 'myInput-2',
+    name: "myInput-2",
     disabled: true,
   },
-})
+});
 
 /**
  * Like all form controls that visually communicate their validity, the radio button will display in an
@@ -64,11 +65,11 @@ export const Disabled = Example.extend({
  */
 export const Invalid = Example.extend({
   args: {
-    name: 'myInput-3',
+    name: "myInput-3",
     required: true,
     showValidity: true,
   },
-})
+});
 
 /**
  * The radio button also displays in an invalid state when `aria-invalid="true"` and `showValidity`
@@ -76,10 +77,10 @@ export const Invalid = Example.extend({
  * logic that does not use the browser's constraint validation API.
  */
 export const AriaInvalid = Example.extend({
-  name: 'Aria Invalid',
+  name: "Aria Invalid",
   args: {
-    'aria-invalid': true,
-    name: 'myInput-4',
+    "aria-invalid": true,
+    name: "myInput-4",
     showValidity: true,
   },
-})
+});

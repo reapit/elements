@@ -1,18 +1,20 @@
-import preview from '#.storybook/preview'
-import { AtAGlance } from '../at-a-glance'
-import { Button } from '#src/core/button'
-import { SettingsAltIcon } from '#src/icons/settings-alt'
-import { Switch } from '#src/core/switch'
-import { Text } from '#src/utils/text'
-import { useState } from 'react'
+import { useState } from "react";
+
+import preview from "#.storybook/preview";
+import { Button } from "#src/core/button";
+import { Switch } from "#src/core/switch";
+import { SettingsAltIcon } from "#src/icons/settings-alt";
+import { Text } from "#src/utils/text";
+
+import { AtAGlance } from "../at-a-glance";
 
 const meta = preview.meta({
-  title: 'Content display/AtAGlance/Header',
+  title: "Content display/AtAGlance/Header",
   component: AtAGlance.Header,
   argTypes: {
     accessory: {
-      control: 'radio',
-      options: ['None', 'Button', 'Switch'],
+      control: "radio",
+      options: ["None", "Button", "Switch"],
       mapping: {
         None: null,
         Button: (
@@ -28,14 +30,14 @@ const meta = preview.meta({
       },
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
-    accessory: 'None',
-    children: 'At a glance',
+    accessory: "None",
+    children: "At a glance",
   },
-})
+});
 
 /**
  * A header with an accessory button. The accessory can be a button, a selector, a switch or another
@@ -43,37 +45,37 @@ export const Example = meta.story({
  */
 export const Accessory = Example.extend({
   args: {
-    accessory: 'Button',
+    accessory: "Button",
   },
-})
+});
 
 /**
  * An accessory can be displayed without a title.
  */
 export const NoTitle = meta.story({
   args: {
-    accessory: 'Switch',
+    accessory: "Switch",
   },
-})
+});
 
 /**
  * The header text will wrap to additional lines when there is not enough space.
  */
 export const Wrapping = Accessory.extend({
   args: {
-    children: 'A very long title that demonstrates how the header component handles text wrapping',
+    children: "A very long title that demonstrates how the header component handles text wrapping",
   },
   decorators: [
     (Story: any) => {
-      const [width, setWidth] = useState(500)
+      const [width, setWidth] = useState(500);
       return (
         <>
           <div
             style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: 'var(--spacing-2)',
-              marginBlockEnd: 'var(--spacing-2)',
+              display: "flex",
+              alignItems: "center",
+              gap: "var(--spacing-2)",
+              marginBlockEnd: "var(--spacing-2)",
             }}
           >
             <input
@@ -92,11 +94,11 @@ export const Wrapping = Accessory.extend({
               </Text>
             </output>
           </div>
-          <div style={{ border: '1px solid #FA00FF', width }}>
+          <div style={{ border: "1px solid #FA00FF", width }}>
             <Story />
           </div>
         </>
-      )
+      );
     },
   ],
-})
+});

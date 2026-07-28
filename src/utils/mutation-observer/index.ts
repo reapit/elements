@@ -1,1 +1,1 @@
-export { useMutationObserver } from './use-mutation-observer'
+export { useMutationObserver } from "./use-mutation-observer";

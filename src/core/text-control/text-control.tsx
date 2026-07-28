@@ -1,24 +1,24 @@
-import { FormControl } from '#src/core/form-control'
-import { TextInput } from '#src/core/text-input'
-import { forwardRef, useId } from 'react'
+import { forwardRef, useId } from "react";
+import type { ReactNode } from "react";
 
-import type { ReactNode } from 'react'
+import { FormControl } from "#src/core/form-control";
+import { TextInput } from "#src/core/text-input";
 
 export namespace TextControl {
   export interface Props extends TextInput.Props {
     /** Optional error text that communicates why the text input's value is invalid. */
-    errorText?: ReactNode
+    errorText?: ReactNode;
     /** Optional help text that provides more context about the text input. */
-    helpText?: ReactNode
+    helpText?: ReactNode;
     /** The maximum width of the form control. */
-    maxWidth?: string
+    maxWidth?: string;
     /**
      * The visual label for the text input. If no visual label is provided, an accessible
      * label should be provided via `aria-label`.
      */
-    label?: ReactNode
+    label?: ReactNode;
     /** Type of input. */
-    type?: 'email' | 'password' | 'search' | 'tel' | 'text' | 'url'
+    type?: "email" | "password" | "search" | "tel" | "text" | "url";
   }
 }
 
@@ -27,13 +27,13 @@ export namespace TextControl {
  * for a plain text input.
  */
 export const TextControl = forwardRef<HTMLInputElement, TextControl.Props>(function TextControl(
-  { errorText, helpText, id, label, maxWidth, required, showValidity, size = 'medium', ...rest },
+  { errorText, helpText, id, label, maxWidth, required, showValidity, size = "medium", ...rest },
   ref,
 ) {
-  const fallbackInputId = useId()
-  const inputId = id ?? fallbackInputId
-  const helpTextId = useId()
-  const errorTextId = useId()
+  const fallbackInputId = useId();
+  const inputId = id ?? fallbackInputId;
+  const helpTextId = useId();
+  const errorTextId = useId();
 
   return (
     <FormControl as="div" size={size} maxWidth={maxWidth}>
@@ -59,5 +59,5 @@ export const TextControl = forwardRef<HTMLInputElement, TextControl.Props>(funct
         helpText && <FormControl.HelpText id={helpTextId}>{helpText}</FormControl.HelpText>
       )}
     </FormControl>
-  )
-})
+  );
+});

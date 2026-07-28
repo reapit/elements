@@ -1,29 +1,33 @@
-import preview from '#.storybook/preview'
-import { Breakpoint, useDrawerBreakpointDecorator } from '../__story__/useDrawerBreakpointDecorator'
-import { DRAWER_CSS_CONTAINER_NAME } from '../constants'
-import { Drawer } from '../drawer'
-import { Pattern } from '../__story__/Pattern'
+import preview from "#.storybook/preview";
+
+import { Pattern } from "../__story__/Pattern";
+import {
+  Breakpoint,
+  useDrawerBreakpointDecorator,
+} from "../__story__/useDrawerBreakpointDecorator";
+import { DRAWER_CSS_CONTAINER_NAME } from "../constants";
+import { Drawer } from "../drawer";
 
 const meta = preview.meta({
-  title: 'Containers and layout/Drawer/Body',
+  title: "Containers and layout/Drawer/Body",
   component: Drawer.Body,
   argTypes: {
     children: {
-      control: 'text',
+      control: "text",
     },
   },
   globals: {
     backgrounds: {
-      value: 'light',
+      value: "light",
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
-    children: 'Drawer content',
+    children: "Drawer content",
   },
-})
+});
 
 /**
  * When the drawer body is followed by a footer, the body will have no block start (top) padding because the
@@ -39,10 +43,10 @@ export const Footer = Example.extend({
     (Story) => (
       <div
         style={{
-          boxSizing: 'border-box',
-          border: '1px solid #FA00FF',
+          boxSizing: "border-box",
+          border: "1px solid #FA00FF",
           containerName: DRAWER_CSS_CONTAINER_NAME,
-          containerType: 'inline-size',
+          containerType: "inline-size",
         }}
       >
         <Story />
@@ -50,7 +54,7 @@ export const Footer = Example.extend({
       </div>
     ),
   ],
-})
+});
 
 /**
  * The drawer body will grow to the height of its content. It is the drawer itself that handles the overflow and
@@ -60,7 +64,7 @@ export const LongContent = meta.story({
   args: {
     children: <Pattern height="200px" />,
   },
-})
+});
 
 /**
  * Like the header and footer, the drawer body will adjust it's layout based on the inline-size of its parent
@@ -79,4 +83,4 @@ export const DynamicLayout = meta.story({
       </Breakpoint>
     </>
   ),
-})
+});

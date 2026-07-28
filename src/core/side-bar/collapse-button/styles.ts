@@ -1,5 +1,6 @@
-import { font } from '#src/utils/font'
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
+
+import { font } from "#src/utils/font";
 
 export const ElSideBarCollapseButton = styled.button`
   @layer elements.main {
@@ -23,7 +24,7 @@ export const ElSideBarCollapseButton = styled.button`
       outline-offset: var(--border-width-default);
     }
   }
-`
+`;
 
 export const ElSideBarCollapseButtonIcon = styled.span`
   @layer elements.main {
@@ -42,17 +43,17 @@ export const ElSideBarCollapseButtonIcon = styled.span`
       height: var(--icon_size-md);
     }
 
-    [aria-expanded='false'] & {
+    [aria-expanded="false"] & {
       transform: rotate(180deg);
     }
   }
-`
+`;
 
 export const ElSideBarCollapseLabel = styled.span`
   @layer elements.main {
     overflow: hidden;
     color: var(--comp-navigation-colour-text-sidebar-default);
     text-overflow: ellipsis;
-    ${font('sm', 'regular')}
+    ${font("sm", "regular")}
   }
-`
+`;

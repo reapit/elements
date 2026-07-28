@@ -1,4 +1,4 @@
-import { css } from '@linaria/core'
+import { css } from "@linaria/core";
 
 export const elGalleryViewerDialogContent = css`
   @layer elements.main {
@@ -10,4 +10,4 @@ export const elGalleryViewerDialogContent = css`
     background: var(--colour-fill-white);
     color: var(--colour-text-primary);
   }
-`
+`;

@@ -1,5 +1,5 @@
-import { css } from '@linaria/core'
-import { styled } from '@linaria/react'
+import { css } from "@linaria/core";
+import { styled } from "@linaria/react";
 
 export const ElRadioInputContainer = styled.div`
   @layer elements.main {
@@ -12,10 +12,10 @@ export const ElRadioInputContainer = styled.div`
     width: min-content;
     height: min-content;
   }
-`
+`;
 
 interface ElRadioInputProps {
-  'data-show-validity': boolean
+  "data-show-validity": boolean;
 }
 
 export const ElRadioInput = styled.input<ElRadioInputProps>`
@@ -38,7 +38,7 @@ export const ElRadioInput = styled.input<ElRadioInputProps>`
       cursor: not-allowed;
     }
   }
-`
+`;
 
 export const elRadioInputIcon = css`
   @layer elements.main {
@@ -61,9 +61,9 @@ export const elRadioInputIcon = css`
      * such as only when the form control has been "touched". aria-invalid="true" is also supported
      * as an alternative to the native :invalid pseudo-class, for cases where the element is not
      * natively invalid (e.g. server-side validation). */
-    input:invalid:where([data-show-validity='true']) ~ &,
-    input:user-invalid:where([data-show-validity='true']) ~ &,
-    input:where([aria-invalid='true'][data-show-validity='true']) ~ & {
+    input:invalid:where([data-show-validity="true"]) ~ &,
+    input:user-invalid:where([data-show-validity="true"]) ~ &,
+    input:where([aria-invalid="true"][data-show-validity="true"]) ~ & {
       color: var(--comp-select-colour-icon-error-unchecked);
     }
 
@@ -84,13 +84,13 @@ export const elRadioInputIcon = css`
     }
 
     /* When the radio button is not checked, hide the checked icon */
-    input:not(:checked) ~ &:not([data-show-when='unchecked']) {
+    input:not(:checked) ~ &:not([data-show-when="unchecked"]) {
       display: none;
     }
 
-    input:invalid:where([data-show-validity='true']):checked ~ &,
-    input:user-invalid:where([data-show-validity='true']):checked ~ &,
-    input:where([aria-invalid='true'][data-show-validity='true']):checked ~ & {
+    input:invalid:where([data-show-validity="true"]):checked ~ &,
+    input:user-invalid:where([data-show-validity="true"]):checked ~ &,
+    input:where([aria-invalid="true"][data-show-validity="true"]):checked ~ & {
       color: var(--comp-select-colour-icon-error-checked);
     }
 
@@ -99,8 +99,8 @@ export const elRadioInputIcon = css`
     }
 
     /* When the radio button is checked, hide the unchecked icon */
-    input:checked ~ &:not([data-show-when='checked']) {
+    input:checked ~ &:not([data-show-when="checked"]) {
       display: none;
     }
   }
-`
+`;

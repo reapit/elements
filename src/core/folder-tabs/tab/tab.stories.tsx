@@ -1,22 +1,23 @@
-import preview from '#.storybook/preview'
-import { FOLDER_TABS_CSS_CONTAINER_NAME } from '../constants'
-import { ElFolderTab } from './styles'
-import { FolderTabs } from '../folder-tabs'
-import { useFolderTabsContainerDecorator } from '../__story__/useFolderTabsContainerDecorator'
+import preview from "#.storybook/preview";
+
+import { useFolderTabsContainerDecorator } from "../__story__/useFolderTabsContainerDecorator";
+import { FOLDER_TABS_CSS_CONTAINER_NAME } from "../constants";
+import { FolderTabs } from "../folder-tabs";
+import { ElFolderTab } from "./styles";
 
 const meta = preview.meta({
-  title: 'Navigation/FolderTabs/Tab',
+  title: "Navigation/FolderTabs/Tab",
   component: FolderTabs.Item,
   argTypes: {
-    'aria-current': {
-      options: ['page', false],
+    "aria-current": {
+      options: ["page", false],
       mapping: {
-        page: 'page',
+        page: "page",
         false: false,
       },
     },
     children: {
-      control: 'text',
+      control: "text",
     },
     href: {
       control: false,
@@ -24,10 +25,10 @@ const meta = preview.meta({
   },
   globals: {
     backgrounds: {
-      value: 'light',
+      value: "light",
     },
   },
-})
+});
 
 /**
  * The visual appearance of a folder tab will change based on it's container's size. For small
@@ -39,12 +40,12 @@ const meta = preview.meta({
  */
 export const Example = meta.story({
   args: {
-    'aria-current': false,
-    children: 'Label',
-    href: '#',
+    "aria-current": false,
+    children: "Label",
+    href: "#",
   },
   decorators: [useFolderTabsContainerDecorator()],
-})
+});
 
 /**
  * When there are multiple siblings (i.e., they all share the same parent element), tabs in larger
@@ -61,13 +62,13 @@ export const FirstTab = Example.extend({
     (Story) => (
       <div
         style={{
-          boxSizing: 'content-box',
-          border: '1px solid #FA00FF',
+          boxSizing: "content-box",
+          border: "1px solid #FA00FF",
           containerName: FOLDER_TABS_CSS_CONTAINER_NAME,
-          containerType: 'inline-size',
-          display: 'grid',
-          gridTemplateColumns: '1fr 0 0',
-          alignItems: 'center',
+          containerType: "inline-size",
+          display: "grid",
+          gridTemplateColumns: "1fr 0 0",
+          alignItems: "center",
         }}
       >
         <Story />
@@ -76,7 +77,7 @@ export const FirstTab = Example.extend({
       </div>
     ),
   ],
-})
+});
 
 /**
  * When the tab is neither the first nor the last sibling, a "wave" will be featured on both sides in
@@ -88,13 +89,13 @@ export const MiddleTab = Example.extend({
     (Story) => (
       <div
         style={{
-          boxSizing: 'content-box',
-          border: '1px solid #FA00FF',
+          boxSizing: "content-box",
+          border: "1px solid #FA00FF",
           containerName: FOLDER_TABS_CSS_CONTAINER_NAME,
-          containerType: 'inline-size',
-          display: 'grid',
-          gridTemplateColumns: '0 1fr 0',
-          alignItems: 'center',
+          containerType: "inline-size",
+          display: "grid",
+          gridTemplateColumns: "0 1fr 0",
+          alignItems: "center",
         }}
       >
         <ElFolderTab aria-current={false} style={{ opacity: 0 }} />
@@ -103,7 +104,7 @@ export const MiddleTab = Example.extend({
       </div>
     ),
   ],
-})
+});
 
 /**
  * Finally, when the tab is neither the last sibling, a "wave" will be featured on its left side in
@@ -115,13 +116,13 @@ export const LastTab = Example.extend({
     (Story) => (
       <div
         style={{
-          boxSizing: 'content-box',
-          border: '1px solid #FA00FF',
+          boxSizing: "content-box",
+          border: "1px solid #FA00FF",
           containerName: FOLDER_TABS_CSS_CONTAINER_NAME,
-          containerType: 'inline-size',
-          display: 'grid',
-          gridTemplateColumns: '0 0 1fr',
-          alignItems: 'stretch',
+          containerType: "inline-size",
+          display: "grid",
+          gridTemplateColumns: "0 0 1fr",
+          alignItems: "stretch",
         }}
       >
         <ElFolderTab aria-current={false} style={{ opacity: 0 }} />
@@ -130,7 +131,7 @@ export const LastTab = Example.extend({
       </div>
     ),
   ],
-})
+});
 
 /**
  * When the tab represents the current page, `aria-current="page"` should be supplied to communicate to
@@ -140,10 +141,10 @@ export const LastTab = Example.extend({
  */
 export const Selected = Example.extend({
   args: {
-    'aria-current': 'page',
+    "aria-current": "page",
   },
   decorators: [useFolderTabsContainerDecorator()],
-})
+});
 
 /**
  * The [FolderTabs.CountLabel](./?path=/docs/core-foldertabs-countlabel-example) component can be used to
@@ -160,7 +161,7 @@ export const WithCount = Example.extend({
     },
   },
   decorators: [useFolderTabsContainerDecorator()],
-})
+});
 
 /**
  * By default, tabs can contain any content, though this will typically be plain text or a
@@ -169,20 +170,21 @@ export const WithCount = Example.extend({
  */
 export const Overflow = Example.extend({
   args: {
-    children: 'A very very very long tab label that will need to wrap to additional lines and may even be truncated',
+    children:
+      "A very very very long tab label that will need to wrap to additional lines and may even be truncated",
   },
   decorators: [
     (Story) => (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)' }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "var(--spacing-4)" }}>
         <div
           style={{
-            boxSizing: 'content-box',
-            border: '1px solid #FA00FF',
+            boxSizing: "content-box",
+            border: "1px solid #FA00FF",
             containerName: FOLDER_TABS_CSS_CONTAINER_NAME,
-            containerType: 'inline-size',
-            display: 'grid',
-            gridTemplateColumns: '50% 50%',
-            width: '768px',
+            containerType: "inline-size",
+            display: "grid",
+            gridTemplateColumns: "50% 50%",
+            width: "768px",
           }}
         >
           <Story />
@@ -190,11 +192,11 @@ export const Overflow = Example.extend({
         </div>
         <div
           style={{
-            boxSizing: 'content-box',
-            border: '1px solid #FA00FF',
+            boxSizing: "content-box",
+            border: "1px solid #FA00FF",
             containerName: FOLDER_TABS_CSS_CONTAINER_NAME,
-            containerType: 'inline-size',
-            width: '300px',
+            containerType: "inline-size",
+            width: "300px",
           }}
         >
           <Story />
@@ -202,7 +204,7 @@ export const Overflow = Example.extend({
       </div>
     ),
   ],
-})
+});
 
 /**
  * When [FolderTabs.CountLabel](?path=/docs/core-foldertabs-countlabel-example) is used for the tab content,
@@ -210,26 +212,27 @@ export const Overflow = Example.extend({
  * allow two lines of text before truncation is applied.
  */
 export const OverflowWithCount = Example.extend({
-  name: 'Overflow w/ count',
+  name: "Overflow w/ count",
   args: {
     children: (
       <FolderTabs.CountLabel count="00">
-        A very very very long tab label that will need to wrap to additional lines and may even be truncated
+        A very very very long tab label that will need to wrap to additional lines and may even be
+        truncated
       </FolderTabs.CountLabel>
     ),
   },
   decorators: [
     (Story) => (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)' }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "var(--spacing-4)" }}>
         <div
           style={{
-            boxSizing: 'content-box',
-            border: '1px solid #FA00FF',
+            boxSizing: "content-box",
+            border: "1px solid #FA00FF",
             containerName: FOLDER_TABS_CSS_CONTAINER_NAME,
-            containerType: 'inline-size',
-            display: 'grid',
-            gridTemplateColumns: '50% 50%',
-            width: '768px',
+            containerType: "inline-size",
+            display: "grid",
+            gridTemplateColumns: "50% 50%",
+            width: "768px",
           }}
         >
           <Story />
@@ -237,11 +240,11 @@ export const OverflowWithCount = Example.extend({
         </div>
         <div
           style={{
-            boxSizing: 'content-box',
-            border: '1px solid #FA00FF',
+            boxSizing: "content-box",
+            border: "1px solid #FA00FF",
             containerName: FOLDER_TABS_CSS_CONTAINER_NAME,
-            containerType: 'inline-size',
-            width: '300px',
+            containerType: "inline-size",
+            width: "300px",
           }}
         >
           <Story />
@@ -249,4 +252,4 @@ export const OverflowWithCount = Example.extend({
       </div>
     ),
   ],
-})
+});

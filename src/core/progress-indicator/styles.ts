@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
 
 export const ElProgressIndicatorTrack = styled.div`
   @layer elements.main {
@@ -8,7 +8,7 @@ export const ElProgressIndicatorTrack = styled.div`
     height: var(--size-1);
     background: var(--colour-fill-white);
   }
-`
+`;
 
 export const ElProgressIndicatorFill = styled.div`
   @layer elements.main {
@@ -17,7 +17,7 @@ export const ElProgressIndicatorFill = styled.div`
     bottom: 0;
     background: var(--comp-progress_bar-colour-fill);
   }
-`
+`;
 
 export const ElDeterminateProgressIndicatorFill = styled(ElProgressIndicatorFill)`
   @layer elements.main {
@@ -39,7 +39,7 @@ export const ElDeterminateProgressIndicatorFill = styled(ElProgressIndicatorFill
       scale: 1 1;
     }
   }
-`
+`;
 
 export const ElIndeterminateProgressIndicatorFill = styled(ElProgressIndicatorFill)`
   @layer elements.main {
@@ -75,4 +75,4 @@ export const ElIndeterminateProgressIndicatorFill = styled(ElProgressIndicatorFi
       opacity: 0.4;
     }
   }
-`
+`;

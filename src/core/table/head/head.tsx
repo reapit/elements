@@ -1,22 +1,22 @@
-import { cx } from '@linaria/core'
-import { elTableHead } from './styles'
+import { cx } from "@linaria/core";
+import type { HTMLAttributes, ReactNode } from "react";
 
-import type { HTMLAttributes, ReactNode } from 'react'
+import { elTableHead } from "./styles";
 
 export namespace TableHead {
   interface AsTheadProps extends HTMLAttributes<HTMLTableSectionElement> {
-    as?: 'thead'
+    as?: "thead";
     /** The table's header rows. */
-    children: ReactNode
+    children: ReactNode;
   }
 
   interface AsDivProps extends HTMLAttributes<HTMLDivElement> {
-    as: 'div'
+    as: "div";
     /** The table's header rows. */
-    children: ReactNode
+    children: ReactNode;
   }
 
-  export type Props = AsTheadProps | AsDivProps
+  export type Props = AsTheadProps | AsDivProps;
 }
 
 /**
@@ -25,15 +25,20 @@ export namespace TableHead {
  * [subgrid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Subgrid).
  * Typically used via `Table.Head`.
  */
-export function TableHead({ as: Element = 'thead', children, className, ...rest }: TableHead.Props) {
+export function TableHead({
+  as: Element = "thead",
+  children,
+  className,
+  ...rest
+}: TableHead.Props) {
   return (
     <Element {...rest} className={cx(elTableHead, className)}>
       {children}
     </Element>
-  )
+  );
 }
 
-TableHead.displayName = 'Table.Head'
+TableHead.displayName = "Table.Head";
 
 // Backward compatibility
-export type TableHeadProps = TableHead.Props
+export type TableHeadProps = TableHead.Props;

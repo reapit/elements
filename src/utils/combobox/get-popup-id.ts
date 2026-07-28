@@ -4,5 +4,5 @@
  * @returns The popup element ID
  */
 export function getComboboxPopupId(comboboxId: string): string {
-  return `${comboboxId}-popup`
+  return `${comboboxId}-popup`;
 }

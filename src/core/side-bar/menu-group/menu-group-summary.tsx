@@ -1,36 +1,37 @@
-import { ChevronDownIcon } from '#src/icons/chevron-down'
-import { cx } from '@linaria/core'
+import { cx } from "@linaria/core";
+import { useCallback, useId } from "react";
+import type { HTMLAttributes, MouseEventHandler, ReactNode } from "react";
+
+import { Tooltip } from "#src/core/tooltip";
+import { ChevronDownIcon } from "#src/icons/chevron-down";
+
+import { elSideBarMenuItem } from "../menu-item/styles";
+import { useSideBarMenuGroupLabelIdContext } from "./menu-group-label-id-context";
+import { shouldSideBarMenuGroupBeOpen } from "./should-be-open";
 import {
   elSideBarMenuGroupSummary,
   ElSideBarMenuGroupSummaryIcon,
   ElSideBarMenuGroupSummaryLabel,
   ElSideBarMenuGroupSummaryDropdownIcon,
-} from './styles'
-import { elSideBarMenuItem } from '../menu-item/styles'
-import { shouldSideBarMenuGroupBeOpen } from './should-be-open'
-import { Tooltip } from '#src/core/tooltip'
-import { useCallback, useId } from 'react'
-import { useSideBarMenuGroupLabelIdContext } from './menu-group-label-id-context'
-
-import type { HTMLAttributes, MouseEventHandler, ReactNode } from 'react'
+} from "./styles";
 
 export namespace SideBarMenuGroupSummary {
   export interface Props extends HTMLAttributes<HTMLElement> {
     /**
      * The label for the menu group.
      */
-    children: ReactNode
+    children: ReactNode;
     /**
      * The icon to display next to the label.
      */
-    icon: ReactNode
+    icon: ReactNode;
   }
 }
 
 /**
  * @deprecated Use `SideBarMenuGroupSummary.Props` instead
  */
-export type SideBarMenuGroupSummaryProps = SideBarMenuGroupSummary.Props
+export type SideBarMenuGroupSummaryProps = SideBarMenuGroupSummary.Props;
 
 /**
  * A summary element for the `SideBar.MenuGroup`. It is explicitly designed for use within a `<details>` element,
@@ -47,9 +48,9 @@ export function SideBarMenuGroupSummary({
   onClick,
   ...props
 }: SideBarMenuGroupSummary.Props) {
-  const tooltipId = useSideBarMenuGroupLabelIdContext()
-  const triggerId = id ?? useId()
-  const truncationTargetId = useId()
+  const tooltipId = useSideBarMenuGroupLabelIdContext();
+  const triggerId = id ?? useId();
+  const truncationTargetId = useId();
 
   // We need to prevent the parent menu group from closing if it is currently active (i.e. one of its descendants
   // represents the current page).
@@ -58,32 +59,39 @@ export function SideBarMenuGroupSummary({
   // click event that propogates from _any_ descendants, which would include this <summary> element.
   const handleClick: MouseEventHandler<HTMLElement> = useCallback(
     (event) => {
-      onClick?.(event)
+      onClick?.(event);
 
-      const detailsElement = event.currentTarget.closest('details')
+      const detailsElement = event.currentTarget.closest("details");
 
       if (detailsElement && shouldSideBarMenuGroupBeOpen(detailsElement)) {
-        event.preventDefault()
+        event.preventDefault();
       }
     },
     [onClick],
-  )
+  );
 
   return (
     <summary
       {...props}
-      {...Tooltip.getTriggerProps({ id: triggerId, tooltipId, tooltipPurpose: 'label' })}
+      {...Tooltip.getTriggerProps({ id: triggerId, tooltipId, tooltipPurpose: "label" })}
       className={cx(elSideBarMenuItem, elSideBarMenuGroupSummary, className)}
       onClick={handleClick}
     >
       <ElSideBarMenuGroupSummaryIcon aria-hidden>{icon}</ElSideBarMenuGroupSummaryIcon>
-      <ElSideBarMenuGroupSummaryLabel id={truncationTargetId}>{children}</ElSideBarMenuGroupSummaryLabel>
+      <ElSideBarMenuGroupSummaryLabel id={truncationTargetId}>
+        {children}
+      </ElSideBarMenuGroupSummaryLabel>
       <ElSideBarMenuGroupSummaryDropdownIcon aria-hidden>
         <ChevronDownIcon />
       </ElSideBarMenuGroupSummaryDropdownIcon>
-      <Tooltip id={tooltipId} placement="right" triggerId={triggerId} truncationTargetId={truncationTargetId}>
+      <Tooltip
+        id={tooltipId}
+        placement="right"
+        triggerId={triggerId}
+        truncationTargetId={truncationTargetId}
+      >
         {children}
       </Tooltip>
     </summary>
-  )
+  );
 }

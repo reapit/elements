@@ -1,14 +1,15 @@
-import { PageLayout } from './page-layout'
-import figma from '@figma/code-connect'
+import figma from "@figma/code-connect";
 
-figma.connect(PageLayout, '<PAGE_LAYOUT_URL>', {
-  variant: { 'Show bottom bar': false },
+import { PageLayout } from "./page-layout";
+
+figma.connect(PageLayout, "<PAGE_LAYOUT_URL>", {
+  variant: { "Show bottom bar": false },
   props: {
-    children: figma.slot('Content slot').connectedInstances,
-    officeSwitcher: figma.children('Office switcher'),
-    pageHeader: figma.children('Page header'),
-    sideBar: figma.children('Side bar'),
-    topBar: figma.children('Top bar'),
+    children: figma.slot("Content slot").connectedInstances,
+    officeSwitcher: figma.children("Office switcher"),
+    pageHeader: figma.children("Page header"),
+    sideBar: figma.children("Side bar"),
+    topBar: figma.children("Top bar"),
   },
   example: (props) => (
     <PageLayout id="todo-replace-me" scroll="body">
@@ -23,14 +24,14 @@ figma.connect(PageLayout, '<PAGE_LAYOUT_URL>', {
       </PageLayout.BodyRegion>
     </PageLayout>
   ),
-})
+});
 
-figma.connect(PageLayout, '<PAGE_LAYOUT_URL>', {
-  variant: { 'Show bottom bar': true },
+figma.connect(PageLayout, "<PAGE_LAYOUT_URL>", {
+  variant: { "Show bottom bar": true },
   props: {
-    children: figma.slot('Content slot').connectedInstances,
-    pageHeader: figma.children('Page header'),
-    bottomBar: figma.children('Bottom bar'),
+    children: figma.slot("Content slot").connectedInstances,
+    pageHeader: figma.children("Page header"),
+    bottomBar: figma.children("Bottom bar"),
   },
   example: (props) => (
     <PageLayout id="todo-replace-me" scroll="self">
@@ -41,4 +42,4 @@ figma.connect(PageLayout, '<PAGE_LAYOUT_URL>', {
       <PageLayout.BottomBarRegion>{props.bottomBar}</PageLayout.BottomBarRegion>
     </PageLayout>
   ),
-})
+});

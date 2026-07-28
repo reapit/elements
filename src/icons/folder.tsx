@@ -1,4 +1,4 @@
-import FolderSvg from './svgs/folder.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import FolderSvg from "./svgs/folder.svg?react";
 
-export const FolderIcon = makeIcon('FolderIcon', FolderSvg)
+export const FolderIcon = makeIcon("FolderIcon", FolderSvg);

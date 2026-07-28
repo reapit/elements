@@ -1,5 +1,6 @@
-import { font } from '#src/utils/font'
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
+
+import { font } from "#src/utils/font";
 
 export const ElComboboxButtonContainer = styled.div`
   @layer elements.main {
@@ -21,22 +22,22 @@ export const ElComboboxButtonContainer = styled.div`
       var(--combobox-border-colour, var(--comp-input-colour-border-default));
     color: var(--combobox-text-colour, var(--comp-input-colour-text-default-input));
 
-    &[data-size='small'] {
-      ${font('xs', 'regular')}
+    &[data-size="small"] {
+      ${font("xs", "regular")}
       height: var(--size-8);
       --combobox-button-addon-padding-inline: var(--spacing-2);
       --combobox-button-icon-size: var(--icon_size-sm);
     }
     /* NOTE: Medium is the default size */
     &,
-    &[data-size='medium'] {
-      ${font('sm', 'regular')}
+    &[data-size="medium"] {
+      ${font("sm", "regular")}
       height: var(--size-9);
       --combobox-button-addon-padding-inline: var(--spacing-3);
       --combobox-button-icon-size: var(--icon_size-sm);
     }
-    &[data-size='large'] {
-      ${font('base', 'regular')}
+    &[data-size="large"] {
+      ${font("base", "regular")}
       height: var(--size-10);
       --combobox-button-addon-padding-inline: var(--spacing-3);
       --combobox-button-icon-size: var(--icon_size-md);
@@ -48,25 +49,26 @@ export const ElComboboxButtonContainer = styled.div`
       border-color: var(--comp-input-colour-border-focused);
     }
 
-    &[data-variant='borderless'] {
+    &[data-variant="borderless"] {
       border-style: none;
     }
 
     /* NOTE: the borderless variant hides the border via border-style: none, which persists
      * through state-based border-color changes. We restore the border only on focus so the
      * focus ring is visible. */
-    &[data-variant='borderless']:has(button:focus) {
+    &[data-variant="borderless"]:has(button:focus) {
       border-style: solid;
       border-color: var(--comp-input-colour-border-focused);
     }
   }
-`
+`;
 
 export const ElComboboxButton = styled.button`
   @layer elements.main {
     --padding-without-action: var(--spacing-3);
     --padding-with-action: calc(
-      var(--spacing-2) + var(--combobox-button-icon-size) + var(--combobox-button-addon-padding-inline)
+      var(--spacing-2) + var(--combobox-button-icon-size) +
+        var(--combobox-button-addon-padding-inline)
     );
 
     appearance: none;
@@ -104,7 +106,7 @@ export const ElComboboxButton = styled.button`
       --padding-inline-end: var(--padding-with-action);
     }
   }
-`
+`;
 
 export const ElComboboxButtonIconContainer = styled.span`
   @layer elements.main {
@@ -119,7 +121,7 @@ export const ElComboboxButtonIconContainer = styled.span`
 
     color: var(--combobox-icon-colour, var(--comp-input-colour-icon-default));
   }
-`
+`;
 
 export const ElComboboxButtonLabelContainer = styled.span`
   @layer elements.main {
@@ -128,11 +130,11 @@ export const ElComboboxButtonLabelContainer = styled.span`
     text-overflow: ellipsis;
 
     /* Display placeholder text with muted color when no selection */
-    &[data-has-selection='false'] {
+    &[data-has-selection="false"] {
       color: var(--combobox-placeholder-colour, var(--comp-input-colour-text-default-placeholder));
     }
   }
-`
+`;
 
 export const ElComboboxButtonActionContainer = styled.span`
   @layer elements.main {
@@ -153,4 +155,4 @@ export const ElComboboxButtonActionContainer = styled.span`
 
     color: var(--combobox-icon-colour, var(--comp-input-colour-icon-default));
   }
-`
+`;

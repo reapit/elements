@@ -86,7 +86,7 @@ A comment is inserted before each JSX statement containing a migrated element:
 
 ```tsx
 // TODO: Consider using RadioGroupControl rather than RadioButton directly.
-const el = <RadioButton label="Option" />
+const el = <RadioButton label="Option" />;
 ```
 
 ## Limitations

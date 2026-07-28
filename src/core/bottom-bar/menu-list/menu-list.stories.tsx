@@ -1,33 +1,34 @@
-import preview from '#.storybook/preview'
-import { BottomBar } from '../bottom-bar'
-import { BottomBarContext } from '../context'
-import { Menu } from '#src/core/menu'
-import { Pattern } from '#src/core/drawer/__story__/Pattern'
-import { StarIcon } from '#src/icons/star'
+import preview from "#.storybook/preview";
+import { Pattern } from "#src/core/drawer/__story__/Pattern";
+import { Menu } from "#src/core/menu";
+import { StarIcon } from "#src/icons/star";
+
+import { BottomBar } from "../bottom-bar";
+import { BottomBarContext } from "../context";
 
 // Placeholder href for all menu items in this story.
-const href = '#'
+const href = "#";
 
 const meta = preview.meta({
-  title: 'Navigation/BottomBar/MenuList',
+  title: "Navigation/BottomBar/MenuList",
   component: BottomBar.MenuList,
   argTypes: {
     children: {
-      control: 'radio',
-      options: ['No selected item', 'Selected item'],
+      control: "radio",
+      options: ["No selected item", "Selected item"],
       mapping: {
-        'No selected item': buildMenu('No selected item'),
-        'Selected item': buildMenu('Selected item'),
+        "No selected item": buildMenu("No selected item"),
+        "Selected item": buildMenu("Selected item"),
       },
     },
   },
   decorators: [
     (Story) => (
-      <BottomBarContext.Provider value={{ state: 'extended' }}>
+      <BottomBarContext.Provider value={{ state: "extended" }}>
         <div
           style={{
-            boxSizing: 'content-box',
-            border: '1px solid #FA00FF',
+            boxSizing: "content-box",
+            border: "1px solid #FA00FF",
           }}
         >
           <Pattern height="120px" />
@@ -38,16 +39,16 @@ const meta = preview.meta({
   ],
   globals: {
     backgrounds: {
-      value: 'light',
+      value: "light",
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
-    children: 'No selected item',
+    children: "No selected item",
   },
-})
+});
 
 /**
  * If a menu item represents the current page, it should be marked as "selected". See the `BottomBar.Item`
@@ -55,13 +56,18 @@ export const Example = meta.story({
  */
 export const SelectedItem = meta.story({
   args: {
-    children: 'Selected item',
+    children: "Selected item",
   },
-})
+});
 
-function buildMenu(type: 'No selected item' | 'Selected item') {
+function buildMenu(type: "No selected item" | "Selected item") {
   return [
-    <BottomBar.Item key="1" aria-current={type === 'Selected item' ? 'page' : false} href={href} icon={<StarIcon />}>
+    <BottomBar.Item
+      key="1"
+      aria-current={type === "Selected item" ? "page" : false}
+      href={href}
+      icon={<StarIcon />}
+    >
       Menu item 1
     </BottomBar.Item>,
     <BottomBar.Item key="2" aria-current={false} href={href} icon={<StarIcon />}>
@@ -78,5 +84,5 @@ function buildMenu(type: 'No selected item' | 'Selected item') {
       <Menu.Item>Menu item 6</Menu.Item>
       <Menu.Item>Menu item 7</Menu.Item>
     </BottomBar.MenuItem>,
-  ]
+  ];
 }

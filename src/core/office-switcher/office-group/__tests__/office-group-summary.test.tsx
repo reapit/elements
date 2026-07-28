@@ -1,62 +1,67 @@
-import { render, screen } from '@testing-library/react'
-import { OfficeSwitcherOfficeGroupSummary } from '../office-group-summary'
-import { expect, test } from 'vitest'
+import { render, screen } from "@testing-library/react";
+import { expect, test } from "vitest";
 
-test('renders a summary element', () => {
+import { OfficeSwitcherOfficeGroupSummary } from "../office-group-summary";
+
+test("renders a summary element", () => {
   render(
     <details>
       <OfficeSwitcherOfficeGroupSummary>Summary Text</OfficeSwitcherOfficeGroupSummary>
     </details>,
-  )
-  const summary = screen.getByText('Summary Text')
-  expect(summary.closest('summary')).toBeInTheDocument()
-})
+  );
+  const summary = screen.getByText("Summary Text");
+  expect(summary.closest("summary")).toBeInTheDocument();
+});
 
-test('applies custom className', () => {
+test("applies custom className", () => {
   render(
     <details>
-      <OfficeSwitcherOfficeGroupSummary className="custom-summary">Summary Text</OfficeSwitcherOfficeGroupSummary>
+      <OfficeSwitcherOfficeGroupSummary className="custom-summary">
+        Summary Text
+      </OfficeSwitcherOfficeGroupSummary>
     </details>,
-  )
-  const summary = screen.getByText('Summary Text').closest('summary')
-  expect(summary).toHaveClass('custom-summary')
-})
+  );
+  const summary = screen.getByText("Summary Text").closest("summary");
+  expect(summary).toHaveClass("custom-summary");
+});
 
-test('applies id to the summary element', () => {
+test("applies id to the summary element", () => {
   render(
     <details>
-      <OfficeSwitcherOfficeGroupSummary id="custom-summary-id">Summary Text</OfficeSwitcherOfficeGroupSummary>
+      <OfficeSwitcherOfficeGroupSummary id="custom-summary-id">
+        Summary Text
+      </OfficeSwitcherOfficeGroupSummary>
     </details>,
-  )
-  const summary = screen.getByText('Summary Text').closest('summary')
-  expect(summary).toHaveAttribute('id', 'custom-summary-id')
-})
+  );
+  const summary = screen.getByText("Summary Text").closest("summary");
+  expect(summary).toHaveAttribute("id", "custom-summary-id");
+});
 
-test('generates a label id and uses it for aria-labelledby on the summary', () => {
+test("generates a label id and uses it for aria-labelledby on the summary", () => {
   render(
     <details>
       <OfficeSwitcherOfficeGroupSummary>Summary Text</OfficeSwitcherOfficeGroupSummary>
     </details>,
-  )
-  const summary = screen.getByText('Summary Text').closest('summary')
-  const label = screen.getByText('Summary Text')
-  const labelId = label.getAttribute('id')
+  );
+  const summary = screen.getByText("Summary Text").closest("summary");
+  const label = screen.getByText("Summary Text");
+  const labelId = label.getAttribute("id");
 
-  expect(labelId).toBeTruthy()
-  expect(summary).toHaveAttribute('aria-labelledby', labelId)
-})
+  expect(labelId).toBeTruthy();
+  expect(summary).toHaveAttribute("aria-labelledby", labelId);
+});
 
-test('uses provided aria-labelledby instead of generating one', () => {
+test("uses provided aria-labelledby instead of generating one", () => {
   render(
     <details>
       <OfficeSwitcherOfficeGroupSummary aria-labelledby="custom-label-id">
         Summary Text
       </OfficeSwitcherOfficeGroupSummary>
     </details>,
-  )
-  const summary = screen.getByText('Summary Text').closest('summary')
-  const label = screen.getByText('Summary Text')
+  );
+  const summary = screen.getByText("Summary Text").closest("summary");
+  const label = screen.getByText("Summary Text");
 
-  expect(label).toHaveAttribute('id', 'custom-label-id')
-  expect(summary).toHaveAttribute('aria-labelledby', 'custom-label-id')
-})
+  expect(label).toHaveAttribute("id", "custom-label-id");
+  expect(summary).toHaveAttribute("aria-labelledby", "custom-label-id");
+});

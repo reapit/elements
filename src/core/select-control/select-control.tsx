@@ -1,8 +1,8 @@
-import { FormControl } from '#src/core/form-control'
-import { Select } from '#src/core/select'
-import { useId } from 'react'
+import { useId } from "react";
+import type { ReactNode } from "react";
 
-import type { ReactNode } from 'react'
+import { FormControl } from "#src/core/form-control";
+import { Select } from "#src/core/select";
 
 export namespace SelectControl {
   export interface ButtonProps extends Select.ButtonProps {}
@@ -16,20 +16,20 @@ export namespace SelectControl {
   export interface SelectionChipsItemProps extends Select.SelectionChipsItemProps {}
 
   export interface Props extends Select.Props {
-    defaultOptions?: Select.DefaultOptionsContextValue
+    defaultOptions?: Select.DefaultOptionsContextValue;
     /** Optional error text that communicates why the select's value is invalid. */
-    errorText?: ReactNode
+    errorText?: ReactNode;
     /** Optional help text that provides more context about the select. */
-    helpText?: ReactNode
+    helpText?: ReactNode;
     /**
      * The visual label for the select. If no visual label is provided, an accessible
      * label should be provided via `aria-label`.
      */
-    label?: ReactNode
+    label?: ReactNode;
     /** The maximum width of the form control. */
-    maxWidth?: string
+    maxWidth?: string;
     /** Render-prop allowing custom rendering of selection chips. */
-    renderChips?: Select.SelectionChipsProps['children']
+    renderChips?: Select.SelectionChipsProps["children"];
   }
 }
 
@@ -50,14 +50,14 @@ export function SelectControl({
   renderChips,
   required,
   showValidity,
-  size = 'medium',
+  size = "medium",
   ...rest
 }: SelectControl.Props) {
-  const fallbackSelectId = useId()
-  const selectId = id ?? fallbackSelectId
-  const labelId = useId()
-  const helpTextId = useId()
-  const errorTextId = useId()
+  const fallbackSelectId = useId();
+  const selectId = id ?? fallbackSelectId;
+  const labelId = useId();
+  const helpTextId = useId();
+  const errorTextId = useId();
 
   return (
     <FormControl as="div" size={size} maxWidth={maxWidth}>
@@ -94,17 +94,17 @@ export function SelectControl({
         )}
       </Select.DefaultOptionsContext.Provider>
     </FormControl>
-  )
+  );
 }
 
-SelectControl.getValue = Select.getValue
-SelectControl.Button = Select.Button
-SelectControl.CardDefaultContent = Select.CardDefaultContent
-SelectControl.Divider = Select.Divider
-SelectControl.Listbox = Select.Listbox
-SelectControl.Option = Select.Option
-SelectControl.OptionAdditionalInfo = Select.OptionAdditionalInfo
-SelectControl.Optgroup = Select.Optgroup
-SelectControl.Popup = Select.Popup
-SelectControl.SelectionChipsItem = Select.SelectionChipsItem
-SelectControl.useState = Select.useState
+SelectControl.getValue = Select.getValue;
+SelectControl.Button = Select.Button;
+SelectControl.CardDefaultContent = Select.CardDefaultContent;
+SelectControl.Divider = Select.Divider;
+SelectControl.Listbox = Select.Listbox;
+SelectControl.Option = Select.Option;
+SelectControl.OptionAdditionalInfo = Select.OptionAdditionalInfo;
+SelectControl.Optgroup = Select.Optgroup;
+SelectControl.Popup = Select.Popup;
+SelectControl.SelectionChipsItem = Select.SelectionChipsItem;
+SelectControl.useState = Select.useState;

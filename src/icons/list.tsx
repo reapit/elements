@@ -1,4 +1,4 @@
-import ListSvg from './svgs/list.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import ListSvg from "./svgs/list.svg?react";
 
-export const ListIcon = makeIcon('ListIcon', ListSvg)
+export const ListIcon = makeIcon("ListIcon", ListSvg);

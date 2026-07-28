@@ -1,10 +1,9 @@
-import { styled } from '@linaria/react'
-
-import type { CSSProperties } from 'react'
+import { styled } from "@linaria/react";
+import type { CSSProperties } from "react";
 
 interface ElSideBarProps {
-  'data-state': 'collapsed' | 'expanded'
-  style?: { '--side-bar-width'?: string } & CSSProperties
+  "data-state": "collapsed" | "expanded";
+  style?: { "--side-bar-width"?: string } & CSSProperties;
 }
 
 export const ElSideBar = styled.nav<ElSideBarProps>`
@@ -27,16 +26,16 @@ export const ElSideBar = styled.nav<ElSideBarProps>`
     border-right: 1px solid var(--colour-border-neutral-light_default);
     background: var(--comp-navigation-colour-fill-sidebar-default);
 
-    &[data-state='collapsed'] {
+    &[data-state="collapsed"] {
       max-width: var(--size-16);
     }
 
-    &[data-state='expanded'] {
+    &[data-state="expanded"] {
       min-width: var(--size-48);
       max-width: var(--size-64);
     }
   }
-`
+`;
 
 export const ElSideBarBody = styled.div`
   @layer elements.main {
@@ -46,7 +45,7 @@ export const ElSideBarBody = styled.div`
 
     background: var(--comp-navigation-colour-fill-sidebar-default);
   }
-`
+`;
 
 export const ElSideBarFooter = styled.div`
   @layer elements.main {
@@ -58,4 +57,4 @@ export const ElSideBarFooter = styled.div`
 
     background: var(--comp-navigation-colour-fill-sidebar-default);
   }
-`
+`;

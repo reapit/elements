@@ -1,14 +1,15 @@
-import { render } from '@testing-library/react'
-import { SecondaryNav, SecondaryNavItem } from '..'
+import { render } from "@testing-library/react";
 
-describe('SecondaryNav component', () => {
-  it('should match a snapshot', () => {
+import { SecondaryNav, SecondaryNavItem } from "..";
+
+describe("SecondaryNav component", () => {
+  it("should match a snapshot", () => {
     const wrapper = render(
       <SecondaryNav>
         <SecondaryNavItem>App List</SecondaryNavItem>
         <SecondaryNavItem active>Create App</SecondaryNavItem>
       </SecondaryNav>,
-    )
-    expect(wrapper.asFragment()).toMatchSnapshot()
-  })
-})
+    );
+    expect(wrapper.asFragment()).toMatchSnapshot();
+  });
+});

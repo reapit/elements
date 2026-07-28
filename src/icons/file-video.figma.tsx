@@ -1,4 +1,5 @@
-import figma from '@figma/code-connect'
-import { FileVideoIcon } from './file-video'
+import figma from "@figma/code-connect";
 
-figma.connect(FileVideoIcon, 'https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=1616-77')
+import { FileVideoIcon } from "./file-video";
+
+figma.connect(FileVideoIcon, "https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=1616-77");

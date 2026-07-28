@@ -1,25 +1,26 @@
-import React from 'react'
-import { render } from '@testing-library/react'
-import { useDrawer, UseDrawer } from '../index'
-import { renderHook, act } from '@testing-library/react'
+import { render } from "@testing-library/react";
+import { renderHook, act } from "@testing-library/react";
+import React from "react";
 
-describe('useDrawer', () => {
-  it('should return UseDrawer type correctly', async () => {
-    const { result } = renderHook<{}, UseDrawer>(() => useDrawer('some-div'))
-    const Drawer = result.current[0]
+import { useDrawer, UseDrawer } from "../index";
 
-    expect(render(<Drawer />).asFragment()).toMatchSnapshot()
+describe("useDrawer", () => {
+  it("should return UseDrawer type correctly", async () => {
+    const { result } = renderHook<{}, UseDrawer>(() => useDrawer("some-div"));
+    const Drawer = result.current[0];
 
-    act(() => {
-      result.current[1]()
-    })
-
-    expect(result.current[3]).toBe(true)
+    expect(render(<Drawer />).asFragment()).toMatchSnapshot();
 
     act(() => {
-      result.current[2]()
-    })
+      result.current[1]();
+    });
 
-    expect(result.current[3]).toBe(false)
-  })
-})
+    expect(result.current[3]).toBe(true);
+
+    act(() => {
+      result.current[2]();
+    });
+
+    expect(result.current[3]).toBe(false);
+  });
+});

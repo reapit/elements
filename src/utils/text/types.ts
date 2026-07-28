@@ -1,18 +1,18 @@
 export const textColours = [
-  'primary',
-  'secondary',
-  'tertiary',
-  'white',
-  'error',
-  'info',
-  'success',
-  'warning',
-  'pending',
-  'placeholder',
-  'accent_1',
-  'accent_2',
-  'action',
-  'inherit',
-] as const
+  "primary",
+  "secondary",
+  "tertiary",
+  "white",
+  "error",
+  "info",
+  "success",
+  "warning",
+  "pending",
+  "placeholder",
+  "accent_1",
+  "accent_2",
+  "action",
+  "inherit",
+] as const;
 
-export type TextColour = (typeof textColours)[number]
+export type TextColour = (typeof textColours)[number];

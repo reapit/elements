@@ -1,12 +1,13 @@
-import preview from '#.storybook/preview'
-import { DeprecatedStatusIndicator } from '.'
+import preview from "#.storybook/preview";
+
+import { DeprecatedStatusIndicator } from ".";
 
 const meta = preview.meta({
-  title: 'Deprecated/DeprecatedStatusIndicator',
+  title: "Deprecated/DeprecatedStatusIndicator",
   component: DeprecatedStatusIndicator,
-})
+});
 
-export default meta
+export default meta;
 
 export const BasicUsage = meta.story({
   render: () => (
@@ -16,8 +17,8 @@ export const BasicUsage = meta.story({
     </div>
   ),
 
-  name: 'Basic usage',
-})
+  name: "Basic usage",
+});
 
 export const IntentPrimary = meta.story({
   render: () => (
@@ -27,8 +28,8 @@ export const IntentPrimary = meta.story({
     </div>
   ),
 
-  name: 'Intent: Primary',
-})
+  name: "Intent: Primary",
+});
 
 export const IntentNeutral = meta.story({
   render: () => (
@@ -38,8 +39,8 @@ export const IntentNeutral = meta.story({
     </div>
   ),
 
-  name: 'Intent: Neutral',
-})
+  name: "Intent: Neutral",
+});
 
 export const IntentSuccess = meta.story({
   render: () => (
@@ -49,8 +50,8 @@ export const IntentSuccess = meta.story({
     </div>
   ),
 
-  name: 'Intent: Success',
-})
+  name: "Intent: Success",
+});
 
 export const IntentPending = meta.story({
   render: () => (
@@ -60,8 +61,8 @@ export const IntentPending = meta.story({
     </div>
   ),
 
-  name: 'Intent: Pending',
-})
+  name: "Intent: Pending",
+});
 
 export const IntentWarning = meta.story({
   render: () => (
@@ -71,8 +72,8 @@ export const IntentWarning = meta.story({
     </div>
   ),
 
-  name: 'Intent: Warning',
-})
+  name: "Intent: Warning",
+});
 
 export const IntentDanger = meta.story({
   render: () => (
@@ -82,8 +83,8 @@ export const IntentDanger = meta.story({
     </div>
   ),
 
-  name: 'Intent: Danger',
-})
+  name: "Intent: Danger",
+});
 
 export const IntentDefault = meta.story({
   render: () => (
@@ -93,5 +94,5 @@ export const IntentDefault = meta.story({
     </div>
   ),
 
-  name: 'Intent: Default',
-})
+  name: "Intent: Default",
+});

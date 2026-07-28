@@ -1,8 +1,10 @@
-import { AutocompleteControl } from '../autocomplete-control'
-import { Autocomplete } from '#src/core/autocomplete'
-import { render, screen } from '@testing-library/react'
+import { render, screen } from "@testing-library/react";
 
-test('renders an autocomplete', () => {
+import { Autocomplete } from "#src/core/autocomplete";
+
+import { AutocompleteControl } from "../autocomplete-control";
+
+test("renders an autocomplete", () => {
   render(
     <AutocompleteControl label="Label">
       <Autocomplete.Button />
@@ -12,11 +14,11 @@ test('renders an autocomplete', () => {
         </Autocomplete.Listbox>
       </Autocomplete.Popup>
     </AutocompleteControl>,
-  )
-  expect(screen.getByRole('combobox')).toBeInTheDocument()
-})
+  );
+  expect(screen.getByRole("combobox")).toBeInTheDocument();
+});
 
-test('combobox has aria-labelledby pointing to label', () => {
+test("combobox has aria-labelledby pointing to label", () => {
   render(
     <AutocompleteControl label="Search for a user">
       <Autocomplete.Button />
@@ -26,18 +28,18 @@ test('combobox has aria-labelledby pointing to label', () => {
         </Autocomplete.Listbox>
       </Autocomplete.Popup>
     </AutocompleteControl>,
-  )
+  );
 
-  const combobox = screen.getByRole('combobox')
-  const labelledBy = combobox.getAttribute('aria-labelledby')
+  const combobox = screen.getByRole("combobox");
+  const labelledBy = combobox.getAttribute("aria-labelledby");
 
-  expect(labelledBy).toBeTruthy()
+  expect(labelledBy).toBeTruthy();
 
-  const label = document.getElementById(labelledBy!)
-  expect(label).toHaveTextContent('Search for a user')
-})
+  const label = document.getElementById(labelledBy!);
+  expect(label).toHaveTextContent("Search for a user");
+});
 
-test('displays error text, when provided', () => {
+test("displays error text, when provided", () => {
   render(
     <AutocompleteControl label="Label" helpText="Help text" errorText="Error text">
       <Autocomplete.Button />
@@ -47,11 +49,11 @@ test('displays error text, when provided', () => {
         </Autocomplete.Listbox>
       </Autocomplete.Popup>
     </AutocompleteControl>,
-  )
-  expect(screen.getByText('Error text')).toBeVisible()
-})
+  );
+  expect(screen.getByText("Error text")).toBeVisible();
+});
 
-test('displays help text, when provided and no error is present', () => {
+test("displays help text, when provided and no error is present", () => {
   render(
     <AutocompleteControl label="Label" helpText="Help text">
       <Autocomplete.Button />
@@ -61,11 +63,11 @@ test('displays help text, when provided and no error is present', () => {
         </Autocomplete.Listbox>
       </Autocomplete.Popup>
     </AutocompleteControl>,
-  )
-  expect(screen.getByText('Help text')).toBeVisible()
-})
+  );
+  expect(screen.getByText("Help text")).toBeVisible();
+});
 
-test('hides help text when error text is present', () => {
+test("hides help text when error text is present", () => {
   render(
     <AutocompleteControl label="Label" helpText="Help text" errorText="Error text">
       <Autocomplete.Button />
@@ -75,11 +77,11 @@ test('hides help text when error text is present', () => {
         </Autocomplete.Listbox>
       </Autocomplete.Popup>
     </AutocompleteControl>,
-  )
-  expect(screen.queryByText('Help text')).not.toBeInTheDocument()
-})
+  );
+  expect(screen.queryByText("Help text")).not.toBeInTheDocument();
+});
 
-test('associates the label with the autocomplete button', () => {
+test("associates the label with the autocomplete button", () => {
   render(
     <AutocompleteControl label="Fruit">
       <Autocomplete.Button />
@@ -89,11 +91,11 @@ test('associates the label with the autocomplete button', () => {
         </Autocomplete.Listbox>
       </Autocomplete.Popup>
     </AutocompleteControl>,
-  )
-  expect(screen.getByLabelText('Fruit')).toBe(screen.getByRole('combobox'))
-})
+  );
+  expect(screen.getByLabelText("Fruit")).toBe(screen.getByRole("combobox"));
+});
 
-test('applies the disabled attribute to the autocomplete', () => {
+test("applies the disabled attribute to the autocomplete", () => {
   render(
     <AutocompleteControl label="Label" disabled>
       <Autocomplete.Button />
@@ -103,11 +105,11 @@ test('applies the disabled attribute to the autocomplete', () => {
         </Autocomplete.Listbox>
       </Autocomplete.Popup>
     </AutocompleteControl>,
-  )
-  expect(screen.getByRole('combobox')).toBeDisabled()
-})
+  );
+  expect(screen.getByRole("combobox")).toBeDisabled();
+});
 
-test('applies the required attribute to the autocomplete', () => {
+test("applies the required attribute to the autocomplete", () => {
   render(
     <AutocompleteControl label="Label" required>
       <Autocomplete.Button />
@@ -117,11 +119,11 @@ test('applies the required attribute to the autocomplete', () => {
         </Autocomplete.Listbox>
       </Autocomplete.Popup>
     </AutocompleteControl>,
-  )
-  expect(screen.getByRole('combobox')).toBeRequired()
-})
+  );
+  expect(screen.getByRole("combobox")).toBeRequired();
+});
 
-test('uses provided id for the autocomplete button', () => {
+test("uses provided id for the autocomplete button", () => {
   render(
     <AutocompleteControl id="custom-id" label="Label">
       <Autocomplete.Button />
@@ -131,11 +133,11 @@ test('uses provided id for the autocomplete button', () => {
         </Autocomplete.Listbox>
       </Autocomplete.Popup>
     </AutocompleteControl>,
-  )
-  expect(screen.getByRole('combobox')).toHaveAttribute('id', 'custom-id')
-})
+  );
+  expect(screen.getByRole("combobox")).toHaveAttribute("id", "custom-id");
+});
 
-test('generates an id when none is provided', () => {
+test("generates an id when none is provided", () => {
   render(
     <AutocompleteControl label="Label">
       <Autocomplete.Button />
@@ -145,12 +147,12 @@ test('generates an id when none is provided', () => {
         </Autocomplete.Listbox>
       </Autocomplete.Popup>
     </AutocompleteControl>,
-  )
-  const button = screen.getByRole('combobox')
-  expect(button.getAttribute('id')).toBeTruthy()
-})
+  );
+  const button = screen.getByRole("combobox");
+  expect(button.getAttribute("id")).toBeTruthy();
+});
 
-test('supports different sizes', () => {
+test("supports different sizes", () => {
   const { rerender } = render(
     <AutocompleteControl label="Label" size="small">
       <Autocomplete.Button />
@@ -160,9 +162,9 @@ test('supports different sizes', () => {
         </Autocomplete.Listbox>
       </Autocomplete.Popup>
     </AutocompleteControl>,
-  )
-  const buttonContainer = screen.getByRole('combobox').parentElement
-  expect(buttonContainer).toHaveAttribute('data-size', 'small')
+  );
+  const buttonContainer = screen.getByRole("combobox").parentElement;
+  expect(buttonContainer).toHaveAttribute("data-size", "small");
 
   rerender(
     <AutocompleteControl label="Label" size="large">
@@ -173,12 +175,12 @@ test('supports different sizes', () => {
         </Autocomplete.Listbox>
       </Autocomplete.Popup>
     </AutocompleteControl>,
-  )
-  const buttonContainerLarge = screen.getByRole('combobox').parentElement
-  expect(buttonContainerLarge).toHaveAttribute('data-size', 'large')
-})
+  );
+  const buttonContainerLarge = screen.getByRole("combobox").parentElement;
+  expect(buttonContainerLarge).toHaveAttribute("data-size", "large");
+});
 
-test('renders correctly when multiple is true', () => {
+test("renders correctly when multiple is true", () => {
   render(
     <AutocompleteControl label="Label" multiple>
       <Autocomplete.Button />
@@ -188,11 +190,11 @@ test('renders correctly when multiple is true', () => {
         </Autocomplete.Listbox>
       </Autocomplete.Popup>
     </AutocompleteControl>,
-  )
-  expect(screen.getByRole('combobox')).toBeInTheDocument()
-})
+  );
+  expect(screen.getByRole("combobox")).toBeInTheDocument();
+});
 
-test('applies maxWidth to form control', () => {
+test("applies maxWidth to form control", () => {
   const { container } = render(
     <AutocompleteControl label="Label" maxWidth="300px">
       <Autocomplete.Button />
@@ -202,12 +204,12 @@ test('applies maxWidth to form control', () => {
         </Autocomplete.Listbox>
       </Autocomplete.Popup>
     </AutocompleteControl>,
-  )
-  const formControl = container.firstChild as HTMLElement
-  expect(formControl).toHaveStyle('max-width: 300px')
-})
+  );
+  const formControl = container.firstChild as HTMLElement;
+  expect(formControl).toHaveStyle("max-width: 300px");
+});
 
-test('renders without visual label when label prop is not provided', () => {
+test("renders without visual label when label prop is not provided", () => {
   const { container } = render(
     <AutocompleteControl>
       <Autocomplete.Button />
@@ -217,13 +219,13 @@ test('renders without visual label when label prop is not provided', () => {
         </Autocomplete.Listbox>
       </Autocomplete.Popup>
     </AutocompleteControl>,
-  )
-  expect(screen.getByRole('combobox')).toBeInTheDocument()
-  const label = container.querySelector('label')
-  expect(label).not.toBeInTheDocument()
-})
+  );
+  expect(screen.getByRole("combobox")).toBeInTheDocument();
+  const label = container.querySelector("label");
+  expect(label).not.toBeInTheDocument();
+});
 
-test('forwards additional attributes to the autocomplete', () => {
+test("forwards additional attributes to the autocomplete", () => {
   render(
     <AutocompleteControl data-testid="test-id" label="Label">
       <Autocomplete.Button />
@@ -233,12 +235,12 @@ test('forwards additional attributes to the autocomplete', () => {
         </Autocomplete.Listbox>
       </Autocomplete.Popup>
     </AutocompleteControl>,
-  )
-  const autocomplete = screen.getByTestId('test-id')
-  expect(autocomplete).toContainElement(screen.getByRole('combobox'))
-})
+  );
+  const autocomplete = screen.getByTestId("test-id");
+  expect(autocomplete).toContainElement(screen.getByRole("combobox"));
+});
 
-test('is described by the help text, when provided and no error is present', () => {
+test("is described by the help text, when provided and no error is present", () => {
   render(
     <AutocompleteControl label="Label" helpText="Help text">
       <Autocomplete.Button />
@@ -248,15 +250,15 @@ test('is described by the help text, when provided and no error is present', () 
         </Autocomplete.Listbox>
       </Autocomplete.Popup>
     </AutocompleteControl>,
-  )
-  const combobox = screen.getByRole('combobox')
-  expect(combobox).toHaveAttribute('aria-describedby')
-  expect(combobox).toHaveAccessibleDescription('Help text')
-  expect(combobox).not.toHaveAttribute('aria-errormessage')
-  expect(combobox).not.toHaveAttribute('aria-invalid')
-})
+  );
+  const combobox = screen.getByRole("combobox");
+  expect(combobox).toHaveAttribute("aria-describedby");
+  expect(combobox).toHaveAccessibleDescription("Help text");
+  expect(combobox).not.toHaveAttribute("aria-errormessage");
+  expect(combobox).not.toHaveAttribute("aria-invalid");
+});
 
-test('is described by the error text via aria-errormessage, when provided', () => {
+test("is described by the error text via aria-errormessage, when provided", () => {
   render(
     <AutocompleteControl label="Label" errorText="Error text">
       <Autocomplete.Button />
@@ -266,11 +268,11 @@ test('is described by the error text via aria-errormessage, when provided', () =
         </Autocomplete.Listbox>
       </Autocomplete.Popup>
     </AutocompleteControl>,
-  )
-  expect(screen.getByRole('combobox')).toHaveAccessibleErrorMessage('Error text')
-})
+  );
+  expect(screen.getByRole("combobox")).toHaveAccessibleErrorMessage("Error text");
+});
 
-test('sets aria-invalid to true when error text is present', () => {
+test("sets aria-invalid to true when error text is present", () => {
   render(
     <AutocompleteControl label="Label" errorText="Error text">
       <Autocomplete.Button />
@@ -280,11 +282,11 @@ test('sets aria-invalid to true when error text is present', () => {
         </Autocomplete.Listbox>
       </Autocomplete.Popup>
     </AutocompleteControl>,
-  )
-  expect(screen.getByRole('combobox')).toHaveAttribute('aria-invalid', 'true')
-})
+  );
+  expect(screen.getByRole("combobox")).toHaveAttribute("aria-invalid", "true");
+});
 
-test('does not set aria-invalid when error text is not present', () => {
+test("does not set aria-invalid when error text is not present", () => {
   render(
     <AutocompleteControl label="Label">
       <Autocomplete.Button />
@@ -294,11 +296,11 @@ test('does not set aria-invalid when error text is not present', () => {
         </Autocomplete.Listbox>
       </Autocomplete.Popup>
     </AutocompleteControl>,
-  )
-  expect(screen.getByRole('combobox')).not.toHaveAttribute('aria-invalid')
-})
+  );
+  expect(screen.getByRole("combobox")).not.toHaveAttribute("aria-invalid");
+});
 
-test('does not set aria-errormessage when error text is not present', () => {
+test("does not set aria-errormessage when error text is not present", () => {
   render(
     <AutocompleteControl label="Label" helpText="Help text">
       <Autocomplete.Button />
@@ -308,11 +310,11 @@ test('does not set aria-errormessage when error text is not present', () => {
         </Autocomplete.Listbox>
       </Autocomplete.Popup>
     </AutocompleteControl>,
-  )
-  expect(screen.getByRole('combobox')).not.toHaveAttribute('aria-errormessage')
-})
+  );
+  expect(screen.getByRole("combobox")).not.toHaveAttribute("aria-errormessage");
+});
 
-test('does not set aria-describedby when error text is present', () => {
+test("does not set aria-describedby when error text is present", () => {
   render(
     <AutocompleteControl label="Label" helpText="Help text" errorText="Error text">
       <Autocomplete.Button />
@@ -322,9 +324,9 @@ test('does not set aria-describedby when error text is present', () => {
         </Autocomplete.Listbox>
       </Autocomplete.Popup>
     </AutocompleteControl>,
-  )
-  expect(screen.getByRole('combobox')).not.toHaveAttribute('aria-describedby')
-})
+  );
+  expect(screen.getByRole("combobox")).not.toHaveAttribute("aria-describedby");
+});
 
 test('sets data-show-validity="true" on the autocomplete when error text is present', () => {
   render(
@@ -336,9 +338,12 @@ test('sets data-show-validity="true" on the autocomplete when error text is pres
         </Autocomplete.Listbox>
       </Autocomplete.Popup>
     </AutocompleteControl>,
-  )
-  expect(screen.getByRole('combobox').closest('[data-show-validity]')).toHaveAttribute('data-show-validity', 'true')
-})
+  );
+  expect(screen.getByRole("combobox").closest("[data-show-validity]")).toHaveAttribute(
+    "data-show-validity",
+    "true",
+  );
+});
 
 test('does not set data-show-validity="true" on the autocomplete when no error text is present', () => {
   render(
@@ -350,11 +355,14 @@ test('does not set data-show-validity="true" on the autocomplete when no error t
         </Autocomplete.Listbox>
       </Autocomplete.Popup>
     </AutocompleteControl>,
-  )
-  expect(screen.getByRole('combobox').closest('[data-show-validity]')).not.toHaveAttribute('data-show-validity', 'true')
-})
+  );
+  expect(screen.getByRole("combobox").closest("[data-show-validity]")).not.toHaveAttribute(
+    "data-show-validity",
+    "true",
+  );
+});
 
-test('respects an explicit showValidity={false} override even when error text is present', () => {
+test("respects an explicit showValidity={false} override even when error text is present", () => {
   render(
     <AutocompleteControl label="Label" errorText="Error text" showValidity={false}>
       <Autocomplete.Button />
@@ -364,6 +372,9 @@ test('respects an explicit showValidity={false} override even when error text is
         </Autocomplete.Listbox>
       </Autocomplete.Popup>
     </AutocompleteControl>,
-  )
-  expect(screen.getByRole('combobox').closest('[data-show-validity]')).toHaveAttribute('data-show-validity', 'false')
-})
+  );
+  expect(screen.getByRole("combobox").closest("[data-show-validity]")).toHaveAttribute(
+    "data-show-validity",
+    "false",
+  );
+});

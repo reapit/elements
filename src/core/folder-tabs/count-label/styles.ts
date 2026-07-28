@@ -1,6 +1,8 @@
-import { FOLDER_TABS_LARGE_CONTAINER_QUERY } from '../constants'
-import { font } from '#src/utils/font'
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
+
+import { font } from "#src/utils/font";
+
+import { FOLDER_TABS_LARGE_CONTAINER_QUERY } from "../constants";
 
 export const ElFolderTabCountContainer = styled.span`
   @layer elements.main {
@@ -15,21 +17,21 @@ export const ElFolderTabCountContainer = styled.span`
       gap: var(--spacing-3);
     }
   }
-`
+`;
 
 export const ElFolderTabCountText = styled.span`
   @layer elements.main {
-    ${font('base', 'bold')}
+    ${font("base", "bold")}
 
     ${FOLDER_TABS_LARGE_CONTAINER_QUERY} {
-      ${font('3xl', 'bold')}
+      ${font("3xl", "bold")}
     }
   }
-`
+`;
 
 export const ElFolderTabCountLabel = styled.span`
   @layer elements.main {
-    ${font('sm', 'medium')}
+    ${font("sm", "medium")}
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -45,9 +47,9 @@ export const ElFolderTabCountLabel = styled.span`
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 2;
 
-      ${font('base', 'medium')}
+      ${font("base", "medium")}
       white-space: normal;
       text-align: start;
     }
   }
-`
+`;

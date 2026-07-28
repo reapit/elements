@@ -1,14 +1,15 @@
-import { CompactSelectNative } from './compact-select-native'
-import figma from '@figma/code-connect'
+import figma from "@figma/code-connect";
 
-figma.connect(CompactSelectNative, '<COMPACT_SELECT_NATIVE_URL>', {
+import { CompactSelectNative } from "./compact-select-native";
+
+figma.connect(CompactSelectNative, "<COMPACT_SELECT_NATIVE_URL>", {
   props: {
-    size: figma.enum('Size', {
-      Small: 'small',
-      Medium: 'medium',
-      Large: 'large',
+    size: figma.enum("Size", {
+      Small: "small",
+      Medium: "medium",
+      Large: "large",
     }),
-    selectionLabel: figma.string('Selection label'),
+    selectionLabel: figma.string("Selection label"),
   },
   example: (props) => (
     <CompactSelectNative aria-label="change me" size={props.size}>
@@ -16,4 +17,4 @@ figma.connect(CompactSelectNative, '<COMPACT_SELECT_NATIVE_URL>', {
       {/* TODO: add remaining options */}
     </CompactSelectNative>
   ),
-})
+});

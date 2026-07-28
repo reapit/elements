@@ -51,15 +51,15 @@ Create `transform.ts` with a default export:
  */
 export default function transform(source: string, filePath: string): string {
   // Return early if unchanged
-  if (!source.includes('OldComponent')) {
-    return source
+  if (!source.includes("OldComponent")) {
+    return source;
   }
 
   // Perform transformation
-  let result = source
-  result = result.replace(/OldComponent/g, 'NewComponent')
+  let result = source;
+  result = result.replace(/OldComponent/g, "NewComponent");
 
-  return result
+  return result;
 }
 ```
 
@@ -145,35 +145,35 @@ Document what the codemod cannot handle:
 Create `__tests__/transform.test.ts`:
 
 ```typescript
-import transform from '../index'
+import transform from "../index";
 
-test('transforms component name', () => {
-  const input = `<OldComponent />`
-  const output = transform(input, 'test.tsx')
-  expect(output).toBe(`<NewComponent />`)
-})
+test("transforms component name", () => {
+  const input = `<OldComponent />`;
+  const output = transform(input, "test.tsx");
+  expect(output).toBe(`<NewComponent />`);
+});
 
-test('handles multiple occurrences', () => {
+test("handles multiple occurrences", () => {
   const input = `
     <OldComponent />
     <OldComponent prop="value" />
-  `
-  const output = transform(input, 'test.tsx')
-  expect(output).toContain('<NewComponent />')
-  expect(output).toContain('<NewComponent prop="value" />')
-})
+  `;
+  const output = transform(input, "test.tsx");
+  expect(output).toContain("<NewComponent />");
+  expect(output).toContain('<NewComponent prop="value" />');
+});
 
-test('returns unchanged when no matches', () => {
-  const input = `<SomeOtherComponent />`
-  const output = transform(input, 'test.tsx')
-  expect(output).toBe(input)
-})
+test("returns unchanged when no matches", () => {
+  const input = `<SomeOtherComponent />`;
+  const output = transform(input, "test.tsx");
+  expect(output).toBe(input);
+});
 
-test('handles edge case with children', () => {
-  const input = `<OldComponent><span>Content</span></OldComponent>`
-  const output = transform(input, 'test.tsx')
-  expect(output).toBe(`<NewComponent><span>Content</span></NewComponent>`)
-})
+test("handles edge case with children", () => {
+  const input = `<OldComponent><span>Content</span></OldComponent>`;
+  const output = transform(input, "test.tsx");
+  expect(output).toBe(`<NewComponent><span>Content</span></NewComponent>`);
+});
 ```
 
 **Test coverage guidelines:**
@@ -231,23 +231,23 @@ git commit -m "Add codemod for [migration description]"
 For complex transformations, use an AST parser like `ts-morph`:
 
 ```typescript
-import { Project, SyntaxKind } from 'ts-morph'
+import { Project, SyntaxKind } from "ts-morph";
 
 export default function transform(source: string, filePath: string): string {
-  const project = new Project({ useInMemoryFileSystem: true })
-  const sourceFile = project.createSourceFile('temp.tsx', source)
+  const project = new Project({ useInMemoryFileSystem: true });
+  const sourceFile = project.createSourceFile("temp.tsx", source);
 
   // Find all JSX elements
   sourceFile.getDescendantsOfKind(SyntaxKind.JsxElement).forEach((element) => {
-    const openingElement = element.getOpeningElement()
-    const tagName = openingElement.getTagNameNode()
+    const openingElement = element.getOpeningElement();
+    const tagName = openingElement.getTagNameNode();
 
-    if (tagName.getText() === 'OldComponent') {
-      tagName.replaceWithText('NewComponent')
+    if (tagName.getText() === "OldComponent") {
+      tagName.replaceWithText("NewComponent");
     }
-  })
+  });
 
-  return sourceFile.getFullText()
+  return sourceFile.getFullText();
 }
 ```
 
@@ -264,28 +264,30 @@ Clean up imports when removing unused components:
 
 ```typescript
 export default function transform(source: string, filePath: string): string {
-  let result = source
+  let result = source;
 
   // Transform components
-  result = result.replace(/<OldComponent /g, '<NewComponent ')
+  result = result.replace(/<OldComponent /g, "<NewComponent ");
 
   // Update imports only if old component no longer used
-  if (!result.includes('OldComponent')) {
+  if (!result.includes("OldComponent")) {
     result = result.replace(
       /import\s*{\s*([^}]*\bOldComponent\b[^}]*)\s*}\s*from\s*'([^']+)'/g,
       (match, imports, from) => {
         const updatedImports = imports
-          .split(',')
+          .split(",")
           .map((imp: string) => imp.trim())
-          .filter((imp: string) => imp !== 'OldComponent')
-          .join(', ')
+          .filter((imp: string) => imp !== "OldComponent")
+          .join(", ");
 
-        return updatedImports ? `import { ${updatedImports} } from '${from}'` : `import {} from '${from}'`
+        return updatedImports
+          ? `import { ${updatedImports} } from '${from}'`
+          : `import {} from '${from}'`;
       },
-    )
+    );
   }
 
-  return result
+  return result;
 }
 ```
 
@@ -296,7 +298,7 @@ Maintain code formatting and comments:
 ```typescript
 export default function transform(source: string, filePath: string): string {
   // Use precise regex to avoid breaking formatting
-  return source.replace(/(<)OldComponent(\s|>|\/)/g, '$1NewComponent$2')
+  return source.replace(/(<)OldComponent(\s|>|\/)/g, "$1NewComponent$2");
 }
 ```
 
@@ -324,12 +326,12 @@ Codemods execute user-provided file operations. The CLI enforces security:
 Test the transform function in isolation:
 
 ```typescript
-test('description of transformation', () => {
-  const input = `/* source code */`
-  const expected = `/* transformed code */`
-  const output = transform(input, 'test.tsx')
-  expect(output).toBe(expected)
-})
+test("description of transformation", () => {
+  const input = `/* source code */`;
+  const expected = `/* transformed code */`;
+  const output = transform(input, "test.tsx");
+  expect(output).toBe(expected);
+});
 ```
 
 ### Integration Tests
@@ -361,11 +363,11 @@ Before releasing, complete these steps:
 
 ```typescript
 // ❌ Bad: Transforms too much
-source.replace(/Button/g, 'NewButton')
+source.replace(/Button/g, "NewButton");
 // Transforms: "Button", "ButtonGroup", "submitButton", "//Button comment"
 
 // ✅ Good: Precise pattern matching
-source.replace(/<Button(\s|>|\/)/g, '<NewButton$1')
+source.replace(/<Button(\s|>|\/)/g, "<NewButton$1");
 // Only transforms JSX component usage
 ```
 
@@ -373,18 +375,18 @@ source.replace(/<Button(\s|>|\/)/g, '<NewButton$1')
 
 ```typescript
 // ❌ Bad: Assumes simple usage
-source.replace('<OldComponent />', '<NewComponent />')
+source.replace("<OldComponent />", "<NewComponent />");
 // Misses: <OldComponent prop="value" />
 
 // ✅ Good: Handles variations
-source.replace(/<OldComponent(\s|\/)/g, '<NewComponent$1')
+source.replace(/<OldComponent(\s|\/)/g, "<NewComponent$1");
 ```
 
 **Breaking code**
 
 ```typescript
 // ❌ Bad: Removes necessary code
-source.replace(/oldProp="[^"]*"/g, '')
+source.replace(/oldProp="[^"]*"/g, "");
 // Might break code that depends on the prop
 
 // ✅ Good: Transform or document limitation
@@ -396,16 +398,16 @@ source.replace(/oldProp="[^"]*"/g, '')
 ```typescript
 // ❌ Bad: Unnecessary work
 export default function transform(source: string) {
-  const project = new Project() // Always parses AST
+  const project = new Project(); // Always parses AST
   // ... transformation
 }
 
 // ✅ Good: Early return
 export default function transform(source: string) {
-  if (!source.includes('OldComponent')) {
-    return source // Skip expensive operations
+  if (!source.includes("OldComponent")) {
+    return source; // Skip expensive operations
   }
-  const project = new Project()
+  const project = new Project();
   // ... transformation
 }
 ```

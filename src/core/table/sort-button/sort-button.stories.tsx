@@ -1,26 +1,27 @@
-import preview from '#.storybook/preview'
-import { getNextSortDirection } from './sort-direction'
-import { Table } from '../table'
-import { Text } from '#src/utils/text'
-import { Tooltip } from '#src/core/tooltip'
-import { useArgs } from 'storybook/preview-api'
+import type { MouseEventHandler } from "react";
+import { useArgs } from "storybook/preview-api";
 
-import type { MouseEventHandler } from 'react'
-import type { SortDirection } from './sort-direction'
+import preview from "#.storybook/preview";
+import { Tooltip } from "#src/core/tooltip";
+import { Text } from "#src/utils/text";
+
+import { Table } from "../table";
+import { getNextSortDirection } from "./sort-direction";
+import type { SortDirection } from "./sort-direction";
 
 const meta = preview.meta({
-  title: 'Data and tables/Table/SortButton',
+  title: "Data and tables/Table/SortButton",
   component: Table.SortButton,
   argTypes: {
     children: {
-      control: 'text',
+      control: "text",
     },
     value: {
-      control: 'select',
-      options: ['ascending', 'descending', 'none'] satisfies SortDirection[],
+      control: "select",
+      options: ["ascending", "descending", "none"] satisfies SortDirection[],
     },
   },
-})
+});
 
 /**
  * To indicate that no sort is active for the column, use a value of "none". To change the sort
@@ -33,36 +34,36 @@ const meta = preview.meta({
  */
 export const Example = meta.story({
   args: {
-    children: 'Property',
-    name: 'address',
-    value: 'none',
+    children: "Property",
+    name: "address",
+    value: "none",
   },
   render: (args) => {
-    const [, setArgs] = useArgs()
+    const [, setArgs] = useArgs();
     const updateSortDirection: MouseEventHandler<HTMLButtonElement> = (event) => {
-      setArgs({ value: getNextSortDirection(event.currentTarget.value) })
-    }
-    return <Table.SortButton {...args} onClick={updateSortDirection} />
+      setArgs({ value: getNextSortDirection(event.currentTarget.value) });
+    };
+    return <Table.SortButton {...args} onClick={updateSortDirection} />;
   },
-})
+});
 
 /**
  * To indicate an ascending sort order for the column, use a value of "ascending".
  */
 export const Ascending = Example.extend({
   args: {
-    value: 'ascending',
+    value: "ascending",
   },
-})
+});
 
 /**
  * To indicate a descending sort order for the column, use a value of "descending".
  */
 export const Descending = Example.extend({
   args: {
-    value: 'descending',
+    value: "descending",
   },
-})
+});
 
 /**
  * The sort button inherits `justify-content` from its parent. This allows it to match the alignment
@@ -70,23 +71,23 @@ export const Descending = Example.extend({
  */
 export const Alignment = Example.extend({
   args: {
-    value: 'descending',
+    value: "descending",
   },
   decorators: [
     (Story) => (
       <div
         style={{
-          boxSizing: 'content-box',
-          border: '1px solid #FA00FF',
-          width: '300px',
-          justifyContent: 'end',
+          boxSizing: "content-box",
+          border: "1px solid #FA00FF",
+          width: "300px",
+          justifyContent: "end",
         }}
       >
         <Story />
       </div>
     ),
   ],
-})
+});
 
 /**
  * Column headers should rarely be permitted to truncate, but when it is unavoidable, it's possible
@@ -96,7 +97,7 @@ export const Alignment = Example.extend({
  */
 export const Truncation = Descending.extend({
   args: {
-    'aria-labelledby': 'tooltip',
+    "aria-labelledby": "tooltip",
 
     children: (
       <>
@@ -109,19 +110,19 @@ export const Truncation = Descending.extend({
       </>
     ),
 
-    id: 'sort-button',
+    id: "sort-button",
   },
   decorators: [
     (Story) => (
       <div
         style={{
-          boxSizing: 'content-box',
-          border: '1px solid #FA00FF',
-          width: '100px',
+          boxSizing: "content-box",
+          border: "1px solid #FA00FF",
+          width: "100px",
         }}
       >
         <Story />
       </div>
     ),
   ],
-})
+});

@@ -19,11 +19,24 @@
     "diagnostics": true,
     "declaration": true,
     "declarationMap": true,
-    "types": ["vite/client", "vitest/globals", "vite-plugin-svgr/client", "@testing-library/jest-dom/vitest"],
+    "types": [
+      "vite/client",
+      "vitest/globals",
+      "vite-plugin-svgr/client",
+      "@testing-library/jest-dom/vitest"
+    ],
     "lib": ["ESNext", "dom"],
     "outDir": "dist/types",
     "rootDir": "./"
   },
   "include": [".storybook", "codemods", "src", "workers"],
-  "exclude": [".yarn", "archive", "dist", "node_modules", "public", "scripts/cdk", "storybook-static"]
+  "exclude": [
+    ".yarn",
+    "archive",
+    "dist",
+    "node_modules",
+    "public",
+    "scripts/cdk",
+    "storybook-static"
+  ]
 }

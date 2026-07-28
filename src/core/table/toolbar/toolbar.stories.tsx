@@ -1,35 +1,36 @@
-import preview from '#.storybook/preview'
-import { ButtonGroup } from '#src/core/button-group'
-import { Button } from '#src/core/button'
-import { CompactSelectNative } from '#src/core/compact-select-native'
-import { Skeleton } from '#src/core/skeleton'
-import { Table } from '../table'
+import preview from "#.storybook/preview";
+import { Button } from "#src/core/button";
+import { ButtonGroup } from "#src/core/button-group";
+import { CompactSelectNative } from "#src/core/compact-select-native";
+import { Skeleton } from "#src/core/skeleton";
+
+import { Table } from "../table";
 
 const meta = preview.meta({
-  title: 'Data and tables/Table/Toolbar',
+  title: "Data and tables/Table/Toolbar",
   component: Table.Toolbar,
   argTypes: {
     leftContent: {
-      control: 'radio',
-      options: ['Item count', 'Selection count', 'Skeleton'],
+      control: "radio",
+      options: ["Item count", "Selection count", "Skeleton"],
       mapping: {
-        'Item count': '251 properties',
-        'Selection count': '10 of 251 selected',
+        "Item count": "251 properties",
+        "Selection count": "10 of 251 selected",
         Skeleton: <Skeleton width="100px" />,
       },
     },
     rightContent: {
-      control: 'radio',
-      options: ['Page size', 'Batch actions'],
+      control: "radio",
+      options: ["Page size", "Batch actions"],
       mapping: {
-        'Page size': (
+        "Page size": (
           <CompactSelectNative aria-label="Page size" size="small">
             <option value="25">Page size: 25</option>
             <option value="50">Page size: 50</option>
             <option value="100">Page size: 100</option>
           </CompactSelectNative>
         ),
-        'Batch actions': (
+        "Batch actions": (
           <ButtonGroup>
             <Button size="small" variant="secondary">
               Action 1
@@ -46,9 +47,9 @@ const meta = preview.meta({
     },
   },
   globals: {
-    backgrounds: 'light',
+    backgrounds: "light",
   },
-})
+});
 
 /**
  * By default, the toolbar is used to display the number of items in the result set being displayed by
@@ -60,10 +61,10 @@ const meta = preview.meta({
  */
 export const Example = meta.story({
   args: {
-    leftContent: 'Item count',
-    rightContent: 'Page size',
+    leftContent: "Item count",
+    rightContent: "Page size",
   },
-})
+});
 
 /**
  * Correctly formatting the item count information requires some care because languages have different
@@ -76,19 +77,19 @@ export const Example = meta.story({
  * how this API can be used in a simplistic manner (i.e., English-only).
  */
 export const PluralNouns = meta.story({
-  name: 'Plural nouns',
-  parameters: { docs: { source: { type: 'code' } } },
+  name: "Plural nouns",
+  parameters: { docs: { source: { type: "code" } } },
   render: () => {
-    const itemCount = 10
-    const pluralRules = new Intl.PluralRules('en')
+    const itemCount = 10;
+    const pluralRules = new Intl.PluralRules("en");
     const nounMap = {
-      one: 'lemming',
-      other: 'lemmings',
-    }
-    const noun = nounMap[pluralRules.select(itemCount)]
-    return <Table.Toolbar leftContent={`${itemCount} ${noun}`} />
+      one: "lemming",
+      other: "lemmings",
+    };
+    const noun = nounMap[pluralRules.select(itemCount)];
+    return <Table.Toolbar leftContent={`${itemCount} ${noun}`} />;
   },
-})
+});
 
 /**
  * For tables that support bulk actions (actions performed on multiple items), when the user selects one
@@ -97,30 +98,30 @@ export const PluralNouns = meta.story({
  */
 export const SelectionCount = Example.extend({
   args: {
-    leftContent: 'Selection count',
-    rightContent: 'Batch actions',
+    leftContent: "Selection count",
+    rightContent: "Batch actions",
   },
-})
+});
 
 /**
  * In some rare cases, the toolbar may only need to display the item count.
  */
 export const LeftContentOnly = Example.extend({
-  name: 'Left content only',
+  name: "Left content only",
   args: {
     rightContent: null,
   },
-})
+});
 
 /**
  * In other rare cases, the toolbar may only need to display some controls or actions.
  */
 export const RightContentOnly = Example.extend({
-  name: 'Right content only',
+  name: "Right content only",
   args: {
     leftContent: null,
   },
-})
+});
 
 /**
  * When the table data is still loading when the toolbar is displayed, a skeleton can be used in place of
@@ -129,6 +130,6 @@ export const RightContentOnly = Example.extend({
  */
 export const Loading = Example.extend({
   args: {
-    leftContent: 'Skeleton',
+    leftContent: "Skeleton",
   },
-})
+});

@@ -1,109 +1,110 @@
-import { render, act } from '@testing-library/react'
-import { outletStack } from '../outlet-stack'
-import { toastStore } from '../store'
-import { ToastOutlet } from '../toast-outlet'
+import { render, act } from "@testing-library/react";
+
+import { outletStack } from "../outlet-stack";
+import { toastStore } from "../store";
+import { ToastOutlet } from "../toast-outlet";
 
 beforeEach(() => {
   if (!HTMLElement.prototype.showPopover) {
-    HTMLElement.prototype.showPopover = () => undefined
+    HTMLElement.prototype.showPopover = () => undefined;
   }
   if (!HTMLElement.prototype.hidePopover) {
-    HTMLElement.prototype.hidePopover = () => undefined
+    HTMLElement.prototype.hidePopover = () => undefined;
   }
-})
+});
 
 afterEach(() => {
   for (const entry of toastStore.getSnapshot()) {
-    toastStore.remove(entry.id)
+    toastStore.remove(entry.id);
   }
-})
+});
 
-test('registers itself on the outlet stack when mounted', () => {
-  expect(outletStack.getSnapshot()).toBeNull()
+test("registers itself on the outlet stack when mounted", () => {
+  expect(outletStack.getSnapshot()).toBeNull();
 
-  const { unmount } = render(<ToastOutlet />)
+  const { unmount } = render(<ToastOutlet />);
 
-  expect(outletStack.getSnapshot()).toBeInstanceOf(HTMLElement)
+  expect(outletStack.getSnapshot()).toBeInstanceOf(HTMLElement);
 
-  unmount()
-})
+  unmount();
+});
 
-test('removes itself from the outlet stack when unmounted', () => {
-  const { unmount } = render(<ToastOutlet />)
-  expect(outletStack.getSnapshot()).not.toBeNull()
+test("removes itself from the outlet stack when unmounted", () => {
+  const { unmount } = render(<ToastOutlet />);
+  expect(outletStack.getSnapshot()).not.toBeNull();
 
-  unmount()
+  unmount();
 
-  expect(outletStack.getSnapshot()).toBeNull()
-})
+  expect(outletStack.getSnapshot()).toBeNull();
+});
 
-test('the most recently mounted outlet is at the top of the stack', () => {
-  const { unmount: unmountFirst } = render(<ToastOutlet />)
-  const first = outletStack.getSnapshot()
+test("the most recently mounted outlet is at the top of the stack", () => {
+  const { unmount: unmountFirst } = render(<ToastOutlet />);
+  const first = outletStack.getSnapshot();
 
-  const { unmount: unmountSecond } = render(<ToastOutlet />)
-  const second = outletStack.getSnapshot()
+  const { unmount: unmountSecond } = render(<ToastOutlet />);
+  const second = outletStack.getSnapshot();
 
-  expect(second).not.toBe(first)
-
-  act(() => {
-    unmountSecond()
-  })
-
-  expect(outletStack.getSnapshot()).toBe(first)
-
-  unmountFirst()
-})
-
-test('calls showPopover when it is the active outlet and toasts exist', () => {
-  const showSpy = vi.spyOn(HTMLElement.prototype, 'showPopover')
-
-  const { unmount } = render(<ToastOutlet />)
+  expect(second).not.toBe(first);
 
   act(() => {
-    toastStore.add({ variant: 'neutral', message: 'Hello' })
-  })
+    unmountSecond();
+  });
 
-  expect(showSpy).toHaveBeenCalled()
+  expect(outletStack.getSnapshot()).toBe(first);
 
-  showSpy.mockRestore()
-  unmount()
-})
+  unmountFirst();
+});
 
-test('calls hidePopover when toasts are removed', () => {
-  const hideSpy = vi.spyOn(HTMLElement.prototype, 'hidePopover')
+test("calls showPopover when it is the active outlet and toasts exist", () => {
+  const showSpy = vi.spyOn(HTMLElement.prototype, "showPopover");
 
-  const id = toastStore.add({ variant: 'neutral', message: 'Hello' })
-  const { unmount } = render(<ToastOutlet />)
-
-  hideSpy.mockClear()
+  const { unmount } = render(<ToastOutlet />);
 
   act(() => {
-    toastStore.remove(id)
-  })
+    toastStore.add({ variant: "neutral", message: "Hello" });
+  });
 
-  expect(hideSpy).toHaveBeenCalled()
+  expect(showSpy).toHaveBeenCalled();
 
-  hideSpy.mockRestore()
-  unmount()
-})
+  showSpy.mockRestore();
+  unmount();
+});
 
-test('does not call showPopover when it is not the active outlet', () => {
-  const showSpy = vi.spyOn(HTMLElement.prototype, 'showPopover')
+test("calls hidePopover when toasts are removed", () => {
+  const hideSpy = vi.spyOn(HTMLElement.prototype, "hidePopover");
 
-  const { unmount: unmountFirst } = render(<ToastOutlet />)
-  const { unmount: unmountSecond } = render(<ToastOutlet />)
+  const id = toastStore.add({ variant: "neutral", message: "Hello" });
+  const { unmount } = render(<ToastOutlet />);
 
-  showSpy.mockClear()
+  hideSpy.mockClear();
 
   act(() => {
-    toastStore.add({ variant: 'neutral', message: 'Hello' })
-  })
+    toastStore.remove(id);
+  });
+
+  expect(hideSpy).toHaveBeenCalled();
+
+  hideSpy.mockRestore();
+  unmount();
+});
+
+test("does not call showPopover when it is not the active outlet", () => {
+  const showSpy = vi.spyOn(HTMLElement.prototype, "showPopover");
+
+  const { unmount: unmountFirst } = render(<ToastOutlet />);
+  const { unmount: unmountSecond } = render(<ToastOutlet />);
+
+  showSpy.mockClear();
+
+  act(() => {
+    toastStore.add({ variant: "neutral", message: "Hello" });
+  });
 
   // showPopover should only be called once — on the active (second) outlet
-  expect(showSpy).toHaveBeenCalledTimes(1)
+  expect(showSpy).toHaveBeenCalledTimes(1);
 
-  showSpy.mockRestore()
-  unmountSecond()
-  unmountFirst()
-})
+  showSpy.mockRestore();
+  unmountSecond();
+  unmountFirst();
+});

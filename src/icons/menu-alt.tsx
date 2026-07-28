@@ -1,4 +1,4 @@
-import MenuAltSvg from './svgs/menu-alt.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import MenuAltSvg from "./svgs/menu-alt.svg?react";
 
-export const MenuAltIcon = makeIcon('MenuAltIcon', MenuAltSvg)
+export const MenuAltIcon = makeIcon("MenuAltIcon", MenuAltSvg);

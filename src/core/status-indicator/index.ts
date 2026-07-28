@@ -1,1 +1,1 @@
-export { StatusIndicator } from './status-indicator'
+export { StatusIndicator } from "./status-indicator";

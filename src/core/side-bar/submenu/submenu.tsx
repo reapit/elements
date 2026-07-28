@@ -1,19 +1,19 @@
-import { SideBarSubmenuListItem } from './submenu-list-item'
-import { ElSideBarSubmenuList } from './styles'
+import type { ComponentProps, ReactNode } from "react";
 
-import type { ComponentProps, ReactNode } from 'react'
+import { ElSideBarSubmenuList } from "./styles";
+import { SideBarSubmenuListItem } from "./submenu-list-item";
 
 export namespace SideBarSubmenu {
   export interface Props extends ComponentProps<typeof ElSideBarSubmenuList> {
     /** A collection of items, typically `SideBar.SubmenuItem` components */
-    children: ReactNode
+    children: ReactNode;
   }
 }
 
 /**
  * @deprecated Use `SideBarSubmenu.Props` instead
  */
-export type SideBarSubmenuProps = SideBarSubmenu.Props
+export type SideBarSubmenuProps = SideBarSubmenu.Props;
 
 /**
  * A simple submenu for use in a `SideBar`. Typically used via `SideBar.Submenu` as the child of a
@@ -21,9 +21,9 @@ export type SideBarSubmenuProps = SideBarSubmenu.Props
  * as children. Only one items, if any, in the submenu should represent the current page at any given time.
  */
 export function SideBarSubmenu({ children, ...rest }: SideBarSubmenu.Props) {
-  return <ElSideBarSubmenuList {...rest}>{children}</ElSideBarSubmenuList>
+  return <ElSideBarSubmenuList {...rest}>{children}</ElSideBarSubmenuList>;
 }
 
-SideBarSubmenu.displayName = 'SideBar.Submenu'
+SideBarSubmenu.displayName = "SideBar.Submenu";
 
-SideBarSubmenu.Item = SideBarSubmenuListItem
+SideBarSubmenu.Item = SideBarSubmenuListItem;

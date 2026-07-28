@@ -1,4 +1,4 @@
-import { css } from '@linaria/core'
+import { css } from "@linaria/core";
 
 export const elFormLayoutSection = css`
   @layer elements.main {
@@ -7,4 +7,4 @@ export const elFormLayoutSection = css`
     gap: var(--spacing-6);
     width: 100%;
   }
-`
+`;

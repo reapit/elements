@@ -1,1 +1,1 @@
-export { CompactSelectNative } from './compact-select-native'
+export { CompactSelectNative } from "./compact-select-native";

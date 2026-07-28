@@ -1,4 +1,5 @@
-import { SourceFile, SyntaxKind } from 'ts-morph'
+import { SourceFile, SyntaxKind } from "ts-morph";
+
 import {
   isElementsImport,
   matchesPackage,
@@ -6,7 +7,7 @@ import {
   addImportsToTarget,
   transformTypeReferences,
   syncClosingTag,
-} from '../shared/index.js'
+} from "../shared/index.js";
 
 /**
  * Codemod to upgrade deprecated split-button identifiers to their core equivalents.
@@ -48,10 +49,10 @@ import {
 
 /** Mapping from deprecated import names to their core equivalents. */
 const IDENTIFIER_MAP: Record<string, string> = {
-  DeprecatedSplitButton: 'SplitButton',
-  DeprecatedActionButton: 'SplitButtonAction',
-  DeprecatedMenuButton: 'SplitButtonMenuButton',
-}
+  DeprecatedSplitButton: "SplitButton",
+  DeprecatedActionButton: "SplitButtonAction",
+  DeprecatedMenuButton: "SplitButtonMenuButton",
+};
 
 /**
  * The TODO comment block inserted above each renamed <SplitButton> element.
@@ -64,7 +65,7 @@ const TODO_COMMENT = `// TODO(upgrade-deprecated-split-button): Restructure to u
 // Children must be moved into \`action\` and \`menu\` props.
 // \`variant\` and \`size\` (both required) must be set on <SplitButton> rather than sub-components.
 // \`variant="busy"\` on sub-components maps to \`busy="action"\` or \`busy="menu-item"\` on the parent.
-// <SplitButton.Menu> now requires \`aria-label\` and children (menu items).`
+// <SplitButton.Menu> now requires \`aria-label\` and children (menu items).`;
 
 /**
  * Collects the set of names used in JSX for each deprecated identifier, accounting
@@ -74,35 +75,38 @@ const TODO_COMMENT = `// TODO(upgrade-deprecated-split-button): Restructure to u
  * Returns a map from the JSX-visible name to the original deprecated name, so we
  * can later decide whether to rename (non-aliased) or leave untouched (aliased).
  */
-function getDeprecatedAliasMap(sourceFile: SourceFile, facadePackage?: string): Map<string, string> {
-  const aliasMap = new Map<string, string>()
+function getDeprecatedAliasMap(
+  sourceFile: SourceFile,
+  facadePackage?: string,
+): Map<string, string> {
+  const aliasMap = new Map<string, string>();
 
   for (const importDecl of sourceFile.getImportDeclarations()) {
-    const moduleSpecifier = importDecl.getModuleSpecifierValue()
+    const moduleSpecifier = importDecl.getModuleSpecifierValue();
 
-    if (!isElementsImport(moduleSpecifier, facadePackage)) continue
+    if (!isElementsImport(moduleSpecifier, facadePackage)) continue;
 
     for (const namedImport of importDecl.getNamedImports()) {
-      const originalName = namedImport.getName()
+      const originalName = namedImport.getName();
 
-      if (!(originalName in IDENTIFIER_MAP)) continue
+      if (!(originalName in IDENTIFIER_MAP)) continue;
 
-      const alias = namedImport.getAliasNode()?.getText()
-      aliasMap.set(alias ?? originalName, originalName)
+      const alias = namedImport.getAliasNode()?.getText();
+      aliasMap.set(alias ?? originalName, originalName);
     }
   }
 
   // Handle test snippets without imports — only add names that actually appear in the source
   if (aliasMap.size === 0 && sourceFile.getImportDeclarations().length === 0) {
-    const sourceText = sourceFile.getFullText()
+    const sourceText = sourceFile.getFullText();
     for (const name of Object.keys(IDENTIFIER_MAP)) {
       if (sourceText.includes(name)) {
-        aliasMap.set(name, name)
+        aliasMap.set(name, name);
       }
     }
   }
 
-  return aliasMap
+  return aliasMap;
 }
 
 /**
@@ -113,60 +117,60 @@ function getDeprecatedAliasMap(sourceFile: SourceFile, facadePackage?: string): 
  * import declaration and the module specifier is left unchanged.
  */
 function transformImports(sourceFile: SourceFile, facadePackage?: string): void {
-  const elementsImportsToAdd: Array<{ name: string; alias?: string; isTypeOnly: boolean }> = []
+  const elementsImportsToAdd: Array<{ name: string; alias?: string; isTypeOnly: boolean }> = [];
 
-  const importDeclarations = sourceFile.getImportDeclarations().slice()
-  const targetModuleSpecifier = '@reapit/elements/core/split-button'
+  const importDeclarations = sourceFile.getImportDeclarations().slice();
+  const targetModuleSpecifier = "@reapit/elements/core/split-button";
 
   for (const importDecl of importDeclarations) {
-    if (importDecl.wasForgotten()) continue
+    if (importDecl.wasForgotten()) continue;
 
-    const moduleSpecifier = importDecl.getModuleSpecifierValue()
+    const moduleSpecifier = importDecl.getModuleSpecifierValue();
 
-    if (!isElementsImport(moduleSpecifier, facadePackage)) continue
+    if (!isElementsImport(moduleSpecifier, facadePackage)) continue;
 
     // Skip imports already targeting core/split-button
-    if (moduleSpecifier === targetModuleSpecifier) continue
+    if (moduleSpecifier === targetModuleSpecifier) continue;
 
-    const isFacade = facadePackage !== undefined && matchesPackage(moduleSpecifier, facadePackage)
+    const isFacade = facadePackage !== undefined && matchesPackage(moduleSpecifier, facadePackage);
 
-    const namedImports = importDecl.getNamedImports()
-    const importsToRemove: typeof namedImports = []
+    const namedImports = importDecl.getNamedImports();
+    const importsToRemove: typeof namedImports = [];
 
     for (const namedImport of namedImports) {
-      const originalName = namedImport.getName()
+      const originalName = namedImport.getName();
 
       // Handle DeprecatedSplitButtonProps — always removed from imports
-      if (originalName === 'DeprecatedSplitButtonProps') {
-        importsToRemove.push(namedImport)
-        continue
+      if (originalName === "DeprecatedSplitButtonProps") {
+        importsToRemove.push(namedImport);
+        continue;
       }
 
-      const newName = IDENTIFIER_MAP[originalName]
-      if (!newName) continue
+      const newName = IDENTIFIER_MAP[originalName];
+      if (!newName) continue;
 
-      if (isFacade && !matchesPackage(moduleSpecifier, '@reapit/elements')) {
+      if (isFacade && !matchesPackage(moduleSpecifier, "@reapit/elements")) {
         // Facade imports: rename in-place, keep module specifier (and any alias) unchanged.
         // setName replaces only the name before `as`, so aliases are preserved automatically.
-        namedImport.setName(newName)
+        namedImport.setName(newName);
       } else {
         // @reapit/elements imports: collect for new import, remove from original
-        const existingAlias = namedImport.getAliasNode()?.getText()
-        const isTypeOnly = namedImport.isTypeOnly()
+        const existingAlias = namedImport.getAliasNode()?.getText();
+        const isTypeOnly = namedImport.isTypeOnly();
 
         elementsImportsToAdd.push({
           name: newName,
           alias: existingAlias,
           isTypeOnly,
-        })
+        });
 
-        importsToRemove.push(namedImport)
+        importsToRemove.push(namedImport);
       }
     }
 
     // Remove collected specifiers from the original import
     for (const namedImport of importsToRemove) {
-      namedImport.remove()
+      namedImport.remove();
     }
 
     // Clean up empty import declarations
@@ -175,12 +179,14 @@ function transformImports(sourceFile: SourceFile, facadePackage?: string): void 
       !importDecl.getDefaultImport() &&
       !importDecl.getNamespaceImport()
     ) {
-      importDecl.remove()
+      importDecl.remove();
     }
   }
 
   // Add new @reapit/elements/core/split-button import if needed
-  addImportsToTarget(sourceFile, elementsImportsToAdd, targetModuleSpecifier, { promoteDeclarationTypeOnly: true })
+  addImportsToTarget(sourceFile, elementsImportsToAdd, targetModuleSpecifier, {
+    promoteDeclarationTypeOnly: true,
+  });
 }
 
 /**
@@ -195,72 +201,73 @@ function transformImports(sourceFile: SourceFile, facadePackage?: string): void 
  * can be inserted afterwards.
  */
 function transformJsxElements(sourceFile: SourceFile, aliasMap: Map<string, string>): Set<number> {
-  const todoLines = new Set<number>()
+  const todoLines = new Set<number>();
 
   const jsxElements = [
     ...sourceFile.getDescendantsOfKind(SyntaxKind.JsxOpeningElement),
     ...sourceFile.getDescendantsOfKind(SyntaxKind.JsxSelfClosingElement),
-  ]
+  ];
 
   for (const element of jsxElements) {
-    const tagNameNode = element.getTagNameNode()
-    const tagNameText = tagNameNode.getText()
+    const tagNameNode = element.getTagNameNode();
+    const tagNameText = tagNameNode.getText();
 
     // Handle compound member expressions: DeprecatedSplitButton.Action, DeprecatedSplitButton.Menu
     if (tagNameNode.getKind() === SyntaxKind.PropertyAccessExpression) {
-      const propAccess = tagNameNode.asKind(SyntaxKind.PropertyAccessExpression)!
-      const objectText = propAccess.getExpression().getText()
+      const propAccess = tagNameNode.asKind(SyntaxKind.PropertyAccessExpression)!;
+      const objectText = propAccess.getExpression().getText();
 
       // Only rename if the object part is a non-aliased deprecated identifier
-      const originalName = aliasMap.get(objectText)
-      if (originalName === 'DeprecatedSplitButton' && objectText === 'DeprecatedSplitButton') {
-        propAccess.getExpression().replaceWithText('SplitButton')
+      const originalName = aliasMap.get(objectText);
+      if (originalName === "DeprecatedSplitButton" && objectText === "DeprecatedSplitButton") {
+        propAccess.getExpression().replaceWithText("SplitButton");
       }
 
       // Also handle closing tag for compound expressions
       if (element.getKind() === SyntaxKind.JsxOpeningElement) {
-        const parent = element.getParent()
+        const parent = element.getParent();
         if (parent?.getKind() === SyntaxKind.JsxElement) {
-          const closingElement = parent.asKind(SyntaxKind.JsxElement)?.getClosingElement()
+          const closingElement = parent.asKind(SyntaxKind.JsxElement)?.getClosingElement();
           if (closingElement) {
-            const closingTag = closingElement.getTagNameNode()
+            const closingTag = closingElement.getTagNameNode();
             if (closingTag.getKind() === SyntaxKind.PropertyAccessExpression) {
-              const closingPropAccess = closingTag.asKind(SyntaxKind.PropertyAccessExpression)!
-              const closingObjectText = closingPropAccess.getExpression().getText()
-              if (closingObjectText === 'DeprecatedSplitButton') {
-                closingPropAccess.getExpression().replaceWithText('SplitButton')
+              const closingPropAccess = closingTag.asKind(SyntaxKind.PropertyAccessExpression)!;
+              const closingObjectText = closingPropAccess.getExpression().getText();
+              if (closingObjectText === "DeprecatedSplitButton") {
+                closingPropAccess.getExpression().replaceWithText("SplitButton");
               }
             }
           }
         }
       }
 
-      continue
+      continue;
     }
 
     // Handle simple identifiers: DeprecatedSplitButton, DeprecatedActionButton, DeprecatedMenuButton
-    const originalName = aliasMap.get(tagNameText)
-    if (!originalName) continue
+    const originalName = aliasMap.get(tagNameText);
+    if (!originalName) continue;
 
-    const newName = IDENTIFIER_MAP[originalName]
-    if (!newName) continue
+    const newName = IDENTIFIER_MAP[originalName];
+    if (!newName) continue;
 
     // Only rename if the tag name matches the original (non-aliased) deprecated identifier
-    if (tagNameText !== originalName) continue
+    if (tagNameText !== originalName) continue;
 
-    tagNameNode.replaceWithText(newName)
+    tagNameNode.replaceWithText(newName);
 
     // Track line numbers for TODO comments (only for DeprecatedSplitButton → SplitButton)
-    if (originalName === 'DeprecatedSplitButton') {
-      const containingNode = element.getKind() === SyntaxKind.JsxOpeningElement ? element.getParent()! : element
-      todoLines.add(containingNode.getStartLineNumber())
+    if (originalName === "DeprecatedSplitButton") {
+      const containingNode =
+        element.getKind() === SyntaxKind.JsxOpeningElement ? element.getParent()! : element;
+      todoLines.add(containingNode.getStartLineNumber());
     }
 
     // Rename corresponding closing tag
-    syncClosingTag(element, originalName, newName)
+    syncClosingTag(element, originalName, newName);
   }
 
-  return todoLines
+  return todoLines;
 }
 
 /**
@@ -268,60 +275,60 @@ function transformJsxElements(sourceFile: SourceFile, aliasMap: Map<string, stri
  * Lines are processed in reverse order to preserve earlier positions.
  */
 function insertTodoComments(text: string, todoLines: Set<number>): string {
-  if (todoLines.size === 0) return text
+  if (todoLines.size === 0) return text;
 
-  const lines = text.split('\n')
-  const sortedLineNumbers = Array.from(todoLines).sort((a, b) => b - a)
+  const lines = text.split("\n");
+  const sortedLineNumbers = Array.from(todoLines).sort((a, b) => b - a);
 
   for (const lineNumber of sortedLineNumbers) {
-    const index = lineNumber - 1 // Convert 1-indexed to 0-indexed
-    if (index < 0 || index >= lines.length) continue
+    const index = lineNumber - 1; // Convert 1-indexed to 0-indexed
+    if (index < 0 || index >= lines.length) continue;
 
     // Detect the indentation of the target line
-    const targetLine = lines[index]
-    const indentMatch = targetLine.match(/^(\s*)/)
-    const indent = indentMatch ? indentMatch[1] : ''
+    const targetLine = lines[index];
+    const indentMatch = targetLine.match(/^(\s*)/);
+    const indent = indentMatch ? indentMatch[1] : "";
 
     // Build the indented TODO comment block
-    const commentLines = TODO_COMMENT.split('\n')
+    const commentLines = TODO_COMMENT.split("\n")
       .map((line) => indent + line)
-      .join('\n')
+      .join("\n");
 
     // Insert the comment block before the target line
-    lines.splice(index, 0, commentLines)
+    lines.splice(index, 0, commentLines);
   }
 
-  return lines.join('\n')
+  return lines.join("\n");
 }
 
 export default function transform(
   source: string,
-  filePath: string = 'file.tsx',
+  filePath: string = "file.tsx",
   options?: { facadePackage?: string },
 ): string {
   // Early return if file doesn't contain any deprecated split-button identifiers
   if (
-    !source.includes('DeprecatedSplitButton') &&
-    !source.includes('DeprecatedActionButton') &&
-    !source.includes('DeprecatedMenuButton') &&
-    !source.includes('DeprecatedSplitButtonProps')
+    !source.includes("DeprecatedSplitButton") &&
+    !source.includes("DeprecatedActionButton") &&
+    !source.includes("DeprecatedMenuButton") &&
+    !source.includes("DeprecatedSplitButtonProps")
   ) {
-    return source
+    return source;
   }
 
-  const sourceFile = createProjectFromSource(source, filePath)
+  const sourceFile = createProjectFromSource(source, filePath);
 
   // Collect alias map BEFORE transforming imports (imports will be modified)
-  const aliasMap = getDeprecatedAliasMap(sourceFile, options?.facadePackage)
+  const aliasMap = getDeprecatedAliasMap(sourceFile, options?.facadePackage);
 
-  transformImports(sourceFile, options?.facadePackage)
-  transformTypeReferences(sourceFile, new Set(['DeprecatedSplitButtonProps']), 'SplitButton.Props')
-  const todoLines = transformJsxElements(sourceFile, aliasMap)
+  transformImports(sourceFile, options?.facadePackage);
+  transformTypeReferences(sourceFile, new Set(["DeprecatedSplitButtonProps"]), "SplitButton.Props");
+  const todoLines = transformJsxElements(sourceFile, aliasMap);
 
-  let result = sourceFile.getFullText()
+  let result = sourceFile.getFullText();
 
   // Insert TODO comments after all AST transforms (operates on text to avoid position issues)
-  result = insertTodoComments(result, todoLines)
+  result = insertTodoComments(result, todoLines);
 
-  return result
+  return result;
 }

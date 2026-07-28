@@ -1,10 +1,11 @@
-import React, { MouseEvent } from 'react'
-import { render } from '@testing-library/react'
-import { clickNavEventHandler, DeprecatedNavResponsive } from '../nav-responsive'
-import { NavStateProvider } from '../../use-nav-state'
+import { render } from "@testing-library/react";
+import React, { MouseEvent } from "react";
 
-describe('NavResponsive component', () => {
-  it('should match a snapshot', () => {
+import { NavStateProvider } from "../../use-nav-state";
+import { clickNavEventHandler, DeprecatedNavResponsive } from "../nav-responsive";
+
+describe("NavResponsive component", () => {
+  it("should match a snapshot", () => {
     const wrapper = render(
       <NavStateProvider>
         <DeprecatedNavResponsive
@@ -12,74 +13,74 @@ describe('NavResponsive component', () => {
           options={[
             {
               itemIndex: 0,
-              callback: () => console.log('Navigating'),
+              callback: () => console.log("Navigating"),
             },
             {
               itemIndex: 1,
-              callback: () => console.log('Navigating'),
-              text: 'Apps',
+              callback: () => console.log("Navigating"),
+              text: "Apps",
               subItems: [
                 {
                   itemIndex: 0,
-                  callback: () => console.log('Navigating'),
-                  text: 'App List',
+                  callback: () => console.log("Navigating"),
+                  text: "App List",
                 },
                 {
                   itemIndex: 1,
-                  callback: () => console.log('Navigating'),
-                  text: 'Create App',
+                  callback: () => console.log("Navigating"),
+                  text: "Create App",
                 },
               ],
             },
             {
               itemIndex: 2,
-              callback: () => console.log('Navigating'),
-              text: 'Analytics',
+              callback: () => console.log("Navigating"),
+              text: "Analytics",
               subItems: [
                 {
                   itemIndex: 2,
-                  callback: () => console.log('Navigating'),
-                  text: 'Hits Per Day',
+                  callback: () => console.log("Navigating"),
+                  text: "Hits Per Day",
                 },
                 {
                   itemIndex: 3,
-                  callback: () => console.log('Navigating'),
-                  text: 'Weekly Hits',
+                  callback: () => console.log("Navigating"),
+                  text: "Weekly Hits",
                 },
               ],
             },
             {
               itemIndex: 3,
-              href: 'https://marketplace.reapit.cloud',
-              text: 'Marketplace',
+              href: "https://marketplace.reapit.cloud",
+              text: "Marketplace",
             },
             {
               itemIndex: 4,
-              callback: () => console.log('Logging out'),
-              text: 'Logout',
+              callback: () => console.log("Logging out"),
+              text: "Logout",
             },
           ]}
         />
       </NavStateProvider>,
-    )
-    expect(wrapper.asFragment()).toMatchSnapshot()
-  })
-})
+    );
+    expect(wrapper.asFragment()).toMatchSnapshot();
+  });
+});
 
-describe('clickNavEventHandler', () => {
-  it('should handle a click event', () => {
-    const setActive = vi.fn()
+describe("clickNavEventHandler", () => {
+  it("should handle a click event", () => {
+    const setActive = vi.fn();
     const event = {
       preventDefault: vi.fn(),
       stopPropagation: vi.fn(),
-    } as unknown as MouseEvent<HTMLAnchorElement | HTMLDivElement>
+    } as unknown as MouseEvent<HTMLAnchorElement | HTMLDivElement>;
 
-    const curried = clickNavEventHandler(setActive)
+    const curried = clickNavEventHandler(setActive);
 
-    curried(event)
+    curried(event);
 
-    expect(setActive).toHaveBeenCalledTimes(1)
-    expect(event.preventDefault).toHaveBeenCalledTimes(1)
-    expect(event.stopPropagation).toHaveBeenCalledTimes(1)
-  })
-})
+    expect(setActive).toHaveBeenCalledTimes(1);
+    expect(event.preventDefault).toHaveBeenCalledTimes(1);
+    expect(event.stopPropagation).toHaveBeenCalledTimes(1);
+  });
+});

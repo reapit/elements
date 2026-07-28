@@ -1,4 +1,4 @@
-import PhoneDisabledSvg from './svgs/phone-disabled.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import PhoneDisabledSvg from "./svgs/phone-disabled.svg?react";
 
-export const PhoneDisabledIcon = makeIcon('PhoneDisabledIcon', PhoneDisabledSvg)
+export const PhoneDisabledIcon = makeIcon("PhoneDisabledIcon", PhoneDisabledSvg);

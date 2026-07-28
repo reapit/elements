@@ -1,16 +1,17 @@
-import { render, screen } from '@testing-library/react'
-import { GalleryViewerThumbnailButton } from '../thumbnail-button'
+import { render, screen } from "@testing-library/react";
 
-test('renders as a button element', () => {
+import { GalleryViewerThumbnailButton } from "../thumbnail-button";
+
+test("renders as a button element", () => {
   render(
     <GalleryViewerThumbnailButton
       aria-pressed={false}
       aria-label="View image 1"
       src="https://fake.url/for/image.jpg"
     />,
-  )
-  expect(screen.getByRole('button')).toBeVisible()
-})
+  );
+  expect(screen.getByRole("button")).toBeVisible();
+});
 
 test('defaults to type="button" to avoid accidental form submission', () => {
   render(
@@ -19,16 +20,20 @@ test('defaults to type="button" to avoid accidental form submission', () => {
       aria-label="View image 1"
       src="https://fake.url/for/image.jpg"
     />,
-  )
-  expect(screen.getByRole('button')).toHaveAttribute('type', 'button')
-})
+  );
+  expect(screen.getByRole("button")).toHaveAttribute("type", "button");
+});
 
 test('sets aria-pressed="true" when selected', () => {
   render(
-    <GalleryViewerThumbnailButton aria-pressed={true} aria-label="View image 1" src="https://fake.url/for/image.jpg" />,
-  )
-  expect(screen.getByRole('button')).toHaveAttribute('aria-pressed', 'true')
-})
+    <GalleryViewerThumbnailButton
+      aria-pressed={true}
+      aria-label="View image 1"
+      src="https://fake.url/for/image.jpg"
+    />,
+  );
+  expect(screen.getByRole("button")).toHaveAttribute("aria-pressed", "true");
+});
 
 test('sets aria-pressed="false" when not selected', () => {
   render(
@@ -37,19 +42,23 @@ test('sets aria-pressed="false" when not selected', () => {
       aria-label="View image 1"
       src="https://fake.url/for/image.jpg"
     />,
-  )
-  expect(screen.getByRole('button')).toHaveAttribute('aria-pressed', 'false')
-})
+  );
+  expect(screen.getByRole("button")).toHaveAttribute("aria-pressed", "false");
+});
 
-test('renders the image with the provided src', () => {
+test("renders the image with the provided src", () => {
   const { container } = render(
-    <GalleryViewerThumbnailButton aria-pressed={false} aria-label="View image 1" src="https://example.com/house.jpg" />,
-  )
+    <GalleryViewerThumbnailButton
+      aria-pressed={false}
+      aria-label="View image 1"
+      src="https://example.com/house.jpg"
+    />,
+  );
   // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
-  expect(container.querySelector('img')).toHaveAttribute('src', 'https://example.com/house.jpg')
-})
+  expect(container.querySelector("img")).toHaveAttribute("src", "https://example.com/house.jpg");
+});
 
-test('renders a video overlay when isVideo is true', () => {
+test("renders a video overlay when isVideo is true", () => {
   render(
     <GalleryViewerThumbnailButton
       aria-pressed={false}
@@ -57,11 +66,11 @@ test('renders a video overlay when isVideo is true', () => {
       isVideo
       src="https://example.com/house.jpg"
     />,
-  )
-  expect(screen.getByTestId('video-overlay')).toBeInTheDocument()
-})
+  );
+  expect(screen.getByTestId("video-overlay")).toBeInTheDocument();
+});
 
-test('does not render a video overlay when isVideo is false', () => {
+test("does not render a video overlay when isVideo is false", () => {
   const { container } = render(
     <GalleryViewerThumbnailButton
       aria-pressed={false}
@@ -69,11 +78,11 @@ test('does not render a video overlay when isVideo is false', () => {
       isVideo={false}
       src="https://example.com/house.jpg"
     />,
-  )
-  expect(container.firstElementChild).toBeVisible()
-})
+  );
+  expect(container.firstElementChild).toBeVisible();
+});
 
-test('forwards additional props to the button element', () => {
+test("forwards additional props to the button element", () => {
   render(
     <GalleryViewerThumbnailButton
       aria-pressed={false}
@@ -82,7 +91,7 @@ test('forwards additional props to the button element', () => {
       data-testid="thumbnail-button"
       className="custom-class"
     />,
-  )
-  expect(screen.getByTestId('thumbnail-button')).toBeVisible()
-  expect(screen.getByTestId('thumbnail-button')).toHaveClass('custom-class')
-})
+  );
+  expect(screen.getByTestId("thumbnail-button")).toBeVisible();
+  expect(screen.getByTestId("thumbnail-button")).toHaveClass("custom-class");
+});

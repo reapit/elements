@@ -1,5 +1,5 @@
-import { css } from '@linaria/core'
-import { styled } from '@linaria/react'
+import { css } from "@linaria/core";
+import { styled } from "@linaria/react";
 
 export const elTopBarNavIconItem = css`
   @layer elements.main {
@@ -25,12 +25,12 @@ export const elTopBarNavIconItem = css`
     }
 
     /* NOTE: we only apply the current page styles to anchor-based nav icon items. */
-    &:is(a)[aria-current='page'] {
+    &:is(a)[aria-current="page"] {
       color: var(--comp-navigation-colour-icon-nav_icon-select);
       background: var(--comp-navigation-colour-fill-nav_icon-select);
     }
   }
-`
+`;
 
 export const ElTopBarNavIconItemIcon = styled.span`
   @layer elements.main {
@@ -38,7 +38,7 @@ export const ElTopBarNavIconItemIcon = styled.span`
     width: var(--icon_size-lg);
     height: var(--icon_size-lg);
   }
-`
+`;
 
 // TODO: This should be handled by a Badge component. All our NavIconItem should be responsible for is
 // positioning the badge correctly.
@@ -52,4 +52,4 @@ export const ElTopBarNavIconItemBadge = styled.span`
     background-color: var(--comp-navigation-colour-fill-notification_badge);
     border-radius: 100%;
   }
-`
+`;

@@ -1,27 +1,27 @@
-import { css } from '@linaria/core'
-import { styled } from '@linaria/react'
+import { css } from "@linaria/core";
+import { styled } from "@linaria/react";
 
 /** @deprecated */
 export const ElDeprecatedMenuPopover = styled.div`
   position: absolute;
   z-index: 100;
-`
+`;
 
 /** @deprecated */
 export const ElDeprecatedMenu = styled.div`
   position: relative;
 
-  &[data-alignment='left'] {
+  &[data-alignment="left"] {
     > ${ElDeprecatedMenuPopover} {
       left: 0;
     }
   }
-  &[data-alignment='right'] {
+  &[data-alignment="right"] {
     > ${ElDeprecatedMenuPopover} {
       right: 0;
     }
   }
-`
+`;
 
 /** @deprecated */
 export const ElDeprecatedMenuItemSupplementaryInfo = styled.span`
@@ -31,12 +31,12 @@ export const ElDeprecatedMenuItemSupplementaryInfo = styled.span`
   font-weight: var(--font-xs-regular-weight);
   line-height: var(--font-xs-regular-line_height);
   letter-spacing: var(--font-xs-regular-letter_spacing);
-`
+`;
 
 /** @deprecated */
 export const ElDeprecatedMenuItemLabelContainer = styled.span`
   text-align: left;
-`
+`;
 
 /** @deprecated */
 export const ElDeprecatedMenuItemLabel = styled.span`
@@ -48,7 +48,7 @@ export const ElDeprecatedMenuItemLabel = styled.span`
   text-align: left;
   white-space: nowrap;
   margin-right: var(--spacing-2);
-`
+`;
 
 /** @deprecated */
 export const ElDeprecatedMenuItemContent = styled.div`
@@ -57,7 +57,7 @@ export const ElDeprecatedMenuItemContent = styled.div`
   flex-direction: column;
   gap: var(--spacing-1);
   flex: 1 0 0;
-`
+`;
 
 /** @deprecated */
 export const ElDeprecatedMenuItemIcon = styled.div`
@@ -67,7 +67,7 @@ export const ElDeprecatedMenuItemIcon = styled.div`
     height: var(--icon_size-md);
     color: var(--comp-menu-colour-icon-default-right);
   }
-`
+`;
 
 /** @deprecated */
 export const elDeprecatedMenuItemLeftIcon = css`
@@ -75,7 +75,7 @@ export const elDeprecatedMenuItemLeftIcon = css`
   svg {
     color: var(--comp-menu-colour-icon-default-left);
   }
-`
+`;
 
 const baseMenuItemStyles = `
   width: 100%;
@@ -114,13 +114,13 @@ const baseMenuItemStyles = `
     background: var(--comp-menu-colour-fill-default);
     color: var(--comp-menu-colour-text-disabled);
   }
-`
+`;
 
 /** @deprecated */
 export const ElDeprecatedMenuItemButton = styled.button`
   ${baseMenuItemStyles}
-  &[aria-current='true'],
-  &[aria-current='page'] {
+  &[aria-current="true"],
+  &[aria-current="page"] {
     ${ElDeprecatedMenuItemLabel} {
       color: var(--comp-menu-colour-text-default-action);
     }
@@ -133,7 +133,7 @@ export const ElDeprecatedMenuItemButton = styled.button`
     }
   }
 
-  &[aria-disabled='true'] {
+  &[aria-disabled="true"] {
     ${ElDeprecatedMenuItemLabel} {
       color: var(--comp-menu-colour-text-disabled-primary);
     }
@@ -142,18 +142,18 @@ export const ElDeprecatedMenuItemButton = styled.button`
   /* customize html button */
   background-color: transparent;
   border: none;
-`
+`;
 
 /** @deprecated */
 export const ElDeprecatedMenuItemAnchor = styled.a`
   ${baseMenuItemStyles}
-  &[aria-current='true'],
-  &[aria-current='page'] {
+  &[aria-current="true"],
+  &[aria-current="page"] {
     ${ElDeprecatedMenuItemLabel} {
       color: var(--comp-menu-colour-text-default-action) !important;
     }
   }
-`
+`;
 
 /** @deprecated */
 export const ElDeprecatedMenuItemGroupTitle = styled.div`
@@ -170,11 +170,11 @@ export const ElDeprecatedMenuItemGroupTitle = styled.div`
   padding: var(--spacing-none) var(--spacing-4);
   align-items: center;
   align-self: stretch;
-`
+`;
 /** @deprecated */
 export const ElDeprecatedMenuItemGroup = styled.div`
   padding-inline: var(--spacing-2);
-`
+`;
 
 /** @deprecated */
 export const ElDeprecatedMenuItemGroupList = styled.div`
@@ -182,7 +182,7 @@ export const ElDeprecatedMenuItemGroupList = styled.div`
   flex-direction: column;
   align-items: flex-start;
   overflow: auto;
-`
+`;
 
 /** @deprecated */
 export const ElDeprecatedMenuList = styled.div`
@@ -193,7 +193,7 @@ export const ElDeprecatedMenuList = styled.div`
   box-shadow: 0 4px 16px 0 #222b3329;
   overflow: auto;
 
-  &[data-has-max-width='true'] {
+  &[data-has-max-width="true"] {
     ${ElDeprecatedMenuItemLabel} {
       white-space: normal;
     }
@@ -204,4 +204,4 @@ export const ElDeprecatedMenuList = styled.div`
     padding-bottom: var(--spacing-2);
     margin-bottom: var(--spacing-2);
   }
-`
+`;

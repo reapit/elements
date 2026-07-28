@@ -1,4 +1,4 @@
-import HelpSvg from './svgs/help.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import HelpSvg from "./svgs/help.svg?react";
 
-export const HelpIcon = makeIcon('HelpIcon', HelpSvg)
+export const HelpIcon = makeIcon("HelpIcon", HelpSvg);

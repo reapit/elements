@@ -1,4 +1,4 @@
-import type { MouseEvent } from 'react'
+import type { MouseEvent } from "react";
 
 /**
  * Closes the dialog when clicking on the backdrop, when `closedBy` is `'any'`.
@@ -37,20 +37,20 @@ import type { MouseEvent } from 'react'
  */
 export function maybeCloseOnBackdropClick(
   event: MouseEvent<HTMLDialogElement>,
-  closedBy: 'any' | 'closerequest' | 'none',
+  closedBy: "any" | "closerequest" | "none",
   consumeBackdropClick: boolean,
 ): void {
-  if (closedBy !== 'any' || event.target !== event.currentTarget) {
-    return
+  if (closedBy !== "any" || event.target !== event.currentTarget) {
+    return;
   }
 
-  const isClosedBySupported = 'closedBy' in HTMLDialogElement.prototype
+  const isClosedBySupported = "closedBy" in HTMLDialogElement.prototype;
 
   if (!consumeBackdropClick && isClosedBySupported) {
-    return
+    return;
   }
 
   if (event.currentTarget.open) {
-    event.currentTarget.close()
+    event.currentTarget.close();
   }
 }

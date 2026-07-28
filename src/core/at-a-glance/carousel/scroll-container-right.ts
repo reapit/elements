@@ -16,10 +16,13 @@
  * ```
  */
 export function scrollContainerRight(containerId: string): void {
-  const element = document.getElementById(containerId)
+  const element = document.getElementById(containerId);
   if (element) {
     // Use instant scroll when the user prefers reduced motion.
-    const prefersReducedMotion = globalThis.matchMedia('(prefers-reduced-motion: reduce)').matches
-    element.scrollBy({ left: element.clientWidth, behavior: prefersReducedMotion ? 'instant' : 'smooth' })
+    const prefersReducedMotion = globalThis.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    element.scrollBy({
+      left: element.clientWidth,
+      behavior: prefersReducedMotion ? "instant" : "smooth",
+    });
   }
 }

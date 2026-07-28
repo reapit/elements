@@ -1,4 +1,4 @@
-import type { RefObject } from 'react'
+import type { RefObject } from "react";
 
 /**
  * Transfers focus after a `FileUploader.File` item is removed from the list. Called synchronously
@@ -19,24 +19,24 @@ export function transferFocusAfterRemoval(
   listItemRef: RefObject<HTMLLIElement>,
   triggerId: string,
 ): void {
-  const list = listRef.current
-  const listItem = listItemRef.current
+  const list = listRef.current;
+  const listItem = listItemRef.current;
 
-  if (!list || !listItem) return
+  if (!list || !listItem) return;
 
-  const items = Array.from(list.children) as HTMLLIElement[]
-  const ownIndex = items.indexOf(listItem)
+  const items = Array.from(list.children) as HTMLLIElement[];
+  const ownIndex = items.indexOf(listItem);
 
-  if (ownIndex === -1) return
+  if (ownIndex === -1) return;
 
   // Pick next sibling, else previous sibling (ownIndex - 1 handles the "was last" case).
-  const candidate = items[ownIndex + 1] ?? items[ownIndex - 1]
-  const removeButton = candidate?.querySelector<HTMLButtonElement>('[data-remove-button]')
+  const candidate = items[ownIndex + 1] ?? items[ownIndex - 1];
+  const removeButton = candidate?.querySelector<HTMLButtonElement>("[data-remove-button]");
 
   if (removeButton) {
-    removeButton.focus()
+    removeButton.focus();
   } else {
     // List will be empty after this removal — fall back to the upload trigger.
-    document.getElementById(triggerId)?.focus()
+    document.getElementById(triggerId)?.focus();
   }
 }

@@ -1,27 +1,28 @@
-import preview from '#.storybook/preview'
-import { BottomBarItemAnchor } from './item-anchor'
-import { ContactIcon } from '#src/icons/contact'
-import { HelpIcon } from '#src/icons/help'
-import { NotificationIcon } from '#src/icons/notification'
-import { StarIcon } from '#src/icons/star'
+import preview from "#.storybook/preview";
+import { ContactIcon } from "#src/icons/contact";
+import { HelpIcon } from "#src/icons/help";
+import { NotificationIcon } from "#src/icons/notification";
+import { StarIcon } from "#src/icons/star";
+
+import { BottomBarItemAnchor } from "./item-anchor";
 
 const meta = preview.meta({
-  title: 'Navigation/BottomBar/ItemAnchor',
+  title: "Navigation/BottomBar/ItemAnchor",
   component: BottomBarItemAnchor,
   argTypes: {
-    'aria-current': {
-      control: 'radio',
+    "aria-current": {
+      control: "radio",
       // NOTE: This is necessary because a `false` value in a Story will otherwise not correctly pre-select the
       // "false" option.
-      options: ['page', false],
+      options: ["page", false],
       mapping: {
-        page: 'page',
+        page: "page",
         false: false,
       },
     },
     icon: {
-      control: 'radio',
-      options: ['Contact', 'Help', 'Notification', 'Star'],
+      control: "radio",
+      options: ["Contact", "Help", "Notification", "Star"],
       mapping: {
         Contact: <ContactIcon />,
         Help: <HelpIcon />,
@@ -30,7 +31,7 @@ const meta = preview.meta({
       },
     },
   },
-})
+});
 
 /**
  * Items in the bottom bar will typically navigate users to another page in the product. The `aria-current`
@@ -38,13 +39,13 @@ const meta = preview.meta({
  */
 export const Example = meta.story({
   args: {
-    'aria-current': false,
-    children: 'Label',
+    "aria-current": false,
+    children: "Label",
     hasBadge: false,
-    href: '#',
-    icon: 'Star',
+    href: "#",
+    icon: "Star",
   },
-})
+});
 
 /**
  * When an item represents the current page, `aria-current="page"` should be supplied. This indicates to visual
@@ -52,9 +53,9 @@ export const Example = meta.story({
  */
 export const Selected = Example.extend({
   args: {
-    'aria-current': 'page',
+    "aria-current": "page",
   },
-})
+});
 
 /**
  * Items may need to visually indicate that something new has occurred that the user should be aware of. When
@@ -63,8 +64,8 @@ export const Selected = Example.extend({
  */
 export const WithBadge = Example.extend({
   args: {
-    children: 'Notifications',
+    children: "Notifications",
     hasBadge: true,
-    icon: 'Notification',
+    icon: "Notification",
   },
-})
+});

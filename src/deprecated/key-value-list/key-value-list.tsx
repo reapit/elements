@@ -1,54 +1,63 @@
-import React, { FC, HTMLAttributes, ReactNode } from 'react'
-import { cx } from '@linaria/core'
-import { ElKeyValueIconWrap, ElKeyValueListWrap } from './__styles__'
-import { ColHalf, Col, Grid } from '../grid'
-import { TextSM, TextXS } from '../typography'
-import { FlexContainer } from '../layout'
-import { Intent } from '../../helpers/intent'
-import { elTextEllipsis } from '../../styles/deprecated-typography'
+import { cx } from "@linaria/core";
+import React, { FC, HTMLAttributes, ReactNode } from "react";
+
+import { Intent } from "../../helpers/intent";
+import { elTextEllipsis } from "../../styles/deprecated-typography";
+import { ColHalf, Col, Grid } from "../grid";
+import { FlexContainer } from "../layout";
+import { TextSM, TextXS } from "../typography";
+import { ElKeyValueIconWrap, ElKeyValueListWrap } from "./__styles__";
 
 /** @deprecated */
 export interface KeyValueItem {
-  key: string
-  value: ReactNode
-  iconName?: ReactNode
-  icon?: ReactNode
-  intent?: Intent
-  colSize?: 'half' | 'full'
-  textEllipsis?: boolean
+  key: string;
+  value: ReactNode;
+  iconName?: ReactNode;
+  icon?: ReactNode;
+  intent?: Intent;
+  colSize?: "half" | "full";
+  textEllipsis?: boolean;
 }
 
 /** @deprecated */
 export interface KeyValueContentProps {
-  item: KeyValueItem
+  item: KeyValueItem;
 }
 
 /** @deprecated */
 export interface KeyValueListProps extends HTMLAttributes<HTMLDivElement> {
-  items: KeyValueItem[]
-  hasGrid?: boolean
+  items: KeyValueItem[];
+  hasGrid?: boolean;
 }
 
 /** @deprecated */
-export const KeyValueIconWrap: FC<HTMLAttributes<HTMLDivElement>> = ({ children, className, ...rest }) => (
+export const KeyValueIconWrap: FC<HTMLAttributes<HTMLDivElement>> = ({
+  children,
+  className,
+  ...rest
+}) => (
   <ElKeyValueIconWrap className={cx(className)} {...rest}>
     {children}
   </ElKeyValueIconWrap>
-)
+);
 
 /** @deprecated */
-export const KeyValueListWrap: FC<HTMLAttributes<HTMLDivElement>> = ({ children, className, ...rest }) => (
+export const KeyValueListWrap: FC<HTMLAttributes<HTMLDivElement>> = ({
+  children,
+  className,
+  ...rest
+}) => (
   <ElKeyValueListWrap className={cx(className)} {...rest}>
     {children}
   </ElKeyValueListWrap>
-)
+);
 
 /** @deprecated */
 export const KeyValueContent: FC<KeyValueContentProps> = ({
   item: { intent, iconName, icon, value, key, textEllipsis },
 }) => (
   <>
-    <KeyValueIconWrap>{icon ? icon : iconName ? iconName : ''}</KeyValueIconWrap>
+    <KeyValueIconWrap>{icon ? icon : iconName ? iconName : ""}</KeyValueIconWrap>
     <FlexContainer isFlexColumn>
       <TextXS className={cx(textEllipsis && elTextEllipsis)} hasGreyText>
         {key}
@@ -56,14 +65,14 @@ export const KeyValueContent: FC<KeyValueContentProps> = ({
       <TextSM className={cx(textEllipsis && elTextEllipsis)}>{value}</TextSM>
     </FlexContainer>
   </>
-)
+);
 
 /** @deprecated */
 export const KeyValueList: FC<KeyValueListProps> = ({ className, items, hasGrid, ...rest }) => {
   return hasGrid ? (
     <Grid className={cx(className)} {...rest}>
       {items.map((item) => {
-        return item.colSize === 'half' ? (
+        return item.colSize === "half" ? (
           <ColHalf key={item.key}>
             <FlexContainer>
               <KeyValueContent item={item} />
@@ -75,7 +84,7 @@ export const KeyValueList: FC<KeyValueListProps> = ({ className, items, hasGrid,
               <KeyValueContent item={item} />
             </FlexContainer>
           </Col>
-        )
+        );
       })}
     </Grid>
   ) : (
@@ -86,5 +95,5 @@ export const KeyValueList: FC<KeyValueListProps> = ({ className, items, hasGrid,
         </KeyValueListWrap>
       ))}
     </div>
-  )
-}
+  );
+};

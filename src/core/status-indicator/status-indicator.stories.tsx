@@ -1,28 +1,38 @@
-import preview from '#.storybook/preview'
-import { StatusIndicator } from './status-indicator'
+import preview from "#.storybook/preview";
 
-const variants = ['neutral', 'success', 'pending', 'warning', 'danger', 'inactive', 'accent_1', 'accent_2'] as const
+import { StatusIndicator } from "./status-indicator";
+
+const variants = [
+  "neutral",
+  "success",
+  "pending",
+  "warning",
+  "danger",
+  "inactive",
+  "accent_1",
+  "accent_2",
+] as const;
 
 const meta = preview.meta({
-  title: 'Indicators and status/StatusIndicator',
+  title: "Indicators and status/StatusIndicator",
   component: StatusIndicator,
   argTypes: {
     children: {
-      control: 'text',
+      control: "text",
     },
     variant: {
-      control: 'select',
+      control: "select",
       options: variants,
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
-    children: 'Status Indicator',
-    variant: 'neutral',
+    children: "Status Indicator",
+    variant: "neutral",
   },
-})
+});
 
 export const Variants = Example.extend({
   argTypes: {
@@ -36,7 +46,7 @@ export const Variants = Example.extend({
 
   decorators: [
     (Story) => (
-      <div style={{ display: 'flex', gap: 'var(--spacing-6)' }}>
+      <div style={{ display: "flex", gap: "var(--spacing-6)" }}>
         <Story />
       </div>
     ),
@@ -49,6 +59,6 @@ export const Variants = Example.extend({
           <StatusIndicator {...args} key={variant} variant={variant} />
         ))}
       </>
-    )
+    );
   },
-})
+});

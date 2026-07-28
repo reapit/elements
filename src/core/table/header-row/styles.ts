@@ -1,4 +1,4 @@
-import { css } from '@linaria/core'
+import { css } from "@linaria/core";
 
 // NOTE: This is a plain class so that we have an exportable class name
 // available for consumers that want table row styling on an element not
@@ -25,4 +25,4 @@ export const elTableHeaderRow = css`
     min-height: var(--size-10);
     max-height: var(--size-12);
   }
-`
+`;

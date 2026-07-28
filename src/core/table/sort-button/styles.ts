@@ -1,5 +1,6 @@
-import { css } from '@linaria/core'
-import { font } from '#src/utils/font'
+import { css } from "@linaria/core";
+
+import { font } from "#src/utils/font";
 
 export const elTableCellSortButton = css`
   @layer elements.main {
@@ -20,7 +21,7 @@ export const elTableCellSortButton = css`
 
     cursor: pointer;
 
-    ${font('2xs', 'bold')}
+    ${font("2xs", "bold")}
     text-transform: uppercase;
 
     &:focus-visible {
@@ -32,7 +33,7 @@ export const elTableCellSortButton = css`
       background: var(--colour-fill-neutral-lightest);
     }
   }
-`
+`;
 
 export const elTableCellSortButtonIcon = css`
   @layer elements.main {
@@ -45,13 +46,13 @@ export const elTableCellSortButtonIcon = css`
 
     color: var(--colour-icon-disabled);
 
-    [value='ascending'] & {
+    [value="ascending"] & {
       color: var(--colour-icon-secondary);
       transform: rotate(180deg);
     }
 
-    [value='descending'] & {
+    [value="descending"] & {
       color: var(--colour-icon-secondary);
     }
   }
-`
+`;

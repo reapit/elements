@@ -1,18 +1,19 @@
-import preview from '#.storybook/preview'
-import { TableProvider } from './table-provider'
+import preview from "#.storybook/preview";
+
+import { TableProvider } from "./table-provider";
 
 const meta = preview.meta({
-  title: 'Lab/TableProvider',
+  title: "Lab/TableProvider",
   component: TableProvider,
-})
+});
 
-export default meta
+export default meta;
 
 export const BasicUsage = meta.story({
   args: {
     rows: [],
-    idKey: 'id',
+    idKey: "id",
     children: <div>Table Provider Example</div>,
   },
   render: (args) => <TableProvider {...args} />,
-})
+});

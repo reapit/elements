@@ -1,18 +1,14 @@
-import { css } from '@linaria/core'
-import { styled } from '@linaria/react'
+import { css } from "@linaria/core";
+import { styled } from "@linaria/react";
 
 const checked = (fill: string) =>
-  `data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M20.2887 6.38743C19.7721 5.87086 18.9347 5.87086 18.4182 6.38743L9.99959 14.8067L6.25793 11.0643C5.74136 10.5478 4.904 10.5478 4.38743 11.0643C3.87086 11.5816 3.87086 12.4183 4.38743 12.9348L9.06434 17.6124C9.32295 17.8704 9.6616 18 9.99959 18C10.3382 18 10.6769 17.8704 10.9348 17.6124L20.2887 8.25793C20.8052 7.74202 20.8052 6.90334 20.2887 6.38743Z" fill="${encodeURIComponent(
-    fill,
-  )}"/></svg>`
+  `'data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M20.2887 6.38743C19.7721 5.87086 18.9347 5.87086 18.4182 6.38743L9.99959 14.8067L6.25793 11.0643C5.74136 10.5478 4.904 10.5478 4.38743 11.0643C3.87086 11.5816 3.87086 12.4183 4.38743 12.9348L9.06434 17.6124C9.32295 17.8704 9.6616 18 9.99959 18C10.3382 18 10.6769 17.8704 10.9348 17.6124L20.2887 8.25793C20.8052 7.74202 20.8052 6.90334 20.2887 6.38743Z" fill="${encodeURIComponent(fill)}"/></svg>'`;
 
 const dismiss = (fill: string) =>
-  `data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.3608 13.8296L18.0208 19.4896C18.2652 19.775 18.6489 19.8993 19.0142 19.8114C19.3795 19.7235 19.6647 19.4383 19.7526 19.073C19.8405 18.7077 19.7162 18.324 19.4308 18.0796L13.7708 12.4196L19.4308 6.75958C19.7162 6.51519 19.8405 6.13146 19.7526 5.76616C19.6647 5.40086 19.3795 5.11564 19.0142 5.02777C18.6489 4.93989 18.2652 5.0642 18.0208 5.34958L12.3608 11.0096L6.70079 5.34958C6.31076 4.96185 5.68083 4.96185 5.29079 5.34958C4.90307 5.73961 4.90307 6.36954 5.29079 6.75958L10.9508 12.4196L5.29079 18.0796C4.90307 18.4696 4.90307 19.0995 5.29079 19.4896C5.68083 19.8773 6.31076 19.8773 6.70079 19.4896L12.3608 13.8296Z" fill="${encodeURIComponent(
-    fill,
-  )}"/></svg>`
+  `'data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.3608 13.8296L18.0208 19.4896C18.2652 19.775 18.6489 19.8993 19.0142 19.8114C19.3795 19.7235 19.6647 19.4383 19.7526 19.073C19.8405 18.7077 19.7162 18.324 19.4308 18.0796L13.7708 12.4196L19.4308 6.75958C19.7162 6.51519 19.8405 6.13146 19.7526 5.76616C19.6647 5.40086 19.3795 5.11564 19.0142 5.02777C18.6489 4.93989 18.2652 5.0642 18.0208 5.34958L12.3608 11.0096L6.70079 5.34958C6.31076 4.96185 5.68083 4.96185 5.29079 5.34958C4.90307 5.73961 4.90307 6.36954 5.29079 6.75958L10.9508 12.4196L5.29079 18.0796C4.90307 18.4696 4.90307 19.0995 5.29079 19.4896C5.68083 19.8773 6.31076 19.8773 6.70079 19.4896L12.3608 13.8296Z" fill="${encodeURIComponent(fill)}"/></svg>'`;
 
 /** @deprecated */
-export const elHasGreyChips = css``
+export const elHasGreyChips = css``;
 
 /** @deprecated */
 export const ElMultiSelectCheckbox = styled.input`
@@ -27,9 +23,9 @@ export const ElMultiSelectCheckbox = styled.input`
     color: var(--colour-text-primary);
 
     &::before {
-      content: '';
+      content: "";
       position: absolute;
-      background-image: url('${checked('#607890')}');
+      background-image: url(${checked("#607890")});
       background-position: center center;
       background-repeat: no-repeat;
       height: 1rem;
@@ -40,7 +36,7 @@ export const ElMultiSelectCheckbox = styled.input`
 
     &:hover {
       &::before {
-        background-image: url('${dismiss('#4e56ea')}');
+        background-image: url(${dismiss("#4e56ea")});
       }
     }
 
@@ -53,9 +49,9 @@ export const ElMultiSelectCheckbox = styled.input`
     &:hover {
       padding: 0.2rem 2rem 0.2rem 1rem;
       &::before {
-        content: '';
+        content: "";
         position: absolute;
-        background-image: url('${checked('#4e56ea')}');
+        background-image: url(${checked("#4e56ea")});
         background-position: center center;
         background-repeat: no-repeat;
         height: 1rem;
@@ -65,7 +61,7 @@ export const ElMultiSelectCheckbox = styled.input`
       }
     }
   }
-`
+`;
 
 /** @deprecated */
 export const ElMultiSelectLabel = styled.label`
@@ -94,7 +90,7 @@ export const ElMultiSelectLabel = styled.label`
   &:hover {
     color: var(--colour-text-primary);
   }
-`
+`;
 
 /** @deprecated */
 export const ElMultiSelect = styled.div`
@@ -103,7 +99,7 @@ export const ElMultiSelect = styled.div`
   background-color: var(--colour-fill-white);
   padding: 0.25rem 0.5rem;
   position: relative;
-`
+`;
 
 /** @deprecated */
 export const ElMultiSelectSelected = styled.div`
@@ -122,7 +118,7 @@ export const ElMultiSelectSelected = styled.div`
     font-size: 0.875rem /* was --font-size-small */;
     color: var(--colour-text-secondary);
   }
-`
+`;
 
 /** @deprecated */
 export const ElMultiSelectUnSelected = styled.div`
@@ -134,7 +130,7 @@ export const ElMultiSelectUnSelected = styled.div`
   border-radius: 0 0 4px 4px;
   padding: 0.25rem 0.5rem;
   position: relative;
-`
+`;
 
 /** @deprecated */
 export const ElMultiSelectInput = styled.input`
@@ -142,9 +138,9 @@ export const ElMultiSelectInput = styled.input`
   width: 0;
   position: absolute;
   visibility: hidden;
-`
+`;
 
 /** @deprecated */
 export const ElMultiSelectInputWrapper = styled.div`
   width: 100%;
-`
+`;

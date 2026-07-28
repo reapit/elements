@@ -1,4 +1,5 @@
-import figma from '@figma/code-connect'
-import { EditIcon } from './edit'
+import figma from "@figma/code-connect";
 
-figma.connect(EditIcon, 'https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=20-537')
+import { EditIcon } from "./edit";
+
+figma.connect(EditIcon, "https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=20-537");

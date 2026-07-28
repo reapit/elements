@@ -1,24 +1,25 @@
-import { Button } from '../../core/button'
-import { useSnack } from '../use-snack'
-import { elM1 } from '../../styles/deprecated-spacing'
-import { PropertyIcon } from '#src/icons/property'
+import { PropertyIcon } from "#src/icons/property";
+
+import { Button } from "../../core/button";
+import { elM1 } from "../../styles/deprecated-spacing";
+import { useSnack } from "../use-snack";
 
 /** @deprecated */
 export const UseSnackHookStory = () => {
-  const { info, success, error, warning, custom } = useSnack()
+  const { info, success, error, warning, custom } = useSnack();
 
   return (
     <>
-      <Button className={elM1} onClick={() => info('This is infomation')}>
+      <Button className={elM1} onClick={() => info("This is infomation")}>
         Trigger an info snack
       </Button>
-      <Button className={elM1} onClick={() => success('Something great happened')}>
+      <Button className={elM1} onClick={() => success("Something great happened")}>
         Trigger a success snack
       </Button>
-      <Button className={elM1} onClick={() => error('Something went wrong')}>
+      <Button className={elM1} onClick={() => error("Something went wrong")}>
         Trigger an error snack
       </Button>
-      <Button className={elM1} onClick={() => warning('Something could be bad')}>
+      <Button className={elM1} onClick={() => warning("Something could be bad")}>
         Trigger a warning snack
       </Button>
       <Button className={elM1} onClick={() => info("I'm here for a while...", 10000)}>
@@ -31,9 +32,9 @@ export const UseSnackHookStory = () => {
         className={elM1}
         onClick={() =>
           custom({
-            text: 'I can have anything in the interface ISnack applied as a parameter here',
+            text: "I can have anything in the interface ISnack applied as a parameter here",
             icon: <PropertyIcon />,
-            intent: 'success',
+            intent: "success",
           })
         }
       >
@@ -43,5 +44,5 @@ export const UseSnackHookStory = () => {
         Trigger a non-dissapearing snack
       </Button>
     </>
-  )
-}
+  );
+};

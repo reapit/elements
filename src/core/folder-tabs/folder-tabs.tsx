@@ -1,13 +1,13 @@
-import { ElFolderTabs, ElFolderTabsGroup } from './styles'
-import { FolderTab } from './tab'
-import { FolderTabCountLabel } from './count-label'
+import type { HTMLAttributes, ReactNode } from "react";
 
-import type { HTMLAttributes, ReactNode } from 'react'
+import { FolderTabCountLabel } from "./count-label";
+import { ElFolderTabs, ElFolderTabsGroup } from "./styles";
+import { FolderTab } from "./tab";
 
 export namespace FolderTabs {
   export interface Props extends HTMLAttributes<HTMLElement> {
     /** The tab items for primary navigation. Typically a collection of `FolderTabs.Item` components. */
-    children: ReactNode
+    children: ReactNode;
   }
 }
 
@@ -20,8 +20,8 @@ export function FolderTabs({ children, ...rest }: FolderTabs.Props) {
     <ElFolderTabs {...rest}>
       <ElFolderTabsGroup role="group">{children}</ElFolderTabsGroup>
     </ElFolderTabs>
-  )
+  );
 }
 
-FolderTabs.Item = FolderTab
-FolderTabs.CountLabel = FolderTabCountLabel
+FolderTabs.Item = FolderTab;
+FolderTabs.CountLabel = FolderTabCountLabel;

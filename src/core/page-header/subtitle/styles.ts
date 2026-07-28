@@ -1,5 +1,6 @@
-import { font } from '#src/utils/font'
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
+
+import { font } from "#src/utils/font";
 
 export const ElPageHeaderSubtitle = styled.div`
   @layer elements.main {
@@ -9,7 +10,7 @@ export const ElPageHeaderSubtitle = styled.div`
 
     padding-block: var(--spacing-1);
   }
-`
+`;
 
 export const ElPageHeaderSubtitleText = styled.p`
   @layer elements.main {
@@ -18,9 +19,9 @@ export const ElPageHeaderSubtitleText = styled.p`
 
     color: var(--colour-text-primary);
 
-    ${font('base', 'bold')}
+    ${font("base", "bold")}
   }
-`
+`;
 
 export const ElPageHeaderSubtitleAdditionalInfo = styled.p`
   @layer elements.main {
@@ -30,4 +31,4 @@ export const ElPageHeaderSubtitleAdditionalInfo = styled.p`
     gap: var(--spacing-2);
     margin: 0;
   }
-`
+`;

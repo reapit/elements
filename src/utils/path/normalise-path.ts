@@ -1,12 +1,12 @@
 /**
  * Regular expression for matching trailing slashes.
  */
-const TRAILING_SLASH_REGEX = /\/$/
+const TRAILING_SLASH_REGEX = /\/$/;
 
 /**
  * The root path constant.
  */
-const ROOT_PATH = '/'
+const ROOT_PATH = "/";
 
 /**
  * Normalizes a path by removing trailing slashes, except for the root path.
@@ -28,5 +28,5 @@ const ROOT_PATH = '/'
  * ```
  */
 export function normalisePath(path: string): string {
-  return path === ROOT_PATH ? path : path.replace(TRAILING_SLASH_REGEX, '')
+  return path === ROOT_PATH ? path : path.replace(TRAILING_SLASH_REGEX, "");
 }

@@ -1,12 +1,13 @@
-import { ElDialogBody } from './styles'
-import type { HTMLAttributes, ReactNode } from 'react'
+import type { HTMLAttributes, ReactNode } from "react";
+
+import { ElDialogBody } from "./styles";
 
 export namespace DialogBody {
   export interface Props extends HTMLAttributes<HTMLDivElement> {
     /**
      * The content of the dialog's body.
      */
-    children: ReactNode
+    children: ReactNode;
   }
 }
 
@@ -16,7 +17,7 @@ export namespace DialogBody {
  * adjusts its padding based on the inline-size of the dialog.
  */
 export function DialogBody({ children, ...rest }: DialogBody.Props) {
-  return <ElDialogBody {...rest}>{children}</ElDialogBody>
+  return <ElDialogBody {...rest}>{children}</ElDialogBody>;
 }
 
-DialogBody.displayName = 'Dialog.Body'
+DialogBody.displayName = "Dialog.Body";

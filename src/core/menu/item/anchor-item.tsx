@@ -1,13 +1,13 @@
-import { MenuItemBase } from './item-base'
+import type { AnchorHTMLAttributes } from "react";
 
-import type { AnchorHTMLAttributes } from 'react'
+import { MenuItemBase } from "./item-base";
 
 export namespace AnchorMenuItem {
   export interface Props extends MenuItemBase.CommonProps, AnchorHTMLAttributes<HTMLAnchorElement> {
     /** Whether the menu item represents the current page */
-    'aria-current'?: 'page' | false
+    "aria-current"?: "page" | false;
     /** The URL to which this menu anchor item navigates */
-    href: string
+    href: string;
   }
 }
 
@@ -18,10 +18,10 @@ export namespace AnchorMenuItem {
  * Use `Menu.Item` when the action needs to occur on click.
  */
 export function AnchorMenuItem(props: AnchorMenuItem.Props) {
-  return <MenuItemBase as="a" {...props} />
+  return <MenuItemBase as="a" {...props} />;
 }
 
-AnchorMenuItem.displayName = 'Menu.AnchorItem'
+AnchorMenuItem.displayName = "Menu.AnchorItem";
 
 /** @deprecated Use AnchorMenuItem.Props instead */
-export type MenuAnchorItemProps = AnchorMenuItem.Props
+export type MenuAnchorItemProps = AnchorMenuItem.Props;

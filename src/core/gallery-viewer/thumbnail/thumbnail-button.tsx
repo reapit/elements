@@ -1,18 +1,19 @@
-import { GalleryViewerThumbnailBase } from './thumbnail-base'
+import type { ButtonHTMLAttributes } from "react";
 
-import type { ButtonHTMLAttributes } from 'react'
+import { GalleryViewerThumbnailBase } from "./thumbnail-base";
 
 export namespace GalleryViewerThumbnailButton {
-  export interface Props extends GalleryViewerThumbnailBase.CommonProps, ButtonHTMLAttributes<HTMLButtonElement> {
+  export interface Props
+    extends GalleryViewerThumbnailBase.CommonProps, ButtonHTMLAttributes<HTMLButtonElement> {
     /**
      * The accessible name of the thumbnail. Should be action-oriented, not simply a description of
      * the thumbnail's image.
      */
-    'aria-label': string
+    "aria-label": string;
     /**
      * Indicates whether this thumbnail is currently selected.
      */
-    'aria-pressed': boolean
+    "aria-pressed": boolean;
   }
 }
 
@@ -24,6 +25,9 @@ export namespace GalleryViewerThumbnailButton {
  * Use `GalleryViewerThumbnail` when navigation to a URL is needed instead of a
  * click handler.
  */
-export function GalleryViewerThumbnailButton({ type = 'button', ...rest }: GalleryViewerThumbnailButton.Props) {
-  return <GalleryViewerThumbnailBase as="button" type={type} {...rest} />
+export function GalleryViewerThumbnailButton({
+  type = "button",
+  ...rest
+}: GalleryViewerThumbnailButton.Props) {
+  return <GalleryViewerThumbnailBase as="button" type={type} {...rest} />;
 }

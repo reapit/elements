@@ -1,8 +1,9 @@
-import preview from '#.storybook/preview'
-import { OfficeSwitcher } from './office-switcher'
+import preview from "#.storybook/preview";
+
+import { OfficeSwitcher } from "./office-switcher";
 
 const meta = preview.meta({
-  title: 'Input and selection/OfficeSwitcher',
+  title: "Input and selection/OfficeSwitcher",
   component: OfficeSwitcher,
   argTypes: {
     children: {
@@ -11,10 +12,10 @@ const meta = preview.meta({
   },
   globals: {
     backgrounds: {
-      value: 'light',
+      value: "light",
     },
   },
-})
+});
 
 /**
  * At its simplest, the office switcher can display a static office name. Typically, this will be used
@@ -22,9 +23,9 @@ const meta = preview.meta({
  */
 export const Example = meta.story({
   args: {
-    children: 'Brisbane South',
+    children: "Brisbane South",
   },
-})
+});
 
 /**
  * For multi-office users, the office switcher can display a dropdown menu with a list of offices.
@@ -44,7 +45,7 @@ export const Selector = meta.story({
       </OfficeSwitcher.Select>
     ),
   },
-})
+});
 
 /**
  * For multi-office users with many offices, the dropdown can be searchable.
@@ -64,7 +65,7 @@ export const Searchable = meta.story({
       </OfficeSwitcher.Select>
     ),
   },
-})
+});
 
 /**
  * In some cases, offices may need to be grouped.
@@ -91,4 +92,4 @@ export const Groups = meta.story({
       </OfficeSwitcher.Select>
     ),
   },
-})
+});

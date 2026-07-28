@@ -1,6 +1,6 @@
-import { ButtonBase } from './button-base'
+import type { ButtonHTMLAttributes } from "react";
 
-import type { ButtonHTMLAttributes } from 'react'
+import { ButtonBase } from "./button-base";
 
 export namespace Button {
   export interface Props extends ButtonBase.CommonProps, ButtonHTMLAttributes<HTMLButtonElement> {
@@ -8,7 +8,7 @@ export namespace Button {
      * Whether the button is disabled or not. Unlike `aria-disabled`, buttons disabled with this prop will not be
      * focusable or interactive.
      */
-    disabled?: boolean
+    disabled?: boolean;
   }
 }
 
@@ -20,5 +20,5 @@ export namespace Button {
  * to navigate to a URL.
  */
 export function Button(props: Button.Props) {
-  return <ButtonBase as="button" {...props} />
+  return <ButtonBase as="button" {...props} />;
 }

@@ -1,6 +1,6 @@
-import { run } from './runner.js'
-import { listCodemods, getCodemodDescription, validateCodemodName } from './codemods.js'
-import { transforms } from './transforms.js'
+import { listCodemods, getCodemodDescription, validateCodemodName } from "./codemods.js";
+import { run } from "./runner.js";
+import { transforms } from "./transforms.js";
 
 function printHelp(): void {
   console.log(`
@@ -19,7 +19,7 @@ Examples:
   yarn dlx @reapit/elements@beta codemod info at-a-glance-article-card
   yarn dlx @reapit/elements@beta codemod apply at-a-glance-article-card src/
   yarn dlx @reapit/elements@beta codemod apply at-a-glance-article-card src/ --dry-run
-`)
+`);
 }
 
 function printApplyHelp(codemodName: string): void {
@@ -40,147 +40,149 @@ Examples:
   yarn dlx @reapit/elements@beta codemod apply ${codemodName} src/ --dry-run
   yarn dlx @reapit/elements@beta codemod apply ${codemodName} src/ --ext .tsx,.jsx
   yarn dlx @reapit/elements@beta codemod apply ${codemodName} src/ --facade-package @company/ui-components
-`)
+`);
 }
 
 function printList({ trailingNewline = false }: { trailingNewline?: boolean } = {}): void {
-  const codemods = listCodemods()
+  const codemods = listCodemods();
 
   if (codemods.length === 0) {
-    console.log('No codemods available.')
-    return
+    console.log("No codemods available.");
+    return;
   }
 
-  console.log('\nAvailable codemods:\n')
+  console.log("\nAvailable codemods:\n");
 
   // Calculate padding for alignment
-  const maxNameLength = Math.max(...codemods.map((name) => name.length))
+  const maxNameLength = Math.max(...codemods.map((name) => name.length));
 
   for (const name of codemods) {
-    const description = getCodemodDescription(name)
-    const padding = ' '.repeat(maxNameLength - name.length + 4)
+    const description = getCodemodDescription(name);
+    const padding = " ".repeat(maxNameLength - name.length + 4);
     if (description) {
-      console.log(`  ${name}${padding}${description}`)
+      console.log(`  ${name}${padding}${description}`);
     } else {
-      console.log(`  ${name}`)
+      console.log(`  ${name}`);
     }
   }
 
   if (trailingNewline) {
-    console.log()
+    console.log();
   }
 }
 
 function printInfo(name: string): void {
-  const description = getCodemodDescription(name)
+  const description = getCodemodDescription(name);
 
-  console.log(`\nCodemod: ${name}`)
+  console.log(`\nCodemod: ${name}`);
   if (description) {
-    console.log(`Description: ${description}`)
+    console.log(`Description: ${description}`);
   }
-  console.log(`\nTo apply this codemod, run:`)
-  console.log(`  yarn dlx @reapit/elements@beta codemod apply ${name} <directory>`)
-  console.log(`\nFor full options, run:`)
-  console.log(`  yarn dlx @reapit/elements@beta codemod apply ${name} --help`)
-  console.log()
+  console.log(`\nTo apply this codemod, run:`);
+  console.log(`  yarn dlx @reapit/elements@beta codemod apply ${name} <directory>`);
+  console.log(`\nFor full options, run:`);
+  console.log(`  yarn dlx @reapit/elements@beta codemod apply ${name} --help`);
+  console.log();
 }
 
 export function handleInfo(args: string[]): void {
-  const codemodName = args[0]
+  const codemodName = args[0];
 
-  if (!codemodName || codemodName.startsWith('-')) {
-    console.error('Error: No codemod name provided')
-    console.log('\nUsage: yarn dlx @reapit/elements@beta codemod info <name>')
-    console.log("\nRun 'yarn dlx @reapit/elements@beta codemod list' to see available codemods.")
-    process.exit(1)
+  if (!codemodName || codemodName.startsWith("-")) {
+    console.error("Error: No codemod name provided");
+    console.log("\nUsage: yarn dlx @reapit/elements@beta codemod info <name>");
+    console.log("\nRun 'yarn dlx @reapit/elements@beta codemod list' to see available codemods.");
+    process.exit(1);
   }
 
   if (!validateCodemodName(codemodName)) {
-    console.error(`Error: Unknown codemod '${codemodName}'`)
-    printList()
-    process.exit(1)
+    console.error(`Error: Unknown codemod '${codemodName}'`);
+    printList();
+    process.exit(1);
   }
 
-  printInfo(codemodName)
+  printInfo(codemodName);
 }
 
 export async function handleApply(args: string[]): Promise<void> {
-  const codemodName = args[0]
+  const codemodName = args[0];
 
-  if (!codemodName || codemodName.startsWith('-')) {
-    console.error('Error: No codemod name provided')
-    console.log('\nUsage: yarn dlx @reapit/elements@beta codemod apply <name> <directory> [options]')
-    console.log("\nRun 'yarn dlx @reapit/elements@beta codemod list' to see available codemods.")
-    process.exit(1)
+  if (!codemodName || codemodName.startsWith("-")) {
+    console.error("Error: No codemod name provided");
+    console.log(
+      "\nUsage: yarn dlx @reapit/elements@beta codemod apply <name> <directory> [options]",
+    );
+    console.log("\nRun 'yarn dlx @reapit/elements@beta codemod list' to see available codemods.");
+    process.exit(1);
   }
 
   // Validate codemod name against the allowlist before looking up in transforms
   if (!validateCodemodName(codemodName)) {
-    console.error(`Error: Unknown codemod '${codemodName}'`)
-    printList()
-    process.exit(1)
+    console.error(`Error: Unknown codemod '${codemodName}'`);
+    printList();
+    process.exit(1);
   }
 
-  const remainingArgs = args.slice(1)
+  const remainingArgs = args.slice(1);
 
   // Handle help for specific codemod
-  if (remainingArgs.includes('--help') || remainingArgs.includes('-h')) {
-    printApplyHelp(codemodName)
-    process.exit(0)
+  if (remainingArgs.includes("--help") || remainingArgs.includes("-h")) {
+    printApplyHelp(codemodName);
+    process.exit(0);
   }
 
   // Load and run the codemod
-  const loader = transforms[codemodName]
+  const loader = transforms[codemodName];
   if (!loader) {
-    console.error(`Error: No transform found for codemod '${codemodName}'`)
-    process.exit(1)
+    console.error(`Error: No transform found for codemod '${codemodName}'`);
+    process.exit(1);
   }
-  const codemodModule = await loader()
-  const transform = codemodModule.default
+  const codemodModule = await loader();
+  const transform = codemodModule.default;
 
-  if (typeof transform !== 'function') {
-    console.error(`Error: Codemod '${codemodName}' does not export a default transform function`)
-    process.exit(1)
+  if (typeof transform !== "function") {
+    console.error(`Error: Codemod '${codemodName}' does not export a default transform function`);
+    process.exit(1);
   }
 
   await run({
     transform,
     codemodName: codemodName,
     args: remainingArgs,
-  })
+  });
 }
 
 async function main(): Promise<void> {
-  const args = process.argv.slice(2)
-  const command = args[0]
+  const args = process.argv.slice(2);
+  const command = args[0];
 
   // Handle no command or help
-  if (!command || command === '--help' || command === '-h') {
-    printHelp()
-    process.exit(0)
+  if (!command || command === "--help" || command === "-h") {
+    printHelp();
+    process.exit(0);
   }
 
   switch (command) {
-    case 'list':
-      printList({ trailingNewline: true })
-      break
+    case "list":
+      printList({ trailingNewline: true });
+      break;
 
-    case 'info':
-      handleInfo(args.slice(1))
-      break
+    case "info":
+      handleInfo(args.slice(1));
+      break;
 
-    case 'apply':
-      await handleApply(args.slice(1))
-      break
+    case "apply":
+      await handleApply(args.slice(1));
+      break;
 
     default:
-      console.error(`Error: Unknown command '${command}'`)
-      printHelp()
-      process.exit(1)
+      console.error(`Error: Unknown command '${command}'`);
+      printHelp();
+      process.exit(1);
   }
 }
 
 main().catch((error: Error) => {
-  console.error('Error:', error.message)
-  process.exit(1)
-})
+  console.error("Error:", error.message);
+  process.exit(1);
+});

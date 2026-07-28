@@ -1,4 +1,4 @@
-import TrashSvg from './svgs/trash.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import TrashSvg from "./svgs/trash.svg?react";
 
-export const TrashIcon = makeIcon('TrashIcon', TrashSvg)
+export const TrashIcon = makeIcon("TrashIcon", TrashSvg);

@@ -1,6 +1,7 @@
-import { css } from '@linaria/core'
-import { styled } from '@linaria/react'
-import { font } from '#src/utils/font'
+import { css } from "@linaria/core";
+import { styled } from "@linaria/react";
+
+import { font } from "#src/utils/font";
 
 export const elButton = css`
   @layer elements.base {
@@ -24,49 +25,49 @@ export const elButton = css`
     }
 
     &:disabled,
-    &[aria-disabled='true'] {
+    &[aria-disabled="true"] {
       cursor: not-allowed;
     }
 
     /* Sizes */
-    &[data-size='small'] {
+    &[data-size="small"] {
       height: var(--size-8);
       padding-inline: var(--spacing-3);
 
-      ${font('sm', 'medium')}
+      ${font("sm", "medium")}
 
-      &[data-is-icon-only='true'] {
+      &[data-is-icon-only="true"] {
         padding: 0;
         width: var(--size-8);
       }
     }
 
-    &[data-size='medium'] {
+    &[data-size="medium"] {
       height: var(--size-9);
       padding-inline: var(--spacing-4);
 
-      ${font('sm', 'medium')}
+      ${font("sm", "medium")}
 
-      &[data-is-icon-only='true'] {
+      &[data-is-icon-only="true"] {
         padding: 0;
         width: var(--size-9);
       }
     }
 
-    &[data-size='large'] {
+    &[data-size="large"] {
       height: var(--size-10);
       padding-inline: var(--spacing-4);
 
-      ${font('base', 'medium')}
+      ${font("base", "medium")}
 
-      &[data-is-icon-only='true'] {
+      &[data-is-icon-only="true"] {
         padding: 0;
         width: var(--size-10);
       }
     }
 
     /* Variants */
-    &[data-variant='primary'] {
+    &[data-variant="primary"] {
       background: var(--comp-button-colour-fill-primary-default);
       color: var(--comp-button-colour-text-primary-default);
 
@@ -75,7 +76,7 @@ export const elButton = css`
         color: var(--comp-button-colour-text-primary-hover);
       }
 
-      &[data-use-ai-style='true'] {
+      &[data-use-ai-style="true"] {
         background: var(--comp-button-colour-fill-primary-ai-default);
         color: var(--comp-button-colour-text-primary-ai-default);
 
@@ -86,7 +87,7 @@ export const elButton = css`
       }
 
       /* NOTE: data-is-destructive must come after data-use-ai-style so it takes visual precedence. */
-      &[data-is-destructive='true'] {
+      &[data-is-destructive="true"] {
         background: var(--comp-button-colour-fill-primary-destructive-default);
         color: var(--comp-button-colour-text-primary-destructive-default);
 
@@ -98,15 +99,16 @@ export const elButton = css`
 
       &:disabled,
       &:disabled:hover,
-      &[aria-disabled='true'],
-      &[aria-disabled='true']:hover {
+      &[aria-disabled="true"],
+      &[aria-disabled="true"]:hover {
         background: var(--comp-button-colour-fill-primary-disabled);
         color: var(--comp-button-colour-text-primary-disabled);
       }
     }
 
-    &[data-variant='secondary'] {
-      border: var(--comp-button-border-width-default) solid var(--comp-button-colour-border-secondary-default);
+    &[data-variant="secondary"] {
+      border: var(--comp-button-border-width-default) solid
+        var(--comp-button-colour-border-secondary-default);
       background: var(--comp-button-colour-fill-secondary-default);
       color: var(--comp-button-colour-text-secondary-default);
 
@@ -116,7 +118,7 @@ export const elButton = css`
         color: var(--comp-button-colour-text-secondary-hover);
       }
 
-      &[data-use-ai-style='true'] {
+      &[data-use-ai-style="true"] {
         border-color: var(--comp-button-colour-border-secondary-ai-default);
         background: var(--comp-button-colour-fill-secondary-ai-default);
         color: var(--comp-button-colour-text-secondary-ai-default);
@@ -129,7 +131,7 @@ export const elButton = css`
       }
 
       /* NOTE: data-is-destructive must come after data-use-ai-style so it takes visual precedence. */
-      &[data-is-destructive='true'] {
+      &[data-is-destructive="true"] {
         border-color: var(--comp-button-colour-border-secondary-destructive-default);
         background: var(--comp-button-colour-fill-secondary-destructive-default);
         color: var(--comp-button-colour-text-secondary-destructive-default);
@@ -143,15 +145,15 @@ export const elButton = css`
 
       &:disabled,
       &:disabled:hover,
-      &[aria-disabled='true'],
-      &[aria-disabled='true']:hover {
+      &[aria-disabled="true"],
+      &[aria-disabled="true"]:hover {
         border-color: transparent;
         background: var(--comp-button-colour-fill-secondary-disabled);
         color: var(--comp-button-colour-text-secondary-disabled);
       }
     }
 
-    &[data-variant='tertiary'] {
+    &[data-variant="tertiary"] {
       background: var(--comp-button-colour-fill-tertiary-default);
       color: var(--comp-button-colour-text-tertiary-default);
 
@@ -160,16 +162,16 @@ export const elButton = css`
         color: var(--comp-button-colour-text-tertiary-hover);
       }
 
-      &[data-has-no-padding='true'] {
+      &[data-has-no-padding="true"] {
         height: fit-content;
         padding: 0;
 
-        &[data-is-icon-only='true'] {
+        &[data-is-icon-only="true"] {
           width: auto;
         }
       }
 
-      &[data-use-link-style='true'] {
+      &[data-use-link-style="true"] {
         color: var(--comp-button-colour-text-tertiary-link);
 
         &:hover {
@@ -178,7 +180,7 @@ export const elButton = css`
       }
 
       /* NOTE: data-use-ai-style must come after data-use-link-style so it takes visual precedence. */
-      &[data-use-ai-style='true'] {
+      &[data-use-ai-style="true"] {
         background: var(--comp-button-colour-fill-tertiary-ai-default);
         color: var(--comp-button-colour-text-tertiary-ai-default);
 
@@ -189,7 +191,7 @@ export const elButton = css`
       }
 
       /* NOTE: data-is-destructive must come after data-use-ai-style so it takes visual precedence. */
-      &[data-is-destructive='true'] {
+      &[data-is-destructive="true"] {
         background: var(--comp-button-colour-fill-tertiary-destructive-default);
         color: var(--comp-button-colour-text-tertiary-destructive-default);
 
@@ -203,14 +205,14 @@ export const elButton = css`
       * same specificity as the other styles. */
       &:disabled,
       &:disabled:hover,
-      &[aria-disabled='true'],
-      &[aria-disabled='true']:hover {
+      &[aria-disabled="true"],
+      &[aria-disabled="true"]:hover {
         background: var(--comp-button-colour-fill-tertiary-disabled);
         color: var(--comp-button-colour-text-tertiary-disabled);
       }
     }
   }
-`
+`;
 
 export const ElButtonIconContainer = styled.span`
   @layer elements.base {
@@ -221,34 +223,34 @@ export const ElButtonIconContainer = styled.span`
     place-content: center;
 
     /* Sizes */
-    [data-size='small'] & {
+    [data-size="small"] & {
       padding: var(--spacing-half);
       width: var(--icon_size-sm);
       height: var(--icon_size-sm);
     }
 
-    [data-size='medium'] & {
+    [data-size="medium"] & {
       padding: var(--spacing-half);
       width: var(--icon_size-sm);
       height: var(--icon_size-sm);
     }
 
-    [data-size='large'] & {
+    [data-size="large"] & {
       padding: var(--spacing-half);
       width: var(--icon_size-md);
       height: var(--icon_size-md);
     }
 
     /* Variants */
-    ${generateElButtonIconContainerVariantStyles('primary')}
+    ${generateElButtonIconContainerVariantStyles("primary")}
 
-    ${generateElButtonIconContainerVariantStyles('secondary')}
+    ${generateElButtonIconContainerVariantStyles("secondary")}
 
-    ${generateElButtonIconContainerVariantStyles('tertiary')}
+    ${generateElButtonIconContainerVariantStyles("tertiary")}
   }
-`
+`;
 
-function generateElButtonIconContainerVariantStyles(variant: 'primary' | 'secondary' | 'tertiary') {
+function generateElButtonIconContainerVariantStyles(variant: "primary" | "secondary" | "tertiary") {
   return `
   [data-variant='${variant}'] & {
     color: var(--comp-button-colour-icon-${variant}-default);
@@ -260,7 +262,7 @@ function generateElButtonIconContainerVariantStyles(variant: 'primary' | 'second
 
   /* NOTE: data-use-link-style is only supported by tertiary buttons. */
   ${
-    variant === 'tertiary'
+    variant === "tertiary"
       ? `
   [data-variant='tertiary'][data-use-link-style='true'] & {
     color: var(--comp-button-colour-icon-tertiary-link);
@@ -269,7 +271,7 @@ function generateElButtonIconContainerVariantStyles(variant: 'primary' | 'second
   [data-variant='tertiary'][data-use-link-style='true']:hover & {
     color: var(--comp-button-colour-icon-tertiary-link_hover);
   }`
-      : ''
+      : ""
   }
 
   /* NOTE: data-use-ai-style must come after data-use-link-style so it takes visual precedence. */
@@ -298,7 +300,7 @@ function generateElButtonIconContainerVariantStyles(variant: 'primary' | 'second
   [data-variant='${variant}'][aria-disabled='true']:hover & {
     color: var(--comp-button-colour-icon-${variant}-disabled);
   }
-  `
+  `;
 }
 
 export const elButtonSpinner = css`
@@ -314,4 +316,4 @@ export const elButtonSpinner = css`
       transform: rotate(360deg);
     }
   }
-`
+`;

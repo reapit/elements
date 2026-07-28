@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
 
 export const ElGalleryViewerThumbnailList = styled.ul`
   @layer elements.main {
@@ -13,11 +13,11 @@ export const ElGalleryViewerThumbnailList = styled.ul`
     margin-block: 0;
     padding-inline: 0;
   }
-`
+`;
 
 export const ElGalleryViewerThumbnailListItem = styled.li`
   @layer elements.main {
     display: block;
     width: min-content;
   }
-`
+`;

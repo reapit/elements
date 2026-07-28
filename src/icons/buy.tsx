@@ -1,4 +1,4 @@
-import BuySvg from './svgs/buy.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import BuySvg from "./svgs/buy.svg?react";
 
-export const BuyIcon = makeIcon('BuyIcon', BuySvg)
+export const BuyIcon = makeIcon("BuyIcon", BuySvg);

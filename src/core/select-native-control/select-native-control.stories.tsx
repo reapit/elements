@@ -1,13 +1,14 @@
-import preview from '#.storybook/preview'
-import { SelectNativeControl } from './select-native-control'
+import preview from "#.storybook/preview";
+
+import { SelectNativeControl } from "./select-native-control";
 
 const meta = preview.meta({
-  title: 'Input and selection/SelectNativeControl',
+  title: "Input and selection/SelectNativeControl",
   component: SelectNativeControl,
   argTypes: {
     children: {
-      control: 'radio',
-      options: ['Simple', 'With Groups'],
+      control: "radio",
+      options: ["Simple", "With Groups"],
       mapping: {
         Simple: (
           <>
@@ -17,7 +18,7 @@ const meta = preview.meta({
             <option value="other">Some other option with a long name</option>
           </>
         ),
-        'With Groups': (
+        "With Groups": (
           <>
             <option value="">Select portfolio</option>
             <optgroup label="Preferred Portfolios">
@@ -34,39 +35,39 @@ const meta = preview.meta({
       },
     },
     errorText: {
-      control: 'text',
+      control: "text",
     },
     helpText: {
-      control: 'text',
+      control: "text",
     },
     label: {
-      control: 'text',
+      control: "text",
     },
     size: {
-      control: 'radio',
-      options: ['small', 'medium', 'large'],
+      control: "radio",
+      options: ["small", "medium", "large"],
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
-    autoComplete: 'off',
-    children: 'Simple',
+    autoComplete: "off",
+    children: "Simple",
     defaultValue: undefined,
     disabled: false,
-    errorText: '',
+    errorText: "",
     form: undefined,
-    helpText: '',
-    label: 'Label',
+    helpText: "",
+    label: "Label",
     maxWidth: undefined,
-    name: 'mySelect',
+    name: "mySelect",
     required: false,
     showValidity: undefined,
-    size: 'medium',
+    size: "medium",
     value: undefined,
   },
-})
+});
 
 /**
  * There are three sizes available: `small`, `medium` and `large`.
@@ -80,7 +81,7 @@ export const Sizes = Example.extend({
 
   decorators: [
     (Story) => (
-      <div style={{ display: 'flex', gap: 'var(--spacing-6)', alignItems: 'start' }}>
+      <div style={{ display: "flex", gap: "var(--spacing-6)", alignItems: "start" }}>
         <Story />
       </div>
     ),
@@ -93,25 +94,25 @@ export const Sizes = Example.extend({
       <SelectNativeControl {...args} size="large" />
     </>
   ),
-})
+});
 
 /**
  * Optional help text can be provided to give more context about the select.
  */
 export const HelpText = Example.extend({
   args: {
-    helpText: 'Optional help text',
+    helpText: "Optional help text",
   },
-})
+});
 
 /**
  * Options for the select can be grouped using the native `optgroup` element.
  */
 export const OptionGroups = Example.extend({
   args: {
-    children: 'With Groups',
+    children: "With Groups",
   },
-})
+});
 
 /**
  * Like all form controls, the select will display in an invalid state when it's value
@@ -124,11 +125,11 @@ export const OptionGroups = Example.extend({
  */
 export const Invalid = Example.extend({
   args: {
-    errorText: 'Error message',
+    errorText: "Error message",
     required: true,
     showValidity: true,
   },
-})
+});
 
 /**
  * Selects can be disabled. A disabled select will not receive the `click` event, and are not submitted
@@ -138,17 +139,17 @@ export const Disabled = Example.extend({
   args: {
     disabled: true,
   },
-})
+});
 
 /**
  * The initial value of the select, when it's value is not controlled, can be provided using `defaultValue`.
  */
 export const DefaultValue = Example.extend({
-  name: 'Default value',
+  name: "Default value",
   args: {
-    defaultValue: 'residential',
+    defaultValue: "residential",
   },
-})
+});
 
 /**
  * The value of the select can be controlled by providing an explicit `value`. In this example, the select's value is
@@ -156,21 +157,21 @@ export const DefaultValue = Example.extend({
  * not change.
  */
 export const ControlledValue = Example.extend({
-  name: 'Controlled value',
+  name: "Controlled value",
   args: {
-    value: 'commercial',
+    value: "commercial",
   },
-})
+});
 
 /**
  * By default, selects will fill their parent's width. This can be constrained by providing a `maxWidth`.
  */
 export const MaxWidth = Example.extend({
-  name: 'Max-width',
+  name: "Max-width",
   args: {
-    maxWidth: 'var(--size-64)',
+    maxWidth: "var(--size-64)",
   },
-})
+});
 
 /**
  * The label, help text and error text will all wrap naturally when the form control does not have sufficient
@@ -181,4 +182,4 @@ export const Wrapping = MaxWidth.extend({
     label: "This is a long label that won't fit on a single line",
     helpText: "This is a long optional help text that won't fit on a single line",
   },
-})
+});

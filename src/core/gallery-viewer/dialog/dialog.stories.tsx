@@ -1,17 +1,19 @@
-import preview from '#.storybook/preview'
-import { GalleryViewerDialog } from './dialog'
-import { useArgs } from 'storybook/preview-api'
-import { useState } from 'react'
+import { useState } from "react";
+import { useArgs } from "storybook/preview-api";
+
+import preview from "#.storybook/preview";
+
+import { GalleryViewerDialog } from "./dialog";
 
 const meta = preview.meta({
-  title: 'Content display/GalleryViewer/Dialog',
+  title: "Content display/GalleryViewer/Dialog",
   component: GalleryViewerDialog,
   argTypes: {
     children: {
       control: false,
     },
   },
-})
+});
 
 /**
  * At its simplest, you can open and close the gallery viewer dialog by controlling its `isOpen`
@@ -21,19 +23,19 @@ const meta = preview.meta({
 export const Example = meta.story({
   args: {
     children: <ExampleContent />,
-    closedBy: 'any',
+    closedBy: "any",
     isOpen: false,
   },
   render: function Example(args) {
-    const [, setArgs] = useArgs()
+    const [, setArgs] = useArgs();
     return (
       <>
         <button onClick={() => setArgs({ isOpen: true })}>Open Gallery</button>
         <GalleryViewerDialog onClose={() => setArgs({ isOpen: false })} {...args} />
       </>
-    )
+    );
   },
-})
+});
 
 /**
  * The `closedBy` prop specifies the types of user actions that can be used to close the dialog.
@@ -44,39 +46,41 @@ export const Example = meta.story({
  */
 export const ClosedBy = Example.extend({
   args: {
-    closedBy: 'closerequest',
+    closedBy: "closerequest",
   },
   render: function ClosedBy(args) {
-    const [isOpen, setIsOpen] = useState(false)
+    const [isOpen, setIsOpen] = useState(false);
     return (
       <>
         <button onClick={() => setIsOpen(true)}>Open Gallery</button>
         <GalleryViewerDialog onClose={() => setIsOpen(false)} {...args} isOpen={isOpen} />
       </>
-    )
+    );
   },
-})
+});
 
 function ExampleContent() {
   return (
     <>
-      <GalleryViewerDialog.Header>10 High Street, Great Horwood, Buckinghamshire, MK17 0QL</GalleryViewerDialog.Header>
+      <GalleryViewerDialog.Header>
+        10 High Street, Great Horwood, Buckinghamshire, MK17 0QL
+      </GalleryViewerDialog.Header>
       <GalleryViewerDialog.Content>
         <div
           style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            width: '100%',
-            height: '100%',
-            background: 'var(--colour-fill-default)',
-            color: 'var(--colour-text-default)',
-            fontFamily: 'var(--font-family-sans)',
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            width: "100%",
+            height: "100%",
+            background: "var(--colour-fill-default)",
+            color: "var(--colour-text-default)",
+            fontFamily: "var(--font-family-sans)",
           }}
         >
           Gallery content goes here
         </div>
       </GalleryViewerDialog.Content>
     </>
-  )
+  );
 }

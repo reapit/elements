@@ -1,12 +1,12 @@
-import { cx } from '@linaria/core'
-import { elImage, elImageContainer } from './styles'
-import { MediaFallback } from '../media-fallback'
-import { elMediaFallbackOverlay } from '../media-fallback/styles'
-import { PhotoIcon } from '../../icons/photo'
-import { ResponsiveImage } from './responsive-image'
-import { useImage } from './use-image'
+import { cx } from "@linaria/core";
+import type { CSSProperties, ReactNode } from "react";
 
-import type { CSSProperties, ReactNode } from 'react'
+import { PhotoIcon } from "../../icons/photo";
+import { MediaFallback } from "../media-fallback";
+import { elMediaFallbackOverlay } from "../media-fallback/styles";
+import { ResponsiveImage } from "./responsive-image";
+import { elImage, elImageContainer } from "./styles";
+import { useImage } from "./use-image";
 
 export namespace Image {
   export interface Props extends ResponsiveImage.Props {
@@ -18,19 +18,19 @@ export namespace Image {
      *
      * @see https://www.w3.org/WAI/tutorials/images/decision-tree/
      */
-    alt: string
+    alt: string;
     /**
      * Custom fallback UI shown if the image fails to load.
      */
-    fallback?: ReactNode
+    fallback?: ReactNode;
     /**
      * The image's height.
      */
-    height: string
+    height: string;
     /**
      * The image's width.
      */
-    width: string
+    width: string;
   }
 }
 
@@ -46,24 +46,29 @@ export function Image({
   className,
   fallback,
   height,
-  objectFit = 'contain',
+  objectFit = "contain",
   onError,
   onLoad,
   src,
   width,
   ...rest
 }: Image.Props) {
-  const { handleError, handleLoad, hasError } = useImage({ onError, onLoad })
-  const isDecorative = alt === ''
-  const shouldAnnounceDefaultFallback = !isDecorative && !fallback
-  const defaultFallbackMessage = alt ? `The image could not be loaded: ${alt}` : 'The image could not be loaded'
+  const { handleError, handleLoad, hasError } = useImage({ onError, onLoad });
+  const isDecorative = alt === "";
+  const shouldAnnounceDefaultFallback = !isDecorative && !fallback;
+  const defaultFallbackMessage = alt
+    ? `The image could not be loaded: ${alt}`
+    : "The image could not be loaded";
 
   return (
-    <div className={elImageContainer} style={{ '--image-width': width, '--image-height': height } as CSSProperties}>
+    <div
+      className={elImageContainer}
+      style={{ "--image-width": width, "--image-height": height } as CSSProperties}
+    >
       <ResponsiveImage
         {...rest}
         alt={alt}
-        aria-hidden={hasError ? 'true' : undefined}
+        aria-hidden={hasError ? "true" : undefined}
         className={cx(elImage, className)}
         objectFit={objectFit}
         onError={handleError}
@@ -74,10 +79,10 @@ export function Image({
         <div className={elMediaFallbackOverlay}>
           {fallback ?? (
             <MediaFallback
-              aria-atomic={shouldAnnounceDefaultFallback ? 'true' : undefined}
-              aria-live={shouldAnnounceDefaultFallback ? 'polite' : undefined}
+              aria-atomic={shouldAnnounceDefaultFallback ? "true" : undefined}
+              aria-live={shouldAnnounceDefaultFallback ? "polite" : undefined}
               icon={<PhotoIcon aria-hidden color="primary" size="lg" />}
-              role={shouldAnnounceDefaultFallback ? 'status' : undefined}
+              role={shouldAnnounceDefaultFallback ? "status" : undefined}
             >
               {defaultFallbackMessage}
             </MediaFallback>
@@ -85,7 +90,7 @@ export function Image({
         </div>
       )}
     </div>
-  )
+  );
 }
 
-Image.Fallback = MediaFallback
+Image.Fallback = MediaFallback;

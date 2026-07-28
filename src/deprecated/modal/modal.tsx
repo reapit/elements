@@ -1,15 +1,16 @@
-import { FC, HTMLAttributes, Ref, RefObject, createRef, useEffect, useId } from 'react'
-import { cx } from '@linaria/core'
-import { ModalBg, ModalContainer, ModalHeader, ModalBody } from './modal.atoms'
-import { elIsActive } from '../../styles/deprecated-states'
-import { ModalProps } from './types'
+import { cx } from "@linaria/core";
+import { FC, HTMLAttributes, Ref, RefObject, createRef, useEffect, useId } from "react";
+
+import { elIsActive } from "../../styles/deprecated-states";
+import { ModalBg, ModalContainer, ModalHeader, ModalBody } from "./modal.atoms";
+import { ModalProps } from "./types";
 
 /** @deprecated */
 export const handleModalFocus = (modalRef: RefObject<HTMLDivElement>, isOpen: boolean) => () => {
   if (isOpen && modalRef.current) {
-    modalRef.current.focus()
+    modalRef.current.focus();
   }
-}
+};
 
 /**
  * This component will be replaced by the `Dialog` component in a future major version
@@ -17,32 +18,41 @@ export const handleModalFocus = (modalRef: RefObject<HTMLDivElement>, isOpen: bo
  * @deprecated The `Modal` component is deprecated and will be removed in a future major version.
  * Use the `Dialog` component instead
  */
-export const Modal: FC<ModalProps> = ({ isOpen, onModalClose, title, className, children, ...rest }) => {
-  const id = rest.id || useId()
-  const modalRef = createRef<HTMLDivElement>()
+export const Modal: FC<ModalProps> = ({
+  isOpen,
+  onModalClose,
+  title,
+  className,
+  children,
+  ...rest
+}) => {
+  const id = rest.id || useId();
+  const modalRef = createRef<HTMLDivElement>();
 
   useEffect(() => {
     const onKeyUp = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        onModalClose()
+      if (e.key === "Escape") {
+        onModalClose();
       }
-    }
-    document.addEventListener('keyup', onKeyUp, false)
+    };
+    document.addEventListener("keyup", onKeyUp, false);
 
     return () => {
-      document.removeEventListener('keyup', onKeyUp, false)
-    }
-  }, [onModalClose])
+      document.removeEventListener("keyup", onKeyUp, false);
+    };
+  }, [onModalClose]);
 
-  const modalCombinedClassname = cx(className, elIsActive)
+  const modalCombinedClassname = cx(className, elIsActive);
 
-  useEffect(handleModalFocus(modalRef, isOpen), [modalRef, isOpen])
+  useEffect(handleModalFocus(modalRef, isOpen), [modalRef, isOpen]);
 
   useEffect(() => {
-    console.warn('Modal component will be removed in future major version. Use `Dialog` component instead')
-  }, [])
+    console.warn(
+      "Modal component will be removed in future major version. Use `Dialog` component instead",
+    );
+  }, []);
 
-  if (!isOpen) return null
+  if (!isOpen) return null;
 
   return (
     <>
@@ -60,5 +70,5 @@ export const Modal: FC<ModalProps> = ({ isOpen, onModalClose, title, className, 
         <ModalBody id={id}>{children}</ModalBody>
       </ModalContainer>
     </>
-  )
-}
+  );
+};

@@ -1,2 +1,2 @@
-export * from './dom'
-export * from './use-active-descendant'
+export * from "./dom";
+export * from "./use-active-descendant";

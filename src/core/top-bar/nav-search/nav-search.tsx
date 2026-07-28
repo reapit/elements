@@ -1,8 +1,12 @@
-import { ElTopBarNavSearch, ElTopBarNavSearchButtonContainer, ElTopBarNavSearchIconItemContainer } from './styles'
-import { TopBarNavSearchButton } from '../nav-search-button'
-import { TopBarNavSearchIconItem } from '../nav-search-icon-item'
+import type { ComponentProps, ReactNode } from "react";
 
-import type { ComponentProps, ReactNode } from 'react'
+import { TopBarNavSearchButton } from "../nav-search-button";
+import { TopBarNavSearchIconItem } from "../nav-search-icon-item";
+import {
+  ElTopBarNavSearch,
+  ElTopBarNavSearchButtonContainer,
+  ElTopBarNavSearchIconItemContainer,
+} from "./styles";
 
 export namespace TopBarNavSearch {
   export interface ButtonProps extends TopBarNavSearchButton.Props {}
@@ -12,11 +16,11 @@ export namespace TopBarNavSearch {
     /**
      * The button to display on tablet devices and wider. Will typically be a `TopBar.NavSearchButton`.
      */
-    button?: ReactNode
+    button?: ReactNode;
     /**
      * The icon item to display on mobile devices. Will typically be a `TopBar.NavSearchIconItem`.
      */
-    iconItem?: ReactNode
+    iconItem?: ReactNode;
   }
 }
 
@@ -31,10 +35,10 @@ export function TopBarNavSearch({ button, iconItem, ...rest }: TopBarNavSearch.P
       <ElTopBarNavSearchButtonContainer>{button}</ElTopBarNavSearchButtonContainer>
       <ElTopBarNavSearchIconItemContainer>{iconItem}</ElTopBarNavSearchIconItemContainer>
     </ElTopBarNavSearch>
-  )
+  );
 }
 
-TopBarNavSearch.displayName = 'TopBar.NavSearch'
+TopBarNavSearch.displayName = "TopBar.NavSearch";
 
-TopBarNavSearch.Button = TopBarNavSearchButton
-TopBarNavSearch.IconItem = TopBarNavSearchIconItem
+TopBarNavSearch.Button = TopBarNavSearchButton;
+TopBarNavSearch.IconItem = TopBarNavSearchIconItem;

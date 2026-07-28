@@ -1,7 +1,7 @@
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
 
 export interface ElPrimaryTabsProps {
-  'data-overflow': 'scroll' | 'visible'
+  "data-overflow": "scroll" | "visible";
 }
 
 export const ElPrimaryTabs = styled.nav<ElPrimaryTabsProps>`
@@ -10,15 +10,15 @@ export const ElPrimaryTabs = styled.nav<ElPrimaryTabsProps>`
     width: 100%;
 
     &,
-    &[data-overflow='visible'] {
+    &[data-overflow="visible"] {
       overflow-x: visible;
     }
 
-    &[data-overflow='scroll'] {
+    &[data-overflow="scroll"] {
       overflow-x: auto;
     }
   }
-`
+`;
 
 export const ElPrimaryTabsList = styled.menu`
   @layer elements.main {
@@ -33,11 +33,11 @@ export const ElPrimaryTabsList = styled.menu`
     margin: 0;
     padding: 0;
   }
-`
+`;
 
 export const ElPrimaryTabsListItem = styled.li`
   @layer elements.main {
     display: flex;
     align-items: center;
   }
-`
+`;

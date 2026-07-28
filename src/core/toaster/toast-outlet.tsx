@@ -1,7 +1,8 @@
-import { elToastOutlet } from './styles'
-import { outletStack } from './outlet-stack'
-import { toastStore } from './store'
-import { useEffect, useRef, useSyncExternalStore } from 'react'
+import { useEffect, useRef, useSyncExternalStore } from "react";
+
+import { outletStack } from "./outlet-stack";
+import { toastStore } from "./store";
+import { elToastOutlet } from "./styles";
 
 /**
  * A mounting point for the toast list. Render this inside a modal `<dialog>`
@@ -20,37 +21,37 @@ import { useEffect, useRef, useSyncExternalStore } from 'react'
  * No props are needed — position and duration are controlled by the `Toaster`.
  */
 export function ToastOutlet() {
-  const ref = useRef<HTMLDivElement>(null)
-  const activeOutlet = useSyncExternalStore(outletStack.subscribe, outletStack.getSnapshot)
-  const toasts = useSyncExternalStore(toastStore.subscribe, toastStore.getSnapshot)
+  const ref = useRef<HTMLDivElement>(null);
+  const activeOutlet = useSyncExternalStore(outletStack.subscribe, outletStack.getSnapshot);
+  const toasts = useSyncExternalStore(toastStore.subscribe, toastStore.getSnapshot);
 
   useEffect(function registerOutlet() {
-    const el = ref.current
-    if (!el) return
-    outletStack.push(el)
+    const el = ref.current;
+    if (!el) return;
+    outletStack.push(el);
     return function unregisterOutlet() {
-      outletStack.pop(el)
-    }
-  }, [])
+      outletStack.pop(el);
+    };
+  }, []);
 
-  const isActive = ref.current !== null && activeOutlet === ref.current
-  const shouldShow = isActive && toasts.length > 0
+  const isActive = ref.current !== null && activeOutlet === ref.current;
+  const shouldShow = isActive && toasts.length > 0;
 
   useEffect(
     function syncPopoverVisibility() {
       try {
         if (shouldShow) {
-          ref.current?.showPopover()
+          ref.current?.showPopover();
         } else {
-          ref.current?.hidePopover()
+          ref.current?.hidePopover();
         }
       } catch {
         // Throws if the element is not connected or already in the target state.
       }
     },
     [shouldShow],
-  )
+  );
 
   // @ts-expect-error -- React 18 does not have types for the popover attribute
-  return <div ref={ref} className={elToastOutlet} popover="manual" />
+  return <div ref={ref} className={elToastOutlet} popover="manual" />;
 }

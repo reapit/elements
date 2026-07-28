@@ -1,15 +1,15 @@
-import { EmptyStateAction, EmptyStateActionButton } from './action'
-import { EmptyStateDescription } from './description'
-import { ElEmptyState } from './styles'
+import type { HTMLAttributes, ReactNode } from "react";
 
-import type { HTMLAttributes, ReactNode } from 'react'
+import { EmptyStateAction, EmptyStateActionButton } from "./action";
+import { EmptyStateDescription } from "./description";
+import { ElEmptyState } from "./styles";
 
 export namespace EmptyState {
   export interface Props extends HTMLAttributes<HTMLDivElement> {
     /** The background of the empty state. Defaults to neutral-lightest. */
-    background?: 'neutral-lightest' | 'transparent' | 'white'
+    background?: "neutral-lightest" | "transparent" | "white";
     /** The content of the empty state. Typically an action, description, or both. */
-    children: ReactNode
+    children: ReactNode;
     /**
      * The height of the empty state. By default, the height will be determined by the content,
      * but a fixed height can be specified via this prop. Care should be taken to ensure the content
@@ -17,9 +17,9 @@ export namespace EmptyState {
      *
      * @deprecated Use `style` instead
      */
-    height?: `--size-${string}`
+    height?: `--size-${string}`;
     /** The size of the empty state. Defaults to small. */
-    size?: 'small' | 'large'
+    size?: "small" | "large";
   }
 }
 
@@ -29,10 +29,10 @@ export namespace EmptyState {
  * should be provided.
  */
 export function EmptyState({
-  background = 'neutral-lightest',
+  background = "neutral-lightest",
   children,
   height,
-  size = 'small',
+  size = "small",
   style,
   ...rest
 }: EmptyState.Props) {
@@ -45,11 +45,11 @@ export function EmptyState({
     >
       {children}
     </ElEmptyState>
-  )
+  );
 }
 
 /** @deprecated Use AnchorButton directly */
-EmptyState.Action = EmptyStateAction
+EmptyState.Action = EmptyStateAction;
 /** @deprecated Use Button directly */
-EmptyState.ActionButton = EmptyStateActionButton
-EmptyState.Description = EmptyStateDescription
+EmptyState.ActionButton = EmptyStateActionButton;
+EmptyState.Description = EmptyStateDescription;

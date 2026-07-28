@@ -1,4 +1,4 @@
-import { createContext, useContext } from 'react'
+import { createContext, useContext } from "react";
 
 // NOTE: This context shares attributes between multiple Combobox subcomponents
 // (e.g., disabled affects both ComboboxButton and ComboboxListbox). Define
@@ -7,29 +7,29 @@ import { createContext, useContext } from 'react'
 export namespace ComboboxContext {
   export interface Value {
     /** ID of element(s) describing the combobox */
-    ariaDescribedBy?: string
+    ariaDescribedBy?: string;
     /** ID of element providing error message for the combobox */
-    ariaErrorMessage?: string
+    ariaErrorMessage?: string;
     /** Whether the combobox value is invalid */
-    ariaInvalid?: boolean | 'false' | 'true' | 'grammar' | 'spelling'
+    ariaInvalid?: boolean | "false" | "true" | "grammar" | "spelling";
     /** ID of element(s) labelling the combobox */
-    ariaLabelledBy?: string
+    ariaLabelledBy?: string;
     /** Combobox element ID */
-    comboboxId: string
+    comboboxId: string;
     /** Whether the combobox is disabled */
-    disabled: boolean
+    disabled: boolean;
     /** Listbox element ID */
-    listboxId: string
+    listboxId: string;
     /** Whether multiple selections are allowed */
-    multiple: boolean
+    multiple: boolean;
     /** Popup element ID */
-    popupId: string
+    popupId: string;
     /** Whether the combobox is required */
-    required: boolean
+    required: boolean;
     /** ID of the Combobox.SearchInput element, if rendered */
-    searchInputId: string
+    searchInputId: string;
     /** Size of the combobox */
-    size: 'small' | 'medium' | 'large'
+    size: "small" | "medium" | "large";
   }
 }
 
@@ -37,7 +37,7 @@ export namespace ComboboxContext {
  * Context that Combobox provides to descendants. Exposes configuration for
  * managing shared state across button, listbox, and popup components.
  */
-export const ComboboxContext = createContext<ComboboxContext.Value | null>(null)
+export const ComboboxContext = createContext<ComboboxContext.Value | null>(null);
 
 /**
  * Returns the current ComboboxContext value.
@@ -45,9 +45,9 @@ export const ComboboxContext = createContext<ComboboxContext.Value | null>(null)
  * @throws {Error} when used outside a Combobox
  */
 export function useComboboxContext(): ComboboxContext.Value {
-  const context = useContext(ComboboxContext)
+  const context = useContext(ComboboxContext);
   if (!context) {
-    throw new Error('useComboboxContext requires a Combobox ancestor')
+    throw new Error("useComboboxContext requires a Combobox ancestor");
   }
-  return context
+  return context;
 }

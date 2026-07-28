@@ -1,12 +1,12 @@
-import { ElSwitchInput } from './styles'
-import { forwardRef } from 'react'
+import { forwardRef } from "react";
+import type { InputHTMLAttributes } from "react";
 
-import type { InputHTMLAttributes } from 'react'
+import { ElSwitchInput } from "./styles";
 
 export namespace SwitchInput {
   export interface Props extends InputHTMLAttributes<HTMLInputElement> {
     /** The type of input. If supplied, it must be "checkbox". */
-    type?: 'checkbox'
+    type?: "checkbox";
   }
 }
 
@@ -16,9 +16,9 @@ export namespace SwitchInput {
  * used for explicit binary on/off semantics.
  */
 export const SwitchInput = forwardRef<HTMLInputElement, SwitchInput.Props>(
-  ({ role = 'switch', type = 'checkbox', ...rest }, ref) => {
-    return <ElSwitchInput {...rest} ref={ref} role={role} type={type} />
+  ({ role = "switch", type = "checkbox", ...rest }, ref) => {
+    return <ElSwitchInput {...rest} ref={ref} role={role} type={type} />;
   },
-)
+);
 
-SwitchInput.displayName = 'SwitchInput'
+SwitchInput.displayName = "SwitchInput";

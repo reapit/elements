@@ -1,1 +1,1 @@
-export { CheckboxGroupControl } from './checkbox-group-control'
+export { CheckboxGroupControl } from "./checkbox-group-control";

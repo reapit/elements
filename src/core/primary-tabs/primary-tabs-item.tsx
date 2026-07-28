@@ -1,7 +1,7 @@
-import { ElPrimaryTabsListItem } from './styles'
-import { PrimaryTab } from './tab'
+import type { ComponentProps } from "react";
 
-import type { ComponentProps } from 'react'
+import { ElPrimaryTabsListItem } from "./styles";
+import { PrimaryTab } from "./tab";
 
 export namespace PrimaryTabsItem {
   export interface Props extends ComponentProps<typeof PrimaryTab> {}
@@ -18,7 +18,7 @@ export function PrimaryTabsItem(props: PrimaryTabsItem.Props) {
     <ElPrimaryTabsListItem>
       <PrimaryTab {...props} />
     </ElPrimaryTabsListItem>
-  )
+  );
 }
 
-PrimaryTabsItem.displayName = 'PrimaryTabs.Item'
+PrimaryTabsItem.displayName = "PrimaryTabs.Item";

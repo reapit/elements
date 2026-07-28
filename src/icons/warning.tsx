@@ -1,4 +1,4 @@
-import WarningSvg from './svgs/warning.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import WarningSvg from "./svgs/warning.svg?react";
 
-export const WarningIcon = makeIcon('WarningIcon', WarningSvg)
+export const WarningIcon = makeIcon("WarningIcon", WarningSvg);

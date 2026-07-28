@@ -1,12 +1,13 @@
-import { ElFolderTabCountContainer, ElFolderTabCountLabel, ElFolderTabCountText } from './styles'
-import type { HTMLAttributes, ReactNode } from 'react'
+import type { HTMLAttributes, ReactNode } from "react";
+
+import { ElFolderTabCountContainer, ElFolderTabCountLabel, ElFolderTabCountText } from "./styles";
 
 export namespace FolderTabCountLabel {
   export interface Props extends HTMLAttributes<HTMLSpanElement> {
     /** The label text. */
-    children: ReactNode
+    children: ReactNode;
     /** The featured numerical count. */
-    count: ReactNode
+    count: ReactNode;
   }
 }
 
@@ -21,7 +22,7 @@ export function FolderTabCountLabel({ children, count, ...rest }: FolderTabCount
       <ElFolderTabCountText>{count}</ElFolderTabCountText>
       <ElFolderTabCountLabel>{children}</ElFolderTabCountLabel>
     </ElFolderTabCountContainer>
-  )
+  );
 }
 
-FolderTabCountLabel.displayName = 'FolderTabs.CountLabel'
+FolderTabCountLabel.displayName = "FolderTabs.CountLabel";

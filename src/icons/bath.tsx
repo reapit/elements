@@ -1,4 +1,4 @@
-import BathSvg from './svgs/bath.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import BathSvg from "./svgs/bath.svg?react";
 
-export const BathIcon = makeIcon('BathIcon', BathSvg)
+export const BathIcon = makeIcon("BathIcon", BathSvg);

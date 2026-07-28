@@ -1,4 +1,5 @@
-import preview from '#.storybook/preview'
+import preview from "#.storybook/preview";
+
 import {
   BodyText,
   SmallText,
@@ -12,14 +13,14 @@ import {
   TextXL,
   TextXS,
   Title,
-} from './typography'
+} from "./typography";
 
 const meta = preview.meta({
-  title: 'Deprecated/Typography',
+  title: "Deprecated/Typography",
   component: TextBase,
-})
+});
 
-export default meta
+export default meta;
 
 export const BaseScale = meta.story({
   render: () => (
@@ -34,7 +35,7 @@ export const BaseScale = meta.story({
       <Text2XS>I am a Text2XS</Text2XS>
     </>
   ),
-})
+});
 
 export const TaggedTypography = meta.story({
   render: () => (
@@ -49,7 +50,7 @@ export const TaggedTypography = meta.story({
       <Text2XS tag="span">I am a Text2XS with a span tag</Text2XS>
     </>
   ),
-})
+});
 
 export const TypographyModifiers = meta.story({
   render: () => (
@@ -68,7 +69,7 @@ export const TypographyModifiers = meta.story({
       <TextBase hasUpperCasedText>i am a bodytext with hasUpperCasedText modifier</TextBase>
     </>
   ),
-})
+});
 
 export const Intent = meta.story({
   render: () => (
@@ -82,23 +83,23 @@ export const Intent = meta.story({
       <TextBase intent="default">I am a TextBase default</TextBase>
     </>
   ),
-})
+});
 
 export const TitleUsage = meta.story({
   render: () => <Title>I am a Title</Title>,
-})
+});
 
 export const SubtitleUsage = meta.story({
   render: () => <Subtitle>I am a Subtitle</Subtitle>,
-})
+});
 
 export const BodyTextUsage = meta.story({
   render: () => <BodyText>I am a BodyText</BodyText>,
-})
+});
 
 export const SmallTextUsage = meta.story({
   render: () => <SmallText>I am a SmallText</SmallText>,
-})
+});
 
 export const TitleAndSubtitle = meta.story({
   render: () => (
@@ -107,29 +108,29 @@ export const TitleAndSubtitle = meta.story({
       <Subtitle>Why would you not want to register for Foundations?</Subtitle>
     </>
   ),
-})
+});
 
 export const SubtitleAndBodyText = meta.story({
   render: () => (
     <>
       <Subtitle>Why register for Foundations?</Subtitle>
       <BodyText>
-        By registering for the Foundations platform, you will get access to the Reapit developer portal and sandbox
-        data. You will also get the opportunity to list apps in the Reapit Marketplace. We look forward to seeing what
-        you build!
+        By registering for the Foundations platform, you will get access to the Reapit developer
+        portal and sandbox data. You will also get the opportunity to list apps in the Reapit
+        Marketplace. We look forward to seeing what you build!
       </BodyText>
     </>
   ),
-})
+});
 
 export const BodyTextAndSmallText = meta.story({
   render: () => (
     <>
       <BodyText>Have you had a look at the documentation?</BodyText>
       <SmallText>
-        Before continuing with registering your first app, we strongly advise that you read the guide on how best to
-        complete the following form.
+        Before continuing with registering your first app, we strongly advise that you read the
+        guide on how best to complete the following form.
       </SmallText>
     </>
   ),
-})
+});

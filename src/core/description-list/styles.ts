@@ -1,4 +1,4 @@
-import { css } from '@linaria/core'
+import { css } from "@linaria/core";
 
 export const elDescriptionList = css`
   @layer elements.main {
@@ -7,4 +7,4 @@ export const elDescriptionList = css`
     padding: 0;
     margin: 0;
   }
-`
+`;

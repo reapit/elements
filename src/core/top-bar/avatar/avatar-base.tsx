@@ -1,28 +1,31 @@
-import { Avatar } from '#src/core/avatar'
-import { cx } from '@linaria/core'
-import { elTopBarAvatarBase } from './styles'
+import { cx } from "@linaria/core";
+import type { AnchorHTMLAttributes, ButtonHTMLAttributes, HTMLAttributes, ReactNode } from "react";
 
-import type { AnchorHTMLAttributes, ButtonHTMLAttributes, HTMLAttributes, ReactNode } from 'react'
+import { Avatar } from "#src/core/avatar";
+
+import { elTopBarAvatarBase } from "./styles";
 
 export namespace TopBarAvatarBase {
   interface CommonProps {
     /** The avatar's text. Typically the initials of the current user. */
-    children: ReactNode
+    children: ReactNode;
   }
 
-  export interface AsAnchorProps extends CommonProps, Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'children'> {
+  export interface AsAnchorProps
+    extends CommonProps, Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "children"> {
     /** The accessible name of the avatar. */
-    'aria-label': string
-    as: 'a'
+    "aria-label": string;
+    as: "a";
   }
 
-  export interface AsButtonProps extends CommonProps, Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'children'> {
+  export interface AsButtonProps
+    extends CommonProps, Omit<ButtonHTMLAttributes<HTMLButtonElement>, "children"> {
     /** The accessible name of the avatar button. */
-    'aria-label': string
-    as: 'button'
+    "aria-label": string;
+    as: "button";
   }
 
-  export type Props = AsAnchorProps | AsButtonProps
+  export type Props = AsAnchorProps | AsButtonProps;
 }
 
 /**
@@ -33,7 +36,7 @@ export function TopBarAvatarBase({
   as: Element,
   children,
   className,
-  'aria-label': ariaLabel,
+  "aria-label": ariaLabel,
   ...rest
 }: TopBarAvatarBase.Props) {
   return (
@@ -48,5 +51,5 @@ export function TopBarAvatarBase({
         {children}
       </Avatar>
     </Element>
-  )
+  );
 }

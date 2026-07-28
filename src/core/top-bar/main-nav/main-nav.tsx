@@ -1,8 +1,8 @@
-import { ElTopBarMainNav, ElTopBarMainNavList } from './styles'
-import { TopBarMainNavListItem } from './main-nav-list-item'
-import { TopBarMainNavMenuListItem } from './main-nav-menu-list-item'
+import type { ComponentProps, ReactNode } from "react";
 
-import type { ComponentProps, ReactNode } from 'react'
+import { TopBarMainNavListItem } from "./main-nav-list-item";
+import { TopBarMainNavMenuListItem } from "./main-nav-menu-list-item";
+import { ElTopBarMainNav, ElTopBarMainNavList } from "./styles";
 
 export namespace TopBarMainNav {
   export interface ItemProps extends TopBarMainNavListItem.Props {}
@@ -13,11 +13,11 @@ export namespace TopBarMainNav {
      * The accessible name for the main navigation.
      * @default 'Main navigation'
      */
-    'aria-label'?: string
+    "aria-label"?: string;
     /**
      * The main navigation items for the product. Typically a collection of `TopBar.NavItem` and `TopBar.NavMenuItem`.
      */
-    children: ReactNode
+    children: ReactNode;
   }
 }
 
@@ -26,15 +26,19 @@ export namespace TopBarMainNav {
  * collection of `TopBar.NavItem` and `TopBar.NavMenuItem` children. Only one item, if any, in the top bar
  * should represent the current page at any given time.
  */
-export function TopBarMainNav({ 'aria-label': ariaLabel = 'Main navigation', children, ...rest }: TopBarMainNav.Props) {
+export function TopBarMainNav({
+  "aria-label": ariaLabel = "Main navigation",
+  children,
+  ...rest
+}: TopBarMainNav.Props) {
   return (
     <ElTopBarMainNav {...rest} aria-label={ariaLabel}>
       <ElTopBarMainNavList>{children}</ElTopBarMainNavList>
     </ElTopBarMainNav>
-  )
+  );
 }
 
-TopBarMainNav.displayName = 'TopBar.MainNav'
+TopBarMainNav.displayName = "TopBar.MainNav";
 
-TopBarMainNav.Item = TopBarMainNavListItem
-TopBarMainNav.MenuItem = TopBarMainNavMenuListItem
+TopBarMainNav.Item = TopBarMainNavListItem;
+TopBarMainNav.MenuItem = TopBarMainNavMenuListItem;

@@ -1,18 +1,19 @@
-import figma from '@figma/code-connect'
-import { OfficeSwitcher } from './office-switcher'
+import figma from "@figma/code-connect";
 
-figma.connect(OfficeSwitcher, '<OFFICE_SWITCHER_URL>', {
-  variant: { Variant: 'Simple' },
+import { OfficeSwitcher } from "./office-switcher";
+
+figma.connect(OfficeSwitcher, "<OFFICE_SWITCHER_URL>", {
+  variant: { Variant: "Simple" },
   props: {
-    children: figma.string('Office name'),
+    children: figma.string("Office name"),
   },
   example: (props) => <OfficeSwitcher>{props.children}</OfficeSwitcher>,
-})
+});
 
-figma.connect(OfficeSwitcher, '<OFFICE_SWITCHER_URL>', {
-  variant: { Variant: 'With selector' },
+figma.connect(OfficeSwitcher, "<OFFICE_SWITCHER_URL>", {
+  variant: { Variant: "With selector" },
   props: {
-    popup: figma.children('Office switcher popover'),
+    popup: figma.children("Office switcher popover"),
   },
   example: (props) => (
     <OfficeSwitcher>
@@ -22,4 +23,4 @@ figma.connect(OfficeSwitcher, '<OFFICE_SWITCHER_URL>', {
       </OfficeSwitcher.Select>
     </OfficeSwitcher>
   ),
-})
+});

@@ -3,5 +3,5 @@
  * from a descendant element.
  */
 export function getClosestPopoverElement(element: HTMLElement): HTMLElement | null {
-  return element.closest('[popover]')
+  return element.closest("[popover]");
 }

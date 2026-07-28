@@ -1,34 +1,35 @@
-import { Button } from './button'
-import figma from '@figma/code-connect'
+import figma from "@figma/code-connect";
 
-figma.connect(Button, '<BUTTON_URL>', {
-  variant: { Type: 'Text + Icon' },
+import { Button } from "./button";
+
+figma.connect(Button, "<BUTTON_URL>", {
+  variant: { Type: "Text + Icon" },
   props: {
-    children: figma.string('Label'),
-    disabled: figma.enum('State', {
+    children: figma.string("Label"),
+    disabled: figma.enum("State", {
       Disabled: true,
     }),
-    hasNoPadding: figma.boolean('Remove padding'),
-    iconLeft: figma.boolean('Icon left', {
-      true: figma.instance('Icon L'),
+    hasNoPadding: figma.boolean("Remove padding"),
+    iconLeft: figma.boolean("Icon left", {
+      true: figma.instance("Icon L"),
       false: undefined,
     }),
-    iconRight: figma.boolean('Icon right', {
-      true: figma.instance('Icon R'),
+    iconRight: figma.boolean("Icon right", {
+      true: figma.instance("Icon R"),
       false: undefined,
     }),
-    isDestructive: figma.boolean('Destructive'),
-    size: figma.enum('Size', {
-      Small: 'small',
-      Medium: 'medium',
-      Large: 'large',
+    isDestructive: figma.boolean("Destructive"),
+    size: figma.enum("Size", {
+      Small: "small",
+      Medium: "medium",
+      Large: "large",
     }),
-    useAIStyle: figma.boolean('Ai style'),
-    useLinkStyle: figma.boolean('Link style'),
-    variant: figma.enum('Variant', {
-      Primary: 'primary',
-      Secondary: 'secondary',
-      Tertiary: 'tertiary',
+    useAIStyle: figma.boolean("Ai style"),
+    useLinkStyle: figma.boolean("Link style"),
+    variant: figma.enum("Variant", {
+      Primary: "primary",
+      Secondary: "secondary",
+      Tertiary: "tertiary",
     }),
   },
   example: (props) => (
@@ -46,29 +47,29 @@ figma.connect(Button, '<BUTTON_URL>', {
       {props.children}
     </Button>
   ),
-})
+});
 
-figma.connect(Button, '<BUTTON_URL>', {
-  variant: { Type: 'Icon only' },
+figma.connect(Button, "<BUTTON_URL>", {
+  variant: { Type: "Icon only" },
   props: {
-    children: figma.string('Label'),
-    disabled: figma.enum('State', {
+    children: figma.string("Label"),
+    disabled: figma.enum("State", {
       Disabled: true,
     }),
-    hasNoPadding: figma.boolean('Remove padding'),
-    iconLeft: figma.instance('Icon'),
-    isDestructive: figma.boolean('Destructive'),
-    size: figma.enum('Size', {
-      Small: 'small',
-      Medium: 'medium',
-      Large: 'large',
+    hasNoPadding: figma.boolean("Remove padding"),
+    iconLeft: figma.instance("Icon"),
+    isDestructive: figma.boolean("Destructive"),
+    size: figma.enum("Size", {
+      Small: "small",
+      Medium: "medium",
+      Large: "large",
     }),
-    useAIStyle: figma.boolean('Ai style'),
-    useLinkStyle: figma.boolean('Link style'),
-    variant: figma.enum('Variant', {
-      Primary: 'primary',
-      Secondary: 'secondary',
-      Tertiary: 'tertiary',
+    useAIStyle: figma.boolean("Ai style"),
+    useLinkStyle: figma.boolean("Link style"),
+    variant: figma.enum("Variant", {
+      Primary: "primary",
+      Secondary: "secondary",
+      Tertiary: "tertiary",
     }),
   },
   example: (props) => (
@@ -84,4 +85,4 @@ figma.connect(Button, '<BUTTON_URL>', {
       variant={props.variant}
     />
   ),
-})
+});

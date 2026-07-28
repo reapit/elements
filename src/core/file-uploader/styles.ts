@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
 
 export const ElFileUploader = styled.div`
   @layer elements.main {
@@ -6,7 +6,7 @@ export const ElFileUploader = styled.div`
     flex-direction: column;
     gap: var(--spacing-2);
   }
-`
+`;
 
 /**
  * Visually-hidden container for `aria-live="polite"` announcements. Rendered as the first child
@@ -24,4 +24,4 @@ export const ElFileUploaderAnnouncer = styled.div`
     white-space: nowrap;
     border-width: 0;
   }
-`
+`;

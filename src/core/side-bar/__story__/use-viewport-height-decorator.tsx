@@ -1,15 +1,15 @@
-import type { Decorator } from '@storybook/react-vite'
+import type { Decorator } from "@storybook/react-vite";
 
 export const useViewportHeightDecorator: Decorator = (Story) => {
   return (
     <div
       style={{
-        border: '1px solid #FA00FF',
-        boxSizing: 'content-box',
-        height: '400px',
+        border: "1px solid #FA00FF",
+        boxSizing: "content-box",
+        height: "400px",
       }}
     >
       <Story />
     </div>
-  )
-}
+  );
+};

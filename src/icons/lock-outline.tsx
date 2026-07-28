@@ -1,4 +1,4 @@
-import LockOutlineSvg from './svgs/lock-outline.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import LockOutlineSvg from "./svgs/lock-outline.svg?react";
 
-export const LockOutlineIcon = makeIcon('LockOutlineIcon', LockOutlineSvg)
+export const LockOutlineIcon = makeIcon("LockOutlineIcon", LockOutlineSvg);

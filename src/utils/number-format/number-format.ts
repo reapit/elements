@@ -8,14 +8,17 @@
 // because locale tags and JSON.stringify output never contain null bytes.
 // Note: differently-ordered options objects produce distinct keys — a minor
 // extra instance, not a correctness issue.
-const _cache = new Map<string, Intl.NumberFormat>()
+const _cache = new Map<string, Intl.NumberFormat>();
 
 /** Returns a new `Intl.NumberFormat` for the given arguments, or `null` if construction throws. */
-function tryNumberFormat(locale?: string, options?: Intl.NumberFormatOptions): Intl.NumberFormat | null {
+function tryNumberFormat(
+  locale?: string,
+  options?: Intl.NumberFormatOptions,
+): Intl.NumberFormat | null {
   try {
-    return new Intl.NumberFormat(locale, options)
+    return new Intl.NumberFormat(locale, options);
   } catch {
-    return null
+    return null;
   }
 }
 
@@ -35,18 +38,21 @@ function tryNumberFormat(locale?: string, options?: Intl.NumberFormatOptions): I
  * so subsequent calls with the same arguments reuse the degraded formatter
  * rather than retrying construction.
  */
-export function getIntlNumberFormat(locale?: string, options?: Intl.NumberFormatOptions): Intl.NumberFormat {
-  const key = `${locale ?? ''}\u0000${options ? JSON.stringify(options) : ''}`
-  let nf = _cache.get(key)
+export function getIntlNumberFormat(
+  locale?: string,
+  options?: Intl.NumberFormatOptions,
+): Intl.NumberFormat {
+  const key = `${locale ?? ""}\u0000${options ? JSON.stringify(options) : ""}`;
+  let nf = _cache.get(key);
   if (!nf) {
     nf =
       tryNumberFormat(locale, options) ?? // primary attempt
       tryNumberFormat(undefined, options) ?? // locale was rejected; retry without it
       tryNumberFormat(locale, undefined) ?? // options were rejected; retry without them
-      new Intl.NumberFormat(undefined) // nothing worked; safe default
-    _cache.set(key, nf)
+      new Intl.NumberFormat(undefined); // nothing worked; safe default
+    _cache.set(key, nf);
   }
-  return nf
+  return nf;
 }
 
 // ---------------------------------------------------------------------------
@@ -62,10 +68,10 @@ export function getIntlNumberFormat(locale?: string, options?: Intl.NumberFormat
  * when `showNumberPartsOnly` is set on `NumberInput`.
  */
 export const DESCRIPTIVE_PART_TYPES: ReadonlySet<Intl.NumberFormatPartTypes> = new Set([
-  'currency',
-  'percentSign',
-  'unit',
-])
+  "currency",
+  "percentSign",
+  "unit",
+]);
 
 // ---------------------------------------------------------------------------
 // Number affix utilities
@@ -77,9 +83,9 @@ export const DESCRIPTIVE_PART_TYPES: ReadonlySet<Intl.NumberFormatPartTypes> = n
  */
 export interface NumberAffix {
   /** The localised affix string (e.g. `'£'`, `'€'`, `'%'`, `'kg'`). */
-  affix: string
+  affix: string;
   /** Whether the affix precedes or follows the number in the given locale. */
-  position: 'prefix' | 'suffix'
+  position: "prefix" | "suffix";
 }
 
 /**
@@ -105,22 +111,28 @@ export interface NumberAffix {
  *   and `position`, so `position` is environment-dependent in that case.
  * @param options - `Intl.NumberFormatOptions` to pass to the formatter.
  */
-export function getNumberAffix(value: number = 0, locale?: string, options?: Intl.NumberFormatOptions): NumberAffix {
-  const parts = getIntlNumberFormat(locale, options).formatToParts(Number.isFinite(value) ? value : 0)
-  const affixIndex = parts.findIndex((p) => DESCRIPTIVE_PART_TYPES.has(p.type))
-  if (affixIndex === -1) return { affix: '', position: 'prefix' }
-  const affix = parts[affixIndex].value
-  const integerIndex = parts.findIndex((p) => p.type === 'integer')
-  const position = affixIndex < integerIndex ? 'prefix' : 'suffix'
-  return { affix, position }
+export function getNumberAffix(
+  value: number = 0,
+  locale?: string,
+  options?: Intl.NumberFormatOptions,
+): NumberAffix {
+  const parts = getIntlNumberFormat(locale, options).formatToParts(
+    Number.isFinite(value) ? value : 0,
+  );
+  const affixIndex = parts.findIndex((p) => DESCRIPTIVE_PART_TYPES.has(p.type));
+  if (affixIndex === -1) return { affix: "", position: "prefix" };
+  const affix = parts[affixIndex].value;
+  const integerIndex = parts.findIndex((p) => p.type === "integer");
+  const position = affixIndex < integerIndex ? "prefix" : "suffix";
+  return { affix, position };
 }
 
 // ---------------------------------------------------------------------------
 // File size formatting
 // ---------------------------------------------------------------------------
 
-const KB = 1000
-const MB = KB * 1000
+const KB = 1000;
+const MB = KB * 1000;
 
 /**
  * Formats a byte count as a human-readable string with a bytes/KB/MB tier, e.g. `'3.6 MB'`.
@@ -137,22 +149,22 @@ const MB = KB * 1000
  * @param locale - BCP 47 locale tag. Defaults to the runtime locale when omitted or invalid.
  */
 export function formatFileSize(bytes: number, locale?: string): string {
-  const size = Number.isFinite(bytes) ? Math.max(bytes, 0) : 0
-  const unitOptions = (unit: Intl.NumberFormatOptions['unit']): Intl.NumberFormatOptions => ({
-    style: 'unit',
+  const size = Number.isFinite(bytes) ? Math.max(bytes, 0) : 0;
+  const unitOptions = (unit: Intl.NumberFormatOptions["unit"]): Intl.NumberFormatOptions => ({
+    style: "unit",
     unit,
-    unitDisplay: 'short',
+    unitDisplay: "short",
     maximumFractionDigits: 2,
-  })
+  });
 
-  if (size < KB) return getIntlNumberFormat(locale, unitOptions('byte')).format(size)
-  if (size < MB) return getIntlNumberFormat(locale, unitOptions('kilobyte')).format(size / KB)
-  return getIntlNumberFormat(locale, unitOptions('megabyte')).format(size / MB)
+  if (size < KB) return getIntlNumberFormat(locale, unitOptions("byte")).format(size);
+  if (size < MB) return getIntlNumberFormat(locale, unitOptions("kilobyte")).format(size / KB);
+  return getIntlNumberFormat(locale, unitOptions("megabyte")).format(size / MB);
 }
 
 export interface LocaleNumberSeparators {
-  decimal: string
-  group: string
+  decimal: string;
+  group: string;
 }
 
 /**
@@ -162,9 +174,9 @@ export interface LocaleNumberSeparators {
  * `group` is an empty string for locales that do not use a group separator.
  */
 export function getLocaleNumberSeparators(locale?: string): LocaleNumberSeparators {
-  const parts = getIntlNumberFormat(locale, { useGrouping: true }).formatToParts(12345.6)
+  const parts = getIntlNumberFormat(locale, { useGrouping: true }).formatToParts(12345.6);
   return {
-    decimal: parts.find((p) => p.type === 'decimal')?.value ?? '',
-    group: parts.find((p) => p.type === 'group')?.value ?? '',
-  }
+    decimal: parts.find((p) => p.type === "decimal")?.value ?? "",
+    group: parts.find((p) => p.type === "group")?.value ?? "",
+  };
 }

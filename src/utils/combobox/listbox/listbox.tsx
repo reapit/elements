@@ -1,12 +1,14 @@
-import { ComboboxListboxPlaceholder } from './listbox-placeholder'
-import { ComboboxListboxOptgroup } from './listbox-optgroup'
-import { ComboboxListboxOption } from './listbox-option'
-import { ElComboboxListbox } from './styles'
-import { Listbox } from '#src/utils/listbox'
-import { useComboboxContext } from '../context'
-import { useComboboxDefaultOptionsContext } from '../default-options-context'
-import { ComboboxPopupDialogContext } from '../popup-dialog/context'
-import { useContext } from 'react'
+import { useContext } from "react";
+
+import { Listbox } from "#src/utils/listbox";
+
+import { useComboboxContext } from "../context";
+import { useComboboxDefaultOptionsContext } from "../default-options-context";
+import { ComboboxPopupDialogContext } from "../popup-dialog/context";
+import { ComboboxListboxOptgroup } from "./listbox-optgroup";
+import { ComboboxListboxOption } from "./listbox-option";
+import { ComboboxListboxPlaceholder } from "./listbox-placeholder";
+import { ElComboboxListbox } from "./styles";
 
 // We omit...
 // - as, because we pin it to our styled element
@@ -19,14 +21,14 @@ import { useContext } from 'react'
 // - tabIndex, because it is derived internally from hasSearch, and consumer overrides would
 //   break the aria-activedescendant pattern
 type AttributesToOmit =
-  | 'as'
-  | 'aria-disabled'
-  | 'aria-multiselectable'
-  | 'aria-orientation'
-  | 'aria-required'
-  | 'id'
-  | 'selectionFollowsFocus'
-  | 'tabIndex'
+  | "as"
+  | "aria-disabled"
+  | "aria-multiselectable"
+  | "aria-orientation"
+  | "aria-required"
+  | "id"
+  | "selectionFollowsFocus"
+  | "tabIndex";
 
 export namespace ComboboxListbox {
   export interface DividerProps extends Listbox.DividerProps {}
@@ -41,13 +43,17 @@ export namespace ComboboxListbox {
 /**
  * A listbox for a Combobox. Built on the Listbox foundation.
  */
-export function ComboboxListbox({ defaultValue: defaultValueProp, onMouseDown, ...rest }: ComboboxListbox.Props) {
-  const defaultOptions = useComboboxDefaultOptionsContext()
-  const defaultValue = defaultOptions.map((option) => option.value)
+export function ComboboxListbox({
+  defaultValue: defaultValueProp,
+  onMouseDown,
+  ...rest
+}: ComboboxListbox.Props) {
+  const defaultOptions = useComboboxDefaultOptionsContext();
+  const defaultValue = defaultOptions.map((option) => option.value);
 
-  const { disabled, listboxId, multiple, required, searchInputId } = useComboboxContext()
-  const popupDialogContext = useContext(ComboboxPopupDialogContext)
-  const hasSearch = popupDialogContext?.hasSearch ?? false
+  const { disabled, listboxId, multiple, required, searchInputId } = useComboboxContext();
+  const popupDialogContext = useContext(ComboboxPopupDialogContext);
+  const hasSearch = popupDialogContext?.hasSearch ?? false;
 
   return (
     <Listbox
@@ -67,25 +73,25 @@ export function ComboboxListbox({ defaultValue: defaultValueProp, onMouseDown, .
       // the listbox from stealing focus when a user clicks in the whitespace between options;
       // the click event still fires on child option elements so selection works normally.
       onMouseDown={(e) => {
-        onMouseDown?.(e)
-        if (hasSearch) e.preventDefault()
+        onMouseDown?.(e);
+        if (hasSearch) e.preventDefault();
       }}
       tabIndex={hasSearch ? -1 : 0}
     />
-  )
+  );
 }
 
-ComboboxListbox.displayName = 'Combobox.Listbox'
+ComboboxListbox.displayName = "Combobox.Listbox";
 
-ComboboxListbox.Divider = Listbox.Divider
-ComboboxListbox.Optgroup = ComboboxListboxOptgroup
-ComboboxListbox.Option = ComboboxListboxOption
-ComboboxListbox.OptionAdditionalInfo = ComboboxListboxOption.AdditionalInfo
-ComboboxListbox.Placeholder = ComboboxListboxPlaceholder
+ComboboxListbox.Divider = Listbox.Divider;
+ComboboxListbox.Optgroup = ComboboxListboxOptgroup;
+ComboboxListbox.Option = ComboboxListboxOption;
+ComboboxListbox.OptionAdditionalInfo = ComboboxListboxOption.AdditionalInfo;
+ComboboxListbox.Placeholder = ComboboxListboxPlaceholder;
 
-ComboboxListbox.clearValue = Listbox.clearValue
-ComboboxListbox.getOptionLabel = ComboboxListboxOption.getLabel
-ComboboxListbox.getSelectedOptions = Listbox.getSelectedOptions
-ComboboxListbox.getValue = Listbox.getValue
-ComboboxListbox.setOptionSelectedState = Listbox.setOptionSelectedState
-ComboboxListbox.useState = Listbox.useState
+ComboboxListbox.clearValue = Listbox.clearValue;
+ComboboxListbox.getOptionLabel = ComboboxListboxOption.getLabel;
+ComboboxListbox.getSelectedOptions = Listbox.getSelectedOptions;
+ComboboxListbox.getValue = Listbox.getValue;
+ComboboxListbox.setOptionSelectedState = Listbox.setOptionSelectedState;
+ComboboxListbox.useState = Listbox.useState;

@@ -1,20 +1,21 @@
-import { BottomBarItemButton } from '../item'
-import { ElBottomBarMenuListItem } from './styles'
-import { Menu } from '#src/core/menu'
-import { MoreIcon } from '#src/icons/more'
-import { useBottomBarContext } from '../context'
-import { useEffect, useId, useRef } from 'react'
+import { useEffect, useId, useRef } from "react";
+import type { ButtonHTMLAttributes, ReactNode } from "react";
 
-import type { ButtonHTMLAttributes, ReactNode } from 'react'
+import { Menu } from "#src/core/menu";
+import { MoreIcon } from "#src/icons/more";
+
+import { useBottomBarContext } from "../context";
+import { BottomBarItemButton } from "../item";
+import { ElBottomBarMenuListItem } from "./styles";
 
 export namespace BottomBarMenuListItem {
   export interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
-    children: ReactNode
-    hasBadge?: boolean
-    icon?: ReactNode
-    label?: string
-    maxWidth?: `--size-${string}`
-    maxHeight?: `--size-${string}`
+    children: ReactNode;
+    hasBadge?: boolean;
+    icon?: ReactNode;
+    label?: string;
+    maxWidth?: `--size-${string}`;
+    maxHeight?: `--size-${string}`;
   }
 }
 
@@ -29,17 +30,17 @@ export function BottomBarMenuListItem({
   hasBadge,
   icon = <MoreIcon />,
   id,
-  label = 'More',
+  label = "More",
   maxHeight,
   maxWidth,
   ...rest
 }: BottomBarMenuListItem.Props) {
-  const menuId = useId()
-  const triggerId = id ?? useId()
+  const menuId = useId();
+  const triggerId = id ?? useId();
 
-  const listItemRef = useRef<HTMLLIElement>(null)
+  const listItemRef = useRef<HTMLLIElement>(null);
 
-  const { state } = useBottomBarContext()
+  const { state } = useBottomBarContext();
 
   useEffect(
     function closePopoverWhenBottomBarCloses() {
@@ -48,30 +49,40 @@ export function BottomBarMenuListItem({
       // be able to pass a ref directly to Menu without any extra cost.
       //
       // Until then, we simply get the menu element via it's parent.
-      const menuElement = listItemRef.current?.lastElementChild
+      const menuElement = listItemRef.current?.lastElementChild;
 
-      if (state === 'retracted' && menuElement instanceof HTMLElement) {
-        menuElement.hidePopover()
+      if (state === "retracted" && menuElement instanceof HTMLElement) {
+        menuElement.hidePopover();
       }
     },
     [state],
-  )
+  );
 
   return (
     <ElBottomBarMenuListItem ref={listItemRef}>
       <BottomBarItemButton
         {...rest}
-        {...Menu.getTriggerProps({ id: triggerId, popoverTarget: menuId, popoverTargetAction: 'toggle' })}
+        {...Menu.getTriggerProps({
+          id: triggerId,
+          popoverTarget: menuId,
+          popoverTargetAction: "toggle",
+        })}
         hasBadge={hasBadge}
         icon={icon}
       >
         {label}
       </BottomBarItemButton>
-      <Menu aria-labelledby={triggerId} id={menuId} maxHeight={maxHeight} maxWidth={maxWidth} placement="top-end">
+      <Menu
+        aria-labelledby={triggerId}
+        id={menuId}
+        maxHeight={maxHeight}
+        maxWidth={maxWidth}
+        placement="top-end"
+      >
         {children}
       </Menu>
     </ElBottomBarMenuListItem>
-  )
+  );
 }
 
-BottomBarMenuListItem.displayName = 'BottomBar.MenuItem'
+BottomBarMenuListItem.displayName = "BottomBar.MenuItem";

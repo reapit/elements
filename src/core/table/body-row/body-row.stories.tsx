@@ -1,18 +1,19 @@
-import preview from '#.storybook/preview'
-import { Avatar } from '#src/core/avatar'
-import { Menu } from '#src/core/menu'
-import { Table } from '../table'
-import { useTableDecorator } from '../__story__/use-table-decorator'
+import preview from "#.storybook/preview";
+import { Avatar } from "#src/core/avatar";
+import { Menu } from "#src/core/menu";
 
-const href = '#'
+import { useTableDecorator } from "../__story__/use-table-decorator";
+import { Table } from "../table";
+
+const href = "#";
 
 const meta = preview.meta({
-  title: 'Data and tables/Table/BodyRow',
+  title: "Data and tables/Table/BodyRow",
   component: Table.BodyRow,
   argTypes: {
     as: {
       control: false,
-      description: 'The element this table row will render as.',
+      description: "The element this table row will render as.",
       table: {
         type: {
           summary: "'tr' | 'div'",
@@ -20,11 +21,11 @@ const meta = preview.meta({
       },
     },
     children: {
-      control: 'select',
-      description: 'The row content.',
-      options: ['Plain text', 'Primary action', 'Double-line', 'Selectable', 'Selected'],
+      control: "select",
+      description: "The row content.",
+      options: ["Plain text", "Primary action", "Double-line", "Selectable", "Selected"],
       mapping: {
-        'Plain text': (
+        "Plain text": (
           <>
             <Table.BodyCell as="th">10 Hay St, Melbourne 3100</Table.BodyCell>
             <Table.BodyCell>Data</Table.BodyCell>
@@ -37,7 +38,7 @@ const meta = preview.meta({
             </Table.BodyCell>
           </>
         ),
-        'Primary action': (
+        "Primary action": (
           <>
             <Table.BodyCell as="th">
               <Table.PrimaryAction href={href}>10 Hay St, Melbourne 3100</Table.PrimaryAction>
@@ -52,7 +53,7 @@ const meta = preview.meta({
             </Table.BodyCell>
           </>
         ),
-        'Double-line': (
+        "Double-line": (
           <>
             <Table.BodyCell as="th">
               <Table.DoubleLineLayout mediaItem={<Avatar>MJ</Avatar>} supplementaryData="Engineer">
@@ -112,12 +113,12 @@ const meta = preview.meta({
       },
       table: {
         type: {
-          summary: 'ReactNode',
+          summary: "ReactNode",
         },
       },
     },
   },
-})
+});
 
 /**
  * By default, rows do not exhibit any cursor-based interactivity, such has hover styles. This is because
@@ -125,11 +126,11 @@ const meta = preview.meta({
  */
 export const Example = meta.story({
   args: {
-    as: 'tr',
-    children: 'Plain text',
+    as: "tr",
+    children: "Plain text",
   },
-  decorators: [useTableDecorator('body-row')],
-})
+  decorators: [useTableDecorator("body-row")],
+});
 
 /**
  * Rows within a table's body will often provide a number of actions to users. When there is a single
@@ -146,10 +147,10 @@ export const Example = meta.story({
  */
 export const RowActions = Example.extend({
   args: {
-    children: 'Primary action',
+    children: "Primary action",
   },
-  decorators: [useTableDecorator('body-row')],
-})
+  decorators: [useTableDecorator("body-row")],
+});
 
 /**
  * Rows have minimum and maximum height constraints, but within this range, they may grow to accommodate
@@ -158,12 +159,12 @@ export const RowActions = Example.extend({
  * than a row with a single line of cell content.
  */
 export const DoubleLineContent = Example.extend({
-  name: 'Double-line content',
+  name: "Double-line content",
   args: {
-    children: 'Double-line',
+    children: "Double-line",
   },
-  decorators: [useTableDecorator('body-row')],
-})
+  decorators: [useTableDecorator("body-row")],
+});
 
 /**
  * When rows are selectable, they will have a [Table.Checkbox](./?path=/docs/core-table-checkbox--docs)
@@ -171,10 +172,10 @@ export const DoubleLineContent = Example.extend({
  */
 export const Selectable = Example.extend({
   args: {
-    children: 'Selectable',
+    children: "Selectable",
   },
-  decorators: [useTableDecorator('body-row', 'min-content 1fr 1fr 1fr min-content')],
-})
+  decorators: [useTableDecorator("body-row", "min-content 1fr 1fr 1fr min-content")],
+});
 
 /**
  * When the row's selection checkbox is checked, the row will be visually highlighted to indicate it
@@ -182,10 +183,10 @@ export const Selectable = Example.extend({
  */
 export const Selected = Example.extend({
   args: {
-    children: 'Selected',
+    children: "Selected",
   },
   decorators: Selectable.input.decorators,
-})
+});
 
 /**
  * Sometimes it may be necessary to render the table row as a plain `<div>`. Providing
@@ -198,7 +199,7 @@ export const Selected = Example.extend({
  */
 export const Divs = meta.story({
   args: {
-    as: 'div',
+    as: "div",
     children: (
       <Table.BodyCell as="div">
         <Table.PrimaryAction href={href}>I&apos;m all divs and no a11y 😬</Table.PrimaryAction>
@@ -210,4 +211,4 @@ export const Divs = meta.story({
       control: false,
     },
   },
-})
+});

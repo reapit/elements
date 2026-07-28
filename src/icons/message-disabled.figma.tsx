@@ -1,4 +1,5 @@
-import figma from '@figma/code-connect'
-import { MessageDisabledIcon } from './message-disabled'
+import figma from "@figma/code-connect";
 
-figma.connect(MessageDisabledIcon, 'https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=20-543')
+import { MessageDisabledIcon } from "./message-disabled";
+
+figma.connect(MessageDisabledIcon, "https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=20-543");

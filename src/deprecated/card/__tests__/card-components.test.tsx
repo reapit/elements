@@ -1,17 +1,18 @@
-import { render } from '@testing-library/react'
-import { Card, handleMouseHover } from '../card-components'
+import { render } from "@testing-library/react";
 
-describe('Card', () => {
-  it('should match a snapshot and render children with no props', () => {
+import { Card, handleMouseHover } from "../card-components";
+
+describe("Card", () => {
+  it("should match a snapshot and render children with no props", () => {
     const wrapper = render(
       <Card>
         <div>I am a child</div>
       </Card>,
-    )
-    expect(wrapper.asFragment()).toMatchSnapshot()
-  })
+    );
+    expect(wrapper.asFragment()).toMatchSnapshot();
+  });
 
-  it('should match a snapshot and render children with full props', () => {
+  it("should match a snapshot and render children with full props", () => {
     const wrapper = render(
       <Card
         hasMainCard
@@ -25,35 +26,35 @@ describe('Card', () => {
         listCardSubHeading="List Card Sub Heading"
         listCardItems={[
           {
-            listCardItemHeading: 'Applicant',
-            listCardItemSubHeading: 'Bob Smith',
-            listCardItemIcon: 'user',
-            onClick: () => console.log('Clicking'),
+            listCardItemHeading: "Applicant",
+            listCardItemSubHeading: "Bob Smith",
+            listCardItemIcon: "user",
+            onClick: () => console.log("Clicking"),
           },
           {
-            listCardItemHeading: 'Property',
-            listCardItemSubHeading: 'Some Address',
-            listCardItemIcon: 'property',
-            onClick: () => console.log('Clicking'),
+            listCardItemHeading: "Property",
+            listCardItemSubHeading: "Some Address",
+            listCardItemIcon: "property",
+            onClick: () => console.log("Clicking"),
           },
         ]}
       >
         <div>I am a child</div>
       </Card>,
-    )
-    expect(wrapper.asFragment()).toMatchSnapshot()
-  })
-})
+    );
+    expect(wrapper.asFragment()).toMatchSnapshot();
+  });
+});
 
-describe('handleMouseHover', () => {
-  it('should set the hover index', () => {
-    const hoverIndex = 1
-    const setHoverIndex = vi.fn()
+describe("handleMouseHover", () => {
+  it("should set the hover index", () => {
+    const hoverIndex = 1;
+    const setHoverIndex = vi.fn();
 
-    const curried = handleMouseHover(hoverIndex, setHoverIndex)
+    const curried = handleMouseHover(hoverIndex, setHoverIndex);
 
-    curried()
+    curried();
 
-    expect(setHoverIndex).toHaveBeenCalledWith(hoverIndex)
-  })
-})
+    expect(setHoverIndex).toHaveBeenCalledWith(hoverIndex);
+  });
+});

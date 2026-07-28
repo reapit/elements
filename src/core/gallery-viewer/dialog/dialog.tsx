@@ -1,24 +1,29 @@
-import { cx } from '@linaria/core'
-import { GalleryViewerDialogContext, useGalleryViewerDialogContext } from './context'
-import { elGalleryViewerDialog } from './styles'
-import { HTMLDialog, getClosestDialogElement, useDialogOpenController, useDialogOpenState } from '#src/utils/dialog'
-import { useId } from 'react'
+import { cx } from "@linaria/core";
+import { useId } from "react";
+import type { DialogHTMLAttributes, ReactNode } from "react";
 
-import { GalleryViewerDialogHeader } from './header'
-import { GalleryViewerDialogContent } from './content'
+import {
+  HTMLDialog,
+  getClosestDialogElement,
+  useDialogOpenController,
+  useDialogOpenState,
+} from "#src/utils/dialog";
 
-import type { DialogHTMLAttributes, ReactNode } from 'react'
+import { GalleryViewerDialogContent } from "./content";
+import { GalleryViewerDialogContext, useGalleryViewerDialogContext } from "./context";
+import { GalleryViewerDialogHeader } from "./header";
+import { elGalleryViewerDialog } from "./styles";
 
 export namespace GalleryViewerDialog {
   // NOTE: we omit..
   // - `open` because we do not want React consumers to use it directly as it results in a non-modal experience.
   //     Instead, our React `GalleryViewerDialog` component provides an `isOpen` prop that ensures a modal
   //     experience is achieved.
-  type AttributesToOmit = 'open'
+  type AttributesToOmit = "open";
 
   export interface Props extends Omit<DialogHTMLAttributes<HTMLDialogElement>, AttributesToOmit> {
     /** The dialog content */
-    children?: ReactNode
+    children?: ReactNode;
     /**
      * Specifies the types of user actions that can be used to close the dialog. This property distinguishes
      * three methods by which a dialog can be closed:
@@ -44,9 +49,9 @@ export namespace GalleryViewerDialog {
      * would let that click also activate an element behind the backdrop). Separately, Safari does not support
      * the `closedBy` attribute at all, so "back"/"dismiss" gestures on mobile Safari won't close the dialog.
      */
-    closedBy?: 'any' | 'closerequest' | 'none'
+    closedBy?: "any" | "closerequest" | "none";
     /** Indicates whether the dialog is open or not */
-    isOpen?: boolean
+    isOpen?: boolean;
   }
 }
 
@@ -65,10 +70,10 @@ export namespace GalleryViewerDialog {
  * section of MDN's `<dialog>` documentation.
  */
 export function GalleryViewerDialog({
-  'aria-labelledby': ariaLabelledBy,
+  "aria-labelledby": ariaLabelledBy,
   children,
   className,
-  closedBy = 'any',
+  closedBy = "any",
   isOpen: isOpenProp,
   onCancel,
   onClose,
@@ -76,11 +81,11 @@ export function GalleryViewerDialog({
   ...rest
 }: GalleryViewerDialog.Props) {
   // We need to imperatively show or close the dialog element when the `isOpen` prop changes.
-  const ref = useDialogOpenController(isOpenProp)
+  const ref = useDialogOpenController(isOpenProp);
   // We need to track the DOM-held open state of the dialog element to ensure we can show/hide our children.
-  const isOpen = useDialogOpenState(ref)
+  const isOpen = useDialogOpenState(ref);
 
-  const titleId = useId()
+  const titleId = useId();
 
   return (
     <HTMLDialog
@@ -101,15 +106,15 @@ export function GalleryViewerDialog({
         {isOpen && children}
       </GalleryViewerDialogContext.Provider>
     </HTMLDialog>
-  )
+  );
 }
 
-GalleryViewerDialog.Context = GalleryViewerDialogContext
-GalleryViewerDialog.useContext = useGalleryViewerDialogContext
+GalleryViewerDialog.Context = GalleryViewerDialogContext;
+GalleryViewerDialog.useContext = useGalleryViewerDialogContext;
 
-GalleryViewerDialog.Header = GalleryViewerDialogHeader
-GalleryViewerDialog.Content = GalleryViewerDialogContent
+GalleryViewerDialog.Header = GalleryViewerDialogHeader;
+GalleryViewerDialog.Content = GalleryViewerDialogContent;
 
-GalleryViewerDialog.getClosestDialogElement = getClosestDialogElement
+GalleryViewerDialog.getClosestDialogElement = getClosestDialogElement;
 
-export { getClosestDialogElement } from '#src/utils/dialog'
+export { getClosestDialogElement } from "#src/utils/dialog";

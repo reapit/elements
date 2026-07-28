@@ -1,4 +1,4 @@
-import LayersSvg from './svgs/layers.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import LayersSvg from "./svgs/layers.svg?react";
 
-export const LayersIcon = makeIcon('LayersIcon', LayersSvg)
+export const LayersIcon = makeIcon("LayersIcon", LayersSvg);

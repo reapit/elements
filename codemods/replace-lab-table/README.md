@@ -50,7 +50,7 @@ This codemod covers the most common API updates and flags migrations that still 
 Imports for supported lab table symbols are removed from existing Elements imports and replaced with:
 
 ```tsx
-import { Table } from '@reapit/elements/core/table'
+import { Table } from "@reapit/elements/core/table";
 ```
 
 For facade packages, the existing facade specifier is preserved.

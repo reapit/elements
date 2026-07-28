@@ -5,11 +5,11 @@
 // pops it when it unmounts. The Toaster subscribes to the stack and portals
 // its ToastList into the topmost outlet.
 
-let stack: HTMLElement[] = []
-const listeners = new Set<() => void>()
+let stack: HTMLElement[] = [];
+const listeners = new Set<() => void>();
 
 function notify() {
-  for (const listener of listeners) listener()
+  for (const listener of listeners) listener();
 }
 
 export const outletStack = {
@@ -17,21 +17,21 @@ export const outletStack = {
   getSnapshot: (): HTMLElement | null => stack[stack.length - 1] ?? null,
 
   subscribe: (listener: () => void): (() => void) => {
-    listeners.add(listener)
+    listeners.add(listener);
     return () => {
-      listeners.delete(listener)
-    }
+      listeners.delete(listener);
+    };
   },
 
   /** Push an outlet element onto the top of the stack. */
   push: (el: HTMLElement): void => {
-    stack = [...stack, el]
-    notify()
+    stack = [...stack, el];
+    notify();
   },
 
   /** Remove a specific outlet element from the stack. */
   pop: (el: HTMLElement): void => {
-    stack = stack.filter((entry) => entry !== el)
-    notify()
+    stack = stack.filter((entry) => entry !== el);
+    notify();
   },
-}
+};

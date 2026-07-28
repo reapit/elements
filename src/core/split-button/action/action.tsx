@@ -1,14 +1,15 @@
-import { SplitButtonActionBase } from './action-base'
+import type { ButtonHTMLAttributes } from "react";
 
-import type { ButtonHTMLAttributes } from 'react'
+import { SplitButtonActionBase } from "./action-base";
 
 export namespace SplitButtonAction {
-  export interface Props extends SplitButtonActionBase.CommonProps, ButtonHTMLAttributes<HTMLButtonElement> {
+  export interface Props
+    extends SplitButtonActionBase.CommonProps, ButtonHTMLAttributes<HTMLButtonElement> {
     /**
      * Whether the button is disabled or not. Unlike `aria-disabled`, buttons disabled with this prop will not be
      * focusable or interactive.
      */
-    disabled?: boolean
+    disabled?: boolean;
   }
 }
 
@@ -17,7 +18,7 @@ export namespace SplitButtonAction {
  * version is available via `SplitButton.AnchorAction`.
  */
 export function SplitButtonAction(props: SplitButtonAction.Props) {
-  return <SplitButtonActionBase as="button" {...props} />
+  return <SplitButtonActionBase as="button" {...props} />;
 }
 
-SplitButtonAction.displayName = 'SplitButton.Action'
+SplitButtonAction.displayName = "SplitButton.Action";

@@ -1,28 +1,29 @@
-import preview from '#.storybook/preview'
-import { EmptyState } from '../empty-state'
+import preview from "#.storybook/preview";
+
+import { EmptyState } from "../empty-state";
 
 const meta = preview.meta({
-  title: 'Indicators and status/EmptyState/Description',
+  title: "Indicators and status/EmptyState/Description",
   component: EmptyState.Description,
   argTypes: {
     children: {
-      control: 'text',
+      control: "text",
     },
     secondaryText: {
-      control: 'text',
+      control: "text",
     },
   },
-})
+});
 
 /**
  *
  */
 export const Example = meta.story({
   args: {
-    children: 'No things found',
-    secondaryText: 'Secondary text',
+    children: "No things found",
+    secondaryText: "Secondary text",
   },
-})
+});
 
 /**
  * The title is optional. When omitted, only the secondary text is displayed.
@@ -31,4 +32,4 @@ export const TitleOmitted = Example.extend({
   args: {
     children: undefined,
   },
-})
+});

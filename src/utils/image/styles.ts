@@ -1,4 +1,4 @@
-import { css } from '@linaria/core'
+import { css } from "@linaria/core";
 
 export const elImageContainer = css`
   @layer elements.main {
@@ -16,15 +16,15 @@ export const elImageContainer = css`
     block-size: 100%;
     inline-size: 100%;
   }
-`
+`;
 
 export const elImage = css`
   @layer elements.main {
-    &[aria-hidden='true'] {
+    &[aria-hidden="true"] {
       opacity: 0;
     }
   }
-`
+`;
 
 export const elResponsiveImage = css`
   @layer elements.main {
@@ -39,24 +39,24 @@ export const elResponsiveImage = css`
     max-block-size: 100%;
     max-inline-size: 100%;
 
-    &[data-object-fit='contain'] {
+    &[data-object-fit="contain"] {
       object-fit: contain;
     }
 
-    &[data-object-fit='cover'] {
+    &[data-object-fit="cover"] {
       object-fit: cover;
     }
 
-    &[data-object-fit='fill'] {
+    &[data-object-fit="fill"] {
       object-fit: fill;
     }
 
-    &[data-object-fit='none'] {
+    &[data-object-fit="none"] {
       object-fit: none;
     }
 
-    &[data-object-fit='scale-down'] {
+    &[data-object-fit="scale-down"] {
       object-fit: scale-down;
     }
   }
-`
+`;

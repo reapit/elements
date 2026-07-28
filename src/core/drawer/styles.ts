@@ -1,13 +1,15 @@
-import { css } from '@linaria/core'
-import { DRAWER_CSS_CONTAINER_NAME, DRAWER_WIDTH_SM_2XL, DRAWER_WIDTH_XS } from './constants'
-import { isWidthAtOrAbove } from '#src/utils/breakpoints/conditions'
+import { css } from "@linaria/core";
 
-const BACKDROP_DURATION = '100ms'
-const DIALOG_DURATION = '200ms'
-const TOTAL_DURATION = '200ms'
+import { isWidthAtOrAbove } from "#src/utils/breakpoints/conditions";
 
-const BACKDROP_OUT_DELAY = '0ms'
-const DIALOG_IN_DELAY = '0ms'
+import { DRAWER_CSS_CONTAINER_NAME, DRAWER_WIDTH_SM_2XL, DRAWER_WIDTH_XS } from "./constants";
+
+const BACKDROP_DURATION = "100ms";
+const DIALOG_DURATION = "200ms";
+const TOTAL_DURATION = "200ms";
+
+const BACKDROP_OUT_DELAY = "0ms";
+const DIALOG_IN_DELAY = "0ms";
 
 export const elDrawer = css`
   @layer elements.main {
@@ -31,7 +33,7 @@ export const elDrawer = css`
     max-width: 100dvw;
     min-width: ${DRAWER_WIDTH_XS};
 
-    @media ${isWidthAtOrAbove('SM')} {
+    @media ${isWidthAtOrAbove("SM")} {
       border-inline-start: none;
 
       /* For SM and above, max out at SM-2XL drawer width.
@@ -70,7 +72,7 @@ export const elDrawer = css`
         'footer' auto / 100%;
 
       /* Backdrop darkens on SM+ breakpoints only; i.e it stays transparent on XS breakpoints */
-      @media screen and ${isWidthAtOrAbove('SM')} {
+      @media screen and ${isWidthAtOrAbove("SM")} {
         &::backdrop {
           background-color: var(--overlay-50);
         }
@@ -122,4 +124,4 @@ export const elDrawer = css`
       }
     }
   }
-`
+`;

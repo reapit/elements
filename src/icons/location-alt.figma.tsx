@@ -1,4 +1,5 @@
-import figma from '@figma/code-connect'
-import { LocationAltIcon } from './location-alt'
+import figma from "@figma/code-connect";
 
-figma.connect(LocationAltIcon, 'https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=11289-1610')
+import { LocationAltIcon } from "./location-alt";
+
+figma.connect(LocationAltIcon, "https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=11289-1610");

@@ -47,10 +47,10 @@ yarn dlx @reapit/elements@beta codemod apply upgrade-deprecated-icon src/ --faca
 
 ```tsx
 // Before (with facade package @habio/design-system)
-import { DeprecatedIcon } from '@habio/design-system/elements'
+import { DeprecatedIcon } from "@habio/design-system/elements";
 
 // After running with --facade-package @habio/design-system
-import { ChevronRightIcon } from '@habio/design-system/icons/chevron-right'
+import { ChevronRightIcon } from "@habio/design-system/icons/chevron-right";
 ```
 
 ## Background
@@ -171,26 +171,26 @@ When unmapped dimensions or fontSize values need to be added to the `style` prop
 
 ```tsx
 // Before
-;<DeprecatedIcon icon="home" width="32px" height="32px" />
+<DeprecatedIcon icon="home" width="32px" height="32px" />;
 
 // After
 {
   /* TODO: Review unmapped dimensions for manual verification */
 }
-;<HomeIcon style={{ width: '32px', height: '32px' }} />
+<HomeIcon style={{ width: "32px", height: "32px" }} />;
 ```
 
 **Existing style prop:**
 
 ```tsx
 // Before
-;<DeprecatedIcon icon="home" fontSize="14px" style={{ margin: 10 }} />
+<DeprecatedIcon icon="home" fontSize="14px" style={{ margin: 10 }} />;
 
 // After
 {
   /* TODO: Review merged style prop for manual verification */
 }
-;<HomeIcon style={{ ...{ margin: 10 }, fontSize: '14px' }} />
+<HomeIcon style={{ ...{ margin: 10 }, fontSize: "14px" }} />;
 ```
 
 ### JSX Element Transformations
@@ -223,13 +223,13 @@ Complete examples showing element transformation:
 
 ```tsx
 // Before: With unmapped dimensions
-;<DeprecatedIcon icon="close" width="18px" height="18px" />
+<DeprecatedIcon icon="close" width="18px" height="18px" />;
 
 // After
 {
   /* TODO: Review unmapped dimensions for manual verification */
 }
-;<CloseIcon style={{ width: '18px', height: '18px' }} />
+<CloseIcon style={{ width: "18px", height: "18px" }} />;
 ```
 
 ```tsx
@@ -270,13 +270,13 @@ Icons that have been removed in v5 are preserved with a TODO comment:
 
 ```tsx
 // Before
-;<DeprecatedIcon icon="reapitLogo" />
+<DeprecatedIcon icon="reapitLogo" />;
 
 // After (TODO comment added, no transformation)
 {
   /* TODO: Icon "reapitLogo" has been removed in v5 and has no replacement */
 }
-;<DeprecatedIcon icon="reapitLogo" />
+<DeprecatedIcon icon="reapitLogo" />;
 ```
 
 **Manual migration required**: Replace with custom SVG or alternative icon.
@@ -298,7 +298,7 @@ const iconProps = { fontSize: '24px', intent: 'danger' }
 **Before:**
 
 ```tsx
-import { DeprecatedIcon } from '@reapit/elements'
+import { DeprecatedIcon } from "@reapit/elements";
 
 export const Navigation = () => {
   return (
@@ -306,14 +306,14 @@ export const Navigation = () => {
       <DeprecatedIcon icon="chevronRight" />
       Next
     </button>
-  )
-}
+  );
+};
 ```
 
 **After:**
 
 ```tsx
-import { ChevronRightIcon } from '@reapit/elements/icons/chevron-right'
+import { ChevronRightIcon } from "@reapit/elements/icons/chevron-right";
 
 export const Navigation = () => {
   return (
@@ -321,8 +321,8 @@ export const Navigation = () => {
       <ChevronRightIcon />
       Next
     </button>
-  )
-}
+  );
+};
 ```
 
 ### Example 2: With Props Transformation
@@ -330,21 +330,21 @@ export const Navigation = () => {
 **Before:**
 
 ```tsx
-import { DeprecatedIcon } from '@reapit/elements'
+import { DeprecatedIcon } from "@reapit/elements";
 
 export const StatusIcon = () => {
-  return <DeprecatedIcon icon="check" fontSize="24px" intent="success" className="status-icon" />
-}
+  return <DeprecatedIcon icon="check" fontSize="24px" intent="success" className="status-icon" />;
+};
 ```
 
 **After:**
 
 ```tsx
-import { CheckIcon } from '@reapit/elements/icons/check'
+import { CheckIcon } from "@reapit/elements/icons/check";
 
 export const StatusIcon = () => {
-  return <CheckIcon size="lg" color="success" className="status-icon" />
-}
+  return <CheckIcon size="lg" color="success" className="status-icon" />;
+};
 ```
 
 ### Example 3: Multiple Icons
@@ -352,7 +352,7 @@ export const StatusIcon = () => {
 **Before:**
 
 ```tsx
-import { DeprecatedIcon } from '@reapit/elements'
+import { DeprecatedIcon } from "@reapit/elements";
 
 export const Toolbar = () => {
   return (
@@ -361,16 +361,16 @@ export const Toolbar = () => {
       <DeprecatedIcon icon="edit" fontSize="20px" />
       <DeprecatedIcon icon="delete" fontSize="20px" intent="danger" />
     </div>
-  )
-}
+  );
+};
 ```
 
 **After:**
 
 ```tsx
-import { AddSystemIcon } from '@reapit/elements/icons/add-system'
-import { DeleteIcon } from '@reapit/elements/icons/delete'
-import { EditIcon } from '@reapit/elements/icons/edit'
+import { AddSystemIcon } from "@reapit/elements/icons/add-system";
+import { DeleteIcon } from "@reapit/elements/icons/delete";
+import { EditIcon } from "@reapit/elements/icons/edit";
 
 export const Toolbar = () => {
   return (
@@ -379,8 +379,8 @@ export const Toolbar = () => {
       <EditIcon size="md" />
       <DeleteIcon size="md" color="error" />
     </div>
-  )
-}
+  );
+};
 ```
 
 ### Example 4: Dynamic Icon (Manual Migration Required)
@@ -388,11 +388,11 @@ export const Toolbar = () => {
 **Before:**
 
 ```tsx
-import { DeprecatedIcon } from '@reapit/elements'
+import { DeprecatedIcon } from "@reapit/elements";
 
 export const DynamicIcon = ({ isOpen }: { isOpen: boolean }) => {
-  return <DeprecatedIcon icon={isOpen ? 'chevronDown' : 'chevronRight'} fontSize="16px" />
-}
+  return <DeprecatedIcon icon={isOpen ? "chevronDown" : "chevronRight"} fontSize="16px" />;
+};
 ```
 
 **After (codemod output):**
@@ -414,13 +414,13 @@ export const DynamicIcon = ({ isOpen }: { isOpen: boolean }) => {
 **Manual refinement:**
 
 ```tsx
-import { ChevronDownIcon } from '@reapit/elements/icons/chevron-down'
-import { ChevronRightIcon } from '@reapit/elements/icons/chevron-right'
+import { ChevronDownIcon } from "@reapit/elements/icons/chevron-down";
+import { ChevronRightIcon } from "@reapit/elements/icons/chevron-right";
 
 export const DynamicIcon = ({ isOpen }: { isOpen: boolean }) => {
-  const Icon = isOpen ? ChevronDownIcon : ChevronRightIcon
-  return <Icon size="sm" />
-}
+  const Icon = isOpen ? ChevronDownIcon : ChevronRightIcon;
+  return <Icon size="sm" />;
+};
 ```
 
 ### Example 5: Removed Icon (Manual Migration Required)
@@ -428,11 +428,11 @@ export const DynamicIcon = ({ isOpen }: { isOpen: boolean }) => {
 **Before:**
 
 ```tsx
-import { DeprecatedIcon } from '@reapit/elements'
+import { DeprecatedIcon } from "@reapit/elements";
 
 export const Logo = () => {
-  return <DeprecatedIcon icon="reapitLogo" fontSize="48px" />
-}
+  return <DeprecatedIcon icon="reapitLogo" fontSize="48px" />;
+};
 ```
 
 **After (codemod output):**
@@ -451,11 +451,11 @@ export const Logo = () => {
 **Manual refinement:**
 
 ```tsx
-import { ReactComponent as ReapitLogo } from './assets/reapit-logo.svg'
+import { ReactComponent as ReapitLogo } from "./assets/reapit-logo.svg";
 
 export const Logo = () => {
-  return <ReapitLogo style={{ width: '48px', height: '48px' }} />
-}
+  return <ReapitLogo style={{ width: "48px", height: "48px" }} />;
+};
 ```
 
 ## Limitations

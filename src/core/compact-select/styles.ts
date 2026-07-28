@@ -1,5 +1,6 @@
-import { font } from '#src/utils/font'
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
+
+import { font } from "#src/utils/font";
 
 export const ElCompactSelectButton = styled.button`
   @layer elements.main {
@@ -30,19 +31,19 @@ export const ElCompactSelectButton = styled.button`
     }
 
     /* Sizes */
-    &[data-size='small'] {
-      ${font('xs', 'medium')}
+    &[data-size="small"] {
+      ${font("xs", "medium")}
     }
 
-    &[data-size='medium'] {
-      ${font('sm', 'medium')}
+    &[data-size="medium"] {
+      ${font("sm", "medium")}
     }
 
-    &[data-size='large'] {
-      ${font('base', 'medium')}
+    &[data-size="large"] {
+      ${font("base", "medium")}
     }
   }
-`
+`;
 
 export const ElCompactSelectButtonLabelText = styled.span`
   @layer elements.main {
@@ -50,7 +51,7 @@ export const ElCompactSelectButtonLabelText = styled.span`
     overflow: hidden;
     white-space: nowrap;
   }
-`
+`;
 
 export const ElCompactSelectIconContainer = styled.span`
   @layer elements.main {
@@ -69,4 +70,4 @@ export const ElCompactSelectIconContainer = styled.span`
     width: var(--icon_size-sm);
     height: var(--icon_size-sm);
   }
-`
+`;

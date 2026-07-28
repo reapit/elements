@@ -1,4 +1,4 @@
-import ArrowRightSvg from './svgs/arrow-right.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import ArrowRightSvg from "./svgs/arrow-right.svg?react";
 
-export const ArrowRightIcon = makeIcon('ArrowRightIcon', ArrowRightSvg)
+export const ArrowRightIcon = makeIcon("ArrowRightIcon", ArrowRightSvg);

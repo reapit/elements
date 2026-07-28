@@ -1,1 +1,1 @@
-export { GalleryViewerCarouselLayout } from './carousel-layout'
+export { GalleryViewerCarouselLayout } from "./carousel-layout";

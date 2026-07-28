@@ -1,4 +1,5 @@
-import figma from '@figma/code-connect'
-import { MarketplaceIcon } from './marketplace'
+import figma from "@figma/code-connect";
 
-figma.connect(MarketplaceIcon, 'https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=20-547')
+import { MarketplaceIcon } from "./marketplace";
+
+figma.connect(MarketplaceIcon, "https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=20-547");

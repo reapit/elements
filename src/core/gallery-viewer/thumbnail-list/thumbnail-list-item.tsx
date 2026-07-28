@@ -1,5 +1,5 @@
-import { ElGalleryViewerThumbnailListItem } from './styles'
-import { GalleryViewerThumbnail } from '../thumbnail'
+import { GalleryViewerThumbnail } from "../thumbnail";
+import { ElGalleryViewerThumbnailListItem } from "./styles";
 
 export namespace GalleryViewerThumbnailListItem {
   export interface Props extends GalleryViewerThumbnail.Props {}
@@ -17,7 +17,7 @@ export function GalleryViewerThumbnailListItem(props: GalleryViewerThumbnailList
     <ElGalleryViewerThumbnailListItem>
       <GalleryViewerThumbnail {...props} />
     </ElGalleryViewerThumbnailListItem>
-  )
+  );
 }
 
-GalleryViewerThumbnailListItem.displayName = 'GalleryViewer.Thumbnail'
+GalleryViewerThumbnailListItem.displayName = "GalleryViewer.Thumbnail";

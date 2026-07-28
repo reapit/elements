@@ -1,13 +1,14 @@
-import preview from '#.storybook/preview'
-import { AtAGlance } from '../at-a-glance'
-import { AtAGlanceCard } from './card'
-import { SproutIcon } from '#src/icons/sprout'
-import { Badge } from '#src/core/badge'
+import preview from "#.storybook/preview";
+import { Badge } from "#src/core/badge";
+import { SproutIcon } from "#src/icons/sprout";
+
+import { AtAGlance } from "../at-a-glance";
+import { AtAGlanceCard } from "./card";
 
 const meta = preview.meta({
-  title: 'Content display/AtAGlance/Card',
+  title: "Content display/AtAGlance/Card",
   component: AtAGlance.Card,
-})
+});
 
 /**
  * Card provides a composition API for building custom AtAGlance cards. The AtAGlance.CardIcon,
@@ -32,7 +33,7 @@ export const Example = meta.story({
       <AtAGlance.CardValue>32</AtAGlance.CardValue>
     </AtAGlance.Card>
   ),
-})
+});
 
 /**
  * The Card is polymorphic, supporting `a`, `article` and `button` elements via the `as` prop.
@@ -56,7 +57,7 @@ export const Polymorphism = meta.story({
       <AtAGlance.CardValue>32</AtAGlance.CardValue>
     </AtAGlance.Card>
   ),
-})
+});
 
 /**
  * When using a custom grid layout with custom components, each component should be assigned a specific
@@ -71,23 +72,23 @@ export const CustomLayout = meta.story({
     <AtAGlance.Card
       as="button"
       aria-label="Apples: 32, up 5%"
-      onClick={() => alert('Clicked!')}
+      onClick={() => alert("Clicked!")}
       grid="'icon label value trend' auto / min-content 1fr auto auto"
       maxWidth="300px"
-      style={{ alignItems: 'center' }}
+      style={{ alignItems: "center" }}
     >
-      <AtAGlance.CardIcon style={{ marginInlineEnd: 'var(--spacing-2)' }}>
+      <AtAGlance.CardIcon style={{ marginInlineEnd: "var(--spacing-2)" }}>
         <SproutIcon />
       </AtAGlance.CardIcon>
       <AtAGlance.CardLabel>Apple</AtAGlance.CardLabel>
       <AtAGlance.CardValue>32</AtAGlance.CardValue>
       <Badge
         colour="success"
-        style={{ gridArea: 'trend', alignSelf: 'center', marginInlineStart: 'var(--spacing-2)' }}
+        style={{ gridArea: "trend", alignSelf: "center", marginInlineStart: "var(--spacing-2)" }}
         variant="reversed"
       >
         +5%
       </Badge>
     </AtAGlance.Card>
   ),
-})
+});

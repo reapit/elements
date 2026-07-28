@@ -25,19 +25,19 @@
  * stored as arrays.
  */
 export function toMap(searchParams: URLSearchParams): Map<string, string | string[]> {
-  const result: Map<string, string | string[]> = new Map()
+  const result: Map<string, string | string[]> = new Map();
 
   // Get unique keys and sort them to ensure consistent key order in the resulting Map.
-  const sortedKeys = [...new Set(Array.from(searchParams.keys()))].sort()
+  const sortedKeys = [...new Set(Array.from(searchParams.keys()))].sort();
 
   for (const key of sortedKeys) {
-    const values = searchParams.getAll(key)
+    const values = searchParams.getAll(key);
     if (values.length > 1) {
-      result.set(key, values)
+      result.set(key, values);
     } else {
-      result.set(key, values[0])
+      result.set(key, values[0]);
     }
   }
 
-  return result
+  return result;
 }

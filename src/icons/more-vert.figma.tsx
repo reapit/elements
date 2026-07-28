@@ -1,4 +1,5 @@
-import figma from '@figma/code-connect'
-import { MoreVertIcon } from './more-vert'
+import figma from "@figma/code-connect";
 
-figma.connect(MoreVertIcon, 'https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=20-536')
+import { MoreVertIcon } from "./more-vert";
+
+figma.connect(MoreVertIcon, "https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=20-536");

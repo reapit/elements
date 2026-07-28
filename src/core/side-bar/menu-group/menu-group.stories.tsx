@@ -1,27 +1,29 @@
-import preview from '#.storybook/preview'
-import { PropertyIcon } from '#src/icons/property'
-import { SideBarMenuGroup } from './menu-group'
-import { SideBarSubmenu } from '../submenu'
-import * as SideBarSubmenuItemStories from '../submenu-item/submenu-item.stories'
-import { useArgs } from 'storybook/preview-api'
-import { useSideBarContextDecorator } from '../__story__/use-side-bar-context-decorator'
-import { useSideBarWidthDecorator } from '../__story__/use-side-bar-width-decorator'
+import { useArgs } from "storybook/preview-api";
+
+import preview from "#.storybook/preview";
+import { PropertyIcon } from "#src/icons/property";
+
+import { useSideBarContextDecorator } from "../__story__/use-side-bar-context-decorator";
+import { useSideBarWidthDecorator } from "../__story__/use-side-bar-width-decorator";
+import { SideBarSubmenu } from "../submenu";
+import * as SideBarSubmenuItemStories from "../submenu-item/submenu-item.stories";
+import { SideBarMenuGroup } from "./menu-group";
 
 const meta = preview.meta({
-  title: 'Navigation/SideBar/MenuGroup',
+  title: "Navigation/SideBar/MenuGroup",
   component: SideBarMenuGroup,
   argTypes: {
     children: {
-      control: 'radio',
-      options: ['No selected item', 'Selected item'],
+      control: "radio",
+      options: ["No selected item", "Selected item"],
       mapping: {
-        'No selected item': (
+        "No selected item": (
           <SideBarSubmenu>
             <SideBarSubmenu.Item {...SideBarSubmenuItemStories.Example.composed.args} />
             <SideBarSubmenu.Item {...SideBarSubmenuItemStories.Example.composed.args} />
           </SideBarSubmenu>
         ),
-        'Selected item': (
+        "Selected item": (
           <SideBarSubmenu>
             <SideBarSubmenu.Item {...SideBarSubmenuItemStories.Example.composed.args} />
             <SideBarSubmenu.Item {...SideBarSubmenuItemStories.Selected.composed.args} />
@@ -37,25 +39,27 @@ const meta = preview.meta({
   // NOTE: because we are controlling the `open` state of the group, we need to use the `useArgs` hook to update the
   // `open` arg value if the group's state changes outside of the Storybook controls.
   render: (args) => {
-    const [, updateArgs] = useArgs()
+    const [, updateArgs] = useArgs();
     const updateOpenArg = (event) => {
-      updateArgs({ open: event.currentTarget.open })
-    }
+      updateArgs({ open: event.currentTarget.open });
+    };
     return (
       <SideBarMenuGroup {...args} onToggle={updateOpenArg}>
         {args.children}
       </SideBarMenuGroup>
-    )
+    );
   },
-})
+});
 
 export const Example = meta.story({
   args: {
-    children: 'No selected item',
+    children: "No selected item",
     isActive: false,
-    summary: <SideBarMenuGroup.Summary icon={<PropertyIcon />}>Menu group</SideBarMenuGroup.Summary>,
+    summary: (
+      <SideBarMenuGroup.Summary icon={<PropertyIcon />}>Menu group</SideBarMenuGroup.Summary>
+    ),
   },
-})
+});
 
 /**
  * When a submenu item within the group represents the current page, it should have an `aria-current="page"`
@@ -68,10 +72,10 @@ export const Example = meta.story({
  */
 export const Selected = Example.extend({
   args: {
-    children: 'Selected item',
+    children: "Selected item",
     open: true,
   },
-})
+});
 
 /**
  * When the `SideBar` is collapsed, the menu group's main label will be completely hidden. Importantly, the menu
@@ -81,9 +85,9 @@ export const Collapsed = Example.extend({
   decorators: [useSideBarWidthDecorator],
 
   parameters: {
-    sideBar: { state: 'collapsed' },
+    sideBar: { state: "collapsed" },
   },
-})
+});
 
 /**
  * Also, when the `SideBar` is collapsed, the menu group can still be selected, but it will not be expanded. Again,
@@ -91,11 +95,11 @@ export const Collapsed = Example.extend({
  * expand, and the group to open, though this behaviour is handled by the `SideBar` component itself, not the group.
  */
 export const SelectedAndCollapsed = Collapsed.extend({
-  name: 'Selected and collapsed',
+  name: "Selected and collapsed",
   args: {
-    children: 'Selected item',
+    children: "Selected item",
   },
-})
+});
 
 /**
  * When a menu group needs to be open and visually active but no submenu item within a group can be uniquely identified
@@ -105,4 +109,4 @@ export const ManuallyActive = Example.extend({
   args: {
     isActive: true,
   },
-})
+});

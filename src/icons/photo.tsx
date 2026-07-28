@@ -1,4 +1,4 @@
-import PhotoSvg from './svgs/photo.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import PhotoSvg from "./svgs/photo.svg?react";
 
-export const PhotoIcon = makeIcon('PhotoIcon', PhotoSvg)
+export const PhotoIcon = makeIcon("PhotoIcon", PhotoSvg);

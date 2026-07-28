@@ -1,5 +1,5 @@
-import type { SourceFile } from 'ts-morph'
-import { Node } from 'ts-morph'
+import { Node } from "ts-morph";
+import type { SourceFile } from "ts-morph";
 
 /**
  * Walks up the AST from `node` to find the nearest ancestor (or the node
@@ -10,12 +10,12 @@ import { Node } from 'ts-morph'
  * @param node - The starting AST node.
  */
 export function getNearestStatement(node: Node): Node | undefined {
-  let current: Node | undefined = node
+  let current: Node | undefined = node;
   while (current) {
-    if (Node.isStatement(current)) return current
-    current = current.getParent()
+    if (Node.isStatement(current)) return current;
+    current = current.getParent();
   }
-  return undefined
+  return undefined;
 }
 
 /**
@@ -49,24 +49,24 @@ export function collectStatementCommentPositions(
   sourceFile: SourceFile,
   nodes: Node[],
 ): Map<number, { insertPos: number; indent: string }> {
-  const stmtCommentMeta = new Map<number, { insertPos: number; indent: string }>()
+  const stmtCommentMeta = new Map<number, { insertPos: number; indent: string }>();
 
   for (const node of nodes) {
-    const stmt = getNearestStatement(node)
-    if (!stmt) continue
+    const stmt = getNearestStatement(node);
+    if (!stmt) continue;
 
-    const triviaStart = stmt.getPos()
-    if (stmtCommentMeta.has(triviaStart)) continue
+    const triviaStart = stmt.getPos();
+    if (stmtCommentMeta.has(triviaStart)) continue;
 
-    const trivia = sourceFile.getFullText().slice(triviaStart, stmt.getStart())
-    const lastNewline = trivia.lastIndexOf('\n')
-    const indent = lastNewline === -1 ? '' : trivia.slice(lastNewline + 1)
-    const insertPos = triviaStart + (lastNewline === -1 ? 0 : lastNewline + 1)
+    const trivia = sourceFile.getFullText().slice(triviaStart, stmt.getStart());
+    const lastNewline = trivia.lastIndexOf("\n");
+    const indent = lastNewline === -1 ? "" : trivia.slice(lastNewline + 1);
+    const insertPos = triviaStart + (lastNewline === -1 ? 0 : lastNewline + 1);
 
-    stmtCommentMeta.set(triviaStart, { insertPos, indent })
+    stmtCommentMeta.set(triviaStart, { insertPos, indent });
   }
 
-  return stmtCommentMeta
+  return stmtCommentMeta;
 }
 
 /**
@@ -89,8 +89,8 @@ export function insertLineComments(
   positions: Map<number, { insertPos: number; indent: string }>,
   comment: string,
 ): void {
-  const sortedEntries = [...positions.values()].sort((a, b) => b.insertPos - a.insertPos)
+  const sortedEntries = [...positions.values()].sort((a, b) => b.insertPos - a.insertPos);
   for (const { insertPos, indent } of sortedEntries) {
-    sourceFile.insertText(insertPos, `${indent}//${comment}\n`)
+    sourceFile.insertText(insertPos, `${indent}//${comment}\n`);
   }
 }

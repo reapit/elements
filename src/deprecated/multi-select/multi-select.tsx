@@ -1,3 +1,4 @@
+import { cx } from "@linaria/core";
 import React, {
   ChangeEvent,
   Dispatch,
@@ -10,8 +11,13 @@ import React, {
   SetStateAction,
   useEffect,
   useState,
-} from 'react'
-import { cx } from '@linaria/core'
+} from "react";
+
+import { TaskIcon } from "#src/icons/task";
+
+import { handleKeyboardEvent } from "../../storybook/handle-keyboard-event";
+import { useId } from "../../storybook/random-id";
+import { elMl2 } from "../../styles/deprecated-spacing";
 import {
   ElMultiSelectCheckbox,
   ElMultiSelect,
@@ -21,61 +27,61 @@ import {
   ElMultiSelectSelected,
   ElMultiSelectUnSelected,
   ElMultiSelectInputWrapper,
-} from './__styles__/index'
-import { useId } from '../../storybook/random-id'
-import { elMl2 } from '../../styles/deprecated-spacing'
-import { handleKeyboardEvent } from '../../storybook/handle-keyboard-event'
-import { TaskIcon } from '#src/icons/task'
+} from "./__styles__/index";
 
 /** @deprecated */
 export interface MultiSelectProps extends HTMLAttributes<HTMLDivElement> {}
 
 /** @deprecated */
 export interface MultiSelectOption {
-  value: string
-  name: string
+  value: string;
+  name: string;
 }
 
 /** @deprecated */
 export interface MultiSelectInputProps extends InputHTMLAttributes<HTMLInputElement> {
-  id: string
-  options: MultiSelectOption[]
-  defaultValues?: string[]
-  noneSelectedLabel?: string
+  id: string;
+  options: MultiSelectOption[];
+  defaultValues?: string[];
+  noneSelectedLabel?: string;
 }
 
 /** @deprecated */
 export type MultiSelectInputWrapped = React.ForwardRefExoticComponent<
   MultiSelectInputProps & RefAttributes<InputHTMLAttributes<HTMLInputElement>>
->
+>;
 
 /** @deprecated */
 export interface MultiSelectChipProps extends InputHTMLAttributes<HTMLInputElement> {}
 
-const setNativeInputValue = (element: HTMLElement, value: string[], testFunc?: (value: string[]) => void) => {
-  const valueSetter = Object.getOwnPropertyDescriptor(element, 'value')?.set
-  const prototype = Object.getPrototypeOf(element)
-  const prototypeValueSetter = Object.getOwnPropertyDescriptor(prototype, 'value')?.set
+const setNativeInputValue = (
+  element: HTMLElement,
+  value: string[],
+  testFunc?: (value: string[]) => void,
+) => {
+  const valueSetter = Object.getOwnPropertyDescriptor(element, "value")?.set;
+  const prototype = Object.getPrototypeOf(element);
+  const prototypeValueSetter = Object.getOwnPropertyDescriptor(prototype, "value")?.set;
 
   if (valueSetter && valueSetter !== prototypeValueSetter) {
-    prototypeValueSetter?.call(element, value)
+    prototypeValueSetter?.call(element, value);
   } else {
-    valueSetter?.call(element, value)
-    if (testFunc) testFunc(value)
+    valueSetter?.call(element, value);
+    if (testFunc) testFunc(value);
   }
-}
+};
 
 /** @deprecated */
 export const handleSetNativeInput =
   (id: string, selectedOptionValues: string[], testFunc?: (value: string[]) => void) => () => {
-    const input = document.getElementById(id)
+    const input = document.getElementById(id);
 
     if (input) {
-      setNativeInputValue(input, selectedOptionValues, testFunc)
-      const changeEvent = new Event('change', { bubbles: true })
-      input.dispatchEvent(changeEvent)
+      setNativeInputValue(input, selectedOptionValues, testFunc);
+      const changeEvent = new Event("change", { bubbles: true });
+      input.dispatchEvent(changeEvent);
     }
-  }
+  };
 
 /** @deprecated */
 export const handleResetDefaultValues =
@@ -87,23 +93,27 @@ export const handleResetDefaultValues =
   ) =>
   () => {
     if (defaultValues && JSON.stringify(defaultValues) !== JSON.stringify(selectedDefaultValues)) {
-      setSelectedOptionValues(defaultValues)
-      setSelectedDefaultValues(defaultValues)
+      setSelectedOptionValues(defaultValues);
+      setSelectedDefaultValues(defaultValues);
     }
-  }
+  };
 
 /** @deprecated */
 export const handleSelectedOptions =
-  (value: string, selectedOptionValues: string[], setSelectedOptionValues: Dispatch<SetStateAction<string[]>>) =>
+  (
+    value: string,
+    selectedOptionValues: string[],
+    setSelectedOptionValues: Dispatch<SetStateAction<string[]>>,
+  ) =>
   (event: ChangeEvent<HTMLInputElement>) => {
-    const isChecked = event.target.checked
+    const isChecked = event.target.checked;
 
     const newSelected = isChecked
       ? [...selectedOptionValues, value]
-      : selectedOptionValues.filter((option) => option !== value)
+      : selectedOptionValues.filter((option) => option !== value);
 
-    setSelectedOptionValues(newSelected)
-  }
+    setSelectedOptionValues(newSelected);
+  };
 
 /** @deprecated */
 export const handleSelectedKeyboardOptions =
@@ -116,10 +126,10 @@ export const handleSelectedKeyboardOptions =
   () => {
     const newSelected = !isChecked
       ? [...selectedOptionValues, value]
-      : selectedOptionValues.filter((option) => option !== value)
+      : selectedOptionValues.filter((option) => option !== value);
 
-    setSelectedOptionValues(newSelected)
-  }
+    setSelectedOptionValues(newSelected);
+  };
 
 /** @deprecated */
 export const MultiSelectChip: FC<MultiSelectChipProps> = ({
@@ -130,7 +140,7 @@ export const MultiSelectChip: FC<MultiSelectChipProps> = ({
   id,
   ...rest
 }) => {
-  const chipId = useId(id)
+  const chipId = useId(id);
   return (
     <>
       <ElMultiSelectCheckbox id={id ?? chipId} type="checkbox" aria-hidden={true} {...rest} />
@@ -144,29 +154,29 @@ export const MultiSelectChip: FC<MultiSelectChipProps> = ({
         {children}
       </ElMultiSelectLabel>
     </>
-  )
-}
+  );
+};
 
 /** @deprecated */
 export const MultiSelect: FC<MultiSelectProps> = ({ className, children, ...rest }) => (
   <ElMultiSelect className={cx(className)} {...rest}>
     {children}
   </ElMultiSelect>
-)
+);
 
 /** @deprecated */
 export const MultiSelectSelected: FC<MultiSelectProps> = ({ className, children, ...rest }) => (
   <ElMultiSelectSelected className={cx(className)} {...rest}>
     {children}
   </ElMultiSelectSelected>
-)
+);
 
 /** @deprecated */
 export const MultiSelectUnSelected: FC<MultiSelectProps> = ({ className, children, ...rest }) => (
   <ElMultiSelectUnSelected className={cx(className)} {...rest}>
     {children}
   </ElMultiSelectUnSelected>
-)
+);
 
 /** This looks like I have had a bit of a meltdown but promise it makes sense!
  * I want the component to behave like an input ie accept refs and onChange handlers and respond as a standard
@@ -182,20 +192,31 @@ export const MultiSelectInput: MultiSelectInputWrapped = forwardRef(
     { className, options, defaultValues, noneSelectedLabel, id, ...rest },
     ref: React.ForwardedRef<React.InputHTMLAttributes<HTMLInputElement>>,
   ) => {
-    const [selectedOptionValues, setSelectedOptionValues] = useState<string[]>(defaultValues ?? [])
-    const [selectedDefaultValues, setSelectedDefaultValues] = useState<string[]>(defaultValues ?? [])
+    const [selectedOptionValues, setSelectedOptionValues] = useState<string[]>(defaultValues ?? []);
+    const [selectedDefaultValues, setSelectedDefaultValues] = useState<string[]>(
+      defaultValues ?? [],
+    );
 
-    useEffect(handleSetNativeInput(id, selectedOptionValues), [selectedOptionValues])
+    useEffect(handleSetNativeInput(id, selectedOptionValues), [selectedOptionValues]);
 
     useEffect(
-      handleResetDefaultValues(setSelectedOptionValues, setSelectedDefaultValues, defaultValues, selectedDefaultValues),
+      handleResetDefaultValues(
+        setSelectedOptionValues,
+        setSelectedDefaultValues,
+        defaultValues,
+        selectedDefaultValues,
+      ),
       [defaultValues],
-    )
+    );
 
     return (
       <ElMultiSelectInputWrapper>
         <ElMultiSelectInput id={id} {...rest} ref={ref as unknown as LegacyRef<HTMLInputElement>} />
-        <MultiSelectSelected className={className} role="listbox" aria-label="Multi selected options">
+        <MultiSelectSelected
+          className={className}
+          role="listbox"
+          aria-label="Multi selected options"
+        >
           {selectedOptionValues.length ? (
             options.map((option) => {
               return selectedOptionValues.includes(option.value) ? (
@@ -204,27 +225,42 @@ export const MultiSelectInput: MultiSelectInputWrapped = forwardRef(
                   role="option"
                   tabIndex={0}
                   aria-checked={true}
-                  onChange={handleSelectedOptions(option.value, selectedOptionValues, setSelectedOptionValues)}
+                  onChange={handleSelectedOptions(
+                    option.value,
+                    selectedOptionValues,
+                    setSelectedOptionValues,
+                  )}
                   onKeyDown={handleKeyboardEvent(
-                    'Enter',
-                    handleSelectedKeyboardOptions(option.value, selectedOptionValues, setSelectedOptionValues, true),
+                    "Enter",
+                    handleSelectedKeyboardOptions(
+                      option.value,
+                      selectedOptionValues,
+                      setSelectedOptionValues,
+                      true,
+                    ),
                   )}
                   key={option.value}
                   defaultChecked
                 >
                   {option.name}
                 </MultiSelectChip>
-              ) : null
+              ) : null;
             })
           ) : (
             <>
               <TaskIcon className={elMl2} size="md" color="primary" />
-              <p>{noneSelectedLabel ? noneSelectedLabel : 'Please select from the options below'}</p>
+              <p>
+                {noneSelectedLabel ? noneSelectedLabel : "Please select from the options below"}
+              </p>
             </>
           )}
         </MultiSelectSelected>
         {selectedOptionValues.length < options.length && (
-          <MultiSelectUnSelected className={className} role="listbox" aria-label="Multi unselected options">
+          <MultiSelectUnSelected
+            className={className}
+            role="listbox"
+            aria-label="Multi unselected options"
+          >
             {options.map((option) => {
               return !selectedOptionValues.includes(option.value) ? (
                 <MultiSelectChip
@@ -232,21 +268,30 @@ export const MultiSelectInput: MultiSelectInputWrapped = forwardRef(
                   tabIndex={0}
                   aria-checked={false}
                   className={elHasGreyChips}
-                  onChange={handleSelectedOptions(option.value, selectedOptionValues, setSelectedOptionValues)}
+                  onChange={handleSelectedOptions(
+                    option.value,
+                    selectedOptionValues,
+                    setSelectedOptionValues,
+                  )}
                   onKeyDown={handleKeyboardEvent(
-                    'Enter',
-                    handleSelectedKeyboardOptions(option.value, selectedOptionValues, setSelectedOptionValues, false),
+                    "Enter",
+                    handleSelectedKeyboardOptions(
+                      option.value,
+                      selectedOptionValues,
+                      setSelectedOptionValues,
+                      false,
+                    ),
                   )}
                   key={option.value}
                   defaultChecked={false}
                 >
                   {option.name}
                 </MultiSelectChip>
-              ) : null
+              ) : null;
             })}
           </MultiSelectUnSelected>
         )}
       </ElMultiSelectInputWrapper>
-    )
+    );
   },
-)
+);

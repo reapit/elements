@@ -1,101 +1,103 @@
-import preview from '#.storybook/preview'
-import { fontSizes, fontWeights } from '#src/utils/font'
-import { textColours } from './types'
-import { Text } from './text'
-import { myCustomTextStyles } from './__story__/styles'
+import preview from "#.storybook/preview";
+import { fontSizes, fontWeights } from "#src/utils/font";
+import type { FontStyle } from "#src/utils/font";
 
-import type { FontStyle } from '#src/utils/font'
+import { myCustomTextStyles } from "./__story__/styles";
+import { Text } from "./text";
+import { textColours } from "./types";
 
 // 'md' has no corresponding design token and isn't documented, so it's excluded from Storybook controls.
-const documentedFontSizes = fontSizes.filter((size) => size !== 'md')
+const documentedFontSizes = fontSizes.filter((size) => size !== "md");
 
 const fontStyles = [
-  'inherit',
-  ...fontWeights.flatMap((weight) => documentedFontSizes.map((size) => `text-${size}/${weight}` as const)),
-] satisfies FontStyle[]
+  "inherit",
+  ...fontWeights.flatMap((weight) =>
+    documentedFontSizes.map((size) => `text-${size}/${weight}` as const),
+  ),
+] satisfies FontStyle[];
 
 const meta = preview.meta({
-  title: 'Utils/Text',
+  title: "Utils/Text",
   component: Text,
   argTypes: {
     as: {
-      control: 'select',
-      options: ['span', 'strong', 'em', 'mark', 'p', 'q', 's', 'time'],
+      control: "select",
+      options: ["span", "strong", "em", "mark", "p", "q", "s", "time"],
       table: {
-        type: { summary: 'union' },
+        type: { summary: "union" },
       },
     },
     children: {
-      control: 'text',
-      description: 'The text content.',
+      control: "text",
+      description: "The text content.",
       table: {
-        type: { summary: 'ReactNode' },
+        type: { summary: "ReactNode" },
       },
     },
     className: {
-      control: 'text',
-      options: ['None', 'Custom'],
+      control: "text",
+      options: ["None", "Custom"],
       mapping: {
         None: undefined,
         Custom: myCustomTextStyles,
       },
     },
     colour: {
-      control: 'select',
-      description: 'The text colour.',
+      control: "select",
+      description: "The text colour.",
       options: textColours,
       table: {
-        type: { summary: 'union' },
+        type: { summary: "union" },
       },
     },
     font: {
-      control: 'select',
-      description: 'The font family of the text.',
+      control: "select",
+      description: "The font family of the text.",
       options: fontStyles,
       table: {
-        type: { summary: 'union' },
+        type: { summary: "union" },
       },
     },
     overflow: {
       control: false,
-      description: 'Determines what happens when text overflows its parent.',
+      description: "Determines what happens when text overflows its parent.",
       table: {
         type: { summary: "'truncate'" },
       },
     },
     size: {
-      control: 'select',
-      description: '**Deprecated: use `font` instead.** The font size of the text.',
+      control: "select",
+      description: "**Deprecated: use `font` instead.** The font size of the text.",
       options: documentedFontSizes,
     },
     weight: {
-      control: 'select',
-      description: '**Deprecated: use `font` instead.** The font weight of the text.',
+      control: "select",
+      description: "**Deprecated: use `font` instead.** The font weight of the text.",
       options: fontWeights,
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
-    as: 'span',
-    children: 'A styled span of text',
-    className: 'None',
-    colour: 'primary',
+    as: "span",
+    children: "A styled span of text",
+    className: "None",
+    colour: "primary",
     font: undefined,
-    size: 'base',
-    weight: 'regular',
+    size: "base",
+    weight: "regular",
   },
-})
+});
 
 /**
  * The `as` prop allows you to render the Text component as a different inline HTML element.
  */
 export const Element = Example.extend({
   args: {
-    as: 'mark',
+    as: "mark",
   },
-})
+});
 
 /**
  * The `colour` prop controls the text color. The available values are defined by the design system with the exception
@@ -103,20 +105,20 @@ export const Element = Example.extend({
  */
 export const Colour = Example.extend({
   args: {
-    colour: 'action',
+    colour: "action",
   },
-})
+});
 
 /**
  * The `font` prop controls the font size and weight.
  */
 export const Font = Example.extend({
   args: {
-    font: 'text-2xl/bold',
+    font: "text-2xl/bold",
     size: undefined,
     weight: undefined,
   },
-})
+});
 
 /**
  * Both `font` and `colour` accept "inherit" as values. This allows for nested Text usage, which is
@@ -129,17 +131,17 @@ export const Font = Example.extend({
  */
 export const Inheritance = Example.extend({
   args: {
-    font: 'text-xs/bold',
+    font: "text-xs/bold",
   },
   render: (args) => (
     <Text {...args}>
-      This is a span of text that includes a{' '}
+      This is a span of text that includes a{" "}
       <Text as="strong" colour="error" font="inherit">
         nested span of text.
       </Text>
     </Text>
   ),
-})
+});
 
 /**
  * The `overflow` prop controls whether the text should be truncated with an ellipsis or remain
@@ -149,24 +151,31 @@ export const Inheritance = Example.extend({
  */
 export const Overflow = Inheritance.extend({
   args: {
-    overflow: 'truncate',
+    overflow: "truncate",
   },
   decorators: [
     (Story) => (
-      <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', display: 'flex', width: '300px' }}>
+      <div
+        style={{
+          boxSizing: "content-box",
+          border: "1px solid #FA00FF",
+          display: "flex",
+          width: "300px",
+        }}
+      >
         <Story />
       </div>
     ),
   ],
   render: (args) => (
     <Text {...args}>
-      This is a span of text that includes a{' '}
+      This is a span of text that includes a{" "}
       <Text as="strong" colour="error" font="inherit">
         nested span of text.
       </Text>
     </Text>
   ),
-})
+});
 
 /**
  * Additional styling can be provided via a custom class. For example, Text resets the padding and margin
@@ -177,8 +186,8 @@ export const Overflow = Inheritance.extend({
  */
 export const CustomClass = meta.story({
   args: {
-    as: 'p',
-    children: 'My custom class gives me padding and border',
-    className: 'Custom',
+    as: "p",
+    children: "My custom class gives me padding and border",
+    className: "Custom",
   },
-})
+});

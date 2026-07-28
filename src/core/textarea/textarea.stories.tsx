@@ -1,35 +1,36 @@
-import preview from '#.storybook/preview'
-import { Textarea } from './index'
+import preview from "#.storybook/preview";
+
+import { Textarea } from "./index";
 
 const meta = preview.meta({
-  title: 'Input and selection/Textarea',
+  title: "Input and selection/Textarea",
   component: Textarea,
   argTypes: {
-    defaultValue: { control: 'text' },
-    fieldSizing: { control: 'radio', options: ['content', 'fixed', 'manual'] },
-    maxLength: { control: 'text' },
-    minLength: { control: 'text' },
-    size: { control: 'radio', options: ['small', 'medium', 'large'] },
-    value: { control: 'text' },
+    defaultValue: { control: "text" },
+    fieldSizing: { control: "radio", options: ["content", "fixed", "manual"] },
+    maxLength: { control: "text" },
+    minLength: { control: "text" },
+    size: { control: "radio", options: ["small", "medium", "large"] },
+    value: { control: "text" },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
     defaultValue: undefined,
     disabled: false,
-    fieldSizing: 'content',
+    fieldSizing: "content",
     maxLength: undefined,
     minLength: undefined,
-    name: 'description',
-    placeholder: 'Description',
+    name: "description",
+    placeholder: "Description",
     readOnly: false,
     required: false,
     showValidity: false,
-    size: 'medium',
+    size: "medium",
     value: undefined,
   },
-})
+});
 
 /**
  * There are three sizes available: `small`, `medium` and `large`.
@@ -43,7 +44,14 @@ export const Sizes = Example.extend({
 
   decorators: [
     (Story) => (
-      <div style={{ display: 'flex', alignItems: 'flex-start', flexFlow: 'row nowrap', gap: 'var(--spacing-6)' }}>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "flex-start",
+          flexFlow: "row nowrap",
+          gap: "var(--spacing-6)",
+        }}
+      >
         <Story />
       </div>
     ),
@@ -56,7 +64,7 @@ export const Sizes = Example.extend({
       <Textarea {...args} size="large" />
     </>
   ),
-})
+});
 
 /**
  * Like all form controls that visually communicate their validity, the input will display in an
@@ -66,11 +74,11 @@ export const Sizes = Example.extend({
  */
 export const Invalid = Example.extend({
   args: {
-    placeholder: 'Description',
+    placeholder: "Description",
     required: true,
     showValidity: true,
   },
-})
+});
 
 /**
  * The textarea also displays in an invalid state when `aria-invalid="true"` and `showValidity` is
@@ -78,13 +86,13 @@ export const Invalid = Example.extend({
  * logic that does not use the browser's constraint validation API.
  */
 export const AriaInvalid = Example.extend({
-  name: 'Aria Invalid',
+  name: "Aria Invalid",
   args: {
-    'aria-invalid': true,
-    placeholder: 'Description',
+    "aria-invalid": true,
+    placeholder: "Description",
     showValidity: true,
   },
-})
+});
 
 /**
  * A Text area can be disabled in forms to prevent their use. When disabled, the text area cannot be focused and its
@@ -92,10 +100,10 @@ export const AriaInvalid = Example.extend({
  */
 export const Disabled = Example.extend({
   args: {
-    placeholder: 'Description',
+    placeholder: "Description",
     disabled: true,
   },
-})
+});
 
 /**
  * A Text area can also be marked as read-only in forms to prevent their current value being changed. Unlike a disabled
@@ -106,7 +114,7 @@ export const ReadOnly = Example.extend({
     value: "I can't be edited",
     readOnly: true,
   },
-})
+});
 
 /**
  * Text area's can automatically grow or shrink between a min and/or max row count. The min and max rows define the
@@ -121,12 +129,12 @@ export const ReadOnly = Example.extend({
  */
 export const Uncontrolled = Example.extend({
   args: {
-    defaultValue: '1\n2',
-    placeholder: 'Type here...',
+    defaultValue: "1\n2",
+    placeholder: "Type here...",
     maxRows: 5,
     minRows: 1,
   },
-})
+});
 
 /**
  * This next example demonstrates auto-sizing behaviour for a *controlled* text area.
@@ -138,9 +146,9 @@ export const Controlled = Example.extend({
   args: {
     maxRows: 5,
     minRows: 1,
-    value: '1\n2\n3',
+    value: "1\n2\n3",
   },
-})
+});
 
 /**
  * Importantly, when an explicit row count is specified, no resizing will occur, whether the text area's
@@ -148,11 +156,11 @@ export const Controlled = Example.extend({
  */
 export const FixedSizing = Example.extend({
   args: {
-    fieldSizing: 'fixed',
-    placeholder: 'Type here...',
+    fieldSizing: "fixed",
+    placeholder: "Type here...",
     rows: 10,
   },
-})
+});
 
 /**
  * To continue using the Elements v4 `TextArea` behaviour where manual resizing was permitted, consumers can
@@ -165,7 +173,7 @@ export const FixedSizing = Example.extend({
  */
 export const ManualSizing = Example.extend({
   args: {
-    fieldSizing: 'manual',
-    placeholder: 'Type here...',
+    fieldSizing: "manual",
+    placeholder: "Type here...",
   },
-})
+});

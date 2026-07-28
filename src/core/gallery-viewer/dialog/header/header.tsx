@@ -1,25 +1,30 @@
-import { cx } from '@linaria/core'
-import { useGalleryViewerDialogContext } from '../context'
-import { GalleryViewerDialogHeaderCloseButton } from './close-button'
+import { cx } from "@linaria/core";
+import type { HTMLAttributes, ReactNode } from "react";
+
+import { useGalleryViewerDialogContext } from "../context";
+import { GalleryViewerDialogHeaderCloseButton } from "./close-button";
 import {
   elGalleryViewerDialogHeader,
   elGalleryViewerDialogHeaderAction,
   elGalleryViewerDialogHeaderTitle,
-} from './styles'
-import type { HTMLAttributes, ReactNode } from 'react'
+} from "./styles";
 
 export namespace GalleryViewerDialogHeader {
-  export interface Props extends Omit<HTMLAttributes<HTMLElement>, 'title'> {
+  export interface Props extends Omit<HTMLAttributes<HTMLElement>, "title"> {
     /** The title of the dialog. */
-    children: ReactNode
+    children: ReactNode;
   }
 }
 
 /**
  * A header for the gallery viewer dialog. Contains the dialog's title and the close button.
  */
-export function GalleryViewerDialogHeader({ children, className, ...rest }: GalleryViewerDialogHeader.Props) {
-  const { titleId } = useGalleryViewerDialogContext()
+export function GalleryViewerDialogHeader({
+  children,
+  className,
+  ...rest
+}: GalleryViewerDialogHeader.Props) {
+  const { titleId } = useGalleryViewerDialogContext();
   return (
     <header {...rest} className={cx(elGalleryViewerDialogHeader, className)}>
       <h2 className={elGalleryViewerDialogHeaderTitle} id={titleId}>
@@ -29,7 +34,7 @@ export function GalleryViewerDialogHeader({ children, className, ...rest }: Gall
         <GalleryViewerDialogHeaderCloseButton />
       </div>
     </header>
-  )
+  );
 }
 
-GalleryViewerDialogHeader.displayName = 'GalleryViewer.Header'
+GalleryViewerDialogHeader.displayName = "GalleryViewer.Header";

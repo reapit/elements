@@ -1,5 +1,6 @@
-import { styled } from '@linaria/react'
-import { font } from '#src/utils/font'
+import { styled } from "@linaria/react";
+
+import { font } from "#src/utils/font";
 
 export const ElFileUploaderMediaCard = styled.div`
   @layer elements.main {
@@ -8,7 +9,7 @@ export const ElFileUploaderMediaCard = styled.div`
     width: 100%;
     gap: var(--spacing-2);
   }
-`
+`;
 
 export const ElFileUploaderMediaCardContent = styled.div`
   @layer elements.main {
@@ -16,11 +17,11 @@ export const ElFileUploaderMediaCardContent = styled.div`
     flex-direction: column;
     min-width: 0;
   }
-`
+`;
 
 export const ElFileUploaderMediaCardFileName = styled.p`
   @layer elements.main {
-    ${font('sm', 'regular')}
+    ${font("sm", "regular")}
     overflow: hidden;
     margin: 0;
     width: 100%;
@@ -28,7 +29,7 @@ export const ElFileUploaderMediaCardFileName = styled.p`
     text-overflow: ellipsis;
     white-space: nowrap;
   }
-`
+`;
 
 export const ElFileUploaderMediaCardSecondaryInfo = styled.div`
   @layer elements.main {
@@ -42,11 +43,11 @@ export const ElFileUploaderMediaCardSecondaryInfo = styled.div`
       flex-wrap: wrap;
     }
   }
-`
+`;
 
 export const ElFileUploaderMediaCardStatusText = styled.span`
   @layer elements.main {
-    ${font('2xs', 'regular')}
+    ${font("2xs", "regular")}
     overflow: hidden;
     min-width: 0;
     color: var(--colour-text-secondary);
@@ -54,11 +55,11 @@ export const ElFileUploaderMediaCardStatusText = styled.span`
     white-space: nowrap;
 
     &[data-error] {
-      ${font('2xs', 'medium')}
+      ${font("2xs", "medium")}
       overflow: visible;
       color: var(--colour-text-error);
       text-overflow: unset;
       white-space: normal;
     }
   }
-`
+`;

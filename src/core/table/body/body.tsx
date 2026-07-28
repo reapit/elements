@@ -1,22 +1,22 @@
-import { cx } from '@linaria/core'
-import { elTableBody } from './styles'
+import { cx } from "@linaria/core";
+import type { HTMLAttributes, ReactNode } from "react";
 
-import type { HTMLAttributes, ReactNode } from 'react'
+import { elTableBody } from "./styles";
 
 export namespace TableBody {
   interface AsTbodyProps extends HTMLAttributes<HTMLTableSectionElement> {
-    as?: 'tbody'
+    as?: "tbody";
     /** The table's rows. */
-    children: ReactNode
+    children: ReactNode;
   }
 
   interface AsDivProps extends HTMLAttributes<HTMLDivElement> {
-    as: 'div'
+    as: "div";
     /** The table's rows. */
-    children: ReactNode
+    children: ReactNode;
   }
 
-  export type Props = AsTbodyProps | AsDivProps
+  export type Props = AsTbodyProps | AsDivProps;
 }
 
 /**
@@ -25,15 +25,20 @@ export namespace TableBody {
  * [subgrid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Subgrid).
  * Typically used via `Table.Body`.
  */
-export function TableBody({ as: Element = 'tbody', children, className, ...rest }: TableBody.Props) {
+export function TableBody({
+  as: Element = "tbody",
+  children,
+  className,
+  ...rest
+}: TableBody.Props) {
   return (
     <Element {...rest} className={cx(elTableBody, className)}>
       {children}
     </Element>
-  )
+  );
 }
 
-TableBody.displayName = 'Table.Body'
+TableBody.displayName = "Table.Body";
 
 // Backward compatibility
-export type TableBodyProps = TableBody.Props
+export type TableBodyProps = TableBody.Props;

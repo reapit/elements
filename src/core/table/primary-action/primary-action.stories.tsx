@@ -1,18 +1,19 @@
-import preview from '#.storybook/preview'
-import { Pattern } from '#src/core/drawer/__story__/Pattern'
-import { StarIcon } from '#src/icons/star'
-import { Table } from '../table'
-import type { TableRowPrimaryActionButton } from './primary-action-button'
+import preview from "#.storybook/preview";
+import { Pattern } from "#src/core/drawer/__story__/Pattern";
+import { StarIcon } from "#src/icons/star";
 
-const href = '#'
+import { Table } from "../table";
+import type { TableRowPrimaryActionButton } from "./primary-action-button";
+
+const href = "#";
 
 const meta = preview.meta({
-  title: 'Data and tables/Table/PrimaryAction',
+  title: "Data and tables/Table/PrimaryAction",
   component: Table.PrimaryAction,
   subcomponents: { PrimaryActionButton: Table.PrimaryActionButton },
   argTypes: {
     children: {
-      control: 'text',
+      control: "text",
     },
     href: {
       control: false,
@@ -22,12 +23,12 @@ const meta = preview.meta({
     (Story) => (
       // NOTE: This relatively-positioned div is used to simulate a table row. It is this element's
       // bounding box that the primary action's pseudo-element will be positioned in relation to.
-      <div style={{ position: 'relative' }}>
+      <div style={{ position: "relative" }}>
         <Story />
       </div>
     ),
   ],
-})
+});
 
 /**
  * The default font styling of the action has a heavier weight as the primary action should always
@@ -35,10 +36,10 @@ const meta = preview.meta({
  */
 export const Example = meta.story({
   args: {
-    children: '1 Brisbane St, Brisbane 4300',
+    children: "1 Brisbane St, Brisbane 4300",
     href,
   },
-})
+});
 
 /**
  * When using [Table.PrimaryData](./?path=/docs/core-table-tablecellprimarydata--docs), it is
@@ -50,8 +51,8 @@ export const Example = meta.story({
  */
 export const PrimaryData = meta.story({
   args: {
-    'aria-label': 'View Mary Jane',
-    children: 'Mary Jane',
+    "aria-label": "View Mary Jane",
+    children: "Mary Jane",
     href,
   },
   argTypes: {
@@ -64,7 +65,7 @@ export const PrimaryData = meta.story({
       <Table.PrimaryAction {...args} />
     </Table.PrimaryData>
   ),
-})
+});
 
 /**
  * The key feature of the primary action is that its "hit area" will expand to fill the bounding box of
@@ -75,16 +76,16 @@ export const PrimaryData = meta.story({
  */
 export const HitArea = meta.story({
   args: {
-    children: '1 Brisbane St, Brisbane 4300',
+    children: "1 Brisbane St, Brisbane 4300",
     href,
   },
   decorators: [
     (Story) => (
       <div
         style={{
-          display: 'grid',
-          border: '1px solid #FA00FF',
-          gridTemplateColumns: 'auto 1fr',
+          display: "grid",
+          border: "1px solid #FA00FF",
+          gridTemplateColumns: "auto 1fr",
         }}
       >
         <Story />
@@ -92,7 +93,7 @@ export const HitArea = meta.story({
       </div>
     ),
   ],
-})
+});
 
 /**
  * `Table.PrimaryActionButton` is identical to `Table.PrimaryAction`, except it renders as a
@@ -102,8 +103,8 @@ export const HitArea = meta.story({
  */
 export const Buttons = meta.story({
   args: {
-    children: '1 Brisbane St, Brisbane 4300',
-    href: '#',
+    children: "1 Brisbane St, Brisbane 4300",
+    href: "#",
   },
   argTypes: {
     href: {
@@ -113,4 +114,4 @@ export const Buttons = meta.story({
   render: ({ href: _, ...args }) => (
     <Table.PrimaryActionButton {...(args as unknown as TableRowPrimaryActionButton.Props)} />
   ),
-})
+});

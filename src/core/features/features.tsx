@@ -1,22 +1,22 @@
-import { ElFeatures } from './styles'
-import { FeatureItem } from './item'
+import type { HTMLAttributes, ReactNode } from "react";
+
 import {
   FeaturesBathroomsItem,
   FeaturesBedroomsItem,
   FeaturesCarSpacesItem,
   FeaturesLandSizeItem,
-} from './common-items'
-
-import type { HTMLAttributes, ReactNode } from 'react'
+} from "./common-items";
+import { FeatureItem } from "./item";
+import { ElFeatures } from "./styles";
 
 export namespace Features {
   export interface Props extends HTMLAttributes<HTMLDListElement> {
     /** One or more feature items. Typically, bedrooms, bathrooms, car spaces, and land size. */
-    children: ReactNode
+    children: ReactNode;
     /** The size of the features text. */
-    size: '2xs' | 'xs' | 'sm' | 'base'
+    size: "2xs" | "xs" | "sm" | "base";
     /** Whether to prevent wrapping of feature items. */
-    wrap?: 'wrap' | 'nowrap'
+    wrap?: "wrap" | "nowrap";
   }
 }
 
@@ -28,15 +28,15 @@ export namespace Features {
  * and `Features.LandSize`, though custom items can be facilitated by using `Features.Item` directly.
  */
 export function Features({ size, wrap, ...rest }: Features.Props) {
-  return <ElFeatures {...rest} data-size={size} data-wrap={wrap} />
+  return <ElFeatures {...rest} data-size={size} data-wrap={wrap} />;
 }
 
-Features.Bathrooms = FeaturesBathroomsItem
-Features.Bedrooms = FeaturesBedroomsItem
-Features.CarSpaces = FeaturesCarSpacesItem
-Features.LandSize = FeaturesLandSizeItem
+Features.Bathrooms = FeaturesBathroomsItem;
+Features.Bedrooms = FeaturesBedroomsItem;
+Features.CarSpaces = FeaturesCarSpacesItem;
+Features.LandSize = FeaturesLandSizeItem;
 
-Features.Item = FeatureItem
+Features.Item = FeatureItem;
 
 /** @deprecated Use Features.Props instead */
-export type FeaturesProps = Features.Props
+export type FeaturesProps = Features.Props;

@@ -1,17 +1,18 @@
-import { render, screen } from '@testing-library/react'
-import { TagGroupItem } from '../tag-group-item'
+import { render, screen } from "@testing-library/react";
 
-test('renders as a list item element', () => {
-  render(<TagGroupItem>Tag</TagGroupItem>)
+import { TagGroupItem } from "../tag-group-item";
 
-  const listItem = screen.getByRole('listitem')
-  expect(listItem).toBeVisible()
-  expect(listItem).toHaveTextContent('Tag')
-})
+test("renders as a list item element", () => {
+  render(<TagGroupItem>Tag</TagGroupItem>);
 
-test('forwards other props to the underlying tag', () => {
-  render(<TagGroupItem data-testid="custom-tag">Tag</TagGroupItem>)
-  expect(screen.getByTestId('custom-tag')).toBeVisible()
+  const listItem = screen.getByRole("listitem");
+  expect(listItem).toBeVisible();
+  expect(listItem).toHaveTextContent("Tag");
+});
+
+test("forwards other props to the underlying tag", () => {
+  render(<TagGroupItem data-testid="custom-tag">Tag</TagGroupItem>);
+  expect(screen.getByTestId("custom-tag")).toBeVisible();
   // NOTE: the text is in a child element of the root tag element receiving the extra attributes
-  expect(screen.getByTestId('custom-tag')).toBe(screen.getByText('Tag').parentElement)
-})
+  expect(screen.getByTestId("custom-tag")).toBe(screen.getByText("Tag").parentElement);
+});

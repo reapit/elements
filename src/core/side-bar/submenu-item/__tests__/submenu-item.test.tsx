@@ -1,18 +1,19 @@
-import { elSideBarSubmenuItem } from '../styles'
-import { render, screen } from '@testing-library/react'
-import { SideBarSubmenuItem } from '../submenu-item'
-import { SideBarContextPublisher } from '../../side-bar-context'
-import type { ReactNode } from 'react'
+import { render, screen } from "@testing-library/react";
+import type { ReactNode } from "react";
 
-test('renders an <a> element', () => {
+import { SideBarContextPublisher } from "../../side-bar-context";
+import { elSideBarSubmenuItem } from "../styles";
+import { SideBarSubmenuItem } from "../submenu-item";
+
+test("renders an <a> element", () => {
   render(
     <SideBarSubmenuItem aria-current={false} href="#">
       Test item
     </SideBarSubmenuItem>,
     { wrapper: Wrapper },
-  )
-  expect(screen.getByRole('link', { name: 'Test item' })).toBeVisible()
-})
+  );
+  expect(screen.getByRole("link", { name: "Test item" })).toBeVisible();
+});
 
 test(`combines the .${elSideBarSubmenuItem} and consumer-supplied classes correctly`, () => {
   render(
@@ -20,11 +21,14 @@ test(`combines the .${elSideBarSubmenuItem} and consumer-supplied classes correc
       Submenu Item
     </SideBarSubmenuItem>,
     { wrapper: Wrapper },
-  )
+  );
   // NOTE: We don't use the `toHaveClass` matcher here because it does not enforce the order of classes, which we are
   // specifically interested in here.
-  expect(screen.getByRole('link')).toHaveAttribute('class', `${elSideBarSubmenuItem} my-custom-class`)
-})
+  expect(screen.getByRole("link")).toHaveAttribute(
+    "class",
+    `${elSideBarSubmenuItem} my-custom-class`,
+  );
+});
 
 test('has `aria-current="false"` attribute when it does NOT represent the current page', () => {
   render(
@@ -32,9 +36,9 @@ test('has `aria-current="false"` attribute when it does NOT represent the curren
       Test item
     </SideBarSubmenuItem>,
     { wrapper: Wrapper },
-  )
-  expect(screen.getByRole('link')).toHaveAttribute('aria-current', 'false')
-})
+  );
+  expect(screen.getByRole("link")).toHaveAttribute("aria-current", "false");
+});
 
 test('has `aria-current="page"` attribute when it represents the current page', () => {
   render(
@@ -42,12 +46,12 @@ test('has `aria-current="page"` attribute when it represents the current page', 
       Test item
     </SideBarSubmenuItem>,
     { wrapper: Wrapper },
-  )
-  expect(screen.getByRole('link')).toHaveAttribute('aria-current', 'page')
-})
+  );
+  expect(screen.getByRole("link")).toHaveAttribute("aria-current", "page");
+});
 
 interface WrapperProps {
-  children: ReactNode
+  children: ReactNode;
 }
 
 function Wrapper({ children }: WrapperProps) {
@@ -61,5 +65,5 @@ function Wrapper({ children }: WrapperProps) {
     >
       {children}
     </SideBarContextPublisher>
-  )
+  );
 }

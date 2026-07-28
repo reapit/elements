@@ -1,12 +1,13 @@
-import { font } from '#src/utils/font'
-import { styled } from '@linaria/react'
-import { css } from '@linaria/core'
+import { css } from "@linaria/core";
+import { styled } from "@linaria/react";
+
+import { font } from "#src/utils/font";
 
 export const elOfficeSwitcherOfficeGroup = css`
   @layer elements.main {
     width: 100%;
   }
-`
+`;
 
 export const elOfficeSwitcherOfficeGroupSummary = css`
   @layer elements.main {
@@ -19,7 +20,7 @@ export const elOfficeSwitcherOfficeGroupSummary = css`
     cursor: pointer;
     list-style: none;
 
-    ${font('sm', 'regular')}
+    ${font("sm", "regular")}
     color: var(--comp-office_switcher-colour-text-default);
 
     &::-webkit-details-marker {
@@ -31,12 +32,12 @@ export const elOfficeSwitcherOfficeGroupSummary = css`
       color: var(--comp-office_switcher-colour-text-hover);
     }
 
-    &[data-is-active='true'] {
+    &[data-is-active="true"] {
       outline: var(--border-width-double) solid var(--colour-border-focus);
       outline-offset: var(--border-width-default);
     }
   }
-`
+`;
 
 export const ElOfficeSwitcherOfficeGroupLabel = styled.span`
   @layer elements.main {
@@ -46,7 +47,7 @@ export const ElOfficeSwitcherOfficeGroupLabel = styled.span`
     white-space: nowrap;
     min-width: 0;
   }
-`
+`;
 
 export const ElOfficeSwitcherOfficeGroupChevron = styled.span`
   @layer elements.main {
@@ -61,4 +62,4 @@ export const ElOfficeSwitcherOfficeGroupChevron = styled.span`
       transform: rotate(180deg);
     }
   }
-`
+`;

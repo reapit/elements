@@ -1,27 +1,30 @@
-import preview from '#.storybook/preview'
-import { Divider } from './divider'
+import preview from "#.storybook/preview";
+
+import { Divider } from "./divider";
 
 const meta = preview.meta({
-  title: 'Containers and layout/Divider',
+  title: "Containers and layout/Divider",
   component: Divider,
   decorators: [
     (Story) => (
-      <div style={{ display: 'flex', placeItems: 'center', placeContent: 'center', height: '100px' }}>
+      <div
+        style={{ display: "flex", placeItems: "center", placeContent: "center", height: "100px" }}
+      >
         <Story />
       </div>
     ),
   ],
-})
+});
 
 /**
  * By default, dividers will use a solid horizontal line.
  */
 export const Example = meta.story({
   args: {
-    'aria-orientation': 'horizontal',
-    variant: 'solid',
+    "aria-orientation": "horizontal",
+    variant: "solid",
   },
-})
+});
 
 /**
  * The `variant` prop can be used to change the style of the divider.
@@ -29,9 +32,9 @@ export const Example = meta.story({
  */
 export const Variant = Example.extend({
   args: {
-    variant: 'dashed',
+    variant: "dashed",
   },
-})
+});
 
 /**
  * The `aria-orientation` prop can be used to change the orientation of the divider.
@@ -39,6 +42,6 @@ export const Variant = Example.extend({
  */
 export const Orientation = Example.extend({
   args: {
-    'aria-orientation': 'vertical',
+    "aria-orientation": "vertical",
   },
-})
+});

@@ -1,6 +1,8 @@
-import { font } from '#src/utils/font'
-import { styled } from '@linaria/react'
-import separatorDotUrl from './separator-dot.svg?inline'
+import { styled } from "@linaria/react";
+
+import { font } from "#src/utils/font";
+
+import separatorDotUrl from "./separator-dot.svg?inline";
 
 export const ElSupplementaryInfoList = styled.ul`
   @layer elements.main {
@@ -10,52 +12,52 @@ export const ElSupplementaryInfoList = styled.ul`
     padding-inline: 0;
     width: fit-content;
 
-    &[data-size='inherit'] {
+    &[data-size="inherit"] {
       font: inherit;
     }
-    &[data-size='base'] {
-      ${font('base', 'regular')}
+    &[data-size="base"] {
+      ${font("base", "regular")}
     }
-    &[data-size='sm'] {
-      ${font('sm', 'regular')}
+    &[data-size="sm"] {
+      ${font("sm", "regular")}
     }
-    &[data-size='xs'] {
-      ${font('xs', 'regular')}
+    &[data-size="xs"] {
+      ${font("xs", "regular")}
     }
 
     &,
-    &[data-colour='inherit'] {
+    &[data-colour="inherit"] {
       color: inherit;
     }
-    &[data-colour='primary'] {
+    &[data-colour="primary"] {
       color: var(--colour-text-primary);
     }
-    &[data-colour='secondary'] {
+    &[data-colour="secondary"] {
       color: var(--colour-text-secondary);
     }
-    &[data-colour='neutral'] {
+    &[data-colour="neutral"] {
       color: var(--colour-text-info);
     }
-    &[data-colour='success'] {
+    &[data-colour="success"] {
       color: var(--colour-text-success);
     }
-    &[data-colour='pending'] {
+    &[data-colour="pending"] {
       color: var(--colour-text-pending);
     }
-    &[data-colour='warning'] {
+    &[data-colour="warning"] {
       color: var(--colour-text-warning);
     }
-    &[data-colour='danger'] {
+    &[data-colour="danger"] {
       color: var(--colour-text-error);
     }
-    &[data-colour='accent_1'] {
+    &[data-colour="accent_1"] {
       color: var(--colour-text-accent_1);
     }
-    &[data-colour='accent_2'] {
+    &[data-colour="accent_2"] {
       color: var(--colour-text-accent_2);
     }
   }
-`
+`;
 
 export const ElSupplementaryInfoItem = styled.li`
   @layer elements.main {
@@ -65,7 +67,7 @@ export const ElSupplementaryInfoItem = styled.li`
     letter-spacing: inherit;
 
     &:not(:last-of-type)::after {
-      content: '';
+      content: "";
       display: inline-block;
       vertical-align: middle;
 
@@ -74,93 +76,93 @@ export const ElSupplementaryInfoItem = styled.li`
       background: url(${separatorDotUrl}) center/cover no-repeat;
 
       &,
-      [data-size='base'] & {
+      [data-size="base"] & {
         width: var(--icon_size-lg);
         height: var(--icon_size-lg);
       }
-      [data-size='sm'] & {
+      [data-size="sm"] & {
         width: var(--icon_size-md);
         height: var(--icon_size-md);
       }
-      [data-size='xs'] & {
+      [data-size="xs"] & {
         width: var(--icon_size-sm);
         height: var(--icon_size-sm);
       }
     }
 
     &,
-    &[data-colour='inherit'] {
+    &[data-colour="inherit"] {
       color: inherit;
     }
-    &[data-colour='primary'] {
+    &[data-colour="primary"] {
       color: var(--colour-text-primary);
     }
-    &[data-colour='secondary'] {
+    &[data-colour="secondary"] {
       color: var(--colour-text-secondary);
     }
-    &[data-colour='neutral'] {
+    &[data-colour="neutral"] {
       color: var(--colour-text-info);
     }
-    &[data-colour='success'] {
+    &[data-colour="success"] {
       color: var(--colour-text-success);
     }
-    &[data-colour='pending'] {
+    &[data-colour="pending"] {
       color: var(--colour-text-pending);
     }
-    &[data-colour='warning'] {
+    &[data-colour="warning"] {
       color: var(--colour-text-warning);
     }
-    &[data-colour='danger'] {
+    &[data-colour="danger"] {
       color: var(--colour-text-error);
     }
-    &[data-colour='accent_1'] {
+    &[data-colour="accent_1"] {
       color: var(--colour-text-accent_1);
     }
-    &[data-colour='accent_2'] {
+    &[data-colour="accent_2"] {
       color: var(--colour-text-accent_2);
     }
 
     /* NOTE: Primary and Secondary colours are always regular weight, but the actual weight we apply is based on size */
-    [data-size='base'] &[data-colour='primary'],
-    [data-size='base'] &[data-colour='secondary'] {
-      ${font('base', 'regular')}
+    [data-size="base"] &[data-colour="primary"],
+    [data-size="base"] &[data-colour="secondary"] {
+      ${font("base", "regular")}
     }
-    [data-size='sm'] &[data-colour='primary'],
-    [data-size='sm'] &[data-colour='secondary'] {
-      ${font('sm', 'regular')}
+    [data-size="sm"] &[data-colour="primary"],
+    [data-size="sm"] &[data-colour="secondary"] {
+      ${font("sm", "regular")}
     }
-    [data-size='xs'] &[data-colour='primary'],
-    [data-size='xs'] &[data-colour='secondary'] {
-      ${font('xs', 'regular')}
+    [data-size="xs"] &[data-colour="primary"],
+    [data-size="xs"] &[data-colour="secondary"] {
+      ${font("xs", "regular")}
     }
 
     /* NOTE: All other colours are always medium weight, but the actual weight we apply is still based on size */
-    [data-size='base'] &[data-colour='neutral'],
-    [data-size='base'] &[data-colour='success'],
-    [data-size='base'] &[data-colour='pending'],
-    [data-size='base'] &[data-colour='warning'],
-    [data-size='base'] &[data-colour='danger'],
-    [data-size='base'] &[data-colour='accent_1'],
-    [data-size='base'] &[data-colour='accent_2'] {
-      ${font('base', 'medium')}
+    [data-size="base"] &[data-colour="neutral"],
+    [data-size="base"] &[data-colour="success"],
+    [data-size="base"] &[data-colour="pending"],
+    [data-size="base"] &[data-colour="warning"],
+    [data-size="base"] &[data-colour="danger"],
+    [data-size="base"] &[data-colour="accent_1"],
+    [data-size="base"] &[data-colour="accent_2"] {
+      ${font("base", "medium")}
     }
-    [data-size='sm'] &[data-colour='neutral'],
-    [data-size='sm'] &[data-colour='success'],
-    [data-size='sm'] &[data-colour='pending'],
-    [data-size='sm'] &[data-colour='warning'],
-    [data-size='sm'] &[data-colour='danger'],
-    [data-size='sm'] &[data-colour='accent_1'],
-    [data-size='sm'] &[data-colour='accent_2'] {
-      ${font('sm', 'medium')}
+    [data-size="sm"] &[data-colour="neutral"],
+    [data-size="sm"] &[data-colour="success"],
+    [data-size="sm"] &[data-colour="pending"],
+    [data-size="sm"] &[data-colour="warning"],
+    [data-size="sm"] &[data-colour="danger"],
+    [data-size="sm"] &[data-colour="accent_1"],
+    [data-size="sm"] &[data-colour="accent_2"] {
+      ${font("sm", "medium")}
     }
-    [data-size='xs'] &[data-colour='neutral'],
-    [data-size='xs'] &[data-colour='success'],
-    [data-size='xs'] &[data-colour='pending'],
-    [data-size='xs'] &[data-colour='warning'],
-    [data-size='xs'] &[data-colour='danger'],
-    [data-size='xs'] &[data-colour='accent_1'],
-    [data-size='xs'] &[data-colour='accent_2'] {
-      ${font('xs', 'medium')}
+    [data-size="xs"] &[data-colour="neutral"],
+    [data-size="xs"] &[data-colour="success"],
+    [data-size="xs"] &[data-colour="pending"],
+    [data-size="xs"] &[data-colour="warning"],
+    [data-size="xs"] &[data-colour="danger"],
+    [data-size="xs"] &[data-colour="accent_1"],
+    [data-size="xs"] &[data-colour="accent_2"] {
+      ${font("xs", "medium")}
     }
   }
-`
+`;

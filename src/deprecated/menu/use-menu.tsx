@@ -1,104 +1,104 @@
-import { HTMLAttributes, useState } from 'react'
+import { HTMLAttributes, useState } from "react";
 
-type HtmlButtonAttr = HTMLAttributes<HTMLButtonElement>
-type HtmlDivAttr = HTMLAttributes<HTMLDivElement>
+type HtmlButtonAttr = HTMLAttributes<HTMLButtonElement>;
+type HtmlDivAttr = HTMLAttributes<HTMLDivElement>;
 
 /** @deprecated */
 export interface useDeprecatedMenu {
-  getTriggerProps: (props?: Partial<HtmlButtonAttr>) => HtmlButtonAttr
-  getPopoverProps: (props?: Partial<HtmlDivAttr>) => HtmlDivAttr
-  isOpen: boolean
-  openMenu: VoidFunction
-  closeMenu: VoidFunction
+  getTriggerProps: (props?: Partial<HtmlButtonAttr>) => HtmlButtonAttr;
+  getPopoverProps: (props?: Partial<HtmlDivAttr>) => HtmlDivAttr;
+  isOpen: boolean;
+  openMenu: VoidFunction;
+  closeMenu: VoidFunction;
 }
 
 /** @deprecated */
 export const useDeprecatedMenu = (): useDeprecatedMenu => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
-  const getTriggerProps: useDeprecatedMenu['getTriggerProps'] = (props) => {
+  const getTriggerProps: useDeprecatedMenu["getTriggerProps"] = (props) => {
     return {
       ...props,
-      'aria-haspopup': true,
-      'aria-expanded': isOpen,
-      role: 'button',
+      "aria-haspopup": true,
+      "aria-expanded": isOpen,
+      role: "button",
       onKeyDown: (e) => {
-        if (e.key === 'ArrowDown') {
+        if (e.key === "ArrowDown") {
           const menuItems = e.currentTarget.parentElement!.querySelectorAll(
             '[role="menuitem"]',
-          ) as NodeListOf<HTMLElement>
+          ) as NodeListOf<HTMLElement>;
 
-          if (menuItems.length) menuItems[0].focus()
+          if (menuItems.length) menuItems[0].focus();
         }
 
-        props?.onKeyDown?.(e)
+        props?.onKeyDown?.(e);
       },
       onClick: (e) => {
-        setIsOpen((prev) => !prev)
+        setIsOpen((prev) => !prev);
         if (props?.onClick) {
-          props.onClick(e)
+          props.onClick(e);
         }
       },
-    }
-  }
+    };
+  };
 
-  const getPopoverProps: useDeprecatedMenu['getPopoverProps'] = (props) => {
+  const getPopoverProps: useDeprecatedMenu["getPopoverProps"] = (props) => {
     return {
       ...props,
-      'data-open': isOpen,
+      "data-open": isOpen,
       // close menu when "focus" move out of menu
       onBlur: (e) => {
-        const triggerButton = e.currentTarget.parentElement?.querySelector('[role="button"]')
+        const triggerButton = e.currentTarget.parentElement?.querySelector('[role="button"]');
         if (!e.currentTarget.contains(e.relatedTarget) && e.relatedTarget !== triggerButton) {
-          closeMenu()
+          closeMenu();
         }
       },
       // handle basic navigation key refer to https://www.w3.org/WAI/ARIA/apg/patterns/menubar
       onKeyDown: (e) => {
-        const menu = e.currentTarget
-        const menuButton = menu?.querySelector('[role="button"]') as HTMLButtonElement
-        const menuItems = menu?.querySelectorAll('[role="menuitem"]') as NodeListOf<HTMLElement>
+        const menu = e.currentTarget;
+        const menuButton = menu?.querySelector('[role="button"]') as HTMLButtonElement;
+        const menuItems = menu?.querySelectorAll('[role="menuitem"]') as NodeListOf<HTMLElement>;
 
-        let currentIndex = -1
+        let currentIndex = -1;
         menuItems.forEach((item, index) => {
           if (item === document.activeElement) {
-            currentIndex = index
+            currentIndex = index;
           }
-        })
+        });
 
         switch (e.key) {
-          case 'ArrowDown': {
-            const nextItem = menuItems[(currentIndex + 1) % menuItems.length]
-            nextItem.focus()
-            break
+          case "ArrowDown": {
+            const nextItem = menuItems[(currentIndex + 1) % menuItems.length];
+            nextItem.focus();
+            break;
           }
-          case 'ArrowUp': {
-            const prevItem = menuItems[(currentIndex - 1 + menuItems.length) % menuItems.length]
-            prevItem.focus()
-            break
+          case "ArrowUp": {
+            const prevItem = menuItems[(currentIndex - 1 + menuItems.length) % menuItems.length];
+            prevItem.focus();
+            break;
           }
-          case 'Escape':
-            closeMenu()
-            menuButton.focus()
-            break
-          case 'Enter':
-          case ' ': {
-            const menuItem = menuItems[currentIndex]
-            menuItem.click()
-            break
+          case "Escape":
+            closeMenu();
+            menuButton.focus();
+            break;
+          case "Enter":
+          case " ": {
+            const menuItem = menuItems[currentIndex];
+            menuItem.click();
+            break;
           }
         }
       },
-    }
-  }
+    };
+  };
 
   const openMenu = () => {
-    setIsOpen(true)
-  }
+    setIsOpen(true);
+  };
 
   const closeMenu = () => {
-    setIsOpen(false)
-  }
+    setIsOpen(false);
+  };
 
-  return { isOpen, openMenu, closeMenu, getTriggerProps, getPopoverProps }
-}
+  return { isOpen, openMenu, closeMenu, getTriggerProps, getPopoverProps };
+};

@@ -1,11 +1,13 @@
-import { render, screen } from '@testing-library/react'
-import { SplitButtonAnchorAction } from '../anchor-action'
-import { SplitButtonContext } from '../../context'
-import { AddIcon } from '#src/icons/add'
+import { render, screen } from "@testing-library/react";
 
-test('renders a link element', () => {
+import { AddIcon } from "#src/icons/add";
+
+import { SplitButtonContext } from "../../context";
+import { SplitButtonAnchorAction } from "../anchor-action";
+
+test("renders a link element", () => {
   render(
-    <SplitButtonContext.Provider value={{ busy: undefined, size: 'medium', variant: 'primary' }}>
+    <SplitButtonContext.Provider value={{ busy: undefined, size: "medium", variant: "primary" }}>
       <SplitButtonAnchorAction
         aria-disabled={false}
         iconLeft={<AddIcon />}
@@ -16,6 +18,6 @@ test('renders a link element', () => {
         Anchor button
       </SplitButtonAnchorAction>
     </SplitButtonContext.Provider>,
-  )
-  expect(screen.getByRole('link')).toBeVisible()
-})
+  );
+  expect(screen.getByRole("link")).toBeVisible();
+});

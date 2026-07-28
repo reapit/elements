@@ -1,11 +1,11 @@
-import { FocusedLayoutBottomBar } from './bottom-bar'
-import { FocusedLayoutContent } from './content'
-import { FocusedLayoutContext, useFocusedLayoutContext } from './context'
-import { FocusedLayoutProductLogo } from './product-logo'
-import { ElFocusedLayout } from './styles'
-import { FocusedLayoutTopBar } from './top-bar'
+import type { HTMLAttributes, ReactNode } from "react";
 
-import type { HTMLAttributes, ReactNode } from 'react'
+import { FocusedLayoutBottomBar } from "./bottom-bar";
+import { FocusedLayoutContent } from "./content";
+import { FocusedLayoutContext, useFocusedLayoutContext } from "./context";
+import { FocusedLayoutProductLogo } from "./product-logo";
+import { ElFocusedLayout } from "./styles";
+import { FocusedLayoutTopBar } from "./top-bar";
 
 export namespace FocusedLayout {
   export interface Props extends HTMLAttributes<HTMLDivElement> {
@@ -14,13 +14,13 @@ export namespace FocusedLayout {
      * - `light`: White background, suitable for simple forms
      * - `dark`: Light grey background, suitable for complex content with cards
      */
-    background?: 'light' | 'dark'
+    background?: "light" | "dark";
     /** A top bar, content and optional bottom bar */
-    children?: ReactNode
+    children?: ReactNode;
   }
 
   export interface TopBarProps extends FocusedLayoutTopBar.Props {}
-  export type ContentProps = FocusedLayoutContent.Props | FocusedLayoutContent.DeprecatedProps
+  export type ContentProps = FocusedLayoutContent.Props | FocusedLayoutContent.DeprecatedProps;
   export interface BottomBarProps extends FocusedLayoutBottomBar.Props {}
   export interface ProductLogoProps extends FocusedLayoutProductLogo.Props {}
 }
@@ -35,18 +35,20 @@ export namespace FocusedLayout {
  * - `FocusedLayout.BottomBar` - Sticky bottom bar for primary actions
  * - `FocusedLayout.ProductLogo` - Product logo icon for use in the top bar
  */
-export function FocusedLayout({ background = 'light', children, ...rest }: FocusedLayout.Props) {
+export function FocusedLayout({ background = "light", children, ...rest }: FocusedLayout.Props) {
   return (
     <ElFocusedLayout {...rest} data-background={background}>
-      <FocusedLayoutContext.Provider value={{ background }}>{children}</FocusedLayoutContext.Provider>
+      <FocusedLayoutContext.Provider value={{ background }}>
+        {children}
+      </FocusedLayoutContext.Provider>
     </ElFocusedLayout>
-  )
+  );
 }
 
-FocusedLayout.TopBar = FocusedLayoutTopBar
-FocusedLayout.Content = FocusedLayoutContent
-FocusedLayout.BottomBar = FocusedLayoutBottomBar
-FocusedLayout.ProductLogo = FocusedLayoutProductLogo
+FocusedLayout.TopBar = FocusedLayoutTopBar;
+FocusedLayout.Content = FocusedLayoutContent;
+FocusedLayout.BottomBar = FocusedLayoutBottomBar;
+FocusedLayout.ProductLogo = FocusedLayoutProductLogo;
 
-FocusedLayout.Context = FocusedLayoutContext
-FocusedLayout.useContext = useFocusedLayoutContext
+FocusedLayout.Context = FocusedLayoutContext;
+FocusedLayout.useContext = useFocusedLayoutContext;

@@ -1,27 +1,28 @@
-import { Button } from '#src/core/button'
+import type { ComponentProps, MouseEventHandler, ReactNode } from "react";
 
-import type { AttributesToOmit } from './common'
-import type { ComponentProps, MouseEventHandler, ReactNode } from 'react'
+import { Button } from "#src/core/button";
+
+import type { AttributesToOmit } from "./common";
 
 export namespace EmptyStateActionButton {
   export interface Props extends Omit<ComponentProps<typeof Button>, AttributesToOmit> {
     /** The action's label. */
-    children: ReactNode
+    children: ReactNode;
     /** The action to perform. */
-    onClick?: MouseEventHandler<HTMLButtonElement>
+    onClick?: MouseEventHandler<HTMLButtonElement>;
   }
 }
 
 /**
  * @deprecated Use `EmptyStateActionButton.Props` instead.
  */
-export type EmptyStateActionButtonProps = EmptyStateActionButton.Props
+export type EmptyStateActionButtonProps = EmptyStateActionButton.Props;
 
 /**
  * @deprecated Use Button directly
  */
 export function EmptyStateActionButton(props: EmptyStateActionButton.Props) {
-  return <Button {...props} size="medium" variant="tertiary" useLinkStyle />
+  return <Button {...props} size="medium" variant="tertiary" useLinkStyle />;
 }
 
-EmptyStateActionButton.displayName = 'EmptyState.ActionButton'
+EmptyStateActionButton.displayName = "EmptyState.ActionButton";

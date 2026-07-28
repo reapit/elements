@@ -1,5 +1,6 @@
-import { isWidthAtOrAbove } from '#src/utils/breakpoints/conditions'
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
+
+import { isWidthAtOrAbove } from "#src/utils/breakpoints/conditions";
 
 // See https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/search
 export const ElFilterBar = styled.search`
@@ -12,38 +13,38 @@ export const ElFilterBar = styled.search`
     column-gap: var(--spacing-4);
 
     grid-template:
-      'left-content' auto
-      'right-content' minmax(0, auto)
-      'applied-filters' minmax(0, auto) / 100%;
+      "left-content" auto
+      "right-content" minmax(0, auto)
+      "applied-filters" minmax(0, auto) / 100%;
 
-    @media screen and (${isWidthAtOrAbove('SM')}) {
+    @media screen and (${isWidthAtOrAbove("SM")}) {
       grid-template:
-        'left-content right-content' auto
-        'applied-filters applied-filters' minmax(0, auto) / 1fr auto;
+        "left-content right-content" auto
+        "applied-filters applied-filters" minmax(0, auto) / 1fr auto;
     }
   }
-`
+`;
 
 export const ElFilterBarAppliedFiltersContainer = styled.div`
   @layer elements.main {
     grid-area: applied-filters;
     margin-block-start: var(--spacing-4);
   }
-`
+`;
 
 export const ElFilterBarLeftContentContainer = styled.div`
   @layer elements.main {
     grid-area: left-content;
   }
-`
+`;
 
 export const ElFilterBarRightContentContainer = styled.div`
   @layer elements.main {
     grid-area: right-content;
     margin-block-start: var(--spacing-3);
 
-    @media screen and (${isWidthAtOrAbove('SM')}) {
+    @media screen and (${isWidthAtOrAbove("SM")}) {
       margin-block-start: 0;
     }
   }
-`
+`;

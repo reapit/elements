@@ -1,9 +1,9 @@
-import { ElSideBarMenuList } from './styles'
-import { SideBarMenuListItem } from './menu-list-item'
-import { SideBarMenuListGroup } from './menu-list-group'
+import type { ComponentProps } from "react";
 
-import type { ComponentProps } from 'react'
-import { SideBarSubmenu } from '../submenu'
+import { SideBarSubmenu } from "../submenu";
+import { SideBarMenuListGroup } from "./menu-list-group";
+import { SideBarMenuListItem } from "./menu-list-item";
+import { ElSideBarMenuList } from "./styles";
 
 export namespace SideBarMenuList {
   export interface Props extends ComponentProps<typeof ElSideBarMenuList> {}
@@ -12,20 +12,20 @@ export namespace SideBarMenuList {
 /**
  * @deprecated Use `SideBarMenuList.Props` instead
  */
-export type SideBarMenuListProps = SideBarMenuList.Props
+export type SideBarMenuListProps = SideBarMenuList.Props;
 
 /**
  * Main menu list for the `SideBar`. Typically provided a collection of `SideBar.MenuItem` and `SideBar.MenuGroup`
  * components as children.
  */
 export function SideBarMenuList({ children, ...rest }: SideBarMenuList.Props) {
-  return <ElSideBarMenuList {...rest}>{children}</ElSideBarMenuList>
+  return <ElSideBarMenuList {...rest}>{children}</ElSideBarMenuList>;
 }
 
-SideBarMenuList.displayName = 'SideBar.MenuList'
+SideBarMenuList.displayName = "SideBar.MenuList";
 
-SideBarMenuList.Item = SideBarMenuListItem
-SideBarMenuList.Group = SideBarMenuListGroup
-SideBarMenuList.GroupSummary = SideBarMenuListGroup.Summary
-SideBarMenuList.Submenu = SideBarSubmenu
-SideBarMenuList.SubmenuItem = SideBarSubmenu.Item
+SideBarMenuList.Item = SideBarMenuListItem;
+SideBarMenuList.Group = SideBarMenuListGroup;
+SideBarMenuList.GroupSummary = SideBarMenuListGroup.Summary;
+SideBarMenuList.Submenu = SideBarSubmenu;
+SideBarMenuList.SubmenuItem = SideBarSubmenu.Item;

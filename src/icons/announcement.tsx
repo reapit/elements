@@ -1,4 +1,4 @@
-import AnnouncementSvg from './svgs/announcement.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import AnnouncementSvg from "./svgs/announcement.svg?react";
 
-export const AnnouncementIcon = makeIcon('AnnouncementIcon', AnnouncementSvg)
+export const AnnouncementIcon = makeIcon("AnnouncementIcon", AnnouncementSvg);

@@ -1,4 +1,5 @@
-import figma from '@figma/code-connect'
-import { ArrowUpIcon } from './arrow-up'
+import figma from "@figma/code-connect";
 
-figma.connect(ArrowUpIcon, 'https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=20-523')
+import { ArrowUpIcon } from "./arrow-up";
+
+figma.connect(ArrowUpIcon, "https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=20-523");

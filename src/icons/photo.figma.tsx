@@ -1,4 +1,5 @@
-import figma from '@figma/code-connect'
-import { PhotoIcon } from './photo'
+import figma from "@figma/code-connect";
 
-figma.connect(PhotoIcon, 'https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=20-529')
+import { PhotoIcon } from "./photo";
+
+figma.connect(PhotoIcon, "https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=20-529");

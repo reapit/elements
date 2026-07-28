@@ -1,5 +1,5 @@
-import { css } from '@linaria/core'
-import { styled } from '@linaria/react'
+import { css } from "@linaria/core";
+import { styled } from "@linaria/react";
 
 export const elAtAGlanceGrid = css`
   @layer elements.main {
@@ -13,10 +13,10 @@ export const elAtAGlanceGrid = css`
     list-style: none;
 
     &,
-    &[data-layout='template'] {
+    &[data-layout="template"] {
       grid-auto-flow: row;
     }
-    &[data-layout='auto'] {
+    &[data-layout="auto"] {
       grid-auto-flow: column;
       overflow: auto;
       scroll-snap-type: x mandatory;
@@ -30,7 +30,7 @@ export const elAtAGlanceGrid = css`
       }
     }
   }
-`
+`;
 
 export const ElAtAGlanceGridItem = styled.li`
   @layer elements.main {
@@ -40,4 +40,4 @@ export const ElAtAGlanceGridItem = styled.li`
 
     scroll-snap-align: center;
   }
-`
+`;

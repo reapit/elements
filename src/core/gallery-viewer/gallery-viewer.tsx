@@ -1,11 +1,12 @@
-import { type ReactNode } from 'react'
-import { GalleryViewerCarousel } from './carousel'
-import { GalleryViewerCarouselLayout } from './carousel-layout'
-import { GalleryViewerDialog } from './dialog'
-import { GalleryViewerMediaItemCaption } from './media-item-caption'
-import { GalleryViewerMediaList } from './media-list'
-import { GalleryViewerMediaListLayout } from './media-list-layout'
-import { GalleryViewerThumbnailList } from './thumbnail-list'
+import { type ReactNode } from "react";
+
+import { GalleryViewerCarousel } from "./carousel";
+import { GalleryViewerCarouselLayout } from "./carousel-layout";
+import { GalleryViewerDialog } from "./dialog";
+import { GalleryViewerMediaItemCaption } from "./media-item-caption";
+import { GalleryViewerMediaList } from "./media-list";
+import { GalleryViewerMediaListLayout } from "./media-list-layout";
+import { GalleryViewerThumbnailList } from "./thumbnail-list";
 
 export namespace GalleryViewer {
   export interface CaptionProps extends GalleryViewerMediaItemCaption.Props {}
@@ -21,9 +22,9 @@ export namespace GalleryViewer {
   export interface ThumbnailProps extends GalleryViewerThumbnailList.ItemProps {}
   export interface ThumbnailButtonProps extends GalleryViewerThumbnailList.ButtonItemProps {}
 
-  export interface Props extends Omit<GalleryViewerDialog.Props, 'title'> {
+  export interface Props extends Omit<GalleryViewerDialog.Props, "title"> {
     /** The title rendered as the gallery viewer's heading */
-    title: ReactNode
+    title: ReactNode;
   }
 }
 
@@ -37,18 +38,18 @@ export function GalleryViewer({ children, title, ...rest }: GalleryViewer.Props)
       <GalleryViewerDialog.Header>{title}</GalleryViewerDialog.Header>
       <GalleryViewerDialog.Content>{children}</GalleryViewerDialog.Content>
     </GalleryViewerDialog>
-  )
+  );
 }
 
-GalleryViewer.Caption = GalleryViewerMediaItemCaption
-GalleryViewer.Carousel = GalleryViewerCarousel
-GalleryViewer.CarouselButton = GalleryViewerCarousel.Button
-GalleryViewer.CarouselItem = GalleryViewerCarousel.Item
-GalleryViewer.CarouselLayout = GalleryViewerCarouselLayout
-GalleryViewer.CarouselTrack = GalleryViewerCarousel.Track
-GalleryViewer.MediaList = GalleryViewerMediaList
-GalleryViewer.MediaListLayout = GalleryViewerMediaListLayout
-GalleryViewer.MediaListItem = GalleryViewerMediaList.Item
-GalleryViewer.ThumbnailList = GalleryViewerThumbnailList
-GalleryViewer.Thumbnail = GalleryViewerThumbnailList.Item
-GalleryViewer.ThumbnailButton = GalleryViewerThumbnailList.ButtonItem
+GalleryViewer.Caption = GalleryViewerMediaItemCaption;
+GalleryViewer.Carousel = GalleryViewerCarousel;
+GalleryViewer.CarouselButton = GalleryViewerCarousel.Button;
+GalleryViewer.CarouselItem = GalleryViewerCarousel.Item;
+GalleryViewer.CarouselLayout = GalleryViewerCarouselLayout;
+GalleryViewer.CarouselTrack = GalleryViewerCarousel.Track;
+GalleryViewer.MediaList = GalleryViewerMediaList;
+GalleryViewer.MediaListLayout = GalleryViewerMediaListLayout;
+GalleryViewer.MediaListItem = GalleryViewerMediaList.Item;
+GalleryViewer.ThumbnailList = GalleryViewerThumbnailList;
+GalleryViewer.Thumbnail = GalleryViewerThumbnailList.Item;
+GalleryViewer.ThumbnailButton = GalleryViewerThumbnailList.ButtonItem;

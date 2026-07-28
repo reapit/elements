@@ -1,21 +1,22 @@
-import { AnchorButton } from '#src/core/button'
+import type { ComponentProps, ReactNode } from "react";
 
-import type { AttributesToOmit } from './common'
-import type { ComponentProps, ReactNode } from 'react'
+import { AnchorButton } from "#src/core/button";
+
+import type { AttributesToOmit } from "./common";
 
 export namespace EmptyStateAction {
   export interface Props extends Omit<ComponentProps<typeof AnchorButton>, AttributesToOmit> {
     /** The action's label. */
-    children: ReactNode
+    children: ReactNode;
     /** The URL to navigate to; will typically be an entity creation page or drawer. */
-    href: string
+    href: string;
   }
 }
 
 /**
  * @deprecated Use `EmptyStateAction.Props` instead.
  */
-export type EmptyStateActionProps = EmptyStateAction.Props
+export type EmptyStateActionProps = EmptyStateAction.Props;
 
 /**
  * A simple action component. Comes in two varieties: `EmptyState.Action`, which renders as an
@@ -27,7 +28,7 @@ export type EmptyStateActionProps = EmptyStateAction.Props
  * @deprecated Use AnchorButton directly
  */
 export function EmptyStateAction(props: EmptyStateAction.Props) {
-  return <AnchorButton {...props} size="medium" variant="tertiary" useLinkStyle />
+  return <AnchorButton {...props} size="medium" variant="tertiary" useLinkStyle />;
 }
 
-EmptyStateAction.displayName = 'EmptyState.Action'
+EmptyStateAction.displayName = "EmptyState.Action";

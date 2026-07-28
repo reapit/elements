@@ -8,7 +8,7 @@ Composite action that runs [NVIDIA SkillSpector](https://github.com/NVIDIA/Skill
 - uses: ./actions/audit-skills
   with:
     path: .agents/skills # directory containing skill subdirectories
-    changed-only: 'true' # scan only skills changed in this PR
+    changed-only: "true" # scan only skills changed in this PR
     base-ref: ${{ github.base_ref }}
 ```
 

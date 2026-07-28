@@ -1,46 +1,47 @@
-import { buildTableWrapper } from '../../__story__/table-wrapper'
-import { render, screen } from '@testing-library/react'
-import { TableBodyCell } from '../body-cell'
+import { render, screen } from "@testing-library/react";
 
-const wrapper = buildTableWrapper('body-cell')
+import { buildTableWrapper } from "../../__story__/table-wrapper";
+import { TableBodyCell } from "../body-cell";
 
-test('renders as a cell element by default', () => {
-  render(<TableBodyCell>Content</TableBodyCell>, { wrapper })
-  expect(screen.getByRole('cell')).toBeVisible()
-})
+const wrapper = buildTableWrapper("body-cell");
 
-test('can render as a header cell', () => {
-  render(<TableBodyCell as="th">Content</TableBodyCell>, { wrapper })
-  expect(screen.getByRole('rowheader')).toBeVisible()
-})
+test("renders as a cell element by default", () => {
+  render(<TableBodyCell>Content</TableBodyCell>, { wrapper });
+  expect(screen.getByRole("cell")).toBeVisible();
+});
 
-test('can render as a div with no implicit role', () => {
-  const { container } = render(<TableBodyCell as="div">Content</TableBodyCell>)
-  expect(container.firstElementChild?.tagName).toBe('DIV')
-  expect(screen.queryByRole('cell')).not.toBeInTheDocument()
-})
+test("can render as a header cell", () => {
+  render(<TableBodyCell as="th">Content</TableBodyCell>, { wrapper });
+  expect(screen.getByRole("rowheader")).toBeVisible();
+});
+
+test("can render as a div with no implicit role", () => {
+  const { container } = render(<TableBodyCell as="div">Content</TableBodyCell>);
+  expect(container.firstElementChild?.tagName).toBe("DIV");
+  expect(screen.queryByRole("cell")).not.toBeInTheDocument();
+});
 
 test('applies scope="row" when rendered as a header cell', () => {
-  render(<TableBodyCell as="th">Content</TableBodyCell>, { wrapper })
-  expect(screen.getByRole('rowheader')).toHaveAttribute('scope', 'row')
-})
+  render(<TableBodyCell as="th">Content</TableBodyCell>, { wrapper });
+  expect(screen.getByRole("rowheader")).toHaveAttribute("scope", "row");
+});
 
-test('applies `data-justify-self` when `justifySelf` is provided', () => {
-  render(<TableBodyCell justifySelf="end">Content</TableBodyCell>, { wrapper })
-  expect(screen.getByRole('cell')).toHaveAttribute('data-justify-self', 'end')
-})
+test("applies `data-justify-self` when `justifySelf` is provided", () => {
+  render(<TableBodyCell justifySelf="end">Content</TableBodyCell>, { wrapper });
+  expect(screen.getByRole("cell")).toHaveAttribute("data-justify-self", "end");
+});
 
-test('has .el-table-body-cell class', () => {
-  render(<TableBodyCell>Content</TableBodyCell>, { wrapper })
-  expect(screen.getByRole('cell')).toHaveClass('el-table-body-cell')
-})
+test("has .el-table-body-cell class", () => {
+  render(<TableBodyCell>Content</TableBodyCell>, { wrapper });
+  expect(screen.getByRole("cell")).toHaveClass("el-table-body-cell");
+});
 
-test('accepts other classes', () => {
-  render(<TableBodyCell className="custom-class">Content</TableBodyCell>, { wrapper })
-  expect(screen.getByRole('cell')).toHaveClass('el-table-body-cell custom-class')
-})
+test("accepts other classes", () => {
+  render(<TableBodyCell className="custom-class">Content</TableBodyCell>, { wrapper });
+  expect(screen.getByRole("cell")).toHaveClass("el-table-body-cell custom-class");
+});
 
-test('forwards additional props to the cell', () => {
-  render(<TableBodyCell data-testid="test-id">Content</TableBodyCell>, { wrapper })
-  expect(screen.getByTestId('test-id')).toBe(screen.getByRole('cell'))
-})
+test("forwards additional props to the cell", () => {
+  render(<TableBodyCell data-testid="test-id">Content</TableBodyCell>, { wrapper });
+  expect(screen.getByTestId("test-id")).toBe(screen.getByRole("cell"));
+});

@@ -1,26 +1,31 @@
-import preview from '#.storybook/preview'
-import { Button } from '#src/core/button'
-import { ButtonGroup } from '#src/core/button-group'
-import { Pattern } from '#src/core/drawer/__story__/Pattern'
-import { CloseIcon } from '#src/icons/close'
-import { MainContainer } from '../main-container'
-import { FocusedLayout } from './focused-layout'
-import { FocusedLayoutProductLogo } from './product-logo'
+import preview from "#.storybook/preview";
+import { Button } from "#src/core/button";
+import { ButtonGroup } from "#src/core/button-group";
+import { Pattern } from "#src/core/drawer/__story__/Pattern";
+import { CloseIcon } from "#src/icons/close";
+
+import { MainContainer } from "../main-container";
+import { FocusedLayout } from "./focused-layout";
+import { FocusedLayoutProductLogo } from "./product-logo";
 
 const meta = preview.meta({
-  title: 'Containers and layout/FocusedLayout',
+  title: "Containers and layout/FocusedLayout",
   component: FocusedLayout,
   argTypes: {
     background: {
-      control: 'radio',
-      options: ['light', 'dark'],
+      control: "radio",
+      options: ["light", "dark"],
     },
     children: {
-      control: 'select',
-      options: ['Simple', 'MultiStep', 'ContentOnly'],
+      control: "select",
+      options: ["Simple", "MultiStep", "ContentOnly"],
       mapping: {
         Simple: [
-          <FocusedLayout.TopBar key="top-bar" logo={<FocusedLayoutProductLogo product="Reapit" />} title="Page title">
+          <FocusedLayout.TopBar
+            key="top-bar"
+            logo={<FocusedLayoutProductLogo product="Reapit" />}
+            title="Page title"
+          >
             <ButtonGroup>
               <Button size="large" variant="secondary">
                 Cancel
@@ -37,7 +42,11 @@ const meta = preview.meta({
           </FocusedLayout.Content>,
         ],
         MultiStep: [
-          <FocusedLayout.TopBar key="top-bar" logo={<FocusedLayoutProductLogo product="Reapit" />} title="Page title">
+          <FocusedLayout.TopBar
+            key="top-bar"
+            logo={<FocusedLayoutProductLogo product="Reapit" />}
+            title="Page title"
+          >
             <Button aria-label="Cancel" iconLeft={<CloseIcon />} size="large" variant="tertiary" />
           </FocusedLayout.TopBar>,
           <FocusedLayout.Content isFullBleed key="content">
@@ -63,9 +72,9 @@ const meta = preview.meta({
     },
   },
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
   },
-})
+});
 
 /**
  * A simple focused layout with a light background. The top bar contains the logo, title, and
@@ -76,10 +85,10 @@ const meta = preview.meta({
  */
 export const Example = meta.story({
   args: {
-    background: 'light',
-    children: 'Simple',
+    background: "light",
+    children: "Simple",
   },
-})
+});
 
 /**
  * A focused layout with a dark (grey) background. This is suitable for complex content
@@ -87,10 +96,10 @@ export const Example = meta.story({
  */
 export const Background = meta.story({
   args: {
-    background: 'dark',
-    children: 'Simple',
+    background: "dark",
+    children: "Simple",
   },
-})
+});
 
 /**
  * A multi-step focused layout with navigation buttons. This layout is suitable for wizards
@@ -103,9 +112,9 @@ export const Background = meta.story({
  */
 export const MultiStep = Example.extend({
   args: {
-    children: 'MultiStep',
+    children: "MultiStep",
   },
-})
+});
 
 /**
  * If the content overflows the viewport, the page will scroll. When actions are present in the top bar,
@@ -117,7 +126,11 @@ export const MultiStep = Example.extend({
 export const Scrolling = Example.extend({
   args: {
     children: [
-      <FocusedLayout.TopBar key="top-bar" logo={<FocusedLayoutProductLogo product="Reapit" />} title="Page title" />,
+      <FocusedLayout.TopBar
+        key="top-bar"
+        logo={<FocusedLayoutProductLogo product="Reapit" />}
+        title="Page title"
+      />,
       <FocusedLayout.Content isFullBleed key="content">
         <MainContainer size="wide">
           <Pattern height="120svh" />
@@ -135,4 +148,4 @@ export const Scrolling = Example.extend({
       </FocusedLayout.BottomBar>,
     ],
   },
-})
+});

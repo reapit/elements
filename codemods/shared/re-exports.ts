@@ -1,4 +1,4 @@
-import { SourceFile } from 'ts-morph'
+import { SourceFile } from "ts-morph";
 
 /**
  * Collects the local names that appear in bare `export { X }` declarations
@@ -19,12 +19,12 @@ import { SourceFile } from 'ts-morph'
  * local import binding.
  */
 export function getReExportedLocalNames(sourceFile: SourceFile): Set<string> {
-  const names = new Set<string>()
+  const names = new Set<string>();
   for (const exportDecl of sourceFile.getExportDeclarations()) {
-    if (exportDecl.hasModuleSpecifier()) continue
+    if (exportDecl.hasModuleSpecifier()) continue;
     for (const spec of exportDecl.getNamedExports()) {
-      names.add(spec.getNameNode().getText())
+      names.add(spec.getNameNode().getText());
     }
   }
-  return names
+  return names;
 }

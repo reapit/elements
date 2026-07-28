@@ -1,31 +1,37 @@
-import { RadioGroupControl } from './radio-group-control'
-import figma from '@figma/code-connect'
+import figma from "@figma/code-connect";
 
-figma.connect(RadioGroupControl, '<RADIO_GROUP_URL>', {
+import { RadioGroupControl } from "./radio-group-control";
+
+figma.connect(RadioGroupControl, "<RADIO_GROUP_URL>", {
   props: {
-    children: figma.children('Radio *'),
-    disabled: figma.enum('State', {
+    children: figma.children("Radio *"),
+    disabled: figma.enum("State", {
       Disabled: true,
     }),
-    errorText: figma.enum('State', {
-      Error: figma.string('Error message'),
+    errorText: figma.enum("State", {
+      Error: figma.string("Error message"),
     }),
-    label: figma.boolean('Show group label', {
-      true: figma.nestedProps('LabelText', {
-        text: figma.string('Label text'),
+    label: figma.boolean("Show group label", {
+      true: figma.nestedProps("LabelText", {
+        text: figma.string("Label text"),
       }),
       false: {
         text: undefined,
       },
     }),
-    orientation: figma.enum('Orientation', {
-      Horizontal: 'horizontal',
-      Vertical: 'vertical',
+    orientation: figma.enum("Orientation", {
+      Horizontal: "horizontal",
+      Vertical: "vertical",
     }),
   },
   example: ({ children, disabled, errorText, label, orientation }) => (
-    <RadioGroupControl disabled={disabled} errorText={errorText} label={label.text} orientation={orientation}>
+    <RadioGroupControl
+      disabled={disabled}
+      errorText={errorText}
+      label={label.text}
+      orientation={orientation}
+    >
       {children}
     </RadioGroupControl>
   ),
-})
+});

@@ -1,4 +1,4 @@
-import { css } from '@linaria/core'
+import { css } from "@linaria/core";
 
 export const elIcon = css`
   @layer elements.base {
@@ -8,69 +8,69 @@ export const elIcon = css`
     vertical-align: text-bottom;
 
     &,
-    &[color='primary'] {
+    &[color="primary"] {
       color: var(--colour-icon-primary);
     }
-    &[color='secondary'] {
+    &[color="secondary"] {
       color: var(--colour-icon-secondary);
     }
-    &[color='tertiary'] {
+    &[color="tertiary"] {
       color: var(--colour-icon-tertiary);
     }
-    &[color='disabled'] {
+    &[color="disabled"] {
       color: var(--colour-icon-disabled);
     }
-    &[color='white'] {
+    &[color="white"] {
       color: var(--colour-icon-white);
     }
-    &[color='action'] {
+    &[color="action"] {
       color: var(--colour-icon-action);
     }
-    &[color='pending'] {
+    &[color="pending"] {
       color: var(--colour-icon-pending);
     }
-    &[color='warning'] {
+    &[color="warning"] {
       color: var(--colour-icon-warning);
     }
-    &[color='error'] {
+    &[color="error"] {
       color: var(--colour-icon-error);
     }
-    &[color='success'] {
+    &[color="success"] {
       color: var(--colour-icon-success);
     }
-    &[color='info'] {
+    &[color="info"] {
       color: var(--colour-icon-info);
     }
-    &[color='accent_1'] {
+    &[color="accent_1"] {
       color: var(--colour-icon-accent_1);
     }
-    &[color='accent_2'] {
+    &[color="accent_2"] {
       color: var(--colour-icon-accent_2);
     }
-    &[color='inherit'] {
+    &[color="inherit"] {
       color: inherit;
     }
 
     &,
-    &[data-size='100%'] {
+    &[data-size="100%"] {
       width: 100%;
       height: 100%;
     }
-    &[data-size='xs'] {
+    &[data-size="xs"] {
       width: var(--icon_size-xs);
       height: var(--icon_size-xs);
     }
-    &[data-size='sm'] {
+    &[data-size="sm"] {
       width: var(--icon_size-sm);
       height: var(--icon_size-sm);
     }
-    &[data-size='md'] {
+    &[data-size="md"] {
       width: var(--icon_size-md);
       height: var(--icon_size-md);
     }
-    &[data-size='lg'] {
+    &[data-size="lg"] {
       width: var(--icon_size-lg);
       height: var(--icon_size-lg);
     }
   }
-`
+`;

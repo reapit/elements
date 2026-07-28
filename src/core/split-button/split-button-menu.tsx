@@ -1,13 +1,14 @@
-import { Menu } from '#src/core/menu'
-import { SplitButtonMenuButton } from './menu-button'
-import { useId } from 'react'
+import { useId } from "react";
+import type { ComponentProps, ReactNode } from "react";
 
-import type { ComponentProps, ReactNode } from 'react'
+import { Menu } from "#src/core/menu";
+
+import { SplitButtonMenuButton } from "./menu-button";
 
 export namespace SplitButtonMenu {
   export interface Props extends ComponentProps<typeof SplitButtonMenuButton> {
     /** The menu items to display in the menu */
-    children: ReactNode
+    children: ReactNode;
   }
 }
 
@@ -15,19 +16,23 @@ export namespace SplitButtonMenu {
  * The menu for a `SplitButton`.
  */
 export function SplitButtonMenu({ children, id, ...rest }: SplitButtonMenu.Props) {
-  const triggerId = id ?? useId()
-  const menuId = useId()
+  const triggerId = id ?? useId();
+  const menuId = useId();
   return (
     <>
       <SplitButtonMenuButton
         {...rest}
-        {...Menu.getTriggerProps({ id: triggerId, popoverTarget: menuId, popoverTargetAction: 'toggle' })}
+        {...Menu.getTriggerProps({
+          id: triggerId,
+          popoverTarget: menuId,
+          popoverTargetAction: "toggle",
+        })}
       />
       <Menu aria-labelledby={triggerId} id={menuId} placement="bottom-end">
         {children}
       </Menu>
     </>
-  )
+  );
 }
 
-SplitButtonMenu.displayName = 'SplitButton.Menu'
+SplitButtonMenu.displayName = "SplitButton.Menu";

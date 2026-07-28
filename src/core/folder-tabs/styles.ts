@@ -1,5 +1,6 @@
-import { FOLDER_TABS_CSS_CONTAINER_NAME, FOLDER_TABS_LARGE_CONTAINER_QUERY } from './constants'
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
+
+import { FOLDER_TABS_CSS_CONTAINER_NAME, FOLDER_TABS_LARGE_CONTAINER_QUERY } from "./constants";
 
 export const ElFolderTabs = styled.nav`
   @layer elements.main {
@@ -7,7 +8,7 @@ export const ElFolderTabs = styled.nav`
     container-type: inline-size;
     isolation: isolate;
   }
-`
+`;
 
 export const ElFolderTabsGroup = styled.div`
   @layer elements.main {
@@ -24,4 +25,4 @@ export const ElFolderTabsGroup = styled.div`
       grid-auto-columns: 1fr;
     }
   }
-`
+`;

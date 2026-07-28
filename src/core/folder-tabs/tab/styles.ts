@@ -1,10 +1,12 @@
-import { css } from '@linaria/core'
-import { FOLDER_TABS_LARGE_CONTAINER_QUERY, FOLDER_TABS_SMALL_CONTAINER_QUERY } from '../constants'
-import { font } from '#src/utils/font'
-import { styled } from '@linaria/react'
+import { css } from "@linaria/core";
+import { styled } from "@linaria/react";
+
+import { font } from "#src/utils/font";
+
+import { FOLDER_TABS_LARGE_CONTAINER_QUERY, FOLDER_TABS_SMALL_CONTAINER_QUERY } from "../constants";
 
 interface ElFolderTabProps {
-  'aria-current': 'page' | false
+  "aria-current": "page" | false;
 }
 
 export const ElFolderTab = styled.a<ElFolderTabProps>`
@@ -32,18 +34,19 @@ export const ElFolderTab = styled.a<ElFolderTabProps>`
       color: var(--comp-folder_tab-colour-text-hover);
     }
 
-    &[aria-current='page'] {
+    &[aria-current="page"] {
       background: var(--comp-folder_tab-colour-fill-selected);
       color: var(--comp-folder_tab-colour-text-selected);
     }
 
     ${FOLDER_TABS_SMALL_CONTAINER_QUERY} {
       /* Top border provides subtle visual separation between vertically stacked tabs */
-      border-block-start: var(--comp-folder_tab-border-width, 1px) solid var(--comp-folder_tab-colour-border);
+      border-block-start: var(--comp-folder_tab-border-width, 1px) solid
+        var(--comp-folder_tab-colour-border);
       border-start-end-radius: var(--comp-folder_tab-border-radius-XS_SM);
       border-start-start-radius: var(--comp-folder_tab-border-radius-XS_SM);
 
-      ${font('base', 'medium')}
+      ${font("base", "medium")}
 
       /* All but the first tab in a small container have a negative top margin */
       &:not(:first-of-type) {
@@ -63,14 +66,14 @@ export const ElFolderTab = styled.a<ElFolderTabProps>`
       /* Don't need the negative top margins used in small containers */
       margin-block: 0;
 
-      ${font('lg', 'medium')}
+      ${font("lg", "medium")}
 
-      &[aria-current='page'] {
+      &[aria-current="page"] {
         z-index: var(--z-index-elevated);
       }
     }
   }
-`
+`;
 
 export const ElFolderTabContentContainer = styled.span`
   @layer elements.main {
@@ -83,7 +86,7 @@ export const ElFolderTabContentContainer = styled.span`
     /* Ensures the tab content is stacked above the tab's waves, if they're visible */
     transform: translateX(0);
   }
-`
+`;
 
 export const elFolderTabWave = css`
   @layer elements.main {
@@ -134,4 +137,4 @@ export const elFolderTabWave = css`
       }
     }
   }
-`
+`;

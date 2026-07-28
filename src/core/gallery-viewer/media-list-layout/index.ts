@@ -1,1 +1,1 @@
-export { GalleryViewerMediaListLayout } from './media-list-layout'
+export { GalleryViewerMediaListLayout } from "./media-list-layout";

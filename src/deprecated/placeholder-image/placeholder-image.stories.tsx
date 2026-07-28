@@ -1,17 +1,18 @@
-import preview from '#.storybook/preview'
-import { PlaceholderImage } from './index'
+import preview from "#.storybook/preview";
+
+import { PlaceholderImage } from "./index";
 
 const meta = preview.meta({
-  title: 'Deprecated/PlaceholderImage',
+  title: "Deprecated/PlaceholderImage",
   component: PlaceholderImage,
-})
+});
 
-export default meta
+export default meta;
 
 export const BasicUsage = meta.story({
   render: () => <PlaceholderImage placeholder="placeholderSmall" size={120} />,
-})
+});
 
 export const FillAvailableSpace = meta.story({
   render: () => <PlaceholderImage placeholder="placeholderSmall" size={120} fillAvailable />,
-})
+});

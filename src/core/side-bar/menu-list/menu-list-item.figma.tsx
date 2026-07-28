@@ -1,16 +1,17 @@
-import figma from '@figma/code-connect'
-import { SideBar } from '../side-bar'
+import figma from "@figma/code-connect";
 
-figma.connect(SideBar.MenuItem, '<SIDE_BAR_MENU_ITEM_URL>', {
-  variant: { Type: 'Simple' },
+import { SideBar } from "../side-bar";
+
+figma.connect(SideBar.MenuItem, "<SIDE_BAR_MENU_ITEM_URL>", {
+  variant: { Type: "Simple" },
   props: {
-    ariaCurrent: figma.enum('Selected', {
-      true: 'page',
+    ariaCurrent: figma.enum("Selected", {
+      true: "page",
       false: false,
     }),
-    item: figma.nestedProps('Main item', {
-      label: figma.string('Label'),
-      icon: figma.instance('Icon'),
+    item: figma.nestedProps("Main item", {
+      label: figma.string("Label"),
+      icon: figma.instance("Icon"),
     }),
   },
   example: (props) => (
@@ -18,4 +19,4 @@ figma.connect(SideBar.MenuItem, '<SIDE_BAR_MENU_ITEM_URL>', {
       {props.item.label}
     </SideBar.MenuItem>
   ),
-})
+});

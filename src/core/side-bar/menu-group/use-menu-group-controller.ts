@@ -1,48 +1,50 @@
-import { shouldSideBarMenuGroupBeOpen } from './should-be-open'
-import { useLayoutEffect, useRef } from 'react'
+import { useLayoutEffect, useRef } from "react";
+import type { RefObject } from "react";
 
-import type { RefObject } from 'react'
-import type { useSideBar } from '../use-side-bar'
+import type { useSideBar } from "../use-side-bar";
+import { shouldSideBarMenuGroupBeOpen } from "./should-be-open";
 
 /**
  * Controls the open state of a `SideBar.MenuGroup` when the `SideBar` is expanded or collapsed or when a descendant
  * comes to represent, or stops representing, the current page.
  */
-export function useSideBarMenuGroupController(sideBarState: useSideBar.State): RefObject<HTMLDetailsElement> {
-  const ref = useRef<HTMLDetailsElement>(null)
+export function useSideBarMenuGroupController(
+  sideBarState: useSideBar.State,
+): RefObject<HTMLDetailsElement> {
+  const ref = useRef<HTMLDetailsElement>(null);
 
   useLayoutEffect(
     function openOrCloseMenuGroup() {
-      if (!ref.current) return
+      if (!ref.current) return;
 
       // If the sidebar is collapsed, we want the menu group to be closed.
-      if (sideBarState === 'collapsed') {
-        ref.current.open = false
+      if (sideBarState === "collapsed") {
+        ref.current.open = false;
       } else {
         // If the sidebar is expanded, and an element representing the current page is within this menu group, we
         // want the group to be open.
         if (shouldSideBarMenuGroupBeOpen(ref.current)) {
-          ref.current.open = true
+          ref.current.open = true;
         }
 
         // We want to observe changes to the `data-is-active` attribute of the menu group itself so we can
         // update the group's open state as appropriate.
-        const dataIsActiveObserver = createDataIsActiveObserver(ref.current)
+        const dataIsActiveObserver = createDataIsActiveObserver(ref.current);
 
         // We also want to observe changes to the `aria-current` attribute of the menu group's descendants so we
         // can update the group's open state when it changes.
-        const ariaCurrentObserver = createAriaCurrentObserver(ref.current)
+        const ariaCurrentObserver = createAriaCurrentObserver(ref.current);
 
         return () => {
-          ariaCurrentObserver.disconnect()
-          dataIsActiveObserver.disconnect()
-        }
+          ariaCurrentObserver.disconnect();
+          dataIsActiveObserver.disconnect();
+        };
       }
     },
     [sideBarState],
-  )
+  );
 
-  return ref
+  return ref;
 }
 
 /**
@@ -52,15 +54,15 @@ export function useSideBarMenuGroupController(sideBarState: useSideBar.State): R
 function createDataIsActiveObserver(detailsElement: HTMLDetailsElement): MutationObserver {
   const observer = new MutationObserver(() => {
     // When we observe changes to the `aria-current` attribute, we want to open or close the menu element.
-    detailsElement.open = shouldSideBarMenuGroupBeOpen(detailsElement)
-  })
+    detailsElement.open = shouldSideBarMenuGroupBeOpen(detailsElement);
+  });
 
   // We want to observe changes to the details element's subtree, but only changes to the `data-is-active` attribute.
   observer.observe(detailsElement, {
-    attributeFilter: ['data-is-active'],
-  })
+    attributeFilter: ["data-is-active"],
+  });
 
-  return observer
+  return observer;
 }
 
 /**
@@ -70,14 +72,14 @@ function createDataIsActiveObserver(detailsElement: HTMLDetailsElement): Mutatio
 function createAriaCurrentObserver(detailsElement: HTMLDetailsElement): MutationObserver {
   const observer = new MutationObserver(() => {
     // When we observe changes to the `aria-current` attribute, we want to open or close the menu element.
-    detailsElement.open = shouldSideBarMenuGroupBeOpen(detailsElement)
-  })
+    detailsElement.open = shouldSideBarMenuGroupBeOpen(detailsElement);
+  });
 
   // We want to observe changes to the details element's subtree, but only changes to the `aria-current` attribute.
   observer.observe(detailsElement, {
     subtree: true,
-    attributeFilter: ['aria-current'],
-  })
+    attributeFilter: ["aria-current"],
+  });
 
-  return observer
+  return observer;
 }

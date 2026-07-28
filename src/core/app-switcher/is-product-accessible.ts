@@ -9,6 +9,6 @@
  * @param accessibleProductIds The list of product IDs that the user has access to
  */
 export function isProductAccessible(productId: string, accessibleProductIds: string[]) {
-  const productIdLower = productId.toLowerCase()
-  return accessibleProductIds.some((id) => id.toLowerCase() === productIdLower)
+  const productIdLower = productId.toLowerCase();
+  return accessibleProductIds.some((id) => id.toLowerCase() === productIdLower);
 }

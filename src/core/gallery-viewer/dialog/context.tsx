@@ -1,9 +1,9 @@
-import { createContext, useContext } from 'react'
+import { createContext, useContext } from "react";
 
 export namespace GalleryViewerDialogContext {
   export interface Value {
     /** The ID used for accessibility labelling of the dialog title */
-    titleId: string
+    titleId: string;
   }
 }
 
@@ -12,7 +12,9 @@ export namespace GalleryViewerDialogContext {
  * so that sub-components (such as the header) can link to the dialog's accessible name
  * via `aria-labelledby`.
  */
-export const GalleryViewerDialogContext = createContext<GalleryViewerDialogContext.Value | null>(null)
+export const GalleryViewerDialogContext = createContext<GalleryViewerDialogContext.Value | null>(
+  null,
+);
 
 /**
  * Returns the current `GalleryViewerDialogContext` value from the nearest
@@ -20,9 +22,9 @@ export const GalleryViewerDialogContext = createContext<GalleryViewerDialogConte
  * @throws an error when called outside a `GalleryViewerDialog`.
  */
 export function useGalleryViewerDialogContext(): GalleryViewerDialogContext.Value {
-  const context = useContext(GalleryViewerDialogContext)
+  const context = useContext(GalleryViewerDialogContext);
   if (!context) {
-    throw new Error('useGalleryViewerDialogContext requires a GalleryViewerDialog ancestor')
+    throw new Error("useGalleryViewerDialogContext requires a GalleryViewerDialog ancestor");
   }
-  return context
+  return context;
 }

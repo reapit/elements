@@ -1,12 +1,13 @@
-import preview from '#.storybook/preview'
-import { FormLayout } from '../../form-layout'
+import preview from "#.storybook/preview";
+
+import { FormLayout } from "../../form-layout";
 
 const meta = preview.meta({
-  title: 'Containers and layout/FormLayout/SectionDescription',
+  title: "Containers and layout/FormLayout/SectionDescription",
   component: FormLayout.SectionDescription,
   argTypes: {
     children: {
-      control: 'text',
+      control: "text",
     },
   },
   decorators: [
@@ -16,10 +17,10 @@ const meta = preview.meta({
       </FormLayout.Section>
     ),
   ],
-})
+});
 
 export const Example = meta.story({
   args: {
-    children: 'Enter the primary contact information for this section.',
+    children: "Enter the primary contact information for this section.",
   },
-})
+});

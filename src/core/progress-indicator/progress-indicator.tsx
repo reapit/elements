@@ -1,22 +1,22 @@
+import type { HTMLAttributes } from "react";
+
 import {
   ElProgressIndicatorTrack,
   ElDeterminateProgressIndicatorFill,
   ElIndeterminateProgressIndicatorFill,
-} from './styles'
-
-import type { HTMLAttributes } from 'react'
+} from "./styles";
 
 // NOTE: We omit...
 // - role, aria-valuenow, aria-valuemin, and aria-valuemax, because the component always sets these itself.
 // - children, because the component always renders its own fill element.
-type AttributesToOmit = 'role' | 'aria-valuenow' | 'aria-valuemin' | 'aria-valuemax' | 'children'
+type AttributesToOmit = "role" | "aria-valuenow" | "aria-valuemin" | "aria-valuemax" | "children";
 
 export namespace ProgressIndicator {
   export interface Props extends Omit<HTMLAttributes<HTMLDivElement>, AttributesToOmit> {
     /** The accessible name of the progress indicator. */
-    'aria-label': string
+    "aria-label": string;
     /** The current progress, as a percentage between `0` and `100`. Omit for an indeterminate indicator. */
-    value?: number
+    value?: number;
   }
 }
 
@@ -38,10 +38,10 @@ export function ProgressIndicator({ value, ...rest }: ProgressIndicator.Props) {
       >
         <ElIndeterminateProgressIndicatorFill />
       </ElProgressIndicatorTrack>
-    )
+    );
   }
 
-  const clampedValue = Math.min(100, Math.max(0, Number.isFinite(value) ? value : 0))
+  const clampedValue = Math.min(100, Math.max(0, Number.isFinite(value) ? value : 0));
 
   return (
     <ElProgressIndicatorTrack
@@ -53,5 +53,5 @@ export function ProgressIndicator({ value, ...rest }: ProgressIndicator.Props) {
     >
       <ElDeterminateProgressIndicatorFill style={{ width: `${clampedValue}%` }} />
     </ElProgressIndicatorTrack>
-  )
+  );
 }

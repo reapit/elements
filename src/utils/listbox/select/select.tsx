@@ -1,14 +1,15 @@
-import { ElListboxSelect } from './styles'
-import { forwardRef } from 'react'
-import { ListboxRenderContext } from '../render-context'
-import type { SelectHTMLAttributes } from 'react'
+import { forwardRef } from "react";
+import type { SelectHTMLAttributes } from "react";
+
+import { ListboxRenderContext } from "../render-context";
+import { ElListboxSelect } from "./styles";
 
 export namespace ListboxSelect {
   export interface Props extends SelectHTMLAttributes<HTMLSelectElement> {
     /** Placeholder text for the empty option in single-select mode */
-    placeholder?: string
+    placeholder?: string;
     /** Selected option values */
-    value: readonly string[]
+    value: readonly string[];
   }
 }
 
@@ -29,37 +30,46 @@ export namespace ListboxSelect {
  * receive `value="native"` from ListboxRenderContext, rendering as native `<option>` or
  * `<optgroup>` elements.
  */
-export const ListboxSelect = forwardRef<HTMLSelectElement, ListboxSelect.Props>(function ListboxSelect(
-  { children, onChange, placeholder = 'Select an option', multiple, value: selectedValues, ...rest },
-  ref,
-) {
-  return (
-    <ElListboxSelect
-      {...rest}
-      hidden
-      multiple={multiple}
-      onChange={onChange}
-      // NOTE: Wires onChange to onInput to catch manual input events fired when
-      // clicking the display options within the listbox.
-      onInput={onChange}
-      ref={ref}
-      value={multiple ? selectedValues : (selectedValues[0] ?? '')}
-    >
-      {!multiple && (
-        // In single-select mode, renders a placeholder option as the first option.
-        // This mimics native select behavior: automatically selecting the first option
-        // when no explicit value is specified.
-        <option value="">{placeholder}</option>
-      )}
-      {selectedValues.map((optionValue) => (
-        // Renders options for selected values automatically. Consumers may filter the options
-        // in `children` based on user input. Without this, the native select would lose
-        // <option> elements representing selected options, causing selection state loss.
-        <option key={optionValue} value={optionValue}>
-          {optionValue}
-        </option>
-      ))}
-      <ListboxRenderContext.Provider value="native">{children}</ListboxRenderContext.Provider>
-    </ElListboxSelect>
-  )
-})
+export const ListboxSelect = forwardRef<HTMLSelectElement, ListboxSelect.Props>(
+  function ListboxSelect(
+    {
+      children,
+      onChange,
+      placeholder = "Select an option",
+      multiple,
+      value: selectedValues,
+      ...rest
+    },
+    ref,
+  ) {
+    return (
+      <ElListboxSelect
+        {...rest}
+        hidden
+        multiple={multiple}
+        onChange={onChange}
+        // NOTE: Wires onChange to onInput to catch manual input events fired when
+        // clicking the display options within the listbox.
+        onInput={onChange}
+        ref={ref}
+        value={multiple ? selectedValues : (selectedValues[0] ?? "")}
+      >
+        {!multiple && (
+          // In single-select mode, renders a placeholder option as the first option.
+          // This mimics native select behavior: automatically selecting the first option
+          // when no explicit value is specified.
+          <option value="">{placeholder}</option>
+        )}
+        {selectedValues.map((optionValue) => (
+          // Renders options for selected values automatically. Consumers may filter the options
+          // in `children` based on user input. Without this, the native select would lose
+          // <option> elements representing selected options, causing selection state loss.
+          <option key={optionValue} value={optionValue}>
+            {optionValue}
+          </option>
+        ))}
+        <ListboxRenderContext.Provider value="native">{children}</ListboxRenderContext.Provider>
+      </ElListboxSelect>
+    );
+  },
+);

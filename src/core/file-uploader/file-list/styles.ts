@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
 
 export const ElFileUploaderFileList = styled.ul`
   @layer elements.main {
@@ -10,7 +10,7 @@ export const ElFileUploaderFileList = styled.ul`
     padding-block-start: var(--spacing-2);
     list-style: none;
 
-    &[data-layout='grid'] {
+    &[data-layout="grid"] {
       grid-auto-rows: minmax(var(--file-uploader-min-item-height, min-content), auto);
       grid-template-columns: repeat(
         var(--file-uploader-columns, 2),
@@ -18,16 +18,16 @@ export const ElFileUploaderFileList = styled.ul`
       );
     }
 
-    &[data-layout='list'] {
+    &[data-layout="list"] {
       grid-auto-rows: minmax(var(--file-uploader-min-item-height, min-content), auto);
       grid-template-columns: minmax(var(--file-uploader-min-item-width, min-content), 1fr);
     }
   }
-`
+`;
 
 export const ElFileUploaderFileListItem = styled.li`
   @layer elements.main {
     display: grid;
     grid: subgrid / subgrid;
   }
-`
+`;

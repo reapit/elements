@@ -1,13 +1,14 @@
-import preview from '#.storybook/preview'
-import { SupplementaryInfo } from './supplementary-info'
+import preview from "#.storybook/preview";
+
+import { SupplementaryInfo } from "./supplementary-info";
 
 const meta = preview.meta({
-  title: 'Content display/SupplementaryInfo',
+  title: "Content display/SupplementaryInfo",
   component: SupplementaryInfo,
   argTypes: {
     children: {
-      control: 'radio',
-      options: ['One', 'Some', 'Many', 'All colours'],
+      control: "radio",
+      options: ["One", "Some", "Many", "All colours"],
       mapping: {
         One: <SupplementaryInfo.Item>Supplementary info 1</SupplementaryInfo.Item>,
         Some: (
@@ -23,7 +24,7 @@ const meta = preview.meta({
             <SupplementaryInfo.Item>Supplementary info 3</SupplementaryInfo.Item>
           </>
         ),
-        'All colours': [
+        "All colours": [
           <SupplementaryInfo.Item key="primary" colour="primary">
             Primary
           </SupplementaryInfo.Item>,
@@ -55,24 +56,24 @@ const meta = preview.meta({
       },
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
-    children: 'Many',
-    colour: 'primary',
-    size: 'base',
+    children: "Many",
+    colour: "primary",
+    size: "base",
   },
-})
+});
 
 /**
  * There's three sizes for the supplementary info: `base`, `sm` and `xs`.
  */
 export const Size = Example.extend({
   args: {
-    size: 'xs',
+    size: "xs",
   },
-})
+});
 
 /**
  * Different colours can be applied to individual items to convey certain messages or to draw users'
@@ -80,9 +81,9 @@ export const Size = Example.extend({
  */
 export const Colour = Example.extend({
   args: {
-    children: 'All colours',
+    children: "All colours",
   },
-})
+});
 
 /**
  * When the parent's width is constrained, the supplementary info will wrap like normal text.
@@ -90,19 +91,21 @@ export const Colour = Example.extend({
 export const Overflow = Example.extend({
   args: {
     children: [
-      <SupplementaryInfo.Item key="1">Supplementary info very long text something 1</SupplementaryInfo.Item>,
+      <SupplementaryInfo.Item key="1">
+        Supplementary info very long text something 1
+      </SupplementaryInfo.Item>,
       <SupplementaryInfo.Item key="2">Supp info 2</SupplementaryInfo.Item>,
       <SupplementaryInfo.Item key="3">Supplementary info 3</SupplementaryInfo.Item>,
     ],
   },
   decorators: [
     (Story) => (
-      <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', width: '266px' }}>
+      <div style={{ boxSizing: "content-box", border: "1px solid #FA00FF", width: "266px" }}>
         <Story />
       </div>
     ),
   ],
-})
+});
 
 /**
  * However, if the parent has a width smaller than the longest unbreakable text in the supplementary
@@ -112,20 +115,22 @@ export const Overflow = Example.extend({
 export const WordBreaks = meta.story({
   args: {
     children: [
-      <SupplementaryInfo.Item key="1">Supplementary info very long text something 1</SupplementaryInfo.Item>,
+      <SupplementaryInfo.Item key="1">
+        Supplementary info very long text something 1
+      </SupplementaryInfo.Item>,
       <SupplementaryInfo.Item key="2">Supp info 2</SupplementaryInfo.Item>,
       <SupplementaryInfo.Item key="3">Supplementary info 3</SupplementaryInfo.Item>,
     ],
-    size: 'base',
+    size: "base",
   },
   decorators: [
     (Story) => (
-      <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', width: '70px' }}>
+      <div style={{ boxSizing: "content-box", border: "1px solid #FA00FF", width: "70px" }}>
         <Story />
       </div>
     ),
   ],
-})
+});
 
 /**
  * It's important to note that block content within an item will break the flow of the supplementary
@@ -136,16 +141,23 @@ export const BlockContent = Example.extend({
   args: {
     children: [
       <SupplementaryInfo.Item key="1">
-        <div style={{ border: '1px solid #FA00FF', width: '250px', textAlign: 'center' }}>
+        <div style={{ border: "1px solid #FA00FF", width: "250px", textAlign: "center" }}>
           Block content will break the flow
         </div>
       </SupplementaryInfo.Item>,
       <SupplementaryInfo.Item key="2">Supplementary info 2</SupplementaryInfo.Item>,
       <SupplementaryInfo.Item key="3">
-        <div style={{ display: 'inline-block', border: '1px solid #FA00FF', width: '200px', textAlign: 'center' }}>
+        <div
+          style={{
+            display: "inline-block",
+            border: "1px solid #FA00FF",
+            width: "200px",
+            textAlign: "center",
+          }}
+        >
           Inline content will not
         </div>
       </SupplementaryInfo.Item>,
     ],
   },
-})
+});

@@ -1,6 +1,6 @@
-import { BreakpointMinimumDimensions } from '../breakpoints'
+import { BreakpointMinimumDimensions } from "../breakpoints";
 
-test('breakpoints have not been changed', () => {
+test("breakpoints have not been changed", () => {
   expect(BreakpointMinimumDimensions).toMatchInlineSnapshot(`
     {
       "2XL": "2560px",
@@ -10,5 +10,5 @@ test('breakpoints have not been changed', () => {
       "XL": "1920px",
       "XS": "0px",
     }
-  `)
-})
+  `);
+});

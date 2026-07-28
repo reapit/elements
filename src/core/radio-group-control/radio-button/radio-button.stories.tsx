@@ -1,37 +1,38 @@
-import preview from '#.storybook/preview'
-import { RadioButton } from './radio-button'
-import { LabelText } from '#src/core/label-text'
+import preview from "#.storybook/preview";
+import { LabelText } from "#src/core/label-text";
+
+import { RadioButton } from "./radio-button";
 
 const meta = preview.meta({
-  title: 'Input and selection/RadioGroupControl/RadioButton',
+  title: "Input and selection/RadioGroupControl/RadioButton",
   component: RadioButton,
   argTypes: {
     label: {
-      control: 'text',
+      control: "text",
     },
     supplementaryInfo: {
-      control: 'text',
+      control: "text",
     },
     disabled: {
-      control: 'boolean',
+      control: "boolean",
     },
     required: {
-      control: 'boolean',
+      control: "boolean",
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
-    label: 'Label',
-    supplementaryInfo: 'Supplementary Info',
+    label: "Label",
+    supplementaryInfo: "Supplementary Info",
     disabled: false,
     required: false,
     showValidity: false,
-    value: 'option1',
-    name: 'example',
+    value: "option1",
+    name: "example",
   },
-})
+});
 
 /**
  * A radio button can be marked as required. This indicates that one of the radio buttons in the group
@@ -43,7 +44,7 @@ export const Required = Example.extend({
     label: <LabelText isRequired>Label</LabelText>,
     required: true,
   },
-})
+});
 
 /**
  * Radio buttons can be disabled. When they are, they do not participate in form submission.
@@ -52,7 +53,7 @@ export const Disabled = Example.extend({
   args: {
     disabled: true,
   },
-})
+});
 
 /**
  * Like all form controls that visually communicate their validity, the radio button will display in an
@@ -65,4 +66,4 @@ export const Invalid = Example.extend({
     required: true,
     showValidity: true,
   },
-})
+});

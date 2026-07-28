@@ -1,4 +1,4 @@
-import PowerOnSvg from './svgs/power-on.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import PowerOnSvg from "./svgs/power-on.svg?react";
 
-export const PowerOnIcon = makeIcon('PowerOnIcon', PowerOnSvg)
+export const PowerOnIcon = makeIcon("PowerOnIcon", PowerOnSvg);

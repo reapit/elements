@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       update-snapshots:
-        description: 'Update snapshots?'
+        description: "Update snapshots?"
         type: boolean
 
 env:

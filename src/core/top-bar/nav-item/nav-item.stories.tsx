@@ -1,18 +1,19 @@
-import preview from '#.storybook/preview'
-import { TopBarNavItem } from './nav-item'
+import preview from "#.storybook/preview";
+
+import { TopBarNavItem } from "./nav-item";
 
 const meta = preview.meta({
-  title: 'Navigation/TopBar/NavItem',
+  title: "Navigation/TopBar/NavItem",
   component: TopBarNavItem,
-})
+});
 
 export const Example = meta.story({
   args: {
-    'aria-current': false,
-    children: 'Nav Item',
-    href: '#',
+    "aria-current": false,
+    children: "Nav Item",
+    href: "#",
   },
-})
+});
 
 /**
  * When the item represents the current page, `aria-current="page"` should be supplied to communicate to visual and
@@ -20,9 +21,9 @@ export const Example = meta.story({
  */
 export const Selected = Example.extend({
   args: {
-    'aria-current': 'page',
+    "aria-current": "page",
   },
-})
+});
 
 /**
  * When there is not enough space to display the full label, it will not wrap to a new line; rather, it will overflow
@@ -32,9 +33,9 @@ export const Selected = Example.extend({
 export const Overflow = Example.extend({
   decorators: [
     (Story) => (
-      <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', width: '50px' }}>
+      <div style={{ boxSizing: "content-box", border: "1px solid #FA00FF", width: "50px" }}>
         <Story />
       </div>
     ),
   ],
-})
+});

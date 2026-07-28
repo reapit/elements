@@ -1,9 +1,10 @@
-import { css } from '@linaria/core'
-import { font } from '#src/utils/font'
+import { css } from "@linaria/core";
+
+import { font } from "#src/utils/font";
 
 export const elFormLayoutTitle = css`
   @layer elements.main {
-    ${font('xl', 'bold')}
+    ${font("xl", "bold")}
     margin: 0;
   }
-`
+`;

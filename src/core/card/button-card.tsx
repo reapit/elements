@@ -1,27 +1,28 @@
-import { InteractiveCardBase } from './interactive-card-base'
+import type { ButtonHTMLAttributes } from "react";
 
-import type { ButtonHTMLAttributes } from 'react'
+import { InteractiveCardBase } from "./interactive-card-base";
 
 export namespace ButtonCard {
-  export interface Props extends InteractiveCardBase.CommonProps, ButtonHTMLAttributes<HTMLButtonElement> {
+  export interface Props
+    extends InteractiveCardBase.CommonProps, ButtonHTMLAttributes<HTMLButtonElement> {
     /**
      * Communicates a pressed, toggled, or selected state to assistive technologies.
      * Use `'true'` when the card represents an active or selected item, and `'false'`
      * when it is not. Use `'mixed'` for a tri-state toggle. Omit when the card has no
      * toggled state.
      */
-    'aria-pressed'?: boolean | 'false' | 'mixed' | 'true'
+    "aria-pressed"?: boolean | "false" | "mixed" | "true";
     /**
      * Communicates a selected state to assistive technologies.
      * Use `'true'` when the card represents an active or selected option, and `'false'`
      * when it is not.
      */
-    'aria-selected'?: boolean | 'false' | 'true'
+    "aria-selected"?: boolean | "false" | "true";
     /**
      * Whether the button is disabled. Unlike `aria-disabled`, a disabled button is not
      * focusable or interactive.
      */
-    disabled?: boolean
+    disabled?: boolean;
   }
 }
 
@@ -33,5 +34,5 @@ export namespace ButtonCard {
  * use `AnchorCard` instead.
  */
 export function ButtonCard(props: ButtonCard.Props) {
-  return <InteractiveCardBase as="button" type="button" {...props} />
+  return <InteractiveCardBase as="button" type="button" {...props} />;
 }

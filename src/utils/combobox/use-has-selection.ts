@@ -1,5 +1,6 @@
-import { useListboxSelectionObserver } from '#src/utils/listbox/use-selection-observer'
-import { useState } from 'react'
+import { useState } from "react";
+
+import { useListboxSelectionObserver } from "#src/utils/listbox/use-selection-observer";
 
 /**
  * Returns whether the combobox listbox has selected options.
@@ -17,11 +18,11 @@ import { useState } from 'react'
  * ```
  */
 export function useComboboxHasSelection(listboxId: string): boolean {
-  const [hasSelection, setHasSelection] = useState<boolean>(false)
+  const [hasSelection, setHasSelection] = useState<boolean>(false);
 
   useListboxSelectionObserver(listboxId, (_, listboxState) => {
-    setHasSelection(listboxState.length > 0)
-  })
+    setHasSelection(listboxState.length > 0);
+  });
 
-  return hasSelection
+  return hasSelection;
 }

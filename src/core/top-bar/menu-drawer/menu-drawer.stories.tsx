@@ -1,11 +1,13 @@
-import preview from '#.storybook/preview'
-import { TopBarMenuDrawer } from './menu-drawer'
-import { useState } from 'react'
+import { useState } from "react";
+
+import preview from "#.storybook/preview";
+
+import { TopBarMenuDrawer } from "./menu-drawer";
 
 const meta = preview.meta({
-  title: 'Navigation/TopBar/MenuDrawer',
+  title: "Navigation/TopBar/MenuDrawer",
   component: TopBarMenuDrawer,
-})
+});
 
 /**
  * At its simplest, you can open and close the menu drawer by controlling it's `isOpen` state. However,
@@ -14,7 +16,7 @@ const meta = preview.meta({
  */
 export const Example = meta.story({
   render: () => {
-    const [isOpen, setIsOpen] = useState(false)
+    const [isOpen, setIsOpen] = useState(false);
 
     return (
       <>
@@ -25,7 +27,9 @@ export const Example = meta.story({
           <TopBarMenuDrawer.Content>
             <TopBarMenuDrawer.MainNav>
               <TopBarMenuDrawer.MenuGroup
-                summary={<TopBarMenuDrawer.MenuGroupSummary>Properties</TopBarMenuDrawer.MenuGroupSummary>}
+                summary={
+                  <TopBarMenuDrawer.MenuGroupSummary>Properties</TopBarMenuDrawer.MenuGroupSummary>
+                }
               >
                 <TopBarMenuDrawer.Submenu>
                   <TopBarMenuDrawer.SubmenuItem href="#" aria-current={false}>
@@ -63,16 +67,16 @@ export const Example = meta.story({
           </TopBarMenuDrawer.Content>
         </TopBarMenuDrawer>
       </>
-    )
+    );
   },
-})
+});
 
 /**
  * If there are too many items in the drawer, it will scroll. The header will remain stuck to the top.
  */
 export const Scrolling = meta.story({
   render: () => {
-    const [isOpen, setIsOpen] = useState(false)
+    const [isOpen, setIsOpen] = useState(false);
 
     return (
       <>
@@ -105,6 +109,6 @@ export const Scrolling = meta.story({
           </TopBarMenuDrawer.Content>
         </TopBarMenuDrawer>
       </>
-    )
+    );
   },
-})
+});

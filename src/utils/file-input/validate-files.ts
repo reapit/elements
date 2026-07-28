@@ -15,42 +15,42 @@ export namespace validateFiles {
    */
   export interface Rules {
     /** Native `accept` attribute syntax: comma-separated extensions (`.pdf`), MIME types (`image/png`), or MIME wildcards (`image/*`). */
-    accept?: string
+    accept?: string;
     /** Maximum size, in bytes, for any single file. */
-    maxFileSize?: number
+    maxFileSize?: number;
     /** Minimum number of files total. */
-    minFiles?: number
+    minFiles?: number;
     /** Maximum number of files total. */
-    maxFiles?: number
+    maxFiles?: number;
     /** Maximum cumulative size, in bytes, of all files total. */
-    maxTotalSize?: number
+    maxTotalSize?: number;
   }
 
   /** Which per-file rule a file fails, named after the DOM's `ValidityState` convention — a fact about that one file, independent of any other file in the selection. */
-  export type FileValidationError = 'typeMismatch' | 'fileSizeOverflow'
+  export type FileValidationError = "typeMismatch" | "fileSizeOverflow";
 
   /**
    * Which rule the selection as a whole fails, named after the DOM's `ValidityState` convention —
    * a fact about the selection, not about any one file.
    */
-  export type SelectionValidationError = 'filesOverflow' | 'filesUnderflow' | 'totalSizeOverflow'
+  export type SelectionValidationError = "filesOverflow" | "filesUnderflow" | "totalSizeOverflow";
 
   export interface Rejection {
-    file: File
-    validationError: FileValidationError
+    file: File;
+    validationError: FileValidationError;
   }
 
   export interface Result {
     /** Files that satisfy every per-file and selection-wide rule. */
-    accepted: File[]
+    accepted: File[];
     /** Files rejected for a per-file reason — wrong type, too large. */
-    rejected: Rejection[]
+    rejected: Rejection[];
     /**
      * The selection-wide rule the current selection fails, if any — too many files, or too much
      * cumulative size. Reported once, rather than pinned to whichever file happened to cross the
      * limit, since it's a fact about the selection as a whole.
      */
-    selectionError?: SelectionValidationError
+    selectionError?: SelectionValidationError;
   }
 }
 
@@ -70,42 +70,45 @@ export namespace validateFiles {
  * in the order above.
  */
 export function validateFiles(files: File[], rules: validateFiles.Rules): validateFiles.Result {
-  const accepted: File[] = []
-  const rejected: validateFiles.Rejection[] = []
-  let selectionError: validateFiles.SelectionValidationError | undefined
+  const accepted: File[] = [];
+  const rejected: validateFiles.Rejection[] = [];
+  let selectionError: validateFiles.SelectionValidationError | undefined;
 
-  let count = 0
-  let totalSize = 0
+  let count = 0;
+  let totalSize = 0;
 
   for (const file of files) {
-    const fileError = fileValidationError(file, rules)
+    const fileError = fileValidationError(file, rules);
     if (fileError) {
-      rejected.push({ file, validationError: fileError })
-      continue
+      rejected.push({ file, validationError: fileError });
+      continue;
     }
 
-    const error = selectionOverflowError(rules, count, totalSize, file.size)
+    const error = selectionOverflowError(rules, count, totalSize, file.size);
     if (error) {
-      selectionError ??= error
-      continue
+      selectionError ??= error;
+      continue;
     }
 
-    accepted.push(file)
-    count += 1
-    totalSize += file.size
+    accepted.push(file);
+    count += 1;
+    totalSize += file.size;
   }
 
   if (!selectionError && rules.minFiles !== undefined && accepted.length < rules.minFiles) {
-    selectionError = 'filesUnderflow'
+    selectionError = "filesUnderflow";
   }
 
-  return { accepted, rejected, selectionError }
+  return { accepted, rejected, selectionError };
 }
 
-function fileValidationError(file: File, rules: validateFiles.Rules): validateFiles.FileValidationError | undefined {
-  if (rules.accept && !matchesAccept(file, rules.accept)) return 'typeMismatch'
-  if (rules.maxFileSize !== undefined && file.size > rules.maxFileSize) return 'fileSizeOverflow'
-  return undefined
+function fileValidationError(
+  file: File,
+  rules: validateFiles.Rules,
+): validateFiles.FileValidationError | undefined {
+  if (rules.accept && !matchesAccept(file, rules.accept)) return "typeMismatch";
+  if (rules.maxFileSize !== undefined && file.size > rules.maxFileSize) return "fileSizeOverflow";
+  return undefined;
 }
 
 function selectionOverflowError(
@@ -114,9 +117,10 @@ function selectionOverflowError(
   totalSizeSoFar: number,
   fileSize: number,
 ): validateFiles.SelectionValidationError | undefined {
-  if (rules.maxFiles !== undefined && countSoFar >= rules.maxFiles) return 'filesOverflow'
-  if (rules.maxTotalSize !== undefined && totalSizeSoFar + fileSize > rules.maxTotalSize) return 'totalSizeOverflow'
-  return undefined
+  if (rules.maxFiles !== undefined && countSoFar >= rules.maxFiles) return "filesOverflow";
+  if (rules.maxTotalSize !== undefined && totalSizeSoFar + fileSize > rules.maxTotalSize)
+    return "totalSizeOverflow";
+  return undefined;
 }
 
 /**
@@ -132,33 +136,36 @@ function selectionOverflowError(
  * non-filtering `setCustomValidity` step). It's the pre-hoc filter step that a native picker
  * performs for free, and that drag-and-drop has to do for itself instead.
  */
-export function filterDroppedFiles(dropped: File[], rules: { accept?: string; multiple?: boolean }): File[] {
-  const { accept, multiple } = rules
-  const matchingAccept = accept ? dropped.filter((file) => matchesAccept(file, accept)) : dropped
-  return multiple ? matchingAccept : matchingAccept.slice(0, 1)
+export function filterDroppedFiles(
+  dropped: File[],
+  rules: { accept?: string; multiple?: boolean },
+): File[] {
+  const { accept, multiple } = rules;
+  const matchingAccept = accept ? dropped.filter((file) => matchesAccept(file, accept)) : dropped;
+  return multiple ? matchingAccept : matchingAccept.slice(0, 1);
 }
 
 /** Matches `file` against native `accept` attribute syntax: comma-separated extensions, MIME types, or MIME wildcards. */
 function matchesAccept(file: File, accept: string): boolean {
   const patterns = accept
-    .split(',')
+    .split(",")
     .map((pattern) => pattern.trim())
-    .filter(Boolean)
+    .filter(Boolean);
 
-  if (patterns.length === 0) return true
+  if (patterns.length === 0) return true;
 
-  return patterns.some((pattern) => matchesAcceptPattern(file, pattern))
+  return patterns.some((pattern) => matchesAcceptPattern(file, pattern));
 }
 
 function matchesAcceptPattern(file: File, pattern: string): boolean {
-  if (pattern.startsWith('.')) {
-    return file.name.toLowerCase().endsWith(pattern.toLowerCase())
+  if (pattern.startsWith(".")) {
+    return file.name.toLowerCase().endsWith(pattern.toLowerCase());
   }
 
-  if (pattern.endsWith('/*')) {
-    const type = pattern.slice(0, -1).toLowerCase()
-    return file.type.toLowerCase().startsWith(type)
+  if (pattern.endsWith("/*")) {
+    const type = pattern.slice(0, -1).toLowerCase();
+    return file.type.toLowerCase().startsWith(type);
   }
 
-  return file.type.toLowerCase() === pattern.toLowerCase()
+  return file.type.toLowerCase() === pattern.toLowerCase();
 }

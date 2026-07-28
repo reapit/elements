@@ -1,5 +1,6 @@
-import { ComboboxOptgroup } from '../optgroup'
-import { Listbox } from '#src/utils/listbox'
+import { Listbox } from "#src/utils/listbox";
+
+import { ComboboxOptgroup } from "../optgroup";
 
 export namespace ComboboxListboxOptgroup {
   export interface Props extends Listbox.OptgroupProps {}
@@ -10,7 +11,7 @@ export namespace ComboboxListboxOptgroup {
  * `<optgroup>` when needed.
  */
 export function ComboboxListboxOptgroup(props: ComboboxListboxOptgroup.Props) {
-  return <Listbox.Optgroup as={ComboboxOptgroup} {...props} />
+  return <Listbox.Optgroup as={ComboboxOptgroup} {...props} />;
 }
 
-ComboboxListboxOptgroup.displayName = 'Combobox.Optgroup'
+ComboboxListboxOptgroup.displayName = "Combobox.Optgroup";

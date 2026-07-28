@@ -1,5 +1,6 @@
-import { ElFocusedLayoutBottomBar } from './styles'
-import type { HTMLAttributes } from 'react'
+import type { HTMLAttributes } from "react";
+
+import { ElFocusedLayoutBottomBar } from "./styles";
 
 export namespace FocusedLayoutBottomBar {
   export interface Props extends HTMLAttributes<HTMLElement> {}
@@ -10,7 +11,7 @@ export namespace FocusedLayoutBottomBar {
  * Use this for primary action buttons on XS and SM screens.
  */
 export function FocusedLayoutBottomBar(props: FocusedLayoutBottomBar.Props) {
-  return <ElFocusedLayoutBottomBar {...props} />
+  return <ElFocusedLayoutBottomBar {...props} />;
 }
 
-FocusedLayoutBottomBar.displayName = 'FocusedLayout.BottomBar'
+FocusedLayoutBottomBar.displayName = "FocusedLayout.BottomBar";

@@ -1,12 +1,13 @@
-import { LandSizeIcon } from '#src/icons/land-size'
-import { FeatureItem } from '../item'
+import type { ReactNode } from "react";
 
-import type { ReactNode } from 'react'
+import { LandSizeIcon } from "#src/icons/land-size";
+
+import { FeatureItem } from "../item";
 
 export namespace FeaturesLandSizeItem {
   export interface Props {
     /** The land size of the property. */
-    value: ReactNode
+    value: ReactNode;
   }
 }
 
@@ -15,8 +16,8 @@ export namespace FeaturesLandSizeItem {
  * area units are accessible (e.g. by using an `<abbr>` element with a `title` attribute).
  */
 export function FeaturesLandSizeItem({ value }: FeaturesLandSizeItem.Props) {
-  return <FeatureItem icon={<LandSizeIcon />} label="Land size" value={value} />
+  return <FeatureItem icon={<LandSizeIcon />} label="Land size" value={value} />;
 }
 
 /** @deprecated Use FeaturesLandSizeItem.Props instead */
-export type FeaturesLandSizeItemProps = FeaturesLandSizeItem.Props
+export type FeaturesLandSizeItemProps = FeaturesLandSizeItem.Props;

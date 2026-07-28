@@ -1,32 +1,34 @@
-import preview from '#.storybook/preview'
-import { Button } from '#src/core/button'
-import { ButtonGroup } from '#src/core/button-group'
-import { CheckIcon } from '#src/icons/check'
-import { ErrorIcon } from '#src/icons/error'
-import { fn } from 'storybook/test'
-import { InfoIcon } from '#src/icons/info'
-import { SectionMessage } from './section-message'
-import { Text } from '#src/utils/text'
-import { WarningIcon } from '#src/icons/warning'
-import { useState } from 'react'
+import { useState } from "react";
+import { fn } from "storybook/test";
+
+import preview from "#.storybook/preview";
+import { Button } from "#src/core/button";
+import { ButtonGroup } from "#src/core/button-group";
+import { CheckIcon } from "#src/icons/check";
+import { ErrorIcon } from "#src/icons/error";
+import { InfoIcon } from "#src/icons/info";
+import { WarningIcon } from "#src/icons/warning";
+import { Text } from "#src/utils/text";
+
+import { SectionMessage } from "./section-message";
 
 const meta = preview.meta({
-  title: 'Messaging/SectionMessage',
+  title: "Messaging/SectionMessage",
   component: SectionMessage,
   argTypes: {
     children: {
-      control: 'text',
+      control: "text",
     },
     title: {
-      control: 'text',
+      control: "text",
     },
     variant: {
-      control: 'select',
-      options: ['error', 'warning', 'info', 'success', 'neutral-light', 'neutral-dark'],
+      control: "select",
+      options: ["error", "warning", "info", "success", "neutral-light", "neutral-dark"],
     },
     icon: {
-      control: 'radio',
-      options: ['None', 'Info', 'Warning', 'Check', 'Error'],
+      control: "radio",
+      options: ["None", "Info", "Warning", "Check", "Error"],
       mapping: {
         None: null,
         Info: <InfoIcon />,
@@ -36,21 +38,21 @@ const meta = preview.meta({
       },
     },
     onDismiss: {
-      action: 'dismissed',
+      action: "dismissed",
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
     actions: undefined,
-    children: 'This is a section message that provides important information to the user.',
-    icon: 'Info',
+    children: "This is a section message that provides important information to the user.",
+    icon: "Info",
     onDismiss: undefined,
-    title: 'Section Message Title',
-    variant: 'info',
+    title: "Section Message Title",
+    variant: "info",
   },
-})
+});
 
 /**
  * Section messages support six variants: `error`, `warning`, `info`, `success`, `neutral-light`, and `neutral-dark`.
@@ -68,7 +70,7 @@ export const Variants = Example.extend({
 
   decorators: [
     (Story) => (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)' }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "var(--spacing-4)" }}>
         <Story />
       </div>
     ),
@@ -76,14 +78,24 @@ export const Variants = Example.extend({
 
   render: (args) => (
     <>
-      <SectionMessage {...args} title="Error Section Message" variant="error" icon={<ErrorIcon aria-label="Error" />} />
+      <SectionMessage
+        {...args}
+        title="Error Section Message"
+        variant="error"
+        icon={<ErrorIcon aria-label="Error" />}
+      />
       <SectionMessage
         {...args}
         title="Warning Section Message"
         variant="warning"
         icon={<WarningIcon aria-label="Warning" />}
       />
-      <SectionMessage {...args} title="Info Section Message" variant="info" icon={<InfoIcon aria-label="Note" />} />
+      <SectionMessage
+        {...args}
+        title="Info Section Message"
+        variant="info"
+        icon={<InfoIcon aria-label="Note" />}
+      />
       <SectionMessage
         {...args}
         title="Success Section Message"
@@ -94,7 +106,7 @@ export const Variants = Example.extend({
       <SectionMessage {...args} title="Neutral Dark Section Message" variant="neutral-dark" />
     </>
   ),
-})
+});
 
 /**
  * The title is optional. When not provided, only the description is displayed.
@@ -103,26 +115,26 @@ export const NoTitle = Example.extend({
   args: {
     title: undefined,
   },
-})
+});
 
 /**
  * Icons are optional and can be customized. When no icon is provided, the grid layout adjusts accordingly.
  */
 export const NoIcon = Example.extend({
   args: {
-    icon: 'None',
+    icon: "None",
   },
-})
+});
 
 /**
  * A dismiss button appears when the `onDismiss` callback is provided. The consumer handles the actual dismissal logic.
  */
 export const Dismissible = Example.extend({
   args: {
-    icon: 'None',
+    icon: "None",
     onDismiss: fn(),
   },
-})
+});
 
 /**
  * Actions can be provided to display interactive elements at the bottom of the message, such as buttons or links.
@@ -140,19 +152,19 @@ export const Actions = Example.extend({
       </ButtonGroup>
     ),
   },
-})
+});
 
 /**
  * All features can be combined: title, description, icon, actions, and dismiss button.
  */
 export const Complete = Example.extend({
   args: {
-    title: 'Complete Example',
+    title: "Complete Example",
 
     children:
-      'This section message includes all available features: a title, description, icon, actions, and dismiss button.',
+      "This section message includes all available features: a title, description, icon, actions, and dismiss button.",
 
-    icon: 'Info',
+    icon: "Info",
 
     actions: (
       <>
@@ -164,7 +176,7 @@ export const Complete = Example.extend({
 
     onDismiss: fn(),
   },
-})
+});
 
 /**
  * Section messages adapt to their container width. Text wraps when space is constrained.
@@ -172,25 +184,25 @@ export const Complete = Example.extend({
  */
 export const Wrapping = Example.extend({
   args: {
-    title: 'This is a longer section message title that will wrap when space is constrained',
+    title: "This is a longer section message title that will wrap when space is constrained",
 
     children:
-      'This is a longer description that demonstrates how the section message component handles text wrapping when space is constrained.',
+      "This is a longer description that demonstrates how the section message component handles text wrapping when space is constrained.",
 
-    icon: 'Info',
+    icon: "Info",
     onDismiss: fn(),
   },
   decorators: [
     (Story) => {
-      const [width, setWidth] = useState(500)
+      const [width, setWidth] = useState(500);
       return (
         <>
           <div
             style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: 'var(--spacing-2)',
-              marginBlockEnd: 'var(--spacing-2)',
+              display: "flex",
+              alignItems: "center",
+              gap: "var(--spacing-2)",
+              marginBlockEnd: "var(--spacing-2)",
             }}
           >
             <input
@@ -209,14 +221,16 @@ export const Wrapping = Example.extend({
               </Text>
             </output>
           </div>
-          <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', width: `${width}px` }}>
+          <div
+            style={{ boxSizing: "content-box", border: "1px solid #FA00FF", width: `${width}px` }}
+          >
             <Story />
           </div>
         </>
-      )
+      );
     },
   ],
-})
+});
 
 /**
  * To help reduce space, `lineClamp` allows the description content to
@@ -227,7 +241,7 @@ export const Clamping = Wrapping.extend({
     lineClamp: 1,
   },
   decorators: Wrapping.input.decorators,
-})
+});
 
 /**
  * When showing a message dynamically, like in response to user interaction, use the appropriate
@@ -275,31 +289,33 @@ export const Clamping = Wrapping.extend({
  */
 export const DynamicLoading = meta.story({
   args: {
-    children: 'This is a dynamically loaded message that will be announced by screen readers.',
-    title: 'Dynamic Message',
-    variant: 'info',
-    icon: 'Info',
-    role: 'status',
+    children: "This is a dynamically loaded message that will be announced by screen readers.",
+    title: "Dynamic Message",
+    variant: "info",
+    icon: "Info",
+    role: "status",
   },
   argTypes: {
     ...meta.input.argTypes,
     role: {
-      control: 'select',
-      options: ['alert', 'status', undefined],
+      control: "select",
+      options: ["alert", "status", undefined],
       children: 'ARIA role - use "alert" for errors/warnings, "status" for info/success',
     },
   },
   render: (args) => {
-    const [isVisible, setIsVisible] = useState(false)
+    const [isVisible, setIsVisible] = useState(false);
 
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)' }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "var(--spacing-4)" }}>
         <div>
-          <button onClick={() => setIsVisible(!isVisible)}>{isVisible ? 'Hide Message' : 'Show Message'}</button>
+          <button onClick={() => setIsVisible(!isVisible)}>
+            {isVisible ? "Hide Message" : "Show Message"}
+          </button>
         </div>
 
         {isVisible && <SectionMessage {...args} onDismiss={() => setIsVisible(false)} />}
       </div>
-    )
+    );
   },
-})
+});

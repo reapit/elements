@@ -1,9 +1,7 @@
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
 
-const checked = `data:image/svg+xml;utf8,<svg width="12px" height="12px" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M12.3608 13.8296L18.0208 19.4896C18.2652 19.775 18.6489 19.8993 19.0142 19.8114C19.3795 19.7235 19.6647 19.4383 19.7526 19.073C19.8405 18.7077 19.7162 18.324 19.4308 18.0796L13.7708 12.4196L19.4308 6.75958C19.7162 6.51519 19.8405 6.13146 19.7526 5.76616C19.6647 5.40086 19.3795 5.11564 19.0142 5.02777C18.6489 4.93989 18.2652 5.0642 18.0208 5.34958L12.3608 11.0096L6.70079 5.34958C6.31076 4.96185 5.68083 4.96185 5.29079 5.34958C4.90307 5.73961 4.90307 6.36954 5.29079 6.75958L10.9508 12.4196L5.29079 18.0796C4.90307 18.4696 4.90307 19.0995 5.29079 19.4896C5.68083 19.8773 6.31076 19.8773 6.70079 19.4896L12.3608 13.8296Z" fill="slategray"/>
-</svg>
-`
+const checked =
+  "data:image/svg+xml,%3Csvg%20width%3D%2212px%22%20height%3D%2212px%22%20viewBox%3D%220%200%2020%2020%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M12.3608%2013.8296L18.0208%2019.4896C18.2652%2019.775%2018.6489%2019.8993%2019.0142%2019.8114C19.3795%2019.7235%2019.6647%2019.4383%2019.7526%2019.073C19.8405%2018.7077%2019.7162%2018.324%2019.4308%2018.0796L13.7708%2012.4196L19.4308%206.75958C19.7162%206.51519%2019.8405%206.13146%2019.7526%205.76616C19.6647%205.40086%2019.3795%205.11564%2019.0142%205.02777C18.6489%204.93989%2018.2652%205.0642%2018.0208%205.34958L12.3608%2011.0096L6.70079%205.34958C6.31076%204.96185%205.68083%204.96185%205.29079%205.34958C4.90307%205.73961%204.90307%206.36954%205.29079%206.75958L10.9508%2012.4196L5.29079%2018.0796C4.90307%2018.4696%204.90307%2019.0995%205.29079%2019.4896C5.68083%2019.8773%206.31076%2019.8773%206.70079%2019.4896L12.3608%2013.8296Z%22%20fill%3D%22slategray%22%20%2F%3E%3C%2Fsvg%3E";
 
 /** @deprecated */
 export const ElDeprecatedChipCheckbox = styled.input`
@@ -19,9 +17,9 @@ export const ElDeprecatedChipCheckbox = styled.input`
     color: var(--colour-text-primary);
 
     &::before {
-      content: '';
+      content: "";
       position: absolute;
-      background-image: url('${checked}');
+      background-image: url(${checked});
       background-position: center center;
       background-repeat: no-repeat;
       height: 1rem;
@@ -30,7 +28,7 @@ export const ElDeprecatedChipCheckbox = styled.input`
       top: 0.25rem;
     }
   }
-`
+`;
 
 /** @deprecated */
 export const ElDeprecatedChipLabel = styled.label`
@@ -52,12 +50,12 @@ export const ElDeprecatedChipLabel = styled.label`
   &:hover {
     color: var(--colour-text-tertiary);
   }
-`
+`;
 
 /** @deprecated */
 export const ElDeprecatedChipGroup = styled.div`
   display: grid;
-`
+`;
 
 /** @deprecated */
 export const ElDeprecatedChipGroupInner = styled.div`
@@ -67,4 +65,4 @@ export const ElDeprecatedChipGroupInner = styled.div`
   gap: 0.25rem;
   width: fit-content;
   height: fit-content;
-`
+`;

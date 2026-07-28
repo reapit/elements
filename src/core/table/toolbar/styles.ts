@@ -1,10 +1,11 @@
-import { font } from '#src/utils/font'
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
+
+import { font } from "#src/utils/font";
 
 export const ElTableToolbar = styled.div`
   @layer elements.main {
     display: grid;
-    grid-template: 'left-content right-content' 1fr / auto 1fr;
+    grid-template: "left-content right-content" 1fr / auto 1fr;
     align-items: center;
     width: 100%;
     height: var(--size-10);
@@ -13,7 +14,7 @@ export const ElTableToolbar = styled.div`
 
     background: var(--colour-fill-white);
   }
-`
+`;
 
 export const ElTableToolbarLeftContent = styled.div`
   @layer elements.main {
@@ -21,14 +22,14 @@ export const ElTableToolbarLeftContent = styled.div`
     justify-self: start;
     color: var(--colour-text-primary);
 
-    ${font('sm', 'regular')}
+    ${font("sm", "regular")}
     text-align: left;
   }
-`
+`;
 
 export const ElTableToolbarRightContent = styled.div`
   @layer elements.main {
     grid-area: right-content;
     justify-self: end;
   }
-`
+`;

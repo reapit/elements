@@ -1,35 +1,37 @@
-import preview from '#.storybook/preview'
-import { Combobox } from './combobox'
-import { ComboboxButton } from './button'
-import { getComboboxListboxId } from './get-listbox-id'
-import { SupplementaryInfo } from '#src/core/supplementary-info'
-import { useComboboxButton } from './use-button'
-import { useComboboxContext } from './context'
-import { useState } from 'react'
+import { useState } from "react";
+
+import preview from "#.storybook/preview";
+import { SupplementaryInfo } from "#src/core/supplementary-info";
+
+import { ComboboxButton } from "./button";
+import { Combobox } from "./combobox";
+import { useComboboxContext } from "./context";
+import { getComboboxListboxId } from "./get-listbox-id";
+import { useComboboxButton } from "./use-button";
 
 const meta = preview.meta({
-  title: 'Utils/Combobox',
+  title: "Utils/Combobox",
   component: Combobox,
   argTypes: {
-    'aria-invalid': {
-      control: 'boolean',
+    "aria-invalid": {
+      control: "boolean",
     },
     children: {
       control: false,
     },
     size: {
-      control: 'select',
-      options: ['small', 'medium', 'large'],
+      control: "select",
+      options: ["small", "medium", "large"],
     },
   },
-})
+});
 
 /**
  * Demonstrates a basic combobox with static options using the low-level ComboboxButton primitive.
  */
 export const Example = meta.story({
   args: {
-    'aria-invalid': undefined,
+    "aria-invalid": undefined,
     children: [
       <DemoButton key="button" />,
       <Combobox.Popup key="popup" variant="popover">
@@ -43,9 +45,9 @@ export const Example = meta.story({
     disabled: false,
     required: false,
     showValidity: false,
-    size: 'medium',
+    size: "medium",
   },
-})
+});
 
 /**
  * Like all form controls that visually communicate their validity, the combobox will display in an
@@ -68,9 +70,9 @@ export const Invalid = meta.story({
     disabled: false,
     required: true,
     showValidity: true,
-    size: 'medium',
+    size: "medium",
   },
-})
+});
 
 /**
  * The combobox also displays in an invalid state when `aria-invalid="true"` and `showValidity` is true.
@@ -78,9 +80,9 @@ export const Invalid = meta.story({
  * that does not use the browser's constraint validation API.
  */
 export const AriaInvalid = meta.story({
-  name: 'Aria Invalid',
+  name: "Aria Invalid",
   args: {
-    'aria-invalid': true,
+    "aria-invalid": true,
     children: [
       <DemoButton key="button" />,
       <Combobox.Popup key="popup" variant="popover">
@@ -94,9 +96,9 @@ export const AriaInvalid = meta.story({
     disabled: false,
     required: false,
     showValidity: true,
-    size: 'medium',
+    size: "medium",
   },
-})
+});
 
 /**
  * Demonstrates a searchable combobox that lets users filter options by typing. As the options
@@ -105,36 +107,36 @@ export const AriaInvalid = meta.story({
  */
 export const DynamicOptions = Example.extend({
   args: {
-    id: 'dynamic-options',
+    id: "dynamic-options",
     multiple: true,
   },
-  parameters: { docs: { source: { type: 'code' } } },
+  parameters: { docs: { source: { type: "code" } } },
   decorators: [
     (Story) => (
-      <div style={{ display: 'flex', flexFlow: 'column', gap: 'var(--spacing-2)' }}>
+      <div style={{ display: "flex", flexFlow: "column", gap: "var(--spacing-2)" }}>
         <Story />
       </div>
     ),
   ],
   render: (args) => {
     // We control the search input's value with basic component state.
-    const [searchValue, setSearchValue] = useState('')
+    const [searchValue, setSearchValue] = useState("");
 
     const allOptions = [
-      { label: 'Apple', value: 'apple' },
-      { label: 'Apricot', value: 'apricot' },
-      { label: 'Avocado', value: 'avocado' },
-      { label: 'Banana', value: 'banana' },
-      { label: 'Blueberry', value: 'blueberry' },
-      { label: 'Cherry', value: 'cherry' },
-      { label: 'Cantaloupe', value: 'cantaloupe' },
-      { label: 'Grape', value: 'grape' },
-      { label: 'Grapefruit', value: 'grapefruit' },
-    ]
+      { label: "Apple", value: "apple" },
+      { label: "Apricot", value: "apricot" },
+      { label: "Avocado", value: "avocado" },
+      { label: "Banana", value: "banana" },
+      { label: "Blueberry", value: "blueberry" },
+      { label: "Cherry", value: "cherry" },
+      { label: "Cantaloupe", value: "cantaloupe" },
+      { label: "Grape", value: "grape" },
+      { label: "Grapefruit", value: "grapefruit" },
+    ];
 
     const filteredOptions = allOptions.filter((option) =>
       option.label.toLowerCase().startsWith(searchValue.toLowerCase()),
-    )
+    );
 
     return (
       <>
@@ -149,7 +151,7 @@ export const DynamicOptions = Example.extend({
               />
             }
           >
-            <Combobox.Listbox defaultValue={['banana']} name="fruit">
+            <Combobox.Listbox defaultValue={["banana"]} name="fruit">
               {filteredOptions.length > 0 ? (
                 filteredOptions.map((option) => (
                   <Combobox.Option key={option.value} value={option.value}>
@@ -164,13 +166,13 @@ export const DynamicOptions = Example.extend({
         </Combobox>
 
         <Combobox.SelectionChips
-          defaultOptions={[allOptions.find((option) => option.value === 'banana')!]}
+          defaultOptions={[allOptions.find((option) => option.value === "banana")!]}
           listboxId={getComboboxListboxId(args.id!)}
         />
       </>
-    )
+    );
   },
-})
+});
 
 /**
  * By default, the combobox popup will switch to a drawer experience on XS breakpoints. It can also be
@@ -180,7 +182,11 @@ export const Drawer = Example.extend({
   args: {
     children: [
       <DemoButton key="button" />,
-      <Combobox.Popup key="popup" search={<Combobox.SearchInput aria-label="Filter options" />} variant="drawer">
+      <Combobox.Popup
+        key="popup"
+        search={<Combobox.SearchInput aria-label="Filter options" />}
+        variant="drawer"
+      >
         <Combobox.Listbox>
           <Combobox.Option value="option1">Option 1</Combobox.Option>
           <Combobox.Option value="option2">Option 2</Combobox.Option>
@@ -189,7 +195,7 @@ export const Drawer = Example.extend({
       </Combobox.Popup>,
     ],
   },
-})
+});
 
 /**
  * Three sizes are supported: small, medium, and large. The size impacts both the combobox button and
@@ -197,9 +203,9 @@ export const Drawer = Example.extend({
  */
 export const Sizes = Example.extend({
   args: {
-    size: 'large',
+    size: "large",
   },
-})
+});
 
 /**
  * `Combobox.Card` can be used to provide more details about the selected option in single-select
@@ -211,13 +217,17 @@ export const Sizes = Example.extend({
  */
 export const Cards = Example.extend({
   args: {
-    id: 'card-example',
+    id: "card-example",
 
     children: [
-      <Combobox.Card aria-controls={Combobox.getListboxId('card-example')} aria-expanded={false} key="card">
+      <Combobox.Card
+        aria-controls={Combobox.getListboxId("card-example")}
+        aria-expanded={false}
+        key="card"
+      >
         <Combobox.SelectedContent
-          defaultOptions={[{ label: 'Option 1', value: 'option1' }]}
-          listboxId={Combobox.getListboxId('card-example')}
+          defaultOptions={[{ label: "Option 1", value: "option1" }]}
+          listboxId={Combobox.getListboxId("card-example")}
         >
           {(option) => (
             <Combobox.CardDefaultContent
@@ -241,7 +251,7 @@ export const Cards = Example.extend({
       </Combobox.Popup>,
     ],
   },
-})
+});
 
 /**
  * The combobox's value can be controlled like any other form control. The `Combobox.useState` hook is
@@ -250,14 +260,21 @@ export const Cards = Example.extend({
  */
 export const Controlled = Example.extend({
   render: (args) => {
-    const [value, setValue] = Combobox.useState('')
+    const [value, setValue] = Combobox.useState("");
 
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-2)', color: '#FA00FF' }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "var(--spacing-2)",
+          color: "#FA00FF",
+        }}
+      >
         {/* Some actions to control the combobox state outside of it's popup. */}
-        <div style={{ display: 'flex', gap: 'var(--spacing-2)' }}>
-          <button onClick={() => setValue('option1')}>Select Option 1</button>
-          <button onClick={() => setValue('')}>Clear selection</button>
+        <div style={{ display: "flex", gap: "var(--spacing-2)" }}>
+          <button onClick={() => setValue("option1")}>Select Option 1</button>
+          <button onClick={() => setValue("")}>Clear selection</button>
         </div>
 
         {/* Our controlled state */}
@@ -269,7 +286,10 @@ export const Controlled = Example.extend({
             {/* We use our state to control the listbox's value. The Combobox.getListboxValue helps
              * get the value of the listbox; `e.currentTarget.value` will only give the first selected
              * value, not all of them. */}
-            <Combobox.Listbox onChange={(e) => setValue(Combobox.getListboxValue(e.currentTarget))} value={value}>
+            <Combobox.Listbox
+              onChange={(e) => setValue(Combobox.getListboxValue(e.currentTarget))}
+              value={value}
+            >
               <Combobox.Option value="option1">Option 1</Combobox.Option>
               <Combobox.Option value="option2">Option 2</Combobox.Option>
               <Combobox.Option value="option3">Option 3</Combobox.Option>
@@ -277,9 +297,9 @@ export const Controlled = Example.extend({
           </Combobox.Popup>
         </Combobox>
       </div>
-    )
+    );
   },
-})
+});
 
 /**
  * Three sizes are supported: small, medium, and large. The size impacts both the combobox button and
@@ -288,35 +308,40 @@ export const Controlled = Example.extend({
 export const Forms = DynamicOptions.extend({
   ...DynamicOptions.input,
   args: {
-    id: 'form-example',
+    id: "form-example",
   },
   decorators: [
     (Story) => (
       <form
         onSubmit={(e) => {
-          e.preventDefault()
-          const formData = new FormData(e.currentTarget)
-          alert(JSON.stringify({ fruit: formData.getAll('fruit') }))
+          e.preventDefault();
+          const formData = new FormData(e.currentTarget);
+          alert(JSON.stringify({ fruit: formData.getAll("fruit") }));
         }}
-        style={{ display: 'flex', flexDirection: 'column', alignItems: 'start', gap: 'var(--spacing-4)' }}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "start",
+          gap: "var(--spacing-4)",
+        }}
       >
         <button type="submit">Submit</button>
         <Story />
       </form>
     ),
   ],
-})
+});
 
 /**
  * Simple demo button for stories that uses ComboboxButton primitive.
  */
-function DemoButton({ placeholder = 'Select an option' }: { placeholder?: string }) {
-  const { size } = useComboboxContext()
-  const buttonProps = useComboboxButton()
+function DemoButton({ placeholder = "Select an option" }: { placeholder?: string }) {
+  const { size } = useComboboxContext();
+  const buttonProps = useComboboxButton();
 
   return (
     <ComboboxButton {...buttonProps} placeholder={placeholder} size={size}>
       Click me!
     </ComboboxButton>
-  )
+  );
 }

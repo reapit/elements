@@ -1,1 +1,1 @@
-export { FileUploaderFileList } from './file-list'
+export { FileUploaderFileList } from "./file-list";

@@ -1,1 +1,1 @@
-export * from './right-content'
+export * from "./right-content";

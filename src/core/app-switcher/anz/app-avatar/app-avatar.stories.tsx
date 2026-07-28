@@ -1,32 +1,32 @@
-import preview from '#.storybook/preview'
-import { AppAvatar } from './app-avatar'
-import { productConfigs } from '../config'
+import preview from "#.storybook/preview";
 
-import type { SupportedProductId } from '../config'
+import { productConfigs } from "../config";
+import type { SupportedProductId } from "../config";
+import { AppAvatar } from "./app-avatar";
 
-const productIds = Object.keys(productConfigs) as SupportedProductId[]
+const productIds = Object.keys(productConfigs) as SupportedProductId[];
 
 const meta = preview.meta({
-  title: 'Navigation/AppSwitcher/ANZ/AppAvatar',
+  title: "Navigation/AppSwitcher/ANZ/AppAvatar",
   component: AppAvatar,
   argTypes: {
     productId: {
-      control: { type: 'select' },
-      description: 'The ANZ product whose avatar should be displayed.',
+      control: { type: "select" },
+      description: "The ANZ product whose avatar should be displayed.",
       options: productIds,
     },
   },
-})
+});
 
 /**
  * When the user has access to the product, the avatar will appear in the primary colour.
  */
 export const Example = meta.story({
   args: {
-    productId: 'consoleCloud',
+    productId: "consoleCloud",
     hasAccess: true,
   },
-})
+});
 
 /**
  * When the user does not have access to the product, the avatar will be greyed out.
@@ -35,7 +35,7 @@ export const Inaccessible = Example.extend({
   args: {
     hasAccess: false,
   },
-})
+});
 
 /**
  * All supported ANZ products are displayed here. Each product has two avatars: one for when the user has
@@ -50,12 +50,12 @@ export const AllProducts = meta.story({
   render: () => (
     <div
       style={{
-        alignItems: 'center',
-        display: 'grid',
-        color: '#FA00FF',
-        fontSize: 'var(--font-base-regular-size)',
-        gridTemplateColumns: 'max-content min-content min-content',
-        gap: 'var(--spacing-5)',
+        alignItems: "center",
+        display: "grid",
+        color: "#FA00FF",
+        fontSize: "var(--font-base-regular-size)",
+        gridTemplateColumns: "max-content min-content min-content",
+        gap: "var(--spacing-5)",
       }}
     >
       {productIds.map((productId) => [
@@ -65,4 +65,4 @@ export const AllProducts = meta.story({
       ])}
     </div>
   ),
-})
+});

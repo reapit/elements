@@ -1,18 +1,24 @@
-import preview from '#.storybook/preview'
-import { cx } from '@linaria/core'
-import { DeprecatedNav, DeprecatedNavItem } from './index'
-import { elDeprecatedNavItemActive, elDeprecatedNavItemHideDesktop, elDeprecatedNavItemExpanded } from './__styles__'
-import { NavStateProvider } from '../use-nav-state'
-import { elMlAuto, elMr2 } from '../../styles/deprecated-spacing'
-import { DeprecatedNavResponsive } from './nav-responsive'
-import { MoreIcon } from '#src/icons/more'
+import { cx } from "@linaria/core";
+
+import preview from "#.storybook/preview";
+import { MoreIcon } from "#src/icons/more";
+
+import { elMlAuto, elMr2 } from "../../styles/deprecated-spacing";
+import { NavStateProvider } from "../use-nav-state";
+import {
+  elDeprecatedNavItemActive,
+  elDeprecatedNavItemHideDesktop,
+  elDeprecatedNavItemExpanded,
+} from "./__styles__";
+import { DeprecatedNav, DeprecatedNavItem } from "./index";
+import { DeprecatedNavResponsive } from "./nav-responsive";
 
 const meta = preview.meta({
-  title: 'Deprecated/DeprecatedNav',
+  title: "Deprecated/DeprecatedNav",
   component: DeprecatedNavResponsive,
-})
+});
 
-export default meta
+export default meta;
 
 export const BasicExample = meta.story({
   render: () => (
@@ -21,18 +27,23 @@ export const BasicExample = meta.story({
         <span>Reapit</span>
         <MoreIcon
           className={cx(elMlAuto, elMr2, elDeprecatedNavItemHideDesktop)}
-          onClick={() => console.log('Toggle Menu')}
+          onClick={() => console.log("Toggle Menu")}
           color="secondary"
         />
       </DeprecatedNavItem>
-      <DeprecatedNavItem className={elDeprecatedNavItemActive} href="https://marketplace.reapit.cloud/apps">
+      <DeprecatedNavItem
+        className={elDeprecatedNavItemActive}
+        href="https://marketplace.reapit.cloud/apps"
+      >
         Apps
       </DeprecatedNavItem>
-      <DeprecatedNavItem href="https://developers.reapit.cloud/analytics">Analytics</DeprecatedNavItem>
+      <DeprecatedNavItem href="https://developers.reapit.cloud/analytics">
+        Analytics
+      </DeprecatedNavItem>
       <DeprecatedNavItem href="https://marketplace.reapit.cloud">Marketplace</DeprecatedNavItem>
     </DeprecatedNav>
   ),
-})
+});
 
 export const BasicExampleMobileMenuOpen = meta.story({
   render: () => (
@@ -41,7 +52,7 @@ export const BasicExampleMobileMenuOpen = meta.story({
         <span>Reapit</span>
         <MoreIcon
           className={cx(elMlAuto, elMr2, elDeprecatedNavItemHideDesktop)}
-          onClick={() => console.log('Toggle Menu')}
+          onClick={() => console.log("Toggle Menu")}
           color="secondary"
         />
       </DeprecatedNavItem>
@@ -57,15 +68,21 @@ export const BasicExampleMobileMenuOpen = meta.story({
       >
         Option Hidden In Desktop
       </DeprecatedNavItem>
-      <DeprecatedNavItem className={elDeprecatedNavItemExpanded} href="https://developers.reapit.cloud/analytics">
+      <DeprecatedNavItem
+        className={elDeprecatedNavItemExpanded}
+        href="https://developers.reapit.cloud/analytics"
+      >
         Analytics
       </DeprecatedNavItem>
-      <DeprecatedNavItem className={elDeprecatedNavItemExpanded} href="https://marketplace.reapit.cloud">
+      <DeprecatedNavItem
+        className={elDeprecatedNavItemExpanded}
+        href="https://marketplace.reapit.cloud"
+      >
         Marketplace
       </DeprecatedNavItem>
     </DeprecatedNav>
   ),
-})
+});
 
 export const ReactUsage = meta.story({
   render: () => (
@@ -74,85 +91,85 @@ export const ReactUsage = meta.story({
         defaultNavIndex={1}
         appSwitcherOptions={[
           {
-            text: 'AppMarket',
-            callback: () => console.log('Navigating'),
+            text: "AppMarket",
+            callback: () => console.log("Navigating"),
           },
           {
-            text: 'DevPortal',
-            callback: () => console.log('Navigating'),
+            text: "DevPortal",
+            callback: () => console.log("Navigating"),
           },
         ]}
         avatarText="JD"
         avatarOptions={[
           {
-            text: 'Settings',
-            callback: () => console.log('Navigating'),
+            text: "Settings",
+            callback: () => console.log("Navigating"),
           },
           {
-            text: 'Profile',
-            callback: () => console.log('Navigating'),
+            text: "Profile",
+            callback: () => console.log("Navigating"),
           },
           {
-            text: 'Log Out',
-            callback: () => console.log('Navigating'),
+            text: "Log Out",
+            callback: () => console.log("Navigating"),
           },
         ]}
         options={[
           {
             itemIndex: 0,
-            callback: () => console.log('Navigating'),
+            callback: () => console.log("Navigating"),
           },
           {
             itemIndex: 1,
-            callback: () => console.log('Navigating'),
-            text: 'Apps',
+            callback: () => console.log("Navigating"),
+            text: "Apps",
 
             subItems: [
               {
                 itemIndex: 0,
-                callback: () => console.log('Navigating'),
-                text: 'App List',
+                callback: () => console.log("Navigating"),
+                text: "App List",
               },
               {
                 itemIndex: 1,
-                callback: () => console.log('Navigating'),
-                text: 'Create App',
+                callback: () => console.log("Navigating"),
+                text: "Create App",
               },
             ],
           },
           {
             itemIndex: 2,
-            callback: () => console.log('Navigating'),
-            text: 'Analytics',
+            callback: () => console.log("Navigating"),
+            text: "Analytics",
 
             subItems: [
               {
                 itemIndex: 2,
-                callback: () => console.log('Navigating'),
-                text: 'Hits Per Day',
+                callback: () => console.log("Navigating"),
+                text: "Hits Per Day",
               },
               {
                 itemIndex: 3,
-                callback: () => console.log('Navigating'),
-                text: 'Weekly Hits',
+                callback: () => console.log("Navigating"),
+                text: "Weekly Hits",
               },
             ],
           },
           {
             itemIndex: 3,
-            href: 'https://marketplace.reapit.cloud',
-            text: 'Marketplace',
+            href: "https://marketplace.reapit.cloud",
+            text: "Marketplace",
           },
           {
             itemIndex: 4,
-            callback: () => console.log('Logging out'),
-            text: 'Logout',
+            callback: () => console.log("Logging out"),
+            text: "Logout",
           },
         ]}
       />
     </NavStateProvider>
   ),
-})
+});
 
 export const ReactUsageWithCustomBrand = meta.story({
   render: () => (
@@ -160,87 +177,87 @@ export const ReactUsageWithCustomBrand = meta.story({
       <DeprecatedNavResponsive
         defaultNavIndex={1}
         brandOptions={{
-          logoUrl: 'https://uk.payprop.com/res/assets/img/pp_logo.svg',
-          callback: () => console.log('Clicking'),
+          logoUrl: "https://uk.payprop.com/res/assets/img/pp_logo.svg",
+          callback: () => console.log("Clicking"),
         }}
         appSwitcherOptions={[
           {
-            text: 'AppMarket',
-            callback: () => console.log('Navigating'),
+            text: "AppMarket",
+            callback: () => console.log("Navigating"),
           },
           {
-            text: 'DevPortal',
-            callback: () => console.log('Navigating'),
+            text: "DevPortal",
+            callback: () => console.log("Navigating"),
           },
         ]}
         avatarText="JD"
         avatarOptions={[
           {
-            text: 'Settings',
-            callback: () => console.log('Navigating'),
+            text: "Settings",
+            callback: () => console.log("Navigating"),
           },
           {
-            text: 'Profile',
-            callback: () => console.log('Navigating'),
+            text: "Profile",
+            callback: () => console.log("Navigating"),
           },
           {
-            text: 'Log Out',
-            callback: () => console.log('Navigating'),
+            text: "Log Out",
+            callback: () => console.log("Navigating"),
           },
         ]}
         options={[
           {
             itemIndex: 0,
-            callback: () => console.log('Navigating'),
+            callback: () => console.log("Navigating"),
           },
           {
             itemIndex: 1,
-            callback: () => console.log('Navigating'),
-            text: 'Apps',
+            callback: () => console.log("Navigating"),
+            text: "Apps",
 
             subItems: [
               {
                 itemIndex: 0,
-                callback: () => console.log('Navigating'),
-                text: 'App List',
+                callback: () => console.log("Navigating"),
+                text: "App List",
               },
               {
                 itemIndex: 1,
-                callback: () => console.log('Navigating'),
-                text: 'Create App',
+                callback: () => console.log("Navigating"),
+                text: "Create App",
               },
             ],
           },
           {
             itemIndex: 2,
-            callback: () => console.log('Navigating'),
-            text: 'Analytics',
+            callback: () => console.log("Navigating"),
+            text: "Analytics",
 
             subItems: [
               {
                 itemIndex: 2,
-                callback: () => console.log('Navigating'),
-                text: 'Hits Per Day',
+                callback: () => console.log("Navigating"),
+                text: "Hits Per Day",
               },
               {
                 itemIndex: 3,
-                callback: () => console.log('Navigating'),
-                text: 'Weekly Hits',
+                callback: () => console.log("Navigating"),
+                text: "Weekly Hits",
               },
             ],
           },
           {
             itemIndex: 3,
-            href: 'https://marketplace.reapit.cloud',
-            text: 'Marketplace',
+            href: "https://marketplace.reapit.cloud",
+            text: "Marketplace",
           },
           {
             itemIndex: 4,
-            callback: () => console.log('Logging out'),
-            text: 'Logout',
+            callback: () => console.log("Logging out"),
+            text: "Logout",
           },
         ]}
       />
     </NavStateProvider>
   ),
-})
+});

@@ -1,3 +1,3 @@
 export function getListboxSelectId(listboxId: string): string {
-  return `${listboxId}-select`
+  return `${listboxId}-select`;
 }

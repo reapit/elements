@@ -1,17 +1,19 @@
-import { render } from '@testing-library/react'
-import { DeprecatedAccordion, handleSetOpenItem } from '../accordion'
-import { CarIcon } from '#src/icons/car'
-import { UserIcon } from '#src/icons/user'
-import { elMr1 } from '../../../styles/deprecated-spacing'
+import { render } from "@testing-library/react";
 
-describe('Accordion react shorthand', () => {
-  it('should match a snapshot', () => {
+import { CarIcon } from "#src/icons/car";
+import { UserIcon } from "#src/icons/user";
+
+import { elMr1 } from "../../../styles/deprecated-spacing";
+import { DeprecatedAccordion, handleSetOpenItem } from "../accordion";
+
+describe("Accordion react shorthand", () => {
+  it("should match a snapshot", () => {
     const wrapper = render(
       <DeprecatedAccordion
         items={[
           {
-            title: 'Accordion Item 1',
-            content: 'Accordion Content 1',
+            title: "Accordion Item 1",
+            content: "Accordion Content 1",
             titleItems: [
               <>
                 <CarIcon className={elMr1} />2
@@ -22,8 +24,8 @@ describe('Accordion react shorthand', () => {
             ],
           },
           {
-            title: 'Accordion Item 2',
-            content: 'Accordion Content 2',
+            title: "Accordion Item 2",
+            content: "Accordion Content 2",
             titleItems: [
               <>
                 <CarIcon className={elMr1} />2
@@ -35,22 +37,22 @@ describe('Accordion react shorthand', () => {
           },
         ]}
       />,
-    )
-    expect(wrapper.asFragment()).toMatchSnapshot()
-  })
-})
+    );
+    expect(wrapper.asFragment()).toMatchSnapshot();
+  });
+});
 
-describe('handleSetOpenItem', () => {
-  it('should set the open item to the provided index if it is not currently open', () => {
-    const setOpenItem = vi.fn()
-    const onClick = vi.fn()
-    const openItem = 1
+describe("handleSetOpenItem", () => {
+  it("should set the open item to the provided index if it is not currently open", () => {
+    const setOpenItem = vi.fn();
+    const onClick = vi.fn();
+    const openItem = 1;
 
-    const curried = handleSetOpenItem(openItem, setOpenItem, onClick)
+    const curried = handleSetOpenItem(openItem, setOpenItem, onClick);
 
-    curried()
+    curried();
 
-    expect(setOpenItem.mock.calls[0][0]()).toEqual(openItem)
-    expect(onClick).toHaveBeenCalled()
-  })
-})
+    expect(setOpenItem.mock.calls[0][0]()).toEqual(openItem);
+    expect(onClick).toHaveBeenCalled();
+  });
+});

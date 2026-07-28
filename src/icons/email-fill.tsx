@@ -1,4 +1,4 @@
-import EmailFillSvg from './svgs/email-fill.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import EmailFillSvg from "./svgs/email-fill.svg?react";
 
-export const EmailFillIcon = makeIcon('EmailFillIcon', EmailFillSvg)
+export const EmailFillIcon = makeIcon("EmailFillIcon", EmailFillSvg);

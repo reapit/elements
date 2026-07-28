@@ -1,4 +1,11 @@
-import preview from '#.storybook/preview'
+import preview from "#.storybook/preview";
+import { BedIcon } from "#src/icons/bed";
+import { CarIcon } from "#src/icons/car";
+import { ChevronDownIcon } from "#src/icons/chevron-down";
+import { ChevronUpIcon } from "#src/icons/chevron-up";
+
+import { elMr1 } from "../../styles/deprecated-spacing";
+import { elIsActive } from "../../styles/deprecated-states";
 import {
   DeprecatedAccordionContainer,
   DeprecatedAccordionItem,
@@ -7,25 +14,23 @@ import {
   DeprecatedAccordionTitleContent,
   DeprecatedAccordionContent,
   DeprecatedAccordion,
-} from './index'
-import { elMr1 } from '../../styles/deprecated-spacing'
-import { elIsActive } from '../../styles/deprecated-states'
-import { CarIcon } from '#src/icons/car'
-import { BedIcon } from '#src/icons/bed'
-import { ChevronUpIcon } from '#src/icons/chevron-up'
-import { ChevronDownIcon } from '#src/icons/chevron-down'
+} from "./index";
 
 const meta = preview.meta({
-  title: 'Deprecated/DeprecatedAccordion',
+  title: "Deprecated/DeprecatedAccordion",
   component: DeprecatedAccordion,
-})
+});
 
-export default meta
+export default meta;
 
 export const StylesOnlyUsage = meta.story({
   render: () => (
     <DeprecatedAccordionContainer>
-      <DeprecatedAccordionItem onClick={console.log} id="item-title-1" aria-controls="item-content-1">
+      <DeprecatedAccordionItem
+        onClick={console.log}
+        id="item-title-1"
+        aria-controls="item-content-1"
+      >
         <DeprecatedAccordionTitle>Accordion Item 1</DeprecatedAccordionTitle>
         <DeprecatedAccordionTitleContentWrapper>
           <DeprecatedAccordionTitleContent>
@@ -48,7 +53,11 @@ export const StylesOnlyUsage = meta.story({
       >
         Accordion Content 1
       </DeprecatedAccordionContent>
-      <DeprecatedAccordionItem onClick={console.log} id="item-title-2" aria-controls="item-content-2">
+      <DeprecatedAccordionItem
+        onClick={console.log}
+        id="item-title-2"
+        aria-controls="item-content-2"
+      >
         <DeprecatedAccordionTitle>Accordion Item 2</DeprecatedAccordionTitle>
         <DeprecatedAccordionTitleContentWrapper>
           <DeprecatedAccordionTitleContent>
@@ -70,7 +79,11 @@ export const StylesOnlyUsage = meta.story({
       >
         Accordion Content 2
       </DeprecatedAccordionContent>
-      <DeprecatedAccordionItem onClick={console.log} id="item-title-3" aria-controls="item-content-3">
+      <DeprecatedAccordionItem
+        onClick={console.log}
+        id="item-title-3"
+        aria-controls="item-content-3"
+      >
         <DeprecatedAccordionTitle>Accordion Item 3</DeprecatedAccordionTitle>
         <DeprecatedAccordionTitleContentWrapper>
           <DeprecatedAccordionTitleContent>
@@ -94,14 +107,14 @@ export const StylesOnlyUsage = meta.story({
       </DeprecatedAccordionContent>
     </DeprecatedAccordionContainer>
   ),
-})
+});
 
 export const ReactUsage = meta.story({
   args: {
     items: [
       {
-        title: 'Accordion Item 1',
-        content: 'Accordion Content 1',
+        title: "Accordion Item 1",
+        content: "Accordion Content 1",
 
         titleItems: [
           <>
@@ -113,8 +126,8 @@ export const ReactUsage = meta.story({
         ],
       },
       {
-        title: 'Accordion Item 2',
-        content: 'Accordion Content 2',
+        title: "Accordion Item 2",
+        content: "Accordion Content 2",
 
         titleItems: [
           <>
@@ -126,8 +139,8 @@ export const ReactUsage = meta.story({
         ],
       },
       {
-        title: 'Accordion Item 3',
-        content: 'Accordion Content 3',
+        title: "Accordion Item 3",
+        content: "Accordion Content 3",
         titleItems: [
           <>
             <CarIcon className={elMr1} />2
@@ -139,4 +152,4 @@ export const ReactUsage = meta.story({
       },
     ],
   },
-})
+});

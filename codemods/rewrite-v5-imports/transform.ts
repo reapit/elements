@@ -1,6 +1,7 @@
-import { SourceFile, ImportDeclaration } from 'ts-morph'
-import { EXPORT_MAP } from './export-map'
-import { createProjectFromSource } from '../shared/index.js'
+import { SourceFile, ImportDeclaration } from "ts-morph";
+
+import { createProjectFromSource } from "../shared/index.js";
+import { EXPORT_MAP } from "./export-map";
 
 /**
  * Codemod to rewrite @reapit/elements barrel imports to dedicated subpath imports.
@@ -28,7 +29,7 @@ import { createProjectFromSource } from '../shared/index.js'
  * re-transformed).
  */
 function isBarrelImport(moduleSpecifier: string): boolean {
-  return moduleSpecifier === '@reapit/elements'
+  return moduleSpecifier === "@reapit/elements";
 }
 
 /**
@@ -37,16 +38,16 @@ function isBarrelImport(moduleSpecifier: string): boolean {
  * e.g. `buildSubpathSpecifier('core/button')` → `'@reapit/elements/core/button'`
  */
 function buildSubpathSpecifier(subpath: string): string {
-  return `@reapit/elements/${subpath}`
+  return `@reapit/elements/${subpath}`;
 }
 
 interface NamedImportInfo {
   /** The imported name (e.g. `Button`) */
-  name: string
+  name: string;
   /** The alias, if any (e.g. `Btn` from `Button as Btn`) */
-  alias: string | undefined
+  alias: string | undefined;
   /** Whether this is an inline `type` specifier (e.g. `{ type Button }`) */
-  isTypeOnly: boolean
+  isTypeOnly: boolean;
 }
 
 /**
@@ -54,8 +55,8 @@ interface NamedImportInfo {
  * e.g. `{ name: 'Button', alias: 'Btn', isTypeOnly: false }` → `'Button as Btn'`
  */
 function serialiseNamedImport(info: NamedImportInfo): string {
-  const base = info.alias ? `${info.name} as ${info.alias}` : info.name
-  return info.isTypeOnly ? `type ${base}` : base
+  const base = info.alias ? `${info.name} as ${info.alias}` : info.name;
+  return info.isTypeOnly ? `type ${base}` : base;
 }
 
 /**
@@ -63,48 +64,48 @@ function serialiseNamedImport(info: NamedImportInfo): string {
  * subpath imports plus an optional residual barrel import for root-only exports.
  */
 function transformDeclaration(sourceFile: SourceFile, importDecl: ImportDeclaration): void {
-  const moduleSpecifier = importDecl.getModuleSpecifierValue()
-  const isDeclarationTypeOnly = importDecl.isTypeOnly()
+  const moduleSpecifier = importDecl.getModuleSpecifierValue();
+  const isDeclarationTypeOnly = importDecl.isTypeOnly();
 
   // Collect all named imports with their metadata
   const namedImports: NamedImportInfo[] = importDecl.getNamedImports().map((ni) => ({
     name: ni.getName(),
     alias: ni.getAliasNode()?.getText(),
     isTypeOnly: ni.isTypeOnly(),
-  }))
+  }));
 
   // Default or namespace imports — leave untouched to avoid dropping bindings
   if (importDecl.getDefaultImport() || importDecl.getNamespaceImport()) {
-    return
+    return;
   }
 
   if (namedImports.length === 0) {
     // Side-effect import — leave untouched
-    return
+    return;
   }
 
   // Bucket each named import into its target subpath (or 'root' for residual)
-  const buckets = new Map<string, NamedImportInfo[]>()
+  const buckets = new Map<string, NamedImportInfo[]>();
 
   for (const info of namedImports) {
-    const subpath = EXPORT_MAP[info.name]
-    const key = subpath ?? 'root'
-    const bucket = buckets.get(key) ?? []
-    bucket.push(info)
-    buckets.set(key, bucket)
+    const subpath = EXPORT_MAP[info.name];
+    const key = subpath ?? "root";
+    const bucket = buckets.get(key) ?? [];
+    bucket.push(info);
+    buckets.set(key, bucket);
   }
 
   // If every import maps to 'root' (i.e. none are in the export map), leave as-is
-  if (buckets.size === 1 && buckets.has('root')) {
-    return
+  if (buckets.size === 1 && buckets.has("root")) {
+    return;
   }
 
   // Remove the original import declaration
-  importDecl.remove()
+  importDecl.remove();
 
   // Add a new import for each bucket
   for (const [key, infos] of buckets) {
-    const newSpecifier = key === 'root' ? moduleSpecifier : buildSubpathSpecifier(key)
+    const newSpecifier = key === "root" ? moduleSpecifier : buildSubpathSpecifier(key);
 
     // If the original declaration was `import type { ... }`, the whole new statement
     // should be type-only. Otherwise use per-specifier inline `type` markers.
@@ -112,7 +113,7 @@ function transformDeclaration(sourceFile: SourceFile, importDecl: ImportDeclarat
       moduleSpecifier: newSpecifier,
       namedImports: infos.map(serialiseNamedImport),
       isTypeOnly: isDeclarationTypeOnly,
-    })
+    });
   }
 }
 
@@ -121,36 +122,39 @@ function transformDeclaration(sourceFile: SourceFile, importDecl: ImportDeclarat
  */
 function transformImports(sourceFile: SourceFile): void {
   // Snapshot the list before any mutations
-  const importDeclarations = sourceFile.getImportDeclarations()
+  const importDeclarations = sourceFile.getImportDeclarations();
 
-  const barrelImports = importDeclarations.filter((decl) => isBarrelImport(decl.getModuleSpecifierValue()))
+  const barrelImports = importDeclarations.filter((decl) =>
+    isBarrelImport(decl.getModuleSpecifierValue()),
+  );
 
   for (const decl of barrelImports) {
-    transformDeclaration(sourceFile, decl)
+    transformDeclaration(sourceFile, decl);
   }
 }
 
-export default function transform(source: string, filePath: string = 'file.tsx'): string {
+export default function transform(source: string, filePath: string = "file.tsx"): string {
   // Early return: skip files with no barrel imports
-  const hasBarrelImport = source.includes("'@reapit/elements'") || source.includes('"@reapit/elements"')
+  const hasBarrelImport =
+    source.includes("'@reapit/elements'") || source.includes('"@reapit/elements"');
 
   if (!hasBarrelImport) {
-    return source
+    return source;
   }
 
-  const sourceFile = createProjectFromSource(source, filePath)
+  const sourceFile = createProjectFromSource(source, filePath);
 
-  transformImports(sourceFile)
+  transformImports(sourceFile);
 
-  let result = sourceFile.getFullText()
+  let result = sourceFile.getFullText();
 
   // Normalise double-quoted import paths to single quotes.
   // Anchored to import declarations (^import ... from) to avoid mangling
   // double-quoted strings elsewhere in the file.
-  result = result.replace(/^(import\s+.*?\sfrom\s)"([^"]+)"/gm, "$1'$2'")
+  result = result.replace(/^(import\s+.*?\sfrom\s)"([^"]+)"/gm, "$1'$2'");
 
   // Strip semicolons from import statements
-  result = result.replace(/^(import\s+.*?from\s+'[^']+');$/gm, '$1')
+  result = result.replace(/^(import\s+.*?from\s+'[^']+');$/gm, "$1");
 
-  return result
+  return result;
 }

@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
 
 export const ElFileUploaderRemoveButton = styled.button`
   @layer elements.main {
@@ -16,7 +16,7 @@ export const ElFileUploaderRemoveButton = styled.button`
       cursor: not-allowed;
     }
   }
-`
+`;
 
 export const ElFileUploaderRemoveButtonBackground = styled.span`
   @layer elements.main {
@@ -36,4 +36,4 @@ export const ElFileUploaderRemoveButtonBackground = styled.span`
       outline-offset: var(--border-width-default);
     }
   }
-`
+`;

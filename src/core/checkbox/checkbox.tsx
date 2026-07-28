@@ -1,26 +1,27 @@
-import { CheckboxInput } from '#src/core/checkbox-input'
-import { ElCheckbox, ElCheckboxLabelText, ElCheckboxSupplementaryInfo } from './styles'
-import { forwardRef, useEffect, useId } from 'react'
+import { forwardRef, useEffect, useId } from "react";
+import type { ReactNode } from "react";
 
-import type { ReactNode } from 'react'
+import { CheckboxInput } from "#src/core/checkbox-input";
+
+import { ElCheckbox, ElCheckboxLabelText, ElCheckboxSupplementaryInfo } from "./styles";
 
 // NOTE: we omit...
 // - aria-labelledby, because we label the checkbox internally using the label prop
 // - size, because we don't support it for checkboxes
-type AttributesToOmit = 'aria-labelledby' | 'size'
+type AttributesToOmit = "aria-labelledby" | "size";
 
 export namespace Checkbox {
   export interface Props extends Omit<CheckboxInput.Props, AttributesToOmit> {
     /** Checkbox label. */
-    label: ReactNode
+    label: ReactNode;
     /** Supplementary information for the checkbox. Acts as an accessible description for the input. */
-    supplementaryInfo?: ReactNode
+    supplementaryInfo?: ReactNode;
     /**
      * Determines if the checkbox is in an indeterminate state or not. When controlled, care must be
      * taken to ensure changes to the checkbox's state result in changes to the value provided to this prop.
      * As such, should only be used when the checkbox's checked state is also controlled.
      */
-    isIndeterminate?: boolean
+    isIndeterminate?: boolean;
   }
 }
 
@@ -31,7 +32,7 @@ export namespace Checkbox {
 export const Checkbox = forwardRef<HTMLInputElement, Checkbox.Props>(
   (
     {
-      'aria-describedby': ariaDescribedBy,
+      "aria-describedby": ariaDescribedBy,
       className,
       id,
       isIndeterminate = false,
@@ -42,19 +43,19 @@ export const Checkbox = forwardRef<HTMLInputElement, Checkbox.Props>(
     },
     ref,
   ) => {
-    const descriptionId = useId()
-    const inputId = id ?? useId()
-    const labelId = useId()
+    const descriptionId = useId();
+    const inputId = id ?? useId();
+    const labelId = useId();
 
     useEffect(
       function syncIsIndeterminateWithInput() {
-        const checkbox = document.getElementById(inputId)
+        const checkbox = document.getElementById(inputId);
         if (checkbox instanceof HTMLInputElement) {
-          checkbox.indeterminate = isIndeterminate
+          checkbox.indeterminate = isIndeterminate;
         }
       },
       [inputId, isIndeterminate],
-    )
+    );
 
     return (
       <ElCheckbox className={className}>
@@ -68,9 +69,11 @@ export const Checkbox = forwardRef<HTMLInputElement, Checkbox.Props>(
         />
         <ElCheckboxLabelText id={labelId}>{label}</ElCheckboxLabelText>
         {supplementaryInfo && (
-          <ElCheckboxSupplementaryInfo id={descriptionId}>{supplementaryInfo}</ElCheckboxSupplementaryInfo>
+          <ElCheckboxSupplementaryInfo id={descriptionId}>
+            {supplementaryInfo}
+          </ElCheckboxSupplementaryInfo>
         )}
       </ElCheckbox>
-    )
+    );
   },
-)
+);

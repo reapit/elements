@@ -1,7 +1,7 @@
-import { Combobox } from '#src/utils/combobox'
-import { useComboboxButton } from '#src/utils/combobox/use-button'
+import { Combobox } from "#src/utils/combobox";
+import { useComboboxButton } from "#src/utils/combobox/use-button";
 
-type AttributesToOmit = 'aria-controls' | 'aria-expanded' | 'children' | 'id' | 'size'
+type AttributesToOmit = "aria-controls" | "aria-expanded" | "children" | "id" | "size";
 
 export namespace SelectButton {
   export interface Props extends Omit<Combobox.ButtonProps, AttributesToOmit> {
@@ -9,14 +9,14 @@ export namespace SelectButton {
      * Render-prop to customise display of selected content. Typically used with the card
      * selection style.
      */
-    children?: Combobox.SelectedContentProps['children']
+    children?: Combobox.SelectedContentProps["children"];
     /** Default options to display when no selections have been made. */
-    defaultOptions?: Combobox.SelectedContentProps['defaultOptions']
+    defaultOptions?: Combobox.SelectedContentProps["defaultOptions"];
     /**
      * Visual style of the selected content. Only applies for single-select autocompletes
      * when a selection has been made.
      */
-    selectionStyle?: 'card' | 'default'
+    selectionStyle?: "card" | "default";
   }
 }
 
@@ -28,24 +28,26 @@ export function SelectButton({
   children,
   defaultOptions,
   onClick,
-  placeholder = 'Select an option',
-  selectionStyle = 'default',
+  placeholder = "Select an option",
+  selectionStyle = "default",
   ...rest
 }: SelectButton.Props) {
-  const buttonProps = useComboboxButton({ onClick })
-  const context = Combobox.useContext()
-  const hasSelection = Combobox.useHasSelection(context.listboxId)
+  const buttonProps = useComboboxButton({ onClick });
+  const context = Combobox.useContext();
+  const hasSelection = Combobox.useHasSelection(context.listboxId);
 
   // Selected content is only shown for single-selects with a selection
-  const showSelectedContent = !context.multiple && hasSelection
+  const showSelectedContent = !context.multiple && hasSelection;
   // The card style is only shown for single-selects with a selection
-  const showCard = selectionStyle === 'card' && showSelectedContent
+  const showCard = selectionStyle === "card" && showSelectedContent;
 
   return showCard ? (
     <Combobox.Card
       {...rest}
       {...buttonProps}
-      action={<Combobox.ClearButton aria-controls={context.listboxId} disabled={context.disabled} />}
+      action={
+        <Combobox.ClearButton aria-controls={context.listboxId} disabled={context.disabled} />
+      }
       size={context.size}
     >
       <Combobox.SelectedContent defaultOptions={defaultOptions} listboxId={context.listboxId}>
@@ -72,7 +74,7 @@ export function SelectButton({
         </Combobox.SelectedContent>
       )}
     </Combobox.Button>
-  )
+  );
 }
 
-SelectButton.displayName = 'Select.Button'
+SelectButton.displayName = "Select.Button";

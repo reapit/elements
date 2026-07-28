@@ -1,20 +1,21 @@
-import { ChevronDownIcon } from '#src/icons/chevron-down'
-import { cx } from '@linaria/core'
+import { cx } from "@linaria/core";
+import { useId } from "react";
+import type { HTMLAttributes, ReactNode } from "react";
+
+import { ChevronDownIcon } from "#src/icons/chevron-down";
+
 import {
   elOfficeSwitcherOfficeGroupSummary,
   ElOfficeSwitcherOfficeGroupChevron,
   ElOfficeSwitcherOfficeGroupLabel,
-} from './styles'
-import { useId } from 'react'
-
-import type { HTMLAttributes, ReactNode } from 'react'
+} from "./styles";
 
 export namespace OfficeSwitcherOfficeGroupSummary {
   export interface Props extends HTMLAttributes<HTMLElement> {
     /**
      * The label text for the office group summary
      */
-    children: ReactNode
+    children: ReactNode;
   }
 }
 
@@ -30,13 +31,13 @@ export namespace OfficeSwitcherOfficeGroupSummary {
  * This component should only be used as part of an `OfficeSwitcherOfficeGroup` component.
  */
 export function OfficeSwitcherOfficeGroupSummary({
-  'aria-labelledby': ariaLabelledBy,
+  "aria-labelledby": ariaLabelledBy,
   children,
   className,
   id,
   ...props
 }: OfficeSwitcherOfficeGroupSummary.Props) {
-  const labelId = ariaLabelledBy ?? useId()
+  const labelId = ariaLabelledBy ?? useId();
 
   return (
     <summary
@@ -51,5 +52,5 @@ export function OfficeSwitcherOfficeGroupSummary({
         <ChevronDownIcon />
       </ElOfficeSwitcherOfficeGroupChevron>
     </summary>
-  )
+  );
 }

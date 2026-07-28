@@ -28,26 +28,29 @@
  *
  * @returns A URLSearchParams object with the same key-value pairs as the Iterable.
  */
-export function toURLSearchParams(entries: Iterable<[string, string | string[] | null]>, init?: URLSearchParams) {
-  const searchParams = new URLSearchParams(init)
+export function toURLSearchParams(
+  entries: Iterable<[string, string | string[] | null]>,
+  init?: URLSearchParams,
+) {
+  const searchParams = new URLSearchParams(init);
 
   for (const [key, value] of entries) {
     if (value === null) {
-      searchParams.delete(key)
+      searchParams.delete(key);
     } else if (Array.isArray(value)) {
       // The new array of entries replaces any existing entries.
-      searchParams.delete(key)
+      searchParams.delete(key);
       for (const item of value) {
-        searchParams.append(key, item)
+        searchParams.append(key, item);
       }
     } else {
       // The new entry replaces any existing entries.
-      searchParams.set(key, value)
+      searchParams.set(key, value);
     }
   }
 
   // Sort the entries alphabetically.
-  searchParams.sort()
+  searchParams.sort();
 
-  return searchParams
+  return searchParams;
 }

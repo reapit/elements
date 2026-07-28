@@ -1,11 +1,13 @@
-import { Button } from '#src/core/button'
-import { styled } from '@linaria/react'
-import { font } from '#src/utils/font'
-import { isWidthAtOrAbove } from '#src/utils/breakpoints'
-import type { AlertBanner } from './alert-banner'
+import { styled } from "@linaria/react";
+
+import { Button } from "#src/core/button";
+import { isWidthAtOrAbove } from "#src/utils/breakpoints";
+import { font } from "#src/utils/font";
+
+import type { AlertBanner } from "./alert-banner";
 
 interface ElAlertBannerProps {
-  'data-variant': AlertBanner.Variant
+  "data-variant": AlertBanner.Variant;
 }
 
 export const ElAlertBanner = styled.div<ElAlertBannerProps>`
@@ -28,7 +30,7 @@ export const ElAlertBanner = styled.div<ElAlertBannerProps>`
     padding: var(--spacing-4) var(--spacing-5);
 
     /* Responsive padding adjustments */
-    @container ${isWidthAtOrAbove('SM')} {
+    @container ${isWidthAtOrAbove("SM")} {
       grid: 'icon description actions' auto / minmax(0, auto) 1fr minmax(0, auto);
       --alert-banner-actions-padding-block-start: 0;
     }
@@ -59,7 +61,7 @@ export const ElAlertBanner = styled.div<ElAlertBannerProps>`
       --alert-banner-icon-colour: var(--colour-icon-info);
     }
   }
-`
+`;
 
 export const ElAlertBannerActions = styled.div`
   @layer elements.main {
@@ -70,26 +72,26 @@ export const ElAlertBannerActions = styled.div`
     flex-shrink: 0;
     height: fit-content;
   }
-`
+`;
 
 export const ElAlertBannerDescription = styled.p`
   @layer elements.main {
     grid-area: description;
 
-    ${font('base', 'regular')}
+    ${font("base", "regular")}
     flex: 1 0 0;
     color: var(--colour-text-primary);
     min-width: 0;
     margin: 0;
   }
-`
+`;
 
 export const ElAlertBannerDismissButton = styled(Button)`
   @layer elements.main {
     position: absolute;
     inset: var(--spacing-2) var(--spacing-2) var(--spacing-2) auto;
   }
-`
+`;
 
 export const ElAlertBannerIconContainer = styled.div`
   @layer elements.main {
@@ -104,4 +106,4 @@ export const ElAlertBannerIconContainer = styled.div`
     height: var(--icon_size-md);
     width: var(--icon_size-md);
   }
-`
+`;

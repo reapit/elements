@@ -6,18 +6,19 @@
 // unlayered override after the cssEntry is written so the correct flex wins.
 // Fix is minimal and targeted — remove once the upstream duplicate-class bug is resolved
 // in src/deprecated/form-layout/__styles__/index.ts.
-import { appendFileSync } from 'node:fs'
-import * as base from '../../.ds-sync/lib/css-fallback.mjs'
+import { appendFileSync } from "node:fs";
 
-export const { inlineFontFacesFromStorybook, isPlaceholderCss, scrapeRemoteImports } = base
+import * as base from "../../.ds-sync/lib/css-fallback.mjs";
+
+export const { inlineFontFacesFromStorybook, isPlaceholderCss, scrapeRemoteImports } = base;
 
 export function fallbackCssFromStorybook(opts) {
-  const result = base.fallbackCssFromStorybook(opts)
+  const result = base.fallbackCssFromStorybook(opts);
   appendFileSync(
     opts.bundleCss,
-    '\n/* Fix: .el-form-layout class collision — deprecated FormLayout ships an unlayered\n' +
+    "\n/* Fix: .el-form-layout class collision — deprecated FormLayout ships an unlayered\n" +
       "   display:grid rule that beats the new FormLayout's layered display:flex. */\n" +
-      '.el-form-layout{display:flex;flex-direction:column;gap:var(--spacing-10)}\n',
-  )
-  return result
+      ".el-form-layout{display:flex;flex-direction:column;gap:var(--spacing-10)}\n",
+  );
+  return result;
 }

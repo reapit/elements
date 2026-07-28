@@ -4,5 +4,5 @@
  * (explicitly persistent).
  */
 export function isTimedDuration(duration: number | undefined): duration is number {
-  return duration !== undefined && isFinite(duration)
+  return duration !== undefined && isFinite(duration);
 }

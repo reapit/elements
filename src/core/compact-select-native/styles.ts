@@ -1,7 +1,7 @@
-import { styled } from '@linaria/react'
-import { font } from '#src/utils/font'
+import { styled } from "@linaria/react";
+import type { CSSProperties } from "react";
 
-import type { CSSProperties } from 'react'
+import { font } from "#src/utils/font";
 
 export const ElCompactSelectNativeContainer = styled.div`
   @layer elements.main {
@@ -10,12 +10,12 @@ export const ElCompactSelectNativeContainer = styled.div`
     align-items: center;
     max-width: 100%;
   }
-`
+`;
 
 interface ElCompactSelectNativeProps {
   style?: CSSProperties & {
-    '--select-max-width'?: string
-  }
+    "--select-max-width"?: string;
+  };
 }
 
 export const ElCompactSelectNative = styled.select<ElCompactSelectNativeProps>`
@@ -46,19 +46,19 @@ export const ElCompactSelectNative = styled.select<ElCompactSelectNativeProps>`
     }
 
     /* Sizes */
-    &[data-size='small'] {
-      ${font('xs', 'medium')}
+    &[data-size="small"] {
+      ${font("xs", "medium")}
     }
 
-    &[data-size='medium'] {
-      ${font('sm', 'medium')}
+    &[data-size="medium"] {
+      ${font("sm", "medium")}
     }
 
-    &[data-size='large'] {
-      ${font('base', 'medium')}
+    &[data-size="large"] {
+      ${font("base", "medium")}
     }
   }
-`
+`;
 
 export const ElCompactSelectNativeIconContainer = styled.span`
   @layer elements.main {
@@ -77,4 +77,4 @@ export const ElCompactSelectNativeIconContainer = styled.span`
     width: var(--icon_size-sm);
     height: var(--icon_size-sm);
   }
-`
+`;

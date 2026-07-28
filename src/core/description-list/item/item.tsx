@@ -1,8 +1,12 @@
-import { cx } from '@linaria/core'
-import { elDescriptionListItem, elDescriptionListItemDescription, elDescriptionListItemLabel } from './styles'
-import { useDescriptionListContext } from '../context'
+import { cx } from "@linaria/core";
+import type { HTMLAttributes } from "react";
 
-import type { HTMLAttributes } from 'react'
+import { useDescriptionListContext } from "../context";
+import {
+  elDescriptionListItem,
+  elDescriptionListItemDescription,
+  elDescriptionListItemLabel,
+} from "./styles";
 
 export namespace DescriptionListItem {
   export interface Props extends HTMLAttributes<HTMLDivElement> {
@@ -11,18 +15,18 @@ export namespace DescriptionListItem {
      * specifies the item's size and location within the description list's grid. Typically used to enable
      * an item to span multiple columns and/or rows.
      */
-    area?: string
+    area?: string;
     /** The description content to display. */
-    children: React.ReactNode
+    children: React.ReactNode;
     /** The label text to display. */
-    label: React.ReactNode
+    label: React.ReactNode;
     /**
      * The layout variant. "tabular" uses CSS Grid subgrid to align columns, "inline" displays label and description
      * in a row, "stacked" displays them vertically.
      */
-    layout?: 'stacked' | 'tabular' | 'inline'
+    layout?: "stacked" | "tabular" | "inline";
     /** The size of the description list item. */
-    size?: 'base' | 'sm'
+    size?: "base" | "sm";
   }
 }
 
@@ -47,9 +51,9 @@ export function DescriptionListItem({
   style,
   ...rest
 }: DescriptionListItem.Props) {
-  const context = useDescriptionListContext()
-  const layout = layoutProp ?? context.layout ?? 'stacked'
-  const size = sizeProp ?? context.size ?? 'base'
+  const context = useDescriptionListContext();
+  const layout = layoutProp ?? context.layout ?? "stacked";
+  const size = sizeProp ?? context.size ?? "base";
 
   return (
     <div
@@ -62,7 +66,7 @@ export function DescriptionListItem({
       <dt className={elDescriptionListItemLabel}>{label}</dt>
       <dd className={elDescriptionListItemDescription}>{children}</dd>
     </div>
-  )
+  );
 }
 
-DescriptionListItem.displayName = 'DescriptionList.Item'
+DescriptionListItem.displayName = "DescriptionList.Item";

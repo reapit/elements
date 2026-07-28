@@ -1,10 +1,12 @@
-import { ComboboxContext } from '../../context'
-import { ComboboxListboxOption } from '../listbox-option'
-import { ListboxContext } from '#src/utils/listbox/context'
-import { ListboxRenderContext } from '#src/utils/listbox/render-context'
-import { render, screen } from '@testing-library/react'
+import { render, screen } from "@testing-library/react";
 
-test('renders as an option', () => {
+import { ListboxContext } from "#src/utils/listbox/context";
+import { ListboxRenderContext } from "#src/utils/listbox/render-context";
+
+import { ComboboxContext } from "../../context";
+import { ComboboxListboxOption } from "../listbox-option";
+
+test("renders as an option", () => {
   render(
     <ComboboxContext.Provider value={defaultComboboxContext}>
       <ListboxContext.Provider value={defaultListboxContext}>
@@ -13,52 +15,52 @@ test('renders as an option', () => {
         </ListboxRenderContext.Provider>
       </ListboxContext.Provider>
     </ComboboxContext.Provider>,
-  )
-  expect(screen.getByRole('option')).toBeVisible()
-})
+  );
+  expect(screen.getByRole("option")).toBeVisible();
+});
 
-test('has size specified by ComboboxContext', () => {
+test("has size specified by ComboboxContext", () => {
   render(
-    <ComboboxContext.Provider value={{ ...defaultComboboxContext, size: 'large' }}>
+    <ComboboxContext.Provider value={{ ...defaultComboboxContext, size: "large" }}>
       <ListboxContext.Provider value={defaultListboxContext}>
         <ListboxRenderContext.Provider value="custom">
           <ComboboxListboxOption value="1" />
         </ListboxRenderContext.Provider>
       </ListboxContext.Provider>
     </ComboboxContext.Provider>,
-  )
-  expect(screen.getByRole('option')).toHaveAttribute('data-size', 'large')
-})
+  );
+  expect(screen.getByRole("option")).toHaveAttribute("data-size", "large");
+});
 
-test('promotes small size to medium', () => {
+test("promotes small size to medium", () => {
   render(
-    <ComboboxContext.Provider value={{ ...defaultComboboxContext, size: 'small' }}>
+    <ComboboxContext.Provider value={{ ...defaultComboboxContext, size: "small" }}>
       <ListboxContext.Provider value={defaultListboxContext}>
         <ListboxRenderContext.Provider value="custom">
           <ComboboxListboxOption value="1" />
         </ListboxRenderContext.Provider>
       </ListboxContext.Provider>
     </ComboboxContext.Provider>,
-  )
-  expect(screen.getByRole('option')).toHaveAttribute('data-size', 'medium')
-})
+  );
+  expect(screen.getByRole("option")).toHaveAttribute("data-size", "medium");
+});
 
 const defaultComboboxContext: ComboboxContext.Value = {
-  comboboxId: 'button-id',
+  comboboxId: "button-id",
   disabled: false,
-  listboxId: 'listbox-id',
+  listboxId: "listbox-id",
   multiple: false,
-  popupId: 'popup-id',
+  popupId: "popup-id",
   required: false,
-  searchInputId: 'search-input-id',
-  size: 'medium',
-}
+  searchInputId: "search-input-id",
+  size: "medium",
+};
 
 const defaultListboxContext: ListboxContext.Value = {
   disabled: false,
-  listboxId: 'my-listbox',
+  listboxId: "my-listbox",
   multiple: false,
-  role: 'listbox',
-  selectAction: 'toggle',
+  role: "listbox",
+  selectAction: "toggle",
   selectValue: [],
-}
+};

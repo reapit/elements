@@ -1,5 +1,6 @@
-import type { SourceFile } from 'ts-morph'
-import { matchesPackage } from './elements-import.js'
+import type { SourceFile } from "ts-morph";
+
+import { matchesPackage } from "./elements-import.js";
 
 /**
  * Resolves the module specifier to use when writing a migrated import.
@@ -19,9 +20,9 @@ export function resolveTargetSpecifier(
   facadePackage?: string,
 ): string {
   if (facadePackage && matchesPackage(sourceSpecifier, facadePackage)) {
-    return sourceSpecifier
+    return sourceSpecifier;
   }
-  return targetSpecifier
+  return targetSpecifier;
 }
 
 /**
@@ -55,44 +56,44 @@ export function addImportsToTarget(
   targetSpecifier: string,
   options?: { promoteDeclarationTypeOnly?: boolean },
 ): void {
-  if (importsToAdd.length === 0) return
+  if (importsToAdd.length === 0) return;
 
-  const currentImportDeclarations = sourceFile.getImportDeclarations()
+  const currentImportDeclarations = sourceFile.getImportDeclarations();
 
   let targetDecl = currentImportDeclarations.find(
     (importDecl) => importDecl.getModuleSpecifierValue() === targetSpecifier,
-  )
+  );
 
   if (!targetDecl) {
-    targetDecl = sourceFile.addImportDeclaration({ moduleSpecifier: targetSpecifier })
+    targetDecl = sourceFile.addImportDeclaration({ moduleSpecifier: targetSpecifier });
   }
 
   if (options?.promoteDeclarationTypeOnly) {
-    const needsValueDecl = importsToAdd.some((entry) => !entry.isTypeOnly)
+    const needsValueDecl = importsToAdd.some((entry) => !entry.isTypeOnly);
     if (needsValueDecl && targetDecl.isTypeOnly()) {
-      targetDecl.setIsTypeOnly(false)
+      targetDecl.setIsTypeOnly(false);
     }
   }
 
   for (const { name, alias, isTypeOnly } of importsToAdd) {
     const existingImport = targetDecl.getNamedImports().find((namedImport) => {
-      return namedImport.getName() === name && namedImport.getAliasNode()?.getText() === alias
-    })
+      return namedImport.getName() === name && namedImport.getAliasNode()?.getText() === alias;
+    });
 
     if (existingImport) {
       if (existingImport.isTypeOnly() && !isTypeOnly) {
-        existingImport.setIsTypeOnly(false)
+        existingImport.setIsTypeOnly(false);
       }
-      continue
+      continue;
     }
 
     if (alias && alias !== name) {
-      const typePrefix = isTypeOnly ? 'type ' : ''
-      targetDecl.addNamedImport(`${typePrefix}${name} as ${alias}`)
+      const typePrefix = isTypeOnly ? "type " : "";
+      targetDecl.addNamedImport(`${typePrefix}${name} as ${alias}`);
     } else if (isTypeOnly) {
-      targetDecl.addNamedImport({ name, isTypeOnly: true })
+      targetDecl.addNamedImport({ name, isTypeOnly: true });
     } else {
-      targetDecl.addNamedImport(name)
+      targetDecl.addNamedImport(name);
     }
   }
 }

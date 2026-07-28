@@ -1,4 +1,4 @@
-import FullscreenExitSvg from './svgs/fullscreen-exit.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import FullscreenExitSvg from "./svgs/fullscreen-exit.svg?react";
 
-export const FullscreenExitIcon = makeIcon('FullscreenExitIcon', FullscreenExitSvg)
+export const FullscreenExitIcon = makeIcon("FullscreenExitIcon", FullscreenExitSvg);

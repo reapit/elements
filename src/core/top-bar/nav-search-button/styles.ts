@@ -1,6 +1,8 @@
-import { font } from '#src/utils/font'
-import SearchIcon from './icons/search-icon.svg?react'
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
+
+import { font } from "#src/utils/font";
+
+import SearchIcon from "./icons/search-icon.svg?react";
 
 export const ElTopBarNavSearchButton = styled.button`
   @layer elements.main {
@@ -28,7 +30,7 @@ export const ElTopBarNavSearchButton = styled.button`
     border: none;
     outline: none;
   }
-`
+`;
 
 export const ElTopBarNavSearchButtonIcon = styled(SearchIcon)`
   @layer elements.main {
@@ -37,21 +39,21 @@ export const ElTopBarNavSearchButtonIcon = styled(SearchIcon)`
     flex-shrink: 0;
     color: var(--comp-navigation-colour-icon-nav_search);
   }
-`
+`;
 
 export const ElTopBarNavSearchButtonPlaceholder = styled.span`
   @layer elements.main {
     color: var(--comp-navigation-colour-text-nav_search-placeholder);
-    ${font('xs', 'regular')}
+    ${font("xs", "regular")}
 
     flex: 1;
     text-align: left;
   }
-`
+`;
 
 export const ElTopBarNavSearchButtonShortcutText = styled.kbd`
   @layer elements.main {
     color: var(--comp-navigation-colour-text-nav_search-placeholder);
-    ${font('2xs', 'medium')}
+    ${font("2xs", "medium")}
   }
-`
+`;

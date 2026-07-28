@@ -1,22 +1,22 @@
-import { cx } from '@linaria/core'
-import { elTableHeaderRow } from './styles'
+import { cx } from "@linaria/core";
+import type { HTMLAttributes, ReactNode } from "react";
 
-import type { HTMLAttributes, ReactNode } from 'react'
+import { elTableHeaderRow } from "./styles";
 
 export namespace TableHeaderRow {
   interface AsTrProps extends HTMLAttributes<HTMLTableRowElement> {
-    as?: 'tr'
+    as?: "tr";
     /** The row's cells. */
-    children: ReactNode
+    children: ReactNode;
   }
 
   interface AsDivProps extends HTMLAttributes<HTMLDivElement> {
-    as: 'div'
+    as: "div";
     /** The row's cells. */
-    children: ReactNode
+    children: ReactNode;
   }
 
-  export type Props = AsTrProps | AsDivProps
+  export type Props = AsTrProps | AsDivProps;
 }
 
 /**
@@ -25,15 +25,20 @@ export namespace TableHeaderRow {
  * [subgrid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Subgrid).
  * Typically used via `Table.HeaderRow`.
  */
-export function TableHeaderRow({ as: Element = 'tr', children, className, ...rest }: TableHeaderRow.Props) {
+export function TableHeaderRow({
+  as: Element = "tr",
+  children,
+  className,
+  ...rest
+}: TableHeaderRow.Props) {
   return (
     <Element {...rest} className={cx(elTableHeaderRow, className)}>
       {children}
     </Element>
-  )
+  );
 }
 
-TableHeaderRow.displayName = 'Table.HeaderRow'
+TableHeaderRow.displayName = "Table.HeaderRow";
 
 // Backward compatibility
-export type TableHeaderRowProps = TableHeaderRow.Props
+export type TableHeaderRowProps = TableHeaderRow.Props;

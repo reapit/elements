@@ -1,24 +1,25 @@
-import { ElSupplementaryInfoItem } from './styles'
-import type { HTMLAttributes, ReactNode } from 'react'
+import type { HTMLAttributes, ReactNode } from "react";
+
+import { ElSupplementaryInfoItem } from "./styles";
 
 export type SupplementaryInfoColour =
-  | 'inherit'
-  | 'primary'
-  | 'secondary'
-  | 'neutral'
-  | 'success'
-  | 'pending'
-  | 'warning'
-  | 'danger'
-  | 'accent_1'
-  | 'accent_2'
+  | "inherit"
+  | "primary"
+  | "secondary"
+  | "neutral"
+  | "success"
+  | "pending"
+  | "warning"
+  | "danger"
+  | "accent_1"
+  | "accent_2";
 
 export namespace SupplementaryInfoItem {
   export interface Props extends HTMLAttributes<HTMLLIElement> {
     /** The content of the item. */
-    children: ReactNode
+    children: ReactNode;
     /** Text colour of the item. Used to convey certain messages or to draw users' attention to certain information */
-    colour?: SupplementaryInfoColour
+    colour?: SupplementaryInfoColour;
   }
 }
 
@@ -29,12 +30,16 @@ export namespace SupplementaryInfoItem {
  *
  * Item's are always an `<li>` element because `SupplementaryInfo` is always a `<ul>` element.
  */
-export function SupplementaryInfoItem({ children, colour = 'inherit', ...rest }: SupplementaryInfoItem.Props) {
+export function SupplementaryInfoItem({
+  children,
+  colour = "inherit",
+  ...rest
+}: SupplementaryInfoItem.Props) {
   return (
     <ElSupplementaryInfoItem {...rest} data-colour={colour}>
       {children}
     </ElSupplementaryInfoItem>
-  )
+  );
 }
 
-SupplementaryInfoItem.displayName = 'SupplementaryInfo.Item'
+SupplementaryInfoItem.displayName = "SupplementaryInfo.Item";

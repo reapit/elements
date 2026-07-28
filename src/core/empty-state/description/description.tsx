@@ -1,31 +1,41 @@
-import { ElEmptyStateDescription, ElEmptyStateDescriptionSecondaryText, ElEmptyStateDescriptionTitle } from './styles'
+import type { HTMLAttributes, ReactNode } from "react";
 
-import type { HTMLAttributes, ReactNode } from 'react'
+import {
+  ElEmptyStateDescription,
+  ElEmptyStateDescriptionSecondaryText,
+  ElEmptyStateDescriptionTitle,
+} from "./styles";
 
 export namespace EmptyStateDescription {
   export interface Props extends HTMLAttributes<HTMLDivElement> {
     /** The empty state's title text. */
-    children?: ReactNode
+    children?: ReactNode;
     /** The empty state's secondary text. */
-    secondaryText?: ReactNode
+    secondaryText?: ReactNode;
   }
 }
 
 /**
  * @deprecated Use `EmptyStateDescription.Props` instead.
  */
-export type EmptyStateDescriptionProps = EmptyStateDescription.Props
+export type EmptyStateDescriptionProps = EmptyStateDescription.Props;
 
 /**
  * A simple component that displays a title and optional secondary text for the `EmptyState`.
  */
-export function EmptyStateDescription({ children, secondaryText, ...rest }: EmptyStateDescription.Props) {
+export function EmptyStateDescription({
+  children,
+  secondaryText,
+  ...rest
+}: EmptyStateDescription.Props) {
   return (
     <ElEmptyStateDescription {...rest}>
       {children && <ElEmptyStateDescriptionTitle>{children}</ElEmptyStateDescriptionTitle>}
-      {secondaryText && <ElEmptyStateDescriptionSecondaryText>{secondaryText}</ElEmptyStateDescriptionSecondaryText>}
+      {secondaryText && (
+        <ElEmptyStateDescriptionSecondaryText>{secondaryText}</ElEmptyStateDescriptionSecondaryText>
+      )}
     </ElEmptyStateDescription>
-  )
+  );
 }
 
-EmptyStateDescription.displayName = 'EmptyState.Description'
+EmptyStateDescription.displayName = "EmptyState.Description";

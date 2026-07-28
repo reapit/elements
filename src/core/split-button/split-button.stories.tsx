@@ -1,27 +1,30 @@
-import preview from '#.storybook/preview'
-import { Menu } from '#src/core/menu'
-import { SplitButton } from './split-button'
+import preview from "#.storybook/preview";
+import { Menu } from "#src/core/menu";
+
+import { SplitButton } from "./split-button";
 
 const meta = preview.meta({
-  title: 'Buttons/SplitButton',
+  title: "Buttons/SplitButton",
   component: SplitButton,
   argTypes: {
     action: {
-      control: 'radio',
-      options: ['Default', 'Disabled', 'Disabled (aria-disabled)'],
+      control: "radio",
+      options: ["Default", "Disabled", "Disabled (aria-disabled)"],
       mapping: {
         Default: <SplitButton.Action>Button</SplitButton.Action>,
         Disabled: <SplitButton.Action disabled>Button</SplitButton.Action>,
-        'Disabled (aria-disabled)': <SplitButton.Action aria-disabled="true">Button</SplitButton.Action>,
+        "Disabled (aria-disabled)": (
+          <SplitButton.Action aria-disabled="true">Button</SplitButton.Action>
+        ),
       },
     },
     busy: {
-      control: 'radio',
-      options: ['action', 'menu-item'],
+      control: "radio",
+      options: ["action", "menu-item"],
     },
     menu: {
-      control: 'radio',
-      options: ['Default', 'Disabled', 'Disabled (aria-disabled)'],
+      control: "radio",
+      options: ["Default", "Disabled", "Disabled (aria-disabled)"],
       mapping: {
         Default: (
           <SplitButton.Menu aria-label="More actions">
@@ -35,7 +38,7 @@ const meta = preview.meta({
             {null}
           </SplitButton.Menu>
         ),
-        'Disabled (aria-disabled)': (
+        "Disabled (aria-disabled)": (
           <SplitButton.Menu aria-label="More actions" aria-disabled="true">
             {/* NOTE: We don't bother defining any items because the menu is disabled. */}
             {null}
@@ -44,25 +47,25 @@ const meta = preview.meta({
       },
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
-    action: 'Default',
+    action: "Default",
     busy: undefined,
-    menu: 'Default',
-    size: 'medium',
-    variant: 'primary',
+    menu: "Default",
+    size: "medium",
+    variant: "primary",
   },
-})
+});
 
 /**
  * The `SplitButton` component supports the following button variants: `primary` and `secondary`.
  */
 export const Variants = Example.extend({
   args: {
-    size: 'medium',
-    variant: 'primary',
+    size: "medium",
+    variant: "primary",
   },
   argTypes: {
     variant: {
@@ -71,7 +74,7 @@ export const Variants = Example.extend({
   },
   decorators: [
     (Story) => (
-      <div style={{ display: 'flex', gap: 'var(--spacing-6)' }}>
+      <div style={{ display: "flex", gap: "var(--spacing-6)" }}>
         <Story />
       </div>
     ),
@@ -82,15 +85,15 @@ export const Variants = Example.extend({
       <SplitButton {...args} variant="secondary" />
     </>
   ),
-})
+});
 
 /**
  * The `SplitButton` component supports the following button sizes: `small`, `medium`, and `large`.
  */
 export const Sizes = Example.extend({
   args: {
-    size: 'medium',
-    variant: 'primary',
+    size: "medium",
+    variant: "primary",
   },
   argTypes: {
     size: {
@@ -99,7 +102,7 @@ export const Sizes = Example.extend({
   },
   decorators: [
     (Story) => (
-      <div style={{ display: 'flex', gap: 'var(--spacing-6)' }}>
+      <div style={{ display: "flex", gap: "var(--spacing-6)" }}>
         <Story />
       </div>
     ),
@@ -111,7 +114,7 @@ export const Sizes = Example.extend({
       <SplitButton {...args} size="large" />
     </>
   ),
-})
+});
 
 /**
  * While the individual buttons that comprise the `SplitButton` can be disabled, try to avoid disabling the menu
@@ -119,9 +122,9 @@ export const Sizes = Example.extend({
  */
 export const Disabled = Example.extend({
   args: {
-    action: 'Disabled',
-    menu: 'Disabled',
-    variant: 'secondary',
+    action: "Disabled",
+    menu: "Disabled",
+    variant: "secondary",
   },
   argTypes: {
     action: {
@@ -135,10 +138,10 @@ export const Disabled = Example.extend({
     (Story) => (
       <div
         style={{
-          display: 'grid',
-          gridAutoFlow: 'row',
-          gridTemplateColumns: 'repeat(3, min-content)',
-          gap: 'var(--spacing-6)',
+          display: "grid",
+          gridAutoFlow: "row",
+          gridTemplateColumns: "repeat(3, min-content)",
+          gap: "var(--spacing-6)",
         }}
       >
         <Story />
@@ -152,7 +155,7 @@ export const Disabled = Example.extend({
       <SplitButton {...args} menu={meta.input.argTypes!.menu!.mapping!.Default} />
     </>
   ),
-})
+});
 
 /**
  * While the individual buttons that comprise the `SplitButton` can be individually marked as busy,
@@ -166,9 +169,9 @@ export const Disabled = Example.extend({
  */
 export const Busy = Example.extend({
   args: {
-    busy: 'menu-item',
+    busy: "menu-item",
   },
-})
+});
 
 /**
  * When used within a form, a split button's main action and menu items will, by default, submit
@@ -194,19 +197,19 @@ export const Forms = meta.story({
         </Menu.Item>
       </SplitButton.Menu>
     ),
-    size: 'medium',
-    variant: 'primary',
+    size: "medium",
+    variant: "primary",
   },
   decorators: [
     (Story) => (
       <form
         onSubmit={(e) => {
-          e.preventDefault()
+          e.preventDefault();
           if (e.nativeEvent instanceof SubmitEvent) {
             // NOTE: form data won't include the submitter's name and value without the submitter
             // being passed to the FormData constructor.
-            const formData = new FormData(e.currentTarget, e.nativeEvent.submitter)
-            alert(`Action = ${formData.get('action')}`)
+            const formData = new FormData(e.currentTarget, e.nativeEvent.submitter);
+            alert(`Action = ${formData.get("action")}`);
           }
         }}
       >
@@ -214,4 +217,4 @@ export const Forms = meta.story({
       </form>
     ),
   ],
-})
+});

@@ -1,20 +1,21 @@
-import preview from '#.storybook/preview'
-import { Button } from '#src/core/button'
-import { ButtonGroup } from '#src/core/button-group'
-import { Pattern } from '#src/core/drawer/__story__/Pattern'
-import { FocusedLayout } from '../focused-layout'
-import { supportedProductLogos } from '../product-logo'
+import preview from "#.storybook/preview";
+import { Button } from "#src/core/button";
+import { ButtonGroup } from "#src/core/button-group";
+import { Pattern } from "#src/core/drawer/__story__/Pattern";
+
+import { FocusedLayout } from "../focused-layout";
+import { supportedProductLogos } from "../product-logo";
 
 const meta = preview.meta({
-  title: 'Containers and layout/FocusedLayout/TopBar',
+  title: "Containers and layout/FocusedLayout/TopBar",
   component: FocusedLayout.TopBar,
   argTypes: {
     title: {
-      control: 'text',
+      control: "text",
     },
     logo: {
-      control: 'select',
-      options: ['None', ...supportedProductLogos],
+      control: "select",
+      options: ["None", ...supportedProductLogos],
       mapping: {
         None: undefined,
         ...Object.fromEntries(
@@ -26,8 +27,8 @@ const meta = preview.meta({
       },
     },
     children: {
-      control: 'select',
-      options: ['Simple', 'MultiStep', 'None'],
+      control: "select",
+      options: ["Simple", "MultiStep", "None"],
       mapping: {
         Simple: (
           <ButtonGroup>
@@ -60,7 +61,7 @@ const meta = preview.meta({
     },
   },
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
   },
   decorators: [
     (Story) => (
@@ -72,35 +73,36 @@ const meta = preview.meta({
       </FocusedLayout>
     ),
   ],
-})
+});
 
 /**
  * Without any actions, the top bar will scroll away with the page content.
  */
 export const Example = meta.story({
   args: {
-    logo: 'Reapit',
-    title: 'Page title',
-    children: 'None',
+    logo: "Reapit",
+    title: "Page title",
+    children: "None",
   },
-})
+});
 
 /**
  * When the top bar contains some actions, it will stick to the top of the page.
  */
 export const Sticky = Example.extend({
   args: {
-    children: 'Simple',
+    children: "Simple",
   },
-})
+});
 
 /**
  * Long titles will wrap within the top bar.
  */
 export const Wrapping = meta.story({
   args: {
-    logo: 'Reapit',
-    title: 'This is a very long page title that will wrap to additional lines when it exceeds the available space',
-    children: 'Simple',
+    logo: "Reapit",
+    title:
+      "This is a very long page title that will wrap to additional lines when it exceeds the available space",
+    children: "Simple",
   },
-})
+});

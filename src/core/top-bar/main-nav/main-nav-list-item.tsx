@@ -1,7 +1,7 @@
-import { ElTopBarMainNavListItem } from './styles'
-import { TopBarNavItem } from '../nav-item'
+import type { ComponentProps } from "react";
 
-import type { ComponentProps } from 'react'
+import { TopBarNavItem } from "../nav-item";
+import { ElTopBarMainNavListItem } from "./styles";
 
 export namespace TopBarMainNavListItem {
   export interface Props extends ComponentProps<typeof TopBarNavItem> {}
@@ -18,7 +18,7 @@ export function TopBarMainNavListItem(props: TopBarMainNavListItem.Props) {
     <ElTopBarMainNavListItem>
       <TopBarNavItem {...props} />
     </ElTopBarMainNavListItem>
-  )
+  );
 }
 
-TopBarMainNavListItem.displayName = 'TopBar.NavItem'
+TopBarMainNavListItem.displayName = "TopBar.NavItem";

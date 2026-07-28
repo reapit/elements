@@ -1,5 +1,5 @@
-import { Meta, Source } from '@storybook/addon-docs/blocks'
-import migrationGuide from '../../codemods/migrate-deprecated-input/MIGRATION_GUIDE.md?raw'
+import { Meta, Source } from "@storybook/addon-docs/blocks";
+import migrationGuide from "../../codemods/migrate-deprecated-input/MIGRATION_GUIDE.md?raw";
 
 <Meta title="V5 Migration" />
 
@@ -51,7 +51,10 @@ Elements v5 ships a codemod CLI. Run each codemod in the order shown — the ord
 
 Add `--dry-run` to any command to preview what it would change without writing files:
 
-<Source code={`yarn dlx @reapit/elements codemod apply rewrite-v4-imports src/ --dry-run`} language="bash" />
+<Source
+  code={`yarn dlx @reapit/elements codemod apply rewrite-v4-imports src/ --dry-run`}
+  language="bash"
+/>
 
 ---
 
@@ -253,7 +256,10 @@ yarn dlx @reapit/elements codemod apply upgrade-deprecated-icon src/
 
 The v5 `Textarea` requires a `fieldSizing` prop that was absent in v4. The `apply-textarea-field-sizing` codemod adds `fieldSizing="manual"` to all `Textarea` usages missing the prop, preserving v4 sizing behaviour.
 
-<Source code={`yarn dlx @reapit/elements codemod apply apply-textarea-field-sizing src/`} language="bash" />
+<Source
+  code={`yarn dlx @reapit/elements codemod apply apply-textarea-field-sizing src/`}
+  language="bash"
+/>
 
 If you prefer content-aware sizing, change `fieldSizing="manual"` to `fieldSizing="content"` on any instances where that is more appropriate.
 
@@ -280,7 +286,10 @@ language="typescript"
 
 v5 replaces legacy CSS custom properties with a new semantic token system. The `upgrade-css-variables` codemod handles `.ts`, `.tsx`, `.css`, `.scss`, and `.less` files.
 
-<Source code={`yarn dlx @reapit/elements codemod apply upgrade-css-variables src/`} language="bash" />
+<Source
+  code={`yarn dlx @reapit/elements codemod apply upgrade-css-variables src/`}
+  language="bash"
+/>
 
 For tokens with context-dependent replacements, the codemod adds inline `/* TODO: … */` comments to flag them for manual review. Search for `TODO` in the diff and confirm each suggested replacement is correct for its usage context (text, fill, border, etc.).
 

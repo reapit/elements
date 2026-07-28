@@ -1,5 +1,6 @@
-import { css } from '@linaria/core'
-import { font } from '#src/utils/font'
+import { css } from "@linaria/core";
+
+import { font } from "#src/utils/font";
 
 export const elTableRowPrimaryAction = css`
   @layer elements.main {
@@ -9,7 +10,7 @@ export const elTableRowPrimaryAction = css`
     margin: 0;
     padding: 0;
 
-    ${font('sm', 'medium')}
+    ${font("sm", "medium")}
 
     background: transparent;
     color: var(--colour-text-primary);
@@ -23,7 +24,7 @@ export const elTableRowPrimaryAction = css`
     z-index: var(--z-index-base);
 
     &::after {
-      content: '';
+      content: "";
       display: block;
       position: absolute;
       inset: 0;
@@ -36,4 +37,4 @@ export const elTableRowPrimaryAction = css`
       }
     }
   }
-`
+`;

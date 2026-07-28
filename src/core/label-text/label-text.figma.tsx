@@ -1,17 +1,18 @@
-import figma from '@figma/code-connect'
-import { LabelText } from './label-text'
+import figma from "@figma/code-connect";
 
-figma.connect(LabelText, '<LABEL_TEXT_URL>', {
+import { LabelText } from "./label-text";
+
+figma.connect(LabelText, "<LABEL_TEXT_URL>", {
   props: {
-    children: figma.string('Label text'),
-    isRequired: figma.boolean('Required'),
-    size: figma.enum('Size', {
-      xs: 'xs',
-      sm: 'sm',
+    children: figma.string("Label text"),
+    isRequired: figma.boolean("Required"),
+    size: figma.enum("Size", {
+      xs: "xs",
+      sm: "sm",
     }),
-    variant: figma.enum('Variant', {
-      Soft: 'soft',
-      Strong: 'strong',
+    variant: figma.enum("Variant", {
+      Soft: "soft",
+      Strong: "strong",
     }),
   },
   example: (props) => (
@@ -19,4 +20,4 @@ figma.connect(LabelText, '<LABEL_TEXT_URL>', {
       {props.children}
     </LabelText>
   ),
-})
+});

@@ -1,1 +1,1 @@
-export { SecondaryTabs } from './secondary-tabs'
+export { SecondaryTabs } from "./secondary-tabs";

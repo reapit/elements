@@ -1,84 +1,86 @@
+import fs from "node:fs";
+import path from "node:path";
+
+import react from "@vitejs/plugin-react";
+import wyw from "@wyw-in-js/vite";
 /// <reference types="vitest/config" />
-import { defineConfig } from 'vite'
-import fs from 'node:fs'
-import react from '@vitejs/plugin-react'
-import svgr from 'vite-plugin-svgr'
-import wyw from '@wyw-in-js/vite'
-import { cascadeLayerOrder } from './build/cascade-layer-order'
-import packageManifest from './package.json'
-import path from 'node:path'
+import { defineConfig } from "vite";
+import svgr from "vite-plugin-svgr";
+
+import { cascadeLayerOrder } from "./build/cascade-layer-order";
+import packageManifest from "./package.json";
 
 // We dynamically discover all "first-level" barrel files in the `src/core` directory and add them as
 // individual entry points for our build.
 const core = Object.fromEntries(
-  fs.globSync('src/core/*/index.ts', { withFileTypes: true }).map((file) => [
-    path.join('core', path.basename(file.parentPath)), // e.g. `core/button`
+  fs.globSync("src/core/*/index.ts", { withFileTypes: true }).map((file) => [
+    path.join("core", path.basename(file.parentPath)), // e.g. `core/button`
     path.join(file.parentPath, file.name), // e.g. `src/core/button/index.ts`
   ]),
-)
+);
 
 // Explicit entry points for barrel files that live in subdirectories not matched by the first-level globs above.
 const coreSubpaths = {
-  'core/app-switcher/anz': 'src/core/app-switcher/anz/index.ts',
-}
+  "core/app-switcher/anz": "src/core/app-switcher/anz/index.ts",
+};
 
 // We dynamically discover all "first-level" barrel files in the `src/lab` directory and add them as
 // individual entry points for our build.
 const lab = Object.fromEntries(
-  fs.globSync('src/lab/*/index.ts', { withFileTypes: true }).map((file) => [
-    path.join('lab', path.basename(file.parentPath)), // e.g. `core/button`
+  fs.globSync("src/lab/*/index.ts", { withFileTypes: true }).map((file) => [
+    path.join("lab", path.basename(file.parentPath)), // e.g. `core/button`
     path.join(file.parentPath, file.name), // e.g. `src/core/button/index.ts`
   ]),
-)
+);
 
 // We dynamically discover all "first-level" barrel files in the `src/deprecated` directory and add them as
 // individual entry points for our build.
 const deprecated = Object.fromEntries(
-  fs.globSync('src/deprecated/*/index.{ts,tsx}', { withFileTypes: true }).map((file) => [
-    path.join('deprecated', path.basename(file.parentPath)), // e.g. `deprecated/button`
+  fs.globSync("src/deprecated/*/index.{ts,tsx}", { withFileTypes: true }).map((file) => [
+    path.join("deprecated", path.basename(file.parentPath)), // e.g. `deprecated/button`
     path.join(file.parentPath, file.name), // e.g. `src/deprecated/button/index.ts`
   ]),
-)
+);
 
 // We dynamically discover all icons in the `src/icons` directory and add them as individual entry points
 // for our build.
 const icons = Object.fromEntries(
   fs
-    .globSync('src/icons/*.tsx', { withFileTypes: true })
-    .filter((file) => !file.name.endsWith('.figma.tsx'))
+    .globSync("src/icons/*.tsx", { withFileTypes: true })
+    .filter((file) => !file.name.endsWith(".figma.tsx"))
     .map((file) => [
-      path.join('icons', path.basename(file.name, path.extname(file.name))), // e.g. `icons/add`
+      path.join("icons", path.basename(file.name, path.extname(file.name))), // e.g. `icons/add`
       path.join(file.parentPath, file.name), // e.g. `src/icons/add.tsx`
     ]),
-)
+);
 
 // We dynamically discover all "first-level" barrel files in the `src/utils` directory and add them as individual
 // entry points for our build.
 const utils = Object.fromEntries(
-  fs.globSync('src/utils/*/index.ts', { withFileTypes: true }).map((file) => [
-    path.join('utils', path.basename(file.parentPath)), // e.g. `utils/url-search-params`
+  fs.globSync("src/utils/*/index.ts", { withFileTypes: true }).map((file) => [
+    path.join("utils", path.basename(file.parentPath)), // e.g. `utils/url-search-params`
     path.join(file.parentPath, file.name), // e.g. `src/utils/url-search-params/index.ts`
   ]),
-)
+);
 
 // Dedicated polyfill entry points that can be preloaded via <link rel="modulepreload">
 const polyfillPreloads = {
-  'polyfills/css-anchor-positioning/preload': 'src/polyfills/css-anchor-positioning/preload.ts',
-}
+  "polyfills/css-anchor-positioning/preload": "src/polyfills/css-anchor-positioning/preload.ts",
+};
 
 // Standalone style entry points that exist solely to inject CSS (e.g. design tokens, resets) into
 // the combined stylesheet produced by the build. The emitted JS modules are inert side-effect-only
 // stubs; only the CSS extracted by wyw-in-js / Linaria matters.
 const globalStyles = {
-  'styles/globals': 'src/styles/globals.ts',
-}
+  "styles/globals": "src/styles/globals.ts",
+};
 
 export default defineConfig({
   build: {
     copyPublicDir: false,
     emptyOutDir: true,
     lib: {
-      cssFileName: 'style',
+      cssFileName: "style",
       entry: {
         ...core,
         ...coreSubpaths,
@@ -89,9 +91,9 @@ export default defineConfig({
         ...polyfillPreloads,
         ...globalStyles,
       },
-      formats: ['es'],
+      formats: ["es"],
     },
-    outDir: 'dist/js',
+    outDir: "dist/js",
     rollupOptions: {
       // NOTE: This function ensures all peerDependencies defined in our package manifest are correctly externalised
       // (i.e. not bundled into our build artefact/s)
@@ -100,10 +102,10 @@ export default defineConfig({
         // peers do not correlate to the folder name thanks to the `@console` scope our package names typically
         // include, we cannot have enough confidence to externalise a resolved id. Thus we always return false.
         if (isResolved) {
-          return false
+          return false;
         }
 
-        const peerDependencies = Object.keys(packageManifest.peerDependencies)
+        const peerDependencies = Object.keys(packageManifest.peerDependencies);
 
         return peerDependencies.some((packageName) => {
           // Imports from a peer dependency fall into one of two categories:
@@ -118,8 +120,8 @@ export default defineConfig({
           // So, for scenario (1), we check for an exact match, and for scenario (2), we check if the `id`
           // starts with the peer's name AND a `/`. The inclusion of the trailing slash is to avoid partial
           // matches against an `id` that happens to have our peer's name as a valid substring.
-          return id === packageName || id.startsWith(`${packageName}/`)
-        })
+          return id === packageName || id.startsWith(`${packageName}/`);
+        });
       },
     },
   },
@@ -130,38 +132,38 @@ export default defineConfig({
     wyw({
       // NOTE: We only want to run wyw-in-js on components, not our codemods, because the wyw
       // plugin does not currently support import attributes, which are used in our codemods
-      include: ['src/**/*.ts', 'src/**/*.tsx'],
+      include: ["src/**/*.ts", "src/**/*.tsx"],
     }),
   ],
   test: {
     clearMocks: true,
     coverage: {
       exclude: [
-        'src/styles',
-        'src/storybook',
-        'src/tests',
-        'src/tokens',
-        'src/types',
+        "src/styles",
+        "src/storybook",
+        "src/tests",
+        "src/tokens",
+        "src/types",
         // Note: We don't want to report coverage for:
         // - story utilities
-        '**/__story__/**',
+        "**/__story__/**",
         // - barrel files
-        '**/index.ts',
+        "**/index.ts",
         // - our figma code connect files
-        '**/*.figma.*',
+        "**/*.figma.*",
         // - our tests themselves
-        '**/*.test.*',
+        "**/*.test.*",
         // - our stories
-        '**/*.stories.*',
+        "**/*.stories.*",
         // - any type declaration files
-        '**/*.d.ts',
+        "**/*.d.ts",
         // - any types.ts files
-        '**/types.ts',
+        "**/types.ts",
       ],
-      include: ['src/**/*.ts', 'src/**/*.tsx'],
-      provider: 'v8',
-      reporter: ['json-summary', 'text', 'lcov'],
-      reportsDirectory: 'coverage/report',
+      include: ["src/**/*.ts", "src/**/*.tsx"],
+      provider: "v8",
+      reporter: ["json-summary", "text", "lcov"],
+      reportsDirectory: "coverage/report",
       thresholds: {
         branches: 71,
         functions: 84,
@@ -169,9 +171,9 @@ export default defineConfig({
         statements: 87,
       },
     },
-    environment: 'happy-dom',
+    environment: "happy-dom",
     globals: true,
-    include: ['src/**/*.test.ts?(x)', 'codemods/**/*.test.ts', '.changeset/**/*.test.js'],
-    setupFiles: ['vitest.setup.ts'],
+    include: ["src/**/*.test.ts?(x)", "codemods/**/*.test.ts", ".changeset/**/*.test.js"],
+    setupFiles: ["vitest.setup.ts"],
   },
-})
+});

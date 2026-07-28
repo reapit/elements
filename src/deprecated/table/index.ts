@@ -1,3 +1,3 @@
-export * from './__styles__'
-export * from './molecules'
-export * from './table'
+export * from "./__styles__";
+export * from "./molecules";
+export * from "./table";

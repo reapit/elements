@@ -1,6 +1,7 @@
-import { font } from '#src/utils/font'
-import { css } from '@linaria/core'
-import { styled } from '@linaria/react'
+import { css } from "@linaria/core";
+import { styled } from "@linaria/react";
+
+import { font } from "#src/utils/font";
 
 export const elTopBarNavItem = css`
   @layer elements.main {
@@ -33,21 +34,21 @@ export const elTopBarNavItem = css`
       background: var(--comp-navigation-colour-fill-nav_item-hover);
     }
 
-    &[aria-current='page'] {
+    &[aria-current="page"] {
       background: var(--comp-navigation-colour-fill-nav_item-select);
     }
   }
-`
+`;
 
 export const ElTopBarNavItemLabel = styled.span`
   @layer elements.main {
     white-space: nowrap;
 
     color: var(--comp-navigation-colour-text-nav_item-default);
-    ${font('sm', 'medium')}
+    ${font("sm", "medium")}
 
-    [aria-current='page'] & {
+    [aria-current="page"] & {
       color: var(--comp-navigation-colour-text-nav_item-select);
     }
   }
-`
+`;

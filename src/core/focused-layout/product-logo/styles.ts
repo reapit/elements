@@ -1,4 +1,4 @@
-import { css } from '@linaria/core'
+import { css } from "@linaria/core";
 
 export const elProductDevice = css`
   @layer elements.main {
@@ -14,4 +14,4 @@ export const elProductDevice = css`
       height: 100%;
     }
   }
-`
+`;

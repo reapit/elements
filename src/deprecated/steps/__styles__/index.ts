@@ -1,11 +1,12 @@
-import { styled } from '@linaria/react'
-import { isDesktop } from '../../../styles/deprecated-media'
-import { elIsActive, elIsUsed } from '../../../styles/deprecated-states'
+import { styled } from "@linaria/react";
+
+import { isDesktop } from "../../../styles/deprecated-media";
+import { elIsActive, elIsUsed } from "../../../styles/deprecated-states";
 
 /** @deprecated */
 export const ElSteps = styled.div`
   display: flex;
-`
+`;
 
 /** @deprecated */
 export const ElStep = styled.div`
@@ -40,7 +41,7 @@ export const ElStep = styled.div`
 
   &::before,
   &::after {
-    content: '';
+    content: "";
     display: block;
     position: absolute;
     top: 50%;
@@ -72,13 +73,13 @@ export const ElStep = styled.div`
       display: none;
     }
   }
-`
+`;
 
 /** @deprecated */
 export const ElStepsVertical = styled.div`
   display: flex;
   flex-wrap: wrap;
-`
+`;
 
 /** @deprecated */
 export const ElStepVertical = styled.div`
@@ -90,7 +91,7 @@ export const ElStepVertical = styled.div`
   ${isDesktop} {
     flex-direction: row;
   }
-`
+`;
 
 /** @deprecated */
 export const ElStepVerticalItem = styled.div`
@@ -103,9 +104,9 @@ export const ElStepVerticalItem = styled.div`
     justify-content: center;
     margin: 0;
   }
-`
+`;
 
 /** @deprecated */
 export const ElStepVerticalContent = styled.div`
   width: 100%;
-`
+`;

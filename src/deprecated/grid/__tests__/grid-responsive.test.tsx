@@ -1,17 +1,18 @@
-import { render } from '@testing-library/react'
-import { ColResponsive, GridResponsive } from '../grid-responsive'
+import { render } from "@testing-library/react";
 
-describe('GridResponsive', () => {
-  it('should match a snapshot and render children with no props', () => {
+import { ColResponsive, GridResponsive } from "../grid-responsive";
+
+describe("GridResponsive", () => {
+  it("should match a snapshot and render children with no props", () => {
     const wrapper = render(
       <GridResponsive>
         <p>I am child</p>
       </GridResponsive>,
-    )
-    expect(wrapper.asFragment()).toMatchSnapshot()
-  })
+    );
+    expect(wrapper.asFragment()).toMatchSnapshot();
+  });
 
-  it('hould render with the correct classNames when supplied all props', () => {
+  it("hould render with the correct classNames when supplied all props", () => {
     const wrapper = render(
       <GridResponsive
         colGapMobile={1}
@@ -29,22 +30,22 @@ describe('GridResponsive', () => {
       >
         <p>I am child</p>
       </GridResponsive>,
-    )
-    expect(wrapper.asFragment()).toMatchSnapshot()
-  })
-})
+    );
+    expect(wrapper.asFragment()).toMatchSnapshot();
+  });
+});
 
-describe('ColResponsive', () => {
-  it('should match a snapshot and render children with no props', () => {
+describe("ColResponsive", () => {
+  it("should match a snapshot and render children with no props", () => {
     const wrapper = render(
       <ColResponsive>
         <p>I am child</p>
       </ColResponsive>,
-    )
-    expect(wrapper.asFragment()).toMatchSnapshot()
-  })
+    );
+    expect(wrapper.asFragment()).toMatchSnapshot();
+  });
 
-  it('should render with the correct classNames when supplied all props', () => {
+  it("should render with the correct classNames when supplied all props", () => {
     const wrapper = render(
       <ColResponsive
         spanMobile={1}
@@ -62,7 +63,7 @@ describe('ColResponsive', () => {
       >
         <p>I am child</p>
       </ColResponsive>,
-    )
-    expect(wrapper.asFragment()).toMatchSnapshot()
-  })
-})
+    );
+    expect(wrapper.asFragment()).toMatchSnapshot();
+  });
+});

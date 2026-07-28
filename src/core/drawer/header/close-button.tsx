@@ -1,5 +1,5 @@
-import { Button } from '#src/core/button/index'
-import { CloseIcon } from '#src/icons/close'
+import { Button } from "#src/core/button/index";
+import { CloseIcon } from "#src/icons/close";
 
 /**
  * A close button for drawer headers. Combines a form with a button in order to close the drawer via the
@@ -19,7 +19,7 @@ export function DrawerHeaderCloseButton() {
         variant="tertiary"
       />
     </form>
-  )
+  );
 }
 
-DrawerHeaderCloseButton.displayName = 'Drawer.HeaderCloseButton'
+DrawerHeaderCloseButton.displayName = "Drawer.HeaderCloseButton";

@@ -1,5 +1,6 @@
-import type { ComboboxPopupDialogContext } from '../popup-dialog/context'
-import type { SearchInput } from '#src/core/search-input'
+import type { SearchInput } from "#src/core/search-input";
+
+import type { ComboboxPopupDialogContext } from "../popup-dialog/context";
 
 export namespace determineSearchInputVariant {
   /**
@@ -7,13 +8,13 @@ export namespace determineSearchInputVariant {
    */
   export interface Input {
     /** Whether the viewport is at the XS breakpoint (below SM). */
-    isXSBreakpoint: boolean
+    isXSBreakpoint: boolean;
     /** The popup variant from the ComboboxPopupDialog context. */
-    popupVariant: ComboboxPopupDialogContext.Value['variant']
+    popupVariant: ComboboxPopupDialogContext.Value["variant"];
   }
 
   /** The computed variant for the SearchInput component. */
-  export type Output = NonNullable<SearchInput.Props['variant']>
+  export type Output = NonNullable<SearchInput.Props["variant"]>;
 }
 
 /**
@@ -53,12 +54,12 @@ export function determineSearchInputVariant({
   popupVariant,
 }: determineSearchInputVariant.Input): determineSearchInputVariant.Output {
   switch (popupVariant) {
-    case 'drawer':
-      return 'borderless'
-    case 'popover':
-      return 'default'
-    case 'auto':
+    case "drawer":
+      return "borderless";
+    case "popover":
+      return "default";
+    case "auto":
       // XS breakpoint means auto popup will be a drawer
-      return isXSBreakpoint ? 'borderless' : 'default'
+      return isXSBreakpoint ? "borderless" : "default";
   }
 }

@@ -1,4 +1,4 @@
-import MessageAltSvg from './svgs/message-alt.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import MessageAltSvg from "./svgs/message-alt.svg?react";
 
-export const MessageAltIcon = makeIcon('MessageAltIcon', MessageAltSvg)
+export const MessageAltIcon = makeIcon("MessageAltIcon", MessageAltSvg);

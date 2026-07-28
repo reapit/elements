@@ -1,21 +1,23 @@
-import preview from '#.storybook/preview'
-import { Select } from './select'
-import { SupplementaryInfo } from '../supplementary-info'
-import { useId } from 'react'
+import { useId } from "react";
+
+import preview from "#.storybook/preview";
+
+import { SupplementaryInfo } from "../supplementary-info";
+import { Select } from "./select";
 
 const meta = preview.meta({
-  title: 'Input and selection/Select',
+  title: "Input and selection/Select",
   component: Select,
   argTypes: {
     children: {
       control: false,
     },
     size: {
-      control: 'select',
-      options: ['small', 'medium', 'large'],
+      control: "select",
+      options: ["small", "medium", "large"],
     },
   },
-})
+});
 
 /**
  * Demonstrates a single-select Select.
@@ -42,9 +44,9 @@ export const Example = meta.story({
     multiple: false,
     required: false,
     showValidity: false,
-    size: 'medium',
+    size: "medium",
   },
-})
+});
 
 /**
  * Use `variant="borderless"` on `Select.Button` when embedding the select in a surface that
@@ -71,7 +73,7 @@ export const Borderless = Example.extend({
       </Select.Popup>,
     ],
   },
-})
+});
 
 /**
  * Options can be grouped using the `CompactSelect.Optgroup`. Groups should always be separated
@@ -98,30 +100,30 @@ export const Groups = Example.extend({
       </Select.Popup>,
     ],
 
-    id: 'groups-example',
+    id: "groups-example",
   },
-})
+});
 
 /**
  * Demonstrates a multi-select that lets users choose multiple preloaded options.
  */
 export const MultiSelect = Example.extend({
-  name: 'Multi-select',
+  name: "Multi-select",
   args: {
-    id: 'multi-select-example',
+    id: "multi-select-example",
     multiple: true,
   },
-  parameters: { docs: { source: { type: 'code' } } },
+  parameters: { docs: { source: { type: "code" } } },
   decorators: [
     (Story) => (
-      <div style={{ display: 'flex', flexFlow: 'column', gap: 'var(--spacing-2)' }}>
+      <div style={{ display: "flex", flexFlow: "column", gap: "var(--spacing-2)" }}>
         <Story />
       </div>
     ),
   ],
   render: (args, { parameters }) => {
-    const fallbackId = useId()
-    const id = args.id ?? fallbackId
+    const fallbackId = useId();
+    const id = args.id ?? fallbackId;
 
     return (
       <Select.DefaultOptionsContext.Provider value={parameters.defaultOptions ?? []}>
@@ -143,9 +145,9 @@ export const MultiSelect = Example.extend({
         </Select>
         <Select.SelectionChips listboxId={Select.getListboxId(id)} />
       </Select.DefaultOptionsContext.Provider>
-    )
+    );
   },
-})
+});
 
 /**
  * When the select has one or more initial selections, the label text for those options must
@@ -156,16 +158,16 @@ export const MultiSelect = Example.extend({
  */
 export const DefaultOptions = MultiSelect.extend({
   args: {
-    id: 'default-options-example',
+    id: "default-options-example",
   },
   parameters: {
-    docs: { source: { type: 'code' } },
+    docs: { source: { type: "code" } },
     defaultOptions: [
-      { label: 'Banana', value: 'banana' },
-      { label: 'Blueberry', value: 'blueberry' },
+      { label: "Banana", value: "banana" },
+      { label: "Blueberry", value: "blueberry" },
     ],
   },
-})
+});
 
 /**
  * Single-select selects can display a card with dynamic content by providing `selectionStyle="card"`
@@ -173,16 +175,16 @@ export const DefaultOptions = MultiSelect.extend({
  */
 export const SelectionCard = Example.extend({
   args: {
-    id: 'selection-card-example',
+    id: "selection-card-example",
   },
   parameters: {
-    docs: { source: { type: 'code' } },
+    docs: { source: { type: "code" } },
   },
   render: (args) => {
     return (
       <Select {...args}>
         <Select.Button
-          defaultOptions={[{ label: 'Banana', value: 'banana' }]}
+          defaultOptions={[{ label: "Banana", value: "banana" }]}
           placeholder="Select fruit"
           selectionStyle="card"
         >
@@ -199,7 +201,7 @@ export const SelectionCard = Example.extend({
           )}
         </Select.Button>
         <Select.Popup>
-          <Select.Listbox defaultValue={'banana'}>
+          <Select.Listbox defaultValue={"banana"}>
             <Select.Option value="apple">Apple</Select.Option>
             <Select.Option value="apricot">Apricot</Select.Option>
             <Select.Option value="avocado">Avocado</Select.Option>
@@ -212,18 +214,18 @@ export const SelectionCard = Example.extend({
           </Select.Listbox>
         </Select.Popup>
       </Select>
-    )
+    );
   },
-})
+});
 
 const descriptions = {
-  apple: 'Crunchy and juicy',
-  apricot: 'Great with cream',
-  avocado: 'Creamy and nutritious',
-  banana: 'Soft and sweet',
-  blueberry: 'Packed with goodness',
-  cherry: 'Place on top',
-  cantaloupe: 'Juicy and floral',
-  grape: 'Berry winey',
-  grapefruit: 'Acidic and juicy',
-}
+  apple: "Crunchy and juicy",
+  apricot: "Great with cream",
+  avocado: "Creamy and nutritious",
+  banana: "Soft and sweet",
+  blueberry: "Packed with goodness",
+  cherry: "Place on top",
+  cantaloupe: "Juicy and floral",
+  grape: "Berry winey",
+  grapefruit: "Acidic and juicy",
+};

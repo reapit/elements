@@ -1,12 +1,13 @@
-import { css } from '@linaria/core'
-import { isWidthAtOrAbove } from '#src/utils/breakpoints'
+import { css } from "@linaria/core";
 
-const BACKDROP_DURATION = '200ms'
-const DIALOG_DURATION = '200ms'
-const TOTAL_DURATION = '300ms'
+import { isWidthAtOrAbove } from "#src/utils/breakpoints";
 
-const BACKDROP_OUT_DELAY = '100ms'
-const DIALOG_IN_DELAY = '100ms'
+const BACKDROP_DURATION = "200ms";
+const DIALOG_DURATION = "200ms";
+const TOTAL_DURATION = "300ms";
+
+const BACKDROP_OUT_DELAY = "100ms";
+const DIALOG_IN_DELAY = "100ms";
 
 export const elGalleryViewerDialog = css`
   @layer elements.main {
@@ -38,7 +39,7 @@ export const elGalleryViewerDialog = css`
     }
 
     /* At LG and above: inset dialog with semi-transparent backdrop */
-    @media screen and ${isWidthAtOrAbove('LG')} {
+    @media screen and ${isWidthAtOrAbove("LG")} {
       inset: var(--spacing-10);
       width: auto;
       height: auto;
@@ -103,4 +104,4 @@ export const elGalleryViewerDialog = css`
       }
     }
   }
-`
+`;

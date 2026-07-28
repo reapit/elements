@@ -54,13 +54,13 @@ src/core/drawer/
 CSF Next infers all types through the factory function chain. Do **not** declare `type Story` aliases or import `Meta`/`StoryObj` types.
 
 ```tsx
-import preview from '#.storybook/preview'
-import { Button } from './button'
+import preview from "#.storybook/preview";
+import { Button } from "./button";
 
 const meta = preview.meta({
-  title: 'Core/Button',
+  title: "Core/Button",
   component: Button,
-})
+});
 
 // ✅ No `export default meta`, no `type Story = ...`, no type imports needed
 ```
@@ -73,20 +73,20 @@ Use `preview.meta({ ... })` to define component metadata. Import `preview` from 
 
 ```tsx
 // ✅ Correct
-import preview from '#.storybook/preview'
+import preview from "#.storybook/preview";
 
 const meta = preview.meta({
-  title: 'Core/Button',
+  title: "Core/Button",
   component: Button,
-})
+});
 
 // ❌ Wrong — old CSF 3 pattern
-import type { Meta, StoryObj } from '@storybook/react-vite'
+import type { Meta, StoryObj } from "@storybook/react-vite";
 const meta = {
-  title: 'Core/Button',
+  title: "Core/Button",
   component: Button,
-} satisfies Meta<typeof Button>
-export default meta
+} satisfies Meta<typeof Button>;
+export default meta;
 ```
 
 ### Title convention
@@ -103,13 +103,13 @@ The `title` field places the component in the sidebar hierarchy. Follow `'Sectio
 
 ```tsx
 // ✅ Correct
-title: 'Core/Button'
-title: 'Core/TextInput'
-title: 'Utils/Combobox'
+title: "Core/Button";
+title: "Core/TextInput";
+title: "Utils/Combobox";
 
 // ❌ Wrong — lowercase, wrong separator
-title: 'core/button'
-title: 'Core - Button'
+title: "core/button";
+title: "Core - Button";
 ```
 
 ### The `component` field for subcomponent stories
@@ -118,20 +118,20 @@ When writing a story for a component that is accessed via a parent namespace (e.
 
 ```tsx
 // ✅ Correct — reference via parent namespace
-import { Dialog } from '../dialog'
+import { Dialog } from "../dialog";
 
 const meta = preview.meta({
-  title: 'Core/Dialog/Body',
+  title: "Core/Dialog/Body",
   component: Dialog.Body,
-})
+});
 
 // ❌ Wrong — direct import from the subcomponent file
-import { DialogBody } from './body'
+import { DialogBody } from "./body";
 
 const meta = preview.meta({
-  title: 'Core/Dialog/Body',
+  title: "Core/Dialog/Body",
   component: DialogBody,
-})
+});
 ```
 
 The same applies to JSX used within the story: prefer `Dialog.Body` over `DialogBody` wherever possible so that the story reflects the public API.
@@ -144,10 +144,10 @@ When a component has companion components that share the same documentation page
 
 ```tsx
 const meta = preview.meta({
-  title: 'Core/Button',
+  title: "Core/Button",
   component: Button,
   subcomponents: { AnchorButton },
-})
+});
 ```
 
 ### ArgTypes
@@ -232,16 +232,16 @@ Every story file must export an `Example` story as its first named export, creat
 // ✅ Correct
 export const Example = meta.story({
   args: {
-    'aria-label': 'My input',
+    "aria-label": "My input",
     disabled: false,
-    placeholder: '',
+    placeholder: "",
     readOnly: false,
     required: false,
     showValidity: false,
-    size: 'medium',
-    type: 'text',
+    size: "medium",
+    type: "text",
   },
-})
+});
 ```
 
 ## Additional Stories
@@ -289,16 +289,16 @@ Use `.extend()` to build additional stories on top of `Example` or other stories
  */
 export const Disabled = Example.extend({
   args: { disabled: true },
-})
+});
 
 // ❌ Wrong — manually restating all args
 export const Disabled = meta.story({
   args: {
     disabled: true,
-    size: 'medium',
+    size: "medium",
     // ...
   },
-})
+});
 ```
 
 You may also extend from intermediate stories when the result is clearer:
@@ -306,17 +306,17 @@ You may also extend from intermediate stories when the result is clearer:
 ```tsx
 export const Icons = Example.extend({
   args: {
-    iconLeft: 'Star',
-    iconRight: 'Star',
+    iconLeft: "Star",
+    iconRight: "Star",
   },
-})
+});
 
 /**
  * Disabled buttons with icons inherit both the icon configuration and the disabled state.
  */
 export const Disabled = Icons.extend({
   args: { disabled: true },
-})
+});
 ```
 
 When a story only extends `Example` but needs other properties (like `argTypes`, `render`, or `decorators`), use `.extend()` rather than `meta.story()` with a spread:
@@ -348,7 +348,7 @@ export const Variants = meta.story({
 When you need to read a story's properties directly (e.g., spreading args into JSX within a render function), use `.input` for the direct story input:
 
 ```tsx
-render: (args) => <Component {...Example.input.args} />
+render: (args) => <Component {...Example.input.args} />;
 ```
 
 ### Disabling controls for the demonstrated prop
@@ -367,7 +367,7 @@ export const Variants = Example.extend({
       <Button {...args} variant="tertiary" />
     </>
   ),
-})
+});
 ```
 
 ### Render functions for multi-variant display
@@ -381,7 +381,7 @@ export const Sizes = Example.extend({
   },
   decorators: [
     (Story) => (
-      <div style={{ display: 'flex', gap: 'var(--spacing-6)' }}>
+      <div style={{ display: "flex", gap: "var(--spacing-6)" }}>
         <Story />
       </div>
     ),
@@ -393,7 +393,7 @@ export const Sizes = Example.extend({
       <TextInput {...args} size="large" />
     </>
   ),
-})
+});
 ```
 
 When using a complex `render` function, add `parameters.docs.source.type: 'code'` when the auto-generated source panel shows the render wrapper rather than the component call, making the output misleading.
@@ -439,7 +439,7 @@ function ExampleSimpleLayout({ height }: { height: string }) {
       <Dialog.Header>Dialog title</Dialog.Header>
       <Dialog.Body>...</Dialog.Body>
     </>
-  )
+  );
 }
 ```
 
@@ -497,7 +497,7 @@ The global `ThemeProvider` decorator in `preview.tsx` wraps every story automati
 When a component has a controlled open/close state (such as `Dialog` or `Drawer`), use `useArgs` from `storybook/preview-api` in the `Example` story's `render` function. This allows the Controls panel to reflect the current `isOpen` state.
 
 ```tsx
-import { useArgs } from 'storybook/preview-api'
+import { useArgs } from "storybook/preview-api";
 
 export const Example = meta.story({
   args: {
@@ -505,15 +505,15 @@ export const Example = meta.story({
     // ...
   },
   render: function Example(args) {
-    const [, setArgs] = useArgs()
+    const [, setArgs] = useArgs();
     return (
       <>
         <button onClick={() => setArgs({ isOpen: true })}>Open</button>
         <Dialog onClose={() => setArgs({ isOpen: false })} {...args} />
       </>
-    )
+    );
   },
-})
+});
 ```
 
 Give the `render` function a name matching the story export name. This improves source panel output and stack traces.
@@ -543,16 +543,16 @@ render: function ClosedBy(args) {
 ```tsx
 // ❌ Wrong — redundant
 const meta = preview.meta({
-  title: 'Core/Button',
+  title: "Core/Button",
   component: Button,
-  tags: ['autodocs'],
-})
+  tags: ["autodocs"],
+});
 
 // ✅ Correct — no tags needed
 const meta = preview.meta({
-  title: 'Core/Button',
+  title: "Core/Button",
   component: Button,
-})
+});
 ```
 
 ### Using MDX for new core components
@@ -593,12 +593,12 @@ When building on an existing story, always use `.extend()` rather than `meta.sto
 // ❌ Wrong — manual spread
 export const Disabled = meta.story({
   args: { ...Example.input.args, disabled: true },
-})
+});
 
 // ✅ Correct — .extend()
 export const Disabled = Example.extend({
   args: { disabled: true },
-})
+});
 ```
 
 ### Importing a subcomponent directly instead of via the parent namespace
@@ -607,20 +607,20 @@ When a component is a subcomponent (part of a parent namespace such as `Dialog.B
 
 ```tsx
 // ❌ Wrong — direct import from the subcomponent file
-import { DialogBody } from './body'
+import { DialogBody } from "./body";
 
 const meta = preview.meta({
-  title: 'Core/Dialog/Body',
+  title: "Core/Dialog/Body",
   component: DialogBody,
-})
+});
 
 // ✅ Correct — import parent and reference via namespace
-import { Dialog } from '../dialog'
+import { Dialog } from "../dialog";
 
 const meta = preview.meta({
-  title: 'Core/Dialog/Body',
+  title: "Core/Dialog/Body",
   component: Dialog.Body,
-})
+});
 ```
 
 ### Importing from the wrong framework package
@@ -629,10 +629,10 @@ When you need Storybook types (e.g., `Decorator`), import them from `@storybook/
 
 ```tsx
 // ✅ Correct
-import type { Decorator } from '@storybook/react-vite'
+import type { Decorator } from "@storybook/react-vite";
 
 // ❌ Wrong — wrong package
-import type { Decorator } from '@storybook/react'
+import type { Decorator } from "@storybook/react";
 ```
 
 ### Exporting helper components
@@ -655,7 +655,7 @@ Every story except `Example` must have a JSDoc comment. Without it, the document
 // ❌ Wrong — no JSDoc
 export const Disabled = Example.extend({
   args: { disabled: true },
-})
+});
 
 // ✅ Correct
 /**
@@ -664,7 +664,7 @@ export const Disabled = Example.extend({
  */
 export const Disabled = Example.extend({
   args: { disabled: true },
-})
+});
 ```
 
 ## Quick Checklist

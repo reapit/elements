@@ -5,5 +5,5 @@
  * @returns The closest ancestral dialog element, or null if none found.
  */
 export function getClosestDialogElement(element: HTMLElement): HTMLDialogElement | null {
-  return element.closest('dialog')
+  return element.closest("dialog");
 }

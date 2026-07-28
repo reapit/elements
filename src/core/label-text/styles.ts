@@ -1,5 +1,6 @@
-import { font } from '#src/utils/font'
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
+
+import { font } from "#src/utils/font";
 
 export const ElLabelText = styled.span`
   @layer elements.main {
@@ -9,18 +10,18 @@ export const ElLabelText = styled.span`
     font: inherit;
     color: inherit;
 
-    &[data-size='xs'] {
-      ${font('xs', 'regular')}
+    &[data-size="xs"] {
+      ${font("xs", "regular")}
     }
-    &[data-size='sm'] {
-      ${font('sm', 'regular')}
+    &[data-size="sm"] {
+      ${font("sm", "regular")}
     }
 
-    &[data-variant='soft'] {
+    &[data-variant="soft"] {
       color: var(--colour-text-secondary);
     }
-    &[data-variant='strong'] {
+    &[data-variant="strong"] {
       color: var(--colour-text-primary);
     }
   }
-`
+`;

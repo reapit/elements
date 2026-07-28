@@ -1,23 +1,28 @@
-import { createRef } from 'react'
-import { render, fireEvent, waitFor, act } from '@testing-library/react'
-import { screen } from '@testing-library/dom'
-import { SearchableDropdown, ControlledSearchableDropdown, SearchableDropdownSearchLabel } from '../searchable-dropdown'
+import { screen } from "@testing-library/dom";
+import { render, fireEvent, waitFor, act } from "@testing-library/react";
+import { createRef } from "react";
 
-describe('SearchableDropdown component', () => {
-  it('should match a snapshot', () => {
+import {
+  SearchableDropdown,
+  ControlledSearchableDropdown,
+  SearchableDropdownSearchLabel,
+} from "../searchable-dropdown";
+
+describe("SearchableDropdown component", () => {
+  it("should match a snapshot", () => {
     const wrapper = render(
       <SearchableDropdown
         id="some-id"
         getResults={async () => []}
-        getResultLabel={() => ''}
-        getResultValue={() => ''}
+        getResultLabel={() => ""}
+        getResultValue={() => ""}
       />,
-    )
-    expect(wrapper.asFragment()).toMatchSnapshot()
-  })
+    );
+    expect(wrapper.asFragment()).toMatchSnapshot();
+  });
 
-  it('should get results from the given function, passing the value of the search box', async () => {
-    const getResults = vi.fn().mockResolvedValue([{ id: '1', name: 'one' }])
+  it("should get results from the given function, passing the value of the search box", async () => {
+    const getResults = vi.fn().mockResolvedValue([{ id: "1", name: "one" }]);
 
     render(
       <SearchableDropdown
@@ -27,52 +32,52 @@ describe('SearchableDropdown component', () => {
         // @ts-ignore
         getResultValue={({ id }) => id}
       />,
-    )
+    );
 
     await act(async () => {
-      fireEvent.change(screen.getByTestId('search-input'), { target: { value: 'test' } })
-    })
+      fireEvent.change(screen.getByTestId("search-input"), { target: { value: "test" } });
+    });
 
-    expect(getResults).toHaveBeenCalledWith('test')
-  })
-  it('should display results returned from the given function', async () => {
+    expect(getResults).toHaveBeenCalledWith("test");
+  });
+  it("should display results returned from the given function", async () => {
     render(
       <SearchableDropdown
-        getResults={async () => [{ id: '1', name: 'one' }]}
+        getResults={async () => [{ id: "1", name: "one" }]}
         getResultLabel={({ name }) => name}
         getResultValue={({ id }) => id}
       />,
-    )
+    );
 
-    fireEvent.change(screen.getByTestId('search-input'), { target: { value: 'test' } })
+    fireEvent.change(screen.getByTestId("search-input"), { target: { value: "test" } });
 
     await waitFor(() => {
-      expect(screen.getByTestId('dropdown-result-0').innerHTML).toEqual('one')
-    })
-  })
-  it('should call onChange when a result is chosen from the list', async () => {
-    const onChange = vi.fn()
+      expect(screen.getByTestId("dropdown-result-0").innerHTML).toEqual("one");
+    });
+  });
+  it("should call onChange when a result is chosen from the list", async () => {
+    const onChange = vi.fn();
     render(
       <SearchableDropdown
-        getResults={async () => [{ id: '1', name: 'one' }]}
+        getResults={async () => [{ id: "1", name: "one" }]}
         getResultLabel={({ name }) => name}
         getResultValue={({ id }) => id}
         onChange={onChange}
       />,
-    )
+    );
 
-    fireEvent.change(screen.getByTestId('search-input'), { target: { value: 'test' } })
+    fireEvent.change(screen.getByTestId("search-input"), { target: { value: "test" } });
 
     await waitFor(() => {
-      expect(screen.getByTestId('dropdown-result-0').innerHTML).toEqual('one')
-      fireEvent.click(screen.getByTestId('dropdown-result-0'))
-      expect(onChange).toHaveBeenCalledWith({ target: { value: '1' } })
-    })
-  })
-})
+      expect(screen.getByTestId("dropdown-result-0").innerHTML).toEqual("one");
+      fireEvent.click(screen.getByTestId("dropdown-result-0"));
+      expect(onChange).toHaveBeenCalledWith({ target: { value: "1" } });
+    });
+  });
+});
 
-describe('ControlledSearchableDropdown component', () => {
-  it('should match a snapshot', () => {
+describe("ControlledSearchableDropdown component", () => {
+  it("should match a snapshot", () => {
     const wrapper = render(
       <ControlledSearchableDropdown
         id="some-id"
@@ -83,14 +88,14 @@ describe('ControlledSearchableDropdown component', () => {
         loading={false}
         onClear={() => {}}
         onResultClick={() => {}}
-        selectedValue={''}
+        selectedValue={""}
       />,
-    )
-    expect(wrapper.asFragment()).toMatchSnapshot()
-  })
+    );
+    expect(wrapper.asFragment()).toMatchSnapshot();
+  });
 
-  it('should display the selected value in the ref input when present', () => {
-    const ref = createRef<HTMLInputElement>()
+  it("should display the selected value in the ref input when present", () => {
+    const ref = createRef<HTMLInputElement>();
     render(
       <ControlledSearchableDropdown
         resultsList={[]}
@@ -103,11 +108,11 @@ describe('ControlledSearchableDropdown component', () => {
         selectedValue="test"
         ref={ref}
       />,
-    )
-    expect(ref?.current?.value).toEqual('test')
-  })
+    );
+    expect(ref?.current?.value).toEqual("test");
+  });
 
-  it('should display default value', () => {
+  it("should display default value", () => {
     const wrapper = render(
       <SearchableDropdown<{ id: string; name: string }>
         id="some-id"
@@ -116,34 +121,36 @@ describe('ControlledSearchableDropdown component', () => {
             setTimeout(() => {
               resolve([
                 {
-                  id: '1',
-                  name: 'First',
+                  id: "1",
+                  name: "First",
                 },
                 {
-                  id: '2',
-                  name: 'Second',
+                  id: "2",
+                  name: "Second",
                 },
                 {
-                  id: '3',
-                  name: 'Third',
+                  id: "3",
+                  name: "Third",
                 },
-              ])
-            }, 1000)
-          })
+              ]);
+            }, 1000);
+          });
         }}
         getResultLabel={(result) => result.name}
         getResultValue={(result) => result.id}
         onChange={(e) => console.log(e.target.value)}
-        defaultVal={{ id: '4', name: 'Forth' }}
+        defaultVal={{ id: "4", name: "Forth" }}
       />,
-    )
-    expect(wrapper.asFragment()).toMatchSnapshot()
-  })
-})
+    );
+    expect(wrapper.asFragment()).toMatchSnapshot();
+  });
+});
 
-describe('SearchableDropdownSearchLabel component', () => {
-  it('should match a snapshot', () => {
-    const wrapper = render(<SearchableDropdownSearchLabel>I am a label</SearchableDropdownSearchLabel>)
-    expect(wrapper.asFragment()).toMatchSnapshot()
-  })
-})
+describe("SearchableDropdownSearchLabel component", () => {
+  it("should match a snapshot", () => {
+    const wrapper = render(
+      <SearchableDropdownSearchLabel>I am a label</SearchableDropdownSearchLabel>,
+    );
+    expect(wrapper.asFragment()).toMatchSnapshot();
+  });
+});

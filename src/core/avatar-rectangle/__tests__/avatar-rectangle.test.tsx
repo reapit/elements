@@ -1,42 +1,48 @@
-import { act, render } from '@testing-library/react'
-import { AvatarRectangle } from '..'
+import { act, render } from "@testing-library/react";
 
-describe('AvatarRectangle', () => {
-  it('renders correctly with residential variant and medium size', () => {
+import { AvatarRectangle } from "..";
+
+describe("AvatarRectangle", () => {
+  it("renders correctly with residential variant and medium size", () => {
     const { asFragment } = render(
       <AvatarRectangle variant="residential" size="medium" src="test-image.jpg" alt="Test Image" />,
-    )
-    expect(asFragment()).toMatchSnapshot()
-  })
+    );
+    expect(asFragment()).toMatchSnapshot();
+  });
 
-  it('renders correctly with residential variant and small size without src', () => {
-    const { asFragment } = render(<AvatarRectangle variant="residential" size="small" />)
-    expect(asFragment()).toMatchSnapshot()
-  })
+  it("renders correctly with residential variant and small size without src", () => {
+    const { asFragment } = render(<AvatarRectangle variant="residential" size="small" />);
+    expect(asFragment()).toMatchSnapshot();
+  });
 
-  it('renders correctly with commercial variant and small size', () => {
+  it("renders correctly with commercial variant and small size", () => {
     const { asFragment } = render(
       <AvatarRectangle variant="commercial" size="small" src="test-image.jpg" alt="Test Image" />,
-    )
-    expect(asFragment()).toMatchSnapshot()
-  })
+    );
+    expect(asFragment()).toMatchSnapshot();
+  });
 
-  it('renders correctly with commercial variant and medium size without src', () => {
-    const { asFragment } = render(<AvatarRectangle variant="commercial" size="medium" />)
-    expect(asFragment()).toMatchSnapshot()
-  })
+  it("renders correctly with commercial variant and medium size without src", () => {
+    const { asFragment } = render(<AvatarRectangle variant="commercial" size="medium" />);
+    expect(asFragment()).toMatchSnapshot();
+  });
 
-  it('simulate error and renders correctly when image fails to load', () => {
+  it("simulate error and renders correctly when image fails to load", () => {
     const { asFragment } = render(
-      <AvatarRectangle variant="commercial" size="medium" src="invalid-image.jpg" alt="Test Image" />,
-    )
+      <AvatarRectangle
+        variant="commercial"
+        size="medium"
+        src="invalid-image.jpg"
+        alt="Test Image"
+      />,
+    );
     act(() => {
       // Simulate image error because the asFragment doesn't care if the image is invalid
-      const img = document.querySelector('img')
+      const img = document.querySelector("img");
       if (img) {
-        img.dispatchEvent(new Event('error'))
+        img.dispatchEvent(new Event("error"));
       }
-    })
-    expect(asFragment()).toMatchSnapshot()
-  })
-})
+    });
+    expect(asFragment()).toMatchSnapshot();
+  });
+});

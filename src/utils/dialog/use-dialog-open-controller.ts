@@ -1,5 +1,5 @@
-import { useLayoutEffect, useRef } from 'react'
-import type { RefObject } from 'react'
+import { useLayoutEffect, useRef } from "react";
+import type { RefObject } from "react";
 
 /**
  * When consumers control the open state of the dialog, we need to imperatively show or close the dialog element.
@@ -14,21 +14,21 @@ import type { RefObject } from 'react'
  * @returns A ref to attach to the dialog element.
  */
 export function useDialogOpenController(isOpen: boolean | undefined): RefObject<HTMLDialogElement> {
-  const ref = useRef<HTMLDialogElement>(null)
+  const ref = useRef<HTMLDialogElement>(null);
 
   useLayoutEffect(
     function openOrCloseDialog() {
       // If the dialog is not yet mounted, or the `isOpen` value is not controlled, we do nothing.
-      if (!ref.current || isOpen === undefined) return
+      if (!ref.current || isOpen === undefined) return;
 
       if (isOpen) {
-        ref.current.showModal()
+        ref.current.showModal();
       } else {
-        ref.current.close()
+        ref.current.close();
       }
     },
     [isOpen],
-  )
+  );
 
-  return ref
+  return ref;
 }

@@ -1,19 +1,19 @@
-import preview from '#.storybook/preview'
-import { Avatar } from '#src/core/avatar'
-import { Menu } from '#src/core/menu'
-import { Table } from './table'
+import preview from "#.storybook/preview";
+import { Avatar } from "#src/core/avatar";
+import { Menu } from "#src/core/menu";
+import { Text } from "#src/utils/text";
 
-import { Text } from '#src/utils/text'
+import { Table } from "./table";
 
-const href = '#'
+const href = "#";
 
 const meta = preview.meta({
-  title: 'Data and tables/Table',
+  title: "Data and tables/Table",
   component: Table,
   argTypes: {
     as: {
       control: false,
-      description: 'The element this table will render as.',
+      description: "The element this table will render as.",
       table: {
         type: {
           summary: "'table' | 'div'",
@@ -22,28 +22,28 @@ const meta = preview.meta({
     },
     children: {
       control: false,
-      description: 'The table content.',
+      description: "The table content.",
       table: {
         type: {
-          summary: 'ReactNode',
+          summary: "ReactNode",
         },
       },
     },
     columns: {
-      control: 'text',
+      control: "text",
       description:
         'Defines the number of columns and their explicit sizing. Columns are defined using the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns">grid-template-columns</a> syntax.',
       table: {
         type: {
-          summary: 'string',
+          summary: "string",
         },
       },
     },
     justifyItems: {
-      control: 'radio',
+      control: "radio",
       description:
-        'Defines how column content is positioned along the inline axis. By default, content is packed against the starting edge of the column.',
-      options: ['start', 'center', 'end'],
+        "Defines how column content is positioned along the inline axis. By default, content is packed against the starting edge of the column.",
+      options: ["start", "center", "end"],
       table: {
         type: {
           summary: "'start' | 'center' | 'end'",
@@ -51,15 +51,15 @@ const meta = preview.meta({
       },
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
-    as: 'table',
-    children: buildTable('semantic'),
-    columns: '2fr 1fr 1fr min-content',
+    as: "table",
+    children: buildTable("semantic"),
+    columns: "2fr 1fr 1fr min-content",
   },
-})
+});
 
 /**
  * By default, cell content is packed flush to the start edge of its column. This can be changed using
@@ -73,9 +73,9 @@ export const Example = meta.story({
  */
 export const Alignment = Example.extend({
   args: {
-    justifyItems: 'end',
+    justifyItems: "end",
   },
-})
+});
 
 /**
  * Sometimes it may be necessary to render the table row as a plain `<div>`. Providing
@@ -89,51 +89,51 @@ export const Alignment = Example.extend({
  */
 export const Divs = Example.extend({
   args: {
-    as: 'div',
-    children: buildTable('div'),
+    as: "div",
+    children: buildTable("div"),
   },
-})
+});
 
-function buildTable(as: 'semantic' | 'div') {
+function buildTable(as: "semantic" | "div") {
   return (
     <>
       <Table.Toolbar leftContent="2 bills" />
-      <Table.Head as={as === 'semantic' ? 'thead' : 'div'}>
-        <Table.HeaderRow as={as === 'semantic' ? 'tr' : 'div'}>
-          <Table.HeaderCell as={as === 'semantic' ? 'th' : 'div'} justifySelf="start">
+      <Table.Head as={as === "semantic" ? "thead" : "div"}>
+        <Table.HeaderRow as={as === "semantic" ? "tr" : "div"}>
+          <Table.HeaderCell as={as === "semantic" ? "th" : "div"} justifySelf="start">
             Property
           </Table.HeaderCell>
-          <Table.HeaderCell as={as === 'semantic' ? 'th' : 'div'}>
+          <Table.HeaderCell as={as === "semantic" ? "th" : "div"}>
             <Table.SortButton name="total" value="none">
               Amount
             </Table.SortButton>
           </Table.HeaderCell>
-          <Table.HeaderCell as={as === 'semantic' ? 'th' : 'div'} aria-sort="descending">
+          <Table.HeaderCell as={as === "semantic" ? "th" : "div"} aria-sort="descending">
             <Table.SortButton name="dueDate" value="descending">
               Due
             </Table.SortButton>
           </Table.HeaderCell>
-          <Table.HeaderCell as={as === 'semantic' ? 'th' : 'div'} aria-label="Actions">
+          <Table.HeaderCell as={as === "semantic" ? "th" : "div"} aria-label="Actions">
             {null}
           </Table.HeaderCell>
         </Table.HeaderRow>
       </Table.Head>
 
-      <Table.Body as={as === 'semantic' ? 'tbody' : 'div'}>
+      <Table.Body as={as === "semantic" ? "tbody" : "div"}>
         {Array.from({ length: 2 }, (_, i) => (
-          <Table.BodyRow as={as === 'semantic' ? 'tr' : 'div'} key={i}>
-            <Table.BodyCell as={as === 'semantic' ? 'th' : 'div'} justifySelf="start">
+          <Table.BodyRow as={as === "semantic" ? "tr" : "div"} key={i}>
+            <Table.BodyCell as={as === "semantic" ? "th" : "div"} justifySelf="start">
               <Table.DoubleLineLayout mediaItem={<Avatar>MJ</Avatar>} supplementaryData="Engineer">
                 <Table.PrimaryAction href={href}>Mary Jane</Table.PrimaryAction>
               </Table.DoubleLineLayout>
             </Table.BodyCell>
-            <Table.BodyCell as={as === 'semantic' ? 'td' : 'div'}>$1,234.00</Table.BodyCell>
-            <Table.BodyCell as={as === 'semantic' ? 'td' : 'div'}>
+            <Table.BodyCell as={as === "semantic" ? "td" : "div"}>$1,234.00</Table.BodyCell>
+            <Table.BodyCell as={as === "semantic" ? "td" : "div"}>
               <Text as="time" colour="error" font="inherit">
                 1 July 2025
               </Text>
             </Table.BodyCell>
-            <Table.BodyCell as={as === 'semantic' ? 'td' : 'div'}>
+            <Table.BodyCell as={as === "semantic" ? "td" : "div"}>
               <Table.MoreActions aria-label="More actions for Mary Jane">
                 <Menu.Item>Action 1</Menu.Item>
                 <Menu.Item>Action 2</Menu.Item>
@@ -143,5 +143,5 @@ function buildTable(as: 'semantic' | 'div') {
         ))}
       </Table.Body>
     </>
-  )
+  );
 }

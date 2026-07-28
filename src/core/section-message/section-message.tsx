@@ -1,5 +1,10 @@
-import { Button } from '../button'
-import { CloseIcon } from '#src/icons/close'
+import { useId } from "react";
+import type { HTMLAttributes, MouseEventHandler, ReactNode } from "react";
+
+import { CloseIcon } from "#src/icons/close";
+import { LineClamp } from "#src/utils/line-clamp/line-clamp";
+
+import { Button } from "../button";
 import {
   ElSectionMessage,
   ElSectionMessageIconContainer,
@@ -7,31 +12,27 @@ import {
   ElSectionMessageDescription,
   ElSectionMessageActions,
   elSectionMessageDismissButton,
-} from './styles'
-import { LineClamp } from '#src/utils/line-clamp/line-clamp'
-import { useId } from 'react'
-
-import type { HTMLAttributes, MouseEventHandler, ReactNode } from 'react'
+} from "./styles";
 
 // We omit `title` because we need to use it for our own purposes.
-type AttributesToOmit = 'title'
+type AttributesToOmit = "title";
 
 export namespace SectionMessage {
   export interface Props extends Omit<HTMLAttributes<HTMLDivElement>, AttributesToOmit> {
     /** Actions to display at the bottom */
-    actions?: ReactNode
+    actions?: ReactNode;
     /** The description content of the section message */
-    children: ReactNode
+    children: ReactNode;
     /** Icon to display */
-    icon?: ReactNode
+    icon?: ReactNode;
     /** Maximum number of lines to description content to display before truncating */
-    lineClamp?: number | 'none'
+    lineClamp?: number | "none";
     /** Callback fired when the dismiss button is clicked */
-    onDismiss?: MouseEventHandler<HTMLButtonElement>
+    onDismiss?: MouseEventHandler<HTMLButtonElement>;
     /** Title of the section message */
-    title?: string
+    title?: string;
     /** The variant of the section message */
-    variant: 'error' | 'warning' | 'info' | 'success' | 'neutral-light' | 'neutral-dark'
+    variant: "error" | "warning" | "info" | "success" | "neutral-light" | "neutral-dark";
   }
 }
 
@@ -72,16 +73,20 @@ export function SectionMessage({
   actions,
   children,
   icon,
-  lineClamp = 'none',
+  lineClamp = "none",
   onDismiss,
   title,
   variant,
   ...rest
 }: SectionMessage.Props) {
-  const titleId = useId()
+  const titleId = useId();
 
   return (
-    <ElSectionMessage {...rest} data-variant={variant} aria-labelledby={title ? titleId : undefined}>
+    <ElSectionMessage
+      {...rest}
+      data-variant={variant}
+      aria-labelledby={title ? titleId : undefined}
+    >
       {/* Dismiss button is first so it is earlier in the tab sequence than the rest of the content */}
       {onDismiss && (
         <Button
@@ -102,5 +107,5 @@ export function SectionMessage({
       </LineClamp>
       {actions && <ElSectionMessageActions>{actions}</ElSectionMessageActions>}
     </ElSectionMessage>
-  )
+  );
 }

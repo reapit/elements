@@ -1,35 +1,39 @@
-import preview from '#.storybook/preview'
-import { Breakpoint, useDrawerBreakpointDecorator } from '../__story__/useDrawerBreakpointDecorator'
-import { Drawer } from '../drawer'
-import { Pattern } from '../__story__/Pattern'
-import { PrimaryTabs } from '#src/core/primary-tabs/index'
-import { useDrawerContextDecorator } from '../__story__/useDrawerContextDecorator'
+import preview from "#.storybook/preview";
+import { PrimaryTabs } from "#src/core/primary-tabs/index";
 
-const href = '#'
+import { Pattern } from "../__story__/Pattern";
+import {
+  Breakpoint,
+  useDrawerBreakpointDecorator,
+} from "../__story__/useDrawerBreakpointDecorator";
+import { useDrawerContextDecorator } from "../__story__/useDrawerContextDecorator";
+import { Drawer } from "../drawer";
+
+const href = "#";
 
 const meta = preview.meta({
-  title: 'Containers and layout/Drawer/Header',
+  title: "Containers and layout/Drawer/Header",
   component: Drawer.Header,
   argTypes: {
     action: {
-      control: 'radio',
+      control: "radio",
       mapping: {
         Close: <Drawer.Header.CloseButton />,
         None: null,
       },
-      options: ['Close', 'None'],
+      options: ["Close", "None"],
     },
     children: {
-      control: 'text',
+      control: "text",
     },
     overline: {
-      control: 'text',
+      control: "text",
     },
     supplementaryInfo: {
-      control: 'text',
+      control: "text",
     },
     tabs: {
-      control: 'radio',
+      control: "radio",
       mapping: {
         Tabs: (
           <PrimaryTabs overflow="scroll">
@@ -58,25 +62,25 @@ const meta = preview.meta({
         ),
         None: null,
       },
-      options: ['Tabs', 'None'],
+      options: ["Tabs", "None"],
     },
   },
   globals: {
     backgrounds: {
-      value: 'light',
+      value: "light",
     },
   },
   decorators: [useDrawerContextDecorator()],
-})
+});
 
 export const Example = meta.story({
   args: {
-    action: 'Close',
-    overline: 'Optional text',
-    children: 'Drawer Title',
-    supplementaryInfo: 'Supplementary Info',
+    action: "Close",
+    overline: "Optional text",
+    children: "Drawer Title",
+    supplementaryInfo: "Supplementary Info",
   },
-})
+});
 
 /**
  * Tabs can also be used within the Drawer's header. Typically, these will be
@@ -86,9 +90,9 @@ export const Example = meta.story({
  */
 export const Tabs = Example.extend({
   args: {
-    tabs: 'Tabs',
+    tabs: "Tabs",
   },
-})
+});
 
 /**
  * By default, the drawer header will be sticky when the drawer content scrolls. This ensures the context displayed by
@@ -99,12 +103,12 @@ export const StickyPositioning = Example.extend({
     (Story) => (
       <div
         style={{
-          boxSizing: 'border-box',
-          border: '1px solid #FA00FF',
-          containerName: 'drawer',
-          containerType: 'inline-size',
-          maxHeight: '200px',
-          overflow: 'auto',
+          boxSizing: "border-box",
+          border: "1px solid #FA00FF",
+          containerName: "drawer",
+          containerType: "inline-size",
+          maxHeight: "200px",
+          overflow: "auto",
         }}
       >
         <Story />
@@ -112,7 +116,7 @@ export const StickyPositioning = Example.extend({
       </div>
     ),
   ],
-})
+});
 
 /**
  * However, when the drawer has a footer, the header will not be sticky and it will have no bottom border. This
@@ -121,18 +125,18 @@ export const StickyPositioning = Example.extend({
  */
 export const StaticPositioning = Example.extend({
   args: {
-    action: 'None',
+    action: "None",
   },
   decorators: [
     (Story) => (
       <div
         style={{
-          boxSizing: 'border-box',
-          border: '1px solid #FA00FF',
-          containerName: 'drawer',
-          containerType: 'inline-size',
-          maxHeight: '200px',
-          overflow: 'auto',
+          boxSizing: "border-box",
+          border: "1px solid #FA00FF",
+          containerName: "drawer",
+          containerType: "inline-size",
+          maxHeight: "200px",
+          overflow: "auto",
         }}
       >
         <Story />
@@ -141,7 +145,7 @@ export const StaticPositioning = Example.extend({
       </div>
     ),
   ],
-})
+});
 
 /**
  * Like the body and footer, the drawer header will adjust it's layout based on the inline-size of its parent
@@ -150,7 +154,7 @@ export const StaticPositioning = Example.extend({
  */
 export const DynamicLayout = Example.extend({
   args: {
-    tabs: 'Tabs',
+    tabs: "Tabs",
   },
   decorators: [useDrawerBreakpointDecorator()],
   render: (args) => (
@@ -163,4 +167,4 @@ export const DynamicLayout = Example.extend({
       </Breakpoint>
     </>
   ),
-})
+});

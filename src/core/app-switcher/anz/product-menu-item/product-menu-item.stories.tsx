@@ -1,14 +1,15 @@
-import preview from '#.storybook/preview'
-import { AppSwitcherProductMenuItem } from './product-menu-item'
-import { AppSwitcherMenuGroupHasAccessContext } from '../../menu-group-has-access-context'
-import { productConfigs } from '../config'
+import preview from "#.storybook/preview";
+
+import { AppSwitcherMenuGroupHasAccessContext } from "../../menu-group-has-access-context";
+import { productConfigs } from "../config";
+import { AppSwitcherProductMenuItem } from "./product-menu-item";
 
 const meta = preview.meta({
-  title: 'Navigation/AppSwitcher/ANZ/ProductMenuItem',
+  title: "Navigation/AppSwitcher/ANZ/ProductMenuItem",
   component: AppSwitcherProductMenuItem,
   argTypes: {
     productId: {
-      control: 'select',
+      control: "select",
       options: Object.keys(productConfigs),
     },
   },
@@ -22,7 +23,7 @@ const meta = preview.meta({
   parameters: {
     hasAccessContextValue: true,
   },
-})
+});
 
 /**
  * When the product menu item is rendered as a child of the `AppSwitcher.YourAppsMenuGroup` (or more
@@ -31,10 +32,10 @@ const meta = preview.meta({
  */
 export const Example = meta.story({
   args: {
-    href: '#',
-    productId: 'consoleCloud',
+    href: "#",
+    productId: "consoleCloud",
   },
-})
+});
 
 /**
  * When the product menu item is rendered as a child of the `AppSwitcher.ExploreMenuGroup` (or more
@@ -43,9 +44,9 @@ export const Example = meta.story({
  */
 export const NoAccess = Example.extend({
   args: {
-    productId: 'autoResponder',
+    productId: "autoResponder",
   },
   parameters: {
     hasAccessContextValue: false,
   },
-})
+});

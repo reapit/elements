@@ -1,100 +1,101 @@
-import { css } from '@linaria/core'
-import { styled } from '@linaria/react'
-import { elIsActive } from '../../../styles/deprecated-states'
+import { css } from "@linaria/core";
+import { styled } from "@linaria/react";
+
+import { elIsActive } from "../../../styles/deprecated-states";
 
 /** @deprecated */
-export const isNarrow = '@media only screen and (max-width: 1024px)'
+export const isNarrow = "@media only screen and (max-width: 1024px)";
 
-const EXPANDABLE_TRIGGER_CELL_WIDTH = '40px'
-const CALL_TO_ACTION_CELL_WIDTH = '100px'
+const EXPANDABLE_TRIGGER_CELL_WIDTH = "40px";
+const CALL_TO_ACTION_CELL_WIDTH = "100px";
 
-const MAX_HEADER_HEIGHT = '3rem'
-const MAX_TABLE_CONTENT_HEIGHT = '60px'
-const MAX_LINE_LENGTH = 2
+const MAX_HEADER_HEIGHT = "3rem";
+const MAX_TABLE_CONTENT_HEIGHT = "60px";
+const MAX_LINE_LENGTH = 2;
 
 /** @deprecated */
 export const ElTableCellNarrowOrder1 = css`
   ${isNarrow} {
     order: 0;
   }
-`
+`;
 
 /** @deprecated */
 export const ElTableCellNarrowOrder2 = css`
   ${isNarrow} {
     order: 1;
   }
-`
+`;
 
 /** @deprecated */
 export const ElTableCellNarrowOrder3 = css`
   ${isNarrow} {
     order: 2;
   }
-`
+`;
 
 /** @deprecated */
 export const ElTableCellNarrowOrder4 = css`
   ${isNarrow} {
     order: 3;
   }
-`
+`;
 
 /** @deprecated */
 export const ElTableCellNarrowOrder5 = css`
   ${isNarrow} {
     order: 4;
   }
-`
+`;
 
 /** @deprecated */
 export const ElTableCellNarrowOrder6 = css`
   ${isNarrow} {
     order: 5;
   }
-`
+`;
 
 /** @deprecated */
 export const ElTableCellNarrowOrder7 = css`
   ${isNarrow} {
     order: 6;
   }
-`
+`;
 
 /** @deprecated */
 export const ElTableCellNarrowOrder8 = css`
   ${isNarrow} {
     order: 7;
   }
-`
+`;
 
 /** @deprecated */
 export const ElTableCellNarrowOrder9 = css`
   ${isNarrow} {
     order: 8;
   }
-`
+`;
 
 /** @deprecated */
 export const ElTableCellNarrowOrder10 = css`
   ${isNarrow} {
     order: 9;
   }
-`
+`;
 
 /** @deprecated */
 export const ElTableCellNarrowOrder11 = css`
   ${isNarrow} {
     order: 10;
   }
-`
+`;
 
 /** @deprecated */
 export const ElTableCellNarrowOrder12 = css`
   ${isNarrow} {
     order: 11;
   }
-`
+`;
 
 const cellOrders = `
   &:nth-child(1) {
@@ -144,7 +145,7 @@ const cellOrders = `
   &:nth-child(12) {
     order: 11;
   }
-`
+`;
 
 // modifiers
 /** @deprecated */
@@ -153,15 +154,15 @@ export const elTableNarrowCellIsFullWidth = css`
     grid-column-end: span 2;
     text-align: center;
   }
-`
+`;
 
 /** @deprecated */
-export const elTableCellHasDarkText = css``
+export const elTableCellHasDarkText = css``;
 
 /** @deprecated */
 export const elTableRowFocused = css`
   background: var(--colour-fill-action-lightest);
-`
+`;
 
 // molecules
 /** @deprecated */
@@ -195,14 +196,17 @@ export const ElDeprecatedTableHeadersRow = styled.div`
    * the column that has the button to trigger the expandable row. */
 
   grid-template-columns:
-    repeat(var(--component-table-num-columns, auto-fit), minmax(3rem, /* was --component-table-min-column-width */ 1fr))
+    repeat(
+      var(--component-table-num-columns, auto-fit),
+      minmax(3rem, /* was --component-table-min-column-width */ 1fr)
+    )
     var(--component-table-expandable-trigger-width, 0);
   border-bottom: 1px solid var(--colour-border-neutral-light_default);
 
   ${isNarrow} {
     display: none;
   }
-`
+`;
 
 /** @deprecated */
 export const ElDeprecatedTableHeader = styled.div`
@@ -218,14 +222,17 @@ export const ElDeprecatedTableHeader = styled.div`
   text-transform: uppercase;
 
   ${cellOrders}
-`
+`;
 
 /** @deprecated */
 export const ElDeprecatedTableRow = styled.div`
   display: grid;
   /* see above for the explanation of this line */
   grid-template-columns:
-    repeat(var(--component-table-num-columns, auto-fit), minmax(3rem, /* was --component-table-min-column-width */ 1fr))
+    repeat(
+      var(--component-table-num-columns, auto-fit),
+      minmax(3rem, /* was --component-table-min-column-width */ 1fr)
+    )
     var(--component-table-expandable-trigger-width, 0);
   background: var(--colour-fill-white);
   border-bottom: 1px solid var(--colour-border-neutral-light_default);
@@ -233,7 +240,7 @@ export const ElDeprecatedTableRow = styled.div`
   ${isNarrow} {
     grid-template-columns: 1fr 1fr;
   }
-`
+`;
 
 /** @deprecated */
 export const ElTableCtaCell = styled.div`
@@ -252,7 +259,7 @@ export const ElTableCtaCell = styled.div`
     padding: 0;
     grid-column-end: 3;
   }
-`
+`;
 
 /** @deprecated */
 export const ElDeprecatedTableCell = styled.div`
@@ -278,13 +285,13 @@ export const ElDeprecatedTableCell = styled.div`
   > svg {
     margin-right: 0.75rem;
   }
-`
+`;
 
 /** @deprecated */
 export const ElTableCellSplitWrap = styled.div`
   display: flex;
   flex-direction: column;
-`
+`;
 
 /** @deprecated */
 export const ElTableCellSplitData = styled.div`
@@ -293,7 +300,7 @@ export const ElTableCellSplitData = styled.div`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-`
+`;
 
 /** @deprecated */
 export const ElTableCellSplitSubData = styled.div`
@@ -302,7 +309,7 @@ export const ElTableCellSplitSubData = styled.div`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-`
+`;
 
 /** @deprecated */
 export const ElTableExpandableRowTriggerCell = styled.div`
@@ -318,7 +325,7 @@ export const ElTableExpandableRowTriggerCell = styled.div`
     justify-self: end;
     grid-column-end: 3;
   }
-`
+`;
 
 /** @deprecated */
 export const ElDeprecatedTableRowContainer = styled.div`
@@ -346,7 +353,7 @@ export const ElDeprecatedTableRowContainer = styled.div`
       background-color: var(--colour-fill-neutral-light);
     }
   }
-`
+`;
 
 /** @deprecated */
 export const ElDeprecatedTableCellContent = styled.div`
@@ -367,14 +374,14 @@ export const ElDeprecatedTableCellContent = styled.div`
       color: var(--colour-text-primary);
     }
   }
-`
+`;
 
 /** @deprecated */
 export const ElTableCtaIconContainer = styled.div`
   ${isNarrow} {
     padding: 0.75rem;
   }
-`
+`;
 
 /** @deprecated */
 export const ElTableExpandableRow = styled.div`
@@ -389,17 +396,17 @@ export const ElTableExpandableRow = styled.div`
     height: auto;
     opacity: 1;
   }
-`
+`;
 
 /** @deprecated */
 export const ElTableExpandableContainer = styled.div`
   padding: 1rem 0.5rem;
   border-bottom: 1px solid var(--colour-border-neutral-light_default);
-`
+`;
 
 /** @deprecated */
 export const ElDeprecatedTable = styled.div`
-  &[data-force-narrow-table='true'] {
+  &[data-force-narrow-table="true"] {
     ${ElTableExpandableRowTriggerCell} {
       text-align: center;
       justify-self: end;
@@ -489,51 +496,51 @@ export const ElDeprecatedTable = styled.div`
     }
   }
 
-  &[data-num-columns-excl-action-col='2'] {
+  &[data-num-columns-excl-action-col="2"] {
     --component-table-num-columns: 2;
   }
-  &[data-num-columns-excl-action-col='3'] {
+  &[data-num-columns-excl-action-col="3"] {
     --component-table-num-columns: 3;
   }
-  &[data-num-columns-excl-action-col='4'] {
+  &[data-num-columns-excl-action-col="4"] {
     --component-table-num-columns: 4;
   }
-  &[data-num-columns-excl-action-col='5'] {
+  &[data-num-columns-excl-action-col="5"] {
     --component-table-num-columns: 5;
   }
-  &[data-num-columns-excl-action-col='6'] {
+  &[data-num-columns-excl-action-col="6"] {
     --component-table-num-columns: 6;
   }
-  &[data-num-columns-excl-action-col='7'] {
+  &[data-num-columns-excl-action-col="7"] {
     --component-table-num-columns: 7;
   }
-  &[data-num-columns-excl-action-col='8'] {
+  &[data-num-columns-excl-action-col="8"] {
     --component-table-num-columns: 8;
   }
-  &[data-num-columns-excl-action-col='9'] {
+  &[data-num-columns-excl-action-col="9"] {
     --component-table-num-columns: 9;
   }
-  &[data-num-columns-excl-action-col='10'] {
+  &[data-num-columns-excl-action-col="10"] {
     --component-table-num-columns: 10;
   }
-  &[data-num-columns-excl-action-col='11'] {
+  &[data-num-columns-excl-action-col="11"] {
     --component-table-num-columns: 11;
   }
-  &[data-num-columns-excl-action-col='12'] {
+  &[data-num-columns-excl-action-col="12"] {
     --component-table-num-columns: 12;
   }
 
-  &[data-has-expandable-action='true'] {
+  &[data-has-expandable-action="true"] {
     --component-table-expandable-trigger-width: ${EXPANDABLE_TRIGGER_CELL_WIDTH};
   }
 
-  &[data-has-call-to-action='true'] {
+  &[data-has-call-to-action="true"] {
     --component-table-expandable-trigger-width: ${CALL_TO_ACTION_CELL_WIDTH};
   }
-`
+`;
 
 /** @deprecated */
 export const ElDeprecatedTableSortHeader = styled.div`
   width: 100%;
   cursor: pointer;
-`
+`;

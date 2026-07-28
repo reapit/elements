@@ -53,75 +53,80 @@
 // Fix: pre-resolve `#`-prefixed specifiers to a real absolute file (trying
 // extensions/index files) before handing them to b.resolve(), so the rest of
 // the policy (rule 2 shim-to-global, barrel detection, etc.) still applies.
-import { existsSync, readFileSync, realpathSync, statSync } from 'node:fs'
-import { join, relative, resolve } from 'node:path'
+import { existsSync, readFileSync, realpathSync, statSync } from "node:fs";
+import { join, relative, resolve } from "node:path";
 
-let importsMapCache
+let importsMapCache;
 function loadImportsMap(pkgDir) {
-  if (importsMapCache) return importsMapCache
+  if (importsMapCache) return importsMapCache;
   try {
-    const pj = JSON.parse(readFileSync(join(pkgDir, 'package.json'), 'utf8'))
-    importsMapCache = pj.imports ?? {}
+    const pj = JSON.parse(readFileSync(join(pkgDir, "package.json"), "utf8"));
+    importsMapCache = pj.imports ?? {};
   } catch {
-    importsMapCache = {}
+    importsMapCache = {};
   }
-  return importsMapCache
+  return importsMapCache;
 }
 
 const targetPatternOf = (target) =>
-  typeof target === 'string' ? target : (target?.import ?? target?.default ?? target?.types ?? null)
+  typeof target === "string"
+    ? target
+    : (target?.import ?? target?.default ?? target?.types ?? null);
 
 const CANDIDATE_EXTS = [
-  '',
-  '.tsx',
-  '.ts',
-  '.jsx',
-  '.js',
-  '.mjs',
-  '.cjs',
-  '/index.tsx',
-  '/index.ts',
-  '/index.jsx',
-  '/index.js',
-]
+  "",
+  ".tsx",
+  ".ts",
+  ".jsx",
+  ".js",
+  ".mjs",
+  ".cjs",
+  "/index.tsx",
+  "/index.ts",
+  "/index.jsx",
+  "/index.js",
+];
 
 function resolveHashImport(spec, pkgDir) {
-  if (!spec.startsWith('#')) return null
-  const importsMap = loadImportsMap(pkgDir)
+  if (!spec.startsWith("#")) return null;
+  const importsMap = loadImportsMap(pkgDir);
   for (const [pattern, target] of Object.entries(importsMap)) {
-    let base
-    if (pattern.endsWith('/*') && spec.startsWith(pattern.slice(0, -1))) {
-      const rest = spec.slice(pattern.length - 1)
-      const targetPattern = targetPatternOf(target)
-      if (!targetPattern) continue
-      base = join(pkgDir, targetPattern.replace('*', rest))
+    let base;
+    if (pattern.endsWith("/*") && spec.startsWith(pattern.slice(0, -1))) {
+      const rest = spec.slice(pattern.length - 1);
+      const targetPattern = targetPatternOf(target);
+      if (!targetPattern) continue;
+      base = join(pkgDir, targetPattern.replace("*", rest));
     } else if (pattern === spec) {
-      const targetPattern = targetPatternOf(target)
-      if (!targetPattern) continue
-      base = join(pkgDir, targetPattern)
-    } else continue
+      const targetPattern = targetPatternOf(target);
+      if (!targetPattern) continue;
+      base = join(pkgDir, targetPattern);
+    } else continue;
     for (const ext of CANDIDATE_EXTS) {
-      const candidate = base + ext
+      const candidate = base + ext;
       // A bare '' candidate matching a directory must not win — that
       // reintroduces esbuild's "Importing the directory ... is forbidden"
       // error; fall through to the /index.* candidates instead.
-      if (ext === '' ? existsSync(candidate) && statSync(candidate).isFile() : existsSync(candidate)) return candidate
+      if (
+        ext === "" ? existsSync(candidate) && statSync(candidate).isFile() : existsSync(candidate)
+      )
+        return candidate;
     }
   }
-  return null
+  return null;
 }
 
 // Storybook's preview-api also re-exports React-compatible hooks for use in
 // render functions — those delegate to the page's React (an inert stub there
 // is a guaranteed render crash: destructuring a non-iterable).
 const MANAGER_API_STUB =
-  'const noopChannel={on(){},off(){},once(){},emit(){},removeListener(){}};' +
-  'const addons={register(){},add(){},getChannel(){return noopChannel},setConfig(){},getConfig(){return{}}};' +
-  'const R=function(){return window.React||{}};' +
-  'module.exports={addons,types:{},useGlobals(){return[{},function(){}]},useArgs(){return[{},function(){},function(){}]},useParameter(){},useStorybookApi(){return{}},' +
-  'useState(){return R().useState.apply(null,arguments)},useCallback(){return R().useCallback.apply(null,arguments)},useRef(){return R().useRef.apply(null,arguments)},' +
-  'useMemo(){return R().useMemo.apply(null,arguments)},useEffect(){return R().useEffect.apply(null,arguments)},useReducer(){return R().useReducer.apply(null,arguments)},' +
-  'useChannel(){return function(){}}};'
+  "const noopChannel={on(){},off(){},once(){},emit(){},removeListener(){}};" +
+  "const addons={register(){},add(){},getChannel(){return noopChannel},setConfig(){},getConfig(){return{}}};" +
+  "const R=function(){return window.React||{}};" +
+  "module.exports={addons,types:{},useGlobals(){return[{},function(){}]},useArgs(){return[{},function(){},function(){}]},useParameter(){},useStorybookApi(){return{}}," +
+  "useState(){return R().useState.apply(null,arguments)},useCallback(){return R().useCallback.apply(null,arguments)},useRef(){return R().useRef.apply(null,arguments)}," +
+  "useMemo(){return R().useMemo.apply(null,arguments)},useEffect(){return R().useEffect.apply(null,arguments)},useReducer(){return R().useReducer.apply(null,arguments)}," +
+  "useChannel(){return function(){}}};";
 
 // Inert callable proxy: every member access yields another inert callable, so
 // `fn()`, `action("x")`, `expect.anything()`, `userEvent.click(...)` all
@@ -137,12 +142,12 @@ const MANAGER_API_STUB =
 // `.prototype.isReactComponent`, and a truthy proxy answer classifies the
 // stub as a CLASS component, silently swallowing the children.
 const INERT_STUB =
-  'var inert=new Proxy(function(){},{' +
+  "var inert=new Proxy(function(){},{" +
   'get:function(t,k){if(k==="then")return void 0;if(k==="prototype")return t.prototype;if(k==="valueOf"||k==="toString"||k===Symbol.toPrimitive)return function(){return""};return inert},' +
-  'apply:function(){return inert},construct:function(){return{}}});' +
+  "apply:function(){return inert},construct:function(){return{}}});" +
   'var m={};"fn action actions expect userEvent within waitFor screen fireEvent spyOn mocked jest vi configureActions decorateAction setupWorker http HttpResponse graphql rest".split(" ").forEach(function(k){m[k]=inert});' +
-  'var def=function(p){return p&&p.children!==void 0?p.children:null};Object.assign(def,m);' +
-  'module.exports=new Proxy(def,{get:function(t,k){if(k==="then")return void 0;if(k==="prototype")return t.prototype;return k in m?m[k]:k==="__esModule"?void 0:inert}});'
+  "var def=function(p){return p&&p.children!==void 0?p.children:null};Object.assign(def,m);" +
+  'module.exports=new Proxy(def,{get:function(t,k){if(k==="then")return void 0;if(k==="prototype")return t.prototype;return k in m?m[k]:k==="__esModule"?void 0:inert}});';
 
 // @linaria/core + @linaria/react ship a runtime guard for `css`/`styled` that
 // deliberately throws ("Using the css tag in runtime is not supported") when
@@ -250,37 +255,37 @@ var styled = new Proxy(function (Component) { return makeStyled(Component); }, {
   get: function (_target, tag) { return makeStyled(tag); },
 });
 module.exports = { css: css, cx: cx, styled: styled };
-`
+`;
 
-export const STORY_FILE_RE = /\.stor(?:y|ies)\.[cm]?[jt]sx?$/
+export const STORY_FILE_RE = /\.stor(?:y|ies)\.[cm]?[jt]sx?$/;
 
 export const STORY_LOADERS = {
   // jsx is a strict syntax superset of js — JSX-in-.js story files are a
   // common convention and plain .js parses identically.
-  '.js': 'jsx',
-  '.css': 'empty',
-  '.scss': 'empty',
-  '.sass': 'empty',
-  '.less': 'empty',
-  '.styl': 'empty',
-  '.png': 'dataurl',
-  '.jpg': 'dataurl',
-  '.jpeg': 'dataurl',
-  '.gif': 'dataurl',
-  '.webp': 'dataurl',
-  '.avif': 'dataurl',
-  '.svg': 'dataurl',
-  '.ico': 'dataurl',
-  '.woff': 'dataurl',
-  '.woff2': 'dataurl',
-  '.ttf': 'dataurl',
-  '.eot': 'empty',
-  '.md': 'text',
-  '.mdx': 'empty',
-  '.mp4': 'empty',
-  '.webm': 'empty',
-  '.mov': 'empty',
-}
+  ".js": "jsx",
+  ".css": "empty",
+  ".scss": "empty",
+  ".sass": "empty",
+  ".less": "empty",
+  ".styl": "empty",
+  ".png": "dataurl",
+  ".jpg": "dataurl",
+  ".jpeg": "dataurl",
+  ".gif": "dataurl",
+  ".webp": "dataurl",
+  ".avif": "dataurl",
+  ".svg": "dataurl",
+  ".ico": "dataurl",
+  ".woff": "dataurl",
+  ".woff2": "dataurl",
+  ".ttf": "dataurl",
+  ".eot": "empty",
+  ".md": "text",
+  ".mdx": "empty",
+  ".mp4": "empty",
+  ".webm": "empty",
+  ".mov": "empty",
+};
 
 // Which exported component (if any) does a resolved file path look like the
 // source module of? Matches `<...>/Button/Button.tsx`, `<...>/Button/index.ts`,
@@ -301,36 +306,36 @@ const toPascal = (s) =>
     .split(/[^A-Za-z0-9]+/)
     .filter(Boolean)
     .map((w) => w[0].toUpperCase() + w.slice(1))
-    .join('')
+    .join("");
 
 function exportedComponentFor(p, exported) {
-  const segs = p.replace(/\\/g, '/').split('/')
-  const file = (segs[segs.length - 1] ?? '').replace(/\.[cm]?[jt]sx?$/, '')
-  const dir = segs[segs.length - 2] ?? ''
-  if (exported.has(file)) return file
-  const fileP = toPascal(file)
-  if (exported.has(fileP)) return fileP
+  const segs = p.replace(/\\/g, "/").split("/");
+  const file = (segs[segs.length - 1] ?? "").replace(/\.[cm]?[jt]sx?$/, "");
+  const dir = segs[segs.length - 2] ?? "";
+  if (exported.has(file)) return file;
+  const fileP = toPascal(file);
+  if (exported.has(fileP)) return fileP;
   // src/icons/<kebab>.tsx exports <Pascal>Icon, not <Pascal> — icons don't
   // live under their own directory (file === dir never holds for them), so
   // this check runs unconditionally alongside the dir-based one below.
-  if (exported.has(fileP + 'Icon')) return fileP + 'Icon'
-  if (file === 'index' || file === dir || fileP === toPascal(dir)) {
-    if (exported.has(dir)) return dir
-    const dirP = toPascal(dir)
-    if (exported.has(dirP)) return dirP
+  if (exported.has(fileP + "Icon")) return fileP + "Icon";
+  if (file === "index" || file === dir || fileP === toPascal(dir)) {
+    if (exported.has(dir)) return dir;
+    const dirP = toPascal(dir);
+    if (exported.has(dirP)) return dirP;
   }
   // Some exports are prefixed with an ancestor dir's name
   // (focused-layout/product-logo/product-logo.tsx → FocusedLayoutProductLogo).
   // Try concatenating up to 2 ancestor segments' Pascal forms with the
   // dir/file Pascal form, innermost-ancestor-first.
-  const base = toPascal(dir) || fileP
+  const base = toPascal(dir) || fileP;
   for (let i = 3; i <= 4; i++) {
-    const ancestor = segs[segs.length - i]
-    if (!ancestor) break
-    const combined = toPascal(ancestor) + base
-    if (exported.has(combined)) return combined
+    const ancestor = segs[segs.length - i];
+    if (!ancestor) break;
+    const combined = toPascal(ancestor) + base;
+    if (exported.has(combined)) return combined;
   }
-  return null
+  return null;
 }
 
 // CSF v4 "factories" functional stub — repo's stories call
@@ -396,23 +401,25 @@ function definePreview(previewConfig) {
   return api;
 }
 module.exports = { definePreview: definePreview };
-`
+`;
 
 // The @storybook/* stub plugin alone — also used by the decorator bundler.
 export function storybookStubPlugin() {
   return {
-    name: 'sb-stub',
+    name: "sb-stub",
     setup(b) {
       b.onResolve({ filter: /^(@storybook\/|storybook(\/|$)|msw(\/|$)|@mswjs\/)/ }, (a) => ({
         path: a.path,
-        namespace: 'sb-stub',
-      }))
-      b.onLoad({ filter: /.*/, namespace: 'sb-stub' }, (a) => ({
-        contents: /(^|\/)(manager|preview|client)-api$/.test(a.path) ? MANAGER_API_STUB : INERT_STUB,
-        loader: 'js',
-      }))
+        namespace: "sb-stub",
+      }));
+      b.onLoad({ filter: /.*/, namespace: "sb-stub" }, (a) => ({
+        contents: /(^|\/)(manager|preview|client)-api$/.test(a.path)
+          ? MANAGER_API_STUB
+          : INERT_STUB,
+        loader: "js",
+      }));
     },
-  }
+  };
 }
 
 // Build the esbuild plugin set for compiling preview .tsx files (generated
@@ -425,11 +432,12 @@ export function storyImportPlugins({ PKG, GLOBAL, extraEntries = [], exported, c
   // they must never enter import-SPECIFIER matching below, where a story's
   // relative import could coincidentally equal the config string and get
   // wrongly shimmed to the global. Bare package specifiers only.
-  extraEntries = extraEntries.filter((e) => !/^(\.\.?\/|\/|[A-Za-z]:[\\/])/.test(e))
-  const escRx = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
-  const pkgRx = new RegExp(`^(?:${[PKG, ...extraEntries].map(escRx).join('|')})(?:/.*)?$`)
-  const force = cfg?.storyImports ?? {}
-  const matches = (p, pats) => Array.isArray(pats) && pats.some((s) => typeof s === 'string' && p.includes(s))
+  extraEntries = extraEntries.filter((e) => !/^(\.\.?\/|\/|[A-Za-z]:[\\/])/.test(e));
+  const escRx = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const pkgRx = new RegExp(`^(?:${[PKG, ...extraEntries].map(escRx).join("|")})(?:/.*)?$`);
+  const force = cfg?.storyImports ?? {};
+  const matches = (p, pats) =>
+    Array.isArray(pats) && pats.some((s) => typeof s === "string" && p.includes(s));
   // ESM facade shim, NOT CJS: in a `"type":"module"` repo esbuild applies
   // node's ESM-CJS interop to the importing file — `default` becomes the
   // whole exports object and `__esModule` is ignored — which breaks every
@@ -439,52 +447,58 @@ export function storyImportPlugins({ PKG, GLOBAL, extraEntries = [], exported, c
   // (hooks, constants — anything on the global beyond the component list).
   const shimFor = (name) =>
     `export * from "__ds_raw__";var g=window.${GLOBAL};export default ${
-      name ? `g[${JSON.stringify(name)}]!==void 0?g[${JSON.stringify(name)}]:g` : `"default" in g?g.default:g`
-    };`
-  const shimResult = (name) => ({ path: name ? `ds:${name}` : 'ds', namespace: 'ds-shim' })
+      name
+        ? `g[${JSON.stringify(name)}]!==void 0?g[${JSON.stringify(name)}]:g`
+        : `"default" in g?g.default:g`
+    };`;
+  const shimResult = (name) => ({ path: name ? `ds:${name}` : "ds", namespace: "ds-shim" });
 
   const dsShim = {
-    name: 'ds-global',
+    name: "ds-global",
     setup(b) {
-      const entryNames = new Set([PKG, ...extraEntries])
+      const entryNames = new Set([PKG, ...extraEntries]);
       b.onResolve({ filter: pkgRx }, (a) => {
-        if (matches(a.path, force.bundle)) return null // explicit bundle wins
+        if (matches(a.path, force.bundle)) return null; // explicit bundle wins
         if (!entryNames.has(a.path)) {
           // Subpath import: a named component shims default-aware; anything
           // else bundles normally — a wrong root-namespace shim is silent
           // (undefined members), a missing module is loud, and the loud
           // path's fix is named (cfg.extraEntries / node_modules symlink in
           // the package's own source repo).
-          const name = (a.path.split('/').pop() ?? '').replace(/\.[cm]?[jt]sx?$/, '')
-          return exported.has(name) ? shimResult(name) : null
+          const name = (a.path.split("/").pop() ?? "").replace(/\.[cm]?[jt]sx?$/, "");
+          return exported.has(name) ? shimResult(name) : null;
         }
-        return shimResult(null)
-      })
-      b.onLoad({ filter: /.*/, namespace: 'ds-shim' }, (a) => ({
-        contents: shimFor(a.path.startsWith('ds:') ? a.path.slice(3) : null),
-        loader: 'js',
-      }))
+        return shimResult(null);
+      });
+      b.onLoad({ filter: /.*/, namespace: "ds-shim" }, (a) => ({
+        contents: shimFor(a.path.startsWith("ds:") ? a.path.slice(3) : null),
+        loader: "js",
+      }));
       // Location-independent story imports emitted by the preview generator:
       // `@ds-stories/<repo-root-relative path>` resolves against cwd, so the
       // same wrapper compiles from the generated cache or from
       // .design-sync/previews/ after a promote. Extensionless — esbuild
       // appends its resolve extensions.
       b.onResolve({ filter: /^@ds-stories\// }, (a) => {
-        const base = resolve(process.cwd(), a.path.slice('@ds-stories/'.length))
-        for (const ext of ['', '.tsx', '.ts', '.jsx', '.js', '.mjs', '.cjs', '.mdx']) {
-          if (existsSync(base + ext)) return { path: base + ext }
+        const base = resolve(process.cwd(), a.path.slice("@ds-stories/".length));
+        for (const ext of ["", ".tsx", ".ts", ".jsx", ".js", ".mjs", ".cjs", ".mdx"]) {
+          if (existsSync(base + ext)) return { path: base + ext };
         }
-        return { errors: [{ text: `@ds-stories path not found: ${a.path} (resolved against ${process.cwd()})` }] }
-      })
+        return {
+          errors: [
+            { text: `@ds-stories path not found: ${a.path} (resolved against ${process.cwd()})` },
+          ],
+        };
+      });
       // The raw CJS module the ESM facade star-re-exports — dynamic names
       // (everything on the global) without a static export list.
-      b.onResolve({ filter: /^__ds_raw__$/ }, () => ({ path: '__ds_raw__', namespace: 'ds-raw' }))
-      b.onLoad({ filter: /.*/, namespace: 'ds-raw' }, () => ({
+      b.onResolve({ filter: /^__ds_raw__$/ }, () => ({ path: "__ds_raw__", namespace: "ds-raw" }));
+      b.onLoad({ filter: /.*/, namespace: "ds-raw" }, () => ({
         contents: `module.exports=window.${GLOBAL};`,
-        loader: 'js',
-      }))
+        loader: "js",
+      }));
     },
-  }
+  };
 
   // Rule 2: resolve every remaining import and shim the ones that land on an
   // exported component's module — regardless of how the import was spelled.
@@ -494,42 +508,47 @@ export function storyImportPlugins({ PKG, GLOBAL, extraEntries = [], exported, c
   // lives at packages/<x>/src/) shims to the root namespace: `import { X }
   // from "../src"` would otherwise bundle a second copy of the whole library
   // with its own React contexts.
-  const CWD = process.cwd().replace(/\\/g, '/')
+  const CWD = process.cwd().replace(/\\/g, "/");
   // realpath both roots — esbuild's resolver returns symlink-resolved paths,
   // and a merely-resolve()'d root (symlinked tmpdir, symlinked package dir)
   // would never prefix-match them.
   const real = (p) => {
     try {
-      return realpathSync(p).replace(/\\/g, '/')
+      return realpathSync(p).replace(/\\/g, "/");
     } catch {
-      return null
+      return null;
     }
-  }
+  };
   const barrelRoots = [
     ...new Set(
-      [CWD, real(process.cwd()), pkgDir && resolve(pkgDir).replace(/\\/g, '/'), pkgDir && real(pkgDir)].filter(Boolean),
+      [
+        CWD,
+        real(process.cwd()),
+        pkgDir && resolve(pkgDir).replace(/\\/g, "/"),
+        pkgDir && real(pkgDir),
+      ].filter(Boolean),
     ),
-  ]
+  ];
   const policyRedirect = {
-    name: 'ds-import-policy',
+    name: "ds-import-policy",
     setup(b) {
       b.onResolve({ filter: /.*/ }, async (a) => {
-        if (a.pluginData === 'ds-resolving') return null // our own re-entry
-        if (a.kind === 'entry-point' || (a.namespace && a.namespace !== 'file')) return null
-        const hashResolved = pkgDir ? resolveHashImport(a.path, pkgDir) : null
+        if (a.pluginData === "ds-resolving") return null; // our own re-entry
+        if (a.kind === "entry-point" || (a.namespace && a.namespace !== "file")) return null;
+        const hashResolved = pkgDir ? resolveHashImport(a.path, pkgDir) : null;
         const r = await b.resolve(hashResolved ?? a.path, {
           kind: a.kind,
           resolveDir: a.resolveDir,
           importer: a.importer,
-          pluginData: 'ds-resolving',
-        })
-        if (r.errors.length > 0 || !r.path) return null
-        if (r.namespace && r.namespace !== 'file') return r // claimed by another plugin
-        const p = r.path.replace(/\\/g, '/')
-        if (STORY_FILE_RE.test(p)) return r // never the story itself
-        if (matches(p, force.bundle)) return r // explicit bundle wins
-        if (matches(p, force.shim)) return shimResult(exportedComponentFor(p, exported))
-        if (p.includes('/node_modules/')) return r // third-party stays put
+          pluginData: "ds-resolving",
+        });
+        if (r.errors.length > 0 || !r.path) return null;
+        if (r.namespace && r.namespace !== "file") return r; // claimed by another plugin
+        const p = r.path.replace(/\\/g, "/");
+        if (STORY_FILE_RE.test(p)) return r; // never the story itself
+        if (matches(p, force.bundle)) return r; // explicit bundle wins
+        if (matches(p, force.shim)) return shimResult(exportedComponentFor(p, exported));
+        if (p.includes("/node_modules/")) return r; // third-party stays put
         // relative() instead of a startsWith prefix — case-insensitive on
         // win32, where the pkgDir roots carry user-typed casing (a lowercase
         // d:\ drive from --node-modules) while p carries cwd casing, and JS
@@ -539,47 +558,66 @@ export function storyImportPlugins({ PKG, GLOBAL, extraEntries = [], exported, c
         // case-sensitively here (path.posix.relative) — a blanket lowercase
         // compare would be wrong on case-SENSITIVE volumes, so mis-cased
         // --node-modules on mac remains the user's to fix.
-        if (barrelRoots.some((root) => /^src\/index\.[cm]?[jt]sx?$/.test(relative(root, p).replace(/\\/g, '/')))) {
-          return shimResult(null) // package source barrel
+        if (
+          barrelRoots.some((root) =>
+            /^src\/index\.[cm]?[jt]sx?$/.test(relative(root, p).replace(/\\/g, "/")),
+          )
+        ) {
+          return shimResult(null); // package source barrel
         }
-        const name = exportedComponentFor(p, exported)
-        return name ? shimResult(name) : r
-      })
+        const name = exportedComponentFor(p, exported);
+        return name ? shimResult(name) : r;
+      });
     },
-  }
+  };
 
   // Bare `import console from "console"` (and node:console) appears in real
   // story files; node builtins can't bundle for the browser, but this one has
   // an exact page-global equivalent.
   const consoleStub = {
-    name: 'node-console-stub',
+    name: "node-console-stub",
     setup(b) {
-      b.onResolve({ filter: /^(node:)?console$/ }, () => ({ path: 'console', namespace: 'node-console' }))
-      b.onLoad({ filter: /.*/, namespace: 'node-console' }, () => ({
-        contents: 'module.exports=console;',
-        loader: 'js',
-      }))
+      b.onResolve({ filter: /^(node:)?console$/ }, () => ({
+        path: "console",
+        namespace: "node-console",
+      }));
+      b.onLoad({ filter: /.*/, namespace: "node-console" }, () => ({
+        contents: "module.exports=console;",
+        loader: "js",
+      }));
     },
-  }
+  };
 
   // Registered before the generic sb-stub so it wins the resolve race for
   // this exact specifier (esbuild tries onResolve callbacks in registration
   // order across all plugins, stopping at the first non-null result).
   const csf4Stub = {
-    name: 'sb-csf4-factories-stub',
+    name: "sb-csf4-factories-stub",
     setup(b) {
-      b.onResolve({ filter: /^@storybook\/react-vite$/ }, (a) => ({ path: a.path, namespace: 'sb-csf4-stub' }))
-      b.onLoad({ filter: /.*/, namespace: 'sb-csf4-stub' }, () => ({ contents: CSF4_FACTORY_STUB, loader: 'js' }))
+      b.onResolve({ filter: /^@storybook\/react-vite$/ }, (a) => ({
+        path: a.path,
+        namespace: "sb-csf4-stub",
+      }));
+      b.onLoad({ filter: /.*/, namespace: "sb-csf4-stub" }, () => ({
+        contents: CSF4_FACTORY_STUB,
+        loader: "js",
+      }));
     },
-  }
+  };
 
   const linariaStub = {
-    name: 'linaria-runtime-stub',
+    name: "linaria-runtime-stub",
     setup(b) {
-      b.onResolve({ filter: /^@linaria\/(core|react)$/ }, (a) => ({ path: a.path, namespace: 'linaria-stub' }))
-      b.onLoad({ filter: /.*/, namespace: 'linaria-stub' }, () => ({ contents: LINARIA_RUNTIME, loader: 'js' }))
+      b.onResolve({ filter: /^@linaria\/(core|react)$/ }, (a) => ({
+        path: a.path,
+        namespace: "linaria-stub",
+      }));
+      b.onLoad({ filter: /.*/, namespace: "linaria-stub" }, () => ({
+        contents: LINARIA_RUNTIME,
+        loader: "js",
+      }));
     },
-  }
+  };
 
   // 214+ files import icons as `./foo.svg?react` (vite-plugin-svgr's convention
   // — a real React component), not a URL. The default STORY_LOADERS '.svg':
@@ -589,38 +627,46 @@ export function storyImportPlugins({ PKG, GLOBAL, extraEntries = [], exported, c
   // the raw SVG and emit a real functional component instead, falling
   // through to the default dataurl loader for plain (no-suffix) imports.
   const svgrPlugin = {
-    name: 'svgr-react-svg',
+    name: "svgr-react-svg",
     setup(b) {
       b.onLoad({ filter: /\.svg$/ }, (a) => {
-        if (a.suffix !== '?react') return null
-        let raw
+        if (a.suffix !== "?react") return null;
+        let raw;
         try {
-          raw = readFileSync(a.path, 'utf8')
+          raw = readFileSync(a.path, "utf8");
         } catch {
-          return null
+          return null;
         }
-        const m = /<svg([^>]*)>([\s\S]*)<\/svg>/.exec(raw)
-        if (!m) return null
-        const attrs = {}
-        const attrRe = /([\w:-]+)="([^"]*)"/g
-        let am
-        while ((am = attrRe.exec(m[1]))) attrs[am[1]] = am[2]
-        const inner = m[2].replace(/`/g, '\\`').replace(/\$\{/g, '\\${')
+        const m = /<svg([^>]*)>([\s\S]*)<\/svg>/.exec(raw);
+        if (!m) return null;
+        const attrs = {};
+        const attrRe = /([\w:-]+)="([^"]*)"/g;
+        let am;
+        while ((am = attrRe.exec(m[1]))) attrs[am[1]] = am[2];
+        const inner = m[2].replace(/`/g, "\\`").replace(/\$\{/g, "\\${");
         return {
-          loader: 'js',
+          loader: "js",
           contents:
             `var __attrs = ${JSON.stringify(attrs)};\n` +
             `function SvgIcon(props) {\n` +
             `  return window.React.createElement('svg', Object.assign({}, __attrs, props, { dangerouslySetInnerHTML: { __html: \`${inner}\` } }));\n` +
             `}\n` +
             `module.exports = { __esModule: true, default: SvgIcon, ReactComponent: SvgIcon };\n`,
-        }
-      })
+        };
+      });
     },
-  }
+  };
 
   return {
-    plugins: [dsShim, csf4Stub, linariaStub, svgrPlugin, storybookStubPlugin(), consoleStub, policyRedirect],
+    plugins: [
+      dsShim,
+      csf4Stub,
+      linariaStub,
+      svgrPlugin,
+      storybookStubPlugin(),
+      consoleStub,
+      policyRedirect,
+    ],
     loaders: { ...STORY_LOADERS, ...(force.loaders ?? {}) },
-  }
+  };
 }

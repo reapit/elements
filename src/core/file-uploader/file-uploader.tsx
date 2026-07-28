@@ -1,25 +1,28 @@
-import { ElFileUploader, ElFileUploaderAnnouncer } from './styles'
-import { FileUploaderButtonControl, FileUploaderButtonInput } from './button-input'
-import { FileUploaderContext } from './context'
-import { FileUploaderDropzoneControl, FileUploaderDropzoneInput } from './dropzone-input'
-import { FileUploaderFileList } from './file-list'
-import { FileUploaderSingleSelectMediaControl, FileUploaderSingleSelectMediaInput } from './single-select-media-input'
-import { FileUploadQueue } from './file-upload-queue'
-import { useEffect, useId, useMemo, useState } from 'react'
-import { useFileUploaderAnnouncements } from './use-file-uploader-announcements'
+import { useEffect, useId, useMemo, useState } from "react";
+import type { ReactNode } from "react";
 
-import type { ReactNode } from 'react'
+import { FileUploaderButtonControl, FileUploaderButtonInput } from "./button-input";
+import { FileUploaderContext } from "./context";
+import { FileUploaderDropzoneControl, FileUploaderDropzoneInput } from "./dropzone-input";
+import { FileUploaderFileList } from "./file-list";
+import { FileUploadQueue } from "./file-upload-queue";
+import {
+  FileUploaderSingleSelectMediaControl,
+  FileUploaderSingleSelectMediaInput,
+} from "./single-select-media-input";
+import { ElFileUploader, ElFileUploaderAnnouncer } from "./styles";
+import { useFileUploaderAnnouncements } from "./use-file-uploader-announcements";
 
 export namespace FileUploader {
   interface BaseProps<TResult extends unknown = string> {
     /** Typically a `FileUploader.ButtonControl`/`FileUploader.DropzoneControl` and/or `FileUploader.FileList`. */
-    children?: ReactNode
+    children?: ReactNode;
     /** Whether the uploader is disabled. */
-    disabled?: boolean
+    disabled?: boolean;
     /** BCP 47 locale tag. Used to format file sizes and upload percentages. Defaults to the runtime locale when omitted. */
-    locale?: string
+    locale?: string;
     /** The maximum width of the uploader. */
-    maxWidth?: string
+    maxWidth?: string;
     /**
      * How long an item must stay uploading/processing before its loading indicator appears, so
      * fast uploads never flash a spinner. Only meaningful when `queue` isn't supplied — an
@@ -27,19 +30,19 @@ export namespace FileUploader {
      *
      * @default 300
      */
-    minLoadingIndicatorDelayMs?: FileUploadQueue.Options<TResult>['minLoadingIndicatorDelayMs']
+    minLoadingIndicatorDelayMs?: FileUploadQueue.Options<TResult>["minLoadingIndicatorDelayMs"];
   }
 
   interface WithQueue<TResult extends unknown = string> extends BaseProps<TResult> {
-    onUpload?: never
-    getFileId?: never
+    onUpload?: never;
+    getFileId?: never;
     /**
      * An externally-created `FileUploadQueue` instance. Defaults to creating one
      * internally. Passing your own lets a submit handler read the same instance directly —
      * e.g. to look up richer per-file data by ID after collecting IDs from `FormData` —
      * without any form-library-specific integration.
      */
-    queue: FileUploadQueue<TResult>
+    queue: FileUploadQueue<TResult>;
   }
 
   interface WithOnUpload<TResult extends unknown = string> extends BaseProps<TResult> {
@@ -49,7 +52,7 @@ export namespace FileUploader {
      * `onUpload` resolves a richer object containing metadata alongside the ID. See
      * `FileUploadQueue.Options.getFileId`.
      */
-    getFileId?: FileUploadQueue.Options<TResult>['getFileId']
+    getFileId?: FileUploadQueue.Options<TResult>["getFileId"];
     /**
      * Uploads `file`, resolving with whatever the consumer's backend returns. There is no default
      * implementation — every consumer's upload endpoint and response shape differ — so this is
@@ -57,11 +60,11 @@ export namespace FileUploader {
      * server-side step, or record the file ID as soon as it's known rather than waiting for this
      * promise to settle.
      */
-    onUpload: FileUploadQueue.Options<TResult>['onUpload']
-    queue?: never
+    onUpload: FileUploadQueue.Options<TResult>["onUpload"];
+    queue?: never;
   }
 
-  export type Props<TResult extends unknown = string> = WithQueue<TResult> | WithOnUpload<TResult>
+  export type Props<TResult extends unknown = string> = WithQueue<TResult> | WithOnUpload<TResult>;
 }
 
 /**
@@ -70,7 +73,7 @@ export namespace FileUploader {
  * are applied to the controls and determine how many files, and of which type and size, can be uploaded.
  */
 export function FileUploader<TResult extends unknown = string>(props: FileUploader.Props<TResult>) {
-  const { children, disabled, locale, maxWidth, minLoadingIndicatorDelayMs } = props
+  const { children, disabled, locale, maxWidth, minLoadingIndicatorDelayMs } = props;
 
   const [internalQueue] = useState(
     () =>
@@ -81,20 +84,20 @@ export function FileUploader<TResult extends unknown = string>(props: FileUpload
         getFileId: props.getFileId,
         minLoadingIndicatorDelayMs,
       }),
-  )
-  const queue = props.queue ?? internalQueue
-  const isUsingOwnQueue = !props.queue
+  );
+  const queue = props.queue ?? internalQueue;
+  const isUsingOwnQueue = !props.queue;
 
   // Only destroy a queue this component created itself — an externally-supplied `queue` prop is
   // owned by the caller, who may keep using it (e.g. reading it from a submit handler) after this
   // component unmounts.
   useEffect(() => {
-    if (!isUsingOwnQueue) return undefined
-    return () => queue.destroy()
-  }, [queue, isUsingOwnQueue])
+    if (!isUsingOwnQueue) return undefined;
+    return () => queue.destroy();
+  }, [queue, isUsingOwnQueue]);
 
-  const triggerId = useId()
-  const announcements = useFileUploaderAnnouncements(queue)
+  const triggerId = useId();
+  const announcements = useFileUploaderAnnouncements(queue);
 
   const contextValue = useMemo<FileUploaderContext.Value>(
     () => ({
@@ -104,7 +107,7 @@ export function FileUploader<TResult extends unknown = string>(props: FileUpload
       triggerId,
     }),
     [disabled, locale, queue, triggerId],
-  )
+  );
 
   return (
     <ElFileUploader style={{ maxWidth }}>
@@ -119,14 +122,14 @@ export function FileUploader<TResult extends unknown = string>(props: FileUpload
       </ElFileUploaderAnnouncer>
       <FileUploaderContext.Provider value={contextValue}>{children}</FileUploaderContext.Provider>
     </ElFileUploader>
-  )
+  );
 }
 
-FileUploader.ButtonControl = FileUploaderButtonControl
-FileUploader.ButtonInput = FileUploaderButtonInput
-FileUploader.DropzoneControl = FileUploaderDropzoneControl
-FileUploader.DropzoneInput = FileUploaderDropzoneInput
-FileUploader.File = FileUploaderFileList.File
-FileUploader.FileList = FileUploaderFileList
-FileUploader.SingleSelectMediaControl = FileUploaderSingleSelectMediaControl
-FileUploader.SingleSelectMediaInput = FileUploaderSingleSelectMediaInput
+FileUploader.ButtonControl = FileUploaderButtonControl;
+FileUploader.ButtonInput = FileUploaderButtonInput;
+FileUploader.DropzoneControl = FileUploaderDropzoneControl;
+FileUploader.DropzoneInput = FileUploaderDropzoneInput;
+FileUploader.File = FileUploaderFileList.File;
+FileUploader.FileList = FileUploaderFileList;
+FileUploader.SingleSelectMediaControl = FileUploaderSingleSelectMediaControl;
+FileUploader.SingleSelectMediaInput = FileUploaderSingleSelectMediaInput;

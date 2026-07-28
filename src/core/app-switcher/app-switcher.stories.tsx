@@ -1,12 +1,12 @@
-import preview from '#.storybook/preview'
-import { AppSwitcher } from './app-switcher'
-import { AppSwitcherProductMenuItem } from './anz/product-menu-item'
-import { productDisplayOrder_DO_NOT_ADD_PRODUCTS_TO_THIS_UNLESS_APPROVED_FOR_DISPLAY_AND_SSO_CAPABLE } from './anz/config'
+import preview from "#.storybook/preview";
 
-import type { SupportedProductId } from './anz/config'
+import { productDisplayOrder_DO_NOT_ADD_PRODUCTS_TO_THIS_UNLESS_APPROVED_FOR_DISPLAY_AND_SSO_CAPABLE } from "./anz/config";
+import type { SupportedProductId } from "./anz/config";
+import { AppSwitcherProductMenuItem } from "./anz/product-menu-item";
+import { AppSwitcher } from "./app-switcher";
 
 const meta = preview.type<{ args: { accessibleProductIds?: SupportedProductId[] } }>().meta({
-  title: 'Navigation/AppSwitcher',
+  title: "Navigation/AppSwitcher",
   component: AppSwitcher,
   args: {
     children: undefined,
@@ -16,9 +16,9 @@ const meta = preview.type<{ args: { accessibleProductIds?: SupportedProductId[] 
       control: false,
     },
   },
-})
+});
 
-const href = '#'
+const href = "#";
 
 /**
  * The UI for the ANZ App Switcher is built by composing `AppSwitcherProductMenuItem` (from
@@ -45,7 +45,7 @@ export const Example = meta.story({
       </AppSwitcher.ExploreMenuGroup>,
     ],
   },
-})
+});
 
 /**
  * When the user has access to all "displayable" ANZ products, they will all be displayed in the Your Apps
@@ -73,24 +73,28 @@ export const Example = meta.story({
  */
 export const AllAccessible = meta.story({
   args: {
-    accessibleProductIds: productDisplayOrder_DO_NOT_ADD_PRODUCTS_TO_THIS_UNLESS_APPROVED_FOR_DISPLAY_AND_SSO_CAPABLE,
+    accessibleProductIds:
+      productDisplayOrder_DO_NOT_ADD_PRODUCTS_TO_THIS_UNLESS_APPROVED_FOR_DISPLAY_AND_SSO_CAPABLE,
   },
   argTypes: {
     accessibleProductIds: {
-      control: 'check',
-      options: productDisplayOrder_DO_NOT_ADD_PRODUCTS_TO_THIS_UNLESS_APPROVED_FOR_DISPLAY_AND_SSO_CAPABLE,
+      control: "check",
+      options:
+        productDisplayOrder_DO_NOT_ADD_PRODUCTS_TO_THIS_UNLESS_APPROVED_FOR_DISPLAY_AND_SSO_CAPABLE,
     },
   },
   decorators: [
     (Story) => (
-      <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF' }}>
+      <div style={{ boxSizing: "content-box", border: "1px solid #FA00FF" }}>
         <Story />
       </div>
     ),
   ],
   render: ({ accessibleProductIds = [] }) => {
-    const displayableProductsForYourAppsGroup = AppSwitcher.getDisplayableProductsForYourAppsGroup(accessibleProductIds)
-    const displayableProductsForExploreGroup = AppSwitcher.getDisplayableProductsForExploreGroup(accessibleProductIds)
+    const displayableProductsForYourAppsGroup =
+      AppSwitcher.getDisplayableProductsForYourAppsGroup(accessibleProductIds);
+    const displayableProductsForExploreGroup =
+      AppSwitcher.getDisplayableProductsForExploreGroup(accessibleProductIds);
     return (
       <>
         {displayableProductsForYourAppsGroup.length > 0 && (
@@ -111,9 +115,9 @@ export const AllAccessible = meta.story({
           </AppSwitcher.ExploreMenuGroup>
         )}
       </>
-    )
+    );
   },
-})
+});
 
 /**
  * If the user has access to none of the "displayable" ANZ products, all displayable products will be shown in
@@ -140,4 +144,4 @@ export const NoneAccessible = AllAccessible.extend({
   args: {
     accessibleProductIds: [],
   },
-})
+});

@@ -1,1 +1,1 @@
-export * from './nav-search-icon-item'
+export * from "./nav-search-icon-item";

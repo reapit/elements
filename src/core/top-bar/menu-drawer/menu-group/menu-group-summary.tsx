@@ -1,28 +1,29 @@
-import { ChevronDownIcon } from '#src/icons/chevron-down'
-import { cx } from '@linaria/core'
+import { cx } from "@linaria/core";
+import { useCallback } from "react";
+import type { HTMLAttributes, MouseEventHandler, ReactNode } from "react";
+
+import { ChevronDownIcon } from "#src/icons/chevron-down";
+
+import { elTopBarMenuDrawerMenuItem } from "../menu-item/styles";
+import { useTopBarMenuDrawerMenuGroupLabelIdContext } from "./menu-group-label-id-context";
+import { shouldTopBarMenuGroupBeOpen } from "./should-be-open";
 import {
   elTopBarMenuDrawerMenuGroupSummary,
   ElTopBarMenuDrawerMenuGroupSummaryBadge,
   ElTopBarMenuDrawerMenuGroupSummaryDropdownIcon,
   ElTopBarMenuDrawerMenuGroupSummaryLabel,
-} from './styles'
-import { elTopBarMenuDrawerMenuItem } from '../menu-item/styles'
-import { shouldTopBarMenuGroupBeOpen } from './should-be-open'
-import { useTopBarMenuDrawerMenuGroupLabelIdContext } from './menu-group-label-id-context'
-import { useCallback } from 'react'
-
-import type { HTMLAttributes, MouseEventHandler, ReactNode } from 'react'
+} from "./styles";
 
 export namespace TopBarMenuDrawerMenuGroupSummary {
   export interface Props extends HTMLAttributes<HTMLElement> {
     /**
      * The label for the menu group.
      */
-    children: ReactNode
+    children: ReactNode;
     /**
      * Whether the menu group has a badge.
      */
-    hasBadge?: boolean
+    hasBadge?: boolean;
   }
 }
 
@@ -42,7 +43,7 @@ export function TopBarMenuDrawerMenuGroupSummary({
   onClick,
   ...props
 }: TopBarMenuDrawerMenuGroupSummary.Props) {
-  const labelId = useTopBarMenuDrawerMenuGroupLabelIdContext()
+  const labelId = useTopBarMenuDrawerMenuGroupLabelIdContext();
 
   // We need to prevent the parent menu group from closing if it is currently active (i.e. one of its descendants
   // represents the current page).
@@ -51,16 +52,16 @@ export function TopBarMenuDrawerMenuGroupSummary({
   // click event that propagates from _any_ descendants, which would include this <summary> element.
   const handleClick = useCallback<MouseEventHandler<HTMLElement>>(
     (event) => {
-      onClick?.(event)
+      onClick?.(event);
 
-      const detailsElement = event.currentTarget.closest('details')
+      const detailsElement = event.currentTarget.closest("details");
 
       if (detailsElement && shouldTopBarMenuGroupBeOpen(detailsElement)) {
-        event.preventDefault()
+        event.preventDefault();
       }
     },
     [onClick],
-  )
+  );
 
   return (
     <summary
@@ -75,7 +76,7 @@ export function TopBarMenuDrawerMenuGroupSummary({
         <ChevronDownIcon />
       </ElTopBarMenuDrawerMenuGroupSummaryDropdownIcon>
     </summary>
-  )
+  );
 }
 
-TopBarMenuDrawerMenuGroupSummary.displayName = 'TopBar.MenuGroupSummary'
+TopBarMenuDrawerMenuGroupSummary.displayName = "TopBar.MenuGroupSummary";

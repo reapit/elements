@@ -1,7 +1,7 @@
-import { Combobox } from '#src/utils/combobox'
-import { SearchIcon } from '#src/icons/search'
+import { SearchIcon } from "#src/icons/search";
+import { Combobox } from "#src/utils/combobox";
 
-type AttributesToOmit = 'aria-controls' | 'aria-expanded' | 'children' | 'id' | 'size'
+type AttributesToOmit = "aria-controls" | "aria-expanded" | "children" | "id" | "size";
 
 export namespace AutocompleteButton {
   export interface Props extends Omit<Combobox.ButtonProps, AttributesToOmit> {
@@ -9,14 +9,14 @@ export namespace AutocompleteButton {
      * Render-prop to customise display of selected content. Typically used with the card
      * selection style.
      */
-    children?: Combobox.SelectedContentProps['children']
+    children?: Combobox.SelectedContentProps["children"];
     /** Default options to display when no selections have been made. */
-    defaultOptions?: Combobox.SelectedContentProps['defaultOptions']
+    defaultOptions?: Combobox.SelectedContentProps["defaultOptions"];
     /**
      * Visual style of the selected content. Only applies for single-select autocompletes
      * when a selection has been made.
      */
-    selectionStyle?: 'card' | 'default'
+    selectionStyle?: "card" | "default";
   }
 }
 
@@ -29,26 +29,28 @@ export function AutocompleteButton({
   children,
   defaultOptions,
   onClick,
-  placeholder = 'Search...',
-  selectionStyle = 'default',
+  placeholder = "Search...",
+  selectionStyle = "default",
   ...rest
 }: AutocompleteButton.Props) {
-  const buttonProps = Combobox.useButton({ onClick })
-  const context = Combobox.useContext()
-  const hasSelection = Combobox.useHasSelection(context.listboxId)
+  const buttonProps = Combobox.useButton({ onClick });
+  const context = Combobox.useContext();
+  const hasSelection = Combobox.useHasSelection(context.listboxId);
 
   // Search icon is shown for multi-selects or when a single-select has no selection
-  const showSearchIcon = context.multiple || !hasSelection
+  const showSearchIcon = context.multiple || !hasSelection;
   // Selected content is only shown for single-selects with a selection
-  const showSelectedContent = !context.multiple && hasSelection
+  const showSelectedContent = !context.multiple && hasSelection;
   // The card style is only shown for single-selects with a selection
-  const showCard = selectionStyle === 'card' && showSelectedContent
+  const showCard = selectionStyle === "card" && showSelectedContent;
 
   return showCard ? (
     <Combobox.Card
       {...rest}
       {...buttonProps}
-      action={<Combobox.ClearButton aria-controls={context.listboxId} disabled={context.disabled} />}
+      action={
+        <Combobox.ClearButton aria-controls={context.listboxId} disabled={context.disabled} />
+      }
       size={context.size}
     >
       <Combobox.SelectedContent defaultOptions={defaultOptions} listboxId={context.listboxId}>
@@ -60,7 +62,9 @@ export function AutocompleteButton({
       {...rest}
       {...buttonProps}
       action={
-        showSelectedContent && <Combobox.ClearButton aria-controls={context.listboxId} disabled={context.disabled} />
+        showSelectedContent && (
+          <Combobox.ClearButton aria-controls={context.listboxId} disabled={context.disabled} />
+        )
       }
       leadingIcon={showSearchIcon && <SearchIcon aria-hidden />}
       placeholder={placeholder}
@@ -72,7 +76,7 @@ export function AutocompleteButton({
         </Combobox.SelectedContent>
       )}
     </Combobox.Button>
-  )
+  );
 }
 
-AutocompleteButton.displayName = 'Autocomplete.Button'
+AutocompleteButton.displayName = "Autocomplete.Button";

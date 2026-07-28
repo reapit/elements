@@ -1,5 +1,6 @@
-import { font } from '#src/utils/font'
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
+
+import { font } from "#src/utils/font";
 
 export const ElAccordionSummary = styled.summary`
   @layer elements.main {
@@ -15,7 +16,7 @@ export const ElAccordionSummary = styled.summary`
     cursor: pointer;
 
     color: var(--comp-accordion-colour-text);
-    ${font('base', 'medium')}
+    ${font("base", "medium")}
 
     &:focus-visible {
       outline: var(--border-width-double) solid var(--colour-border-focus);
@@ -27,14 +28,14 @@ export const ElAccordionSummary = styled.summary`
       display: none;
     }
   }
-`
+`;
 
 export const ElAccordionSummaryTitle = styled.div`
   @layer elements.main {
     flex: 1;
     min-width: 0;
   }
-`
+`;
 
 export const ElAccordionSummaryAccessory = styled.div`
   @layer elements.main {
@@ -43,9 +44,9 @@ export const ElAccordionSummaryAccessory = styled.div`
     justify-content: end;
 
     color: var(--comp-accordion-colour-text);
-    ${font('xs', 'regular')}
+    ${font("xs", "regular")}
   }
-`
+`;
 
 export const ElAccordionSummaryIcon = styled.div`
   @layer elements.main {
@@ -64,4 +65,4 @@ export const ElAccordionSummaryIcon = styled.div`
       transform: rotate(180deg);
     }
   }
-`
+`;

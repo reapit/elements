@@ -1,7 +1,8 @@
-import { cx } from '@linaria/core'
-import { GridItem } from './grid-item'
-import { elGrid } from './styles'
-import type { CSSProperties, ComponentPropsWithoutRef, ElementType } from 'react'
+import { cx } from "@linaria/core";
+import type { CSSProperties, ComponentPropsWithoutRef, ElementType } from "react";
+
+import { GridItem } from "./grid-item";
+import { elGrid } from "./styles";
 
 export namespace Grid {
   export interface BaseProps {
@@ -9,74 +10,88 @@ export namespace Grid {
      * Number and size of explicitly created columns.
      * Accepts any valid [grid-template-columns](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns) value.
      */
-    templateColumns?: string
+    templateColumns?: string;
     /**
      * Number and size of explicitly created rows.
      * Accepts any valid [grid-template-rows](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-rows) value.
      */
-    templateRows?: string
+    templateRows?: string;
     /**
      * Named grid areas, defining the structure of the grid.
      * Accepts any valid [grid-template-areas](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-areas) value.
      */
-    templateAreas?: string
+    templateAreas?: string;
     /**
      * Size of implicitly created columns.
      * Accepts any valid [grid-auto-columns](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-columns) value.
      */
-    autoColumns?: string
+    autoColumns?: string;
     /**
      * Size of implicitly created rows.
      * Accepts any valid [grid-auto-rows](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-rows) value.
      */
-    autoRows?: string
+    autoRows?: string;
     /**
      * Direction and density of the auto-placement algorithm.
      */
-    autoFlow?: 'row' | 'column' | 'row dense' | 'column dense'
+    autoFlow?: "row" | "column" | "row dense" | "column dense";
     /**
      * Gap between rows and columns. Accepts a spacing token name, e.g. `--spacing-4`.
      * Use `columnGap` or `rowGap` to set individual axes.
      */
-    gap?: `--spacing-${string}`
+    gap?: `--spacing-${string}`;
     /**
      * Gap between columns. Accepts a spacing token name, e.g. `--spacing-4`.
      */
-    columnGap?: `--spacing-${string}`
+    columnGap?: `--spacing-${string}`;
     /**
      * Gap between rows. Accepts a spacing token name, e.g. `--spacing-4`.
      */
-    rowGap?: `--spacing-${string}`
+    rowGap?: `--spacing-${string}`;
     /**
      * Alignment of items along the block (column) axis.
      */
-    alignItems?: 'normal' | 'start' | 'end' | 'center' | 'stretch' | 'baseline'
+    alignItems?: "normal" | "start" | "end" | "center" | "stretch" | "baseline";
     /**
      * Alignment of items along the inline (row) axis within their cells.
      */
-    justifyItems?: 'normal' | 'start' | 'end' | 'center' | 'stretch'
+    justifyItems?: "normal" | "start" | "end" | "center" | "stretch";
     /**
      * Alignment of tracks along the block axis when extra space is available.
      */
-    alignContent?: 'start' | 'end' | 'center' | 'stretch' | 'space-between' | 'space-around' | 'space-evenly'
+    alignContent?:
+      | "start"
+      | "end"
+      | "center"
+      | "stretch"
+      | "space-between"
+      | "space-around"
+      | "space-evenly";
     /**
      * Alignment of tracks along the inline axis when extra space is available.
      */
-    justifyContent?: 'start' | 'end' | 'center' | 'stretch' | 'space-between' | 'space-around' | 'space-evenly'
+    justifyContent?:
+      | "start"
+      | "end"
+      | "center"
+      | "stretch"
+      | "space-between"
+      | "space-around"
+      | "space-evenly";
     /**
      * When `true`, renders as an inline grid container (`display: inline-grid`).
      * When `false`, explicitly forces `display: grid`.
      */
-    isInline?: boolean
+    isInline?: boolean;
   }
 
-  export type Props<C extends ElementType = 'div'> = BaseProps &
+  export type Props<C extends ElementType = "div"> = BaseProps &
     Omit<ComponentPropsWithoutRef<C>, keyof BaseProps> & {
-      as?: C
-    }
+      as?: C;
+    };
 
-  export type ItemBaseProps = GridItem.BaseProps
-  export type ItemProps<C extends ElementType = 'div'> = GridItem.Props<C>
+  export type ItemBaseProps = GridItem.BaseProps;
+  export type ItemProps<C extends ElementType = "div"> = GridItem.Props<C>;
 }
 
 /**
@@ -86,7 +101,7 @@ export namespace Grid {
  *
  * Use `Grid.Item` for child items.
  */
-export function Grid<C extends ElementType = 'div'>({
+export function Grid<C extends ElementType = "div">({
   as,
   isInline,
   templateColumns,
@@ -106,10 +121,10 @@ export function Grid<C extends ElementType = 'div'>({
   style,
   ...rest
 }: Grid.Props<C>) {
-  const Element = as || 'div'
+  const Element = as || "div";
 
   const gridStyle: CSSProperties = {
-    ...(isInline !== undefined && { display: isInline ? 'inline-grid' : 'grid' }),
+    ...(isInline !== undefined && { display: isInline ? "inline-grid" : "grid" }),
     ...(templateColumns && { gridTemplateColumns: templateColumns }),
     ...(templateRows && { gridTemplateRows: templateRows }),
     ...(templateAreas && { gridTemplateAreas: templateAreas }),
@@ -123,9 +138,9 @@ export function Grid<C extends ElementType = 'div'>({
     ...(justifyItems && { justifyItems }),
     ...(alignContent && { alignContent }),
     ...(justifyContent && { justifyContent }),
-  }
+  };
 
-  return <Element {...rest} className={cx(elGrid, className)} style={{ ...style, ...gridStyle }} />
+  return <Element {...rest} className={cx(elGrid, className)} style={{ ...style, ...gridStyle }} />;
 }
 
-Grid.Item = GridItem
+Grid.Item = GridItem;

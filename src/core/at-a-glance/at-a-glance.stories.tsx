@@ -1,19 +1,23 @@
-import preview from '#.storybook/preview'
-import { AtAGlance } from './at-a-glance'
-import { buildCards } from './__story__/build-cards'
-import { SettingsAltIcon } from '#src/icons/settings-alt'
+import preview from "#.storybook/preview";
+import { SettingsAltIcon } from "#src/icons/settings-alt";
 
-import { Button } from '../button'
+import { Button } from "../button";
+import { buildCards } from "./__story__/build-cards";
+import { AtAGlance } from "./at-a-glance";
 
 const meta = preview.meta({
-  title: 'Content display/AtAGlance',
+  title: "Content display/AtAGlance",
   component: AtAGlance,
   argTypes: {
     children: {
-      control: 'select',
-      options: ['Carousel', 'Grid', 'Links', 'Listbox with Carousel', 'Listbox with Grid'],
+      control: "select",
+      options: ["Carousel", "Grid", "Links", "Listbox with Carousel", "Listbox with Grid"],
       mapping: {
-        Carousel: <AtAGlance.Carousel columns="200px">{buildCards({ variant: 'simple' })}</AtAGlance.Carousel>,
+        Carousel: (
+          <AtAGlance.Carousel columns="200px">
+            {buildCards({ variant: "simple" })}
+          </AtAGlance.Carousel>
+        ),
         Header: (
           <>
             <AtAGlance.Header
@@ -30,30 +34,34 @@ const meta = preview.meta({
               Available fruit
             </AtAGlance.Header>
             <AtAGlance.Grid templateColumns="repeat(auto-fit, minmax(200px, 1fr))">
-              {buildCards({ count: 4, variant: 'simple' })}
+              {buildCards({ count: 4, variant: "simple" })}
             </AtAGlance.Grid>
           </>
         ),
         Grid: (
           <AtAGlance.Grid templateColumns="repeat(auto-fit, minmax(200px, 1fr))">
-            {buildCards({ variant: 'simple' })}
+            {buildCards({ variant: "simple" })}
           </AtAGlance.Grid>
         ),
-        Links: <AtAGlance.Carousel columns="200px">{buildCards({ variant: 'with-link' })}</AtAGlance.Carousel>,
-        'Listbox with Carousel': (
+        Links: (
+          <AtAGlance.Carousel columns="200px">
+            {buildCards({ variant: "with-link" })}
+          </AtAGlance.Carousel>
+        ),
+        "Listbox with Carousel": (
           <AtAGlance.Listbox as={AtAGlance.Carousel} columns="200px">
-            {buildCards({ layout: 'compact', variant: 'selectable' })}
+            {buildCards({ layout: "compact", variant: "selectable" })}
           </AtAGlance.Listbox>
         ),
-        'Listbox with Grid': (
+        "Listbox with Grid": (
           <AtAGlance.Listbox as={AtAGlance.Grid} templateColumns="1fr 1fr 1fr 1fr">
-            {buildCards({ layout: 'horizontal', variant: 'selectable' })}
+            {buildCards({ layout: "horizontal", variant: "selectable" })}
           </AtAGlance.Listbox>
         ),
       },
     },
   },
-})
+});
 
 /**
  * Grid layout displays cards in a responsive grid pattern.
@@ -61,18 +69,18 @@ const meta = preview.meta({
  */
 export const Example = meta.story({
   args: {
-    children: 'Grid',
+    children: "Grid",
   },
-})
+});
 
 /**
  * A header can be included to title the at-a-glance section and provide an accessory action.
  */
 export const Header = meta.story({
   args: {
-    children: 'Header',
+    children: "Header",
   },
-})
+});
 
 /**
  * Carousel layout displays cards in a horizontal scrolling container with navigation buttons.
@@ -80,9 +88,9 @@ export const Header = meta.story({
  */
 export const Carousel = meta.story({
   args: {
-    children: 'Carousel',
+    children: "Carousel",
   },
-})
+});
 
 /**
  * Linked cards allow users to navigate to other pages when clicked. They can also be used to update
@@ -91,9 +99,9 @@ export const Carousel = meta.story({
  */
 export const Links = meta.story({
   args: {
-    children: 'Links',
+    children: "Links",
   },
-})
+});
 
 /**
  * Selectable cards allow users to select options. Only single-selection is currently supported.
@@ -110,6 +118,6 @@ export const Links = meta.story({
  */
 export const Selectable = meta.story({
   args: {
-    children: 'Listbox with Carousel',
+    children: "Listbox with Carousel",
   },
-})
+});

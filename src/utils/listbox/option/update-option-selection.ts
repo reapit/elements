@@ -1,7 +1,7 @@
-import { setListboxOptionSelectedState } from '../dom-helpers'
+import type { MouseEvent } from "react";
 
-import type { SelectionSetter } from '../dom-helpers'
-import type { MouseEvent } from 'react'
+import { setListboxOptionSelectedState } from "../dom-helpers";
+import type { SelectionSetter } from "../dom-helpers";
 
 /**
  * Valid selection action modes for listbox options.
@@ -10,24 +10,24 @@ import type { MouseEvent } from 'react'
  * - 'toggle': Always toggles the selection state
  * - 'select': Always selects the option
  */
-export type SelectAction = 'auto' | 'toggle' | 'select'
+export type SelectAction = "auto" | "toggle" | "select";
 
 /**
  * Selection strategies for each action mode.
  */
 const selectionStrategies: Record<SelectAction, SelectionSetter> = {
   auto: (selected, selectElement) => {
-    return selectElement.multiple ? !selected : true
+    return selectElement.multiple ? !selected : true;
   },
   toggle: (selected) => !selected,
   select: () => true,
-}
+};
 
 /**
  * Validates if a string is a valid SelectAction.
  */
 function isValidSelectAction(action: string | undefined): action is SelectAction {
-  return action === 'auto' || action === 'toggle' || action === 'select'
+  return action === "auto" || action === "toggle" || action === "select";
 }
 
 /**
@@ -44,17 +44,17 @@ function isValidSelectAction(action: string | undefined): action is SelectAction
  *   - `value`: The option value (required)
  */
 export function updateOptionSelection(event: MouseEvent<HTMLButtonElement>) {
-  const { listboxId, selectAction } = event.currentTarget.dataset
-  const optionValue = event.currentTarget.value
+  const { listboxId, selectAction } = event.currentTarget.dataset;
+  const optionValue = event.currentTarget.value;
 
   // Validate required attributes
   // This happens when the `as` component fails to forward props to the underlying <button> element.
   // We use typeof for the optionValue because the option may legitimately have a value of "".
-  if (!listboxId || typeof optionValue !== 'string') return
+  if (!listboxId || typeof optionValue !== "string") return;
 
   // Validate the selection action
-  if (!isValidSelectAction(selectAction)) return
+  if (!isValidSelectAction(selectAction)) return;
 
   // Apply the appropriate selection strategy
-  setListboxOptionSelectedState(listboxId, optionValue, selectionStrategies[selectAction])
+  setListboxOptionSelectedState(listboxId, optionValue, selectionStrategies[selectAction]);
 }

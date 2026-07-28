@@ -1,31 +1,31 @@
-import preview from '#.storybook/preview'
-import { ArrowLeftIcon } from '#src/icons/arrow-left'
-import { Button } from '#src/core/button'
-import { ButtonGroup } from '#src/core/button-group'
-import { Card } from '#src/core/card'
-import { CheckboxControl } from '#src/core/checkbox-control'
-import { CloseIcon } from '#src/icons/close'
-import { CurrencyControl } from '#src/core/currency-control'
-import { DateTimeControl } from '#src/core/date-time-control'
-import { Divider } from '#src/core/divider'
-import { Flex } from '#src/utils/flex'
-import { FocusedLayout } from '#src/core/focused-layout'
-import { FormLayout } from '#src/core/form-layout'
-import { Heading } from '#src/utils/heading'
-import { isWidthAtOrAbove } from '#src/utils/breakpoints'
-import { MainContainer } from '#src/core/main-container'
-import { SelectNativeControl } from '#src/core/select-native-control'
-import { Text } from '#src/utils/text'
-import { TextareaControl } from '#src/core/textarea-control'
-import { TextControl } from '#src/core/text-control'
-import { useMatchMedia } from '#src/utils/match-media'
+import preview from "#.storybook/preview";
+import { Button } from "#src/core/button";
+import { ButtonGroup } from "#src/core/button-group";
+import { Card } from "#src/core/card";
+import { CheckboxControl } from "#src/core/checkbox-control";
+import { CurrencyControl } from "#src/core/currency-control";
+import { DateTimeControl } from "#src/core/date-time-control";
+import { Divider } from "#src/core/divider";
+import { FocusedLayout } from "#src/core/focused-layout";
+import { FormLayout } from "#src/core/form-layout";
+import { MainContainer } from "#src/core/main-container";
+import { SelectNativeControl } from "#src/core/select-native-control";
+import { TextControl } from "#src/core/text-control";
+import { TextareaControl } from "#src/core/textarea-control";
+import { ArrowLeftIcon } from "#src/icons/arrow-left";
+import { CloseIcon } from "#src/icons/close";
+import { isWidthAtOrAbove } from "#src/utils/breakpoints";
+import { Flex } from "#src/utils/flex";
+import { Heading } from "#src/utils/heading";
+import { useMatchMedia } from "#src/utils/match-media";
+import { Text } from "#src/utils/text";
 
 const meta = preview.meta({
-  title: 'Blocks/CreateManagementAgreement',
+  title: "Blocks/CreateManagementAgreement",
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
   },
-})
+});
 
 /**
  * A focused flow for creating a management agreement within an ownership.
@@ -42,11 +42,14 @@ const meta = preview.meta({
  */
 export const Example = meta.story({
   render: () => {
-    const isWidthAtOrAboveMD = useMatchMedia(isWidthAtOrAbove('MD'))
+    const isWidthAtOrAboveMD = useMatchMedia(isWidthAtOrAbove("MD"));
 
     return (
       <FocusedLayout background="dark" id="create-management-agreement">
-        <FocusedLayout.TopBar logo={<FocusedLayout.ProductLogo product="Reapit PM" />} title="Change Ownership">
+        <FocusedLayout.TopBar
+          logo={<FocusedLayout.ProductLogo product="Reapit PM" />}
+          title="Change Ownership"
+        >
           {isWidthAtOrAboveMD ? (
             <ButtonGroup>
               <Button size="medium" variant="secondary">
@@ -77,8 +80,8 @@ export const Example = meta.story({
                   </Heading>
                 </Flex>
                 <Text font="text-base/regular">
-                  This agreement will sit inside the ownership. It will adopt the owner contact and payment details and
-                  contribute to shared funds for bill transfers and processing.
+                  This agreement will sit inside the ownership. It will adopt the owner contact and
+                  payment details and contribute to shared funds for bill transfers and processing.
                 </Text>
               </Flex>
 
@@ -89,10 +92,24 @@ export const Example = meta.story({
                       <FormLayout.SectionTitle>Details</FormLayout.SectionTitle>
                     </FormLayout.SectionHeader>
                     <Flex gap="--spacing-6">
-                      <DateTimeControl label="Start date" name="startDate" size="medium" type="date" />
-                      <DateTimeControl label="Expiry date" name="expiryDate" size="medium" type="date" />
+                      <DateTimeControl
+                        label="Start date"
+                        name="startDate"
+                        size="medium"
+                        type="date"
+                      />
+                      <DateTimeControl
+                        label="Expiry date"
+                        name="expiryDate"
+                        size="medium"
+                        type="date"
+                      />
                     </Flex>
-                    <TextControl label="Agreement reference" name="agreementReference" size="medium" />
+                    <TextControl
+                      label="Agreement reference"
+                      name="agreementReference"
+                      size="medium"
+                    />
                   </FormLayout.Section>
 
                   <Divider />
@@ -107,9 +124,21 @@ export const Example = meta.story({
                         <option value="fortnightly">Fortnightly</option>
                         <option value="monthly">Monthly</option>
                       </SelectNativeControl>
-                      <CurrencyControl currency="AUD" label="Rent" locale="en-AU" name="rent" size="medium" />
+                      <CurrencyControl
+                        currency="AUD"
+                        label="Rent"
+                        locale="en-AU"
+                        name="rent"
+                        size="medium"
+                      />
                     </Flex>
-                    <CurrencyControl currency="AUD" label="Bond" locale="en-AU" name="bond" size="medium" />
+                    <CurrencyControl
+                      currency="AUD"
+                      label="Bond"
+                      locale="en-AU"
+                      name="bond"
+                      size="medium"
+                    />
                   </FormLayout.Section>
 
                   <Divider />
@@ -119,7 +148,12 @@ export const Example = meta.story({
                       <FormLayout.SectionTitle>Gained</FormLayout.SectionTitle>
                     </FormLayout.SectionHeader>
                     <Flex gap="--spacing-6">
-                      <DateTimeControl label="Gained date" name="gainedDate" size="medium" type="date" />
+                      <DateTimeControl
+                        label="Gained date"
+                        name="gainedDate"
+                        size="medium"
+                        type="date"
+                      />
                       <SelectNativeControl label="Reason" name="gainedReason" size="medium">
                         <option value="">Select</option>
                         <option value="new-listing">New listing</option>
@@ -218,6 +252,6 @@ export const Example = meta.story({
           </FocusedLayout.BottomBar>
         )}
       </FocusedLayout>
-    )
+    );
   },
-})
+});

@@ -1,22 +1,23 @@
-import { DescriptionList } from './description-list'
-import figma from '@figma/code-connect'
+import figma from "@figma/code-connect";
 
-figma.connect(DescriptionList, '<DESCRIPTION_LIST_URL>', {
+import { DescriptionList } from "./description-list";
+
+figma.connect(DescriptionList, "<DESCRIPTION_LIST_URL>", {
   props: {
-    children: figma.enum('Variant', {
-      'Stacked list': figma.slot('Stacked content slot').connectedInstances,
-      'In-line list': figma.slot('In-line content slot').connectedInstances,
-      Grid: figma.slot('Grid content slot').connectedInstances,
+    children: figma.enum("Variant", {
+      "Stacked list": figma.slot("Stacked content slot").connectedInstances,
+      "In-line list": figma.slot("In-line content slot").connectedInstances,
+      Grid: figma.slot("Grid content slot").connectedInstances,
     }),
-    grid: figma.enum('Variant', {
-      'Stacked list': 'auto-flow / 1fr',
-      'In-line list': 'auto-flow / 1fr',
-      Grid: 'auto-flow / var(--size-36) 1fr',
+    grid: figma.enum("Variant", {
+      "Stacked list": "auto-flow / 1fr",
+      "In-line list": "auto-flow / 1fr",
+      Grid: "auto-flow / var(--size-36) 1fr",
     }),
-    layout: figma.enum('Variant', {
-      'Stacked list': 'stacked',
-      'In-line list': 'inline',
-      Grid: 'tabular',
+    layout: figma.enum("Variant", {
+      "Stacked list": "stacked",
+      "In-line list": "inline",
+      Grid: "tabular",
     }),
   },
   example: (props) => (
@@ -30,35 +31,35 @@ figma.connect(DescriptionList, '<DESCRIPTION_LIST_URL>', {
       {props.children}
     </DescriptionList>
   ),
-})
+});
 
 //
 // Deprecated Figma component support
 //
 
-figma.connect(DescriptionList, '<DESCRIPTION_LIST_URL_DEPRECATED>', {
+figma.connect(DescriptionList, "<DESCRIPTION_LIST_URL_DEPRECATED>", {
   props: {
-    children: figma.children('*'),
-    grid: figma.enum('No of columns', {
-      '1': 'auto-flow / 1fr',
-      '2': 'auto-flow / 1fr 1fr',
-      '3': 'auto-flow / 1fr 1fr 1fr',
+    children: figma.children("*"),
+    grid: figma.enum("No of columns", {
+      "1": "auto-flow / 1fr",
+      "2": "auto-flow / 1fr 1fr",
+      "3": "auto-flow / 1fr 1fr 1fr",
     }),
-    item1: figma.nestedProps('Item 1', {
-      size: figma.enum('Size', {
-        base: 'base',
-        sm: 'sm',
+    item1: figma.nestedProps("Item 1", {
+      size: figma.enum("Size", {
+        base: "base",
+        sm: "sm",
       }),
     }),
-    layout: figma.enum('Item type', {
-      'In-line': figma.nestedProps('List item', {
-        value: figma.enum('Label type', {
-          Hug: 'inline',
-          Fill: 'tabular',
+    layout: figma.enum("Item type", {
+      "In-line": figma.nestedProps("List item", {
+        value: figma.enum("Label type", {
+          Hug: "inline",
+          Fill: "tabular",
         }),
       }),
       Stacked: {
-        value: 'stacked',
+        value: "stacked",
       } as const,
     }),
   },
@@ -67,4 +68,4 @@ figma.connect(DescriptionList, '<DESCRIPTION_LIST_URL_DEPRECATED>', {
       {props.children}
     </DescriptionList>
   ),
-})
+});

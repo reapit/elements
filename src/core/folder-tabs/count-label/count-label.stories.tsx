@@ -1,23 +1,24 @@
-import preview from '#.storybook/preview'
-import { FOLDER_TABS_CSS_CONTAINER_NAME } from '../constants'
-import { FolderTabs } from '../folder-tabs'
-import { useFolderTabsContainerDecorator } from '../__story__/useFolderTabsContainerDecorator'
+import preview from "#.storybook/preview";
+
+import { useFolderTabsContainerDecorator } from "../__story__/useFolderTabsContainerDecorator";
+import { FOLDER_TABS_CSS_CONTAINER_NAME } from "../constants";
+import { FolderTabs } from "../folder-tabs";
 
 const meta = preview.meta({
-  title: 'Navigation/FolderTabs/CountLabel',
+  title: "Navigation/FolderTabs/CountLabel",
   component: FolderTabs.CountLabel,
-})
+});
 
 /**
  * By default, the count will expand to fill the available space of it's container.
  */
 export const Example = meta.story({
   args: {
-    children: 'Label',
-    count: '00',
+    children: "Label",
+    count: "00",
   },
   decorators: [useFolderTabsContainerDecorator()],
-})
+});
 
 /**
  * While labels should be concise to avoid overflow, if there is not enough space available, the label
@@ -31,20 +32,20 @@ export const Wrapping = Example.extend({
     (Story) => (
       <div
         style={{
-          boxSizing: 'content-box',
-          border: '1px solid #FA00FF',
+          boxSizing: "content-box",
+          border: "1px solid #FA00FF",
           containerName: FOLDER_TABS_CSS_CONTAINER_NAME,
-          containerType: 'inline-size',
-          display: 'grid',
-          gridTemplateColumns: '50% 50%',
-          width: '768px',
+          containerType: "inline-size",
+          display: "grid",
+          gridTemplateColumns: "50% 50%",
+          width: "768px",
         }}
       >
         <Story />
       </div>
     ),
   ],
-})
+});
 
 /**
  * If there is not enough space, even after wrapping is permitted in large containers, the text will
@@ -52,31 +53,32 @@ export const Wrapping = Example.extend({
  */
 export const Overflow = Example.extend({
   args: {
-    children: 'A very very very long tab label that will need to wrap to additional lines and may even be truncated',
+    children:
+      "A very very very long tab label that will need to wrap to additional lines and may even be truncated",
   },
   decorators: [
     (Story) => (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)' }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "var(--spacing-4)" }}>
         <div
           style={{
-            boxSizing: 'content-box',
-            border: '1px solid #FA00FF',
+            boxSizing: "content-box",
+            border: "1px solid #FA00FF",
             containerName: FOLDER_TABS_CSS_CONTAINER_NAME,
-            containerType: 'inline-size',
-            display: 'grid',
-            gridTemplateColumns: '50% 50%',
-            width: '768px',
+            containerType: "inline-size",
+            display: "grid",
+            gridTemplateColumns: "50% 50%",
+            width: "768px",
           }}
         >
           <Story />
         </div>
         <div
           style={{
-            boxSizing: 'content-box',
-            border: '1px solid #FA00FF',
+            boxSizing: "content-box",
+            border: "1px solid #FA00FF",
             containerName: FOLDER_TABS_CSS_CONTAINER_NAME,
-            containerType: 'inline-size',
-            width: '300px',
+            containerType: "inline-size",
+            width: "300px",
           }}
         >
           <Story />
@@ -84,4 +86,4 @@ export const Overflow = Example.extend({
       </div>
     ),
   ],
-})
+});

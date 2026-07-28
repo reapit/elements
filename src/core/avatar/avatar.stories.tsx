@@ -1,14 +1,15 @@
-import preview from '#.storybook/preview'
-import { Avatar } from '.'
-import { ContactIcon } from '#src/icons/contact'
+import preview from "#.storybook/preview";
+import { ContactIcon } from "#src/icons/contact";
+
+import { Avatar } from ".";
 
 const meta = preview.meta({
-  title: 'Content display/Avatar',
+  title: "Content display/Avatar",
   component: Avatar,
   args: {
-    children: 'AD',
+    children: "AD",
   },
-})
+});
 
 /**
  * The simplest avatar is one that displays some letters, typically the initials of the user or
@@ -16,12 +17,12 @@ const meta = preview.meta({
  */
 export const Example = meta.story({
   args: {
-    children: 'AB',
-    colour: 'default',
-    shape: 'circle',
-    size: 'medium',
+    children: "AB",
+    colour: "default",
+    shape: "circle",
+    size: "medium",
   },
-})
+});
 
 /**
  * The avatar can also be used to display an icon, which is useful when representing an entity whose
@@ -31,16 +32,16 @@ export const Icons = Example.extend({
   args: {
     children: <ContactIcon />,
   },
-})
+});
 
 /**
  * There are two colours supported by the avatar: `default` and `purple`, which is shown here.
  */
 export const Colour = Example.extend({
   args: {
-    colour: 'primary',
+    colour: "primary",
   },
-})
+});
 
 /**
  * When using an icon in a coloured avatar, the icon should inherit the colour of the avatar.
@@ -48,24 +49,24 @@ export const Colour = Example.extend({
 export const ColouredIcons = Example.extend({
   args: {
     children: <ContactIcon />,
-    colour: 'primary',
+    colour: "primary",
   },
-})
+});
 
 /**
  * There are two shapes supported by the avatar: `circle` (the default) and `square`, which is shown here.
  */
 export const Shape = Example.extend({
   args: {
-    shape: 'square',
+    shape: "square",
   },
-})
+});
 
 /**
  * There are two sizes supported by the avatar: `medium` (the default) and `small`, which is shown here.
  */
 export const Size = Example.extend({
   args: {
-    size: 'small',
+    size: "small",
   },
-})
+});

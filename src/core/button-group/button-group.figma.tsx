@@ -1,12 +1,13 @@
-import { ButtonGroup } from './button-group'
-import figma from '@figma/code-connect'
+import figma from "@figma/code-connect";
 
-figma.connect(ButtonGroup, '<BUTTON_GROUP_URL>', {
+import { ButtonGroup } from "./button-group";
+
+figma.connect(ButtonGroup, "<BUTTON_GROUP_URL>", {
   props: {
-    children: figma.slot('Content slot').connectedInstances,
-    orientation: figma.enum('Orientation', {
-      Horizontal: 'horizontal',
-      Vertical: 'vertical',
+    children: figma.slot("Content slot").connectedInstances,
+    orientation: figma.enum("Orientation", {
+      Horizontal: "horizontal",
+      Vertical: "vertical",
     }),
   },
   example: (props) => (
@@ -15,19 +16,19 @@ figma.connect(ButtonGroup, '<BUTTON_GROUP_URL>', {
       {props.children}
     </ButtonGroup>
   ),
-})
+});
 
 //
 // Deprecated Figma component support.
 //
 
-figma.connect(ButtonGroup, '<BUTTON_GROUP_URL_DEPRECATED>', {
+figma.connect(ButtonGroup, "<BUTTON_GROUP_URL_DEPRECATED>", {
   props: {
-    children: figma.children('*'),
-    size: figma.enum('Button size', {
-      Small: 'small',
-      Medium: 'medium',
-      Large: 'large',
+    children: figma.children("*"),
+    size: figma.enum("Button size", {
+      Small: "small",
+      Medium: "medium",
+      Large: "large",
     }),
   },
   example: (props) => (
@@ -36,4 +37,4 @@ figma.connect(ButtonGroup, '<BUTTON_GROUP_URL_DEPRECATED>', {
       {props.children}
     </ButtonGroup>
   ),
-})
+});

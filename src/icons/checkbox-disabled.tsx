@@ -1,4 +1,4 @@
-import CheckboxDisabledSvg from './svgs/checkbox-disabled.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import CheckboxDisabledSvg from "./svgs/checkbox-disabled.svg?react";
 
-export const CheckboxDisabledIcon = makeIcon('CheckboxDisabledIcon', CheckboxDisabledSvg)
+export const CheckboxDisabledIcon = makeIcon("CheckboxDisabledIcon", CheckboxDisabledSvg);

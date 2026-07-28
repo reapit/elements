@@ -8,7 +8,7 @@
  *
  * See `src/styles/ARCHITECTURE.md` for the full rationale.
  */
-import './layer-order.css'
-import '#src/tokens/dist/reapit.css'
-import '#src/tokens/dist/payprop.css'
-import './globals.css'
+import "./layer-order.css";
+import "#src/tokens/dist/reapit.css";
+import "#src/tokens/dist/payprop.css";
+import "./globals.css";

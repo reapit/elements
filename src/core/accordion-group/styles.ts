@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
 
 export const ElAccordionGroup = styled.div`
   @layer elements.main {
@@ -6,4 +6,4 @@ export const ElAccordionGroup = styled.div`
     flex-direction: column;
     width: 100%;
   }
-`
+`;

@@ -1,10 +1,11 @@
-import figma from '@figma/code-connect'
-import { SecondaryTabs } from './secondary-tabs'
+import figma from "@figma/code-connect";
 
-figma.connect(SecondaryTabs, '<SECONDARY_TABS_URL>', {
-  variant: { Variant: 'Secondary' },
+import { SecondaryTabs } from "./secondary-tabs";
+
+figma.connect(SecondaryTabs, "<SECONDARY_TABS_URL>", {
+  variant: { Variant: "Secondary" },
   props: {
-    children: figma.children('Secondary tab item'),
+    children: figma.children("Secondary tab item"),
   },
   example: (props) => <SecondaryTabs>{props.children}</SecondaryTabs>,
-})
+});

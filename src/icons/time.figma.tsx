@@ -1,4 +1,5 @@
-import figma from '@figma/code-connect'
-import { TimeIcon } from './time'
+import figma from "@figma/code-connect";
 
-figma.connect(TimeIcon, 'https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=20-473')
+import { TimeIcon } from "./time";
+
+figma.connect(TimeIcon, "https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=20-473");

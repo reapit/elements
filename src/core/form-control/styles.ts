@@ -1,5 +1,6 @@
-import { css } from '@linaria/core'
-import { font } from '#src/utils/font'
+import { css } from "@linaria/core";
+
+import { font } from "#src/utils/font";
 
 export const elFormControl = css`
   @layer elements.main {
@@ -16,12 +17,12 @@ export const elFormControl = css`
     width: 100%;
 
     &,
-    &[data-size='small'],
-    &[data-size='medium'] {
-      ${font('xs', 'regular')}
+    &[data-size="small"],
+    &[data-size="medium"] {
+      ${font("xs", "regular")}
     }
-    &[data-size='large'] {
-      ${font('sm', 'regular')}
+    &[data-size="large"] {
+      ${font("sm", "regular")}
     }
   }
-`
+`;

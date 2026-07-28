@@ -1,56 +1,57 @@
-import { render, screen, waitFor } from '@testing-library/react'
-import { useDialogOpenController } from '../use-dialog-open-controller'
+import { render, screen, waitFor } from "@testing-library/react";
 
-test('shows dialog when `isOpen` is true', async () => {
-  render(<TestComponent isOpen={true} />)
+import { useDialogOpenController } from "../use-dialog-open-controller";
+
+test("shows dialog when `isOpen` is true", async () => {
+  render(<TestComponent isOpen={true} />);
   await waitFor(() => {
-    expect(screen.getByRole('dialog')).toBeVisible()
-  })
-})
+    expect(screen.getByRole("dialog")).toBeVisible();
+  });
+});
 
-test('closes dialog when `isOpen` is false', async () => {
-  render(<TestComponent isOpen={false} />)
+test("closes dialog when `isOpen` is false", async () => {
+  render(<TestComponent isOpen={false} />);
   await waitFor(() => {
-    expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
-  })
-})
+    expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
+  });
+});
 
-test('does nothing when `isOpen` is undefined', () => {
-  render(<TestComponent isOpen={undefined} />)
-  expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
-})
+test("does nothing when `isOpen` is undefined", () => {
+  render(<TestComponent isOpen={undefined} />);
+  expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
+});
 
-test('shows dialog when `isOpen` changes from false to true', async () => {
-  const { rerender } = render(<TestComponent isOpen={false} />)
-  rerender(<TestComponent isOpen={true} />)
+test("shows dialog when `isOpen` changes from false to true", async () => {
+  const { rerender } = render(<TestComponent isOpen={false} />);
+  rerender(<TestComponent isOpen={true} />);
   await waitFor(() => {
-    expect(screen.getByRole('dialog')).toBeVisible()
-  })
-})
+    expect(screen.getByRole("dialog")).toBeVisible();
+  });
+});
 
-test('closes dialog when `isOpen` changes from true to false', async () => {
-  const { rerender } = render(<TestComponent isOpen={true} />)
-  rerender(<TestComponent isOpen={false} />)
+test("closes dialog when `isOpen` changes from true to false", async () => {
+  const { rerender } = render(<TestComponent isOpen={true} />);
+  rerender(<TestComponent isOpen={false} />);
   await waitFor(() => {
-    expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
-  })
-})
+    expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
+  });
+});
 
-test('handles null ref gracefully', () => {
+test("handles null ref gracefully", () => {
   const TestComponent = () => {
-    useDialogOpenController(true)
-    return 'rendered'
-  }
+    useDialogOpenController(true);
+    return "rendered";
+  };
 
-  render(<TestComponent />)
-  expect(screen.getByText('rendered')).toBeVisible()
-})
+  render(<TestComponent />);
+  expect(screen.getByText("rendered")).toBeVisible();
+});
 
 interface TestComponentProps {
-  isOpen?: boolean
+  isOpen?: boolean;
 }
 
 function TestComponent({ isOpen }: TestComponentProps) {
-  const ref = useDialogOpenController(isOpen)
-  return <dialog ref={ref}>Test Dialog</dialog>
+  const ref = useDialogOpenController(isOpen);
+  return <dialog ref={ref}>Test Dialog</dialog>;
 }

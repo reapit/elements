@@ -1,50 +1,57 @@
+import type {
+  CSSProperties,
+  FocusEventHandler,
+  KeyboardEventHandler,
+  MouseEventHandler,
+  ReactNode,
+} from "react";
+
+import { FileInput } from "#src/utils/file-input";
+
+import { useFileUploaderContext } from "../context";
+import { useFileUploaderInput } from "../use-file-uploader-input";
 import {
   elFileUploaderDropzoneFileInput,
   ElFileUploaderDropzone,
   ElFileUploaderDropzoneIcon,
   ElFileUploaderDropzoneText,
-} from './styles'
-import { FileInput } from '#src/utils/file-input'
-import { useFileUploaderContext } from '../context'
-import { useFileUploaderInput } from '../use-file-uploader-input'
-
-import type { CSSProperties, FocusEventHandler, KeyboardEventHandler, MouseEventHandler, ReactNode } from 'react'
+} from "./styles";
 
 type FileInputAttributesToOmit =
-  | 'autoFocus'
-  | 'children'
-  | 'className'
-  | 'defaultValue'
-  | 'onBlur'
-  | 'onClick'
-  | 'onFocus'
-  | 'onKeyDown'
-  | 'style'
-  | 'tabIndex'
-  | 'value'
+  | "autoFocus"
+  | "children"
+  | "className"
+  | "defaultValue"
+  | "onBlur"
+  | "onClick"
+  | "onFocus"
+  | "onKeyDown"
+  | "style"
+  | "tabIndex"
+  | "value";
 
 export namespace FileUploaderDropzoneInput {
   export interface Props extends Omit<FileInput.Props, FileInputAttributesToOmit> {
-    autoFocus?: boolean
-    className?: string
+    autoFocus?: boolean;
+    className?: string;
     /** The icon shown in the dropzone's icon badge. */
-    icon?: ReactNode
+    icon?: ReactNode;
     /** Called when the trigger is blurred. */
-    onBlur?: FocusEventHandler<HTMLButtonElement>
+    onBlur?: FocusEventHandler<HTMLButtonElement>;
     /** Called when the trigger is clicked, in addition to opening the file picker. */
-    onClick?: MouseEventHandler<HTMLButtonElement>
+    onClick?: MouseEventHandler<HTMLButtonElement>;
     /** Called when the trigger is focused. */
-    onFocus?: FocusEventHandler<HTMLButtonElement>
+    onFocus?: FocusEventHandler<HTMLButtonElement>;
     /** Called on a key down event on the trigger. */
-    onKeyDown?: KeyboardEventHandler<HTMLButtonElement>
+    onKeyDown?: KeyboardEventHandler<HTMLButtonElement>;
     /** The dropzone's primary text. */
-    children?: ReactNode
+    children?: ReactNode;
     /** Optional supporting line of text below the primary text (`children`), e.g. "Up to 10MB". Ignored for `variant="compact"` — Figma has no secondary line for it. */
-    secondaryText?: ReactNode
-    style?: CSSProperties
-    tabIndex?: number
+    secondaryText?: ReactNode;
+    style?: CSSProperties;
+    tabIndex?: number;
     /** The size of the dropzone. */
-    variant?: 'compact' | 'large'
+    variant?: "compact" | "large";
   }
 }
 
@@ -74,7 +81,7 @@ export function FileUploaderDropzoneInput({
   showValidity,
   style,
   tabIndex,
-  variant = 'large',
+  variant = "large",
   ...rest
 }: FileUploaderDropzoneInput.Props) {
   const { files, handleChange } = useFileUploaderInput({
@@ -83,8 +90,8 @@ export function FileUploaderDropzoneInput({
     maxFileSize,
     multiple,
     onChange,
-  })
-  const { triggerId } = useFileUploaderContext('FileUploader.DropzoneInput')
+  });
+  const { triggerId } = useFileUploaderContext("FileUploader.DropzoneInput");
 
   return (
     <FileInput
@@ -113,8 +120,8 @@ export function FileUploaderDropzoneInput({
           id={triggerId}
           onBlur={onBlur}
           onClick={(event) => {
-            openFilePicker()
-            onClick?.(event)
+            openFilePicker();
+            onClick?.(event);
           }}
           onFocus={onFocus}
           onKeyDown={onKeyDown}
@@ -124,13 +131,15 @@ export function FileUploaderDropzoneInput({
         >
           {icon && <ElFileUploaderDropzoneIcon aria-hidden>{icon}</ElFileUploaderDropzoneIcon>}
           {<ElFileUploaderDropzoneText data-slot="primary">{children}</ElFileUploaderDropzoneText>}
-          {secondaryText && variant === 'large' && (
-            <ElFileUploaderDropzoneText data-slot="secondary">{secondaryText}</ElFileUploaderDropzoneText>
+          {secondaryText && variant === "large" && (
+            <ElFileUploaderDropzoneText data-slot="secondary">
+              {secondaryText}
+            </ElFileUploaderDropzoneText>
           )}
         </ElFileUploaderDropzone>
       )}
     </FileInput>
-  )
+  );
 }
 
-FileUploaderDropzoneInput.displayName = 'FileUploader.DropzoneInput'
+FileUploaderDropzoneInput.displayName = "FileUploader.DropzoneInput";

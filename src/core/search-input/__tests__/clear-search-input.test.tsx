@@ -1,47 +1,48 @@
-import { FormEventHandler } from 'react'
-import { clearSearchInput } from '../clear-search-input'
-import { render, screen } from '@testing-library/react'
+import { render, screen } from "@testing-library/react";
+import { FormEventHandler } from "react";
 
-test('clears the input value', () => {
-  render(<input defaultValue="test value" type="text" />)
-  const input = screen.getByRole('textbox') as HTMLInputElement
+import { clearSearchInput } from "../clear-search-input";
 
-  clearSearchInput(input)
+test("clears the input value", () => {
+  render(<input defaultValue="test value" type="text" />);
+  const input = screen.getByRole("textbox") as HTMLInputElement;
 
-  expect(input).toHaveValue('')
-})
+  clearSearchInput(input);
 
-test('dispatches an input event', () => {
-  const handler = vi.fn()
-  render(<input defaultValue="test value" onInput={handler} type="text" />)
+  expect(input).toHaveValue("");
+});
 
-  clearSearchInput(screen.getByRole('textbox'))
+test("dispatches an input event", () => {
+  const handler = vi.fn();
+  render(<input defaultValue="test value" onInput={handler} type="text" />);
 
-  expect(handler).toHaveBeenCalledTimes(1)
-})
+  clearSearchInput(screen.getByRole("textbox"));
 
-test('dispatches a bubbling input event', () => {
-  const handler = vi.fn()
+  expect(handler).toHaveBeenCalledTimes(1);
+});
+
+test("dispatches a bubbling input event", () => {
+  const handler = vi.fn();
   render(
     <div onInput={handler}>
       <input defaultValue="test value" type="text" />
     </div>,
-  )
+  );
 
-  clearSearchInput(screen.getByRole('textbox'))
+  clearSearchInput(screen.getByRole("textbox"));
 
-  expect(handler).toHaveBeenCalledTimes(1)
-})
+  expect(handler).toHaveBeenCalledTimes(1);
+});
 
-test('dispatches a cancelable input event', () => {
-  expect.assertions(2)
+test("dispatches a cancelable input event", () => {
+  expect.assertions(2);
 
   const handler = vi.fn<FormEventHandler<HTMLDivElement>>((event) => {
-    expect(event.cancelable).toBe(true)
-  })
-  render(<input defaultValue="test value" onInput={handler} type="text" />)
+    expect(event.cancelable).toBe(true);
+  });
+  render(<input defaultValue="test value" onInput={handler} type="text" />);
 
-  clearSearchInput(screen.getByRole('textbox'))
+  clearSearchInput(screen.getByRole("textbox"));
 
-  expect(handler).toHaveBeenCalledTimes(1)
-})
+  expect(handler).toHaveBeenCalledTimes(1);
+});

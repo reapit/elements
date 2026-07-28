@@ -1,45 +1,51 @@
-import preview from '#.storybook/preview'
-import { ComboboxSelectionChips } from './selection-chips'
-import { Listbox } from '#src/utils/listbox'
-import { Text } from '#src/utils/text'
-import { useState } from 'react'
+import { useState } from "react";
+
+import preview from "#.storybook/preview";
+import { Listbox } from "#src/utils/listbox";
+import { Text } from "#src/utils/text";
+
+import { ComboboxSelectionChips } from "./selection-chips";
 
 const meta = preview.meta({
-  title: 'Utils/Combobox/SelectionChips',
+  title: "Utils/Combobox/SelectionChips",
   component: ComboboxSelectionChips,
   argTypes: {
     listboxId: {
-      control: 'text',
+      control: "text",
     },
   },
   decorators: [
     (Story, { args, parameters }) => {
-      const [searchValue, setSearchValue] = useState('')
+      const [searchValue, setSearchValue] = useState("");
 
       const filteredOptions = allOptions.filter((option) =>
         option.label.toLowerCase().startsWith(searchValue.toLowerCase()),
-      )
+      );
 
-      const options = parameters.enableFiltering ? filteredOptions : allOptions
+      const options = parameters.enableFiltering ? filteredOptions : allOptions;
 
       return parameters.hideListbox ? (
         <Story />
       ) : (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-2)' }}>
-          <Text style={{ color: '#FA00FF' }}>Listbox</Text>
+        <div style={{ display: "flex", flexDirection: "column", gap: "var(--spacing-2)" }}>
+          <Text style={{ color: "#FA00FF" }}>Listbox</Text>
           <div
             style={{
-              display: 'flex',
-              flexDirection: 'column',
-              border: '1px solid #FA00FF',
-              gap: 'var(--spacing-2)',
-              padding: 'var(--spacing-2)',
+              display: "flex",
+              flexDirection: "column",
+              border: "1px solid #FA00FF",
+              gap: "var(--spacing-2)",
+              padding: "var(--spacing-2)",
             }}
           >
             {parameters.enableFiltering && (
               <label>
                 <Text font="text-base/regular">Filter:&nbsp;</Text>
-                <input type="search" value={searchValue} onChange={(e) => setSearchValue(e.target.value)} />
+                <input
+                  type="search"
+                  value={searchValue}
+                  onChange={(e) => setSearchValue(e.target.value)}
+                />
               </label>
             )}
             <Listbox
@@ -58,10 +64,10 @@ const meta = preview.meta({
 
           <Story />
         </div>
-      )
+      );
     },
   ],
-})
+});
 
 /**
  * Displays selection chips for selected options in a listbox. These examples use `Listbox` directly
@@ -70,9 +76,9 @@ const meta = preview.meta({
 export const Example = meta.story({
   args: {
     defaultOptions: undefined,
-    listboxId: 'listbox-id',
+    listboxId: "listbox-id",
   },
-})
+});
 
 /**
  * All selection chips can be disabled using `disabled`. This will typically occur when
@@ -83,16 +89,16 @@ export const Disabled = Example.extend({
     disabled: true,
 
     defaultOptions: [
-      { label: 'Apple', value: 'apple' },
-      { label: 'Orange', value: 'orange' },
+      { label: "Apple", value: "apple" },
+      { label: "Orange", value: "orange" },
     ],
 
-    listboxId: 'disabled-example',
+    listboxId: "disabled-example",
   },
   parameters: {
     hideListbox: true,
   },
-})
+});
 
 /**
  * Selection chips render automatically without `children`. To disable individual chips (preventing deselection),
@@ -107,19 +113,23 @@ export const Children = meta.story({
         // We are treating the "Mango" option as a mandatory option; i.e. it cannot be disabled.
         // It is up to consumers to ensure that the mandatory option cannot be deselected via the
         // combobox listbox.
-        <ComboboxSelectionChips.Item aria-disabled={option.value === 'mango'} key={option.value} value={option.value}>
+        <ComboboxSelectionChips.Item
+          aria-disabled={option.value === "mango"}
+          key={option.value}
+          value={option.value}
+        >
           {option.label}
         </ComboboxSelectionChips.Item>
-      ))
+      ));
     },
     defaultOptions: [
-      { label: 'Mango', value: 'mango' },
-      { label: 'Orange', value: 'orange' },
+      { label: "Mango", value: "mango" },
+      { label: "Orange", value: "orange" },
     ],
-    listboxId: 'children-example',
+    listboxId: "children-example",
   },
-  parameters: { docs: { source: { type: 'code' } } },
-})
+  parameters: { docs: { source: { type: "code" } } },
+});
 
 /**
  * An initial state must be provided for selection chips to be displayed on first render
@@ -127,16 +137,16 @@ export const Children = meta.story({
  * may be applied or the options are loaded asynchronously.
  */
 export const DefaultOptions = Example.extend({
-  name: 'Default options',
+  name: "Default options",
   args: {
-    defaultOptions: [{ label: 'Orange', value: 'orange' }],
-    listboxId: 'default-options-example',
+    defaultOptions: [{ label: "Orange", value: "orange" }],
+    listboxId: "default-options-example",
   },
   parameters: {
     enableFiltering: true,
-    initialFilter: 'Apple',
+    initialFilter: "Apple",
   },
-})
+});
 
 /**
  * The selection chips are a standard `ChipGroup` and will, by default, allow selection chips
@@ -146,17 +156,17 @@ export const DefaultOptions = Example.extend({
 export const Wrapping = Example.extend({
   args: {
     defaultOptions: [
-      { label: 'Apple', value: 'apple' },
-      { label: 'Apricot', value: 'apricot' },
-      { label: 'Banana', value: 'banana' },
-      { label: 'Blueberry', value: 'blueberry' },
+      { label: "Apple", value: "apple" },
+      { label: "Apricot", value: "apricot" },
+      { label: "Banana", value: "banana" },
+      { label: "Blueberry", value: "blueberry" },
     ],
 
-    listboxId: 'wrapping-example',
+    listboxId: "wrapping-example",
   },
   decorators: [
     (Story) => (
-      <div style={{ border: '1px solid #FA00FF', width: '300px' }}>
+      <div style={{ border: "1px solid #FA00FF", width: "300px" }}>
         <Story />
       </div>
     ),
@@ -164,21 +174,21 @@ export const Wrapping = Example.extend({
   parameters: {
     enableFiltering: true,
   },
-})
+});
 
 /** Simple custom listbox option component */
 function MyListboxOption(props: Listbox.OptionProps) {
-  const isSelected = props['aria-checked'] || props['aria-selected']
-  return <button {...props} style={{ fontWeight: isSelected ? 'bold' : 'normal' }} />
+  const isSelected = props["aria-checked"] || props["aria-selected"];
+  return <button {...props} style={{ fontWeight: isSelected ? "bold" : "normal" }} />;
 }
 
 const allOptions = [
-  { label: 'Apple', value: 'apple' },
-  { label: 'Apricot', value: 'apricot' },
-  { label: 'Banana', value: 'banana' },
-  { label: 'Blueberry', value: 'blueberry' },
-  { label: 'Cherry', value: 'cherry' },
-  { label: 'Grape', value: 'grape' },
-  { label: 'Orange', value: 'orange' },
-  { label: 'Strawberry', value: 'strawberry' },
-]
+  { label: "Apple", value: "apple" },
+  { label: "Apricot", value: "apricot" },
+  { label: "Banana", value: "banana" },
+  { label: "Blueberry", value: "blueberry" },
+  { label: "Cherry", value: "cherry" },
+  { label: "Grape", value: "grape" },
+  { label: "Orange", value: "orange" },
+  { label: "Strawberry", value: "strawberry" },
+];

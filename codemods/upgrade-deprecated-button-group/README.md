@@ -47,10 +47,10 @@ With a facade package, `ButtonGroup` is imported from the bare facade specifier:
 
 ```tsx
 // Before (with facade package @company/ui)
-import { DeprecatedButtonGroup } from '@company/ui/elements'
+import { DeprecatedButtonGroup } from "@company/ui/elements";
 
 // After running with --facade-package @company/ui
-import { ButtonGroup } from '@company/ui'
+import { ButtonGroup } from "@company/ui";
 ```
 
 ## Background
@@ -115,13 +115,13 @@ When the `alignment` prop uses a dynamic value (a variable or expression), the c
 
 ```tsx
 // Before
-;<DeprecatedButtonGroup alignment={myAlignment}>...</DeprecatedButtonGroup>
+<DeprecatedButtonGroup alignment={myAlignment}>...</DeprecatedButtonGroup>;
 
 // After
 {
   /* TODO: DeprecatedButtonGroup had a dynamic alignment prop that cannot be migrated automatically */
 }
-;<ButtonGroup>...</ButtonGroup>
+<ButtonGroup>...</ButtonGroup>;
 ```
 
 ### Children passed as props or render props

@@ -1,24 +1,30 @@
-import { cx } from '@linaria/core'
-import { DrawerBody } from './body'
-import { DrawerContext, useDrawerContext } from './context'
-import { DrawerFooter } from './footer'
-import { DrawerHeader } from './header'
-import { elDrawer } from './styles'
-import { HTMLDialog, getClosestDialogElement, useDialogOpenController, useDialogOpenState } from '#src/utils/dialog'
-import { ToastOutlet } from '#src/core/toaster'
-import { useId } from 'react'
+import { cx } from "@linaria/core";
+import { useId } from "react";
+import type { DialogHTMLAttributes, ReactNode } from "react";
 
-import type { DialogHTMLAttributes, ReactNode } from 'react'
+import { ToastOutlet } from "#src/core/toaster";
+import {
+  HTMLDialog,
+  getClosestDialogElement,
+  useDialogOpenController,
+  useDialogOpenState,
+} from "#src/utils/dialog";
+
+import { DrawerBody } from "./body";
+import { DrawerContext, useDrawerContext } from "./context";
+import { DrawerFooter } from "./footer";
+import { DrawerHeader } from "./header";
+import { elDrawer } from "./styles";
 
 // NOTE: we omit..
 // - `open` because we do not want React consumers to use it directly as it results in a non-modal experience.
 //     Instead, our React `Drawer` component provides an `isOpen` prop that ensures a modal experience is achieved.
-type AttributesToOmit = 'open'
+type AttributesToOmit = "open";
 
 export namespace Drawer {
   export interface Props extends Omit<DialogHTMLAttributes<HTMLDialogElement>, AttributesToOmit> {
     /** The drawer content */
-    children: ReactNode
+    children: ReactNode;
     /**
      * Specifies the types of user actions that can be used to close the drawer. This property distinguishes
      * three methods by which a drawer can be closed:
@@ -44,9 +50,9 @@ export namespace Drawer {
      * would let that click also activate an element behind the backdrop). Separately, Safari does not support
      * the `closedBy` attribute at all, so "back"/"dismiss" gestures on mobile Safari won't close the drawer.
      */
-    closedBy?: 'any' | 'closerequest' | 'none'
+    closedBy?: "any" | "closerequest" | "none";
     /** Indicates whether the Drawer is open or not */
-    isOpen?: boolean
+    isOpen?: boolean;
   }
 }
 
@@ -62,11 +68,11 @@ export namespace Drawer {
  * section of MDN's `<dialog>` documentation.
  */
 export function Drawer({
-  'aria-label': ariaLabel,
-  'aria-labelledby': ariaLabelledBy,
+  "aria-label": ariaLabel,
+  "aria-labelledby": ariaLabelledBy,
   children,
   className,
-  closedBy = 'closerequest',
+  closedBy = "closerequest",
   isOpen: isOpenProp,
   onCancel,
   onClick,
@@ -74,11 +80,11 @@ export function Drawer({
   ...rest
 }: Drawer.Props) {
   // We need to imperatively show or close the dialog element when the `isOpen` prop changes.
-  const ref = useDialogOpenController(isOpenProp)
+  const ref = useDialogOpenController(isOpenProp);
   // We need to track the DOM-held open state of the dialog element to ensure we can show/hide our children.
-  const isOpen = useDialogOpenState(ref)
+  const isOpen = useDialogOpenState(ref);
 
-  const titleId = useId()
+  const titleId = useId();
 
   return (
     <HTMLDialog
@@ -103,17 +109,17 @@ export function Drawer({
       </DrawerContext.Provider>
       {isOpen && <ToastOutlet />}
     </HTMLDialog>
-  )
+  );
 }
 
-Drawer.Body = DrawerBody
-Drawer.Footer = DrawerFooter
-Drawer.Header = DrawerHeader
-Drawer.HeaderCloseButton = DrawerHeader.CloseButton
+Drawer.Body = DrawerBody;
+Drawer.Footer = DrawerFooter;
+Drawer.Header = DrawerHeader;
+Drawer.HeaderCloseButton = DrawerHeader.CloseButton;
 
-Drawer.Context = DrawerContext
-Drawer.useContext = useDrawerContext
+Drawer.Context = DrawerContext;
+Drawer.useContext = useDrawerContext;
 
-Drawer.getClosestDialogElement = getClosestDialogElement
+Drawer.getClosestDialogElement = getClosestDialogElement;
 
-export { getClosestDialogElement } from '#src/utils/dialog'
+export { getClosestDialogElement } from "#src/utils/dialog";

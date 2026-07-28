@@ -1,5 +1,6 @@
-import { getIntlNumberFormat, DESCRIPTIVE_PART_TYPES } from '#src/utils/number-format'
-import { CANONICAL_VALUE_PATTERN } from './resolve-input'
+import { getIntlNumberFormat, DESCRIPTIVE_PART_TYPES } from "#src/utils/number-format";
+
+import { CANONICAL_VALUE_PATTERN } from "./resolve-input";
 
 // The maximum `maximumFractionDigits` / `minimumFractionDigits` that
 // `Intl.NumberFormat` accepts. Passing a larger value throws a RangeError.
@@ -8,34 +9,34 @@ import { CANONICAL_VALUE_PATTERN } from './resolve-input'
 // place the overlay's "never rounds" rule yields, because `maximumFractionDigits`
 // rounds rather than truncates. Such values are also flagged by the `pattern`
 // backstop (`patternMismatch`) and never represent a valid submittable value.
-const INTL_MAX_FRACTION_DIGITS = 100
+const INTL_MAX_FRACTION_DIGITS = 100;
 
 /**
  * The fraction-digit bounds `Intl.NumberFormat` resolves for a given locale and options.
  * Passed in so the overlay and the entry-cap derivation share a single resolution.
  */
 export interface FractionDigitDefaults {
-  min: number
-  max: number
+  min: number;
+  max: number;
 }
 
 export interface ResolveOverlayValueParams {
-  locale: string | undefined
-  formatOptions: Intl.NumberFormatOptions | undefined
-  fractionBounds: FractionDigitDefaults
+  locale: string | undefined;
+  formatOptions: Intl.NumberFormatOptions | undefined;
+  fractionBounds: FractionDigitDefaults;
   /**
    * Model→display scale exponent. `2` for `style: 'percent'` (model `×100` = display),
    * `0` for all other styles. Used to convert model-space `actualFractionDigits` into
    * display-space before computing the overlay's fraction-digit floor, so the "never
    * rounds" guarantee is upheld in the display domain.
    */
-  scaleExponent: number
+  scaleExponent: number;
   /**
    * When `true`, descriptive affix parts (`currency`, `percentSign`, `unit`) are omitted
    * from the formatted overlay, and any orphaned literal whitespace they leave is trimmed.
    * Intended for wrappers that render the affix separately as a prefix or suffix.
    */
-  showNumberPartsOnly?: boolean
+  showNumberPartsOnly?: boolean;
 }
 
 /**
@@ -71,21 +72,27 @@ export interface ResolveOverlayValueParams {
  */
 export function resolveOverlayValue(
   raw: string,
-  { locale, formatOptions, fractionBounds, scaleExponent, showNumberPartsOnly }: ResolveOverlayValueParams,
+  {
+    locale,
+    formatOptions,
+    fractionBounds,
+    scaleExponent,
+    showNumberPartsOnly,
+  }: ResolveOverlayValueParams,
 ): string {
   // `Number('')` is `0`, not `NaN`, so the empty string needs an explicit short-circuit before the NaN check.
-  if (raw === '' || raw === '-') return raw
+  if (raw === "" || raw === "-") return raw;
 
   // Reject anything outside the canonical value shape so the overlay only ever formats a value it can represent faithfully.
-  if (!CANONICAL_VALUE_PATTERN.test(raw)) return raw
+  if (!CANONICAL_VALUE_PATTERN.test(raw)) return raw;
 
-  const num = Number(raw)
+  const num = Number(raw);
   // The remaining partial states that match the canonical shape (`'.'` and `'-.'`) produce NaN;
   // hide the overlay for them too.
-  if (Number.isNaN(num)) return raw
+  if (Number.isNaN(num)) return raw;
 
-  const dotIndex = raw.indexOf('.')
-  const actualFractionDigits = dotIndex === -1 ? 0 : raw.length - dotIndex - 1
+  const dotIndex = raw.indexOf(".");
+  const actualFractionDigits = dotIndex === -1 ? 0 : raw.length - dotIndex - 1;
 
   // For integers beyond Number.MAX_SAFE_INTEGER, Number(raw) silently loses precision; format the
   // exact value via BigInt. The canonical gate guarantees a no-dot value here matches /^-?\d+$/,
@@ -100,42 +107,48 @@ export function resolveOverlayValue(
   // to a runtime-numeric form that format() accepts, but TypeScript cannot infer this from a
   // runtime regex test. Note: a type predicate `raw is \`${number}\`` would be unsound for the
   // same reason (the two sets do not coincide), and should not be introduced as a "fix".
-  let value: bigint | `${number}` = raw as `${number}`
+  let value: bigint | `${number}` = raw as `${number}`;
   if (dotIndex === -1 && !Number.isSafeInteger(num)) {
     try {
-      value = BigInt(raw)
+      value = BigInt(raw);
     } catch {
-      return raw
+      return raw;
     }
   }
 
   // Convert model-space fraction digits to display-space for the floor calculation.
   // For percent (scaleExponent=2), a model value of 0.255 has 3 model fraction digits but
   // only 1 display fraction digit (25.5%), so the floor must be 1, not 3.
-  const displayActualFractionDigits = Math.max(0, actualFractionDigits - scaleExponent)
+  const displayActualFractionDigits = Math.max(0, actualFractionDigits - scaleExponent);
 
   // The overlay must never round: maximumFractionDigits is at least displayActualFractionDigits.
   const resolvedMax = Math.min(
-    Math.max(displayActualFractionDigits, formatOptions?.maximumFractionDigits ?? fractionBounds.max),
+    Math.max(
+      displayActualFractionDigits,
+      formatOptions?.maximumFractionDigits ?? fractionBounds.max,
+    ),
     INTL_MAX_FRACTION_DIGITS,
-  )
+  );
   const resolvedMin = Math.min(
-    Math.max(displayActualFractionDigits, formatOptions?.minimumFractionDigits ?? fractionBounds.min),
+    Math.max(
+      displayActualFractionDigits,
+      formatOptions?.minimumFractionDigits ?? fractionBounds.min,
+    ),
     resolvedMax,
-  )
+  );
 
   const options: Intl.NumberFormatOptions = {
     ...formatOptions,
     minimumFractionDigits: resolvedMin,
     maximumFractionDigits: resolvedMax,
-  }
+  };
 
-  if (!showNumberPartsOnly) return getIntlNumberFormat(locale, options).format(value)
+  if (!showNumberPartsOnly) return getIntlNumberFormat(locale, options).format(value);
 
   return getIntlNumberFormat(locale, options)
     .formatToParts(value)
     .filter((p) => !DESCRIPTIVE_PART_TYPES.has(p.type))
     .map((p) => p.value)
-    .join('')
-    .trim()
+    .join("")
+    .trim();
 }

@@ -1,9 +1,11 @@
-import { DRAWER_CSS_CONTAINER_NAME, DRAWER_WIDTH_SM_2XL } from '../constants'
-import { ElDrawerFooter } from '../footer/styles'
-import { font } from '#src/utils/font'
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
 
-export const DRAWER_HEADER_CSS_CONTAINER_NAME = 'drawer-header'
+import { font } from "#src/utils/font";
+
+import { DRAWER_CSS_CONTAINER_NAME, DRAWER_WIDTH_SM_2XL } from "../constants";
+import { ElDrawerFooter } from "../footer/styles";
+
+export const DRAWER_HEADER_CSS_CONTAINER_NAME = "drawer-header";
 
 export const ElDrawerHeader = styled.header`
   @layer elements.main {
@@ -26,7 +28,7 @@ export const ElDrawerHeader = styled.header`
       --drawer-header-content-container-border-block-end: none;
     }
   }
-`
+`;
 
 export const ElDrawerHeaderTabsContainer = styled.div`
   @layer elements.main {
@@ -43,15 +45,15 @@ export const ElDrawerHeaderTabsContainer = styled.div`
       padding-inline-start: var(--spacing-8);
     }
   }
-`
+`;
 
 export const ElDrawerHeaderContentContainer = styled.div`
   @layer elements.main {
     display: grid;
     grid-area: header;
     grid-template:
-      'main' minmax(0, auto)
-      'tabs' minmax(0, auto) / 100%;
+      "main" minmax(0, auto)
+      "tabs" minmax(0, auto) / 100%;
 
     border-block-end: var(--drawer-header-content-container-border-block-end);
 
@@ -65,20 +67,20 @@ export const ElDrawerHeaderContentContainer = styled.div`
       }
     }
   }
-`
+`;
 
 export const ElDrawerHeaderTitleContainer = styled.div`
   @layer elements.main {
     display: grid;
     grid-area: main;
     grid-template:
-      'overline close' minmax(0, auto)
+      "overline close" minmax(0, auto)
       /* We need to use minmax for the title row because min-content and auto will consider the close button's size,
-       * which will result in a larger track height when the close button is present than when it is not. */ 'title close' minmax(
+       * which will result in a larger track height when the close button is present than when it is not. */ "title close" minmax(
         0,
         auto
       )
-      'supplementary-info supplementary-info' minmax(0, auto) / auto min-content;
+      "supplementary-info supplementary-info" minmax(0, auto) / auto min-content;
     align-items: center;
 
     padding-block: var(--spacing-3);
@@ -89,7 +91,7 @@ export const ElDrawerHeaderTitleContainer = styled.div`
       padding-inline: var(--spacing-8) var(--spacing-5);
     }
   }
-`
+`;
 
 export const ElDrawerHeaderAction = styled.div`
   @layer elements.main {
@@ -97,7 +99,7 @@ export const ElDrawerHeaderAction = styled.div`
     align-self: start;
     color: var(--colour-text-secondary);
   }
-`
+`;
 
 export const ElDrawerHeaderOverline = styled.div`
   @layer elements.main {
@@ -106,19 +108,19 @@ export const ElDrawerHeaderOverline = styled.div`
     color: var(--colour-text-secondary);
     padding-block-end: var(--spacing-1);
 
-    ${font('xs', 'regular')}
+    ${font("xs", "regular")}
   }
-`
+`;
 
 export const ElDrawerHeaderTitle = styled.h2`
   color: var(--colour-text-primary);
   grid-area: title;
 
-  ${font('xl', 'bold')}
+  ${font("xl", "bold")}
 
   margin: 0;
   padding: 0;
-`
+`;
 
 export const ElDrawerHeaderSupplementaryInfo = styled.div`
   @layer elements.main {
@@ -127,6 +129,6 @@ export const ElDrawerHeaderSupplementaryInfo = styled.div`
     color: var(--colour-text-secondary);
     padding-block-start: var(--spacing-1);
 
-    ${font('base', 'regular')}
+    ${font("base", "regular")}
   }
-`
+`;

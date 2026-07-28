@@ -1,17 +1,18 @@
-import { ComboboxOption } from './option'
-import figma from '@figma/code-connect'
+import figma from "@figma/code-connect";
 
-figma.connect(ComboboxOption, '<COMBOBOX_OPTION_URL>', {
+import { ComboboxOption } from "./option";
+
+figma.connect(ComboboxOption, "<COMBOBOX_OPTION_URL>", {
   props: {
-    badge: figma.boolean('Show badge', {
-      true: figma.boolean('Selected', {
-        true: figma.children('Line 1 Badge'),
-        false: figma.children('Badge'),
+    badge: figma.boolean("Show badge", {
+      true: figma.boolean("Selected", {
+        true: figma.children("Line 1 Badge"),
+        false: figma.children("Badge"),
       }),
       false: undefined,
     }),
-    label: figma.string('Label'),
-    additionalInfo: figma.children('Additional info *'),
+    label: figma.string("Label"),
+    additionalInfo: figma.children("Additional info *"),
   },
   example: (props) => (
     // Use Option via Autocomplete, CompactSelect or Select instead of Combobox.
@@ -19,4 +20,4 @@ figma.connect(ComboboxOption, '<COMBOBOX_OPTION_URL>', {
       {props.label}
     </ComboboxOption>
   ),
-})
+});

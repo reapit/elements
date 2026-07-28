@@ -1,25 +1,26 @@
-import { prioritiseByVariantAndDOMOrder } from './prioritiseByVariantAndDOMOrder'
-import { useCallback, useEffect, useRef } from 'react'
-import { useMutationObserver } from '#src/utils/mutation-observer'
+import { useCallback, useEffect, useRef } from "react";
+import type { HTMLAttributes } from "react";
 
-import type { AlertBannerPrioritiser } from './prioritiseByVariantAndDOMOrder'
-import type { HTMLAttributes } from 'react'
+import { useMutationObserver } from "#src/utils/mutation-observer";
 
-type AttributesToOmit = never
+import { prioritiseByVariantAndDOMOrder } from "./prioritiseByVariantAndDOMOrder";
+import type { AlertBannerPrioritiser } from "./prioritiseByVariantAndDOMOrder";
+
+type AttributesToOmit = never;
 
 export namespace AlertBannerOutlet {
   /** A function that determines which banner should be displayed when multiple banners are present. */
-  export type Prioritiser = AlertBannerPrioritiser
+  export type Prioritiser = AlertBannerPrioritiser;
 
   export interface Props extends Omit<HTMLAttributes<HTMLDivElement>, AttributesToOmit> {
     /** Unique identifier for this outlet */
-    id?: string
+    id?: string;
     /** Callback function to determine which banner to show from all available banners */
-    prioritise?: Prioritiser
+    prioritise?: Prioritiser;
   }
 }
 
-export const DEFAULT_OUTLET_ID = 'alert-banner-outlet'
+export const DEFAULT_OUTLET_ID = "alert-banner-outlet";
 
 /**
  * An outlet container that manages the visibility of multiple AlertBanner components,
@@ -37,48 +38,53 @@ export const DEFAULT_OUTLET_ID = 'alert-banner-outlet'
  * // Only the error banner will be visible
  */
 export function AlertBannerOutlet({
-  'aria-live': ariaLive = 'polite',
+  "aria-live": ariaLive = "polite",
   children,
   id = DEFAULT_OUTLET_ID,
   prioritise = prioritiseByVariantAndDOMOrder,
   ...rest
 }: AlertBannerOutlet.Props) {
-  const ref = useRef<HTMLDivElement>(null)
+  const ref = useRef<HTMLDivElement>(null);
 
   const showMostImportantAlert = useCallback(() => {
     if (ref.current) {
-      showMostImportantByPriority(ref.current, prioritise)
+      showMostImportantByPriority(ref.current, prioritise);
     }
-  }, [prioritise])
+  }, [prioritise]);
 
   useEffect(
     function immediatelyShowMostImportantOnMount() {
       if (ref.current) {
-        showMostImportantAlert()
+        showMostImportantAlert();
       }
     },
     [showMostImportantAlert],
-  )
+  );
 
-  useMutationObserver(ref, showMostImportantAlert, observerOptions)
+  useMutationObserver(ref, showMostImportantAlert, observerOptions);
 
   return (
     <div {...rest} aria-live={ariaLive} id={id} ref={ref}>
       {children}
     </div>
-  )
+  );
 }
 
 const observerOptions: MutationObserverInit = {
   childList: true,
-}
+};
 
-function showMostImportantByPriority(outlet: HTMLElement, prioritise: AlertBannerOutlet.Prioritiser) {
-  const banners = Array.from(outlet.children).filter((x): x is HTMLElement => x instanceof HTMLElement)
+function showMostImportantByPriority(
+  outlet: HTMLElement,
+  prioritise: AlertBannerOutlet.Prioritiser,
+) {
+  const banners = Array.from(outlet.children).filter(
+    (x): x is HTMLElement => x instanceof HTMLElement,
+  );
 
-  const mostImportant = prioritise(banners)
+  const mostImportant = prioritise(banners);
 
   for (const banner of banners) {
-    banner.toggleAttribute('hidden', banner !== mostImportant)
+    banner.toggleAttribute("hidden", banner !== mostImportant);
   }
 }

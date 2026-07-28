@@ -1,28 +1,33 @@
-import { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
-import { Source, SourceProps } from '@storybook/addon-docs/blocks'
-import type { Args, StoryContext } from '@storybook/react-vite'
-import { DeprecatedAccordion } from '../deprecated/accordion'
-import { Tile } from '../deprecated/tile'
-import { cx } from '@linaria/core'
-import { elMb6, elMt6 } from '../styles/deprecated-spacing'
-import { createRoot } from 'react-dom/client'
-import { flushSync } from 'react-dom'
+import { cx } from "@linaria/core";
+import { Source, SourceProps } from "@storybook/addon-docs/blocks";
+import type { Args, StoryContext } from "@storybook/react-vite";
+import { Dispatch, FC, SetStateAction, useEffect, useState } from "react";
+import { flushSync } from "react-dom";
+import { createRoot } from "react-dom/client";
 
-const handleGetRawHTML = (storyContext: StoryContext<Args> | null, setRaw: Dispatch<SetStateAction<string>>) => () => {
-  if (storyContext) {
-    const component = storyContext.originalStoryFn(storyContext.args as any, storyContext as any) as JSX.Element
-    const div = document.createElement('div')
-    const root = createRoot(div)
-    flushSync(() => {
-      root.render(component)
-    })
-    setRaw(div.innerHTML)
-  }
-}
+import { DeprecatedAccordion } from "../deprecated/accordion";
+import { Tile } from "../deprecated/tile";
+import { elMb6, elMt6 } from "../styles/deprecated-spacing";
+
+const handleGetRawHTML =
+  (storyContext: StoryContext<Args> | null, setRaw: Dispatch<SetStateAction<string>>) => () => {
+    if (storyContext) {
+      const component = storyContext.originalStoryFn(
+        storyContext.args as any,
+        storyContext as any,
+      ) as JSX.Element;
+      const div = document.createElement("div");
+      const root = createRoot(div);
+      flushSync(() => {
+        root.render(component);
+      });
+      setRaw(div.innerHTML);
+    }
+  };
 
 const handleFormatHTML = (raw: string | null, setHtml: Dispatch<SetStateAction<string>>) => () => {
-  if (raw) setHtml(raw)
-}
+  if (raw) setHtml(raw);
+};
 
 /** @deprecated */
 export const handleTransform =
@@ -34,20 +39,20 @@ export const handleTransform =
   (code: string, context: any) => {
     if (!storyContext) {
       setTimeout(() => {
-        setStoryContext(context)
-      }, 100)
+        setStoryContext(context);
+      }, 100);
     }
 
-    return html || code
-  }
+    return html || code;
+  };
 
 /** @deprecated */
 export const RenderHtmlMarkup: FC<SourceProps> = (props) => {
-  const [storyContext, setStoryContext] = useState<StoryContext<Args> | null>(null)
-  const [html, setHtml] = useState<string>('')
-  const [raw, setRaw] = useState<string>('')
+  const [storyContext, setStoryContext] = useState<StoryContext<Args> | null>(null);
+  const [html, setHtml] = useState<string>("");
+  const [raw, setRaw] = useState<string>("");
 
-  useEffect(handleFormatHTML(raw, setHtml), [raw])
+  useEffect(handleFormatHTML(raw, setHtml), [raw]);
 
   return (
     <Tile className={cx(elMb6, elMt6)}>
@@ -63,10 +68,10 @@ export const RenderHtmlMarkup: FC<SourceProps> = (props) => {
               />
             ),
             onClick: handleGetRawHTML(storyContext, setRaw),
-            title: `Html of ${storyContext?.name || '...'}`,
+            title: `Html of ${storyContext?.name || "..."}`,
           },
         ]}
       />
     </Tile>
-  )
-}
+  );
+};

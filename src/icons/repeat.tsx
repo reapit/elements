@@ -1,4 +1,4 @@
-import RepeatSvg from './svgs/repeat.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import RepeatSvg from "./svgs/repeat.svg?react";
 
-export const RepeatIcon = makeIcon('RepeatIcon', RepeatSvg)
+export const RepeatIcon = makeIcon("RepeatIcon", RepeatSvg);

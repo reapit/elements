@@ -4,5 +4,5 @@ export {
   getIntlNumberFormat,
   getLocaleNumberSeparators,
   getNumberAffix,
-} from './number-format'
-export type { LocaleNumberSeparators, NumberAffix } from './number-format'
+} from "./number-format";
+export type { LocaleNumberSeparators, NumberAffix } from "./number-format";

@@ -1,4 +1,5 @@
-import figma from '@figma/code-connect'
-import { ReportIcon } from './report'
+import figma from "@figma/code-connect";
 
-figma.connect(ReportIcon, 'https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=20-484')
+import { ReportIcon } from "./report";
+
+figma.connect(ReportIcon, "https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=20-484");

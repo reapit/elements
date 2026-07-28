@@ -1,23 +1,26 @@
-import { Button } from '#src/core/button'
-import { EmptyState } from './empty-state'
-import preview from '#.storybook/preview'
+import preview from "#.storybook/preview";
+import { Button } from "#src/core/button";
+
+import { EmptyState } from "./empty-state";
 
 const meta = preview.meta({
-  title: 'Indicators and status/EmptyState',
+  title: "Indicators and status/EmptyState",
   component: EmptyState,
   argTypes: {
     children: {
-      control: 'radio',
-      options: ['Action only', 'Short description', 'Full description', 'Everything'],
+      control: "radio",
+      options: ["Action only", "Short description", "Full description", "Everything"],
       mapping: {
-        'Action only': (
+        "Action only": (
           <Button useLinkStyle variant="tertiary">
             Add item
           </Button>
         ),
-        'Short description': <EmptyState.Description>No items found</EmptyState.Description>,
-        'Full description': (
-          <EmptyState.Description secondaryText="Secondary text">No items found</EmptyState.Description>
+        "Short description": <EmptyState.Description>No items found</EmptyState.Description>,
+        "Full description": (
+          <EmptyState.Description secondaryText="Secondary text">
+            No items found
+          </EmptyState.Description>
         ),
         Everything: (
           <>
@@ -31,23 +34,23 @@ const meta = preview.meta({
       },
     },
     height: {
-      control: 'text',
+      control: "text",
       table: {
         type: {
-          summary: '--size-*',
+          summary: "--size-*",
         },
       },
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
-    background: 'neutral-lightest',
-    children: 'Everything',
-    size: 'small',
+    background: "neutral-lightest",
+    children: "Everything",
+    size: "small",
   },
-})
+});
 
 /**
  * The element's width will fill the space provided by its parent container up to a maximum
@@ -59,18 +62,18 @@ export const Layout = Example.extend({
     (Story) => (
       <div
         style={{
-          display: 'flex',
-          justifyContent: 'center',
-          boxSizing: 'content-box',
-          border: '1px solid #FA00FF',
-          width: '600px',
+          display: "flex",
+          justifyContent: "center",
+          boxSizing: "content-box",
+          border: "1px solid #FA00FF",
+          width: "600px",
         }}
       >
         <Story />
       </div>
     ),
   ],
-})
+});
 
 /**
  * By default, the empty state will have a neutral-lightest background. For a card-style appearance
@@ -78,14 +81,14 @@ export const Layout = Example.extend({
  */
 export const Background = Example.extend({
   args: {
-    background: 'white',
+    background: "white",
   },
   globals: {
     backgrounds: {
-      value: 'light',
+      value: "light",
     },
   },
-})
+});
 
 /**
  * Two sizes are available. The internal spacing, radius and maximum width of the empty state change
@@ -93,14 +96,14 @@ export const Background = Example.extend({
  */
 export const Size = Background.extend({
   args: {
-    size: 'large',
+    size: "large",
   },
   globals: {
     backgrounds: {
-      value: 'light',
+      value: "light",
     },
   },
-})
+});
 
 function ExampleIllustration() {
   return (
@@ -143,5 +146,5 @@ function ExampleIllustration() {
         fill="#222B33"
       />
     </svg>
-  )
+  );
 }

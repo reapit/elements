@@ -1,7 +1,7 @@
-import { ElTopBarMenuDrawerHeader } from './styles'
-import { TopBarMenuDrawerHeaderCloseButton } from './close-button'
+import type { HTMLAttributes } from "react";
 
-import type { HTMLAttributes } from 'react'
+import { TopBarMenuDrawerHeaderCloseButton } from "./close-button";
+import { ElTopBarMenuDrawerHeader } from "./styles";
 
 export namespace TopBarMenuDrawerHeader {
   export interface Props extends HTMLAttributes<HTMLElement> {}
@@ -15,7 +15,7 @@ export function TopBarMenuDrawerHeader(props: TopBarMenuDrawerHeader.Props) {
     <ElTopBarMenuDrawerHeader {...props}>
       <TopBarMenuDrawerHeaderCloseButton />
     </ElTopBarMenuDrawerHeader>
-  )
+  );
 }
 
-TopBarMenuDrawerHeader.displayName = 'TopBar.MenuDrawerHeader'
+TopBarMenuDrawerHeader.displayName = "TopBar.MenuDrawerHeader";

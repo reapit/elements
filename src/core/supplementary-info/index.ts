@@ -1,1 +1,1 @@
-export { SupplementaryInfo } from './supplementary-info'
+export { SupplementaryInfo } from "./supplementary-info";

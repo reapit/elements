@@ -1,17 +1,18 @@
-import { ComboboxOptionAdditionalInfo } from './option-additional-info'
-import figma from '@figma/code-connect'
+import figma from "@figma/code-connect";
 
-figma.connect(ComboboxOptionAdditionalInfo, '<COMBOBOX_OPTION_ADDITIONAL_INFO_URL>', {
+import { ComboboxOptionAdditionalInfo } from "./option-additional-info";
+
+figma.connect(ComboboxOptionAdditionalInfo, "<COMBOBOX_OPTION_ADDITIONAL_INFO_URL>", {
   props: {
-    badge: figma.boolean('Show badge', {
-      true: figma.children('Badge'),
+    badge: figma.boolean("Show badge", {
+      true: figma.children("Badge"),
       false: undefined,
     }),
-    icon: figma.boolean('Show icon', {
-      true: figma.instance('Icon'),
+    icon: figma.boolean("Show icon", {
+      true: figma.instance("Icon"),
       false: undefined,
     }),
-    label: figma.children('Supplementary info'),
+    label: figma.children("Supplementary info"),
   },
   example: (props) => (
     // Use OptionAdditionalInfo via Autocomplete, CompactSelect or Select instead of Combobox.
@@ -19,4 +20,4 @@ figma.connect(ComboboxOptionAdditionalInfo, '<COMBOBOX_OPTION_ADDITIONAL_INFO_UR
       {props.label}
     </ComboboxOptionAdditionalInfo>
   ),
-})
+});

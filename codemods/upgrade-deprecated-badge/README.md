@@ -47,10 +47,10 @@ With a facade package, `Badge` is imported from the bare facade specifier rather
 
 ```tsx
 // Before (with facade package @company/ui)
-import { DeprecatedBadge } from '@company/ui/elements'
+import { DeprecatedBadge } from "@company/ui/elements";
 
 // After running with --facade-package @company/ui
-import { Badge } from '@company/ui'
+import { Badge } from "@company/ui";
 ```
 
 ## Background
@@ -115,17 +115,17 @@ The `intent` prop is renamed to `colour` and its value is mapped to the new colo
 
 ```tsx
 // Before
-;<DeprecatedBadgeGroup>
+<DeprecatedBadgeGroup>
   <DeprecatedBadge intent="success">Active</DeprecatedBadge>
-</DeprecatedBadgeGroup>
+</DeprecatedBadgeGroup>;
 
 // After
 {
   /* TODO: DeprecatedBadgeGroup has no core equivalent — review this layout */
 }
-;<div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.25rem' }}>
+<div style={{ display: "flex", flexWrap: "wrap", gap: "0.25rem" }}>
   <Badge colour="success">Active</Badge>
-</div>
+</div>;
 ```
 
 ## Limitations

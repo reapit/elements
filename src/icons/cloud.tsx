@@ -1,4 +1,4 @@
-import CloudSvg from './svgs/cloud.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import CloudSvg from "./svgs/cloud.svg?react";
 
-export const CloudIcon = makeIcon('CloudIcon', CloudSvg)
+export const CloudIcon = makeIcon("CloudIcon", CloudSvg);

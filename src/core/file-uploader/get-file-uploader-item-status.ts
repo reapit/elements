@@ -1,39 +1,39 @@
-import { formatFileSize, getIntlNumberFormat } from '#src/utils/number-format'
+import { formatFileSize, getIntlNumberFormat } from "#src/utils/number-format";
 
-import { clampPercentage } from './clamp-percentage'
+import { clampPercentage } from "./clamp-percentage";
 
 export namespace getFileUploaderItemStatus {
   export interface Input {
     /** The item's lifecycle status. */
-    status: 'queued' | 'uploading' | 'processing' | 'uploaded' | 'error'
+    status: "queued" | "uploading" | "processing" | "uploaded" | "error";
     /**
      * Upload progress as a percentage between `0` and `100`. Only meaningful while `status` is `'uploading'`.
      * Omit when the upload mechanism can't report progress (e.g. `fetch`) — the status text falls back to a plain
      * "Uploading" with no percentage.
      */
-    progress?: number
+    progress?: number;
     /** The file's size in bytes, used to derive `sizeText`. Omit to skip rendering a size. */
-    fileSize?: number
+    fileSize?: number;
     /**
      * The error message to surface, from either a genuine upload failure (`status === 'error'`)
      * or a currently-failing validation constraint (independent of `status`) — whichever
      * applies. A present message always wins over `status`'s own text.
      */
-    errorMessage?: string
+    errorMessage?: string;
     /**
      * BCP 47 locale tag, forwarded to `formatFileSize` and used to format the upload percentage. Defaults to the
      * runtime locale when omitted.
      */
-    locale?: string
+    locale?: string;
   }
 
   export interface Output {
     /** The formatted file size (e.g. `"3.6 MB"`), or `undefined` if no `fileSize` was given. */
-    sizeText?: string
+    sizeText?: string;
     /** The status text to display (e.g. `"Uploading: 45%"`, or the error message while `status` is `'error'`). */
-    statusText: string
+    statusText: string;
     /** Whether `statusText` represents an error, so callers can apply error styling. */
-    isError: boolean
+    isError: boolean;
   }
 }
 
@@ -49,26 +49,26 @@ export function getFileUploaderItemStatus({
   errorMessage,
   locale,
 }: getFileUploaderItemStatus.Input): getFileUploaderItemStatus.Output {
-  const sizeText = fileSize === undefined ? undefined : formatFileSize(fileSize, locale)
+  const sizeText = fileSize === undefined ? undefined : formatFileSize(fileSize, locale);
 
-  if (status === 'error' || errorMessage) {
-    return { sizeText, statusText: errorMessage?.trim() || 'Error', isError: true }
+  if (status === "error" || errorMessage) {
+    return { sizeText, statusText: errorMessage?.trim() || "Error", isError: true };
   }
 
   const statusText = (() => {
     switch (status) {
-      case 'queued':
-        return 'Queued'
-      case 'uploading':
-        return typeof progress === 'number' && Number.isFinite(progress)
-          ? `Uploading: ${getIntlNumberFormat(locale, { style: 'percent' }).format(clampPercentage(progress) / 100)}`
-          : 'Uploading'
-      case 'processing':
-        return 'Processing…'
-      case 'uploaded':
-        return 'Uploaded'
+      case "queued":
+        return "Queued";
+      case "uploading":
+        return typeof progress === "number" && Number.isFinite(progress)
+          ? `Uploading: ${getIntlNumberFormat(locale, { style: "percent" }).format(clampPercentage(progress) / 100)}`
+          : "Uploading";
+      case "processing":
+        return "Processing…";
+      case "uploaded":
+        return "Uploaded";
     }
-  })()
+  })();
 
-  return { sizeText, statusText, isError: false }
+  return { sizeText, statusText, isError: false };
 }

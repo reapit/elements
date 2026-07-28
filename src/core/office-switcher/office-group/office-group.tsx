@@ -1,9 +1,9 @@
-import { cx } from '@linaria/core'
-import { elOfficeSwitcherOfficeGroup } from './styles'
-import { OfficeSwitcherOfficeGroupSummary } from './office-group-summary'
-import { useId, useState } from 'react'
+import { cx } from "@linaria/core";
+import { useId, useState } from "react";
+import type { DetailsHTMLAttributes, ReactNode, SyntheticEvent } from "react";
 
-import type { DetailsHTMLAttributes, ReactNode, SyntheticEvent } from 'react'
+import { OfficeSwitcherOfficeGroupSummary } from "./office-group-summary";
+import { elOfficeSwitcherOfficeGroup } from "./styles";
 
 export namespace OfficeSwitcherOfficeGroup {
   export interface Props extends DetailsHTMLAttributes<HTMLDetailsElement> {
@@ -11,11 +11,11 @@ export namespace OfficeSwitcherOfficeGroup {
      * The office items to display within the group. Typically a collection of
      * `OfficeSwitcher.Option` components.
      */
-    children?: ReactNode
+    children?: ReactNode;
     /**
      * The label text for the office group
      */
-    label?: string
+    label?: string;
   }
 }
 
@@ -24,7 +24,7 @@ export namespace OfficeSwitcherOfficeGroup {
  * a native disclosure widget for showing and hiding grouped office items.
  */
 export function OfficeSwitcherOfficeGroup({
-  'aria-labelledby': ariaLabelledBy,
+  "aria-labelledby": ariaLabelledBy,
   children,
   className,
   label,
@@ -32,17 +32,17 @@ export function OfficeSwitcherOfficeGroup({
   open,
   ...rest
 }: OfficeSwitcherOfficeGroup.Props) {
-  const summaryId = ariaLabelledBy ?? useId()
+  const summaryId = ariaLabelledBy ?? useId();
 
   // Track open state so we can supply aria-expanded on the summary.
   // Native <summary> would provide this mapping automatically, but role="treeitem"
   // overrides the implicit ARIA semantics per HTML-AAM §5.1.
-  const [isOpen, setIsOpen] = useState(open ?? false)
+  const [isOpen, setIsOpen] = useState(open ?? false);
 
   const handleToggle = (event: SyntheticEvent<HTMLDetailsElement>) => {
-    setIsOpen(event.currentTarget.open)
-    onToggle?.(event)
-  }
+    setIsOpen(event.currentTarget.open);
+    onToggle?.(event);
+  };
 
   return (
     <details
@@ -52,10 +52,14 @@ export function OfficeSwitcherOfficeGroup({
       open={open}
       onToggle={handleToggle}
     >
-      <OfficeSwitcherOfficeGroupSummary aria-expanded={open ?? isOpen} id={summaryId} role="treeitem">
+      <OfficeSwitcherOfficeGroupSummary
+        aria-expanded={open ?? isOpen}
+        id={summaryId}
+        role="treeitem"
+      >
         {label}
       </OfficeSwitcherOfficeGroupSummary>
       {children}
     </details>
-  )
+  );
 }

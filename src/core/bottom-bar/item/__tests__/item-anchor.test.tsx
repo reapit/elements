@@ -1,35 +1,37 @@
-import { render, screen } from '@testing-library/react'
-import { BottomBarItemAnchor } from '../item-anchor'
-import { NotificationIcon } from '#src/icons/notification'
-import { StarIcon } from '#src/icons/star'
+import { render, screen } from "@testing-library/react";
 
-test('renders as a link with an accessible name', () => {
+import { NotificationIcon } from "#src/icons/notification";
+import { StarIcon } from "#src/icons/star";
+
+import { BottomBarItemAnchor } from "../item-anchor";
+
+test("renders as a link with an accessible name", () => {
   render(
     <BottomBarItemAnchor aria-current={false} href="#" icon={<StarIcon />} aria-label="My Item">
       Label
     </BottomBarItemAnchor>,
-  )
-  expect(screen.getByRole('link', { name: 'My Item' })).toBeVisible()
-})
+  );
+  expect(screen.getByRole("link", { name: "My Item" })).toBeVisible();
+});
 
-test('forwards additional props to the link element', () => {
-  const testId = 'nav-icon-item'
+test("forwards additional props to the link element", () => {
+  const testId = "nav-icon-item";
   render(
     <BottomBarItemAnchor aria-current={false} href="#" icon={<StarIcon />} data-testid={testId}>
       Label
     </BottomBarItemAnchor>,
-  )
+  );
 
-  const item = screen.getByTestId(testId)
-  expect(item).toBeVisible()
-})
+  const item = screen.getByTestId(testId);
+  expect(item).toBeVisible();
+});
 
-test('can display a badge when `hasBadge` is `true`', () => {
+test("can display a badge when `hasBadge` is `true`", () => {
   render(
     <BottomBarItemAnchor aria-current={false} href="#" icon={<NotificationIcon />} hasBadge>
       Notifications
     </BottomBarItemAnchor>,
-  )
-  const button = screen.getByRole('link', { name: 'Notifications' })
-  expect(button.querySelector('span')).toBeVisible()
-})
+  );
+  const button = screen.getByRole("link", { name: "Notifications" });
+  expect(button.querySelector("span")).toBeVisible();
+});

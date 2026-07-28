@@ -1,12 +1,13 @@
-import preview from '#.storybook/preview'
-import { DeprecatedSelect } from './index'
+import preview from "#.storybook/preview";
+
+import { DeprecatedSelect } from "./index";
 
 const meta = preview.meta({
-  title: 'Deprecated/DeprecatedSelect',
+  title: "Deprecated/DeprecatedSelect",
   component: DeprecatedSelect,
-})
+});
 
-export default meta
+export default meta;
 
 export const BasicUsage = meta.story({
   render: () => (
@@ -16,7 +17,7 @@ export const BasicUsage = meta.story({
       <option value="3">Option 3</option>
     </DeprecatedSelect>
   ),
-})
+});
 
 export const SelectDisabled = meta.story({
   render: () => (
@@ -26,4 +27,4 @@ export const SelectDisabled = meta.story({
       <option value="3">Option 3</option>
     </DeprecatedSelect>
   ),
-})
+});

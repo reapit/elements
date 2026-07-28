@@ -1,6 +1,7 @@
-import * as esbuild from 'esbuild'
-import { globSync } from 'node:fs'
-import path from 'node:path'
+import { globSync } from "node:fs";
+import path from "node:path";
+
+import * as esbuild from "esbuild";
 
 /**
  * Build script for codemods CLI.
@@ -17,43 +18,43 @@ import path from 'node:path'
  */
 
 async function build() {
-  console.log('Building codemods CLI with esbuild...\n')
+  console.log("Building codemods CLI with esbuild...\n");
 
   // Discover all transform files
-  const transformFiles = globSync('codemods/*/transform.ts')
+  const transformFiles = globSync("codemods/*/transform.ts");
 
   const transformEntryPoints = Object.fromEntries(
     transformFiles.map((filePath) => {
-      const codemodName = path.basename(path.dirname(filePath))
+      const codemodName = path.basename(path.dirname(filePath));
       return [
         `${codemodName}/transform`, // Output: dist/codemods/{name}/transform.js
         filePath, // Input: codemods/{name}/transform.ts
-      ]
+      ];
     }),
-  )
+  );
 
   const entryPoints = {
-    bin: 'codemods/bin.ts',
-    codemods: 'codemods/codemods.ts',
-    runner: 'codemods/runner.ts',
+    bin: "codemods/bin.ts",
+    codemods: "codemods/codemods.ts",
+    runner: "codemods/runner.ts",
     ...transformEntryPoints,
-  }
+  };
 
-  console.log('Entry points:')
+  console.log("Entry points:");
   Object.entries(entryPoints).forEach(([name, file]) => {
-    console.log(`  ${name}: ${file}`)
-  })
-  console.log()
+    console.log(`  ${name}: ${file}`);
+  });
+  console.log();
 
   try {
     await esbuild.build({
       entryPoints,
       bundle: true,
-      platform: 'node',
-      target: 'node22',
-      format: 'esm',
-      outdir: 'dist/codemods',
-      outExtension: { '.js': '.js' },
+      platform: "node",
+      target: "node22",
+      format: "esm",
+      outdir: "dist/codemods",
+      outExtension: { ".js": ".js" },
       // Inject polyfills for CommonJS globals that bundled dependencies expect
       banner: {
         js: [
@@ -63,7 +64,7 @@ async function build() {
           `const require = createRequire(import.meta.url);`,
           `const __filename = fileURLToPath(import.meta.url);`,
           `const __dirname = dirname(__filename);`,
-        ].join('\n'),
+        ].join("\n"),
       },
       // No minification for easier debugging
       minify: false,
@@ -71,14 +72,14 @@ async function build() {
       sourcemap: false,
       // Keep readable code
       keepNames: true,
-    })
+    });
 
-    console.log('✓ Build completed successfully!\n')
-    console.log('Output: dist/codemods/')
+    console.log("✓ Build completed successfully!\n");
+    console.log("Output: dist/codemods/");
   } catch (error) {
-    console.error('✗ Build failed:', error)
-    process.exit(1)
+    console.error("✗ Build failed:", error);
+    process.exit(1);
   }
 }
 
-build()
+build();

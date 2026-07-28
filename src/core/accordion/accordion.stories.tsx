@@ -1,25 +1,26 @@
-import preview from '#.storybook/preview'
-import { Accordion } from './accordion'
-import { BathIcon } from '#src/icons/bath'
-import { BedIcon } from '#src/icons/bed'
-import { Button } from '#src/core/button/button'
-import { CarIcon } from '#src/icons/car'
-import { Features } from '#src/core/features/index'
-import { Pattern } from '../drawer/__story__/Pattern'
+import preview from "#.storybook/preview";
+import { Button } from "#src/core/button/button";
+import { Features } from "#src/core/features/index";
+import { BathIcon } from "#src/icons/bath";
+import { BedIcon } from "#src/icons/bed";
+import { CarIcon } from "#src/icons/car";
+
+import { Pattern } from "../drawer/__story__/Pattern";
+import { Accordion } from "./accordion";
 
 const meta = preview.meta({
-  title: 'Content display/Accordion',
+  title: "Content display/Accordion",
   component: Accordion,
   argTypes: {
     children: {
       control: false,
     },
     summary: {
-      control: 'select',
-      options: ['Basic', 'With Features', 'With Clear Button'],
+      control: "select",
+      options: ["Basic", "With Features", "With Clear Button"],
       mapping: {
         Basic: <Accordion.Summary>Accordion Title</Accordion.Summary>,
-        'With Features': (
+        "With Features": (
           <Accordion.Summary
             accessory={
               <Features size="xs">
@@ -32,7 +33,7 @@ const meta = preview.meta({
             Accordion Title
           </Accordion.Summary>
         ),
-        'With Clear Button': (
+        "With Clear Button": (
           <Accordion.Summary
             accessory={
               <Button variant="tertiary" hasNoPadding>
@@ -46,16 +47,16 @@ const meta = preview.meta({
       },
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
     children: <Pattern height="100px" />,
     keepMounted: true,
     open: false,
-    summary: 'Basic',
+    summary: "Basic",
   },
-})
+});
 
 /**
  * Use of the `open` prop does not result in the accordion's open state being controlled in the same way as controlled
@@ -69,7 +70,7 @@ export const InitiallyOpen = Example.extend({
   args: {
     open: true,
   },
-})
+});
 
 /**
  * Accordions are block-level elements, so multiple accordions will simply stack on top of each other. By default,
@@ -89,4 +90,4 @@ export const Group = Example.extend({
       </Accordion>
     </>
   ),
-})
+});

@@ -1,15 +1,16 @@
-import React, { FC, HTMLAttributes } from 'react'
-import { cx } from '@linaria/core'
-import { elDeprecatedShapeTag, ElDeprecatedStatusIndicator } from './__styles__'
-import { Intent, getIntentClassName } from '../../helpers/intent'
+import { cx } from "@linaria/core";
+import React, { FC, HTMLAttributes } from "react";
+
+import { Intent, getIntentClassName } from "../../helpers/intent";
+import { elDeprecatedShapeTag, ElDeprecatedStatusIndicator } from "./__styles__";
 
 /**
  * replaced with StatusIndicatorProps
  * @deprecated
  */
 export interface DeprecatedStatusIndicatorProps extends HTMLAttributes<HTMLSpanElement> {
-  intent?: Intent
-  shape?: 'circle' | 'tag'
+  intent?: Intent;
+  shape?: "circle" | "tag";
 }
 
 /**
@@ -17,13 +18,17 @@ export interface DeprecatedStatusIndicatorProps extends HTMLAttributes<HTMLSpanE
  * @deprecated
  */
 export const DeprecatedStatusIndicator: FC<DeprecatedStatusIndicatorProps> = ({
-  intent = 'primary',
+  intent = "primary",
   shape,
   className,
   ...rest
 }) => (
   <ElDeprecatedStatusIndicator
-    className={cx(intent && getIntentClassName(intent), shape && shape === 'tag' && elDeprecatedShapeTag, className)}
+    className={cx(
+      intent && getIntentClassName(intent),
+      shape && shape === "tag" && elDeprecatedShapeTag,
+      className,
+    )}
     {...rest}
   />
-)
+);

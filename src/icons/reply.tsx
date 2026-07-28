@@ -1,4 +1,4 @@
-import ReplySvg from './svgs/reply.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import ReplySvg from "./svgs/reply.svg?react";
 
-export const ReplyIcon = makeIcon('ReplyIcon', ReplySvg)
+export const ReplyIcon = makeIcon("ReplyIcon", ReplySvg);

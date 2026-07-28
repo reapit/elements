@@ -1,4 +1,4 @@
-import { css } from '@linaria/core'
+import { css } from "@linaria/core";
 
 // NOTE: This class is designed to be used in conjunction with the ElButton class.
 export const elSplitButtonAction = css`
@@ -14,7 +14,7 @@ export const elSplitButtonAction = css`
       z-index: var(--z-index-elevated);
     }
 
-    &[data-variant='secondary'] {
+    &[data-variant="secondary"] {
       border-inline-end-color: transparent;
 
       &:hover {
@@ -22,4 +22,4 @@ export const elSplitButtonAction = css`
       }
     }
   }
-`
+`;

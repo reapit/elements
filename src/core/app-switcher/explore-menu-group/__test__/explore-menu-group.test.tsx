@@ -1,25 +1,28 @@
-import { render } from '@testing-library/react'
-import { AppSwitcherExploreMenuGroup } from '../explore-menu-group'
-import { AppSwitcherMenuGroupHasAccessContext } from '../../menu-group-has-access-context'
+import { render } from "@testing-library/react";
 
-test('renders AppSwitcherExploreMenuGroup properly', () => {
-  const { asFragment } = render(<AppSwitcherExploreMenuGroup>Fake child</AppSwitcherExploreMenuGroup>)
-  expect(asFragment()).toMatchSnapshot()
-})
+import { AppSwitcherMenuGroupHasAccessContext } from "../../menu-group-has-access-context";
+import { AppSwitcherExploreMenuGroup } from "../explore-menu-group";
 
-test('provides an `AppSwitcherMenuGroupHasAccessContext` value of `false`', () => {
-  let hasAccess: boolean | undefined
+test("renders AppSwitcherExploreMenuGroup properly", () => {
+  const { asFragment } = render(
+    <AppSwitcherExploreMenuGroup>Fake child</AppSwitcherExploreMenuGroup>,
+  );
+  expect(asFragment()).toMatchSnapshot();
+});
+
+test("provides an `AppSwitcherMenuGroupHasAccessContext` value of `false`", () => {
+  let hasAccess: boolean | undefined;
 
   render(
     <AppSwitcherExploreMenuGroup>
       <AppSwitcherMenuGroupHasAccessContext.Consumer>
         {(value) => {
-          hasAccess = value
-          return null
+          hasAccess = value;
+          return null;
         }}
       </AppSwitcherMenuGroupHasAccessContext.Consumer>
     </AppSwitcherExploreMenuGroup>,
-  )
+  );
 
-  expect(hasAccess).toBe(false)
-})
+  expect(hasAccess).toBe(false);
+});

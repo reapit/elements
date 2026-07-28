@@ -1,14 +1,15 @@
-import preview from '#.storybook/preview'
-import { Table } from '../table'
-import { useTableDecorator } from '../__story__/use-table-decorator'
+import preview from "#.storybook/preview";
+
+import { useTableDecorator } from "../__story__/use-table-decorator";
+import { Table } from "../table";
 
 const meta = preview.meta({
-  title: 'Data and tables/Table/Head',
+  title: "Data and tables/Table/Head",
   component: Table.Head,
   argTypes: {
     as: {
       control: false,
-      description: 'The element this table row will render as.',
+      description: "The element this table row will render as.",
       table: {
         type: {
           summary: "'tbody' | 'div'",
@@ -16,29 +17,29 @@ const meta = preview.meta({
       },
     },
     children: {
-      control: 'select',
-      description: 'The table rows.',
-      options: ['Static text', 'Sortable columns'],
+      control: "select",
+      description: "The table rows.",
+      options: ["Static text", "Sortable columns"],
       mapping: {
-        'Static text': buildRows('non-sortable'),
-        'Sortable columns': buildRows('sortable'),
+        "Static text": buildRows("non-sortable"),
+        "Sortable columns": buildRows("sortable"),
       },
       table: {
         type: {
-          summary: 'ReactNode',
+          summary: "ReactNode",
         },
       },
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
-    as: 'thead',
-    children: 'Static text',
+    as: "thead",
+    children: "Static text",
   },
-  decorators: [useTableDecorator('head')],
-})
+  decorators: [useTableDecorator("head")],
+});
 
 /**
  * Sometimes it may be necessary to render the table row as a plain `<div>`. Providing
@@ -51,7 +52,7 @@ export const Example = meta.story({
  */
 export const Divs = meta.story({
   args: {
-    as: 'div',
+    as: "div",
     children: (
       <Table.HeaderRow as="div">
         <Table.HeaderCell as="div">I&apos;m all divs and no a11y 😬</Table.HeaderCell>
@@ -63,11 +64,11 @@ export const Divs = meta.story({
       control: false,
     },
   },
-})
+});
 
-function buildRows(type: 'non-sortable' | 'sortable') {
+function buildRows(type: "non-sortable" | "sortable") {
   switch (type) {
-    case 'non-sortable': {
+    case "non-sortable": {
       return (
         <Table.HeaderRow>
           <Table.HeaderCell>Property</Table.HeaderCell>
@@ -75,9 +76,9 @@ function buildRows(type: 'non-sortable' | 'sortable') {
           <Table.HeaderCell>Tenancy</Table.HeaderCell>
           <Table.HeaderCell aria-label="Actions">{null}</Table.HeaderCell>
         </Table.HeaderRow>
-      )
+      );
     }
-    case 'sortable': {
+    case "sortable": {
       return (
         <Table.HeaderRow>
           <Table.HeaderCell>Property</Table.HeaderCell>
@@ -93,7 +94,7 @@ function buildRows(type: 'non-sortable' | 'sortable') {
           </Table.HeaderCell>
           <Table.HeaderCell aria-label="Actions">{null}</Table.HeaderCell>
         </Table.HeaderRow>
-      )
+      );
     }
   }
 }

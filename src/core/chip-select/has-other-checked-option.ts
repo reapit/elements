@@ -4,8 +4,11 @@
  * unrelated checkboxes in the container are ignored — single-select chips carry
  * `data-exclusive="true"` and multi-select chips carry `data-exclusive="false"`.
  */
-export function hasOtherCheckedOption(container: HTMLElement, currentTarget: HTMLInputElement): boolean {
-  return Array.from(container.querySelectorAll<HTMLInputElement>('input[data-exclusive][type="checkbox"]')).some(
-    (sibling) => sibling !== currentTarget && sibling.checked,
-  )
+export function hasOtherCheckedOption(
+  container: HTMLElement,
+  currentTarget: HTMLInputElement,
+): boolean {
+  return Array.from(
+    container.querySelectorAll<HTMLInputElement>('input[data-exclusive][type="checkbox"]'),
+  ).some((sibling) => sibling !== currentTarget && sibling.checked);
 }

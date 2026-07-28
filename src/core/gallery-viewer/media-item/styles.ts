@@ -1,4 +1,4 @@
-import { css } from '@linaria/core'
+import { css } from "@linaria/core";
 
 export const elGalleryViewerMediaItem = css`
   @layer elements.main {
@@ -9,4 +9,4 @@ export const elGalleryViewerMediaItem = css`
     scroll-snap-align: start;
     scroll-snap-stop: always;
   }
-`
+`;

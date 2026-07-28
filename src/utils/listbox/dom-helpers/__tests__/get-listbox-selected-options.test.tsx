@@ -1,7 +1,8 @@
-import { render } from '@testing-library/react'
-import { getListboxSelectedOptions } from '../get-listbox-selected-options'
+import { render } from "@testing-library/react";
 
-test('returns empty array when no options are selected', () => {
+import { getListboxSelectedOptions } from "../get-listbox-selected-options";
+
+test("returns empty array when no options are selected", () => {
   const { container } = render(
     <div role="listbox">
       <button role="option" aria-selected="false" value="1">
@@ -11,11 +12,11 @@ test('returns empty array when no options are selected', () => {
         Option 2
       </button>
     </div>,
-  )
+  );
 
-  const listbox = container.querySelector('[role="listbox"]') as HTMLElement
-  expect(getListboxSelectedOptions(listbox)).toEqual([])
-})
+  const listbox = container.querySelector('[role="listbox"]') as HTMLElement;
+  expect(getListboxSelectedOptions(listbox)).toEqual([]);
+});
 
 test('returns selected option with aria-selected="true"', () => {
   const { container } = render(
@@ -27,14 +28,14 @@ test('returns selected option with aria-selected="true"', () => {
         Option 2
       </button>
     </div>,
-  )
+  );
 
-  const listbox = container.querySelector('[role="listbox"]') as HTMLElement
-  const selected = getListboxSelectedOptions(listbox)
+  const listbox = container.querySelector('[role="listbox"]') as HTMLElement;
+  const selected = getListboxSelectedOptions(listbox);
 
-  expect(selected).toHaveLength(1)
-  expect(selected[0]).toHaveTextContent('Option 2')
-})
+  expect(selected).toHaveLength(1);
+  expect(selected[0]).toHaveTextContent("Option 2");
+});
 
 test('returns selected option with aria-checked="true"', () => {
   const { container } = render(
@@ -46,16 +47,16 @@ test('returns selected option with aria-checked="true"', () => {
         Option 2
       </button>
     </div>,
-  )
+  );
 
-  const listbox = container.querySelector('[role="listbox"]') as HTMLElement
-  const selected = getListboxSelectedOptions(listbox)
+  const listbox = container.querySelector('[role="listbox"]') as HTMLElement;
+  const selected = getListboxSelectedOptions(listbox);
 
-  expect(selected).toHaveLength(1)
-  expect(selected[0]).toHaveTextContent('Option 2')
-})
+  expect(selected).toHaveLength(1);
+  expect(selected[0]).toHaveTextContent("Option 2");
+});
 
-test('returns multiple selected options', () => {
+test("returns multiple selected options", () => {
   const { container } = render(
     <div role="listbox">
       <button role="option" aria-selected="true" value="1">
@@ -68,15 +69,15 @@ test('returns multiple selected options', () => {
         Option 3
       </button>
     </div>,
-  )
+  );
 
-  const listbox = container.querySelector('[role="listbox"]') as HTMLElement
-  const selected = getListboxSelectedOptions(listbox)
+  const listbox = container.querySelector('[role="listbox"]') as HTMLElement;
+  const selected = getListboxSelectedOptions(listbox);
 
-  expect(selected).toHaveLength(2)
-  expect(selected[0]).toHaveTextContent('Option 1')
-  expect(selected[1]).toHaveTextContent('Option 3')
-})
+  expect(selected).toHaveLength(2);
+  expect(selected[0]).toHaveTextContent("Option 1");
+  expect(selected[1]).toHaveTextContent("Option 3");
+});
 
 test('ignores non-button elements with role="option"', () => {
   const { container } = render(
@@ -88,16 +89,16 @@ test('ignores non-button elements with role="option"', () => {
         Option 2
       </div>
     </div>,
-  )
+  );
 
-  const listbox = container.querySelector('[role="listbox"]') as HTMLElement
-  const selected = getListboxSelectedOptions(listbox)
+  const listbox = container.querySelector('[role="listbox"]') as HTMLElement;
+  const selected = getListboxSelectedOptions(listbox);
 
-  expect(selected).toHaveLength(1)
-  expect(selected[0]).toHaveTextContent('Option 1')
-})
+  expect(selected).toHaveLength(1);
+  expect(selected[0]).toHaveTextContent("Option 1");
+});
 
-test('works with nested option structures', () => {
+test("works with nested option structures", () => {
   const { container } = render(
     <div role="listbox">
       <div>
@@ -111,11 +112,11 @@ test('works with nested option structures', () => {
         </button>
       </div>
     </div>,
-  )
+  );
 
-  const listbox = container.querySelector('[role="listbox"]') as HTMLElement
-  const selected = getListboxSelectedOptions(listbox)
+  const listbox = container.querySelector('[role="listbox"]') as HTMLElement;
+  const selected = getListboxSelectedOptions(listbox);
 
-  expect(selected).toHaveLength(1)
-  expect(selected[0]).toHaveTextContent('Nested Option 1')
-})
+  expect(selected).toHaveLength(1);
+  expect(selected[0]).toHaveTextContent("Nested Option 1");
+});

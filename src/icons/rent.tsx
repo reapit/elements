@@ -1,4 +1,4 @@
-import RentSvg from './svgs/rent.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import RentSvg from "./svgs/rent.svg?react";
 
-export const RentIcon = makeIcon('RentIcon', RentSvg)
+export const RentIcon = makeIcon("RentIcon", RentSvg);

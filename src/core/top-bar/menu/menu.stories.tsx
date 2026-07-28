@@ -1,10 +1,11 @@
-import preview from '#.storybook/preview'
-import { TopBar } from '../top-bar'
+import preview from "#.storybook/preview";
+
+import { TopBar } from "../top-bar";
 
 const meta = preview.meta({
-  title: 'Navigation/TopBar/Menu',
+  title: "Navigation/TopBar/Menu",
   component: TopBar.Menu,
-})
+});
 
 /**
  * ...
@@ -16,7 +17,9 @@ export const Example = meta.story({
         <TopBar.Menu>
           <TopBar.Menu.Content>
             <TopBar.Menu.MainNav>
-              <TopBar.Menu.MenuGroup summary={<TopBar.Menu.MenuGroupSummary>Properties</TopBar.Menu.MenuGroupSummary>}>
+              <TopBar.Menu.MenuGroup
+                summary={<TopBar.Menu.MenuGroupSummary>Properties</TopBar.Menu.MenuGroupSummary>}
+              >
                 <TopBar.Menu.Submenu>
                   <TopBar.Menu.SubmenuItem href="#" aria-current={false}>
                     Residential
@@ -53,6 +56,6 @@ export const Example = meta.story({
           </TopBar.Menu.Content>
         </TopBar.Menu>
       </>
-    )
+    );
   },
-})
+});

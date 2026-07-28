@@ -1,53 +1,54 @@
-import preview from '#.storybook/preview'
-import { DateTimeInput } from './date-time-input'
+import preview from "#.storybook/preview";
+
+import { DateTimeInput } from "./date-time-input";
 
 const meta = preview.meta({
-  title: 'Input and selection/DateTimeInput',
+  title: "Input and selection/DateTimeInput",
   component: DateTimeInput,
   argTypes: {
     size: {
-      control: 'select',
-      options: ['small', 'medium', 'large'],
+      control: "select",
+      options: ["small", "medium", "large"],
     },
     type: {
-      control: 'select',
-      options: ['date', 'datetime-local', 'time'],
+      control: "select",
+      options: ["date", "datetime-local", "time"],
     },
     value: {
-      control: 'text',
+      control: "text",
       table: {
         type: {
-          summary: 'string | number | readonly string[] | undefined',
+          summary: "string | number | readonly string[] | undefined",
         },
       },
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
-    'aria-label': 'My input',
-    defaultValue: '',
+    "aria-label": "My input",
+    defaultValue: "",
     disabled: false,
-    name: 'myInput',
+    name: "myInput",
     max: undefined,
     min: undefined,
     pattern: undefined,
     readOnly: false,
     required: false,
     showValidity: false,
-    size: 'medium',
+    size: "medium",
     step: undefined,
-    type: 'date',
+    type: "date",
   },
-})
+});
 
 /**
  * There are three sizes available: `small`, `medium` and `large`.
  */
 export const Sizes = Example.extend({
   args: {
-    defaultValue: '2025-10-13',
+    defaultValue: "2025-10-13",
   },
   argTypes: {
     size: {
@@ -56,7 +57,7 @@ export const Sizes = Example.extend({
   },
   decorators: [
     (Story) => (
-      <div style={{ display: 'flex', flexFlow: 'row nowrap', gap: 'var(--spacing-6)' }}>
+      <div style={{ display: "flex", flexFlow: "row nowrap", gap: "var(--spacing-6)" }}>
         <Story />
       </div>
     ),
@@ -68,7 +69,7 @@ export const Sizes = Example.extend({
       <DateTimeInput {...args} size="large" />
     </>
   ),
-})
+});
 
 /**
  * Date inputs allows users to enter a date. The value is always formatted `YYYY-MM-DD`, while the displayed
@@ -76,9 +77,9 @@ export const Sizes = Example.extend({
  */
 export const Date = Example.extend({
   args: {
-    type: 'date',
+    type: "date",
   },
-})
+});
 
 /**
  * Time inputs allow users to enter a specific time (hours and minutes, and optionally, seconds). The value
@@ -89,9 +90,9 @@ export const Date = Example.extend({
  */
 export const Time = Example.extend({
   args: {
-    type: 'time',
+    type: "time",
   },
-})
+});
 
 /**
  * Datetime inputs allows users to enter a date and time. The value represents a local date and time,
@@ -104,9 +105,9 @@ export const Time = Example.extend({
  */
 export const Datetime = Example.extend({
   args: {
-    type: 'datetime-local',
+    type: "datetime-local",
   },
-})
+});
 
 /**
  * Date/time inputs can be disabled. A disable input will not receive the `click` event, and are not submitted
@@ -116,7 +117,7 @@ export const Disabled = Example.extend({
   args: {
     disabled: true,
   },
-})
+});
 
 /**
  * Date/time inputs can be marked as read-only. When they are, the "Show picker" button will be hidden.
@@ -126,7 +127,7 @@ export const Readonly = Example.extend({
   args: {
     readOnly: true,
   },
-})
+});
 
 /**
  * Date/time inputs can be marked as busy. This is particularly useful when asynchronous validation is being
@@ -135,9 +136,9 @@ export const Readonly = Example.extend({
 export const Busy = Example.extend({
   args: {
     isBusy: true,
-    value: '2025-10-01',
+    value: "2025-10-01",
   },
-})
+});
 
 /**
  * Like all form controls that visually communicate their validity, the input will display in an
@@ -150,7 +151,7 @@ export const Invalid = Example.extend({
     required: true,
     showValidity: true,
   },
-})
+});
 
 /**
  * The input also displays in an invalid state when `aria-invalid="true"` and `showValidity` is true.
@@ -158,20 +159,20 @@ export const Invalid = Example.extend({
  * that does not use the browser's constraint validation API.
  */
 export const AriaInvalid = Example.extend({
-  name: 'Aria Invalid',
+  name: "Aria Invalid",
   args: {
-    'aria-invalid': true,
+    "aria-invalid": true,
     showValidity: true,
   },
-})
+});
 
 /**
  * By default, date/time inputs will fill their parent's width. This can be constrained by providing
  * a `maxWidth`.
  */
 export const MaxWidth = Example.extend({
-  name: 'Max-width',
+  name: "Max-width",
   args: {
-    maxWidth: 'var(--size-64)',
+    maxWidth: "var(--size-64)",
   },
-})
+});

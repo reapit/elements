@@ -1,4 +1,4 @@
-import MarketplaceSvg from './svgs/marketplace.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import MarketplaceSvg from "./svgs/marketplace.svg?react";
 
-export const MarketplaceIcon = makeIcon('MarketplaceIcon', MarketplaceSvg)
+export const MarketplaceIcon = makeIcon("MarketplaceIcon", MarketplaceSvg);

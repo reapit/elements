@@ -1,32 +1,43 @@
-import React, { FC, HTMLAttributes } from 'react'
-import { ElPlaceholderImage, ElPlaceholderImageWrapper } from './__styles__'
-import { placeholderImageSet } from './images'
+import React, { FC, HTMLAttributes } from "react";
+
+import { ElPlaceholderImage, ElPlaceholderImageWrapper } from "./__styles__";
+import { placeholderImageSet } from "./images";
 
 /** @deprecated */
-export type PlaceholderNames = keyof typeof placeholderImageSet
+export type PlaceholderNames = keyof typeof placeholderImageSet;
 
 /** @deprecated */
 export interface PlacholderImageProps extends HTMLAttributes<HTMLDivElement> {
-  placeholder: PlaceholderNames
-  size: number
-  fillAvailable?: boolean
+  placeholder: PlaceholderNames;
+  size: number;
+  fillAvailable?: boolean;
 }
 
 /** @deprecated */
-export const PlaceholderImage: FC<PlacholderImageProps> = ({ placeholder, size, fillAvailable, ...rest }) => {
-  const Svg = placeholderImageSet[placeholder]
-  const fontSize = `${(size * 0.625) / 16}em`
-  const width = `${size}px`
-  const height = `${size}px`
+export const PlaceholderImage: FC<PlacholderImageProps> = ({
+  placeholder,
+  size,
+  fillAvailable,
+  ...rest
+}) => {
+  const Svg = placeholderImageSet[placeholder];
+  const fontSize = `${(size * 0.625) / 16}em`;
+  const width = `${size}px`;
+  const height = `${size}px`;
 
   if (fillAvailable) {
     return (
       <ElPlaceholderImageWrapper>
-        <ElPlaceholderImage role="img" aria-label="A generic placeholder image" {...rest} style={{ fontSize }}>
+        <ElPlaceholderImage
+          role="img"
+          aria-label="A generic placeholder image"
+          {...rest}
+          style={{ fontSize }}
+        >
           <Svg />
         </ElPlaceholderImage>
       </ElPlaceholderImageWrapper>
-    )
+    );
   }
 
   return (
@@ -38,5 +49,5 @@ export const PlaceholderImage: FC<PlacholderImageProps> = ({ placeholder, size, 
     >
       <Svg />
     </ElPlaceholderImage>
-  )
-}
+  );
+};

@@ -1,8 +1,12 @@
-import preview from '#.storybook/preview'
-import { cx } from '@linaria/core'
-import { GridDemoBlockFeatured, GridDemoBlockSizing, GridDemoBorders } from '../storybook/demo-block'
-import { elM6, elMb6, elP6, elPb6 } from './deprecated-spacing'
-import { elH6, elHScreen, elW6, elWScreen } from './deprecated-sizing'
+import { cx } from "@linaria/core";
+
+import preview from "#.storybook/preview";
+
+import {
+  GridDemoBlockFeatured,
+  GridDemoBlockSizing,
+  GridDemoBorders,
+} from "../storybook/demo-block";
 import {
   elBorderPurple,
   elBorderGrey,
@@ -10,13 +14,15 @@ import {
   elBorderRadius,
   elBorderRadiusR,
   elBoxShadow,
-} from './deprecated-borders'
+} from "./deprecated-borders";
+import { elH6, elHScreen, elW6, elWScreen } from "./deprecated-sizing";
+import { elM6, elMb6, elP6, elPb6 } from "./deprecated-spacing";
 
 const meta = preview.meta({
-  title: 'Deprecated/Utilities',
-})
+  title: "Deprecated/Utilities",
+});
 
-export default meta
+export default meta;
 
 export const Margin = meta.story({
   render: () => (
@@ -25,7 +31,7 @@ export const Margin = meta.story({
       <GridDemoBlockFeatured className={cx(elM6)}>elM6, el-m6</GridDemoBlockFeatured>
     </>
   ),
-})
+});
 
 export const Padding = meta.story({
   render: () => (
@@ -34,7 +40,7 @@ export const Padding = meta.story({
       <GridDemoBlockFeatured className={cx(elP6)}>elP6, el-p6</GridDemoBlockFeatured>
     </>
   ),
-})
+});
 
 export const HeightAndWidth = meta.story({
   render: () => (
@@ -45,7 +51,7 @@ export const HeightAndWidth = meta.story({
       </GridDemoBlockSizing>
     </>
   ),
-})
+});
 
 export const BorderRadiusAndBoxShadow = meta.story({
   render: () => (
@@ -62,4 +68,4 @@ export const BorderRadiusAndBoxShadow = meta.story({
       <GridDemoBorders className={elBoxShadow}>elBoxShadow, el-box-shadow</GridDemoBorders>
     </>
   ),
-})
+});

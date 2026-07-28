@@ -1,4 +1,5 @@
-import { JsxOpeningElement, JsxSelfClosingElement, SourceFile, SyntaxKind } from 'ts-morph'
+import { JsxOpeningElement, JsxSelfClosingElement, SourceFile, SyntaxKind } from "ts-morph";
+
 import {
   isElementsImport,
   createProjectFromSource,
@@ -9,7 +10,7 @@ import {
   transformIdentifierReferences as sharedTransformIdentifierReferences,
   getJsxElements,
   syncClosingTag,
-} from '../shared/index.js'
+} from "../shared/index.js";
 
 /**
  * Codemod to upgrade DeprecatedTag and DeprecatedTagGroup to the new Tag and TagGroup components.
@@ -40,14 +41,16 @@ import {
  * Returns the set of names that may appear as JSX tag names.
  */
 function getDeprecatedTagAliases(sourceFile: SourceFile, facadePackage?: string): Set<string> {
-  return getImportAliases(sourceFile, 'DeprecatedTag', facadePackage, { fallbackToName: true })
+  return getImportAliases(sourceFile, "DeprecatedTag", facadePackage, { fallbackToName: true });
 }
 
 /**
  * Collects all local aliases used for DeprecatedTagGroup in import declarations.
  */
 function getDeprecatedTagGroupAliases(sourceFile: SourceFile, facadePackage?: string): Set<string> {
-  return getImportAliases(sourceFile, 'DeprecatedTagGroup', facadePackage, { fallbackToName: true })
+  return getImportAliases(sourceFile, "DeprecatedTagGroup", facadePackage, {
+    fallbackToName: true,
+  });
 }
 
 /**
@@ -56,11 +59,11 @@ function getDeprecatedTagGroupAliases(sourceFile: SourceFile, facadePackage?: st
  * DeprecatedTagGroup is handled separately (converted to TagGroup).
  */
 const IMPORTS_TO_REMOVE = new Set([
-  'DeprecatedTagProps',
-  'ElDeprecatedTag',
-  'ElDeprecatedTagGroup',
-  'ElDeprecatedTagGroupInner',
-])
+  "DeprecatedTagProps",
+  "ElDeprecatedTag",
+  "ElDeprecatedTagGroup",
+  "ElDeprecatedTagGroupInner",
+]);
 
 /**
  * Determines whether a DeprecatedTag JSX element (identified by its alias set) is
@@ -70,41 +73,41 @@ const IMPORTS_TO_REMOVE = new Set([
  * between the group and its items, instead of requiring a direct parent/child shape.
  */
 function isInsideTagGroup(
-  element: ReturnType<SourceFile['getDescendantsOfKind']>[number],
+  element: ReturnType<SourceFile["getDescendantsOfKind"]>[number],
   tagGroupAliases: Set<string>,
 ): boolean {
   // For a JsxOpeningElement, start from its wrapping JsxElement so we don't
   // accidentally match the element itself as an ancestor.
-  const kind = element.getKind()
-  let current: ReturnType<typeof element.getParent>
+  const kind = element.getKind();
+  let current: ReturnType<typeof element.getParent>;
 
   if (kind === SyntaxKind.JsxOpeningElement) {
-    const tagElement = element.getParent() // JsxElement wrapping this opening tag
-    if (!tagElement || tagElement.getKind() !== SyntaxKind.JsxElement) return false
-    current = tagElement.getParent()
+    const tagElement = element.getParent(); // JsxElement wrapping this opening tag
+    if (!tagElement || tagElement.getKind() !== SyntaxKind.JsxElement) return false;
+    current = tagElement.getParent();
   } else if (kind === SyntaxKind.JsxSelfClosingElement) {
-    current = element.getParent()
+    current = element.getParent();
   } else {
-    return false
+    return false;
   }
 
   while (current) {
     if (current.getKind() === SyntaxKind.JsxElement) {
-      const jsxElement = current.asKind(SyntaxKind.JsxElement)
-      if (!jsxElement) return false
-      const openingTag = jsxElement.getOpeningElement()
-      const tagName = openingTag.getTagNameNode().getText()
+      const jsxElement = current.asKind(SyntaxKind.JsxElement);
+      if (!jsxElement) return false;
+      const openingTag = jsxElement.getOpeningElement();
+      const tagName = openingTag.getTagNameNode().getText();
       if (tagGroupAliases.has(tagName)) {
-        return true
+        return true;
       }
     }
 
     // For JsxFragment or any other non-element ancestor (conditionals, fragments, etc.)
     // just continue walking upward.
-    current = current.getParent()
+    current = current.getParent();
   }
 
-  return false
+  return false;
 }
 
 /**
@@ -114,24 +117,28 @@ function isInsideTagGroup(
  * Covers both JSX element usage and non-JSX value/type references (e.g. `const Cmp = DeprecatedTag`,
  * `ComponentProps<typeof DeprecatedTag>`).
  */
-function hasStandaloneTagUsage(sourceFile: SourceFile, tagAliases: Set<string>, tagGroupAliases: Set<string>): boolean {
+function hasStandaloneTagUsage(
+  sourceFile: SourceFile,
+  tagAliases: Set<string>,
+  tagGroupAliases: Set<string>,
+): boolean {
   const elements = [
     ...sourceFile.getDescendantsOfKind(SyntaxKind.JsxOpeningElement),
     ...sourceFile.getDescendantsOfKind(SyntaxKind.JsxSelfClosingElement),
-  ]
+  ];
 
   for (const element of elements) {
-    const tagName = element.getTagNameNode().getText()
-    if (!tagAliases.has(tagName)) continue
-    if (!isInsideTagGroup(element, tagGroupAliases)) return true
+    const tagName = element.getTagNameNode().getText();
+    if (!tagAliases.has(tagName)) continue;
+    if (!isInsideTagGroup(element, tagGroupAliases)) return true;
   }
 
   // Also check non-JSX identifier references (value or type usage outside JSX)
   for (const identifier of sourceFile.getDescendantsOfKind(SyntaxKind.Identifier)) {
-    if (!tagAliases.has(identifier.getText())) continue
-    const parent = identifier.getParent()
-    if (!parent) continue
-    const parentKind = parent.getKind()
+    if (!tagAliases.has(identifier.getText())) continue;
+    const parent = identifier.getParent();
+    if (!parent) continue;
+    const parentKind = parent.getKind();
     // Skip import/export declarations and JSX tag names (already covered above)
     if (
       parentKind === SyntaxKind.ImportSpecifier ||
@@ -140,11 +147,11 @@ function hasStandaloneTagUsage(sourceFile: SourceFile, tagAliases: Set<string>, 
       parentKind === SyntaxKind.JsxSelfClosingElement ||
       parentKind === SyntaxKind.JsxClosingElement
     )
-      continue
-    return true
+      continue;
+    return true;
   }
 
-  return false
+  return false;
 }
 
 /**
@@ -156,16 +163,17 @@ function hasTagGroupUsage(sourceFile: SourceFile, tagGroupAliases: Set<string>):
   const elements = [
     ...sourceFile.getDescendantsOfKind(SyntaxKind.JsxOpeningElement),
     ...sourceFile.getDescendantsOfKind(SyntaxKind.JsxSelfClosingElement),
-  ]
+  ];
 
-  if (elements.some((element) => tagGroupAliases.has(element.getTagNameNode().getText()))) return true
+  if (elements.some((element) => tagGroupAliases.has(element.getTagNameNode().getText())))
+    return true;
 
   // Also check non-JSX identifier references
   for (const identifier of sourceFile.getDescendantsOfKind(SyntaxKind.Identifier)) {
-    if (!tagGroupAliases.has(identifier.getText())) continue
-    const parent = identifier.getParent()
-    if (!parent) continue
-    const parentKind = parent.getKind()
+    if (!tagGroupAliases.has(identifier.getText())) continue;
+    const parent = identifier.getParent();
+    if (!parent) continue;
+    const parentKind = parent.getKind();
     if (
       parentKind === SyntaxKind.ImportSpecifier ||
       parentKind === SyntaxKind.ExportSpecifier ||
@@ -173,11 +181,11 @@ function hasTagGroupUsage(sourceFile: SourceFile, tagGroupAliases: Set<string>):
       parentKind === SyntaxKind.JsxSelfClosingElement ||
       parentKind === SyntaxKind.JsxClosingElement
     )
-      continue
-    return true
+      continue;
+    return true;
   }
 
-  return false
+  return false;
 }
 
 /**
@@ -202,76 +210,89 @@ function transformImports(
 ): void {
   // Each entry records the resolved target specifier alongside the import details,
   // so imports from different source specifiers are routed correctly.
-  const tagImportsToAdd: Array<{ name: string; alias?: string; isTypeOnly: boolean; targetSpecifier: string }> = []
+  const tagImportsToAdd: Array<{
+    name: string;
+    alias?: string;
+    isTypeOnly: boolean;
+    targetSpecifier: string;
+  }> = [];
   const tagGroupImportsToAdd: Array<{
-    name: string
-    alias?: string
-    isTypeOnly: boolean
-    targetSpecifier: string
-  }> = []
+    name: string;
+    alias?: string;
+    isTypeOnly: boolean;
+    targetSpecifier: string;
+  }> = [];
 
   // The "already migrated" paths only apply to the default (non-facade) target.
-  const alreadyMigratedTagPath = facadePackage ? null : '@reapit/elements/core/tag'
-  const alreadyMigratedTagGroupPath = facadePackage ? null : '@reapit/elements/core/tag-group'
+  const alreadyMigratedTagPath = facadePackage ? null : "@reapit/elements/core/tag";
+  const alreadyMigratedTagGroupPath = facadePackage ? null : "@reapit/elements/core/tag-group";
 
-  const importDeclarations = sourceFile.getImportDeclarations().slice()
+  const importDeclarations = sourceFile.getImportDeclarations().slice();
 
   for (const importDecl of importDeclarations) {
-    if (importDecl.wasForgotten()) continue
+    if (importDecl.wasForgotten()) continue;
 
-    const moduleSpecifier = importDecl.getModuleSpecifierValue()
+    const moduleSpecifier = importDecl.getModuleSpecifierValue();
 
-    if (!isElementsImport(moduleSpecifier, facadePackage)) continue
+    if (!isElementsImport(moduleSpecifier, facadePackage)) continue;
 
     // Already from the target path (non-facade only) -- do not touch
-    if (alreadyMigratedTagPath && moduleSpecifier === alreadyMigratedTagPath) continue
-    if (alreadyMigratedTagGroupPath && moduleSpecifier === alreadyMigratedTagGroupPath) continue
+    if (alreadyMigratedTagPath && moduleSpecifier === alreadyMigratedTagPath) continue;
+    if (alreadyMigratedTagGroupPath && moduleSpecifier === alreadyMigratedTagGroupPath) continue;
 
-    const namedImports = importDecl.getNamedImports()
-    const importsToRemove: typeof namedImports = []
+    const namedImports = importDecl.getNamedImports();
+    const importsToRemove: typeof namedImports = [];
 
     for (const namedImport of namedImports) {
-      const originalName = namedImport.getName()
+      const originalName = namedImport.getName();
 
-      if (originalName === 'DeprecatedTag') {
+      if (originalName === "DeprecatedTag") {
         if (needsTagImport) {
           tagImportsToAdd.push({
-            name: 'Tag',
+            name: "Tag",
             alias: namedImport.getAliasNode()?.getText(),
             isTypeOnly: namedImport.isTypeOnly(),
-            targetSpecifier: resolveTargetSpecifier(moduleSpecifier, '@reapit/elements/core/tag', facadePackage),
-          })
+            targetSpecifier: resolveTargetSpecifier(
+              moduleSpecifier,
+              "@reapit/elements/core/tag",
+              facadePackage,
+            ),
+          });
         }
-        importsToRemove.push(namedImport)
-        continue
+        importsToRemove.push(namedImport);
+        continue;
       }
 
-      if (originalName === 'DeprecatedTagGroup') {
+      if (originalName === "DeprecatedTagGroup") {
         if (needsTagGroupImport) {
           tagGroupImportsToAdd.push({
-            name: 'TagGroup',
+            name: "TagGroup",
             alias: namedImport.getAliasNode()?.getText(),
             isTypeOnly: namedImport.isTypeOnly(),
-            targetSpecifier: resolveTargetSpecifier(moduleSpecifier, '@reapit/elements/core/tag-group', facadePackage),
-          })
+            targetSpecifier: resolveTargetSpecifier(
+              moduleSpecifier,
+              "@reapit/elements/core/tag-group",
+              facadePackage,
+            ),
+          });
         }
-        importsToRemove.push(namedImport)
-        continue
+        importsToRemove.push(namedImport);
+        continue;
       }
 
       if (IMPORTS_TO_REMOVE.has(originalName)) {
-        importsToRemove.push(namedImport)
+        importsToRemove.push(namedImport);
       }
     }
 
-    importsToRemove.forEach((namedImport) => namedImport.remove())
+    importsToRemove.forEach((namedImport) => namedImport.remove());
 
     if (
       importDecl.getNamedImports().length === 0 &&
       !importDecl.getDefaultImport() &&
       !importDecl.getNamespaceImport()
     ) {
-      importDecl.remove()
+      importDecl.remove();
     }
   }
 
@@ -279,10 +300,10 @@ function transformImports(
   // named import was found to convert, we still need to add a Tag import.
   if (needsTagImport && tagImportsToAdd.length === 0) {
     tagImportsToAdd.push({
-      name: 'Tag',
+      name: "Tag",
       isTypeOnly: false,
-      targetSpecifier: facadePackage ?? '@reapit/elements/core/tag',
-    })
+      targetSpecifier: facadePackage ?? "@reapit/elements/core/tag",
+    });
   }
 
   // When needsTagGroupImport is true but no DeprecatedTagGroup named import was found
@@ -290,31 +311,37 @@ function transformImports(
   // a TagGroup import.
   if (needsTagGroupImport && tagGroupImportsToAdd.length === 0) {
     tagGroupImportsToAdd.push({
-      name: 'TagGroup',
+      name: "TagGroup",
       isTypeOnly: false,
-      targetSpecifier: facadePackage ?? '@reapit/elements/core/tag-group',
-    })
+      targetSpecifier: facadePackage ?? "@reapit/elements/core/tag-group",
+    });
   }
 
   // Group entries by target specifier and emit one addImportsToTarget call per group.
-  const tagBySpecifier = new Map<string, Array<{ name: string; alias?: string; isTypeOnly: boolean }>>()
+  const tagBySpecifier = new Map<
+    string,
+    Array<{ name: string; alias?: string; isTypeOnly: boolean }>
+  >();
   for (const { targetSpecifier, ...entry } of tagImportsToAdd) {
-    const group = tagBySpecifier.get(targetSpecifier) ?? []
-    group.push(entry)
-    tagBySpecifier.set(targetSpecifier, group)
+    const group = tagBySpecifier.get(targetSpecifier) ?? [];
+    group.push(entry);
+    tagBySpecifier.set(targetSpecifier, group);
   }
   for (const [specifier, entries] of tagBySpecifier) {
-    addImportsToTarget(sourceFile, entries, specifier)
+    addImportsToTarget(sourceFile, entries, specifier);
   }
 
-  const tagGroupBySpecifier = new Map<string, Array<{ name: string; alias?: string; isTypeOnly: boolean }>>()
+  const tagGroupBySpecifier = new Map<
+    string,
+    Array<{ name: string; alias?: string; isTypeOnly: boolean }>
+  >();
   for (const { targetSpecifier, ...entry } of tagGroupImportsToAdd) {
-    const group = tagGroupBySpecifier.get(targetSpecifier) ?? []
-    group.push(entry)
-    tagGroupBySpecifier.set(targetSpecifier, group)
+    const group = tagGroupBySpecifier.get(targetSpecifier) ?? [];
+    group.push(entry);
+    tagGroupBySpecifier.set(targetSpecifier, group);
   }
   for (const [specifier, entries] of tagGroupBySpecifier) {
-    addImportsToTarget(sourceFile, entries, specifier)
+    addImportsToTarget(sourceFile, entries, specifier);
   }
 }
 
@@ -328,32 +355,33 @@ function transformImports(
  * are rewritten here; aliased bindings are left as-is because the import transformation
  * preserves the local alias.
  */
-const STANDALONE_TODO = '{/* TODO: Standalone DeprecatedTag migrated to Tag — verify this is correct */}'
+const STANDALONE_TODO =
+  "{/* TODO: Standalone DeprecatedTag migrated to Tag — verify this is correct */}";
 const INTENT_REMOVED_TODO =
-  '{/* TODO: intent prop removed — the new Tag and TagGroup.Item have no colour/intent equivalent */}'
+  "{/* TODO: intent prop removed — the new Tag and TagGroup.Item have no colour/intent equivalent */}";
 const ALIASED_GROUP_CHILD_TODO =
-  '{/* TODO: This aliased DeprecatedTag is inside a group and should be TagGroup.Item, but the alias resolves to Tag — replace this with <TagGroup.Item> */}'
+  "{/* TODO: This aliased DeprecatedTag is inside a group and should be TagGroup.Item, but the alias resolves to Tag — replace this with <TagGroup.Item> */}";
 
 /**
  * Processes the intent prop on a DeprecatedTag element: removes it and returns
  * whether a TODO comment should be inserted (i.e. when intent was explicitly present).
  */
 function processIntentProp(element: JsxOpeningElement | JsxSelfClosingElement): boolean {
-  const attributes = element.getAttributes()
-  let hasIntentAttr = false
+  const attributes = element.getAttributes();
+  let hasIntentAttr = false;
 
   for (const attr of attributes.slice()) {
-    if (attr.getKind() !== SyntaxKind.JsxAttribute) continue
-    const jsxAttr = attr.asKind(SyntaxKind.JsxAttribute)!
-    const name = jsxAttr.getNameNode().getText()
+    if (attr.getKind() !== SyntaxKind.JsxAttribute) continue;
+    const jsxAttr = attr.asKind(SyntaxKind.JsxAttribute)!;
+    const name = jsxAttr.getNameNode().getText();
 
-    if (name === 'intent') {
-      hasIntentAttr = true
-      jsxAttr.remove()
+    if (name === "intent") {
+      hasIntentAttr = true;
+      jsxAttr.remove();
     }
   }
 
-  return hasIntentAttr
+  return hasIntentAttr;
 }
 
 /**
@@ -364,72 +392,76 @@ function processIntentProp(element: JsxOpeningElement | JsxSelfClosingElement): 
  * - Standalone: renames to Tag, removes intent prop, adds TODO if intent was present,
  *   adds a separate TODO noting the standalone migration should be verified
  */
-function transformTagElements(sourceFile: SourceFile, tagAliases: Set<string>, tagGroupAliases: Set<string>): void {
+function transformTagElements(
+  sourceFile: SourceFile,
+  tagAliases: Set<string>,
+  tagGroupAliases: Set<string>,
+): void {
   // Collect positions where we need to insert TODO comments.
   // We do this after all AST renames to avoid offset invalidation.
-  const commentInsertions: Array<{ position: number; comments: string[] }> = []
+  const commentInsertions: Array<{ position: number; comments: string[] }> = [];
 
-  const elements = getJsxElements(sourceFile, tagAliases)
+  const elements = getJsxElements(sourceFile, tagAliases);
 
   for (const element of elements) {
-    const tagName = element.getTagNameNode()
-    const tagNameText = tagName.getText()
+    const tagName = element.getTagNameNode();
+    const tagNameText = tagName.getText();
 
-    const insideGroup = isInsideTagGroup(element, tagGroupAliases)
-    const comments: string[] = []
+    const insideGroup = isInsideTagGroup(element, tagGroupAliases);
+    const comments: string[] = [];
 
     if (insideGroup) {
       // Inside a group: rename to TagGroup.Item
-      if (tagNameText === 'DeprecatedTag') {
-        tagName.replaceWithText('TagGroup.Item')
+      if (tagNameText === "DeprecatedTag") {
+        tagName.replaceWithText("TagGroup.Item");
       } else {
         // Aliased tag inside a group — the alias now resolves to Tag (from the
         // import rewrite) but should be TagGroup.Item. Flag for manual fix.
-        comments.push(ALIASED_GROUP_CHILD_TODO)
+        comments.push(ALIASED_GROUP_CHILD_TODO);
       }
     } else {
       // Standalone: rename to Tag
-      if (tagNameText === 'DeprecatedTag') {
-        tagName.replaceWithText('Tag')
+      if (tagNameText === "DeprecatedTag") {
+        tagName.replaceWithText("Tag");
       }
-      comments.push(STANDALONE_TODO)
+      comments.push(STANDALONE_TODO);
     }
 
     // Process intent prop
-    const hadIntent = processIntentProp(element)
+    const hadIntent = processIntentProp(element);
     if (hadIntent) {
-      comments.push(INTENT_REMOVED_TODO)
+      comments.push(INTENT_REMOVED_TODO);
     }
 
     // Update closing tag if present
     if (element.getKind() === SyntaxKind.JsxOpeningElement) {
-      const parent = element.getParent()
+      const parent = element.getParent();
       if (parent?.getKind() === SyntaxKind.JsxElement) {
-        const closingTag = parent.asKind(SyntaxKind.JsxElement)?.getClosingElement()
+        const closingTag = parent.asKind(SyntaxKind.JsxElement)?.getClosingElement();
         if (closingTag) {
-          const closingTagName = closingTag.getTagNameNode().getText()
-          if (closingTagName === 'DeprecatedTag') {
-            closingTag.getTagNameNode().replaceWithText(insideGroup ? 'TagGroup.Item' : 'Tag')
+          const closingTagName = closingTag.getTagNameNode().getText();
+          if (closingTagName === "DeprecatedTag") {
+            closingTag.getTagNameNode().replaceWithText(insideGroup ? "TagGroup.Item" : "Tag");
           }
         }
 
         // Record position for TODO comments (before the entire JsxElement)
         if (comments.length > 0) {
-          commentInsertions.push({ position: parent.getStart(), comments })
+          commentInsertions.push({ position: parent.getStart(), comments });
         }
       }
     } else if (element.getKind() === SyntaxKind.JsxSelfClosingElement) {
       if (comments.length > 0) {
-        commentInsertions.push({ position: element.getStart(), comments })
+        commentInsertions.push({ position: element.getStart(), comments });
       }
     }
   }
 
   // Insert comments in reverse order so positions stay valid
-  const sorted = [...commentInsertions].sort((a, b) => b.position - a.position)
+  const sorted = [...commentInsertions].sort((a, b) => b.position - a.position);
   for (const { position, comments } of sorted) {
-    const text = comments.map((c) => `${c}\n`).join('')
-    sourceFile.insertText(position, text)
+    const text = comments.map((c) => `${c}\n`).join("");
+    sourceFile.insertText(position, text);
   }
 }
 
@@ -442,55 +474,55 @@ function transformTagElements(sourceFile: SourceFile, tagAliases: Set<string>, t
  */
 function transformTagGroupElements(sourceFile: SourceFile, aliases: Set<string>): void {
   for (const element of getJsxElements(sourceFile, aliases)) {
-    const tagNameText = element.getTagNameNode().getText()
-    if (tagNameText === 'DeprecatedTagGroup') {
-      element.getTagNameNode().replaceWithText('TagGroup')
+    const tagNameText = element.getTagNameNode().getText();
+    if (tagNameText === "DeprecatedTagGroup") {
+      element.getTagNameNode().replaceWithText("TagGroup");
     }
     // Rename closing tag (only for non-aliased usage)
-    syncClosingTag(element, 'DeprecatedTagGroup', 'TagGroup')
+    syncClosingTag(element, "DeprecatedTagGroup", "TagGroup");
   }
 }
 
 export default function transform(
   source: string,
-  filePath: string = 'file.tsx',
+  filePath: string = "file.tsx",
   options?: { facadePackage?: string },
 ): string {
-  if (!source.includes('DeprecatedTag')) return source
+  if (!source.includes("DeprecatedTag")) return source;
 
-  const sourceFile = createProjectFromSource(source, filePath)
-  const facadePackage = options?.facadePackage
+  const sourceFile = createProjectFromSource(source, filePath);
+  const facadePackage = options?.facadePackage;
 
   // Phase 1 -- collect aliases before any AST mutation
-  const tagAliases = getDeprecatedTagAliases(sourceFile, facadePackage)
-  const tagGroupAliases = getDeprecatedTagGroupAliases(sourceFile, facadePackage)
+  const tagAliases = getDeprecatedTagAliases(sourceFile, facadePackage);
+  const tagGroupAliases = getDeprecatedTagGroupAliases(sourceFile, facadePackage);
 
   // Determine what imports are needed based on JSX usage
-  const needsTag = hasStandaloneTagUsage(sourceFile, tagAliases, tagGroupAliases)
-  const needsTagGroup = hasTagGroupUsage(sourceFile, tagGroupAliases)
+  const needsTag = hasStandaloneTagUsage(sourceFile, tagAliases, tagGroupAliases);
+  const needsTagGroup = hasTagGroupUsage(sourceFile, tagGroupAliases);
 
   // Also need Tag import if DeprecatedTagProps is referenced (for Tag.Props rewrite)
-  const hasTagPropsRef = source.includes('DeprecatedTagProps')
-  const needsTagImport = needsTag || hasTagPropsRef
+  const hasTagPropsRef = source.includes("DeprecatedTagProps");
+  const needsTagImport = needsTag || hasTagPropsRef;
 
   // Phase 2 -- transform imports
-  transformImports(sourceFile, needsTagImport, needsTagGroup, facadePackage)
+  transformImports(sourceFile, needsTagImport, needsTagGroup, facadePackage);
 
   // Phase 3 -- transform type references
-  sharedTransformTypeReferences(sourceFile, new Set(['DeprecatedTagProps']), 'Tag.Props')
+  sharedTransformTypeReferences(sourceFile, new Set(["DeprecatedTagProps"]), "Tag.Props");
 
   // Phase 3.5 -- rewrite non-JSX identifier references
   // (e.g. `const Cmp = DeprecatedTag`, `typeof DeprecatedTagGroup`)
-  sharedTransformIdentifierReferences(sourceFile, 'DeprecatedTag', 'Tag')
-  sharedTransformIdentifierReferences(sourceFile, 'DeprecatedTagGroup', 'TagGroup')
+  sharedTransformIdentifierReferences(sourceFile, "DeprecatedTag", "Tag");
+  sharedTransformIdentifierReferences(sourceFile, "DeprecatedTagGroup", "TagGroup");
 
   // Phase 4 -- transform JSX elements
   // Tags are transformed before tag groups so that isInsideTagGroup checks can
   // still walk the *original* parent tag names (captured in aliases) when
   // deciding how to rewrite each Tag.  Once all Tags are rewritten the parent
   // TagGroup names are no longer needed and are safe to transform.
-  transformTagElements(sourceFile, tagAliases, tagGroupAliases)
-  transformTagGroupElements(sourceFile, tagGroupAliases)
+  transformTagElements(sourceFile, tagAliases, tagGroupAliases);
+  transformTagGroupElements(sourceFile, tagGroupAliases);
 
-  return sourceFile.getFullText()
+  return sourceFile.getFullText();
 }

@@ -1,35 +1,36 @@
-import figma from '@figma/code-connect'
-import { DateTimeControl } from './date-time-control'
+import figma from "@figma/code-connect";
 
-figma.connect(DateTimeControl, '<DATE_TIME_INPUT_URL>', {
+import { DateTimeControl } from "./date-time-control";
+
+figma.connect(DateTimeControl, "<DATE_TIME_INPUT_URL>", {
   props: {
-    disabled: figma.enum('State', {
+    disabled: figma.enum("State", {
       Disabled: true,
     }),
-    errorText: figma.enum('State', {
-      Error: figma.string('Error text'),
+    errorText: figma.enum("State", {
+      Error: figma.string("Error text"),
     }),
-    helpText: figma.boolean('Show helper', {
-      true: figma.string('Helper text'),
+    helpText: figma.boolean("Show helper", {
+      true: figma.string("Helper text"),
       false: undefined,
     }),
-    label: figma.boolean('Show label', {
-      true: figma.nestedProps('LabelText', {
-        text: figma.string('Label text'),
-        required: figma.boolean('Required'),
+    label: figma.boolean("Show label", {
+      true: figma.nestedProps("LabelText", {
+        text: figma.string("Label text"),
+        required: figma.boolean("Required"),
       }),
       false: {
         text: undefined,
         required: undefined,
       },
     }),
-    showValidity: figma.enum('State', {
+    showValidity: figma.enum("State", {
       Error: true,
     }),
-    size: figma.enum('Size', {
-      Small: 'small',
-      Medium: 'medium',
-      Large: 'large',
+    size: figma.enum("Size", {
+      Small: "small",
+      Medium: "medium",
+      Large: "large",
     }),
   },
   example: ({ disabled, errorText, helpText, label, showValidity, size }) => (
@@ -43,4 +44,4 @@ figma.connect(DateTimeControl, '<DATE_TIME_INPUT_URL>', {
       size={size}
     />
   ),
-})
+});

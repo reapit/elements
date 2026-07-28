@@ -1,7 +1,12 @@
-import { css } from '@linaria/core'
-import { ElTopBarMenuDrawerMenuItemBadge, ElTopBarMenuDrawerMenuItemLabel } from '../menu-item/styles'
-import { font } from '#src/utils/font'
-import { styled } from '@linaria/react'
+import { css } from "@linaria/core";
+import { styled } from "@linaria/react";
+
+import { font } from "#src/utils/font";
+
+import {
+  ElTopBarMenuDrawerMenuItemBadge,
+  ElTopBarMenuDrawerMenuItemLabel,
+} from "../menu-item/styles";
 
 export const elTopBarMenuDrawerMenuGroup = css`
   @layer elements.main {
@@ -10,32 +15,32 @@ export const elTopBarMenuDrawerMenuGroup = css`
 
     &:open,
     &[open],
-    &[data-is-active='true'],
-    &:has([aria-current='page']) {
+    &[data-is-active="true"],
+    &:has([aria-current="page"]) {
       background: var(--comp-navigation-colour-fill-mobile_nav-expanded);
     }
   }
-`
+`;
 
 // NOTE: This is designed to work in conjunction with `elTopBarMenuDrawerMenuItem`
 export const elTopBarMenuDrawerMenuGroupSummary = css`
   @layer elements.main {
-    grid-template-areas: 'label badge dropdown';
+    grid-template-areas: "label badge dropdown";
     grid-template-columns: 1fr minmax(0, auto) auto;
     overflow: hidden;
 
     cursor: pointer;
   }
-`
+`;
 
 export const ElTopBarMenuDrawerMenuGroupSummaryLabel = styled(ElTopBarMenuDrawerMenuItemLabel)`
   @layer elements.main {
-    :where(details[data-is-active='true'], details:has([aria-current='page'])) & {
-      ${font('base', 'medium')}
+    :where(details[data-is-active="true"], details:has([aria-current="page"])) & {
+      ${font("base", "medium")}
       color: var(--comp-navigation-colour-text-mobile_nav-select);
     }
   }
-`
+`;
 
 export const ElTopBarMenuDrawerMenuGroupSummaryBadge = styled(ElTopBarMenuDrawerMenuItemBadge)`
   @layer elements.main {
@@ -43,7 +48,7 @@ export const ElTopBarMenuDrawerMenuGroupSummaryBadge = styled(ElTopBarMenuDrawer
       display: none;
     }
   }
-`
+`;
 
 export const ElTopBarMenuDrawerMenuGroupSummaryDropdownIcon = styled.span`
   @layer elements.main {
@@ -65,4 +70,4 @@ export const ElTopBarMenuDrawerMenuGroupSummaryDropdownIcon = styled.span`
       transform: rotate(180deg);
     }
   }
-`
+`;

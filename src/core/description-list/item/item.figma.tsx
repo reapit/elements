@@ -1,15 +1,16 @@
-import { DescriptionList } from '../description-list'
-import figma from '@figma/code-connect'
+import figma from "@figma/code-connect";
 
-figma.connect(DescriptionList.Item, '<DESCRIPTION_LIST_ITEM_STACKED_URL>', {
+import { DescriptionList } from "../description-list";
+
+figma.connect(DescriptionList.Item, "<DESCRIPTION_LIST_ITEM_STACKED_URL>", {
   props: {
-    description: 'TODO: add description content',
-    label: figma.nestedProps('List item', {
-      value: figma.string('Label'),
+    description: "TODO: add description content",
+    label: figma.nestedProps("List item", {
+      value: figma.string("Label"),
     }),
-    size: figma.enum('Size', {
-      base: 'base',
-      sm: 'sm',
+    size: figma.enum("Size", {
+      base: "base",
+      sm: "sm",
     }),
   },
   example: (props) => (
@@ -21,17 +22,17 @@ figma.connect(DescriptionList.Item, '<DESCRIPTION_LIST_ITEM_STACKED_URL>', {
       {props.description}
     </DescriptionList.Item>
   ),
-})
+});
 
-figma.connect(DescriptionList.Item, '<DESCRIPTION_LIST_ITEM_INLINE_URL>', {
+figma.connect(DescriptionList.Item, "<DESCRIPTION_LIST_ITEM_INLINE_URL>", {
   props: {
-    description: 'TODO: add description content',
-    label: figma.nestedProps('List item', {
-      value: figma.string('Label'),
+    description: "TODO: add description content",
+    label: figma.nestedProps("List item", {
+      value: figma.string("Label"),
     }),
-    size: figma.enum('Size', {
-      base: 'base',
-      sm: 'sm',
+    size: figma.enum("Size", {
+      base: "base",
+      sm: "sm",
     }),
   },
   example: (props) => (
@@ -43,4 +44,4 @@ figma.connect(DescriptionList.Item, '<DESCRIPTION_LIST_ITEM_INLINE_URL>', {
       {props.description}
     </DescriptionList.Item>
   ),
-})
+});

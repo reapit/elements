@@ -1,39 +1,40 @@
-import preview from '#.storybook/preview'
-import { Switch } from './switch'
+import preview from "#.storybook/preview";
+
+import { Switch } from "./switch";
 
 const meta = preview.meta({
-  title: 'Input and selection/Switch',
+  title: "Input and selection/Switch",
   component: Switch,
   argTypes: {
     defaultChecked: {
-      control: 'boolean',
+      control: "boolean",
     },
     checked: {
-      control: 'boolean',
+      control: "boolean",
     },
     disabled: {
-      control: 'boolean',
+      control: "boolean",
     },
     label: {
-      control: 'text',
-      description: 'Label text for the switch',
+      control: "text",
+      description: "Label text for the switch",
     },
     labelPlacement: {
-      control: 'radio',
-      options: ['start', 'end'],
+      control: "radio",
+      options: ["start", "end"],
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
     checked: undefined,
     defaultChecked: undefined,
     disabled: false,
-    label: 'Label',
-    labelPlacement: 'end',
+    label: "Label",
+    labelPlacement: "end",
   },
-})
+});
 
 /**
  * When the visual label is omitted, it is important to still provide an accessible label using
@@ -41,24 +42,24 @@ export const Example = meta.story({
  */
 export const NoLabel = meta.story({
   args: {
-    'aria-label': 'Label',
+    "aria-label": "Label",
   },
-})
+});
 
 /**
  * The visual label can either be placed at the start or end of the control.
  */
 export const LabelPlacement = meta.story({
   args: {
-    label: 'Label',
-    labelPlacement: 'end',
+    label: "Label",
+    labelPlacement: "end",
   },
   argTypes: {
     labelPlacement: { control: false },
   },
   decorators: [
     (Story) => (
-      <div style={{ display: 'flex', gap: 'var(--spacing-6)' }}>
+      <div style={{ display: "flex", gap: "var(--spacing-6)" }}>
         <Story />
       </div>
     ),
@@ -69,24 +70,24 @@ export const LabelPlacement = meta.story({
       <Switch {...args} labelPlacement="end" />
     </>
   ),
-})
+});
 
 /**
  * The switch can be checked by default.
  */
 export const Checked = meta.story({
   args: {
-    label: 'Label',
+    label: "Label",
     defaultChecked: true,
   },
-})
+});
 
 /**
  * Switches can be disabled. When disabled, they do not participate in form submission.
  */
 export const Disabled = meta.story({
   args: {
-    label: 'Label',
+    label: "Label",
     disabled: true,
   },
-})
+});

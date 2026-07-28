@@ -1,21 +1,21 @@
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
 
 export const ElFileInputWrapper = styled.div`
   @layer elements.main {
     display: inline-flex;
 
-    &[data-disabled='true'] {
+    &[data-disabled="true"] {
       cursor: not-allowed;
     }
   }
-`
+`;
 
 export const ElFileInput = styled.input`
   @layer elements.main {
     /* NOTE: applied when a consumer supplies children, replacing the default rendered content.
      * The input stays focusable and part of the accessibility tree — see file-input.tsx's doc
      * comment on tabIndex — it's just not visually shown alongside the custom content. */
-    &[data-visually-hidden='true'] {
+    &[data-visually-hidden="true"] {
       position: absolute;
       width: 1px;
       height: 1px;
@@ -27,4 +27,4 @@ export const ElFileInput = styled.input`
       border: 0;
     }
   }
-`
+`;

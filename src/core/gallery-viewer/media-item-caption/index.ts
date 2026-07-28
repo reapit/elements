@@ -1,1 +1,1 @@
-export * from './media-item-caption'
+export * from "./media-item-caption";

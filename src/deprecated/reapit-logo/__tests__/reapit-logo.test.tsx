@@ -1,10 +1,11 @@
-import { render } from '@testing-library/react'
-import { ReapitLogo } from '..'
+import { render } from "@testing-library/react";
 
-describe('Reapit logo', () => {
-  it('should match snapshot', () => {
-    const { asFragment } = render(<ReapitLogo />)
+import { ReapitLogo } from "..";
 
-    expect(asFragment()).toMatchSnapshot()
-  })
-})
+describe("Reapit logo", () => {
+  it("should match snapshot", () => {
+    const { asFragment } = render(<ReapitLogo />);
+
+    expect(asFragment()).toMatchSnapshot();
+  });
+});

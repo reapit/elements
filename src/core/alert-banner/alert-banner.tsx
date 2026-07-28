@@ -1,31 +1,32 @@
-import { CloseIcon } from '#src/icons/close'
+import type { HTMLAttributes, MouseEventHandler, ReactNode } from "react";
+
+import { CloseIcon } from "#src/icons/close";
+
 import {
   ElAlertBanner,
   ElAlertBannerIconContainer,
   ElAlertBannerDescription,
   ElAlertBannerDismissButton,
   ElAlertBannerActions,
-} from './styles'
+} from "./styles";
 
-import type { HTMLAttributes, MouseEventHandler, ReactNode } from 'react'
-
-type AttributesToOmit = never
+type AttributesToOmit = never;
 
 export namespace AlertBanner {
   /** The visual variant of an alert banner, determining its severity level. */
-  export type Variant = 'error' | 'warning' | 'info'
+  export type Variant = "error" | "warning" | "info";
 
   export interface Props extends Omit<HTMLAttributes<HTMLDivElement>, AttributesToOmit> {
     /** Actions to display (typically a ButtonGroup with tertiary buttons) */
-    actions?: ReactNode
+    actions?: ReactNode;
     /** The description content of the alert banner */
-    children: ReactNode
+    children: ReactNode;
     /** Icon to display */
-    icon?: ReactNode
+    icon?: ReactNode;
     /** Callback fired when the dismiss button is clicked */
-    onDismiss?: MouseEventHandler<HTMLButtonElement>
+    onDismiss?: MouseEventHandler<HTMLButtonElement>;
     /** The variant of the alert banner */
-    variant: Variant
+    variant: Variant;
   }
 }
 
@@ -91,8 +92,15 @@ export namespace AlertBanner {
  *   </AlertBanner>
  * )}
  */
-export function AlertBanner({ actions, children, icon, onDismiss, variant, ...rest }: AlertBanner.Props) {
-  const isDismissable = !!onDismiss
+export function AlertBanner({
+  actions,
+  children,
+  icon,
+  onDismiss,
+  variant,
+  ...rest
+}: AlertBanner.Props) {
+  const isDismissable = !!onDismiss;
   return (
     <ElAlertBanner {...rest} data-is-dismissable={isDismissable} data-variant={variant}>
       {icon && <ElAlertBannerIconContainer>{icon}</ElAlertBannerIconContainer>}
@@ -109,5 +117,5 @@ export function AlertBanner({ actions, children, icon, onDismiss, variant, ...re
         />
       )}
     </ElAlertBanner>
-  )
+  );
 }

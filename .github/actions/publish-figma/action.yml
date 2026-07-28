@@ -3,7 +3,7 @@ description: Publish Code Connect definitions to Figma
 inputs:
   args:
     description: Extra arguments appended to figma connect publish
-    default: ''
+    default: ""
 runs:
   using: composite
   steps:

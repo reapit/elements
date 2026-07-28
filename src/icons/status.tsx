@@ -1,4 +1,4 @@
-import StatusSvg from './svgs/status.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import StatusSvg from "./svgs/status.svg?react";
 
-export const StatusIcon = makeIcon('StatusIcon', StatusSvg)
+export const StatusIcon = makeIcon("StatusIcon", StatusSvg);

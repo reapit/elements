@@ -1,1 +1,1 @@
-export { NumberControl } from './number-control'
+export { NumberControl } from "./number-control";

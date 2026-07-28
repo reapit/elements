@@ -1,9 +1,10 @@
-import { ButtonBase } from '#src/core/button/button-base'
-import { cx } from '@linaria/core'
-import { elSplitButtonAction } from './styles'
-import { useSplitButtonContext } from '../context'
+import { cx } from "@linaria/core";
+import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from "react";
 
-import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react'
+import { ButtonBase } from "#src/core/button/button-base";
+
+import { useSplitButtonContext } from "../context";
+import { elSplitButtonAction } from "./styles";
 
 export namespace SplitButtonActionBase {
   export interface CommonProps {
@@ -13,43 +14,43 @@ export namespace SplitButtonActionBase {
      * Using `aria-disabled` is preferred when the action should still be focusable while it's disabled; for example,
      * to allow a tooltip to be displayed that explains why the action is disabled.
      */
-    'aria-disabled'?: boolean | 'true' | 'false'
+    "aria-disabled"?: boolean | "true" | "false";
     /** The button's label */
-    children?: ReactNode
+    children?: ReactNode;
     /** Icon to display on the left side */
-    iconLeft?: ReactNode
+    iconLeft?: ReactNode;
     /**
      * Whether the action is in a busy state. A busy action will be `aria-disabled`, so will be focusable. However,
      * click events will be ignored while it is busy.
      */
-    isBusy?: boolean
+    isBusy?: boolean;
     /** Whether the action represents a destructive action */
-    isDestructive?: boolean
+    isDestructive?: boolean;
   }
 
   export interface AsButtonProps extends CommonProps, ButtonHTMLAttributes<HTMLButtonElement> {
-    as: 'button'
+    as: "button";
   }
 
   export interface AsAnchorProps extends CommonProps, AnchorHTMLAttributes<HTMLAnchorElement> {
-    as: 'a'
-    href: string
+    as: "a";
+    href: string;
   }
 
-  export type Props = AsButtonProps | AsAnchorProps
+  export type Props = AsButtonProps | AsAnchorProps;
 }
 
 /** @deprecated Use SplitButtonActionBase.CommonProps instead */
-export type CommonSplitButtonActionBaseProps = SplitButtonActionBase.CommonProps
+export type CommonSplitButtonActionBaseProps = SplitButtonActionBase.CommonProps;
 
 /** @deprecated Use SplitButtonActionBase.AsButtonProps instead */
-export type SplitButtonActionAsButtonProps = SplitButtonActionBase.AsButtonProps
+export type SplitButtonActionAsButtonProps = SplitButtonActionBase.AsButtonProps;
 
 /** @deprecated Use SplitButtonActionBase.AsAnchorProps instead */
-export type SplitButtonActionAsAnchorProps = SplitButtonActionBase.AsAnchorProps
+export type SplitButtonActionAsAnchorProps = SplitButtonActionBase.AsAnchorProps;
 
 /** @deprecated Use SplitButtonActionBase.Props instead */
-export type SplitButtonActionBaseProps = SplitButtonActionBase.Props
+export type SplitButtonActionBaseProps = SplitButtonActionBase.Props;
 
 /**
  * A polymorphic button foundation that can render as either a button or anchor element.
@@ -57,25 +58,25 @@ export type SplitButtonActionBaseProps = SplitButtonActionBase.Props
  * components and should not be used directly by consumers.
  */
 export function SplitButtonActionBase({
-  'aria-disabled': ariaDisabled,
+  "aria-disabled": ariaDisabled,
   children,
   className,
   isBusy,
   ...rest
 }: SplitButtonActionBase.Props) {
-  const { busy, size, variant } = useSplitButtonContext()
+  const { busy, size, variant } = useSplitButtonContext();
 
   return (
     <ButtonBase
       {...rest}
       // If the menu button is busy, this action button should be ARIA disabled.
-      aria-disabled={ariaDisabled || busy === 'menu-item'}
+      aria-disabled={ariaDisabled || busy === "menu-item"}
       className={cx(elSplitButtonAction, className)}
-      isBusy={isBusy || busy === 'action'}
+      isBusy={isBusy || busy === "action"}
       size={size}
       variant={variant}
     >
       {children}
     </ButtonBase>
-  )
+  );
 }

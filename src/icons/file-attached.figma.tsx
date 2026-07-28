@@ -1,4 +1,5 @@
-import figma from '@figma/code-connect'
-import { FileAttachedIcon } from './file-attached'
+import figma from "@figma/code-connect";
 
-figma.connect(FileAttachedIcon, 'https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=14613-545')
+import { FileAttachedIcon } from "./file-attached";
+
+figma.connect(FileAttachedIcon, "https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=14613-545");

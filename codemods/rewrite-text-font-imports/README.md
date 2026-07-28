@@ -54,11 +54,11 @@ yarn dlx @reapit/elements@beta codemod apply rewrite-text-font-imports src/ --fa
 
 ```tsx
 // Before (with facade package @habio/design-system)
-import { Text, font } from '@habio/design-system/core/text'
+import { Text, font } from "@habio/design-system/core/text";
 
 // After running with --facade-package @habio/design-system
-import { Text } from '@habio/design-system/utils/text'
-import { font } from '@habio/design-system/utils/font'
+import { Text } from "@habio/design-system/utils/text";
+import { font } from "@habio/design-system/utils/font";
 ```
 
 ## Background
@@ -115,14 +115,14 @@ Multi-line import statements are fully supported and automatically reformatted:
 **Before:**
 
 ```tsx
-import { Text, font, FontSize } from '@reapit/elements/core/text'
+import { Text, font, FontSize } from "@reapit/elements/core/text";
 ```
 
 **After:**
 
 ```tsx
-import { Text } from '@reapit/elements/utils/text'
-import { font, FontSize } from '@reapit/elements/utils/font'
+import { Text } from "@reapit/elements/utils/text";
+import { font, FontSize } from "@reapit/elements/utils/font";
 ```
 
 ### Type Imports
@@ -188,13 +188,13 @@ The codemod classifies imports based on their origin:
 3. **Side-effect imports**: Side-effect imports are unchanged:
 
    ```typescript
-   import '@reapit/elements/core/text' // Unchanged (though this pattern is unlikely)
+   import "@reapit/elements/core/text"; // Unchanged (though this pattern is unlikely)
    ```
 
 4. **Default/namespace imports**: Default and namespace imports are unchanged:
    ```typescript
-   import Text from '@reapit/elements/core/text' // Unchanged (not a valid pattern)
-   import * as TextModule from '@reapit/elements/core/text' // Unchanged
+   import Text from "@reapit/elements/core/text"; // Unchanged (not a valid pattern)
+   import * as TextModule from "@reapit/elements/core/text"; // Unchanged
    ```
 
 ## Example: Complete Before/After
@@ -202,12 +202,12 @@ The codemod classifies imports based on their origin:
 **Before:**
 
 ```tsx
-import { Text, font, FontSize, TextColour } from '@reapit/elements/core/text'
-import { useState } from 'react'
+import { Text, font, FontSize, TextColour } from "@reapit/elements/core/text";
+import { useState } from "react";
 
 interface Props {
-  size: FontSize
-  colour: TextColour
+  size: FontSize;
+  colour: TextColour;
 }
 
 export const MyComponent: React.FC<Props> = ({ size, colour }) => {
@@ -217,20 +217,20 @@ export const MyComponent: React.FC<Props> = ({ size, colour }) => {
         Styled Text
       </Text>
     </div>
-  )
-}
+  );
+};
 ```
 
 **After:**
 
 ```tsx
-import { Text, TextColour } from '@reapit/elements/utils/text'
-import { font, FontSize } from '@reapit/elements/utils/font'
-import { useState } from 'react'
+import { Text, TextColour } from "@reapit/elements/utils/text";
+import { font, FontSize } from "@reapit/elements/utils/font";
+import { useState } from "react";
 
 interface Props {
-  size: FontSize
-  colour: TextColour
+  size: FontSize;
+  colour: TextColour;
 }
 
 export const MyComponent: React.FC<Props> = ({ size, colour }) => {
@@ -240,8 +240,8 @@ export const MyComponent: React.FC<Props> = ({ size, colour }) => {
         Styled Text
       </Text>
     </div>
-  )
-}
+  );
+};
 ```
 
 Notice:

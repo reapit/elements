@@ -1,1 +1,1 @@
-export { GalleryViewer } from './gallery-viewer'
+export { GalleryViewer } from "./gallery-viewer";

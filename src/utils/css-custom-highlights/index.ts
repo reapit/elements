@@ -1,1 +1,1 @@
-export { useCSSCustomHighlights } from './use-css-custom-highlights'
+export { useCSSCustomHighlights } from "./use-css-custom-highlights";

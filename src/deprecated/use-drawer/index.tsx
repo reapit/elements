@@ -1,6 +1,7 @@
-import { FC, useMemo, useState } from 'react'
-import { DeprecatedDrawer as Drawer, DeprecatedDrawerProps } from '../drawer'
-import { Portal } from '../use-portal'
+import { FC, useMemo, useState } from "react";
+
+import { DeprecatedDrawer as Drawer, DeprecatedDrawerProps } from "../drawer";
+import { Portal } from "../use-portal";
 
 /** @deprecated */
 export type UseDrawer = [
@@ -8,15 +9,15 @@ export type UseDrawer = [
   openDrawer: () => void,
   closeDrawer: () => void,
   drawerIsOpen: boolean,
-]
+];
 
 /** @deprecated */
 export const useDrawer = (id?: string): UseDrawer => {
-  const [drawerIsOpen, setDrawerIsOpen] = useState(false)
+  const [drawerIsOpen, setDrawerIsOpen] = useState(false);
 
-  const portalId = id ?? 'root'
-  const closeDrawer = () => setDrawerIsOpen(false)
-  const openDrawer = () => setDrawerIsOpen(true)
+  const portalId = id ?? "root";
+  const closeDrawer = () => setDrawerIsOpen(false);
+  const openDrawer = () => setDrawerIsOpen(true);
 
   const DrawerComponent: FC<Partial<DeprecatedDrawerProps>> = ({
     children,
@@ -29,7 +30,7 @@ export const useDrawer = (id?: string): UseDrawer => {
         {children}
       </Drawer>
     </Portal>
-  )
+  );
 
-  return useMemo(() => [DrawerComponent, openDrawer, closeDrawer, drawerIsOpen], [drawerIsOpen])
-}
+  return useMemo(() => [DrawerComponent, openDrawer, closeDrawer, drawerIsOpen], [drawerIsOpen]);
+};

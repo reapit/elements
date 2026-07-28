@@ -1,19 +1,27 @@
-import preview from '#.storybook/preview'
-import { FormLayout, InputWrap, InputWrapMed, InputWrapFull, InputWrapSmall, FormSectionDivider } from './form-layout'
-import { Textarea } from '../../core/textarea'
-import { TextInput } from '../../core/text-input'
-import { MultiSelectInput } from '../../deprecated/multi-select'
-import { Button } from '../../core/button'
-import { ButtonGroup } from '../../core/button-group'
-import { DeprecatedSelect } from '../../deprecated/select'
-import { TextBase, TextSM } from '../../deprecated/typography'
+import preview from "#.storybook/preview";
+
+import { Button } from "../../core/button";
+import { ButtonGroup } from "../../core/button-group";
+import { TextInput } from "../../core/text-input";
+import { Textarea } from "../../core/textarea";
+import { MultiSelectInput } from "../../deprecated/multi-select";
+import { DeprecatedSelect } from "../../deprecated/select";
+import { TextBase, TextSM } from "../../deprecated/typography";
+import {
+  FormLayout,
+  InputWrap,
+  InputWrapMed,
+  InputWrapFull,
+  InputWrapSmall,
+  FormSectionDivider,
+} from "./form-layout";
 
 const meta = preview.meta({
-  title: 'Deprecated/FormLayout',
+  title: "Deprecated/FormLayout",
   component: FormLayout,
-})
+});
 
-export default meta
+export default meta;
 
 export const BasicForm = meta.story({
   render: () => (
@@ -50,7 +58,7 @@ export const BasicForm = meta.story({
       </ButtonGroup>
     </form>
   ),
-})
+});
 
 export const ComplexForm = meta.story({
   render: () => (
@@ -103,19 +111,19 @@ export const ComplexForm = meta.story({
             id="react-example"
             options={[
               {
-                name: 'Item one',
-                value: 'item-one',
+                name: "Item one",
+                value: "item-one",
               },
               {
-                name: 'Item two',
-                value: 'item-two',
+                name: "Item two",
+                value: "item-two",
               },
               {
-                name: 'Item three',
-                value: 'item-three',
+                name: "Item three",
+                value: "item-three",
               },
             ]}
-            defaultValues={['item-one']}
+            defaultValues={["item-one"]}
           />
         </InputWrapFull>
       </FormLayout>
@@ -125,4 +133,4 @@ export const ComplexForm = meta.story({
       </ButtonGroup>
     </form>
   ),
-})
+});

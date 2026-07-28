@@ -1,16 +1,17 @@
-import preview from '#.storybook/preview'
-import { Badge } from '#src/core/badge/index'
-import { PageHeader } from '../page-header'
-import { StarIcon } from '#src/icons/star'
-import { TagGroup } from '#src/core/tag-group/index'
+import preview from "#.storybook/preview";
+import { Badge } from "#src/core/badge/index";
+import { TagGroup } from "#src/core/tag-group/index";
+import { StarIcon } from "#src/icons/star";
+
+import { PageHeader } from "../page-header";
 
 const meta = preview.meta({
-  title: 'Containers and layout/PageHeader/Subtitle',
+  title: "Containers and layout/PageHeader/Subtitle",
   component: PageHeader.Subtitle,
   argTypes: {
     additionalInfo: {
-      control: 'radio',
-      options: ['None', 'Tag', 'Badge', 'Icon', 'All'],
+      control: "radio",
+      options: ["None", "Tag", "Badge", "Icon", "All"],
       mapping: {
         None: null,
         Tag: (
@@ -32,20 +33,20 @@ const meta = preview.meta({
       },
     },
     children: {
-      control: 'text',
+      control: "text",
     },
   },
-})
+});
 
 /**
  * At its simplest, the page header's subtitle contains just that: the page's subtitle.
  */
 export const Example = meta.story({
   args: {
-    additionalInfo: 'None',
-    children: 'Page Subtitle',
+    additionalInfo: "None",
+    children: "Page Subtitle",
   },
-})
+});
 
 /**
  * Additional information can follow the subtitle. This information is typically some combination of one or more tags,
@@ -53,9 +54,9 @@ export const Example = meta.story({
  */
 export const AdditionalInfo = Example.extend({
   args: {
-    additionalInfo: 'All',
+    additionalInfo: "All",
   },
-})
+});
 
 /**
  * When the subtitle (and any additional information) do not have enough space to display on a single line, they will
@@ -63,19 +64,19 @@ export const AdditionalInfo = Example.extend({
  */
 export const Overflow = Example.extend({
   args: {
-    additionalInfo: 'All',
-    children: 'This is a long subtitle that flows into the next line.',
+    additionalInfo: "All",
+    children: "This is a long subtitle that flows into the next line.",
   },
   decorators: [
     (Story) => (
-      <div style={{ display: 'flex', flexFlow: 'column', gap: 'var(--spacing-10)' }}>
-        <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', width: '400px' }}>
+      <div style={{ display: "flex", flexFlow: "column", gap: "var(--spacing-10)" }}>
+        <div style={{ boxSizing: "content-box", border: "1px solid #FA00FF", width: "400px" }}>
           <Story />
         </div>
-        <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', width: '250px' }}>
+        <div style={{ boxSizing: "content-box", border: "1px solid #FA00FF", width: "250px" }}>
           <Story />
         </div>
       </div>
     ),
   ],
-})
+});

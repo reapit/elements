@@ -1,10 +1,11 @@
-import { ElAtAGlanceGridItem } from './styles'
-import type { HTMLAttributes, ReactNode } from 'react'
+import type { HTMLAttributes, ReactNode } from "react";
+
+import { ElAtAGlanceGridItem } from "./styles";
 
 export namespace AtAGlanceGridItem {
   export interface Props extends HTMLAttributes<HTMLLIElement> {
     /** The card to display in the grid item. */
-    children: ReactNode
+    children: ReactNode;
   }
 }
 
@@ -25,7 +26,7 @@ export namespace AtAGlanceGridItem {
  * ```
  */
 export function AtAGlanceGridItem({ children, ...rest }: AtAGlanceGridItem.Props) {
-  return <ElAtAGlanceGridItem {...rest}>{children}</ElAtAGlanceGridItem>
+  return <ElAtAGlanceGridItem {...rest}>{children}</ElAtAGlanceGridItem>;
 }
 
-AtAGlanceGridItem.displayName = 'AtAGlance.GridItem'
+AtAGlanceGridItem.displayName = "AtAGlance.GridItem";

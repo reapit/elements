@@ -1,6 +1,8 @@
-import React, { FC, HTMLAttributes, ReactNode } from 'react'
-import { cx } from '@linaria/core'
-import { elIsActive, elIsUsed } from '../../styles/deprecated-states'
+import { cx } from "@linaria/core";
+import React, { FC, HTMLAttributes, ReactNode } from "react";
+
+import { handleKeyboardEvent } from "../../storybook/handle-keyboard-event";
+import { elIsActive, elIsUsed } from "../../styles/deprecated-states";
 import {
   ElSteps,
   ElStep,
@@ -8,44 +10,52 @@ import {
   ElStepVertical,
   ElStepVerticalItem,
   ElStepVerticalContent,
-} from './__styles__'
-import { handleKeyboardEvent } from '../../storybook/handle-keyboard-event'
+} from "./__styles__";
 
 /** @deprecated */
 export interface StepsProps extends HTMLAttributes<HTMLDivElement> {
-  steps: string[]
-  selectedStep?: string
-  onStepClick?: (step: string) => void
-  className?: string
+  steps: string[];
+  selectedStep?: string;
+  onStepClick?: (step: string) => void;
+  className?: string;
 }
 
 /** @deprecated */
 export interface StepsVerticalStep {
-  item: string
-  content?: ReactNode
+  item: string;
+  content?: ReactNode;
 }
 
 /** @deprecated */
 export interface StepsVerticalProps extends HTMLAttributes<HTMLDivElement> {
-  steps: StepsVerticalStep[]
-  selectedStep?: string
-  onStepClick?: (step: string) => void
-  className?: string
+  steps: StepsVerticalStep[];
+  selectedStep?: string;
+  onStepClick?: (step: string) => void;
+  className?: string;
 }
 
 /** @deprecated */
 export const handleStepClick = (step: string, onStepClick?: (step: string) => void) => () => {
-  if (onStepClick) onStepClick(step)
-}
+  if (onStepClick) onStepClick(step);
+};
 
 /** @deprecated */
-export const Steps: FC<StepsProps> = ({ steps = [], selectedStep, onStepClick, className = '', ...rest }) => {
-  const selectedStepIndex = steps.findIndex((step) => step === selectedStep)
+export const Steps: FC<StepsProps> = ({
+  steps = [],
+  selectedStep,
+  onStepClick,
+  className = "",
+  ...rest
+}) => {
+  const selectedStepIndex = steps.findIndex((step) => step === selectedStep);
 
   return (
     <ElSteps className={className} {...rest}>
       {steps.map((step, index) => {
-        const stepClassName = cx(index === selectedStepIndex && elIsActive, index < selectedStepIndex && elIsUsed)
+        const stepClassName = cx(
+          index === selectedStepIndex && elIsActive,
+          index < selectedStepIndex && elIsUsed,
+        );
 
         return (
           <ElStep
@@ -54,33 +64,33 @@ export const Steps: FC<StepsProps> = ({ steps = [], selectedStep, onStepClick, c
             tabIndex={0}
             data-testid={`step-${index}`}
             onClick={handleStepClick(step, onStepClick)}
-            onKeyDown={handleKeyboardEvent('Enter', handleStepClick(step, onStepClick))}
+            onKeyDown={handleKeyboardEvent("Enter", handleStepClick(step, onStepClick))}
             className={stepClassName}
           >
             {step}
           </ElStep>
-        )
+        );
       })}
     </ElSteps>
-  )
-}
+  );
+};
 
 /** @deprecated */
 export const StepsVertical: FC<StepsVerticalProps> = ({
   steps = [],
   selectedStep,
   onStepClick,
-  className = '',
+  className = "",
   ...rest
 }) => {
-  const selectedStepIndex = steps.findIndex((step) => step.item === selectedStep)
+  const selectedStepIndex = steps.findIndex((step) => step.item === selectedStep);
 
   return (
     <ElStepsVertical className={className} {...rest}>
       {steps.map(({ item, content }, index) => {
-        const stepClassName = cx(index === selectedStepIndex && elIsActive)
+        const stepClassName = cx(index === selectedStepIndex && elIsActive);
 
-        if (index > selectedStepIndex) return null
+        if (index > selectedStepIndex) return null;
         return (
           <ElStepVertical key={item}>
             <ElStepVerticalItem>
@@ -89,7 +99,7 @@ export const StepsVertical: FC<StepsVerticalProps> = ({
                 role="button"
                 tabIndex={0}
                 onClick={handleStepClick(item, onStepClick)}
-                onKeyDown={handleKeyboardEvent('Enter', handleStepClick(item, onStepClick))}
+                onKeyDown={handleKeyboardEvent("Enter", handleStepClick(item, onStepClick))}
                 className={stepClassName}
               >
                 {item}
@@ -97,8 +107,8 @@ export const StepsVertical: FC<StepsVerticalProps> = ({
             </ElStepVerticalItem>
             <ElStepVerticalContent>{content}</ElStepVerticalContent>
           </ElStepVertical>
-        )
+        );
       })}
     </ElStepsVertical>
-  )
-}
+  );
+};

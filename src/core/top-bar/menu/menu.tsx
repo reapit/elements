@@ -1,10 +1,11 @@
-import { areInvokerCommandsSupported } from './are-invoker-commands-supported'
-import { MenuAltIcon } from '#src/icons/menu-alt'
-import { TopBarMenuDrawer } from '../menu-drawer'
-import { TopBarSecondaryNavListItemButton } from '../secondary-nav'
-import { MouseEventHandler, useCallback, useId, useMemo, useState } from 'react'
+import { MouseEventHandler, useCallback, useId, useMemo, useState } from "react";
+import type { ButtonHTMLAttributes, ReactEventHandler } from "react";
 
-import type { ButtonHTMLAttributes, ReactEventHandler } from 'react'
+import { MenuAltIcon } from "#src/icons/menu-alt";
+
+import { TopBarMenuDrawer } from "../menu-drawer";
+import { TopBarSecondaryNavListItemButton } from "../secondary-nav";
+import { areInvokerCommandsSupported } from "./are-invoker-commands-supported";
 
 export namespace TopBarMenu {
   export interface ContentProps extends TopBarMenuDrawer.ContentProps {}
@@ -21,7 +22,7 @@ export namespace TopBarMenu {
   export interface SubmenuItemButtonProps extends TopBarMenuDrawer.SubmenuItemButtonProps {}
 
   export interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
-    onClose?: TopBarMenuDrawer.Props['onClose']
+    onClose?: TopBarMenuDrawer.Props["onClose"];
   }
 }
 
@@ -39,41 +40,41 @@ export namespace TopBarMenu {
  *   [TopBar.MenuSubmenuItem](/docs/core-topbar-menudrawer-submenuitem--docs)
  */
 export function TopBarMenu({
-  'aria-label': ariaLabel = 'Menu',
+  "aria-label": ariaLabel = "Menu",
   children,
   id,
   onClick,
   onClose,
   ...rest
 }: TopBarMenu.Props) {
-  const fallbackButtonId = useId()
-  const menuId = useId()
-  const buttonId = id || fallbackButtonId
+  const fallbackButtonId = useId();
+  const menuId = useId();
+  const buttonId = id || fallbackButtonId;
 
-  const canUseInvokerCommands = useMemo(() => areInvokerCommandsSupported(), [])
+  const canUseInvokerCommands = useMemo(() => areInvokerCommandsSupported(), []);
 
   // NOTE: this local state is only used if invoker commands are not supported.
-  const [isOpenFallback, setIsOpenFallback] = useState(false)
+  const [isOpenFallback, setIsOpenFallback] = useState(false);
 
   const handleClick = useCallback<MouseEventHandler<HTMLButtonElement>>(
     (event) => {
       if (!canUseInvokerCommands) {
-        setIsOpenFallback(true)
+        setIsOpenFallback(true);
       }
-      onClick?.(event)
+      onClick?.(event);
     },
     [onClick],
-  )
+  );
 
   const handleClose = useCallback<ReactEventHandler<HTMLDialogElement>>(
     (event) => {
       if (!canUseInvokerCommands) {
-        setIsOpenFallback(false)
+        setIsOpenFallback(false);
       }
-      onClose?.(event)
+      onClose?.(event);
     },
     [onClose],
-  )
+  );
 
   return (
     <>
@@ -97,21 +98,21 @@ export function TopBarMenu({
         {children}
       </TopBarMenuDrawer>
     </>
-  )
+  );
 }
 
-TopBarMenu.getClosestDialogElement = TopBarMenuDrawer.getClosestDialogElement
-TopBarMenu.Content = TopBarMenuDrawer.Content
-TopBarMenu.MainNav = TopBarMenuDrawer.MainNav
-TopBarMenu.SecondaryNav = TopBarMenuDrawer.SecondaryNav
-TopBarMenu.ProfileNav = TopBarMenuDrawer.ProfileNav
-TopBarMenu.MenuList = TopBarMenuDrawer.MenuList
-TopBarMenu.MenuItem = TopBarMenuDrawer.MenuList.Item
-TopBarMenu.MenuItemButton = TopBarMenuDrawer.MenuList.ItemButton
-TopBarMenu.MenuGroup = TopBarMenuDrawer.MenuList.Group
-TopBarMenu.MenuGroupSummary = TopBarMenuDrawer.MenuList.GroupSummary
-TopBarMenu.Submenu = TopBarMenuDrawer.Submenu
-TopBarMenu.SubmenuItem = TopBarMenuDrawer.Submenu.Item
-TopBarMenu.SubmenuItemButton = TopBarMenuDrawer.Submenu.ItemButton
+TopBarMenu.getClosestDialogElement = TopBarMenuDrawer.getClosestDialogElement;
+TopBarMenu.Content = TopBarMenuDrawer.Content;
+TopBarMenu.MainNav = TopBarMenuDrawer.MainNav;
+TopBarMenu.SecondaryNav = TopBarMenuDrawer.SecondaryNav;
+TopBarMenu.ProfileNav = TopBarMenuDrawer.ProfileNav;
+TopBarMenu.MenuList = TopBarMenuDrawer.MenuList;
+TopBarMenu.MenuItem = TopBarMenuDrawer.MenuList.Item;
+TopBarMenu.MenuItemButton = TopBarMenuDrawer.MenuList.ItemButton;
+TopBarMenu.MenuGroup = TopBarMenuDrawer.MenuList.Group;
+TopBarMenu.MenuGroupSummary = TopBarMenuDrawer.MenuList.GroupSummary;
+TopBarMenu.Submenu = TopBarMenuDrawer.Submenu;
+TopBarMenu.SubmenuItem = TopBarMenuDrawer.Submenu.Item;
+TopBarMenu.SubmenuItemButton = TopBarMenuDrawer.Submenu.ItemButton;
 
-TopBarMenu.displayName = 'TopBar.Menu'
+TopBarMenu.displayName = "TopBar.Menu";

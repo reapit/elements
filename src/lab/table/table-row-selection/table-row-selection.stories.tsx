@@ -1,34 +1,35 @@
-import preview from '#.storybook/preview'
-import { TableRowSelection } from './table-row-selection'
-import { useRowSelection } from './use-row-selection'
-import { TableRowSelectionProps } from './types'
-import { TableProvider } from '../table-provider'
-import { Table } from '#src/core/table'
-import { TableHead } from '#src/core/table/head'
-import { TableHeaderRow } from '#src/core/table/header-row'
-import { TableHeaderCell } from '#src/core/table/header-cell'
-import { TableBody } from '#src/core/table/body'
-import { TableBodyRow } from '#src/core/table/body-row'
-import { TableBodyCell } from '#src/core/table/body-cell'
+import preview from "#.storybook/preview";
+import { Table } from "#src/core/table";
+import { TableBody } from "#src/core/table/body";
+import { TableBodyCell } from "#src/core/table/body-cell";
+import { TableBodyRow } from "#src/core/table/body-row";
+import { TableHead } from "#src/core/table/head";
+import { TableHeaderCell } from "#src/core/table/header-cell";
+import { TableHeaderRow } from "#src/core/table/header-row";
+
+import { TableProvider } from "../table-provider";
+import { TableRowSelection } from "./table-row-selection";
+import { TableRowSelectionProps } from "./types";
+import { useRowSelection } from "./use-row-selection";
 
 const meta = preview.meta({
-  title: 'Lab/TableRowSelection',
+  title: "Lab/TableRowSelection",
   component: TableRowSelection,
-})
+});
 
-export default meta
+export default meta;
 
 const tableData = [
-  { contactId: '12P0168', firstname: 'Danish', lastname: 'Ali' },
-  { contactId: '12P0175', firstname: 'Kushal', lastname: 'Salonki' },
-  { contactId: '12P0179', firstname: 'Adam', lastname: 'Snow' },
-]
+  { contactId: "12P0168", firstname: "Danish", lastname: "Ali" },
+  { contactId: "12P0175", firstname: "Kushal", lastname: "Salonki" },
+  { contactId: "12P0179", firstname: "Adam", lastname: "Snow" },
+];
 
 const RowSelectionDemo: React.FC<TableRowSelectionProps> = () => {
   const { handleRowSelect, handleSelectAll, isRowSelected, isIndeterminate } = useRowSelection({
     rows: tableData,
-    idKey: 'contactId',
-  })
+    idKey: "contactId",
+  });
 
   return (
     <TableProvider rows={tableData} idKey="contactId">
@@ -76,11 +77,11 @@ const RowSelectionDemo: React.FC<TableRowSelectionProps> = () => {
         </TableBody>
       </Table>
     </TableProvider>
-  )
-}
+  );
+};
 
 export const BasicUsage = meta.story({
-  args: { id: '', isSelectAll: false, onChange: () => {}, checked: false },
+  args: { id: "", isSelectAll: false, onChange: () => {}, checked: false },
   render: (props) => <RowSelectionDemo {...props} />,
   parameters: {
     docs: {
@@ -133,4 +134,4 @@ const { handleRowSelect, handleSelectAll, isRowSelected, isIndeterminate } = use
       },
     },
   },
-})
+});

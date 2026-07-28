@@ -1,12 +1,13 @@
-import { SyntaxKind } from 'ts-morph'
-import { createComponentMigration } from '../shared/migration-engine.js'
-import { syncClosingTag } from '../shared/jsx.js'
-import { addImportsToTarget, resolveTargetSpecifier } from '../shared/imports.js'
-import type { JsxOpeningElement, JsxSelfClosingElement, SourceFile } from 'ts-morph'
+import { SyntaxKind } from "ts-morph";
+import type { JsxOpeningElement, JsxSelfClosingElement, SourceFile } from "ts-morph";
 
-const BUTTON_TARGET_SPECIFIER = '@reapit/elements/core/button'
+import { addImportsToTarget, resolveTargetSpecifier } from "../shared/imports.js";
+import { syncClosingTag } from "../shared/jsx.js";
+import { createComponentMigration } from "../shared/migration-engine.js";
 
-type JsxElementWithTag = JsxOpeningElement | JsxSelfClosingElement
+const BUTTON_TARGET_SPECIFIER = "@reapit/elements/core/button";
+
+type JsxElementWithTag = JsxOpeningElement | JsxSelfClosingElement;
 
 /**
  * Codemod to migrate EmptyState.Action / EmptyState.ActionButton (and their
@@ -35,64 +36,76 @@ type JsxElementWithTag = JsxOpeningElement | JsxSelfClosingElement
  */
 
 function addDefaultButtonAttributes(element: JsxElementWithTag): void {
-  for (const name of ['size', 'variant', 'useLinkStyle']) {
-    element.getAttribute(name)?.remove()
+  for (const name of ["size", "variant", "useLinkStyle"]) {
+    element.getAttribute(name)?.remove();
   }
-  element.addAttribute({ name: 'size', initializer: '"medium"' })
-  element.addAttribute({ name: 'variant', initializer: '"tertiary"' })
-  element.addAttribute({ name: 'useLinkStyle' })
+  element.addAttribute({ name: "size", initializer: '"medium"' });
+  element.addAttribute({ name: "variant", initializer: '"tertiary"' });
+  element.addAttribute({ name: "useLinkStyle" });
 }
 
 function migrateNamespacedElements(sourceFile: SourceFile, from: string, to: string): boolean {
-  let migrated = false
+  let migrated = false;
 
   const elements: JsxElementWithTag[] = [
     ...sourceFile.getDescendantsOfKind(SyntaxKind.JsxOpeningElement),
     ...sourceFile.getDescendantsOfKind(SyntaxKind.JsxSelfClosingElement),
-  ]
+  ];
 
   for (const element of elements) {
-    if (element.getTagNameNode().getText() !== from) continue
+    if (element.getTagNameNode().getText() !== from) continue;
 
-    element.getTagNameNode().replaceWithText(to)
-    syncClosingTag(element, from, to)
-    addDefaultButtonAttributes(element)
-    migrated = true
+    element.getTagNameNode().replaceWithText(to);
+    syncClosingTag(element, from, to);
+    addDefaultButtonAttributes(element);
+    migrated = true;
   }
 
-  return migrated
+  return migrated;
 }
 
 export default createComponentMigration({
-  quickRejectStrings: ['EmptyStateAction', 'EmptyState.Action'],
+  quickRejectStrings: ["EmptyStateAction", "EmptyState.Action"],
   identifiers: [
-    { from: 'EmptyStateAction', to: 'AnchorButton', targetSpecifier: BUTTON_TARGET_SPECIFIER },
-    { from: 'EmptyStateActionButton', to: 'Button', targetSpecifier: BUTTON_TARGET_SPECIFIER },
+    { from: "EmptyStateAction", to: "AnchorButton", targetSpecifier: BUTTON_TARGET_SPECIFIER },
+    { from: "EmptyStateActionButton", to: "Button", targetSpecifier: BUTTON_TARGET_SPECIFIER },
   ],
   customJsxTransform(element): void {
-    addDefaultButtonAttributes(element)
+    addDefaultButtonAttributes(element);
   },
   afterTransform(sourceFile, { facadePackage }): void {
-    const migratedAnchorButton = migrateNamespacedElements(sourceFile, 'EmptyState.Action', 'AnchorButton')
-    const migratedButton = migrateNamespacedElements(sourceFile, 'EmptyState.ActionButton', 'Button')
+    const migratedAnchorButton = migrateNamespacedElements(
+      sourceFile,
+      "EmptyState.Action",
+      "AnchorButton",
+    );
+    const migratedButton = migrateNamespacedElements(
+      sourceFile,
+      "EmptyState.ActionButton",
+      "Button",
+    );
 
-    const importsToAdd: Array<{ name: string; isTypeOnly: boolean }> = []
-    if (migratedAnchorButton) importsToAdd.push({ name: 'AnchorButton', isTypeOnly: false })
-    if (migratedButton) importsToAdd.push({ name: 'Button', isTypeOnly: false })
+    const importsToAdd: Array<{ name: string; isTypeOnly: boolean }> = [];
+    if (migratedAnchorButton) importsToAdd.push({ name: "AnchorButton", isTypeOnly: false });
+    if (migratedButton) importsToAdd.push({ name: "Button", isTypeOnly: false });
 
     if (importsToAdd.length > 0) {
       const emptyStateImportSpecifier = sourceFile
         .getImportDeclarations()
         .find((importDecl) =>
-          importDecl.getNamedImports().some((namedImport) => namedImport.getName() === 'EmptyState'),
+          importDecl
+            .getNamedImports()
+            .some((namedImport) => namedImport.getName() === "EmptyState"),
         )
-        ?.getModuleSpecifierValue()
+        ?.getModuleSpecifierValue();
 
       const targetSpecifier = emptyStateImportSpecifier
         ? resolveTargetSpecifier(emptyStateImportSpecifier, BUTTON_TARGET_SPECIFIER, facadePackage)
-        : (facadePackage ?? BUTTON_TARGET_SPECIFIER)
+        : (facadePackage ?? BUTTON_TARGET_SPECIFIER);
 
-      addImportsToTarget(sourceFile, importsToAdd, targetSpecifier, { promoteDeclarationTypeOnly: true })
+      addImportsToTarget(sourceFile, importsToAdd, targetSpecifier, {
+        promoteDeclarationTypeOnly: true,
+      });
     }
   },
-})
+});

@@ -1,4 +1,5 @@
-import figma from '@figma/code-connect'
-import { MaintenanceAltIcon } from './maintenance-alt'
+import figma from "@figma/code-connect";
 
-figma.connect(MaintenanceAltIcon, 'https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=20-518')
+import { MaintenanceAltIcon } from "./maintenance-alt";
+
+figma.connect(MaintenanceAltIcon, "https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=20-518");

@@ -1,66 +1,67 @@
-import { FileUploader } from './file-uploader'
-import figma from '@figma/code-connect'
+import figma from "@figma/code-connect";
 
-figma.connect(FileUploader, '<FILE_UPLOADER_MULTI_SELECT_URL>', {
-  variant: { Variant: 'Button' },
+import { FileUploader } from "./file-uploader";
+
+figma.connect(FileUploader, "<FILE_UPLOADER_MULTI_SELECT_URL>", {
+  variant: { Variant: "Button" },
   props: {
-    button: figma.nestedProps('Button', {
-      children: figma.enum('Type', {
-        'Text + Icon': figma.string('Label'),
-        'Icon only': undefined,
+    button: figma.nestedProps("Button", {
+      children: figma.enum("Type", {
+        "Text + Icon": figma.string("Label"),
+        "Icon only": undefined,
       }),
-      hasNoPadding: figma.boolean('Remove padding'),
-      iconLeft: figma.boolean('Icon left', {
-        true: figma.instance('Icon L'),
+      hasNoPadding: figma.boolean("Remove padding"),
+      iconLeft: figma.boolean("Icon left", {
+        true: figma.instance("Icon L"),
         false: undefined,
       }),
-      iconRight: figma.boolean('Icon right', {
-        true: figma.instance('Icon R'),
+      iconRight: figma.boolean("Icon right", {
+        true: figma.instance("Icon R"),
         false: undefined,
       }),
-      isDestructive: figma.boolean('Destructive'),
-      size: figma.enum('Size', {
-        Small: 'small',
-        Medium: 'medium',
-        Large: 'large',
+      isDestructive: figma.boolean("Destructive"),
+      size: figma.enum("Size", {
+        Small: "small",
+        Medium: "medium",
+        Large: "large",
       }),
-      useAIStyle: figma.boolean('Ai style'),
-      useLinkStyle: figma.boolean('Link style'),
-      variant: figma.enum('Variant', {
-        Primary: 'primary',
-        Secondary: 'secondary',
-        Tertiary: 'tertiary',
+      useAIStyle: figma.boolean("Ai style"),
+      useLinkStyle: figma.boolean("Link style"),
+      variant: figma.enum("Variant", {
+        Primary: "primary",
+        Secondary: "secondary",
+        Tertiary: "tertiary",
       }),
     }),
-    disabled: figma.enum('State', {
+    disabled: figma.enum("State", {
       Disabled: true,
     }),
-    error: figma.enum('State', {
+    error: figma.enum("State", {
       Default: { text: undefined },
-      Error: figma.nestedProps('FormControl ErrorText', {
-        text: figma.string('Error text'),
+      Error: figma.nestedProps("FormControl ErrorText", {
+        text: figma.string("Error text"),
       }),
       Focused: { text: undefined },
       Hovered: { text: undefined },
       Disabled: { text: undefined },
     }),
-    fileListVariant: figma.boolean('Media only', {
-      true: 'media',
-      false: 'file',
+    fileListVariant: figma.boolean("Media only", {
+      true: "media",
+      false: "file",
     }),
-    files: figma.slot('Content slot (files)'),
-    help: figma.boolean('Show helper', {
-      true: figma.nestedProps('FormControl HelpText', {
-        text: figma.string('Helper text'),
+    files: figma.slot("Content slot (files)"),
+    help: figma.boolean("Show helper", {
+      true: figma.nestedProps("FormControl HelpText", {
+        text: figma.string("Helper text"),
       }),
       false: {
         text: undefined,
       },
     }),
-    label: figma.boolean('Show label', {
-      true: figma.nestedProps('FormControl Label', {
-        required: figma.boolean('Required'),
-        text: figma.string('Label'),
+    label: figma.boolean("Show label", {
+      true: figma.nestedProps("FormControl Label", {
+        required: figma.boolean("Required"),
+        text: figma.string("Label"),
       }),
       false: {
         required: undefined,
@@ -69,7 +70,7 @@ figma.connect(FileUploader, '<FILE_UPLOADER_MULTI_SELECT_URL>', {
     }),
   },
   example: (props) => (
-    <FileUploader onUpload={() => Promise.resolve('TODO: replace me')}>
+    <FileUploader onUpload={() => Promise.resolve("TODO: replace me")}>
       <FileUploader.ButtonControl
         disabled={props.disabled}
         errorText={props.error.text}
@@ -90,51 +91,51 @@ figma.connect(FileUploader, '<FILE_UPLOADER_MULTI_SELECT_URL>', {
       </FileUploader.FileList>
     </FileUploader>
   ),
-})
+});
 
-figma.connect(FileUploader, '<FILE_UPLOADER_MULTI_SELECT_URL>', {
-  variant: { Variant: 'Compact' },
+figma.connect(FileUploader, "<FILE_UPLOADER_MULTI_SELECT_URL>", {
+  variant: { Variant: "Compact" },
   props: {
-    action1: figma.string('Action 1'),
-    action2: figma.string('Action 2'),
-    disabled: figma.enum('State', {
+    action1: figma.string("Action 1"),
+    action2: figma.string("Action 2"),
+    disabled: figma.enum("State", {
       Disabled: true,
     }),
-    error: figma.enum('State', {
+    error: figma.enum("State", {
       Default: { text: undefined },
-      Error: figma.nestedProps('FormControl ErrorText', {
-        text: figma.string('Error text'),
+      Error: figma.nestedProps("FormControl ErrorText", {
+        text: figma.string("Error text"),
       }),
       Focused: { text: undefined },
       Hovered: { text: undefined },
       Disabled: { text: undefined },
     }),
-    icon: figma.boolean('Show icon', {
-      true: figma.instance('↳ Icon'),
+    icon: figma.boolean("Show icon", {
+      true: figma.instance("↳ Icon"),
       false: undefined,
     }),
-    fileListVariant: figma.boolean('Media only', {
-      true: 'media',
-      false: 'file',
+    fileListVariant: figma.boolean("Media only", {
+      true: "media",
+      false: "file",
     }),
-    files: figma.slot('Content slot (files)'),
-    help: figma.boolean('Show helper', {
-      true: figma.nestedProps('FormControl HelpText', {
-        text: figma.string('Helper text'),
+    files: figma.slot("Content slot (files)"),
+    help: figma.boolean("Show helper", {
+      true: figma.nestedProps("FormControl HelpText", {
+        text: figma.string("Helper text"),
       }),
       false: {
         text: undefined,
       },
     }),
-    label: figma.boolean('Show label', {
-      true: figma.nestedProps('FormControl Label', {
-        required: figma.boolean('Required'),
-        size: figma.enum('Size', {
-          Small: 'small',
-          Medium: 'medium',
-          Large: 'large',
+    label: figma.boolean("Show label", {
+      true: figma.nestedProps("FormControl Label", {
+        required: figma.boolean("Required"),
+        size: figma.enum("Size", {
+          Small: "small",
+          Medium: "medium",
+          Large: "large",
         }),
-        text: figma.string('Label'),
+        text: figma.string("Label"),
       }),
       false: {
         required: undefined,
@@ -144,7 +145,7 @@ figma.connect(FileUploader, '<FILE_UPLOADER_MULTI_SELECT_URL>', {
     }),
   },
   example: (props) => (
-    <FileUploader onUpload={() => Promise.resolve('TODO: replace me')}>
+    <FileUploader onUpload={() => Promise.resolve("TODO: replace me")}>
       <FileUploader.DropzoneControl
         disabled={props.disabled}
         errorText={props.error.text}
@@ -163,51 +164,51 @@ figma.connect(FileUploader, '<FILE_UPLOADER_MULTI_SELECT_URL>', {
       </FileUploader.FileList>
     </FileUploader>
   ),
-})
+});
 
-figma.connect(FileUploader, '<FILE_UPLOADER_MULTI_SELECT_URL>', {
-  variant: { Variant: 'Large' },
+figma.connect(FileUploader, "<FILE_UPLOADER_MULTI_SELECT_URL>", {
+  variant: { Variant: "Large" },
   props: {
-    action1: figma.string('Action 1'),
-    action2: figma.string('Action 2'),
-    disabled: figma.enum('State', {
+    action1: figma.string("Action 1"),
+    action2: figma.string("Action 2"),
+    disabled: figma.enum("State", {
       Disabled: true,
     }),
-    error: figma.enum('State', {
+    error: figma.enum("State", {
       Default: { text: undefined },
-      Error: figma.nestedProps('FormControl ErrorText', {
-        text: figma.string('Error text'),
+      Error: figma.nestedProps("FormControl ErrorText", {
+        text: figma.string("Error text"),
       }),
       Focused: { text: undefined },
       Hovered: { text: undefined },
       Disabled: { text: undefined },
     }),
-    icon: figma.boolean('Show icon', {
-      true: figma.instance('↳ Icon'),
+    icon: figma.boolean("Show icon", {
+      true: figma.instance("↳ Icon"),
       false: undefined,
     }),
-    fileListVariant: figma.boolean('Media only', {
-      true: 'media',
-      false: 'file',
+    fileListVariant: figma.boolean("Media only", {
+      true: "media",
+      false: "file",
     }),
-    files: figma.slot('Content slot (files)'),
-    help: figma.boolean('Show helper', {
-      true: figma.nestedProps('FormControl HelpText', {
-        text: figma.string('Helper text'),
+    files: figma.slot("Content slot (files)"),
+    help: figma.boolean("Show helper", {
+      true: figma.nestedProps("FormControl HelpText", {
+        text: figma.string("Helper text"),
       }),
       false: {
         text: undefined,
       },
     }),
-    label: figma.boolean('Show label', {
-      true: figma.nestedProps('FormControl Label', {
-        required: figma.boolean('Required'),
-        size: figma.enum('Size', {
-          Small: 'small',
-          Medium: 'medium',
-          Large: 'large',
+    label: figma.boolean("Show label", {
+      true: figma.nestedProps("FormControl Label", {
+        required: figma.boolean("Required"),
+        size: figma.enum("Size", {
+          Small: "small",
+          Medium: "medium",
+          Large: "large",
         }),
-        text: figma.string('Label'),
+        text: figma.string("Label"),
       }),
       false: {
         required: undefined,
@@ -215,13 +216,13 @@ figma.connect(FileUploader, '<FILE_UPLOADER_MULTI_SELECT_URL>', {
         text: undefined,
       },
     }),
-    secondaryText: figma.boolean('Show secondary info', {
-      true: figma.string('↳ Secondary info'),
+    secondaryText: figma.boolean("Show secondary info", {
+      true: figma.string("↳ Secondary info"),
       false: undefined,
     }),
   },
   example: (props) => (
-    <FileUploader onUpload={() => Promise.resolve('TODO: replace me')}>
+    <FileUploader onUpload={() => Promise.resolve("TODO: replace me")}>
       <FileUploader.DropzoneControl
         disabled={props.disabled}
         errorText={props.error.text}
@@ -241,46 +242,46 @@ figma.connect(FileUploader, '<FILE_UPLOADER_MULTI_SELECT_URL>', {
       </FileUploader.FileList>
     </FileUploader>
   ),
-})
+});
 
-figma.connect(FileUploader, '<FILE_UPLOADER_SINGLE_SELECT_URL>', {
+figma.connect(FileUploader, "<FILE_UPLOADER_SINGLE_SELECT_URL>", {
   props: {
-    action1: figma.string('Action 1'),
-    action2: figma.string('Action 2'),
-    disabled: figma.enum('State', {
+    action1: figma.string("Action 1"),
+    action2: figma.string("Action 2"),
+    disabled: figma.enum("State", {
       Disabled: true,
     }),
-    error: figma.enum('State', {
+    error: figma.enum("State", {
       Default: { text: undefined },
-      Error: figma.nestedProps('FormControl ErrorText', {
-        text: figma.string('Error text'),
+      Error: figma.nestedProps("FormControl ErrorText", {
+        text: figma.string("Error text"),
       }),
       Focused: { text: undefined },
       Hovered: { text: undefined },
       Disabled: { text: undefined },
     }),
-    icon: figma.boolean('Show icon', {
-      true: figma.instance('↳ Icon'),
+    icon: figma.boolean("Show icon", {
+      true: figma.instance("↳ Icon"),
       false: undefined,
     }),
-    files: figma.slot('Content slot (files)'),
-    help: figma.boolean('Show helper', {
-      true: figma.nestedProps('FormControl HelpText', {
-        text: figma.string('Helper text'),
+    files: figma.slot("Content slot (files)"),
+    help: figma.boolean("Show helper", {
+      true: figma.nestedProps("FormControl HelpText", {
+        text: figma.string("Helper text"),
       }),
       false: {
         text: undefined,
       },
     }),
-    label: figma.boolean('Show label', {
-      true: figma.nestedProps('FormControl Label', {
-        required: figma.boolean('Required'),
-        size: figma.enum('Size', {
-          Small: 'small',
-          Medium: 'medium',
-          Large: 'large',
+    label: figma.boolean("Show label", {
+      true: figma.nestedProps("FormControl Label", {
+        required: figma.boolean("Required"),
+        size: figma.enum("Size", {
+          Small: "small",
+          Medium: "medium",
+          Large: "large",
         }),
-        text: figma.string('Label'),
+        text: figma.string("Label"),
       }),
       false: {
         required: undefined,
@@ -288,13 +289,13 @@ figma.connect(FileUploader, '<FILE_UPLOADER_SINGLE_SELECT_URL>', {
         text: undefined,
       },
     }),
-    secondaryText: figma.boolean('Show secondary info', {
-      true: figma.string('↳ Secondary info'),
+    secondaryText: figma.boolean("Show secondary info", {
+      true: figma.string("↳ Secondary info"),
       false: undefined,
     }),
   },
   example: (props) => (
-    <FileUploader onUpload={() => Promise.resolve('TODO: replace me')}>
+    <FileUploader onUpload={() => Promise.resolve("TODO: replace me")}>
       <FileUploader.SingleSelectMediaControl
         disabled={props.disabled}
         errorText={props.error.text}
@@ -309,4 +310,4 @@ figma.connect(FileUploader, '<FILE_UPLOADER_SINGLE_SELECT_URL>', {
       </FileUploader.SingleSelectMediaControl>
     </FileUploader>
   ),
-})
+});

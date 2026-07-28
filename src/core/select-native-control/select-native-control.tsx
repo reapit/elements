@@ -1,20 +1,20 @@
-import { FormControl } from '#src/core/form-control'
-import { SelectNative } from '#src/core/select-native'
-import { forwardRef, useId } from 'react'
+import { forwardRef, useId } from "react";
+import type { ReactNode } from "react";
 
-import type { ReactNode } from 'react'
+import { FormControl } from "#src/core/form-control";
+import { SelectNative } from "#src/core/select-native";
 
 export namespace SelectNativeControl {
   export interface Props extends SelectNative.Props {
     /** Optional error text that communicates why the select's value is invalid. */
-    errorText?: ReactNode
+    errorText?: ReactNode;
     /** Optional help text that provides more context about the select. */
-    helpText?: ReactNode
+    helpText?: ReactNode;
     /**
      * The visual label for the select. If no visual label is provided, an accessible
      * label should be provided via `aria-label`.
      */
-    label?: ReactNode
+    label?: ReactNode;
   }
 }
 
@@ -27,10 +27,10 @@ export const SelectNativeControl = forwardRef<HTMLSelectElement, SelectNativeCon
     { errorText, helpText, id, label, maxWidth, required, showValidity, size, ...rest },
     ref,
   ) {
-    const fallbackInputId = useId()
-    const inputId = id ?? fallbackInputId
-    const helpTextId = useId()
-    const errorTextId = useId()
+    const fallbackInputId = useId();
+    const inputId = id ?? fallbackInputId;
+    const helpTextId = useId();
+    const errorTextId = useId();
 
     return (
       <FormControl as="div" size={size} maxWidth={maxWidth}>
@@ -56,6 +56,6 @@ export const SelectNativeControl = forwardRef<HTMLSelectElement, SelectNativeCon
           helpText && <FormControl.HelpText id={helpTextId}>{helpText}</FormControl.HelpText>
         )}
       </FormControl>
-    )
+    );
   },
-)
+);

@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
 
 export const ElBreadcrumbItem = styled.li`
   @layer elements.main {
@@ -6,7 +6,7 @@ export const ElBreadcrumbItem = styled.li`
     grid-template-columns: auto min-content;
     align-items: center;
   }
-`
+`;
 
 export const ElBreadcrumbItemSeparator = styled.span`
   @layer elements.main {
@@ -27,4 +27,4 @@ export const ElBreadcrumbItemSeparator = styled.span`
       display: none;
     }
   }
-`
+`;

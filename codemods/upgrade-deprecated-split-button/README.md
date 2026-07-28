@@ -48,21 +48,21 @@ yarn dlx @reapit/elements@beta codemod apply upgrade-deprecated-split-button src
 
 ```tsx
 // Before (with facade package @company/ui)
-import { DeprecatedSplitButton, DeprecatedActionButton } from '@company/ui/elements'
+import { DeprecatedSplitButton, DeprecatedActionButton } from "@company/ui/elements";
 
 // After running with --facade-package @company/ui
-import { SplitButton, SplitButtonAction } from '@company/ui/elements'
+import { SplitButton, SplitButtonAction } from "@company/ui/elements";
 ```
 
 For `@reapit/elements` imports, specifiers are moved to the subpath import:
 
 ```tsx
 // Before
-import { DeprecatedSplitButton, Input } from '@reapit/elements'
+import { DeprecatedSplitButton, Input } from "@reapit/elements";
 
 // After
-import { Input } from '@reapit/elements'
-import { SplitButton } from '@reapit/elements/core/split-button'
+import { Input } from "@reapit/elements";
+import { SplitButton } from "@reapit/elements/core/split-button";
 ```
 
 ## Background

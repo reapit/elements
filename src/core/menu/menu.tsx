@@ -1,32 +1,33 @@
-import { AnchorMenuItem, MenuItem } from './item'
-import { cx } from '@linaria/core'
-import { elMenu } from './styles'
-import { Popover } from '#src/utils/popover'
-import { Divider } from '#src/core/divider'
-import { MenuGroup } from './group'
-import { useCloseMenuOnClick } from './use-close-menu-on-click'
-import { useMenuKeyboardNavigation } from './use-keyboard-navigation'
+import { cx } from "@linaria/core";
+import type { HTMLAttributes } from "react";
 
-import type { HTMLAttributes } from 'react'
+import { Divider } from "#src/core/divider";
+import { Popover } from "#src/utils/popover";
+
+import { MenuGroup } from "./group";
+import { AnchorMenuItem, MenuItem } from "./item";
+import { elMenu } from "./styles";
+import { useCloseMenuOnClick } from "./use-close-menu-on-click";
+import { useMenuKeyboardNavigation } from "./use-keyboard-navigation";
 
 // NOTE: We omit...
 // - role, because the Menu's role should always be "menu".
-type AttributesToOmit = 'role'
+type AttributesToOmit = "role";
 
 export namespace Menu {
   export interface Props extends Omit<HTMLAttributes<HTMLDivElement>, AttributesToOmit> {
     /** The element that labels this menu. This should be the element that controls the menu. */
-    'aria-labelledby': string
+    "aria-labelledby": string;
     /** The ID of the menu. */
-    id: string
+    id: string;
     /** The gap between the popover and the anchor. */
-    gap?: `--spacing-${string}`
+    gap?: `--spacing-${string}`;
     /** The maximum height of the menu. By default, the menu will be as tall as its content requires. */
-    maxHeight?: `--size-${string}`
+    maxHeight?: `--size-${string}`;
     /** The maximum width of the menu. By default, the menu will be as wide as its widest item. */
-    maxWidth?: `--size-${string}`
+    maxWidth?: `--size-${string}`;
     /** Where the popover should be placed relative to its anchor. */
-    placement?: 'top-start' | 'top' | 'top-end' | 'bottom-start' | 'bottom' | 'bottom-end'
+    placement?: "top-start" | "top" | "top-end" | "bottom-start" | "bottom" | "bottom-end";
   }
 }
 
@@ -36,19 +37,19 @@ export namespace Menu {
  * [Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API).
  */
 export function Menu({
-  'aria-labelledby': ariaLabelledBy,
+  "aria-labelledby": ariaLabelledBy,
   children,
   className,
-  gap = '--spacing-1',
+  gap = "--spacing-1",
   maxHeight,
   maxWidth,
   onClick,
   onKeyDown,
-  placement = 'top-start',
+  placement = "top-start",
   ...rest
 }: Menu.Props) {
-  const handleClick = useCloseMenuOnClick(onClick)
-  const handleKeyboardNavigation = useMenuKeyboardNavigation(onKeyDown)
+  const handleClick = useCloseMenuOnClick(onClick);
+  const handleKeyboardNavigation = useMenuKeyboardNavigation(onKeyDown);
 
   return (
     <Popover
@@ -69,16 +70,16 @@ export function Menu({
     >
       {children}
     </Popover>
-  )
+  );
 }
 
-Menu.AnchorItem = AnchorMenuItem
-Menu.Divider = Divider
-Menu.Group = MenuGroup
-Menu.Item = MenuItem
+Menu.AnchorItem = AnchorMenuItem;
+Menu.Divider = Divider;
+Menu.Group = MenuGroup;
+Menu.Item = MenuItem;
 
-Menu.getClosestMenuElement = Popover.getClosestPopoverElement
-Menu.getTriggerProps = Popover.getTriggerProps
+Menu.getClosestMenuElement = Popover.getClosestPopoverElement;
+Menu.getTriggerProps = Popover.getTriggerProps;
 
 /** @deprecated Use Menu.Props instead */
-export type MenuProps = Menu.Props
+export type MenuProps = Menu.Props;

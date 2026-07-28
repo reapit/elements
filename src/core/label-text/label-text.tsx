@@ -1,20 +1,20 @@
-import { ElLabelText } from './styles'
+import type { LabelHTMLAttributes } from "react";
 
-import type { LabelHTMLAttributes } from 'react'
+import { ElLabelText } from "./styles";
 
 export namespace LabelText {
   export interface Props extends LabelHTMLAttributes<HTMLSpanElement> {
     /** Whether the required indicator should be displayed. Only applicable when labelling form controls. */
-    isRequired?: boolean
+    isRequired?: boolean;
     /** The size of the label text. */
-    size?: 'xs' | 'sm'
+    size?: "xs" | "sm";
     /** The variant of the label text. */
-    variant?: 'soft' | 'strong'
+    variant?: "soft" | "strong";
   }
 }
 
 /** @deprecated Use LabelText.Props instead */
-export type LabelTextProps = LabelText.Props
+export type LabelTextProps = LabelText.Props;
 
 /**
  * Labels give a name to a component or group of components. Pair them with form components like checkboxes
@@ -26,5 +26,5 @@ export function LabelText({ children, isRequired, size, variant, ...rest }: Labe
       {children}
       {isRequired && <span aria-label="(Required)"> *</span>}
     </ElLabelText>
-  )
+  );
 }

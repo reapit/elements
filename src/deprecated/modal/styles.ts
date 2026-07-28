@@ -1,5 +1,6 @@
-import { styled } from '@linaria/react'
-import { elIsActive } from '../../styles/deprecated-states'
+import { styled } from "@linaria/react";
+
+import { elIsActive } from "../../styles/deprecated-states";
 
 /**
  * @deprecated
@@ -18,7 +19,7 @@ export const ElModalBg = styled.div`
     display: block;
     position: fixed;
   }
-`
+`;
 
 /**
  * @deprecated
@@ -43,7 +44,7 @@ export const ElModal = styled.div`
     display: block;
     position: fixed;
   }
-`
+`;
 
 /**
  * @deprecated
@@ -51,7 +52,7 @@ export const ElModal = styled.div`
 export const ElModalHeader = styled.div`
   color: var(--colour-text-primary);
   font-family:
-    'Inter',
+    "Inter",
     /* was --font-sans-serif */ Helvetica,
     Arial,
     sans-serif;
@@ -59,11 +60,11 @@ export const ElModalHeader = styled.div`
   font-size: 1.25rem /* was --font-size-subheading */;
   margin-bottom: 1rem;
   text-align: left;
-`
+`;
 
 /**
  * @deprecated
  */
 export const ElModalBody = styled.div`
   font-size: 0.9375rem /* was --font-size-default */;
-`
+`;

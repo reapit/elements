@@ -1,6 +1,6 @@
-import { createComponentMigration } from '../shared/migration-engine.js'
+import { createComponentMigration } from "../shared/migration-engine.js";
 
-const TARGET_SPECIFIER = '@reapit/elements/core/radio-group-control'
+const TARGET_SPECIFIER = "@reapit/elements/core/radio-group-control";
 
 /**
  * Codemod to replace the lab RadioGroup with the core RadioGroupControl component.
@@ -26,23 +26,23 @@ const TARGET_SPECIFIER = '@reapit/elements/core/radio-group-control'
 const transform = createComponentMigration({
   identifiers: [
     {
-      from: 'RadioGroup',
-      to: 'RadioGroupControl',
+      from: "RadioGroup",
+      to: "RadioGroupControl",
       targetSpecifier: TARGET_SPECIFIER,
     },
   ],
   props: [
     {
-      from: 'RadioGroupProps',
-      to: 'RadioGroupControl.Props',
+      from: "RadioGroupProps",
+      to: "RadioGroupControl.Props",
       targetSpecifier: TARGET_SPECIFIER,
     },
   ],
   propRenames: {
-    isRequired: 'required',
-    errorMessage: 'errorText',
+    isRequired: "required",
+    errorMessage: "errorText",
   },
   useFindReferencesForIdentifiers: true,
-})
+});
 
-export default transform
+export default transform;

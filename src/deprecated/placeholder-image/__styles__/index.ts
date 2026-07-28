@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
 
 /** @deprecated */
 export const ElPlaceholderImage = styled.div`
@@ -9,7 +9,7 @@ export const ElPlaceholderImage = styled.div`
   background-color: var(--colour-fill-white);
   border-radius: 0.25rem;
   flex-shrink: 0;
-`
+`;
 
 /** @deprecated */
 export const ElPlaceholderImageWrapper = styled.div`
@@ -20,4 +20,4 @@ export const ElPlaceholderImageWrapper = styled.div`
   height: 100%;
   border-radius: 0.25rem;
   background-color: var(--colour-fill-white);
-`
+`;

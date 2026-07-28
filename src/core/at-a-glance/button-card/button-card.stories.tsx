@@ -1,26 +1,28 @@
-import preview from '#.storybook/preview'
-import { AtAGlance } from '../at-a-glance'
-import { SproutIcon } from '#src/icons/sprout'
-import { Text } from '#src/utils/text'
-import { useState } from 'react'
+import { useState } from "react";
+
+import preview from "#.storybook/preview";
+import { SproutIcon } from "#src/icons/sprout";
+import { Text } from "#src/utils/text";
+
+import { AtAGlance } from "../at-a-glance";
 
 const meta = preview.meta({
-  title: 'Content display/AtAGlance/ButtonCard',
+  title: "Content display/AtAGlance/ButtonCard",
   component: AtAGlance.ButtonCard,
   argTypes: {
-    description: { control: 'text' },
-    displayValue: { control: 'text' },
+    description: { control: "text" },
+    displayValue: { control: "text" },
     icon: { control: false },
-    label: { control: 'text' },
+    label: { control: "text" },
     layout: {
-      control: 'select',
-      options: ['vertical', 'horizontal', 'compact'],
+      control: "select",
+      options: ["vertical", "horizontal", "compact"],
     },
-    maxWidth: { control: 'text' },
-    minWidth: { control: 'text' },
-    onClick: { action: 'clicked' },
+    maxWidth: { control: "text" },
+    minWidth: { control: "text" },
+    onClick: { action: "clicked" },
   },
-})
+});
 
 /**
  * A button card that triggers an action when clicked. The entire card is clickable
@@ -31,14 +33,14 @@ const meta = preview.meta({
  */
 export const Example = meta.story({
   args: {
-    description: 'Crunchy and Juicy',
-    displayValue: '32',
+    description: "Crunchy and Juicy",
+    displayValue: "32",
     icon: <SproutIcon />,
-    label: 'Apple',
-    layout: 'vertical',
-    onClick: () => alert('Button clicked!'),
+    label: "Apple",
+    layout: "vertical",
+    onClick: () => alert("Button clicked!"),
   },
-})
+});
 
 /**
  * Button cards support three layout variants:
@@ -49,23 +51,23 @@ export const Example = meta.story({
 export const Layouts = Example.extend({
   decorators: [
     (Story, { args }) => (
-      <div style={{ color: '#FA00FF', display: 'flex', gap: 'var(--spacing-6)' }}>
+      <div style={{ color: "#FA00FF", display: "flex", gap: "var(--spacing-6)" }}>
         <div style={{ flexGrow: 1 }}>
-          <Text style={{ marginBlockEnd: 'var(--spacing-2)' }}>Vertical</Text>
-          <Story args={{ ...args, layout: 'vertical' }} />
+          <Text style={{ marginBlockEnd: "var(--spacing-2)" }}>Vertical</Text>
+          <Story args={{ ...args, layout: "vertical" }} />
         </div>
         <div style={{ flexGrow: 1 }}>
-          <Text style={{ marginBlockEnd: 'var(--spacing-2)' }}>Compact</Text>
-          <Story args={{ ...args, layout: 'compact' }} />
+          <Text style={{ marginBlockEnd: "var(--spacing-2)" }}>Compact</Text>
+          <Story args={{ ...args, layout: "compact" }} />
         </div>
         <div style={{ flexGrow: 1 }}>
-          <Text style={{ marginBlockEnd: 'var(--spacing-2)' }}>Horizontal</Text>
-          <Story args={{ ...args, layout: 'horizontal' }} />
+          <Text style={{ marginBlockEnd: "var(--spacing-2)" }}>Horizontal</Text>
+          <Story args={{ ...args, layout: "horizontal" }} />
         </div>
       </div>
     ),
   ],
-})
+});
 
 /**
  * The icon prop is optional.
@@ -74,7 +76,7 @@ export const NoIcon = Example.extend({
   args: {
     icon: null,
   },
-})
+});
 
 /**
  * The description prop is optional.
@@ -83,7 +85,7 @@ export const NoDescription = Example.extend({
   args: {
     description: null,
   },
-})
+});
 
 /**
  * The minimum and maximum width of the card can be specified. This is useful
@@ -91,13 +93,13 @@ export const NoDescription = Example.extend({
  */
 export const Width = meta.story({
   args: {
-    displayValue: '32',
-    label: 'Apple',
-    layout: 'horizontal',
-    maxWidth: '200px',
-    onClick: () => alert('Clicked!'),
+    displayValue: "32",
+    label: "Apple",
+    layout: "horizontal",
+    maxWidth: "200px",
+    onClick: () => alert("Clicked!"),
   },
-})
+});
 
 /**
  * Button card content is stretched to fill available space, allowing values within
@@ -112,15 +114,15 @@ export const Alignment = Example.extend({
 
   decorators: [
     (Story: any) => {
-      const [width, setWidth] = useState(900)
+      const [width, setWidth] = useState(900);
       return (
         <>
           <div
             style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: 'var(--spacing-2)',
-              marginBlockEnd: 'var(--spacing-2)',
+              display: "flex",
+              alignItems: "center",
+              gap: "var(--spacing-2)",
+              marginBlockEnd: "var(--spacing-2)",
             }}
           >
             <input
@@ -141,18 +143,18 @@ export const Alignment = Example.extend({
           </div>
           <div
             style={{
-              border: '1px solid #FA00FF',
-              display: 'grid',
-              gridAutoFlow: 'column',
-              gridAutoColumns: '1fr',
-              gap: 'var(--spacing-6)',
+              border: "1px solid #FA00FF",
+              display: "grid",
+              gridAutoFlow: "column",
+              gridAutoColumns: "1fr",
+              gap: "var(--spacing-6)",
               width,
             }}
           >
             <Story />
           </div>
         </>
-      )
+      );
     },
   ],
 
@@ -181,4 +183,4 @@ export const Alignment = Example.extend({
       />
     </>
   ),
-})
+});

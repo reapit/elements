@@ -1,3 +1,9 @@
+import type { MouseEventHandler, ReactNode } from "react";
+
+import { SeparatorDotIcon } from "#src/icons/separator-dot";
+
+import { getFileUploaderItemStatus } from "../get-file-uploader-item-status";
+import { FileUploaderRemoveButton } from "../remove-button/remove-button";
 import {
   ElFileUploaderFileCard,
   ElFileUploaderFileCardContent,
@@ -5,41 +11,36 @@ import {
   ElFileUploaderFileCardProgressBar,
   ElFileUploaderFileCardSecondaryInfo,
   ElFileUploaderFileCardStatusText,
-} from './styles'
-import { FileUploaderRemoveButton } from '../remove-button/remove-button'
-import { getFileUploaderItemStatus } from '../get-file-uploader-item-status'
-import { SeparatorDotIcon } from '#src/icons/separator-dot'
-
-import type { MouseEventHandler, ReactNode } from 'react'
+} from "./styles";
 
 export namespace FileUploaderFileCard {
-  export type Status = 'queued' | 'uploading' | 'processing' | 'uploaded' | 'error'
+  export type Status = "queued" | "uploading" | "processing" | "uploaded" | "error";
 
   export interface Props {
     /** The file's name, truncated with an ellipsis if it overflows. */
-    fileName: string
+    fileName: string;
     /** The file's size in bytes. Omit to skip rendering a size. */
-    fileSize?: number
+    fileSize?: number;
     /** The item's lifecycle status. */
-    status: Status
+    status: Status;
     /**
      * Upload progress as a percentage between `0` and `100`. Only meaningful while `status` is `'uploading'`.
      * Omit to render an indeterminate progress bar while uploading.
      */
-    progress?: number
+    progress?: number;
     /** The error message to surface. Only meaningful while `status` is `'error'`. */
-    errorMessage?: string
+    errorMessage?: string;
     /**
      * The leading thumbnail/icon/badge, typically a `FileUploader.FileCardLeadingElement`.
      */
-    leadingElement: ReactNode
+    leadingElement: ReactNode;
     /**
      * BCP 47 locale tag. Use to format the file size and upload percentage. Defaults to the runtime locale
      * when omitted.
      */
-    locale?: string
+    locale?: string;
     /** Called when the remove button is clicked. Omit to render a read-only card with no remove button. */
-    onRemove?: MouseEventHandler<HTMLButtonElement>
+    onRemove?: MouseEventHandler<HTMLButtonElement>;
   }
 }
 
@@ -62,8 +63,8 @@ export function FileUploaderFileCard({
     fileSize,
     errorMessage,
     locale,
-  })
-  const showProgressBar = status === 'uploading' || status === 'processing'
+  });
+  const showProgressBar = status === "uploading" || status === "processing";
 
   return (
     <ElFileUploaderFileCard data-status={status}>
@@ -82,15 +83,19 @@ export function FileUploaderFileCard({
           </ElFileUploaderFileCardStatusText>
         </ElFileUploaderFileCardSecondaryInfo>
       </ElFileUploaderFileCardContent>
-      {onRemove && <FileUploaderRemoveButton aria-label={`Remove ${fileName}`} onClick={onRemove} />}
+      {onRemove && (
+        <FileUploaderRemoveButton aria-label={`Remove ${fileName}`} onClick={onRemove} />
+      )}
       {showProgressBar && (
         <ElFileUploaderFileCardProgressBar
-          aria-label={status === 'uploading' ? `Uploading ${fileName}` : `Processing ${fileName}`}
+          aria-label={status === "uploading" ? `Uploading ${fileName}` : `Processing ${fileName}`}
           value={
-            status === 'uploading' && typeof progress === 'number' && Number.isFinite(progress) ? progress : undefined
+            status === "uploading" && typeof progress === "number" && Number.isFinite(progress)
+              ? progress
+              : undefined
           }
         />
       )}
     </ElFileUploaderFileCard>
-  )
+  );
 }

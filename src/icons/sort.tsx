@@ -1,4 +1,4 @@
-import SortSvg from './svgs/sort.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import SortSvg from "./svgs/sort.svg?react";
 
-export const SortIcon = makeIcon('SortIcon', SortSvg)
+export const SortIcon = makeIcon("SortIcon", SortSvg);

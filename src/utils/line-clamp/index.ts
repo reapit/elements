@@ -1,1 +1,1 @@
-export { LineClamp } from './line-clamp'
+export { LineClamp } from "./line-clamp";

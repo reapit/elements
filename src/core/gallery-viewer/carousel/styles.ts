@@ -1,4 +1,4 @@
-import { css } from '@linaria/core'
+import { css } from "@linaria/core";
 
 export const elGalleryViewerCarousel = css`
   @layer elements.main {
@@ -9,7 +9,7 @@ export const elGalleryViewerCarousel = css`
     border-radius: var(--border-radius-xl);
     overflow: hidden;
   }
-`
+`;
 
 export const elGalleryViewerCarouselTrack = css`
   @layer elements.main {
@@ -32,7 +32,7 @@ export const elGalleryViewerCarouselTrack = css`
       overflow: clip;
     }
   }
-`
+`;
 
 export const elGalleryViewerCarouselButton = css`
   @layer elements.main {
@@ -53,11 +53,11 @@ export const elGalleryViewerCarouselButton = css`
     padding: 0;
     text-decoration: none;
 
-    &[data-direction='previous'] {
+    &[data-direction="previous"] {
       left: var(--spacing-2);
     }
 
-    &[data-direction='next'] {
+    &[data-direction="next"] {
       right: var(--spacing-2);
     }
 
@@ -71,7 +71,7 @@ export const elGalleryViewerCarouselButton = css`
       color: var(--comp-gallery_viewer-colour-icon-gallery_button-hover);
     }
 
-    &[aria-disabled='true'] {
+    &[aria-disabled="true"] {
       opacity: 0;
       pointer-events: none;
 
@@ -81,7 +81,7 @@ export const elGalleryViewerCarouselButton = css`
       }
     }
   }
-`
+`;
 
 // NOTE: Because the carousel allows overscroll, we add border radius to the first and last
 // items so the items remain rounded as they overscroll.
@@ -99,4 +99,4 @@ export const elGalleryViewerCarouselItem = css`
       border-end-end-radius: var(--border-radius-xl);
     }
   }
-`
+`;

@@ -1,11 +1,11 @@
-import { ElAccordionGroup } from './styles'
+import type { HTMLAttributes, ReactNode } from "react";
 
-import type { HTMLAttributes, ReactNode } from 'react'
+import { ElAccordionGroup } from "./styles";
 
 export namespace AccordionGroup {
   export interface Props extends HTMLAttributes<HTMLDivElement> {
     /** The `Accordion` components to display in the group. */
-    children: ReactNode
+    children: ReactNode;
   }
 }
 
@@ -13,8 +13,8 @@ export namespace AccordionGroup {
  * A layout wrapper that groups multiple `Accordion` components together in a vertical stack.
  */
 export function AccordionGroup({ children, ...rest }: AccordionGroup.Props) {
-  return <ElAccordionGroup {...rest}>{children}</ElAccordionGroup>
+  return <ElAccordionGroup {...rest}>{children}</ElAccordionGroup>;
 }
 
 /** @deprecated Use `AccordionGroup.Props` instead. */
-export type AccordionGroupProps = AccordionGroup.Props
+export type AccordionGroupProps = AccordionGroup.Props;

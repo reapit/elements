@@ -1,22 +1,23 @@
-import { styled } from '@linaria/react'
-import { font } from '#src/utils/font'
+import { styled } from "@linaria/react";
+
+import { font } from "#src/utils/font";
 
 export const badgeColours = [
-  'neutral',
-  'success',
-  'pending',
-  'warning',
-  'danger',
-  'inactive',
-  'accent_1',
-  'accent_2',
-] as const
+  "neutral",
+  "success",
+  "pending",
+  "warning",
+  "danger",
+  "inactive",
+  "accent_1",
+  "accent_2",
+] as const;
 
-export type BadgeColour = (typeof badgeColours)[number]
+export type BadgeColour = (typeof badgeColours)[number];
 
 interface ElBadgeProps {
-  'data-colour': BadgeColour
-  'data-variant': 'default' | 'reversed'
+  "data-colour": BadgeColour;
+  "data-variant": "default" | "reversed";
 }
 
 export const ElBadge = styled.span<ElBadgeProps>`
@@ -35,9 +36,9 @@ export const ElBadge = styled.span<ElBadgeProps>`
     /* NOTE: necessary when used in an inline or inline-block layout */
     vertical-align: middle;
 
-    ${badgeColours.map((colour) => generateElBadgeColourStyles(colour)).join('\n')};
+    ${badgeColours.map((colour) => generateElBadgeColourStyles(colour)).join("\n")};
   }
-`
+`;
 
 function generateElBadgeColourStyles(colour: BadgeColour) {
   return `
@@ -48,19 +49,19 @@ function generateElBadgeColourStyles(colour: BadgeColour) {
     &[data-colour='${colour}'][data-variant='reversed'] {
       background: var(--comp-badge-colour-fill-reversed-${colour});
     }
-  `
+  `;
 }
 
 export const ElBadgeLabelContainer = styled.span`
   @layer elements.main {
-    ${font('xs', 'medium')}
+    ${font("xs", "medium")}
 
     white-space: nowrap;
     padding-inline: var(--spacing-half);
 
-    ${badgeColours.map((colour) => generateElBadgeLabelColourStyles(colour)).join('\n')};
+    ${badgeColours.map((colour) => generateElBadgeLabelColourStyles(colour)).join("\n")};
   }
-`
+`;
 
 function generateElBadgeLabelColourStyles(colour: BadgeColour) {
   return `
@@ -71,7 +72,7 @@ function generateElBadgeLabelColourStyles(colour: BadgeColour) {
     [data-colour='${colour}'][data-variant='reversed'] & {
       color: var(--comp-badge-colour-text-reversed-${colour});
     }
-  `
+  `;
 }
 
 export const ElBadgeIconContainer = styled.span`
@@ -83,9 +84,9 @@ export const ElBadgeIconContainer = styled.span`
     width: var(--icon_size-xs);
     height: var(--icon_size-xs);
 
-    ${badgeColours.map((colour) => generateElBadgeIconContainerColourStyles(colour)).join('\n')}
+    ${badgeColours.map((colour) => generateElBadgeIconContainerColourStyles(colour)).join("\n")}
   }
-`
+`;
 
 function generateElBadgeIconContainerColourStyles(colour: BadgeColour) {
   return `
@@ -96,5 +97,5 @@ function generateElBadgeIconContainerColourStyles(colour: BadgeColour) {
     [data-colour='${colour}'][data-variant='reversed'] & {
       color: var(--comp-badge-colour-icon-reversed-${colour});
     }
-  `
+  `;
 }

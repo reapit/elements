@@ -1,10 +1,11 @@
-import { ElTopBarMenuDrawerMenuItemBadge, ElTopBarMenuDrawerMenuItemLabel } from './styles'
-import type { ReactNode } from 'react'
+import type { ReactNode } from "react";
+
+import { ElTopBarMenuDrawerMenuItemBadge, ElTopBarMenuDrawerMenuItemLabel } from "./styles";
 
 export namespace TopBarMenuDrawerMenuItemBase {
   export interface Props {
-    children: ReactNode
-    hasBadge?: boolean
+    children: ReactNode;
+    hasBadge?: boolean;
   }
 }
 
@@ -12,11 +13,14 @@ export namespace TopBarMenuDrawerMenuItemBase {
  * Base component for menu drawer items. Provides shared label structure.
  * Not exported publicly - used internally by anchor and button variants.
  */
-export function TopBarMenuDrawerMenuItemBase({ children, hasBadge }: TopBarMenuDrawerMenuItemBase.Props) {
+export function TopBarMenuDrawerMenuItemBase({
+  children,
+  hasBadge,
+}: TopBarMenuDrawerMenuItemBase.Props) {
   return (
     <>
       <ElTopBarMenuDrawerMenuItemLabel>{children}</ElTopBarMenuDrawerMenuItemLabel>
       {hasBadge && <ElTopBarMenuDrawerMenuItemBadge aria-hidden />}
     </>
-  )
+  );
 }

@@ -1,9 +1,10 @@
-import { cx } from '@linaria/core'
-import { elSideBarMenuItem, ElSideBarMenuItemIcon, ElSideBarMenuItemLabel } from './styles'
-import { Tooltip } from '#src/core/tooltip'
-import { useId } from 'react'
+import { cx } from "@linaria/core";
+import { useId } from "react";
+import type { AnchorHTMLAttributes, ReactNode } from "react";
 
-import type { AnchorHTMLAttributes, ReactNode } from 'react'
+import { Tooltip } from "#src/core/tooltip";
+
+import { elSideBarMenuItem, ElSideBarMenuItemIcon, ElSideBarMenuItemLabel } from "./styles";
 
 export namespace SideBarMenuItem {
   export interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
@@ -11,20 +12,20 @@ export namespace SideBarMenuItem {
      * When the item represents the current page, `aria-current="page"` should be supplied to communicate to visual and
      * accessible users that the item is currently "selected".
      */
-    'aria-current': 'page' | false
+    "aria-current": "page" | false;
     /** The label of the menu item */
-    children: ReactNode
+    children: ReactNode;
     /** The URL to navigate to when this item is activated. */
-    href: string
+    href: string;
     /** The icon to display next to the label. */
-    icon: ReactNode
+    icon: ReactNode;
   }
 }
 
 /**
  * @deprecated Use `SideBarMenuItem.Props` instead
  */
-export type SideBarMenuItemProps = SideBarMenuItem.Props
+export type SideBarMenuItemProps = SideBarMenuItem.Props;
 
 /**
  * Standard menu item for use in a `SideBar`. Is always an anchor element because side bar navigation
@@ -47,29 +48,34 @@ export type SideBarMenuItemProps = SideBarMenuItem.Props
  * ```
  */
 export function SideBarMenuItem({
-  'aria-current': ariaCurrent,
+  "aria-current": ariaCurrent,
   children,
   className,
   icon,
   id,
   ...rest
 }: SideBarMenuItem.Props) {
-  const tooltipId = useId()
-  const triggerId = id ?? useId()
-  const truncationTargetId = useId()
+  const tooltipId = useId();
+  const triggerId = id ?? useId();
+  const truncationTargetId = useId();
 
   return (
     <a
       {...rest}
-      {...Tooltip.getTriggerProps({ id: triggerId, tooltipId, tooltipPurpose: 'label' })}
+      {...Tooltip.getTriggerProps({ id: triggerId, tooltipId, tooltipPurpose: "label" })}
       aria-current={ariaCurrent}
       className={cx(elSideBarMenuItem, className)}
     >
       <ElSideBarMenuItemIcon aria-hidden>{icon}</ElSideBarMenuItemIcon>
       <ElSideBarMenuItemLabel id={truncationTargetId}>{children}</ElSideBarMenuItemLabel>
-      <Tooltip id={tooltipId} placement="right" triggerId={triggerId} truncationTargetId={truncationTargetId}>
+      <Tooltip
+        id={tooltipId}
+        placement="right"
+        triggerId={triggerId}
+        truncationTargetId={truncationTargetId}
+      >
         {children}
       </Tooltip>
     </a>
-  )
+  );
 }

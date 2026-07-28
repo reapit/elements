@@ -1,12 +1,13 @@
-import preview from '#.storybook/preview'
-import { MobileControls } from './index'
+import preview from "#.storybook/preview";
+
+import { MobileControls } from "./index";
 
 const meta = preview.meta({
-  title: 'Deprecated/MobileControls',
+  title: "Deprecated/MobileControls",
   component: MobileControls,
-})
+});
 
-export default meta
+export default meta;
 
 export const BasicUsage = meta.story({
   render: () => (
@@ -14,18 +15,18 @@ export const BasicUsage = meta.story({
       isVisible
       mobileControlItems={[
         {
-          label: 'Item One',
-          onClick: () => console.log('Clicked Item One'),
+          label: "Item One",
+          onClick: () => console.log("Clicked Item One"),
         },
         {
-          label: 'Item Two',
-          onClick: () => console.log('Clicked Item Two'),
+          label: "Item Two",
+          onClick: () => console.log("Clicked Item Two"),
         },
         {
-          label: 'Item Three',
-          onClick: () => console.log('Clicked Item Three'),
+          label: "Item Three",
+          onClick: () => console.log("Clicked Item Three"),
         },
       ]}
     />
   ),
-})
+});

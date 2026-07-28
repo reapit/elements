@@ -1,19 +1,19 @@
-import { cx } from '@linaria/core'
-import { elSideBarMenuGroup } from './styles'
-import { SideBarMenuGroupLabelIdContext } from './menu-group-label-id-context'
-import { SideBarMenuGroupSummary } from './menu-group-summary'
-import { useId } from 'react'
-import { useSideBarContext } from '../side-bar-context'
-import { useSideBarMenuGroupController } from './use-menu-group-controller'
+import { cx } from "@linaria/core";
+import { useId } from "react";
+import type { DetailsHTMLAttributes, ReactNode } from "react";
 
-import type { DetailsHTMLAttributes, ReactNode } from 'react'
+import { useSideBarContext } from "../side-bar-context";
+import { SideBarMenuGroupLabelIdContext } from "./menu-group-label-id-context";
+import { SideBarMenuGroupSummary } from "./menu-group-summary";
+import { elSideBarMenuGroup } from "./styles";
+import { useSideBarMenuGroupController } from "./use-menu-group-controller";
 
 export namespace SideBarMenuGroup {
   export interface Props extends DetailsHTMLAttributes<HTMLDetailsElement> {
     /**
      * Typically a single `SideBar.Submenu` component that contains any number of submenu items
      */
-    children: ReactNode
+    children: ReactNode;
     /**
      * Allows consumers to "force" the menu group to be active in scenarios where it does not have a submenu item
      * that represents the current page. Typically, this should not be necessary, but it can be a useful escape hatch
@@ -23,7 +23,7 @@ export namespace SideBarMenuGroup {
      * Being active means the menu group will be open (except when the `SideBar` is collapsed). However, being `open`
      * does not mean the menu group is active.
      */
-    isActive?: boolean
+    isActive?: boolean;
     /**
      * Indicates whether the menu group's contents---that is, the submenu of items---are currently visible.
      *
@@ -33,19 +33,19 @@ export namespace SideBarMenuGroup {
      * the underlying `<details>` element's `open` state changes. This is because the `SideBar` will, at times,
      * imperatively control child `<details>` elements.
      */
-    open?: boolean
+    open?: boolean;
     /**
      * The summary/main item for the menu group. Will typically be a `SideBar.MenuGroupSummary`. If a custom element is
      * rendered, it should be a `<summary>` element.
      */
-    summary: ReactNode
+    summary: ReactNode;
   }
 }
 
 /**
  * @deprecated Use `SideBarMenuGroup.Props` instead
  */
-export type SideBarMenuGroupProps = SideBarMenuGroup.Props
+export type SideBarMenuGroupProps = SideBarMenuGroup.Props;
 
 /**
  * A menu group that can contain a submenu of items for use in a `SideBar`. The group leverages a `<details>`
@@ -59,16 +59,16 @@ export type SideBarMenuGroupProps = SideBarMenuGroup.Props
  * the menu group does not handle any of this itself.
  */
 export function SideBarMenuGroup({
-  'aria-labelledby': ariaLabelledBy,
+  "aria-labelledby": ariaLabelledBy,
   children,
   className,
   isActive,
   summary,
   ...rest
 }: SideBarMenuGroup.Props) {
-  const labelId = ariaLabelledBy ?? useId()
-  const sideBar = useSideBarContext()
-  const ref = useSideBarMenuGroupController(sideBar.state)
+  const labelId = ariaLabelledBy ?? useId();
+  const sideBar = useSideBarContext();
+  const ref = useSideBarMenuGroupController(sideBar.state);
   return (
     <details
       {...rest}
@@ -77,10 +77,12 @@ export function SideBarMenuGroup({
       data-is-active={isActive}
       ref={ref}
     >
-      <SideBarMenuGroupLabelIdContext.Provider value={labelId}>{summary}</SideBarMenuGroupLabelIdContext.Provider>
+      <SideBarMenuGroupLabelIdContext.Provider value={labelId}>
+        {summary}
+      </SideBarMenuGroupLabelIdContext.Provider>
       {children}
     </details>
-  )
+  );
 }
 
-SideBarMenuGroup.Summary = SideBarMenuGroupSummary
+SideBarMenuGroup.Summary = SideBarMenuGroupSummary;

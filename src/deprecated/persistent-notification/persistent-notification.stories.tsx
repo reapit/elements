@@ -1,30 +1,32 @@
-import preview from '#.storybook/preview'
-import { useState } from 'react'
-import { PersistentNotification } from './index'
+import { useState } from "react";
+
+import preview from "#.storybook/preview";
+
+import { PersistentNotification } from "./index";
 
 const meta = preview.meta({
-  title: 'Deprecated/PersistentNotification',
+  title: "Deprecated/PersistentNotification",
   component: PersistentNotification,
-})
+});
 
-export default meta
+export default meta;
 
 export const FullReactExampleFixedPosition = meta.story({
   render: () => {
-    const [isExpanded, setIsExpanded] = useState(false)
+    const [isExpanded, setIsExpanded] = useState(false);
 
     return (
       <>
         <PersistentNotification isExpanded={isExpanded} onExpansionToggle={setIsExpanded} isFixed>
-          Here is a persistent notification. Here is more content. Here is more content. Here is more content. Here is
-          more content. Here is more content.
+          Here is a persistent notification. Here is more content. Here is more content. Here is
+          more content. Here is more content. Here is more content.
         </PersistentNotification>
       </>
-    )
+    );
   },
 
-  name: 'Full React example (fixed position)',
-})
+  name: "Full React example (fixed position)",
+});
 
 export const DefaultUsageInline = meta.story({
   render: () => (
@@ -32,16 +34,17 @@ export const DefaultUsageInline = meta.story({
       Here is a persistent notification
     </PersistentNotification>
   ),
-})
+});
 
 export const WithADifferentIcon = meta.story({
   render: () => (
     <PersistentNotification isExpanded isInline icon="warning" intent="warning">
-      Here&apos;s some infomation about the thing you should be warned about, so bad things don&apos;t happen.
+      Here&apos;s some infomation about the thing you should be warned about, so bad things
+      don&apos;t happen.
     </PersistentNotification>
   ),
-  name: 'With a different icon',
-})
+  name: "With a different icon",
+});
 
 export const InlineNotifcationIntentPrimary = meta.story({
   render: () => (
@@ -49,8 +52,8 @@ export const InlineNotifcationIntentPrimary = meta.story({
       Here&apos;s an inline full width notification with a primary intent.
     </PersistentNotification>
   ),
-  name: 'Inline notifcation, intent: primary',
-})
+  name: "Inline notifcation, intent: primary",
+});
 
 export const InlineNotifcationIntentNeutral = meta.story({
   render: () => (
@@ -58,8 +61,8 @@ export const InlineNotifcationIntentNeutral = meta.story({
       Here&apos;s an inline full width notification with a neutral intent.
     </PersistentNotification>
   ),
-  name: 'Inline notifcation, intent: neutral',
-})
+  name: "Inline notifcation, intent: neutral",
+});
 
 export const InlineNotifcationIntentSuccess = meta.story({
   render: () => (
@@ -67,8 +70,8 @@ export const InlineNotifcationIntentSuccess = meta.story({
       Here&apos;s an inline full width notification with a success intent.
     </PersistentNotification>
   ),
-  name: 'Inline notifcation, intent: success',
-})
+  name: "Inline notifcation, intent: success",
+});
 
 export const InlineNotifcationIntentPending = meta.story({
   render: () => (
@@ -76,8 +79,8 @@ export const InlineNotifcationIntentPending = meta.story({
       Here&apos;s an inline full width notification with a pending intent.
     </PersistentNotification>
   ),
-  name: 'Inline notifcation, intent: pending',
-})
+  name: "Inline notifcation, intent: pending",
+});
 
 export const InlineNotifcationIntentWarning = meta.story({
   render: () => (
@@ -85,8 +88,8 @@ export const InlineNotifcationIntentWarning = meta.story({
       Here&apos;s an inline full width notification with a warning intent.
     </PersistentNotification>
   ),
-  name: 'Inline notifcation, intent: warning',
-})
+  name: "Inline notifcation, intent: warning",
+});
 
 export const InlineNotifcationIntentDanger = meta.story({
   render: () => (
@@ -94,8 +97,8 @@ export const InlineNotifcationIntentDanger = meta.story({
       Here&apos;s an inline full width notification with a danger intent.
     </PersistentNotification>
   ),
-  name: 'Inline notifcation, intent: danger',
-})
+  name: "Inline notifcation, intent: danger",
+});
 
 export const InlineNotifcationIntentDefault = meta.story({
   render: () => (
@@ -103,5 +106,5 @@ export const InlineNotifcationIntentDefault = meta.story({
       Here&apos;s an inline full width notification with a default intent.
     </PersistentNotification>
   ),
-  name: 'Inline notifcation, intent: default',
-})
+  name: "Inline notifcation, intent: default",
+});

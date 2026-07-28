@@ -1,5 +1,6 @@
-import { SourceFile } from 'ts-morph'
-import { createProjectFromSource, getImportAliases, getJsxElements } from '../shared/index.js'
+import { SourceFile } from "ts-morph";
+
+import { createProjectFromSource, getImportAliases, getJsxElements } from "../shared/index.js";
 
 /**
  * Codemod to add fieldSizing="manual" to Textarea components missing the prop.
@@ -29,39 +30,39 @@ import { createProjectFromSource, getImportAliases, getJsxElements } from '../sh
  * a fieldSizing prop.
  */
 function addFieldSizingProp(sourceFile: SourceFile, textareaAliases: Set<string>): void {
-  const jsxElements = getJsxElements(sourceFile, textareaAliases)
+  const jsxElements = getJsxElements(sourceFile, textareaAliases);
 
   for (const element of jsxElements) {
     // Skip if fieldSizing is already set (any value)
-    if (element.getAttribute('fieldSizing')) continue
+    if (element.getAttribute("fieldSizing")) continue;
 
     element.addAttribute({
-      name: 'fieldSizing',
+      name: "fieldSizing",
       initializer: '"manual"',
-    })
+    });
   }
 }
 
 export default function transform(
   source: string,
-  filePath: string = 'file.tsx',
+  filePath: string = "file.tsx",
   options?: { facadePackage?: string },
 ): string {
   // Early return if the file does not contain Textarea (performance optimisation)
-  if (!source.includes('Textarea')) {
-    return source
+  if (!source.includes("Textarea")) {
+    return source;
   }
 
-  const sourceFile = createProjectFromSource(source, filePath)
+  const sourceFile = createProjectFromSource(source, filePath);
 
-  const textareaAliases = getImportAliases(sourceFile, 'Textarea', options?.facadePackage)
+  const textareaAliases = getImportAliases(sourceFile, "Textarea", options?.facadePackage);
 
   // Nothing to do if Textarea is not imported from a recognised package
   if (textareaAliases.size === 0) {
-    return source
+    return source;
   }
 
-  addFieldSizingProp(sourceFile, textareaAliases)
+  addFieldSizingProp(sourceFile, textareaAliases);
 
-  return sourceFile.getFullText()
+  return sourceFile.getFullText();
 }

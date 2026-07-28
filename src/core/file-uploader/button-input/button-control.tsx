@@ -1,17 +1,18 @@
-import { FileUploaderButtonInput } from './button-input'
-import { FormControl } from '#src/core/form-control'
-import { useId } from 'react'
+import { useId } from "react";
+import type { ReactNode } from "react";
 
-import type { ReactNode } from 'react'
+import { FormControl } from "#src/core/form-control";
+
+import { FileUploaderButtonInput } from "./button-input";
 
 export namespace FileUploaderButtonControl {
   export interface Props extends FileUploaderButtonInput.Props {
     /** Error text that communicates why the uploader's value is invalid. */
-    errorText?: ReactNode
+    errorText?: ReactNode;
     /** Optional help text that provides more context about the uploader. */
-    helpText?: ReactNode
+    helpText?: ReactNode;
     /** The visual label for the uploader. If no visual label is provided, an accessible label should be provided via `aria-label`. */
-    label?: ReactNode
+    label?: ReactNode;
   }
 }
 
@@ -26,13 +27,13 @@ export function FileUploaderButtonControl({
   label,
   required,
   showValidity,
-  size = 'medium',
+  size = "medium",
   ...rest
 }: FileUploaderButtonControl.Props) {
-  const fallbackId = useId()
-  const inputId = id ?? fallbackId
-  const helpTextId = useId()
-  const errorTextId = useId()
+  const fallbackId = useId();
+  const inputId = id ?? fallbackId;
+  const helpTextId = useId();
+  const errorTextId = useId();
 
   return (
     <FormControl as="div" size={size}>
@@ -57,7 +58,7 @@ export function FileUploaderButtonControl({
         helpText && <FormControl.HelpText id={helpTextId}>{helpText}</FormControl.HelpText>
       )}
     </FormControl>
-  )
+  );
 }
 
-FileUploaderButtonControl.displayName = 'FileUploader.ButtonControl'
+FileUploaderButtonControl.displayName = "FileUploader.ButtonControl";

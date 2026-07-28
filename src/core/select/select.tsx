@@ -1,6 +1,7 @@
-import { SelectButton } from './select-button'
-import { SelectPopup } from './select-popup'
-import { Combobox } from '#src/utils/combobox'
+import { Combobox } from "#src/utils/combobox";
+
+import { SelectButton } from "./select-button";
+import { SelectPopup } from "./select-popup";
 
 export namespace Select {
   export interface ButtonProps extends SelectButton.Props {}
@@ -22,21 +23,21 @@ export namespace Select {
  * The select component allows users to pick one or more options from a preloaded list.
  */
 export function Select(props: Select.Props) {
-  return <Combobox {...props} />
+  return <Combobox {...props} />;
 }
 
-Select.getValue = Combobox.getListboxValue
-Select.getListboxId = Combobox.getListboxId
-Select.getPopupId = Combobox.getPopupId
-Select.Button = SelectButton
-Select.CardDefaultContent = Combobox.CardDefaultContent
-Select.DefaultOptionsContext = Combobox.DefaultOptionsContext
-Select.Divider = Combobox.Divider
-Select.Listbox = Combobox.Listbox
-Select.Option = Combobox.Option
-Select.OptionAdditionalInfo = Combobox.OptionAdditionalInfo
-Select.Optgroup = Combobox.Optgroup
-Select.Popup = SelectPopup
-Select.SelectionChips = Combobox.SelectionChips
-Select.SelectionChipsItem = Combobox.SelectionChipsItem
-Select.useState = Combobox.useState
+Select.getValue = Combobox.getListboxValue;
+Select.getListboxId = Combobox.getListboxId;
+Select.getPopupId = Combobox.getPopupId;
+Select.Button = SelectButton;
+Select.CardDefaultContent = Combobox.CardDefaultContent;
+Select.DefaultOptionsContext = Combobox.DefaultOptionsContext;
+Select.Divider = Combobox.Divider;
+Select.Listbox = Combobox.Listbox;
+Select.Option = Combobox.Option;
+Select.OptionAdditionalInfo = Combobox.OptionAdditionalInfo;
+Select.Optgroup = Combobox.Optgroup;
+Select.Popup = SelectPopup;
+Select.SelectionChips = Combobox.SelectionChips;
+Select.SelectionChipsItem = Combobox.SelectionChipsItem;
+Select.useState = Combobox.useState;

@@ -1,11 +1,12 @@
-import preview from '#.storybook/preview'
-import { Menu } from '#src/core/menu'
-import { Table } from '../table'
+import preview from "#.storybook/preview";
+import { Menu } from "#src/core/menu";
 
-const href = '#'
+import { Table } from "../table";
+
+const href = "#";
 
 const meta = preview.meta({
-  title: 'Data and tables/Table/MoreActions',
+  title: "Data and tables/Table/MoreActions",
   component: Table.MoreActions,
   argTypes: {
     children: {
@@ -13,14 +14,14 @@ const meta = preview.meta({
     },
   },
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
-})
+});
 
 export const Example = meta.story({
   args: {
-    'aria-disabled': false,
-    'aria-label': 'More actions for Mary Jane',
+    "aria-disabled": false,
+    "aria-label": "More actions for Mary Jane",
     children: (
       <>
         <Menu.Item>Action 1</Menu.Item>
@@ -29,7 +30,7 @@ export const Example = meta.story({
     ),
     disabled: false,
   },
-})
+});
 
 /**
  * Disabling of the more actions button should generally be avoided as it prevents the menu's actions
@@ -45,7 +46,7 @@ export const Disabled = Example.extend({
   args: {
     disabled: true,
   },
-})
+});
 
 /**
  * One of the key features of `Table.MoreActions` is that it ensures the trigger button is layered above
@@ -60,11 +61,11 @@ export const Layering = Example.extend({
     (Story) => (
       <div
         style={{
-          position: 'relative',
-          boxSizing: 'content-box',
-          border: '1px solid #FA00FF',
-          display: 'flex',
-          justifyContent: 'space-between',
+          position: "relative",
+          boxSizing: "content-box",
+          border: "1px solid #FA00FF",
+          display: "flex",
+          justifyContent: "space-between",
         }}
       >
         <Table.PrimaryAction href={href}>Primary action</Table.PrimaryAction>
@@ -74,6 +75,6 @@ export const Layering = Example.extend({
   ],
 
   parameters: {
-    layout: 'padded',
+    layout: "padded",
   },
-})
+});

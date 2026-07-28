@@ -1,28 +1,29 @@
-import preview from '#.storybook/preview'
-import { TopBarMenuDrawerSubmenuItem } from './submenu-item'
+import preview from "#.storybook/preview";
+
+import { TopBarMenuDrawerSubmenuItem } from "./submenu-item";
 
 const meta = preview.meta({
-  title: 'Navigation/TopBar/MenuDrawer/SubmenuItem',
+  title: "Navigation/TopBar/MenuDrawer/SubmenuItem",
   component: TopBarMenuDrawerSubmenuItem,
-})
+});
 
 export const Example = meta.story({
   args: {
-    'aria-current': false,
-    children: 'Profile',
+    "aria-current": false,
+    children: "Profile",
     hasBadge: false,
-    href: '/settings/profile',
+    href: "/settings/profile",
   },
-})
+});
 
 /**
  * If the submenu item represents the current page, `aria-current` should be provided.
  */
 export const Selected = Example.extend({
   args: {
-    'aria-current': 'page',
+    "aria-current": "page",
   },
-})
+});
 
 /**
  * A notification badge can be displayed using `hasBadge`.
@@ -31,7 +32,7 @@ export const Badge = Example.extend({
   args: {
     hasBadge: true,
   },
-})
+});
 
 /**
  * Submenu items should have concise labels. In cases where the label is too long, it will truncate.
@@ -39,13 +40,13 @@ export const Badge = Example.extend({
  */
 export const Truncation = Example.extend({
   args: {
-    children: 'All your base are belong to me',
+    children: "All your base are belong to me",
   },
   decorators: [
     (Story) => (
-      <div style={{ border: '1px solid #FA00FF', width: '200px' }}>
+      <div style={{ border: "1px solid #FA00FF", width: "200px" }}>
         <Story />
       </div>
     ),
   ],
-})
+});

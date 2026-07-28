@@ -1,5 +1,6 @@
-import { ElMainContainer, ElMainContainerContent } from './styles'
-import type { HTMLAttributes } from 'react'
+import type { HTMLAttributes } from "react";
+
+import { ElMainContainer, ElMainContainerContent } from "./styles";
 
 export namespace MainContainer {
   export interface Props extends HTMLAttributes<HTMLElement> {
@@ -8,22 +9,22 @@ export namespace MainContainer {
      * layouts will likely want to use different sectioning elements per column (e.g. article
      * vs aside).
      */
-    as?: 'article' | 'aside' | 'div' | 'section'
+    as?: "article" | "aside" | "div" | "section";
     /** The main container's background colour. */
-    backgroundColour?: `--colour-fill-${string}`
+    backgroundColour?: `--colour-fill-${string}`;
     /** Removes bottom padding. */
-    hasNoBottomPadding?: boolean
+    hasNoBottomPadding?: boolean;
     /** Removes top padding. */
-    hasNoTopPadding?: boolean
+    hasNoTopPadding?: boolean;
     /** The size of the main container. */
-    size: 'fluid' | 'wide' | 'narrow'
+    size: "fluid" | "wide" | "narrow";
     /** The layout template to apply to the main container's content. */
     template?:
-      | 'single-column'
-      | 'two-columns-symmetrical'
-      | 'two-columns-asymmetrical-start'
-      | 'two-columns-asymmetrical-end'
-      | 'three-columns'
+      | "single-column"
+      | "two-columns-symmetrical"
+      | "two-columns-asymmetrical-start"
+      | "two-columns-asymmetrical-end"
+      | "three-columns";
   }
 }
 
@@ -36,14 +37,14 @@ export namespace MainContainer {
  * example, wide with a fluid section, or two columns and three columns.
  */
 export function MainContainer({
-  as = 'div',
+  as = "div",
   backgroundColour,
   children,
   hasNoBottomPadding = false,
   hasNoTopPadding = false,
-  size = 'fluid',
+  size = "fluid",
   style,
-  template = 'single-column',
+  template = "single-column",
   ...rest
 }: MainContainer.Props) {
   return (
@@ -61,5 +62,5 @@ export function MainContainer({
         {children}
       </ElMainContainerContent>
     </ElMainContainer>
-  )
+  );
 }

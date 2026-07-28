@@ -21,7 +21,7 @@
  * matchesPackage('@company/ui-v2', '@company/ui') // false
  */
 export function matchesPackage(moduleSpecifier: string, packageName: string): boolean {
-  return moduleSpecifier === packageName || moduleSpecifier.startsWith(packageName + '/')
+  return moduleSpecifier === packageName || moduleSpecifier.startsWith(packageName + "/");
 }
 
 /**
@@ -30,7 +30,7 @@ export function matchesPackage(moduleSpecifier: string, packageName: string): bo
  */
 export function isElementsImport(moduleSpecifier: string, facadePackage?: string): boolean {
   return (
-    matchesPackage(moduleSpecifier, '@reapit/elements') ||
+    matchesPackage(moduleSpecifier, "@reapit/elements") ||
     (facadePackage !== undefined && matchesPackage(moduleSpecifier, facadePackage))
-  )
+  );
 }

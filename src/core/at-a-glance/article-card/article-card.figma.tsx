@@ -1,25 +1,26 @@
-import { AtAGlance } from '../at-a-glance'
-import figma from '@figma/code-connect'
+import figma from "@figma/code-connect";
 
-figma.connect(AtAGlance.ArticleCard, '<AT_A_GLANCE_CARD_URL>', {
-  variant: { Variant: 'Simple' },
+import { AtAGlance } from "../at-a-glance";
+
+figma.connect(AtAGlance.ArticleCard, "<AT_A_GLANCE_CARD_URL>", {
+  variant: { Variant: "Simple" },
   props: {
-    content: figma.nestedProps('AAG card content', {
-      icon: figma.boolean('Show icon', {
-        true: figma.instance('Icon'),
+    content: figma.nestedProps("AAG card content", {
+      icon: figma.boolean("Show icon", {
+        true: figma.instance("Icon"),
         false: undefined,
       }),
-      description: figma.boolean('Show description', {
-        true: figma.string('Description'),
+      description: figma.boolean("Show description", {
+        true: figma.string("Description"),
         false: undefined,
       }),
-      label: figma.string('Label'),
-      layout: figma.enum('Layout', {
-        Vertical: 'vertical',
-        Horizontal: 'horizontal',
-        Compact: 'compact',
+      label: figma.string("Label"),
+      layout: figma.enum("Layout", {
+        Vertical: "vertical",
+        Horizontal: "horizontal",
+        Compact: "compact",
       }),
-      displayValue: figma.string('Value'),
+      displayValue: figma.string("Value"),
     }),
   },
   example: (props) => (
@@ -33,31 +34,31 @@ figma.connect(AtAGlance.ArticleCard, '<AT_A_GLANCE_CARD_URL>', {
       />
     </AtAGlance.GridItem>
   ),
-})
+});
 
 //
 // Deprecated Figma component support.
 //
 
-figma.connect(AtAGlance.ArticleCard, '<AT_A_GLANCE_CARD_URL_DEPRECATED>', {
-  variant: { Variant: 'Simple' },
+figma.connect(AtAGlance.ArticleCard, "<AT_A_GLANCE_CARD_URL_DEPRECATED>", {
+  variant: { Variant: "Simple" },
   props: {
-    content: figma.nestedProps('AAG card content', {
-      icon: figma.boolean('Show icon', {
-        true: figma.instance('Icon'),
+    content: figma.nestedProps("AAG card content", {
+      icon: figma.boolean("Show icon", {
+        true: figma.instance("Icon"),
         false: undefined,
       }),
-      description: figma.boolean('Show description', {
-        true: figma.string('Description'),
+      description: figma.boolean("Show description", {
+        true: figma.string("Description"),
         false: undefined,
       }),
-      label: figma.string('Label'),
-      layout: figma.enum('Layout', {
-        Vertical: 'vertical',
-        Horizontal: 'horizontal',
-        Compact: 'compact',
+      label: figma.string("Label"),
+      layout: figma.enum("Layout", {
+        Vertical: "vertical",
+        Horizontal: "horizontal",
+        Compact: "compact",
       }),
-      displayValue: figma.string('Value'),
+      displayValue: figma.string("Value"),
     }),
   },
   example: (props) => (
@@ -71,4 +72,4 @@ figma.connect(AtAGlance.ArticleCard, '<AT_A_GLANCE_CARD_URL_DEPRECATED>', {
       />
     </AtAGlance.GridItem>
   ),
-})
+});

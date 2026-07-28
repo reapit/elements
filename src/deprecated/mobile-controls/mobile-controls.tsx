@@ -1,43 +1,54 @@
-import React, { Dispatch, FC, HTMLAttributes, MouseEvent, ReactNode, SetStateAction, useState, useId } from 'react'
+import { cx } from "@linaria/core";
+import React, {
+  Dispatch,
+  FC,
+  HTMLAttributes,
+  MouseEvent,
+  ReactNode,
+  SetStateAction,
+  useState,
+  useId,
+} from "react";
+
+import { Button } from "#src/core/button";
+import { MenuIcon } from "#src/icons/menu";
+
+import { elIsActive } from "../../styles/deprecated-states";
 import {
   ElMobileControlItem,
   ElMobileControls,
   ElMobileControlsBg,
   elMobileControlsVisible,
   elMobileControlsFloatingButton,
-} from './__styles__'
-import { MenuIcon } from '#src/icons/menu'
-import { cx } from '@linaria/core'
-import { elIsActive } from '../../styles/deprecated-states'
-import { Button } from '#src/core/button'
+} from "./__styles__";
 
 /** @deprecated */
 export interface MobileControlItem extends HTMLAttributes<HTMLAnchorElement> {
-  onClick?: () => void
-  label?: string
+  onClick?: () => void;
+  label?: string;
 }
 
 /** @deprecated */
 export interface MobileControlsProps extends HTMLAttributes<HTMLDivElement> {
-  buttonIcon?: ReactNode
-  buttonOnClick?: () => void
-  mobileControlItems?: MobileControlItem[]
-  isVisible?: boolean
+  buttonIcon?: ReactNode;
+  buttonOnClick?: () => void;
+  mobileControlItems?: MobileControlItem[];
+  isVisible?: boolean;
 }
 
 /** @deprecated */
 export const clickEventHandler =
   (setActive: Dispatch<SetStateAction<boolean>>, onClick?: () => void) =>
   (event: MouseEvent<HTMLAnchorElement | HTMLDivElement>) => {
-    event?.preventDefault()
-    event?.stopPropagation()
+    event?.preventDefault();
+    event?.stopPropagation();
 
-    setActive((active) => !active)
+    setActive((active) => !active);
 
     if (onClick) {
-      onClick()
+      onClick();
     }
-  }
+  };
 
 /** @deprecated */
 export const MobileControls: FC<MobileControlsProps> = ({
@@ -47,8 +58,8 @@ export const MobileControls: FC<MobileControlsProps> = ({
   isVisible,
   ...rest
 }) => {
-  const [active, setActive] = useState<boolean>(false)
-  const id = rest.id || useId()
+  const [active, setActive] = useState<boolean>(false);
+  const id = rest.id || useId();
 
   return (
     <>
@@ -83,5 +94,5 @@ export const MobileControls: FC<MobileControlsProps> = ({
         />
       </ElMobileControls>
     </>
-  )
-}
+  );
+};

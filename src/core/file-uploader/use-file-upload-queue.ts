@@ -1,5 +1,6 @@
-import { FileUploadQueue } from './file-upload-queue'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef } from "react";
+
+import { FileUploadQueue } from "./file-upload-queue";
 
 /**
  * Creates a `FileUploadQueue` scoped to the calling component, and destroys it on unmount,
@@ -12,9 +13,9 @@ import { useEffect, useRef } from 'react'
 export function useFileUploadQueue<TResult = string>(
   options: FileUploadQueue.Options<TResult>,
 ): FileUploadQueue<TResult> {
-  const queue = useRef(new FileUploadQueue<TResult>(options)).current
+  const queue = useRef(new FileUploadQueue<TResult>(options)).current;
 
-  useEffect(() => () => queue.destroy(), [queue])
+  useEffect(() => () => queue.destroy(), [queue]);
 
-  return queue
+  return queue;
 }

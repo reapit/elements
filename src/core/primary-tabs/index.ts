@@ -1,1 +1,1 @@
-export { PrimaryTabs } from './primary-tabs'
+export { PrimaryTabs } from "./primary-tabs";

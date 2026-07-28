@@ -1,15 +1,16 @@
-import preview from '#.storybook/preview'
-import { Features } from '../features'
+import preview from "#.storybook/preview";
+
+import { Features } from "../features";
 
 const meta = preview.meta({
-  title: 'Content display/Features/LandSize',
+  title: "Content display/Features/LandSize",
   component: Features.LandSize,
   argTypes: {
     value: {
       control: false,
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
@@ -19,4 +20,4 @@ export const Example = meta.story({
       </>
     ),
   },
-})
+});

@@ -1,4 +1,4 @@
-import SkipSvg from './svgs/skip.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import SkipSvg from "./svgs/skip.svg?react";
 
-export const SkipIcon = makeIcon('SkipIcon', SkipSvg)
+export const SkipIcon = makeIcon("SkipIcon", SkipSvg);

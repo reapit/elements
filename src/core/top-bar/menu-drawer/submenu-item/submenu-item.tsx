@@ -1,27 +1,27 @@
-import { cx } from '@linaria/core'
-import { elTopBarMenuDrawerSubmenuItem } from './styles'
-import { TopBarMenuDrawerSubmenuItemBase } from './submenu-item-base'
+import { cx } from "@linaria/core";
+import type { AnchorHTMLAttributes, ReactNode } from "react";
 
-import type { AnchorHTMLAttributes, ReactNode } from 'react'
+import { elTopBarMenuDrawerSubmenuItem } from "./styles";
+import { TopBarMenuDrawerSubmenuItemBase } from "./submenu-item-base";
 
 export namespace TopBarMenuDrawerSubmenuItem {
-  export interface Props extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'aria-current'> {
+  export interface Props extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "aria-current"> {
     /**
      * When the item represents the current page, `aria-current="page"` should be supplied.
      */
-    'aria-current': 'page' | false
+    "aria-current": "page" | false;
     /**
      * The label of the menu item.
      */
-    children: ReactNode
+    children: ReactNode;
     /**
      * Whether the menu item has a notification badge.
      */
-    hasBadge?: boolean
+    hasBadge?: boolean;
     /**
      * The URL to navigate to when this item is activated.
      */
-    href: string
+    href: string;
   }
 }
 
@@ -32,15 +32,21 @@ export namespace TopBarMenuDrawerSubmenuItem {
  * as it wraps the anchor element in a list item (`<li>`) to ensure good semantics and accessibility.
  */
 export function TopBarMenuDrawerSubmenuItem({
-  'aria-current': ariaCurrent,
+  "aria-current": ariaCurrent,
   children,
   className,
   hasBadge,
   ...rest
 }: TopBarMenuDrawerSubmenuItem.Props) {
   return (
-    <a {...rest} aria-current={ariaCurrent} className={cx(elTopBarMenuDrawerSubmenuItem, className)}>
-      <TopBarMenuDrawerSubmenuItemBase hasBadge={hasBadge}>{children}</TopBarMenuDrawerSubmenuItemBase>
+    <a
+      {...rest}
+      aria-current={ariaCurrent}
+      className={cx(elTopBarMenuDrawerSubmenuItem, className)}
+    >
+      <TopBarMenuDrawerSubmenuItemBase hasBadge={hasBadge}>
+        {children}
+      </TopBarMenuDrawerSubmenuItemBase>
     </a>
-  )
+  );
 }

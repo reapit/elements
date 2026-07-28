@@ -1,28 +1,29 @@
-import preview from '#.storybook/preview'
-import { CheckboxGroupControl } from './checkbox-group-control'
+import preview from "#.storybook/preview";
+
+import { CheckboxGroupControl } from "./checkbox-group-control";
 
 const meta = preview.meta({
-  title: 'Input and selection/CheckboxGroupControl',
+  title: "Input and selection/CheckboxGroupControl",
   component: CheckboxGroupControl,
   argTypes: {
     children: {
       control: false,
     },
     orientation: {
-      control: 'radio',
-      options: ['vertical', 'horizontal'],
+      control: "radio",
+      options: ["vertical", "horizontal"],
     },
     disabled: {
-      control: 'boolean',
+      control: "boolean",
     },
     required: {
-      control: 'boolean',
+      control: "boolean",
     },
     showValidity: {
-      control: 'boolean',
+      control: "boolean",
     },
   },
-})
+});
 
 /**
  * By default, the checkbox group will stack each option vertically.
@@ -35,15 +36,15 @@ export const Example = meta.story({
       <CheckboxGroupControl.Option key="option3" label="Option 3" value="option3" />,
     ],
     disabled: false,
-    errorText: '',
-    helpText: '',
-    label: 'Group label',
-    name: 'options',
-    orientation: 'vertical',
+    errorText: "",
+    helpText: "",
+    label: "Group label",
+    name: "options",
+    orientation: "vertical",
     required: false,
     showValidity: undefined,
   },
-})
+});
 
 /**
  * A horizontal orientation is also available. In this orientation, options should not have any
@@ -52,18 +53,18 @@ export const Example = meta.story({
  */
 export const Horizontal = Example.extend({
   args: {
-    orientation: 'horizontal',
+    orientation: "horizontal",
   },
-})
+});
 
 /**
  * Help text can be provided to communicate additional context about the options.
  */
 export const HelpText = Example.extend({
   args: {
-    helpText: 'Help text',
+    helpText: "Help text",
   },
-})
+});
 
 /**
  * All checkboxes in the group can be marked as required by setting the `required` prop on the group. This
@@ -81,7 +82,7 @@ export const Required = Example.extend({
     required: true,
     showValidity: false,
   },
-})
+});
 
 /**
  * When a validation constraint has not been met, an error message can be displayed. The error message
@@ -92,12 +93,12 @@ export const Required = Example.extend({
  */
 export const Invalid = Example.extend({
   args: {
-    errorText: 'Error message',
-    helpText: 'Help text',
+    errorText: "Error message",
+    helpText: "Help text",
     required: true,
     showValidity: true,
   },
-})
+});
 
 /**
  * All checkboxes in the group can be disabled by setting the `disabled` prop on the group. This is useful
@@ -109,4 +110,4 @@ export const Disabled = Example.extend({
   args: {
     disabled: true,
   },
-})
+});

@@ -1,13 +1,19 @@
-import preview from '#.storybook/preview'
-import { DeprecatedMainContainer, PageContainer, SecondaryNavContainer, FlexContainer } from './index'
-import { GridDemoBlock } from '../../storybook/demo-block'
-import { Grid, Col } from '../grid'
+import preview from "#.storybook/preview";
+
+import { GridDemoBlock } from "../../storybook/demo-block";
+import { Grid, Col } from "../grid";
+import {
+  DeprecatedMainContainer,
+  PageContainer,
+  SecondaryNavContainer,
+  FlexContainer,
+} from "./index";
 
 const meta = preview.meta({
-  title: 'Deprecated/Layouts',
-})
+  title: "Deprecated/Layouts",
+});
 
-export default meta
+export default meta;
 
 export const MainContainerUsage = meta.story({
   render: () => (
@@ -19,7 +25,7 @@ export const MainContainerUsage = meta.story({
       </FlexContainer>
     </DeprecatedMainContainer>
   ),
-})
+});
 
 export const SecondaryNavContainerUsage = meta.story({
   render: () => (
@@ -27,7 +33,7 @@ export const SecondaryNavContainerUsage = meta.story({
       <GridDemoBlock />
     </SecondaryNavContainer>
   ),
-})
+});
 
 export const PageContainerUsage = meta.story({
   render: () => (
@@ -60,7 +66,7 @@ export const PageContainerUsage = meta.story({
       </Grid>
     </PageContainer>
   ),
-})
+});
 
 export const PageContainerMaxWidth = meta.story({
   render: () => (
@@ -68,7 +74,7 @@ export const PageContainerMaxWidth = meta.story({
       <GridDemoBlock />
     </PageContainer>
   ),
-})
+});
 
 export const HasGreyBackground = meta.story({
   render: () => (
@@ -76,7 +82,7 @@ export const HasGreyBackground = meta.story({
       <GridDemoBlock />
     </PageContainer>
   ),
-})
+});
 
 export const FlexContainerUsage = meta.story({
   render: () => (
@@ -85,16 +91,18 @@ export const FlexContainerUsage = meta.story({
       <GridDemoBlock />
     </FlexContainer>
   ),
-})
+});
 
 export const TaggedLayouts = meta.story({
   render: () => (
     <>
       <DeprecatedMainContainer tag="main">
         <FlexContainer tag="section" isFlexGrow1>
-          <PageContainer tag="aside">These containers all have semanitic tags I passed as a prop</PageContainer>
+          <PageContainer tag="aside">
+            These containers all have semanitic tags I passed as a prop
+          </PageContainer>
         </FlexContainer>
       </DeprecatedMainContainer>
     </>
   ),
-})
+});

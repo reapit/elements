@@ -1,11 +1,11 @@
-import { css } from '@linaria/core'
+import { css } from "@linaria/core";
 
-const BACKDROP_DURATION = '100ms'
-const DIALOG_DURATION = '200ms'
-const TOTAL_DURATION = '300ms'
+const BACKDROP_DURATION = "100ms";
+const DIALOG_DURATION = "200ms";
+const TOTAL_DURATION = "300ms";
 
-const BACKDROP_OUT_DELAY = DIALOG_DURATION
-const DIALOG_IN_DELAY = BACKDROP_DURATION
+const BACKDROP_OUT_DELAY = DIALOG_DURATION;
+const DIALOG_IN_DELAY = BACKDROP_DURATION;
 
 export const elDialog = css`
   @layer elements.main {
@@ -26,26 +26,26 @@ export const elDialog = css`
       outline-offset: var(--border-width-default);
     }
 
-    &[data-size='small'] {
+    &[data-size="small"] {
       width: 320px;
     }
 
-    &[data-size='medium'] {
+    &[data-size="medium"] {
       width: 480px;
     }
 
-    &[data-size='large'] {
+    &[data-size="large"] {
       width: 640px;
     }
 
-    &[data-size='small'],
-    &[data-size='medium'],
-    &[data-size='large'] {
+    &[data-size="small"],
+    &[data-size="medium"],
+    &[data-size="large"] {
       max-height: 85svh;
       max-width: 85svw;
     }
 
-    &[data-size='full-screen'] {
+    &[data-size="full-screen"] {
       border-radius: 0;
       max-height: 100svh;
       max-width: 100svw;
@@ -58,9 +58,9 @@ export const elDialog = css`
        * closed, it will override the browser's default "display: none" behaviour for closed dialog elements. */
       display: grid;
       grid-template:
-        'header' min-content
-        'body' min-content
-        'footer' min-content / 100%;
+        "header" min-content
+        "body" min-content
+        "footer" min-content / 100%;
 
       &::backdrop {
         background-color: var(--overlay-50);
@@ -114,4 +114,4 @@ export const elDialog = css`
       }
     }
   }
-`
+`;

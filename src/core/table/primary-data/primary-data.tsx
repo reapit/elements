@@ -1,10 +1,10 @@
+import type { HTMLAttributes, ReactNode } from "react";
+
 import {
   ElTableCellPrimaryData,
   ElTableCellPrimaryDataContentContainer,
   ElTableCellPrimaryDataIconContainer,
-} from './styles'
-
-import type { HTMLAttributes, ReactNode } from 'react'
+} from "./styles";
 
 export namespace TableCellPrimaryData {
   export interface Props extends HTMLAttributes<HTMLDivElement> {
@@ -12,11 +12,11 @@ export namespace TableCellPrimaryData {
      * The primary data being displayed in the table cell. Typically used with alphanumeric
      * information like addresses, dates, times, and names.
      */
-    children: ReactNode
+    children: ReactNode;
     /** The leading icon displayed before the content. */
-    iconLeft?: ReactNode
+    iconLeft?: ReactNode;
     /** The trailing icon displayed after the content. */
-    iconRight?: ReactNode
+    iconRight?: ReactNode;
   }
 }
 
@@ -26,7 +26,12 @@ export namespace TableCellPrimaryData {
  * cell's primary data. It ensures the icons remain visible even when there is insufficient
  * space for the content. Typically used via `Table.PrimaryData`.
  */
-export function TableCellPrimaryData({ children, iconLeft, iconRight, ...rest }: TableCellPrimaryData.Props) {
+export function TableCellPrimaryData({
+  children,
+  iconLeft,
+  iconRight,
+  ...rest
+}: TableCellPrimaryData.Props) {
   return (
     <ElTableCellPrimaryData {...rest}>
       {iconLeft && (
@@ -44,10 +49,10 @@ export function TableCellPrimaryData({ children, iconLeft, iconRight, ...rest }:
         </ElTableCellPrimaryDataIconContainer>
       )}
     </ElTableCellPrimaryData>
-  )
+  );
 }
 
-TableCellPrimaryData.displayName = 'Table.PrimaryData'
+TableCellPrimaryData.displayName = "Table.PrimaryData";
 
 // Backward compatibility
-export type TableCellPrimaryDataProps = TableCellPrimaryData.Props
+export type TableCellPrimaryDataProps = TableCellPrimaryData.Props;

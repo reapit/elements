@@ -1,4 +1,5 @@
-import figma from '@figma/code-connect'
-import { InsuranceIcon } from './insurance'
+import figma from "@figma/code-connect";
 
-figma.connect(InsuranceIcon, 'https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=20-501')
+import { InsuranceIcon } from "./insurance";
+
+figma.connect(InsuranceIcon, "https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=20-501");

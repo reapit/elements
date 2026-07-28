@@ -1,9 +1,10 @@
-import { AtAGlance } from '../at-a-glance'
-import figma from '@figma/code-connect'
+import figma from "@figma/code-connect";
 
-figma.connect(AtAGlance.Carousel, '<AT_A_GLANCE_CAROUSEL_URL>', {
+import { AtAGlance } from "../at-a-glance";
+
+figma.connect(AtAGlance.Carousel, "<AT_A_GLANCE_CAROUSEL_URL>", {
   props: {
-    children: figma.children('Card *'),
+    children: figma.children("Card *"),
   },
   example: (props) => (
     <AtAGlance.Carousel columns="<CHANGE ME>">
@@ -11,4 +12,4 @@ figma.connect(AtAGlance.Carousel, '<AT_A_GLANCE_CAROUSEL_URL>', {
       {props.children}
     </AtAGlance.Carousel>
   ),
-})
+});

@@ -1,21 +1,22 @@
-import { GalleryViewerThumbnailBase } from './thumbnail-base'
+import type { AnchorHTMLAttributes } from "react";
 
-import type { AnchorHTMLAttributes } from 'react'
+import { GalleryViewerThumbnailBase } from "./thumbnail-base";
 
 export namespace GalleryViewerThumbnail {
-  export interface Props extends GalleryViewerThumbnailBase.CommonProps, AnchorHTMLAttributes<HTMLAnchorElement> {
+  export interface Props
+    extends GalleryViewerThumbnailBase.CommonProps, AnchorHTMLAttributes<HTMLAnchorElement> {
     /**
      * Indicates whether this thumbnail represents the currently selected item.
      * Pass `"location"` when selected, `false` otherwise.
      */
-    'aria-current': 'location' | false
+    "aria-current": "location" | false;
     /**
      * The accessible name of the thumbnail. Should be action-oriented, not simply a description of
      * the thumbnail's image.
      */
-    'aria-label': string
+    "aria-label": string;
     /** The URL this thumbnail navigates to when activated. */
-    href: string
+    href: string;
   }
 }
 
@@ -29,5 +30,5 @@ export namespace GalleryViewerThumbnail {
  * navigation.
  */
 export function GalleryViewerThumbnail(props: GalleryViewerThumbnail.Props) {
-  return <GalleryViewerThumbnailBase as="a" {...props} />
+  return <GalleryViewerThumbnailBase as="a" {...props} />;
 }

@@ -1,1 +1,1 @@
-export { GalleryViewerCarousel } from './carousel'
+export { GalleryViewerCarousel } from "./carousel";

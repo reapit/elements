@@ -2,60 +2,60 @@
 // Call setupBrowserStubs() at the top level of any test file that needs them.
 // It installs beforeEach/afterEach hooks and returns accessors for the mocks.
 export function setupBrowserStubs() {
-  let intersectionCallback: IntersectionObserverCallback | undefined
-  let observedElements: Element[] = []
-  let unobservedElements: Element[] = []
+  let intersectionCallback: IntersectionObserverCallback | undefined;
+  let observedElements: Element[] = [];
+  let unobservedElements: Element[] = [];
 
-  let mutationCallback: MutationCallback | undefined
+  let mutationCallback: MutationCallback | undefined;
 
   // All elements that register a 'scroll' or 'scrollend' listener during the test.
   // Tests call fireScrollEnd() which dispatches a synthetic event on all of them.
   // We collect all targets (not just the first) because React's event delegation
   // registers a 'scroll' listener on the RTL root container before onScrollEnd
   // registers its own listener on the carousel track — we must fire to both.
-  const scrollEndTargets = new Set<HTMLElement>()
+  const scrollEndTargets = new Set<HTMLElement>();
 
-  const OriginalIntersectionObserver = globalThis.IntersectionObserver
-  const OriginalResizeObserver = globalThis.ResizeObserver
-  const OriginalMutationObserver = globalThis.MutationObserver
-  const originalAddEventListener = HTMLElement.prototype.addEventListener
+  const OriginalIntersectionObserver = globalThis.IntersectionObserver;
+  const OriginalResizeObserver = globalThis.ResizeObserver;
+  const OriginalMutationObserver = globalThis.MutationObserver;
+  const originalAddEventListener = HTMLElement.prototype.addEventListener;
 
   beforeEach(() => {
-    intersectionCallback = undefined
-    observedElements = []
-    unobservedElements = []
-    mutationCallback = undefined
-    scrollEndTargets.clear()
+    intersectionCallback = undefined;
+    observedElements = [];
+    unobservedElements = [];
+    mutationCallback = undefined;
+    scrollEndTargets.clear();
 
     globalThis.IntersectionObserver = class MockIntersectionObserver {
       constructor(callback: IntersectionObserverCallback) {
-        intersectionCallback = callback
+        intersectionCallback = callback;
       }
       observe(el: Element) {
-        observedElements.push(el)
+        observedElements.push(el);
       }
       disconnect() {}
       unobserve(el: Element) {
-        unobservedElements.push(el)
+        unobservedElements.push(el);
       }
-    } as unknown as typeof IntersectionObserver
+    } as unknown as typeof IntersectionObserver;
 
     globalThis.ResizeObserver = class MockResizeObserver {
       observe() {}
       disconnect() {}
       unobserve() {}
-    } as unknown as typeof ResizeObserver
+    } as unknown as typeof ResizeObserver;
 
     globalThis.MutationObserver = class MockMutationObserver {
       constructor(callback: MutationCallback) {
-        mutationCallback = callback
+        mutationCallback = callback;
       }
       observe() {}
       disconnect() {}
       takeRecords() {
-        return []
+        return [];
       }
-    } as unknown as typeof MutationObserver
+    } as unknown as typeof MutationObserver;
 
     // Collect every element that registers a 'scroll' or 'scrollend' listener.
     // Tests call fireScrollEnd() which dispatches a synthetic scroll event on all
@@ -68,19 +68,19 @@ export function setupBrowserStubs() {
       listener: EventListenerOrEventListenerObject,
       ...rest: unknown[]
     ) {
-      if (type === 'scrollend' || type === 'scroll') {
-        scrollEndTargets.add(this)
+      if (type === "scrollend" || type === "scroll") {
+        scrollEndTargets.add(this);
       }
-      return originalAddEventListener.call(this, type, listener, ...(rest as []))
-    }
-  })
+      return originalAddEventListener.call(this, type, listener, ...(rest as []));
+    };
+  });
 
   afterEach(() => {
-    globalThis.IntersectionObserver = OriginalIntersectionObserver
-    globalThis.ResizeObserver = OriginalResizeObserver
-    globalThis.MutationObserver = OriginalMutationObserver
-    HTMLElement.prototype.addEventListener = originalAddEventListener
-  })
+    globalThis.IntersectionObserver = OriginalIntersectionObserver;
+    globalThis.ResizeObserver = OriginalResizeObserver;
+    globalThis.MutationObserver = OriginalMutationObserver;
+    HTMLElement.prototype.addEventListener = originalAddEventListener;
+  });
 
   return {
     getIntersectionCallback: () => intersectionCallback,
@@ -100,8 +100,8 @@ export function setupBrowserStubs() {
      */
     fireScrollEnd: () => {
       for (const target of scrollEndTargets) {
-        target.dispatchEvent(new Event('scroll', { bubbles: false }))
+        target.dispatchEvent(new Event("scroll", { bubbles: false }));
       }
     },
-  }
+  };
 }

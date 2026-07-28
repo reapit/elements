@@ -1,12 +1,11 @@
-import { extractPathParams } from './extract-path-params'
-import { normalisePath } from './normalise-path'
-
-import type { PathParams } from './extract-path-params'
+import { extractPathParams } from "./extract-path-params";
+import type { PathParams } from "./extract-path-params";
+import { normalisePath } from "./normalise-path";
 
 export interface PathMatch<PathParams> {
-  params: PathParams
-  pathname: string
-  pattern: string
+  params: PathParams;
+  pathname: string;
+  pattern: string;
 }
 
 /**
@@ -31,18 +30,18 @@ export function matchPath<Pattern extends string, Params = PathParams<Pattern>>(
   pattern: Pattern,
   pathname: string,
 ): PathMatch<Params> | null {
-  const normalisedPathname = normalisePath(pathname)
-  const normalisedPattern = normalisePath(pattern)
-  const params = extractPathParams(normalisedPattern, normalisedPathname)
+  const normalisedPathname = normalisePath(pathname);
+  const normalisedPattern = normalisePath(pattern);
+  const params = extractPathParams(normalisedPattern, normalisedPathname);
 
   // If params is null, our pattern didn't match the pathname.
   if (params === null) {
-    return null
+    return null;
   }
 
   return {
     params: params as Params,
     pathname: normalisedPathname,
     pattern: normalisedPattern,
-  }
+  };
 }

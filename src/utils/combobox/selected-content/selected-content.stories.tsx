@@ -1,44 +1,50 @@
-import preview from '#.storybook/preview'
-import { ComboboxSelectedContent } from './selected-content'
-import { Listbox } from '#src/utils/listbox'
-import { Text } from '#src/utils/text'
-import { useId, useState } from 'react'
+import { useId, useState } from "react";
+
+import preview from "#.storybook/preview";
+import { Listbox } from "#src/utils/listbox";
+import { Text } from "#src/utils/text";
+
+import { ComboboxSelectedContent } from "./selected-content";
 
 const meta = preview.meta({
-  title: 'Utils/Combobox/SelectedContent',
+  title: "Utils/Combobox/SelectedContent",
   component: ComboboxSelectedContent,
   argTypes: {
     listboxId: {
-      control: 'text',
+      control: "text",
     },
   },
   decorators: [
     (Story, { args, parameters }) => {
-      const listboxId = useId()
-      const [searchValue, setSearchValue] = useState(parameters.initialFilter ?? '')
+      const listboxId = useId();
+      const [searchValue, setSearchValue] = useState(parameters.initialFilter ?? "");
 
       const filteredOptions = allOptions.filter((option) =>
         option.label.toLowerCase().startsWith(searchValue.toLowerCase()),
-      )
+      );
 
-      const options = parameters.enableFiltering ? filteredOptions : allOptions
+      const options = parameters.enableFiltering ? filteredOptions : allOptions;
 
       return (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-2)' }}>
-          <Text style={{ color: '#FA00FF' }}>Listbox</Text>
+        <div style={{ display: "flex", flexDirection: "column", gap: "var(--spacing-2)" }}>
+          <Text style={{ color: "#FA00FF" }}>Listbox</Text>
           <div
             style={{
-              display: 'flex',
-              flexDirection: 'column',
-              border: '1px solid #FA00FF',
-              gap: 'var(--spacing-2)',
-              padding: 'var(--spacing-2)',
+              display: "flex",
+              flexDirection: "column",
+              border: "1px solid #FA00FF",
+              gap: "var(--spacing-2)",
+              padding: "var(--spacing-2)",
             }}
           >
             {parameters.enableFiltering && (
               <label>
                 <Text font="text-base/regular">Filter:&nbsp;</Text>
-                <input type="search" value={searchValue} onChange={(e) => setSearchValue(e.target.value)} />
+                <input
+                  type="search"
+                  value={searchValue}
+                  onChange={(e) => setSearchValue(e.target.value)}
+                />
               </label>
             )}
             <Listbox
@@ -59,10 +65,10 @@ const meta = preview.meta({
 
           <Story args={{ ...args, listboxId }} />
         </div>
-      )
+      );
     },
   ],
-})
+});
 
 /**
  * Displays selection chips for selected options in a listbox. These examples use `Listbox` directly
@@ -71,9 +77,9 @@ const meta = preview.meta({
 export const Example = meta.story({
   args: {
     defaultOptions: undefined,
-    listboxId: 'listbox-id',
+    listboxId: "listbox-id",
   },
-})
+});
 
 /**
  * An initial state must be provided for selection chips to be displayed on first render
@@ -81,16 +87,16 @@ export const Example = meta.story({
  * is applied or the options are loaded asynchronously.
  */
 export const DefaultOptions = Example.extend({
-  name: 'Default options',
+  name: "Default options",
   args: {
-    defaultOptions: [{ label: 'Orange', value: 'orange' }],
-    listboxId: 'default-options-example',
+    defaultOptions: [{ label: "Orange", value: "orange" }],
+    listboxId: "default-options-example",
   },
   parameters: {
     enableFiltering: true,
-    initialFilter: 'Apple',
+    initialFilter: "Apple",
   },
-})
+});
 
 /**
  * Selected content renders automatically without `children`. To customise how the content is rendered,
@@ -106,27 +112,27 @@ export const Children = Example.extend({
         <Text colour="error" font="text-base/medium">
           {option.label}
         </Text>
-      )
+      );
     },
 
-    defaultOptions: [{ label: 'Orange', value: 'orange' }],
-    listboxId: 'children-example',
+    defaultOptions: [{ label: "Orange", value: "orange" }],
+    listboxId: "children-example",
   },
-})
+});
 
 /** Simple custom listbox option component */
 function MyListboxOption(props: Listbox.OptionProps) {
-  const isSelected = props['aria-checked'] || props['aria-selected']
-  return <button {...props} style={{ fontWeight: isSelected ? 'bold' : 'normal' }} />
+  const isSelected = props["aria-checked"] || props["aria-selected"];
+  return <button {...props} style={{ fontWeight: isSelected ? "bold" : "normal" }} />;
 }
 
 const allOptions = [
-  { label: 'Apple', value: 'apple' },
-  { label: 'Apricot', value: 'apricot' },
-  { label: 'Banana', value: 'banana' },
-  { label: 'Blueberry', value: 'blueberry' },
-  { label: 'Cherry', value: 'cherry' },
-  { label: 'Grape', value: 'grape' },
-  { label: 'Orange', value: 'orange' },
-  { label: 'Strawberry', value: 'strawberry' },
-]
+  { label: "Apple", value: "apple" },
+  { label: "Apricot", value: "apricot" },
+  { label: "Banana", value: "banana" },
+  { label: "Blueberry", value: "blueberry" },
+  { label: "Cherry", value: "cherry" },
+  { label: "Grape", value: "grape" },
+  { label: "Orange", value: "orange" },
+  { label: "Strawberry", value: "strawberry" },
+];

@@ -1,16 +1,17 @@
-import preview from '#.storybook/preview'
-import { Video } from './video'
+import preview from "#.storybook/preview";
+
+import { Video } from "./video";
 
 const meta = preview.meta({
-  title: 'Utils/Video',
+  title: "Utils/Video",
   component: Video,
   argTypes: {
     objectFit: {
-      control: 'select',
+      control: "select",
     },
-    src: { control: 'text' },
+    src: { control: "text" },
   },
-})
+});
 
 /**
  * By default, the video uses `object-fit: contain` so the entire video is visible
@@ -18,20 +19,20 @@ const meta = preview.meta({
  */
 export const Example = meta.story({
   args: {
-    src: 'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm',
+    src: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm",
     controls: true,
-    objectFit: 'contain',
-    width: '400px',
-    height: '300px',
+    objectFit: "contain",
+    width: "400px",
+    height: "300px",
   },
   decorators: [
     (Story) => (
-      <div style={{ border: '1px solid #FA00FF', width: 'fit-content' }}>
+      <div style={{ border: "1px solid #FA00FF", width: "fit-content" }}>
         <Story />
       </div>
     ),
   ],
-})
+});
 
 /**
  * While the video accepts an explicit width and height, it is constrained to the size of its container.
@@ -40,12 +41,12 @@ export const Example = meta.story({
 export const Sizing = Example.extend({
   decorators: [
     (Story) => (
-      <div style={{ border: '1px solid #FA00FF', width: '200px', height: '150px' }}>
+      <div style={{ border: "1px solid #FA00FF", width: "200px", height: "150px" }}>
         <Story />
       </div>
     ),
   ],
-})
+});
 
 /**
  * `objectFit` determines how the video is resized to fit its container. Here, `cover` is used to
@@ -53,9 +54,9 @@ export const Sizing = Example.extend({
  */
 export const ObjectFit = Example.extend({
   args: {
-    objectFit: 'cover',
+    objectFit: "cover",
   },
-})
+});
 
 /**
  * Pass `<source>` elements as `children` to let the browser select the most suitable format.
@@ -65,24 +66,30 @@ export const ObjectFit = Example.extend({
 export const Sources = meta.story({
   args: {
     controls: true,
-    objectFit: 'contain',
-    width: '400px',
-    height: '300px',
+    objectFit: "contain",
+    width: "400px",
+    height: "300px",
     children: (
       <>
-        <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm" type="video/webm" />
-        <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4" />
+        <source
+          src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm"
+          type="video/webm"
+        />
+        <source
+          src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+          type="video/mp4"
+        />
       </>
     ),
   },
   decorators: [
     (Story) => (
-      <div style={{ border: '1px solid #FA00FF', width: 'fit-content' }}>
+      <div style={{ border: "1px solid #FA00FF", width: "fit-content" }}>
         <Story />
       </div>
     ),
   ],
-})
+});
 
 /**
  * If the video fails to load, a default fallback UI is shown. The fallback uses
@@ -98,30 +105,30 @@ export const Fallback = Sources.extend({
       </>
     ),
   },
-})
+});
 
 /**
  * Use `fallback` to provide custom fallback content.
  */
 export const CustomFallback = Example.extend({
   args: {
-    src: 'https://example.invalid/does-not-exist.mp4',
+    src: "https://example.invalid/does-not-exist.mp4",
 
     fallback: (
       <div
         style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          width: '100%',
-          height: '100%',
-          background: 'var(--colour-fill-neutral-light)',
-          borderRadius: 'var(--border-radius-l)',
-          color: 'var(--colour-text-placeholder)',
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          width: "100%",
+          height: "100%",
+          background: "var(--colour-fill-neutral-light)",
+          borderRadius: "var(--border-radius-l)",
+          color: "var(--colour-text-placeholder)",
         }}
       >
         Custom fallback content
       </div>
     ),
   },
-})
+});

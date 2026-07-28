@@ -1,76 +1,78 @@
-import React, { createContext, useState, useRef, useContext, PropsWithChildren, FC } from 'react'
-import { SnackProps, SnackHolder } from '../snack'
-import { generateRandomId } from '../../storybook/random-id'
-import { CheckIcon } from '#src/icons/check'
-import { InfoIcon } from '#src/icons/info'
-import { WarningIcon } from '#src/icons/warning'
+import React, { createContext, useState, useRef, useContext, PropsWithChildren, FC } from "react";
+
+import { CheckIcon } from "#src/icons/check";
+import { InfoIcon } from "#src/icons/info";
+import { WarningIcon } from "#src/icons/warning";
+
+import { generateRandomId } from "../../storybook/random-id";
+import { SnackProps, SnackHolder } from "../snack";
 
 /** @deprecated */
 export interface SnackContextProps {
-  addSnackWithTimeout: (snack: SnackProps, timeout: number) => void
+  addSnackWithTimeout: (snack: SnackProps, timeout: number) => void;
 }
 
 /** @deprecated */
-export const SnackContext = createContext<SnackContextProps>({} as SnackContextProps)
+export const SnackContext = createContext<SnackContextProps>({} as SnackContextProps);
 
 /** @deprecated */
 export const SnackProvider: FC<PropsWithChildren> = ({ children }) => {
-  const [snacks, setSnacks] = useState<SnackProps[]>([])
+  const [snacks, setSnacks] = useState<SnackProps[]>([]);
 
   // must also use a ref so that inside the callback to setTimeout, `snacks` is the
   // current value, not the value at time of the setTimeout closures invocation
-  const snackRef = useRef(snacks)
-  snackRef.current = snacks
+  const snackRef = useRef(snacks);
+  snackRef.current = snacks;
 
   const removeSnackById = (id: string) => {
-    setSnacks(snackRef.current.filter((snack) => snack._id !== id))
-  }
+    setSnacks(snackRef.current.filter((snack) => snack._id !== id));
+  };
 
   const addSnackWithTimeout = (snack: SnackProps, timeout: number) => {
-    const _id = generateRandomId()
-    setSnacks([...snacks, { ...snack, _id }])
+    const _id = generateRandomId();
+    setSnacks([...snacks, { ...snack, _id }]);
     if (timeout > 0) {
-      window.setTimeout(() => removeSnackById(_id), timeout)
+      window.setTimeout(() => removeSnackById(_id), timeout);
     }
-  }
+  };
 
   return (
     <SnackContext.Provider value={{ addSnackWithTimeout }}>
       <SnackHolder snacks={snacks} removeSnackById={removeSnackById} />
       {children}
     </SnackContext.Provider>
-  )
-}
+  );
+};
 
 /** @deprecated */
 export interface UseSnack {
-  custom: (snack: SnackProps, timeout?: number) => void
-  success: (text: string, timeout?: number) => void
-  info: (text: string, timeout?: number) => void
-  error: (text: string, timeout?: number) => void
-  warning: (text: string, timeout?: number) => void
+  custom: (snack: SnackProps, timeout?: number) => void;
+  success: (text: string, timeout?: number) => void;
+  info: (text: string, timeout?: number) => void;
+  error: (text: string, timeout?: number) => void;
+  warning: (text: string, timeout?: number) => void;
 }
 
 /** @deprecated */
 export const useSnack = (): UseSnack => {
-  const { addSnackWithTimeout } = useContext(SnackContext)
-  const DEFAULT_TIMEOUT = 3000
+  const { addSnackWithTimeout } = useContext(SnackContext);
+  const DEFAULT_TIMEOUT = 3000;
 
   const custom = (snack: SnackProps, timeout = DEFAULT_TIMEOUT) => {
-    addSnackWithTimeout(snack, timeout)
-  }
+    addSnackWithTimeout(snack, timeout);
+  };
   const success = (text: string, timeout = DEFAULT_TIMEOUT) => {
-    addSnackWithTimeout({ intent: 'success', icon: <CheckIcon />, text }, timeout)
-  }
+    addSnackWithTimeout({ intent: "success", icon: <CheckIcon />, text }, timeout);
+  };
   const info = (text: string, timeout = DEFAULT_TIMEOUT) => {
-    addSnackWithTimeout({ intent: 'primary', icon: <InfoIcon />, text }, timeout)
-  }
+    addSnackWithTimeout({ intent: "primary", icon: <InfoIcon />, text }, timeout);
+  };
   const error = (text: string, timeout = DEFAULT_TIMEOUT) => {
-    addSnackWithTimeout({ intent: 'danger', icon: <WarningIcon />, text }, timeout)
-  }
+    addSnackWithTimeout({ intent: "danger", icon: <WarningIcon />, text }, timeout);
+  };
   const warning = (text: string, timeout = DEFAULT_TIMEOUT) => {
-    addSnackWithTimeout({ intent: 'warning', icon: <WarningIcon />, text }, timeout)
-  }
+    addSnackWithTimeout({ intent: "warning", icon: <WarningIcon />, text }, timeout);
+  };
 
-  return { custom, success, info, error, warning }
-}
+  return { custom, success, info, error, warning };
+};

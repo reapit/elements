@@ -1,24 +1,24 @@
+import type { HTMLAttributes } from "react";
+
+import { AtAGlanceAnchorCard } from "./anchor-card";
+import { AtAGlanceArticleCard } from "./article-card";
+import { AtAGlanceButtonCard } from "./button-card";
 import {
   AtAGlanceCard,
   AtAGlanceCardDescription,
   AtAGlanceCardIcon,
   AtAGlanceCardLabel,
   AtAGlanceCardValue,
-} from './card'
-import { AtAGlanceArticleCard } from './article-card'
-import { AtAGlanceAnchorCard } from './anchor-card'
-import { AtAGlanceButtonCard } from './button-card'
-import { AtAGlanceCarousel } from './carousel'
-import { AtAGlanceGrid } from './grid'
-import { AtAGlanceGridItem } from './grid/grid-item'
-import { AtAGlanceHeader } from './header'
-import { AtAGlanceListbox } from './listbox'
-import { ElAtAGlance } from './styles'
-
-import type { HTMLAttributes } from 'react'
+} from "./card";
+import { AtAGlanceCarousel } from "./carousel";
+import { AtAGlanceGrid } from "./grid";
+import { AtAGlanceGridItem } from "./grid/grid-item";
+import { AtAGlanceHeader } from "./header";
+import { AtAGlanceListbox } from "./listbox";
+import { ElAtAGlance } from "./styles";
 
 export namespace AtAGlance {
-  export type CardProps = AtAGlanceCard.Props
+  export type CardProps = AtAGlanceCard.Props;
   export interface CardIconProps extends AtAGlanceCardIcon.Props {}
   export interface CardLabelProps extends AtAGlanceCardLabel.Props {}
   export interface CardDescriptionProps extends AtAGlanceCardDescription.Props {}
@@ -44,27 +44,27 @@ export namespace AtAGlance {
  * or page for additional information.
  */
 export function AtAGlance(props: AtAGlance.Props) {
-  return <ElAtAGlance {...props} />
+  return <ElAtAGlance {...props} />;
 }
 
 // Base polymorphic Card
-AtAGlance.Card = AtAGlanceCard
+AtAGlance.Card = AtAGlanceCard;
 
 // Subcomponents for base Card
-AtAGlance.CardIcon = AtAGlanceCardIcon
-AtAGlance.CardLabel = AtAGlanceCardLabel
-AtAGlance.CardDescription = AtAGlanceCardDescription
-AtAGlance.CardValue = AtAGlanceCardValue
+AtAGlance.CardIcon = AtAGlanceCardIcon;
+AtAGlance.CardLabel = AtAGlanceCardLabel;
+AtAGlance.CardDescription = AtAGlanceCardDescription;
+AtAGlance.CardValue = AtAGlanceCardValue;
 
 // Element-specific cards
-AtAGlance.ArticleCard = AtAGlanceArticleCard
-AtAGlance.AnchorCard = AtAGlanceAnchorCard
-AtAGlance.ButtonCard = AtAGlanceButtonCard
+AtAGlance.ArticleCard = AtAGlanceArticleCard;
+AtAGlance.AnchorCard = AtAGlanceAnchorCard;
+AtAGlance.ButtonCard = AtAGlanceButtonCard;
 
 // Other components
-AtAGlance.Carousel = AtAGlanceCarousel
-AtAGlance.Grid = AtAGlanceGrid
-AtAGlance.GridItem = AtAGlanceGrid.Item
-AtAGlance.Header = AtAGlanceHeader
-AtAGlance.Listbox = AtAGlanceListbox
-AtAGlance.ListboxOption = AtAGlanceListbox.Option
+AtAGlance.Carousel = AtAGlanceCarousel;
+AtAGlance.Grid = AtAGlanceGrid;
+AtAGlance.GridItem = AtAGlanceGrid.Item;
+AtAGlance.Header = AtAGlanceHeader;
+AtAGlance.Listbox = AtAGlanceListbox;
+AtAGlance.ListboxOption = AtAGlanceListbox.Option;

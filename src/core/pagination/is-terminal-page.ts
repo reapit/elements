@@ -4,6 +4,10 @@
  *
  * The page number must use a 1-based page indexing number.
  */
-export function isTerminalPage(variant: 'next-page' | 'previous-page', pageNumber: number, pageCount: number) {
-  return variant === 'next-page' ? pageNumber === pageCount : pageNumber === 1
+export function isTerminalPage(
+  variant: "next-page" | "previous-page",
+  pageNumber: number,
+  pageCount: number,
+) {
+  return variant === "next-page" ? pageNumber === pageCount : pageNumber === 1;
 }

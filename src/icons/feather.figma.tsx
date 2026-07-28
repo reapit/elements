@@ -1,4 +1,5 @@
-import figma from '@figma/code-connect'
-import { FeatherIcon } from './feather'
+import figma from "@figma/code-connect";
 
-figma.connect(FeatherIcon, 'https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=4694-148')
+import { FeatherIcon } from "./feather";
+
+figma.connect(FeatherIcon, "https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=4694-148");

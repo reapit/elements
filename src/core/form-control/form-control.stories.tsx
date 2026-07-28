@@ -1,11 +1,11 @@
-import preview from '#.storybook/preview'
-import { FormControl } from './form-control'
-import { Pattern } from '../drawer/__story__/Pattern'
+import preview from "#.storybook/preview";
 
-import { ChipSelect } from '../chip-select'
+import { ChipSelect } from "../chip-select";
+import { Pattern } from "../drawer/__story__/Pattern";
+import { FormControl } from "./form-control";
 
 const meta = preview.meta({
-  title: 'Input and selection/FormControl',
+  title: "Input and selection/FormControl",
   component: FormControl,
   argTypes: {
     as: {
@@ -15,18 +15,18 @@ const meta = preview.meta({
       control: false,
     },
     size: {
-      control: 'radio',
-      options: ['small', 'medium', 'large'],
+      control: "radio",
+      options: ["small", "medium", "large"],
       table: {
         defaultValue: { summary: "'medium'" },
       },
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
-    as: 'div',
+    as: "div",
     children: (
       <>
         <FormControl.Label htmlFor="my-control" isRequired>
@@ -35,20 +35,20 @@ export const Example = meta.story({
         <Pattern height="var(--size-8)" />
       </>
     ),
-    size: 'medium',
+    size: "medium",
   },
-})
+});
 
 /**
  * By default, the form control will grow to the width of its parent. To constrain its width,
  * an explicit `maxWidth` can be specified.
  */
 export const MaxWidth = Example.extend({
-  name: 'Max-width',
+  name: "Max-width",
   args: {
-    maxWidth: '300px',
+    maxWidth: "300px",
   },
-})
+});
 
 /**
  * When the form control is invalid, an error message will commonly be displayed beneath using
@@ -60,7 +60,7 @@ export const MaxWidth = Example.extend({
  */
 export const Invalid = meta.story({
   args: {
-    as: 'div',
+    as: "div",
     children: (
       <>
         <FormControl.Label htmlFor="my-control" isRequired>
@@ -70,9 +70,9 @@ export const Invalid = meta.story({
         <FormControl.ErrorText id="my-error-text">Error text</FormControl.ErrorText>
       </>
     ),
-    size: 'medium',
+    size: "medium",
   },
-})
+});
 
 /**
  * Some form controls require additional information. This can be provided below the form control
@@ -80,7 +80,7 @@ export const Invalid = meta.story({
  */
 export const HelpText = meta.story({
   args: {
-    as: 'div',
+    as: "div",
     children: (
       <>
         <FormControl.Label htmlFor="my-control" isRequired>
@@ -90,9 +90,9 @@ export const HelpText = meta.story({
         <FormControl.HelpText id="my-help-text">Optional help text</FormControl.HelpText>
       </>
     ),
-    size: 'medium',
+    size: "medium",
   },
-})
+});
 
 /**
  * In some cases, such as with checkbox groups, radio groups and chip selects, we need to enclose
@@ -101,7 +101,7 @@ export const HelpText = meta.story({
  */
 export const Fieldset = meta.story({
   args: {
-    as: 'fieldset',
+    as: "fieldset",
     children: (
       <>
         <FormControl.Label as="legend" isRequired>
@@ -116,7 +116,7 @@ export const Fieldset = meta.story({
         </ChipSelect>
       </>
     ),
-    size: 'medium',
+    size: "medium",
   },
   decorators: [
     (Story) => (
@@ -127,4 +127,4 @@ export const Fieldset = meta.story({
       </form>
     ),
   ],
-})
+});

@@ -1,57 +1,58 @@
-import { ButtonGroup } from '../button-group'
-import { ButtonGroupItem } from '../button-group-item'
-import { expect, test } from 'vitest'
-import { render, screen } from '@testing-library/react'
+import { render, screen } from "@testing-library/react";
+import { expect, test } from "vitest";
 
-test('renders a button', () => {
+import { ButtonGroup } from "../button-group";
+import { ButtonGroupItem } from "../button-group-item";
+
+test("renders a button", () => {
   render(
     <ButtonGroup>
       <ButtonGroupItem>Label</ButtonGroupItem>
     </ButtonGroup>,
-  )
-  const button = screen.getByRole('button', { name: 'Label' })
+  );
+  const button = screen.getByRole("button", { name: "Label" });
 
-  expect(button).toBeVisible()
-})
+  expect(button).toBeVisible();
+});
 
-test('applies size from ButtonGroupContext', () => {
+test("applies size from ButtonGroupContext", () => {
   render(
     <ButtonGroup size="large">
       <ButtonGroupItem>Label</ButtonGroupItem>
     </ButtonGroup>,
-  )
-  const button = screen.getByRole('button', { name: 'Label' })
+  );
+  const button = screen.getByRole("button", { name: "Label" });
 
-  expect(button).toHaveAttribute('data-size', 'large')
-})
+  expect(button).toHaveAttribute("data-size", "large");
+});
 
-test('size from ButtonGroupContext can be overridden', () => {
+test("size from ButtonGroupContext can be overridden", () => {
   render(
     <ButtonGroup size="large">
       <ButtonGroupItem size="small">Label</ButtonGroupItem>
     </ButtonGroup>,
-  )
-  const button = screen.getByRole('button', { name: 'Label' })
+  );
+  const button = screen.getByRole("button", { name: "Label" });
 
-  expect(button).toHaveAttribute('data-size', 'small')
-})
+  expect(button).toHaveAttribute("data-size", "small");
+});
 
-test('defaults to medium size when context does not specify size', () => {
+test("defaults to medium size when context does not specify size", () => {
   render(
     <ButtonGroup>
       <ButtonGroupItem>Label</ButtonGroupItem>
     </ButtonGroup>,
-  )
-  const button = screen.getByRole('button', { name: 'Label' })
+  );
+  const button = screen.getByRole("button", { name: "Label" });
 
-  expect(button).toHaveAttribute('data-size', 'medium')
-})
+  expect(button).toHaveAttribute("data-size", "medium");
+});
 
-test('throws error when used outside ButtonGroup context', () => {
-  const consoleError = vi.spyOn(console, 'error').mockImplementation(() => {})
+test("throws error when used outside ButtonGroup context", () => {
+  const consoleError = vi.spyOn(console, "error").mockImplementation(() => {});
   expect(() => {
-    render(<ButtonGroupItem>Label</ButtonGroupItem>)
-  }).toThrow('useButtonGroupContext requires a ButtonGroup ancestor')
+    render(<ButtonGroupItem>Label</ButtonGroupItem>);
+  }).toThrow("useButtonGroupContext requires a ButtonGroup ancestor");
 
-  consoleError.mockRestore()
-})
+  consoleError.mockRestore();
+});

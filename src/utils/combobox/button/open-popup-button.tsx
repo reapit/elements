@@ -1,15 +1,16 @@
-import { Button } from '#src/core/button'
-import { ChevronDownIcon } from '#src/icons/chevron-down'
-import { openComboboxPopup } from '../popup-dialog'
+import type { ButtonHTMLAttributes, MouseEventHandler } from "react";
 
-import type { ButtonHTMLAttributes, MouseEventHandler } from 'react'
+import { Button } from "#src/core/button";
+import { ChevronDownIcon } from "#src/icons/chevron-down";
+
+import { openComboboxPopup } from "../popup-dialog";
 
 export namespace ComboboxButtonOpenPopupButton {
   export interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
     /** Accessible label for the button. Defaults to "Toggle popup". */
-    'aria-label'?: string
+    "aria-label"?: string;
     /** ID of the popup element controlled by this button. */
-    'aria-controls': string
+    "aria-controls": string;
   }
 }
 
@@ -18,15 +19,15 @@ export namespace ComboboxButtonOpenPopupButton {
  * the combobox button container.
  */
 export function ComboboxButtonOpenPopupButton({
-  'aria-label': ariaLabel = 'Open popup',
-  'aria-controls': ariaControls,
+  "aria-label": ariaLabel = "Open popup",
+  "aria-controls": ariaControls,
   onClick,
   ...rest
 }: ComboboxButtonOpenPopupButton.Props) {
   const handleClick: MouseEventHandler<HTMLButtonElement> = (event) => {
-    onClick?.(event)
-    openComboboxPopup(ariaControls)
-  }
+    onClick?.(event);
+    openComboboxPopup(ariaControls);
+  };
 
   return (
     <Button
@@ -42,5 +43,5 @@ export function ComboboxButtonOpenPopupButton({
       tabIndex={-1}
       variant="tertiary"
     />
-  )
+  );
 }

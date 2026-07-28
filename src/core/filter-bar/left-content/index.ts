@@ -1,1 +1,1 @@
-export * from './left-content'
+export * from "./left-content";

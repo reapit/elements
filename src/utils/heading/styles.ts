@@ -1,7 +1,8 @@
-import { css } from '@linaria/core'
-import { font } from '#src/utils/font'
-import { fontSizes, fontWeights } from '#src/utils/font'
-import { textColours } from '#src/utils/text'
+import { css } from "@linaria/core";
+
+import { font } from "#src/utils/font";
+import { fontSizes, fontWeights } from "#src/utils/font";
+import { textColours } from "#src/utils/text";
 
 export const elHeading = css`
   @layer elements.main {
@@ -13,7 +14,7 @@ export const elHeading = css`
     ${generateElHeadingFontStyles()}
     ${generateElHeadingColourStyles()}
   }
-`
+`;
 
 function generateElHeadingFontStyles() {
   return `
@@ -29,20 +30,20 @@ function generateElHeadingFontStyles() {
         &[data-font-size='${size}'][data-font-weight='${weight}'] {
           ${font(size, weight)}
         }
-      `
+      `;
         })
-        .join('\n')
+        .join("\n");
     })
-    .join('\n')}
-  `
+    .join("\n")}
+  `;
 }
 
 function generateElHeadingColourStyles() {
   return textColours
     .map((colour) => {
       return `&[data-colour='${colour}'] {
-      color: ${colour === 'inherit' ? 'inherit' : `var(--colour-text-${colour})`};
-    }`
+      color: ${colour === "inherit" ? "inherit" : `var(--colour-text-${colour})`};
+    }`;
     })
-    .join('\n')
+    .join("\n");
 }

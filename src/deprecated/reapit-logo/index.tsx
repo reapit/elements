@@ -1,1 +1,1 @@
-export * from './reapit-logo'
+export * from "./reapit-logo";

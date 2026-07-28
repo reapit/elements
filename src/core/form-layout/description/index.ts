@@ -1,1 +1,1 @@
-export { FormLayoutDescription } from './description'
+export { FormLayoutDescription } from "./description";

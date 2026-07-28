@@ -1,14 +1,14 @@
-import { ElTopBarMenuDrawerProfileNav } from './styles'
-import { TopBarMenuDrawerMenuList } from '../menu-list'
+import { TopBarMenuDrawerMenuList } from "../menu-list";
+import { ElTopBarMenuDrawerProfileNav } from "./styles";
 
 export namespace TopBarMenuDrawerProfileNav {
-  export interface Props extends Omit<TopBarMenuDrawerMenuList.Props, 'aria-label'> {
+  export interface Props extends Omit<TopBarMenuDrawerMenuList.Props, "aria-label"> {
     /**
      * Accessible label for the profile navigation menu list.
      *
      * @default "Profile navigation"
      */
-    'aria-label'?: string
+    "aria-label"?: string;
   }
 }
 
@@ -20,7 +20,7 @@ export namespace TopBarMenuDrawerProfileNav {
  * the TopBar's profile/avatar area on larger screens.
  */
 export function TopBarMenuDrawerProfileNav({
-  'aria-label': ariaLabel = 'Profile navigation',
+  "aria-label": ariaLabel = "Profile navigation",
   children,
   ...rest
 }: TopBarMenuDrawerProfileNav.Props) {
@@ -28,7 +28,7 @@ export function TopBarMenuDrawerProfileNav({
     <ElTopBarMenuDrawerProfileNav aria-label={ariaLabel} {...rest}>
       {children}
     </ElTopBarMenuDrawerProfileNav>
-  )
+  );
 }
 
-TopBarMenuDrawerProfileNav.displayName = 'TopBar.MenuProfileNav'
+TopBarMenuDrawerProfileNav.displayName = "TopBar.MenuProfileNav";

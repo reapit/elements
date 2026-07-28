@@ -1,7 +1,8 @@
-import { FC } from 'react'
-import { styled } from '@linaria/react'
-import ReapitLogoInfographic from '../../.storybook/public/reapitLogo.svg?react'
-import heroUrl from '../../.storybook/public/elements-hero.svg?url'
+import { styled } from "@linaria/react";
+import { FC } from "react";
+
+import heroUrl from "../../.storybook/public/elements-hero.svg?url";
+import ReapitLogoInfographic from "../../.storybook/public/reapitLogo.svg?react";
 
 const WelcomeHero = styled.div`
   background-color: #4e56ea;
@@ -11,7 +12,7 @@ const WelcomeHero = styled.div`
   position: relative;
   overflow: hidden;
   min-height: 240px;
-`
+`;
 
 const WelcomeHeroContent = styled.div`
   position: relative;
@@ -26,7 +27,7 @@ const WelcomeHeroContent = styled.div`
     margin: 0;
     line-height: 1.2;
   }
-`
+`;
 
 const WelcomeHeroImage = styled.img`
   position: absolute;
@@ -37,7 +38,7 @@ const WelcomeHeroImage = styled.img`
   height: 100%;
   object-fit: contain;
   object-position: right center;
-`
+`;
 
 const WelcomeContent = styled.div`
   background-color: var(--colour-fill-white);
@@ -51,18 +52,18 @@ const WelcomeContent = styled.div`
     display: block;
     margin-bottom: 1.5rem;
   }
-`
+`;
 
 const WelcomeDescription = styled.p`
   color: var(--colour-text-secondary);
   max-width: 480px;
   margin-bottom: 1.5rem;
-`
+`;
 
 const DesignDocsLink = styled.a`
   color: var(--colour-text-primary);
   font-weight: 500;
-`
+`;
 
 export const Welcome: FC = () => {
   return (
@@ -78,10 +79,14 @@ export const Welcome: FC = () => {
         <WelcomeDescription>
           For design guidelines, usage rules, and component rationale, see the Reapit Design System.
         </WelcomeDescription>
-        <DesignDocsLink href="https://design.reapit.com.au" target="_blank" rel="noopener noreferrer">
+        <DesignDocsLink
+          href="https://design.reapit.com.au"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Design System documentation →
         </DesignDocsLink>
       </WelcomeContent>
     </>
-  )
-}
+  );
+};

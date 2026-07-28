@@ -1,10 +1,11 @@
-import { Combobox } from '#src/utils/combobox'
-import type { ReactNode } from 'react'
+import type { ReactNode } from "react";
+
+import { Combobox } from "#src/utils/combobox";
 
 export namespace AutocompletePopup {
   export interface Props extends Combobox.PopupProps {
     /** An Autocomplete.SearchInput for filtering options. */
-    search: ReactNode
+    search: ReactNode;
   }
 }
 
@@ -14,8 +15,8 @@ export namespace AutocompletePopup {
  *
  * By default, the popup closes automatically on single selection but remains open for multi-select.
  */
-export function AutocompletePopup({ closeOnSelection = 'auto', ...rest }: AutocompletePopup.Props) {
-  return <Combobox.Popup {...rest} closeOnSelection={closeOnSelection} />
+export function AutocompletePopup({ closeOnSelection = "auto", ...rest }: AutocompletePopup.Props) {
+  return <Combobox.Popup {...rest} closeOnSelection={closeOnSelection} />;
 }
 
-AutocompletePopup.displayName = 'Autocomplete.Popup'
+AutocompletePopup.displayName = "Autocomplete.Popup";

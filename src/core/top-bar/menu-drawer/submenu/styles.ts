@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
 
 export const ElTopBarMenuDrawerSubmenuList = styled.ul`
   @layer elements.main {
@@ -10,10 +10,10 @@ export const ElTopBarMenuDrawerSubmenuList = styled.ul`
     padding-inline: 0;
     padding-block-end: var(--spacing-2);
   }
-`
+`;
 
 export const ElTopBarMenuDrawerSubmenuListItem = styled.li`
   @layer elements.main {
     display: block;
   }
-`
+`;

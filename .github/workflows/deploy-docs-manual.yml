@@ -9,14 +9,14 @@ on:
   workflow_dispatch:
     inputs:
       target:
-        description: 'Deploy target'
+        description: "Deploy target"
         type: choice
         # Valid values must match those accepted by .github/actions/deploy-docs
         options:
           - dev
           - prod
           - v4
-        default: 'dev'
+        default: "dev"
 
 permissions:
   contents: read

@@ -1,21 +1,23 @@
-import preview from '#.storybook/preview'
-import { Autocomplete } from './autocomplete'
-import { SupplementaryInfo } from '../supplementary-info'
-import { useEffect, useId, useState } from 'react'
+import { useEffect, useId, useState } from "react";
+
+import preview from "#.storybook/preview";
+
+import { SupplementaryInfo } from "../supplementary-info";
+import { Autocomplete } from "./autocomplete";
 
 const meta = preview.meta({
-  title: 'Input and selection/Autocomplete',
+  title: "Input and selection/Autocomplete",
   component: Autocomplete,
   argTypes: {
     children: {
       control: false,
     },
     size: {
-      control: 'select',
-      options: ['small', 'medium', 'large'],
+      control: "select",
+      options: ["small", "medium", "large"],
     },
   },
-})
+});
 
 /**
  * Demonstrates a single-select autocomplete with dynamic options.
@@ -27,13 +29,13 @@ export const Example = meta.story({
     multiple: false,
     required: false,
     showValidity: false,
-    size: 'medium',
+    size: "medium",
   },
-  parameters: { docs: { source: { type: 'code' } } },
+  parameters: { docs: { source: { type: "code" } } },
   render: (args) => {
     // We control the search input's value with basic component state.
-    const [searchText, setSearchText] = useState('')
-    const { isLoading, data } = useFruitQuery(searchText)
+    const [searchText, setSearchText] = useState("");
+    const { isLoading, data } = useFruitQuery(searchText);
 
     return (
       <Autocomplete {...args}>
@@ -65,20 +67,20 @@ export const Example = meta.story({
           </Autocomplete.Listbox>
         </Autocomplete.Popup>
       </Autocomplete>
-    )
+    );
   },
-})
+});
 
 /**
  * Demonstrates an autocomplete that lets users filter preloaded options by typing in the search input.
  */
 export const Preloaded = Example.extend({
-  parameters: { docs: { source: { type: 'code' } } },
+  parameters: { docs: { source: { type: "code" } } },
 
   render: (args) => {
-    const [searchText, setSearchText] = useState('')
+    const [searchText, setSearchText] = useState("");
 
-    const filteredOptions = filterFruit(searchText)
+    const filteredOptions = filterFruit(searchText);
 
     return (
       <Autocomplete {...args}>
@@ -105,9 +107,9 @@ export const Preloaded = Example.extend({
           </Autocomplete.Listbox>
         </Autocomplete.Popup>
       </Autocomplete>
-    )
+    );
   },
-})
+});
 
 /**
  * Use `variant="borderless"` on `Autocomplete.Button` when embedding the autocomplete in a
@@ -118,15 +120,15 @@ export const Preloaded = Example.extend({
 export const Borderless = Example.extend({
   globals: {
     backgrounds: {
-      value: 'light',
+      value: "light",
     },
   },
 
-  parameters: { docs: { source: { type: 'code' } } },
+  parameters: { docs: { source: { type: "code" } } },
 
   render: (args) => {
-    const [searchText, setSearchText] = useState('')
-    const filteredOptions = filterFruit(searchText)
+    const [searchText, setSearchText] = useState("");
+    const filteredOptions = filterFruit(searchText);
 
     return (
       <Autocomplete {...args}>
@@ -153,9 +155,9 @@ export const Borderless = Example.extend({
           </Autocomplete.Listbox>
         </Autocomplete.Popup>
       </Autocomplete>
-    )
+    );
   },
-})
+});
 
 /**
  * Options can be grouped using the `CompactSelect.Optgroup`. Groups should always be separated
@@ -163,7 +165,7 @@ export const Borderless = Example.extend({
  */
 export const Groups = Example.extend({
   args: {
-    id: 'groups-example',
+    id: "groups-example",
   },
   render: (args) => {
     return (
@@ -185,33 +187,33 @@ export const Groups = Example.extend({
           </Autocomplete.Listbox>
         </Autocomplete.Popup>
       </Autocomplete>
-    )
+    );
   },
-})
+});
 
 /**
  * Demonstrates a multi-select autocomplete that lets users filter and select multiple preloaded options.
  */
 export const MultiSelect = Example.extend({
-  name: 'Multi-select',
+  name: "Multi-select",
   args: {
-    id: 'multi-select-example',
+    id: "multi-select-example",
     multiple: true,
   },
-  parameters: { docs: { source: { type: 'code' } } },
+  parameters: { docs: { source: { type: "code" } } },
   decorators: [
     (Story) => (
-      <div style={{ display: 'flex', flexFlow: 'column', gap: 'var(--spacing-2)' }}>
+      <div style={{ display: "flex", flexFlow: "column", gap: "var(--spacing-2)" }}>
         <Story />
       </div>
     ),
   ],
   render: (args, { parameters }) => {
-    const fallbackId = useId()
-    const id = args.id ?? fallbackId
-    const [searchText, setSearchText] = useState('')
+    const fallbackId = useId();
+    const id = args.id ?? fallbackId;
+    const [searchText, setSearchText] = useState("");
 
-    const filteredOptions = filterFruit(searchText)
+    const filteredOptions = filterFruit(searchText);
 
     return (
       <Autocomplete.DefaultOptionsContext.Provider value={parameters.defaultOptions ?? []}>
@@ -241,9 +243,9 @@ export const MultiSelect = Example.extend({
         </Autocomplete>
         <Autocomplete.SelectionChips listboxId={Autocomplete.getListboxId(id)} />
       </Autocomplete.DefaultOptionsContext.Provider>
-    )
+    );
   },
-})
+});
 
 /**
  * When the autocomplete has one or more initial selections, the label text for those options must
@@ -253,18 +255,18 @@ export const MultiSelect = Example.extend({
  * `Autocomplete.DefaultOptionsContext`.
  */
 export const DefaultOptions = MultiSelect.extend({
-  name: 'Default options',
+  name: "Default options",
   args: {
-    id: 'default-options-example',
+    id: "default-options-example",
   },
   parameters: {
-    docs: { source: { type: 'code' } },
+    docs: { source: { type: "code" } },
     defaultOptions: [
-      { label: 'Banana', value: 'banana' },
-      { label: 'Blueberry', value: 'blueberry' },
+      { label: "Banana", value: "banana" },
+      { label: "Blueberry", value: "blueberry" },
     ],
   },
-})
+});
 
 /**
  * Single-select autocompletes can display a card with dynamic content by providing `selectionStyle="card"`
@@ -272,16 +274,16 @@ export const DefaultOptions = MultiSelect.extend({
  */
 export const SelectionCard = Preloaded.extend({
   args: {
-    id: 'selection-card-example',
+    id: "selection-card-example",
   },
   parameters: {
-    docs: { source: { type: 'code' } },
+    docs: { source: { type: "code" } },
   },
   render: (args) => {
     return (
       <Autocomplete {...args}>
         <Autocomplete.Button
-          defaultOptions={[{ label: 'Banana', value: 'banana' }]}
+          defaultOptions={[{ label: "Banana", value: "banana" }]}
           placeholder="Select fruit"
           selectionStyle="card"
         >
@@ -298,7 +300,7 @@ export const SelectionCard = Preloaded.extend({
           )}
         </Autocomplete.Button>
         <Autocomplete.Popup search={<Autocomplete.SearchInput aria-label="Filter fruit" />}>
-          <Autocomplete.Listbox defaultValue={'banana'}>
+          <Autocomplete.Listbox defaultValue={"banana"}>
             {allOptions.map((option) => (
               <Autocomplete.Option key={option.value} value={option.value}>
                 {option.label}
@@ -307,66 +309,68 @@ export const SelectionCard = Preloaded.extend({
           </Autocomplete.Listbox>
         </Autocomplete.Popup>
       </Autocomplete>
-    )
+    );
   },
-})
+});
 
 interface FruitOption {
-  label: string
-  value: string
+  label: string;
+  value: string;
 }
 
 /** Fake query hook that simulates a network request for fruit. */
 function useFruitQuery(searchText: string) {
-  const [isLoading, setIsLoading] = useState(false)
-  const [data, setData] = useState<FruitOption[]>([])
+  const [isLoading, setIsLoading] = useState(false);
+  const [data, setData] = useState<FruitOption[]>([]);
 
   useEffect(() => {
     if (!searchText) {
-      setData([])
-      return
+      setData([]);
+      return;
     }
 
-    setIsLoading(true)
+    setIsLoading(true);
 
     const timeout = setTimeout(() => {
-      setData(filterFruit(searchText))
-      setIsLoading(false)
-    }, 500)
+      setData(filterFruit(searchText));
+      setIsLoading(false);
+    }, 500);
 
     return () => {
-      clearTimeout(timeout)
-    }
-  }, [searchText])
+      clearTimeout(timeout);
+    };
+  }, [searchText]);
 
-  return { isLoading, data }
+  return { isLoading, data };
 }
 
 /** Filter fruit options based on the search text. */
 function filterFruit(searchText: string) {
-  return allOptions.filter((option) => option.label.toLowerCase().startsWith(searchText.toLowerCase()))
+  return allOptions.filter((option) =>
+    option.label.toLowerCase().startsWith(searchText.toLowerCase()),
+  );
 }
 
 const allOptions: FruitOption[] = [
-  { label: 'Apple', value: 'apple' },
-  { label: 'Apricot', value: 'apricot' },
-  { label: 'Avocado', value: 'avocado' },
-  { label: 'Banana', value: 'banana' },
-  { label: 'Blueberry', value: 'blueberry' },
-  { label: 'Cherry', value: 'cherry' },
-  { label: 'Cantaloupe', value: 'cantaloupe' },
-  { label: 'Grape', value: 'grape' },
-  { label: 'Grapefruit', value: 'grapefruit' },
-]
+  { label: "Apple", value: "apple" },
+  { label: "Apricot", value: "apricot" },
+  { label: "Avocado", value: "avocado" },
+  { label: "Banana", value: "banana" },
+  { label: "Blueberry", value: "blueberry" },
+  { label: "Cherry", value: "cherry" },
+  { label: "Cantaloupe", value: "cantaloupe" },
+  { label: "Grape", value: "grape" },
+  { label: "Grapefruit", value: "grapefruit" },
+];
 
 const descriptions = {
-  apple: 'Crunchy and juicy',
-  apricot: 'Great with cream',
-  avocado: 'Creamy and nutritious',
-  banana: 'Soft and sweet',
-  blueberry: 'Packed with goodness',
-  cherry: 'Place on top',
-  cantaloupe: 'Juicy and floral',
-  grape: 'Berry winey',
-  grapefruit: 'Acidic and juicy',
-}
+  apple: "Crunchy and juicy",
+  apricot: "Great with cream",
+  avocado: "Creamy and nutritious",
+  banana: "Soft and sweet",
+  blueberry: "Packed with goodness",
+  cherry: "Place on top",
+  cantaloupe: "Juicy and floral",
+  grape: "Berry winey",
+  grapefruit: "Acidic and juicy",
+};

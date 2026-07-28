@@ -1,9 +1,9 @@
-import { ElTopBarSecondaryNav, ElTopBarSecondaryNavList } from './styles'
-import { TopBarSecondaryNavListItem } from './secondary-nav-list-item'
-import { TopBarSecondaryNavListItemButton } from './secondary-nav-list-item-button'
-import { TopBarSecondaryNavMenuListItem } from './secondary-nav-menu-list-item'
+import type { ComponentProps, ReactNode } from "react";
 
-import type { ComponentProps, ReactNode } from 'react'
+import { TopBarSecondaryNavListItem } from "./secondary-nav-list-item";
+import { TopBarSecondaryNavListItemButton } from "./secondary-nav-list-item-button";
+import { TopBarSecondaryNavMenuListItem } from "./secondary-nav-menu-list-item";
+import { ElTopBarSecondaryNav, ElTopBarSecondaryNavList } from "./styles";
 
 export namespace TopBarSecondaryNav {
   export interface ItemProps extends TopBarSecondaryNavListItem.Props {}
@@ -15,11 +15,11 @@ export namespace TopBarSecondaryNav {
      * The accessible name for the secondary navigation.
      * @default 'Secondary navigation'
      */
-    'aria-label'?: string
+    "aria-label"?: string;
     /**
      * The secondary navigation items for the product. Typically a collection of `TopBar.NavIconItem`'s.
      */
-    children: ReactNode
+    children: ReactNode;
   }
 }
 
@@ -29,7 +29,7 @@ export namespace TopBarSecondaryNav {
  * should represent the current page at any given time.
  */
 export function TopBarSecondaryNav({
-  'aria-label': ariaLabel = 'Secondary navigation',
+  "aria-label": ariaLabel = "Secondary navigation",
   children,
   ...rest
 }: TopBarSecondaryNav.Props) {
@@ -37,11 +37,11 @@ export function TopBarSecondaryNav({
     <ElTopBarSecondaryNav {...rest} aria-label={ariaLabel}>
       <ElTopBarSecondaryNavList>{children}</ElTopBarSecondaryNavList>
     </ElTopBarSecondaryNav>
-  )
+  );
 }
 
-TopBarSecondaryNav.displayName = 'TopBar.SecondaryNav'
+TopBarSecondaryNav.displayName = "TopBar.SecondaryNav";
 
-TopBarSecondaryNav.Item = TopBarSecondaryNavListItem
-TopBarSecondaryNav.ItemButton = TopBarSecondaryNavListItemButton
-TopBarSecondaryNav.MenuItem = TopBarSecondaryNavMenuListItem
+TopBarSecondaryNav.Item = TopBarSecondaryNavListItem;
+TopBarSecondaryNav.ItemButton = TopBarSecondaryNavListItemButton;
+TopBarSecondaryNav.MenuItem = TopBarSecondaryNavMenuListItem;

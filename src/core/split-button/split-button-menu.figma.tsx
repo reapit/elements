@@ -1,9 +1,10 @@
-import figma from '@figma/code-connect'
-import { SplitButton } from './split-button'
+import figma from "@figma/code-connect";
 
-figma.connect(SplitButton.Menu, '<SPLIT_BUTTON_MENU_URL>', {
+import { SplitButton } from "./split-button";
+
+figma.connect(SplitButton.Menu, "<SPLIT_BUTTON_MENU_URL>", {
   props: {
-    disabled: figma.enum('State', {
+    disabled: figma.enum("State", {
       Disabled: true,
     }),
   },
@@ -12,4 +13,4 @@ figma.connect(SplitButton.Menu, '<SPLIT_BUTTON_MENU_URL>', {
       TODO: Add menu items
     </SplitButton.Menu>
   ),
-})
+});

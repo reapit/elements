@@ -1,478 +1,479 @@
-import { existsSync, mkdirSync, writeFileSync, rmSync } from 'node:fs'
-import { join } from 'node:path'
-import { tmpdir } from 'node:os'
+import { existsSync, mkdirSync, writeFileSync, rmSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
+
 import {
   discoverCodemods,
   getCodemodMetadata,
   hasCodemodsChanged,
   generateTransformsContent,
   hasTransformsChanged,
-} from '../generate-manifest'
+} from "../generate-manifest";
 
-let testDir: string
+let testDir: string;
 
 beforeEach(() => {
   // Create a temporary test directory
-  testDir = join(tmpdir(), `codemods-test-${Date.now()}`)
-  mkdirSync(testDir, { recursive: true })
-})
+  testDir = join(tmpdir(), `codemods-test-${Date.now()}`);
+  mkdirSync(testDir, { recursive: true });
+});
 
 afterEach(() => {
   // Clean up test directory
   if (existsSync(testDir)) {
-    rmSync(testDir, { recursive: true, force: true })
+    rmSync(testDir, { recursive: true, force: true });
   }
-})
+});
 
-describe('discoverCodemods', () => {
-  test('returns empty array when directory has no codemods', () => {
-    const result = discoverCodemods(testDir)
-    expect(result).toEqual([])
-  })
+describe("discoverCodemods", () => {
+  test("returns empty array when directory has no codemods", () => {
+    const result = discoverCodemods(testDir);
+    expect(result).toEqual([]);
+  });
 
-  test('returns codemod names that have transform.ts files', () => {
+  test("returns codemod names that have transform.ts files", () => {
     // Create valid codemod directories
-    const codemod1Dir = join(testDir, 'codemod-1')
-    const codemod2Dir = join(testDir, 'codemod-2')
+    const codemod1Dir = join(testDir, "codemod-1");
+    const codemod2Dir = join(testDir, "codemod-2");
 
-    mkdirSync(codemod1Dir)
-    mkdirSync(codemod2Dir)
+    mkdirSync(codemod1Dir);
+    mkdirSync(codemod2Dir);
 
-    writeFileSync(join(codemod1Dir, 'transform.ts'), 'export default function() {}')
-    writeFileSync(join(codemod2Dir, 'transform.ts'), 'export default function() {}')
+    writeFileSync(join(codemod1Dir, "transform.ts"), "export default function() {}");
+    writeFileSync(join(codemod2Dir, "transform.ts"), "export default function() {}");
 
-    const result = discoverCodemods(testDir)
+    const result = discoverCodemods(testDir);
 
-    expect(result).toHaveLength(2)
-    expect(result).toContain('codemod-1')
-    expect(result).toContain('codemod-2')
-  })
+    expect(result).toHaveLength(2);
+    expect(result).toContain("codemod-1");
+    expect(result).toContain("codemod-2");
+  });
 
-  test('ignores directories without transform.ts files', () => {
-    const validDir = join(testDir, 'valid-codemod')
-    const invalidDir = join(testDir, 'invalid-codemod')
+  test("ignores directories without transform.ts files", () => {
+    const validDir = join(testDir, "valid-codemod");
+    const invalidDir = join(testDir, "invalid-codemod");
 
-    mkdirSync(validDir)
-    mkdirSync(invalidDir)
+    mkdirSync(validDir);
+    mkdirSync(invalidDir);
 
-    writeFileSync(join(validDir, 'transform.ts'), 'export default function() {}')
-    writeFileSync(join(invalidDir, 'index.ts'), 'export default function() {}')
+    writeFileSync(join(validDir, "transform.ts"), "export default function() {}");
+    writeFileSync(join(invalidDir, "index.ts"), "export default function() {}");
 
-    const result = discoverCodemods(testDir)
+    const result = discoverCodemods(testDir);
 
-    expect(result).toHaveLength(1)
-    expect(result).toContain('valid-codemod')
-    expect(result).not.toContain('invalid-codemod')
-  })
+    expect(result).toHaveLength(1);
+    expect(result).toContain("valid-codemod");
+    expect(result).not.toContain("invalid-codemod");
+  });
 
-  test('ignores files in the root directory', () => {
-    const validDir = join(testDir, 'valid-codemod')
-    mkdirSync(validDir)
-    writeFileSync(join(validDir, 'transform.ts'), 'export default function() {}')
+  test("ignores files in the root directory", () => {
+    const validDir = join(testDir, "valid-codemod");
+    mkdirSync(validDir);
+    writeFileSync(join(validDir, "transform.ts"), "export default function() {}");
 
     // Create some files in root that should be ignored
-    writeFileSync(join(testDir, 'transform.ts'), 'export default function() {}')
-    writeFileSync(join(testDir, 'runner.ts'), 'export function run() {}')
+    writeFileSync(join(testDir, "transform.ts"), "export default function() {}");
+    writeFileSync(join(testDir, "runner.ts"), "export function run() {}");
 
-    const result = discoverCodemods(testDir)
+    const result = discoverCodemods(testDir);
 
-    expect(result).toHaveLength(1)
-    expect(result).toContain('valid-codemod')
-  })
+    expect(result).toHaveLength(1);
+    expect(result).toContain("valid-codemod");
+  });
 
-  test('returns codemods in consistent alphabetical order', () => {
-    const names = ['zebra', 'alpha', 'beta']
+  test("returns codemods in consistent alphabetical order", () => {
+    const names = ["zebra", "alpha", "beta"];
 
     for (const name of names) {
-      const dir = join(testDir, name)
-      mkdirSync(dir)
-      writeFileSync(join(dir, 'transform.ts'), 'export default function() {}')
+      const dir = join(testDir, name);
+      mkdirSync(dir);
+      writeFileSync(join(dir, "transform.ts"), "export default function() {}");
     }
 
-    const result = discoverCodemods(testDir)
+    const result = discoverCodemods(testDir);
 
-    expect(result).toEqual(['alpha', 'beta', 'zebra'])
-  })
+    expect(result).toEqual(["alpha", "beta", "zebra"]);
+  });
 
-  test('ignores special directories', () => {
-    const validDir = join(testDir, 'valid-codemod')
-    const nodeModulesDir = join(testDir, 'node_modules')
-    const testsDir = join(testDir, '__tests__')
-    const hiddenDir = join(testDir, '.hidden')
+  test("ignores special directories", () => {
+    const validDir = join(testDir, "valid-codemod");
+    const nodeModulesDir = join(testDir, "node_modules");
+    const testsDir = join(testDir, "__tests__");
+    const hiddenDir = join(testDir, ".hidden");
 
-    mkdirSync(validDir)
-    mkdirSync(nodeModulesDir)
-    mkdirSync(testsDir)
-    mkdirSync(hiddenDir)
+    mkdirSync(validDir);
+    mkdirSync(nodeModulesDir);
+    mkdirSync(testsDir);
+    mkdirSync(hiddenDir);
 
-    writeFileSync(join(validDir, 'transform.ts'), 'export default function() {}')
-    writeFileSync(join(nodeModulesDir, 'transform.ts'), 'export default function() {}')
-    writeFileSync(join(testsDir, 'transform.ts'), 'export default function() {}')
-    writeFileSync(join(hiddenDir, 'transform.ts'), 'export default function() {}')
+    writeFileSync(join(validDir, "transform.ts"), "export default function() {}");
+    writeFileSync(join(nodeModulesDir, "transform.ts"), "export default function() {}");
+    writeFileSync(join(testsDir, "transform.ts"), "export default function() {}");
+    writeFileSync(join(hiddenDir, "transform.ts"), "export default function() {}");
 
-    const result = discoverCodemods(testDir)
+    const result = discoverCodemods(testDir);
 
-    expect(result).toHaveLength(1)
-    expect(result).toContain('valid-codemod')
-  })
+    expect(result).toHaveLength(1);
+    expect(result).toContain("valid-codemod");
+  });
 
-  test('handles non-existent directory gracefully', () => {
-    const nonExistentDir = join(testDir, 'does-not-exist')
-    const result = discoverCodemods(nonExistentDir)
+  test("handles non-existent directory gracefully", () => {
+    const nonExistentDir = join(testDir, "does-not-exist");
+    const result = discoverCodemods(nonExistentDir);
 
-    expect(result).toEqual([])
-  })
-})
+    expect(result).toEqual([]);
+  });
+});
 
-describe('getCodemodMetadata', () => {
-  test('extracts description from README front matter', () => {
-    const codemodDir = join(testDir, 'test-codemod')
-    mkdirSync(codemodDir)
+describe("getCodemodMetadata", () => {
+  test("extracts description from README front matter", () => {
+    const codemodDir = join(testDir, "test-codemod");
+    mkdirSync(codemodDir);
 
     const readmeContent = `---
 description: Transforms old API to new API
 ---
 # Documentation
 
-Body content.`
+Body content.`;
 
-    writeFileSync(join(codemodDir, 'README.md'), readmeContent)
+    writeFileSync(join(codemodDir, "README.md"), readmeContent);
 
-    const result = getCodemodMetadata(testDir, 'test-codemod')
-
-    expect(result).toEqual({
-      name: 'test-codemod',
-      description: 'Transforms old API to new API',
-    })
-  })
-
-  test('returns null description when README does not exist', () => {
-    const codemodDir = join(testDir, 'test-codemod')
-    mkdirSync(codemodDir)
-
-    const consoleWarn = vi.spyOn(console, 'warn').mockImplementation(() => {})
-    const result = getCodemodMetadata(testDir, 'test-codemod')
-    consoleWarn.mockRestore()
+    const result = getCodemodMetadata(testDir, "test-codemod");
 
     expect(result).toEqual({
-      name: 'test-codemod',
+      name: "test-codemod",
+      description: "Transforms old API to new API",
+    });
+  });
+
+  test("returns null description when README does not exist", () => {
+    const codemodDir = join(testDir, "test-codemod");
+    mkdirSync(codemodDir);
+
+    const consoleWarn = vi.spyOn(console, "warn").mockImplementation(() => {});
+    const result = getCodemodMetadata(testDir, "test-codemod");
+    consoleWarn.mockRestore();
+
+    expect(result).toEqual({
+      name: "test-codemod",
       description: null,
-    })
-  })
+    });
+  });
 
-  test('returns null description when README has no front matter', () => {
-    const codemodDir = join(testDir, 'test-codemod')
-    mkdirSync(codemodDir)
+  test("returns null description when README has no front matter", () => {
+    const codemodDir = join(testDir, "test-codemod");
+    mkdirSync(codemodDir);
 
-    writeFileSync(join(codemodDir, 'README.md'), '# Test\n\nNo front matter.')
+    writeFileSync(join(codemodDir, "README.md"), "# Test\n\nNo front matter.");
 
-    const result = getCodemodMetadata(testDir, 'test-codemod')
+    const result = getCodemodMetadata(testDir, "test-codemod");
 
     expect(result).toEqual({
-      name: 'test-codemod',
+      name: "test-codemod",
       description: null,
-    })
-  })
+    });
+  });
 
-  test('returns null description when front matter has no description', () => {
-    const codemodDir = join(testDir, 'test-codemod')
-    mkdirSync(codemodDir)
+  test("returns null description when front matter has no description", () => {
+    const codemodDir = join(testDir, "test-codemod");
+    mkdirSync(codemodDir);
 
     const readmeContent = `---
 author: John Doe
 ---
-# Documentation`
+# Documentation`;
 
-    writeFileSync(join(codemodDir, 'README.md'), readmeContent)
+    writeFileSync(join(codemodDir, "README.md"), readmeContent);
 
-    const result = getCodemodMetadata(testDir, 'test-codemod')
+    const result = getCodemodMetadata(testDir, "test-codemod");
 
     expect(result).toEqual({
-      name: 'test-codemod',
+      name: "test-codemod",
       description: null,
-    })
-  })
+    });
+  });
 
-  test('extracts description with special characters', () => {
-    const codemodDir = join(testDir, 'test-codemod')
-    mkdirSync(codemodDir)
+  test("extracts description with special characters", () => {
+    const codemodDir = join(testDir, "test-codemod");
+    mkdirSync(codemodDir);
 
     const readmeContent = `---
 description: Transforms @reapit/elements v4 -> v5
 ---
-# Documentation`
+# Documentation`;
 
-    writeFileSync(join(codemodDir, 'README.md'), readmeContent)
+    writeFileSync(join(codemodDir, "README.md"), readmeContent);
 
-    const result = getCodemodMetadata(testDir, 'test-codemod')
+    const result = getCodemodMetadata(testDir, "test-codemod");
 
     expect(result).toEqual({
-      name: 'test-codemod',
-      description: 'Transforms @reapit/elements v4 -> v5',
-    })
-  })
-})
+      name: "test-codemod",
+      description: "Transforms @reapit/elements v4 -> v5",
+    });
+  });
+});
 
-describe('integration', () => {
-  test('workflow: discover codemods and extract metadata', () => {
+describe("integration", () => {
+  test("workflow: discover codemods and extract metadata", () => {
     // Create codemods
-    const codemod1Dir = join(testDir, 'my-codemod')
-    const codemod2Dir = join(testDir, 'another-codemod')
+    const codemod1Dir = join(testDir, "my-codemod");
+    const codemod2Dir = join(testDir, "another-codemod");
 
-    mkdirSync(codemod1Dir)
-    mkdirSync(codemod2Dir)
+    mkdirSync(codemod1Dir);
+    mkdirSync(codemod2Dir);
 
-    writeFileSync(join(codemod1Dir, 'transform.ts'), 'export default function() {}')
+    writeFileSync(join(codemod1Dir, "transform.ts"), "export default function() {}");
     writeFileSync(
-      join(codemod1Dir, 'README.md'),
+      join(codemod1Dir, "README.md"),
       `---
 description: My awesome codemod
 ---
 # My Codemod`,
-    )
+    );
 
-    writeFileSync(join(codemod2Dir, 'transform.ts'), 'export default function() {}')
+    writeFileSync(join(codemod2Dir, "transform.ts"), "export default function() {}");
 
-    const consoleWarn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+    const consoleWarn = vi.spyOn(console, "warn").mockImplementation(() => {});
 
     // Discover codemods
-    const codemods = discoverCodemods(testDir)
-    expect(codemods).toEqual(['another-codemod', 'my-codemod'])
+    const codemods = discoverCodemods(testDir);
+    expect(codemods).toEqual(["another-codemod", "my-codemod"]);
 
     // Get metadata for each
-    const metadata = codemods.map((name) => getCodemodMetadata(testDir, name))
+    const metadata = codemods.map((name) => getCodemodMetadata(testDir, name));
 
-    consoleWarn.mockRestore()
+    consoleWarn.mockRestore();
 
     expect(metadata).toEqual([
-      { name: 'another-codemod', description: null },
-      { name: 'my-codemod', description: 'My awesome codemod' },
-    ])
-  })
-})
+      { name: "another-codemod", description: null },
+      { name: "my-codemod", description: "My awesome codemod" },
+    ]);
+  });
+});
 
-describe('hasCodemodsChanged', () => {
-  let manifestPath: string
+describe("hasCodemodsChanged", () => {
+  let manifestPath: string;
 
   beforeEach(() => {
-    manifestPath = join(testDir, 'manifest.json')
-  })
+    manifestPath = join(testDir, "manifest.json");
+  });
 
-  test('returns false when codemods are identical', () => {
+  test("returns false when codemods are identical", () => {
     const codemods = [
-      { name: 'codemod-a', description: 'Description A' },
-      { name: 'codemod-b', description: 'Description B' },
-      { name: 'codemod-c', description: null },
-    ]
+      { name: "codemod-a", description: "Description A" },
+      { name: "codemod-b", description: "Description B" },
+      { name: "codemod-c", description: null },
+    ];
 
     const manifest = {
-      $schema: './manifest.schema.json',
-      generated: '2024-01-01T00:00:00.000Z',
+      $schema: "./manifest.schema.json",
+      generated: "2024-01-01T00:00:00.000Z",
       codemods,
-    }
+    };
 
-    writeFileSync(manifestPath, JSON.stringify(manifest, null, 2))
+    writeFileSync(manifestPath, JSON.stringify(manifest, null, 2));
 
-    const result = hasCodemodsChanged(manifestPath, codemods)
+    const result = hasCodemodsChanged(manifestPath, codemods);
 
-    expect(result).toBe(false)
-  })
+    expect(result).toBe(false);
+  });
 
-  test('returns true when a codemod is added', () => {
+  test("returns true when a codemod is added", () => {
     const existingCodemods = [
-      { name: 'codemod-a', description: 'Description A' },
-      { name: 'codemod-b', description: 'Description B' },
-    ]
+      { name: "codemod-a", description: "Description A" },
+      { name: "codemod-b", description: "Description B" },
+    ];
 
     const newCodemods = [
-      { name: 'codemod-a', description: 'Description A' },
-      { name: 'codemod-b', description: 'Description B' },
-      { name: 'codemod-c', description: 'Description C' },
-    ]
+      { name: "codemod-a", description: "Description A" },
+      { name: "codemod-b", description: "Description B" },
+      { name: "codemod-c", description: "Description C" },
+    ];
 
     const manifest = {
-      $schema: './manifest.schema.json',
-      generated: '2024-01-01T00:00:00.000Z',
+      $schema: "./manifest.schema.json",
+      generated: "2024-01-01T00:00:00.000Z",
       codemods: existingCodemods,
-    }
+    };
 
-    writeFileSync(manifestPath, JSON.stringify(manifest, null, 2))
+    writeFileSync(manifestPath, JSON.stringify(manifest, null, 2));
 
-    const result = hasCodemodsChanged(manifestPath, newCodemods)
+    const result = hasCodemodsChanged(manifestPath, newCodemods);
 
-    expect(result).toBe(true)
-  })
+    expect(result).toBe(true);
+  });
 
-  test('returns true when a codemod is removed', () => {
+  test("returns true when a codemod is removed", () => {
     const existingCodemods = [
-      { name: 'codemod-a', description: 'Description A' },
-      { name: 'codemod-b', description: 'Description B' },
-      { name: 'codemod-c', description: 'Description C' },
-    ]
+      { name: "codemod-a", description: "Description A" },
+      { name: "codemod-b", description: "Description B" },
+      { name: "codemod-c", description: "Description C" },
+    ];
 
     const newCodemods = [
-      { name: 'codemod-a', description: 'Description A' },
-      { name: 'codemod-b', description: 'Description B' },
-    ]
+      { name: "codemod-a", description: "Description A" },
+      { name: "codemod-b", description: "Description B" },
+    ];
 
     const manifest = {
-      $schema: './manifest.schema.json',
-      generated: '2024-01-01T00:00:00.000Z',
+      $schema: "./manifest.schema.json",
+      generated: "2024-01-01T00:00:00.000Z",
       codemods: existingCodemods,
-    }
+    };
 
-    writeFileSync(manifestPath, JSON.stringify(manifest, null, 2))
+    writeFileSync(manifestPath, JSON.stringify(manifest, null, 2));
 
-    const result = hasCodemodsChanged(manifestPath, newCodemods)
+    const result = hasCodemodsChanged(manifestPath, newCodemods);
 
-    expect(result).toBe(true)
-  })
+    expect(result).toBe(true);
+  });
 
-  test('returns true when a description changes', () => {
+  test("returns true when a description changes", () => {
     const existingCodemods = [
-      { name: 'codemod-a', description: 'Old Description' },
-      { name: 'codemod-b', description: 'Description B' },
-    ]
+      { name: "codemod-a", description: "Old Description" },
+      { name: "codemod-b", description: "Description B" },
+    ];
 
     const newCodemods = [
-      { name: 'codemod-a', description: 'New Description' },
-      { name: 'codemod-b', description: 'Description B' },
-    ]
+      { name: "codemod-a", description: "New Description" },
+      { name: "codemod-b", description: "Description B" },
+    ];
 
     const manifest = {
-      $schema: './manifest.schema.json',
-      generated: '2024-01-01T00:00:00.000Z',
+      $schema: "./manifest.schema.json",
+      generated: "2024-01-01T00:00:00.000Z",
       codemods: existingCodemods,
-    }
+    };
 
-    writeFileSync(manifestPath, JSON.stringify(manifest, null, 2))
+    writeFileSync(manifestPath, JSON.stringify(manifest, null, 2));
 
-    const result = hasCodemodsChanged(manifestPath, newCodemods)
+    const result = hasCodemodsChanged(manifestPath, newCodemods);
 
-    expect(result).toBe(true)
-  })
+    expect(result).toBe(true);
+  });
 
-  test('returns false when codemods are in different order (order-independent)', () => {
+  test("returns false when codemods are in different order (order-independent)", () => {
     const existingCodemods = [
-      { name: 'codemod-c', description: 'Description C' },
-      { name: 'codemod-a', description: 'Description A' },
-      { name: 'codemod-b', description: 'Description B' },
-    ]
+      { name: "codemod-c", description: "Description C" },
+      { name: "codemod-a", description: "Description A" },
+      { name: "codemod-b", description: "Description B" },
+    ];
 
     const newCodemods = [
-      { name: 'codemod-a', description: 'Description A' },
-      { name: 'codemod-b', description: 'Description B' },
-      { name: 'codemod-c', description: 'Description C' },
-    ]
+      { name: "codemod-a", description: "Description A" },
+      { name: "codemod-b", description: "Description B" },
+      { name: "codemod-c", description: "Description C" },
+    ];
 
     const manifest = {
-      $schema: './manifest.schema.json',
-      generated: '2024-01-01T00:00:00.000Z',
+      $schema: "./manifest.schema.json",
+      generated: "2024-01-01T00:00:00.000Z",
       codemods: existingCodemods,
-    }
+    };
 
-    writeFileSync(manifestPath, JSON.stringify(manifest, null, 2))
+    writeFileSync(manifestPath, JSON.stringify(manifest, null, 2));
 
-    const result = hasCodemodsChanged(manifestPath, newCodemods)
+    const result = hasCodemodsChanged(manifestPath, newCodemods);
 
-    expect(result).toBe(false)
-  })
+    expect(result).toBe(false);
+  });
 
-  test('returns true when manifest does not exist', () => {
-    const nonExistentPath = join(testDir, 'non-existent-manifest.json')
-    const codemods = [{ name: 'codemod-a', description: 'Description A' }]
+  test("returns true when manifest does not exist", () => {
+    const nonExistentPath = join(testDir, "non-existent-manifest.json");
+    const codemods = [{ name: "codemod-a", description: "Description A" }];
 
-    const result = hasCodemodsChanged(nonExistentPath, codemods)
+    const result = hasCodemodsChanged(nonExistentPath, codemods);
 
-    expect(result).toBe(true)
-  })
+    expect(result).toBe(true);
+  });
 
-  test('returns true when manifest is malformed JSON', () => {
-    writeFileSync(manifestPath, '{ this is not valid JSON }')
+  test("returns true when manifest is malformed JSON", () => {
+    writeFileSync(manifestPath, "{ this is not valid JSON }");
 
-    const codemods = [{ name: 'codemod-a', description: 'Description A' }]
+    const codemods = [{ name: "codemod-a", description: "Description A" }];
 
-    const result = hasCodemodsChanged(manifestPath, codemods)
+    const result = hasCodemodsChanged(manifestPath, codemods);
 
-    expect(result).toBe(true)
-  })
+    expect(result).toBe(true);
+  });
 
-  test('returns false when both have empty codemods arrays', () => {
+  test("returns false when both have empty codemods arrays", () => {
     const manifest = {
-      $schema: './manifest.schema.json',
-      generated: '2024-01-01T00:00:00.000Z',
+      $schema: "./manifest.schema.json",
+      generated: "2024-01-01T00:00:00.000Z",
       codemods: [],
-    }
+    };
 
-    writeFileSync(manifestPath, JSON.stringify(manifest, null, 2))
+    writeFileSync(manifestPath, JSON.stringify(manifest, null, 2));
 
-    const result = hasCodemodsChanged(manifestPath, [])
+    const result = hasCodemodsChanged(manifestPath, []);
 
-    expect(result).toBe(false)
-  })
-})
+    expect(result).toBe(false);
+  });
+});
 
-describe('generateTransformsContent', () => {
-  test('returns correct import for a single codemod', () => {
-    const result = generateTransformsContent(['my-codemod'])
+describe("generateTransformsContent", () => {
+  test("returns correct import for a single codemod", () => {
+    const result = generateTransformsContent(["my-codemod"]);
 
-    expect(result).toContain("import type { Transform } from './runner.js'")
-    expect(result).toContain('export const transforms = {')
-    expect(result).toContain('  "my-codemod": () => import("./my-codemod/transform.js"),')
-    expect(result).toContain('} satisfies Record<string, () => Promise<{ default: Transform }>>')
-  })
+    expect(result).toContain("import type { Transform } from './runner.js'");
+    expect(result).toContain("export const transforms = {");
+    expect(result).toContain('  "my-codemod": () => import("./my-codemod/transform.js"),');
+    expect(result).toContain("} satisfies Record<string, () => Promise<{ default: Transform }>>");
+  });
 
-  test('returns correct imports for multiple codemods', () => {
-    const result = generateTransformsContent(['alpha', 'beta', 'gamma'])
+  test("returns correct imports for multiple codemods", () => {
+    const result = generateTransformsContent(["alpha", "beta", "gamma"]);
 
-    expect(result).toContain('  "alpha": () => import("./alpha/transform.js"),')
-    expect(result).toContain('  "beta": () => import("./beta/transform.js"),')
-    expect(result).toContain('  "gamma": () => import("./gamma/transform.js"),')
-  })
+    expect(result).toContain('  "alpha": () => import("./alpha/transform.js"),');
+    expect(result).toContain('  "beta": () => import("./beta/transform.js"),');
+    expect(result).toContain('  "gamma": () => import("./gamma/transform.js"),');
+  });
 
-  test('returns empty object for empty array', () => {
-    const result = generateTransformsContent([])
+  test("returns empty object for empty array", () => {
+    const result = generateTransformsContent([]);
 
-    expect(result).toContain('export const transforms = {')
-    expect(result).toContain('} satisfies Record<string, () => Promise<{ default: Transform }>>')
-    expect(result).not.toMatch(/import\('\.\//)
-  })
+    expect(result).toContain("export const transforms = {");
+    expect(result).toContain("} satisfies Record<string, () => Promise<{ default: Transform }>>");
+    expect(result).not.toMatch(/import\('\.\//);
+  });
 
-  test('output ends with a newline', () => {
-    const result = generateTransformsContent(['foo'])
+  test("output ends with a newline", () => {
+    const result = generateTransformsContent(["foo"]);
 
-    expect(result.endsWith('\n')).toBe(true)
-  })
-})
+    expect(result.endsWith("\n")).toBe(true);
+  });
+});
 
-describe('hasTransformsChanged', () => {
-  let transformsPath: string
+describe("hasTransformsChanged", () => {
+  let transformsPath: string;
 
   beforeEach(() => {
-    transformsPath = join(testDir, 'transforms.ts')
-  })
+    transformsPath = join(testDir, "transforms.ts");
+  });
 
-  test('returns false when file content matches', () => {
-    writeFileSync(transformsPath, 'content-a')
+  test("returns false when file content matches", () => {
+    writeFileSync(transformsPath, "content-a");
 
-    const result = hasTransformsChanged(transformsPath, 'content-a')
+    const result = hasTransformsChanged(transformsPath, "content-a");
 
-    expect(result).toBe(false)
-  })
+    expect(result).toBe(false);
+  });
 
-  test('returns true when file content differs', () => {
-    writeFileSync(transformsPath, 'content-a')
+  test("returns true when file content differs", () => {
+    writeFileSync(transformsPath, "content-a");
 
-    const result = hasTransformsChanged(transformsPath, 'content-b')
+    const result = hasTransformsChanged(transformsPath, "content-b");
 
-    expect(result).toBe(true)
-  })
+    expect(result).toBe(true);
+  });
 
-  test('returns true when file does not exist', () => {
-    const nonExistentPath = join(testDir, 'does-not-exist.ts')
+  test("returns true when file does not exist", () => {
+    const nonExistentPath = join(testDir, "does-not-exist.ts");
 
-    const result = hasTransformsChanged(nonExistentPath, 'any content')
+    const result = hasTransformsChanged(nonExistentPath, "any content");
 
-    expect(result).toBe(true)
-  })
-})
+    expect(result).toBe(true);
+  });
+});

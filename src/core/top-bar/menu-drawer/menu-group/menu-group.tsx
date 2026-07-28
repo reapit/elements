@@ -1,11 +1,11 @@
-import { cx } from '@linaria/core'
-import { elTopBarMenuDrawerMenuGroup } from './styles'
-import { TopBarMenuDrawerMenuGroupLabelIdContext } from './menu-group-label-id-context'
-import { TopBarMenuDrawerMenuGroupSummary } from './menu-group-summary'
-import { useId } from 'react'
-import { useTopBarMenuDrawerMenuGroupController } from './use-menu-group-controller'
+import { cx } from "@linaria/core";
+import { useId } from "react";
+import type { DetailsHTMLAttributes, ReactNode } from "react";
 
-import type { DetailsHTMLAttributes, ReactNode } from 'react'
+import { TopBarMenuDrawerMenuGroupLabelIdContext } from "./menu-group-label-id-context";
+import { TopBarMenuDrawerMenuGroupSummary } from "./menu-group-summary";
+import { elTopBarMenuDrawerMenuGroup } from "./styles";
+import { useTopBarMenuDrawerMenuGroupController } from "./use-menu-group-controller";
 
 export namespace TopBarMenuDrawerMenuGroup {
   export interface SummaryProps extends TopBarMenuDrawerMenuGroupSummary.Props {}
@@ -14,25 +14,25 @@ export namespace TopBarMenuDrawerMenuGroup {
     /**
      * The ID of the element that labels this menu group. If not provided, a generated ID will be used.
      */
-    'aria-labelledby'?: string
+    "aria-labelledby"?: string;
     /**
      * Typically a single `TopBar.MenuDrawer.Submenu` component that contains submenu items
      */
-    children: ReactNode
+    children: ReactNode;
     /**
      * Allows consumers to "force" the menu group to appear active. Being active means
      * the menu group will have the expanded background colour.
      */
-    isActive?: boolean
+    isActive?: boolean;
     /**
      * Indicates whether the menu group's contents (the submenu) are currently visible.
      * Can be controlled or uncontrolled.
      */
-    open?: boolean
+    open?: boolean;
     /**
      * The summary/main item for the menu group. Will typically be a `TopBar.MenuDrawer.MenuGroupSummary`.
      */
-    summary: ReactNode
+    summary: ReactNode;
   }
 }
 
@@ -44,15 +44,15 @@ export namespace TopBarMenuDrawerMenuGroup {
  * "active" state (expanded background colour) even when closed.
  */
 export function TopBarMenuDrawerMenuGroup({
-  'aria-labelledby': ariaLabelledBy,
+  "aria-labelledby": ariaLabelledBy,
   children,
   className,
   isActive,
   summary,
   ...rest
 }: TopBarMenuDrawerMenuGroup.Props) {
-  const labelId = ariaLabelledBy ?? useId()
-  const ref = useTopBarMenuDrawerMenuGroupController()
+  const labelId = ariaLabelledBy ?? useId();
+  const ref = useTopBarMenuDrawerMenuGroupController();
   return (
     <details
       {...rest}
@@ -66,7 +66,7 @@ export function TopBarMenuDrawerMenuGroup({
       </TopBarMenuDrawerMenuGroupLabelIdContext.Provider>
       {children}
     </details>
-  )
+  );
 }
 
-TopBarMenuDrawerMenuGroup.Summary = TopBarMenuDrawerMenuGroupSummary
+TopBarMenuDrawerMenuGroup.Summary = TopBarMenuDrawerMenuGroupSummary;

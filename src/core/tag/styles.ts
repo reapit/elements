@@ -1,15 +1,16 @@
-import { font } from '#src/utils/font'
-import { styled } from '@linaria/react'
-import type { CSSProperties } from 'react'
+import { styled } from "@linaria/react";
+import type { CSSProperties } from "react";
+
+import { font } from "#src/utils/font";
 
 interface ElTagCSSProperties extends CSSProperties {
   /** Used to determine the maximum width of the tag because the browser does not support
    * [CSS' advanced attr() syntax](https://developer.mozilla.org/en-US/docs/Web/CSS/attr) */
-  '--tag-max_width'?: `var(--size-${string})`
+  "--tag-max_width"?: `var(--size-${string})`;
 }
 
 interface ElTagProps {
-  style: ElTagCSSProperties
+  style: ElTagCSSProperties;
 }
 
 export const ElTag = styled.span<ElTagProps>`
@@ -25,12 +26,12 @@ export const ElTag = styled.span<ElTagProps>`
     background: var(--comp-tag-colour-fill);
     color: var(--comp-tag-colour-text);
 
-    ${font('xs', 'medium')}
+    ${font("xs", "medium")}
   }
-`
+`;
 
 interface ElTagLabelProps {
-  'data-overflow': 'truncate' | undefined
+  "data-overflow": "truncate" | undefined;
 }
 
 export const ElTagLabel = styled.span<ElTagLabelProps>`
@@ -41,9 +42,9 @@ export const ElTagLabel = styled.span<ElTagLabelProps>`
     text-align: left;
     white-space: nowrap;
 
-    &[data-overflow='truncate'] {
+    &[data-overflow="truncate"] {
       overflow: hidden;
       text-overflow: ellipsis;
     }
   }
-`
+`;

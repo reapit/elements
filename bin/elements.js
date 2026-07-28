@@ -1,15 +1,15 @@
 #!/usr/bin/env node
-import { spawn } from 'node:child_process'
-import { join } from 'node:path'
-import { readFileSync } from 'node:fs'
+import { spawn } from "node:child_process";
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 
-const args = process.argv.slice(2)
-const command = args[0]
+const args = process.argv.slice(2);
+const command = args[0];
 
 function getVersion() {
-  const packageJsonPath = join(import.meta.dirname, '..', 'package.json')
-  const packageJson = JSON.parse(readFileSync(packageJsonPath, 'utf8'))
-  return packageJson.version
+  const packageJsonPath = join(import.meta.dirname, "..", "package.json");
+  const packageJson = JSON.parse(readFileSync(packageJsonPath, "utf8"));
+  return packageJson.version;
 }
 
 function printHelp() {
@@ -31,43 +31,43 @@ Examples:
   elements --version
 
 For more information, visit: https://github.com/reapit/elements
-`)
+`);
 }
 
 function handleCodemod(codemodArgs) {
   const child = spawn(
     process.execPath,
-    [join(import.meta.dirname, '..', 'dist', 'codemods', 'bin.js'), ...codemodArgs],
+    [join(import.meta.dirname, "..", "dist", "codemods", "bin.js"), ...codemodArgs],
     {
-      stdio: 'inherit',
+      stdio: "inherit",
     },
-  )
+  );
 
-  child.on('exit', (code) => {
-    process.exit(code ?? 0)
-  })
+  child.on("exit", (code) => {
+    process.exit(code ?? 0);
+  });
 }
 
 // Handle no command or help
-if (!command || command === '--help' || command === '-h') {
-  printHelp()
-  process.exit(0)
+if (!command || command === "--help" || command === "-h") {
+  printHelp();
+  process.exit(0);
 }
 
 // Handle version
-if (command === '--version' || command === '-v') {
-  console.log(getVersion())
-  process.exit(0)
+if (command === "--version" || command === "-v") {
+  console.log(getVersion());
+  process.exit(0);
 }
 
 // Route commands
 switch (command) {
-  case 'codemod':
-    handleCodemod(args.slice(1))
-    break
+  case "codemod":
+    handleCodemod(args.slice(1));
+    break;
 
   default:
-    console.error(`Error: Unknown command '${command}'`)
-    console.log("\nRun 'elements --help' for usage information.")
-    process.exit(1)
+    console.error(`Error: Unknown command '${command}'`);
+    console.log("\nRun 'elements --help' for usage information.");
+    process.exit(1);
 }

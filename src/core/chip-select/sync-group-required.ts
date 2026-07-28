@@ -5,9 +5,11 @@
  * `required` — the group constraint is satisfied.
  */
 export function syncGroupRequired(container: HTMLElement, groupRequired: boolean): void {
-  const chips = container.querySelectorAll<HTMLInputElement>('input[data-exclusive][type="checkbox"]')
-  const anyChecked = Array.from(chips).some((chip) => chip.checked)
+  const chips = container.querySelectorAll<HTMLInputElement>(
+    'input[data-exclusive][type="checkbox"]',
+  );
+  const anyChecked = Array.from(chips).some((chip) => chip.checked);
   chips.forEach((chip) => {
-    chip.required = groupRequired && !anyChecked
-  })
+    chip.required = groupRequired && !anyChecked;
+  });
 }

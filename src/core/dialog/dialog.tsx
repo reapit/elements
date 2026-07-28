@@ -1,24 +1,30 @@
-import { cx } from '@linaria/core'
-import { DialogBody } from './body'
-import { DialogContext, useDialogContext } from './context'
-import { DialogFooter } from './footer'
-import { DialogHeader } from './header'
-import { elDialog } from './styles'
-import { HTMLDialog, getClosestDialogElement, useDialogOpenController, useDialogOpenState } from '#src/utils/dialog'
-import { ToastOutlet } from '#src/core/toaster'
-import { useId } from 'react'
+import { cx } from "@linaria/core";
+import { useId } from "react";
+import type { DialogHTMLAttributes, ReactNode } from "react";
 
-import type { DialogHTMLAttributes, ReactNode } from 'react'
+import { ToastOutlet } from "#src/core/toaster";
+import {
+  HTMLDialog,
+  getClosestDialogElement,
+  useDialogOpenController,
+  useDialogOpenState,
+} from "#src/utils/dialog";
+
+import { DialogBody } from "./body";
+import { DialogContext, useDialogContext } from "./context";
+import { DialogFooter } from "./footer";
+import { DialogHeader } from "./header";
+import { elDialog } from "./styles";
 
 export namespace Dialog {
   // NOTE: we omit..
   // - `open` because we do not want React consumers to use it directly as it results in a non-modal experience.
   //     Instead, our React `Dialog` component provides an `isOpen` prop that ensures a modal experience is achieved.
-  type AttributesToOmit = 'open'
+  type AttributesToOmit = "open";
 
   export interface Props extends Omit<DialogHTMLAttributes<HTMLDialogElement>, AttributesToOmit> {
     /** The dialog content */
-    children: ReactNode
+    children: ReactNode;
     /**
      * Specifies the types of user actions that can be used to close the dialog. This property distinguishes
      * three methods by which a dialog can be closed:
@@ -44,11 +50,11 @@ export namespace Dialog {
      * would let that click also activate an element behind the backdrop). Separately, Safari does not support
      * the `closedBy` attribute at all, so "back"/"dismiss" gestures on mobile Safari won't close the dialog.
      */
-    closedBy?: 'any' | 'closerequest' | 'none'
+    closedBy?: "any" | "closerequest" | "none";
     /** Indicates whether the dialog is open or not */
-    isOpen?: boolean
+    isOpen?: boolean;
     /** The size of the dialog. */
-    size: 'small' | 'medium' | 'large' | 'full-screen'
+    size: "small" | "medium" | "large" | "full-screen";
   }
 }
 
@@ -65,10 +71,10 @@ export namespace Dialog {
  * section of MDN's `<dialog>` documentation.
  */
 export function Dialog({
-  'aria-labelledby': ariaLabelledBy,
+  "aria-labelledby": ariaLabelledBy,
   children,
   className,
-  closedBy = 'closerequest',
+  closedBy = "closerequest",
   isOpen: isOpenProp,
   onCancel,
   onClose,
@@ -77,11 +83,11 @@ export function Dialog({
   ...rest
 }: Dialog.Props) {
   // We need to imperatively show or close the dialog element when the `isOpen` prop changes.
-  const ref = useDialogOpenController(isOpenProp)
+  const ref = useDialogOpenController(isOpenProp);
   // We need to track the DOM-held open state of the dialog element to ensure we can show/hide our children.
-  const isOpen = useDialogOpenState(ref)
+  const isOpen = useDialogOpenState(ref);
 
-  const titleId = useId()
+  const titleId = useId();
 
   return (
     <HTMLDialog
@@ -104,17 +110,17 @@ export function Dialog({
       </DialogContext.Provider>
       {isOpen && <ToastOutlet />}
     </HTMLDialog>
-  )
+  );
 }
 
-Dialog.Body = DialogBody
-Dialog.Footer = DialogFooter
-Dialog.Header = DialogHeader
-Dialog.HeaderCloseButton = DialogHeader.CloseButton
+Dialog.Body = DialogBody;
+Dialog.Footer = DialogFooter;
+Dialog.Header = DialogHeader;
+Dialog.HeaderCloseButton = DialogHeader.CloseButton;
 
-Dialog.Context = DialogContext
-Dialog.useContext = useDialogContext
+Dialog.Context = DialogContext;
+Dialog.useContext = useDialogContext;
 
-Dialog.getClosestDialogElement = getClosestDialogElement
+Dialog.getClosestDialogElement = getClosestDialogElement;
 
-export { getClosestDialogElement } from '#src/utils/dialog'
+export { getClosestDialogElement } from "#src/utils/dialog";

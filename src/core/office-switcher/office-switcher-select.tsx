@@ -1,5 +1,6 @@
-import { CompactSelect } from '#src/core/compact-select'
-import { OfficeSwitcherPopup } from './office-switcher-popup'
+import { CompactSelect } from "#src/core/compact-select";
+
+import { OfficeSwitcherPopup } from "./office-switcher-popup";
 
 export namespace OfficeSwitcherSelect {
   export interface ButtonProps extends CompactSelect.ButtonProps {}
@@ -16,5 +17,5 @@ export namespace OfficeSwitcherSelect {
  * A compact select that allows users to switch between different offices.
  */
 export function OfficeSwitcherSelect(props: OfficeSwitcherSelect.Props) {
-  return <CompactSelect {...props} />
+  return <CompactSelect {...props} />;
 }

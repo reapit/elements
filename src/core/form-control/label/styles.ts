@@ -1,4 +1,4 @@
-import { css } from '@linaria/core'
+import { css } from "@linaria/core";
 
 export const elFormControlLabel = css`
   @layer elements.main {
@@ -12,4 +12,4 @@ export const elFormControlLabel = css`
       margin: 0 0 var(--spacing-2) 0;
     }
   }
-`
+`;

@@ -1,17 +1,18 @@
-import preview from '#.storybook/preview'
-import { SideBar } from '../side-bar'
-import { useSideBarContextDecorator } from '../__story__/use-side-bar-context-decorator'
-import { useSideBarWidthDecorator } from '../__story__/use-side-bar-width-decorator'
+import preview from "#.storybook/preview";
+
+import { useSideBarContextDecorator } from "../__story__/use-side-bar-context-decorator";
+import { useSideBarWidthDecorator } from "../__story__/use-side-bar-width-decorator";
+import { SideBar } from "../side-bar";
 
 const meta = preview.meta({
-  title: 'Navigation/SideBar/CollapseButton',
+  title: "Navigation/SideBar/CollapseButton",
   component: SideBar.CollapseButton,
   // NOTE: decorators are applied in array order, inside-out. That is, useSideBarWidthDecorator wraps the story first,
   // then useSideBarContextDecorator wraps the result of that.
   decorators: [useSideBarWidthDecorator, useSideBarContextDecorator],
-})
+});
 
-export const Example = meta.story()
+export const Example = meta.story();
 
 /**
  * When there is not enough space to display the full label, it will be truncated with an ellipsis. That said, the
@@ -21,9 +22,9 @@ export const Example = meta.story()
  */
 export const Truncated = meta.story({
   parameters: {
-    sideBar: { width: '100px' },
+    sideBar: { width: "100px" },
   },
-})
+});
 
 /**
  * When the `SideBar` is collapsed, the collapse button's label will be completely hidden. Importantly though, its
@@ -31,6 +32,6 @@ export const Truncated = meta.story({
  */
 export const Collapsed = Example.extend({
   parameters: {
-    sideBar: { state: 'collapsed' },
+    sideBar: { state: "collapsed" },
   },
-})
+});

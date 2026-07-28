@@ -1,42 +1,43 @@
-import preview from '#.storybook/preview'
-import { SwitchInput } from './switch-input'
-import { useArgs } from 'storybook/preview-api'
+import type { ChangeEventHandler } from "react";
+import { useArgs } from "storybook/preview-api";
 
-import type { ChangeEventHandler } from 'react'
+import preview from "#.storybook/preview";
+
+import { SwitchInput } from "./switch-input";
 
 const meta = preview.meta({
-  title: 'Input and selection/SwitchInput',
+  title: "Input and selection/SwitchInput",
   component: SwitchInput,
   argTypes: {
     checked: {
-      control: 'boolean',
+      control: "boolean",
     },
     defaultChecked: {
-      control: 'boolean',
+      control: "boolean",
     },
     type: {
       control: false,
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
-    'aria-label': 'My switch',
+    "aria-label": "My switch",
     checked: undefined,
     defaultChecked: undefined,
     disabled: false,
-    name: 'mySwitch',
-    type: 'checkbox',
+    name: "mySwitch",
+    type: "checkbox",
   },
   render: (args) => {
-    const [, setArgs] = useArgs()
+    const [, setArgs] = useArgs();
     const onChange: ChangeEventHandler<HTMLInputElement> = (event) => {
-      setArgs({ checked: event.currentTarget.checked })
-    }
-    return <SwitchInput {...args} onChange={onChange} />
+      setArgs({ checked: event.currentTarget.checked });
+    };
+    return <SwitchInput {...args} onChange={onChange} />;
   },
-})
+});
 
 /**
  * The switch can be checked by default.
@@ -45,7 +46,7 @@ export const Checked = Example.extend({
   args: {
     defaultChecked: true,
   },
-})
+});
 
 /**
  * Switches can be disabled. When disabled, they do not participate in form submission.
@@ -56,7 +57,7 @@ export const Disabled = Example.extend({
   },
   decorators: [
     (Story) => (
-      <div style={{ display: 'flex', gap: 'var(--spacing-6)', alignItems: 'center' }}>
+      <div style={{ display: "flex", gap: "var(--spacing-6)", alignItems: "center" }}>
         <Story />
       </div>
     ),
@@ -67,4 +68,4 @@ export const Disabled = Example.extend({
       <SwitchInput {...args} checked />
     </>
   ),
-})
+});

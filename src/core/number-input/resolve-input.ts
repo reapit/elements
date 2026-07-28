@@ -21,8 +21,8 @@
 
 /** The start and end of the current text selection (both 0-indexed). */
 export interface Selection {
-  start: number
-  end: number
+  start: number;
+  end: number;
 }
 
 /**
@@ -32,7 +32,10 @@ export interface Selection {
  * - `reject` — call `preventDefault()` and do nothing further.
  * - `commit` — call `preventDefault()`, write `value` imperatively, and move the cursor to `cursor`.
  */
-export type InputResolution = { type: 'allow' } | { type: 'reject' } | { type: 'commit'; value: string; cursor: number }
+export type InputResolution =
+  | { type: "allow" }
+  | { type: "reject" }
+  | { type: "commit"; value: string; cursor: number };
 
 /**
  * Matches the canonical numeric value shape (see the value contract above): ASCII digits,
@@ -44,7 +47,7 @@ export type InputResolution = { type: 'allow' } | { type: 'reject' } | { type: '
  * formatter (`resolveOverlayValue`), so that non-canonical controlled values — e.g. `'1e5'`,
  * `'0x10'`, `'Infinity'` — are treated consistently as outside the contract.
  */
-export const CANONICAL_VALUE_PATTERN = /^-?\d*\.?\d*$/
+export const CANONICAL_VALUE_PATTERN = /^-?\d*\.?\d*$/;
 
 // ---------------------------------------------------------------------------
 // Input classification
@@ -58,22 +61,25 @@ export const CANONICAL_VALUE_PATTERN = /^-?\d*\.?\d*$/
  *                    require full sanitisation before insertion.
  * - `'keystroke'`  — single-character insertions typed directly by the user.
  */
-export function classifyInputType(event: { data: string | null; inputType: string }): 'ignore' | 'paste' | 'keystroke' {
-  if (!event.data) return 'ignore'
-  if (event.inputType === 'insertCompositionText') return 'ignore'
+export function classifyInputType(event: {
+  data: string | null;
+  inputType: string;
+}): "ignore" | "paste" | "keystroke" {
+  if (!event.data) return "ignore";
+  if (event.inputType === "insertCompositionText") return "ignore";
 
   if (
     event.data.length > 1 ||
-    event.inputType === 'insertFromPaste' ||
-    event.inputType === 'insertFromPasteAsQuotation' ||
-    event.inputType === 'insertFromYank' ||
-    event.inputType === 'insertFromDrop' ||
-    event.inputType === 'insertReplacementText'
+    event.inputType === "insertFromPaste" ||
+    event.inputType === "insertFromPasteAsQuotation" ||
+    event.inputType === "insertFromYank" ||
+    event.inputType === "insertFromDrop" ||
+    event.inputType === "insertReplacementText"
   ) {
-    return 'paste'
+    return "paste";
   }
 
-  return 'keystroke'
+  return "keystroke";
 }
 
 // ---------------------------------------------------------------------------
@@ -101,19 +107,21 @@ export function sanitisePastedText(
   separators: { decimal: string; group: string },
   maxFractionDigits: number = Infinity,
 ): string {
-  const allowDecimal = maxFractionDigits !== 0
+  const allowDecimal = maxFractionDigits !== 0;
 
   const stripped = data
-    .replaceAll(separators.group, '')
-    .replaceAll(separators.decimal, '.')
-    .replace(/[^\d.-]/g, '')
+    .replaceAll(separators.group, "")
+    .replaceAll(separators.decimal, ".")
+    .replace(/[^\d.-]/g, "");
 
-  const [intPart, ...fracParts] = stripped.split('.')
-  if (!allowDecimal || fracParts.length === 0) return intPart
+  const [intPart, ...fracParts] = stripped.split(".");
+  if (!allowDecimal || fracParts.length === 0) return intPart;
 
-  const fracPart = Number.isFinite(maxFractionDigits) ? fracParts[0].slice(0, maxFractionDigits) : fracParts[0]
+  const fracPart = Number.isFinite(maxFractionDigits)
+    ? fracParts[0].slice(0, maxFractionDigits)
+    : fracParts[0];
 
-  return `${intPart}.${fracPart}`
+  return `${intPart}.${fracPart}`;
 }
 
 // ---------------------------------------------------------------------------
@@ -133,28 +141,29 @@ export function sanitisePastedText(
  * Returns `commit` with the new value and cursor position on success.
  */
 export function resolvePaste(params: {
-  currentValue: string
-  selection: Selection
-  sanitised: string
-  allowNegative: boolean
+  currentValue: string;
+  selection: Selection;
+  sanitised: string;
+  allowNegative: boolean;
 }): InputResolution {
-  const { currentValue, selection, sanitised, allowNegative } = params
+  const { currentValue, selection, sanitised, allowNegative } = params;
 
-  if (!sanitised) return { type: 'reject' }
+  if (!sanitised) return { type: "reject" };
 
-  if (sanitised.slice(1).includes('-') || (!allowNegative && sanitised.startsWith('-'))) {
-    return { type: 'reject' }
+  if (sanitised.slice(1).includes("-") || (!allowNegative && sanitised.startsWith("-"))) {
+    return { type: "reject" };
   }
 
-  const newValue = currentValue.slice(0, selection.start) + sanitised + currentValue.slice(selection.end)
+  const newValue =
+    currentValue.slice(0, selection.start) + sanitised + currentValue.slice(selection.end);
   // The canonical pattern permits a leading '-'; when negatives are disallowed, derive the
   // minus-free variant from the same source so the two stay in lockstep.
   const validPattern = allowNegative
     ? CANONICAL_VALUE_PATTERN
-    : new RegExp(CANONICAL_VALUE_PATTERN.source.replace('-?', ''))
-  if (!validPattern.test(newValue)) return { type: 'reject' }
+    : new RegExp(CANONICAL_VALUE_PATTERN.source.replace("-?", ""));
+  if (!validPattern.test(newValue)) return { type: "reject" };
 
-  return { type: 'commit', value: newValue, cursor: selection.start + sanitised.length }
+  return { type: "commit", value: newValue, cursor: selection.start + sanitised.length };
 }
 
 // ---------------------------------------------------------------------------
@@ -181,46 +190,57 @@ export function resolvePaste(params: {
  * native insertion (preserves the native undo stack and caret behaviour).
  */
 export function resolveKeystroke(params: {
-  currentValue: string
-  selection: Selection
-  data: string
-  decimalSep: string
-  allowNegative: boolean
-  maxFractionDigits?: number
+  currentValue: string;
+  selection: Selection;
+  data: string;
+  decimalSep: string;
+  allowNegative: boolean;
+  maxFractionDigits?: number;
 }): InputResolution {
-  const { currentValue, selection, data, decimalSep, allowNegative, maxFractionDigits = Infinity } = params
+  const {
+    currentValue,
+    selection,
+    data,
+    decimalSep,
+    allowNegative,
+    maxFractionDigits = Infinity,
+  } = params;
 
-  const allowDecimal = maxFractionDigits !== 0
-  const isDecimalSeparator = data === '.' || data === decimalSep
+  const allowDecimal = maxFractionDigits !== 0;
+  const isDecimalSeparator = data === "." || data === decimalSep;
 
-  if (isDecimalSeparator && !allowDecimal) return { type: 'reject' }
+  if (isDecimalSeparator && !allowDecimal) return { type: "reject" };
 
-  const isDigit = /^\d$/.test(data)
-  const isMinus = allowNegative && data === '-'
-  if (!isDigit && !isDecimalSeparator && !isMinus) return { type: 'reject' }
+  const isDigit = /^\d$/.test(data);
+  const isMinus = allowNegative && data === "-";
+  if (!isDigit && !isDecimalSeparator && !isMinus) return { type: "reject" };
 
   if (isDecimalSeparator) {
-    const valueOutsideSelection = currentValue.slice(0, selection.start) + currentValue.slice(selection.end)
-    if (valueOutsideSelection.includes('.')) return { type: 'reject' }
+    const valueOutsideSelection =
+      currentValue.slice(0, selection.start) + currentValue.slice(selection.end);
+    if (valueOutsideSelection.includes(".")) return { type: "reject" };
   }
 
   // Keep the raw value parseable by Number().
-  if (data === decimalSep && decimalSep !== '.') {
-    const newValue = currentValue.slice(0, selection.start) + '.' + currentValue.slice(selection.end)
-    return { type: 'commit', value: newValue, cursor: selection.start + 1 }
+  if (data === decimalSep && decimalSep !== ".") {
+    const newValue =
+      currentValue.slice(0, selection.start) + "." + currentValue.slice(selection.end);
+    return { type: "commit", value: newValue, cursor: selection.start + 1 };
   }
 
-  if (data === '-') {
-    const alreadyHasMinus = currentValue.startsWith('-') && selection.end === 0
-    if (selection.start !== 0 || alreadyHasMinus) return { type: 'reject' }
+  if (data === "-") {
+    const alreadyHasMinus = currentValue.startsWith("-") && selection.end === 0;
+    if (selection.start !== 0 || alreadyHasMinus) return { type: "reject" };
   }
 
   if (isDigit && Number.isFinite(maxFractionDigits)) {
     // Project the value after the selection is replaced by this digit.
-    const projected = currentValue.slice(0, selection.start) + data + currentValue.slice(selection.end)
-    const dotIndex = projected.indexOf('.')
-    if (dotIndex !== -1 && projected.length - dotIndex - 1 > maxFractionDigits) return { type: 'reject' }
+    const projected =
+      currentValue.slice(0, selection.start) + data + currentValue.slice(selection.end);
+    const dotIndex = projected.indexOf(".");
+    if (dotIndex !== -1 && projected.length - dotIndex - 1 > maxFractionDigits)
+      return { type: "reject" };
   }
 
-  return { type: 'allow' }
+  return { type: "allow" };
 }

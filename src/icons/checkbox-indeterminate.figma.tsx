@@ -1,4 +1,8 @@
-import figma from '@figma/code-connect'
-import { CheckboxIndeterminateIcon } from './checkbox-indeterminate'
+import figma from "@figma/code-connect";
 
-figma.connect(CheckboxIndeterminateIcon, 'https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=20-553')
+import { CheckboxIndeterminateIcon } from "./checkbox-indeterminate";
+
+figma.connect(
+  CheckboxIndeterminateIcon,
+  "https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=20-553",
+);

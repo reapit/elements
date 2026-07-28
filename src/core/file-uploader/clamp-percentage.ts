@@ -3,5 +3,5 @@
  * `getFileUploaderItemStatus` so `NaN`/`Infinity`/out-of-range progress values can't reach either.
  */
 export function clampPercentage(value: number): number {
-  return Math.min(100, Math.max(0, Number.isFinite(value) ? value : 0))
+  return Math.min(100, Math.max(0, Number.isFinite(value) ? value : 0));
 }

@@ -1,17 +1,17 @@
-import { ElBreadcrumbLink, ElBreadcrumbLinkContent } from './styles'
+import type { AnchorHTMLAttributes, ReactNode } from "react";
 
-import type { AnchorHTMLAttributes, ReactNode } from 'react'
+import { ElBreadcrumbLink, ElBreadcrumbLinkContent } from "./styles";
 
 export namespace BreadcrumbLink {
   export interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
     /**
      * The text content to be hyperlinked to the specified URL.
      */
-    children: ReactNode
+    children: ReactNode;
     /**
      * The URL to navigate to when the link is clicked.
      */
-    href: string
+    href: string;
   }
 }
 
@@ -24,10 +24,10 @@ export function BreadcrumbLink({ children, ...rest }: BreadcrumbLink.Props) {
       {/* NOTE: We wrap the children so that our text-overflow behaviour does not also clip the focus outline */}
       <ElBreadcrumbLinkContent>{children}</ElBreadcrumbLinkContent>
     </ElBreadcrumbLink>
-  )
+  );
 }
 
-BreadcrumbLink.displayName = 'Breadcrumbs.Link'
+BreadcrumbLink.displayName = "Breadcrumbs.Link";
 
 /** @deprecated use BreadcrumbLink.Props instead */
-export type BreadcrumbLinkProps = BreadcrumbLink.Props
+export type BreadcrumbLinkProps = BreadcrumbLink.Props;

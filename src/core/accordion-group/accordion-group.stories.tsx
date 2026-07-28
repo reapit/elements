@@ -1,16 +1,17 @@
-import preview from '#.storybook/preview'
-import { Accordion } from '../accordion'
-import { AccordionGroup } from './accordion-group'
+import preview from "#.storybook/preview";
+
+import { Accordion } from "../accordion";
+import { AccordionGroup } from "./accordion-group";
 
 const meta = preview.meta({
-  title: 'Content display/AccordionGroup',
+  title: "Content display/AccordionGroup",
   component: AccordionGroup,
   argTypes: {
     children: {
       control: false,
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
@@ -26,4 +27,4 @@ export const Example = meta.story({
       </Accordion>,
     ],
   },
-})
+});

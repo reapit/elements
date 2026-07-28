@@ -1,9 +1,15 @@
-import { cx } from '@linaria/core'
-import { elButton, elButtonSpinner, ElButtonIconContainer } from './styles'
-import Spinner from './spinner.svg?react'
-import { useCallback } from 'react'
+import { cx } from "@linaria/core";
+import { useCallback } from "react";
+import type {
+  AnchorHTMLAttributes,
+  ButtonHTMLAttributes,
+  HTMLAttributes,
+  MouseEventHandler,
+  ReactNode,
+} from "react";
 
-import type { AnchorHTMLAttributes, ButtonHTMLAttributes, HTMLAttributes, MouseEventHandler, ReactNode } from 'react'
+import Spinner from "./spinner.svg?react";
+import { elButton, elButtonSpinner, ElButtonIconContainer } from "./styles";
 
 export namespace ButtonBase {
   export interface CommonProps {
@@ -13,51 +19,51 @@ export namespace ButtonBase {
      * Using `aria-disabled` is preferred when the button should still be focusable while it's disabled; for example,
      * to allow a tooltip to be displayed that explains why the button is disabled.
      */
-    'aria-disabled'?: boolean | 'true' | 'false'
+    "aria-disabled"?: boolean | "true" | "false";
     /** The button's label */
-    children?: ReactNode
+    children?: ReactNode;
     /** Remove default padding. Only applies to tertiary buttons. */
-    hasNoPadding?: boolean
+    hasNoPadding?: boolean;
     /** Icon to display on the left side */
-    iconLeft?: ReactNode
+    iconLeft?: ReactNode;
     /** Icon to display on the right side */
-    iconRight?: ReactNode
+    iconRight?: ReactNode;
     /**
      * Whether the button is in a busy state. A busy button will be `aria-disabled`, so will be focusable. However,
      * click events will be ignored while it is busy.
      */
-    isBusy?: boolean
+    isBusy?: boolean;
     /**
      * Whether the button represents a destructive action. Takes visual precedence over `useLinkStyle` and
      * `useAIStyle` when combined.
      */
-    isDestructive?: boolean
+    isDestructive?: boolean;
     /** The size of the button */
-    size?: 'small' | 'medium' | 'large'
+    size?: "small" | "medium" | "large";
     /**
      * Whether to use link-style appearance. Only applies to tertiary buttons. Takes visual precedence over the
      * default style, but is overridden by `useAIStyle` and `isDestructive` when combined.
      */
-    useLinkStyle?: boolean
+    useLinkStyle?: boolean;
     /**
      * Whether to use AI-style appearance. Applies to all variants. Takes visual precedence over `useLinkStyle`, but
      * is overridden by `isDestructive` when combined.
      */
-    useAIStyle?: boolean
+    useAIStyle?: boolean;
     /** The visual variant of the button */
-    variant?: 'primary' | 'secondary' | 'tertiary'
+    variant?: "primary" | "secondary" | "tertiary";
   }
 
   export interface AsButtonProps extends CommonProps, ButtonHTMLAttributes<HTMLButtonElement> {
-    as: 'button'
+    as: "button";
   }
 
   export interface AsAnchorProps extends CommonProps, AnchorHTMLAttributes<HTMLAnchorElement> {
-    as: 'a'
-    href: string
+    as: "a";
+    href: string;
   }
 
-  export type Props = AsButtonProps | AsAnchorProps
+  export type Props = AsButtonProps | AsAnchorProps;
 }
 
 /**
@@ -66,7 +72,7 @@ export namespace ButtonBase {
  * should not be used directly by consumers.
  */
 export function ButtonBase({
-  'aria-disabled': ariaDisabled,
+  "aria-disabled": ariaDisabled,
   as: Element,
   className,
   children,
@@ -76,34 +82,34 @@ export function ButtonBase({
   isBusy,
   isDestructive,
   onClick,
-  size = 'medium',
+  size = "medium",
   useAIStyle,
   useLinkStyle,
-  variant = 'secondary',
+  variant = "secondary",
   ...rest
 }: ButtonBase.Props) {
   // It's an icon-only button if there's no label text and only one icon
-  const isIconOnly = !children && (iconLeft || iconRight) && !(iconLeft && iconRight)
+  const isIconOnly = !children && (iconLeft || iconRight) && !(iconLeft && iconRight);
 
   const handleClick = useCallback<MouseEventHandler<HTMLElement>>(
     (event) => {
-      const element = event.currentTarget
+      const element = event.currentTarget;
       // NOTE: Anchor elements CANNOT be disabled using the native `disabled` attribute, so we allow the
       // `aria-disabled` attribute to disable them instead. Since click events will still be fired when
       // `aria-disabled='true'`, we need to prevent any default action for the button from occuring, stop it
       // propagating to ancestors and avoid calling the consumer-supplied `onClick` callback.
-      if (element.getAttribute('aria-disabled') === 'true') {
-        event.preventDefault()
-        event.stopPropagation()
-        return
+      if (element.getAttribute("aria-disabled") === "true") {
+        event.preventDefault();
+        event.stopPropagation();
+        return;
       }
 
       // NOTE: We use a type assertion here to avoid having to narrow the type of `event` based on the specific
       // `Element` type.
-      onClick?.(event as any)
+      onClick?.(event as any);
     },
     [onClick],
-  )
+  );
 
   return (
     // NOTE: We use a type assertion here to avoid having to narrow the type of `rest` to the specific `Element` type.
@@ -113,7 +119,7 @@ export function ButtonBase({
       // NOTE: we explicitly DO NOT use `isBusy` to properly disable button-based buttons because
       // that can lead to timing issues with form submissions (disabled form elements are not part
       // of the submitted form data). Thus, busy buttons are only ever ARIA disabled.
-      aria-disabled={!!isBusy || !!rest['disabled'] || !!ariaDisabled}
+      aria-disabled={!!isBusy || !!rest["disabled"] || !!ariaDisabled}
       data-variant={variant}
       data-size={size}
       data-has-no-padding={hasNoPadding}
@@ -131,7 +137,9 @@ export function ButtonBase({
         iconLeft && <ElButtonIconContainer aria-hidden>{iconLeft}</ElButtonIconContainer>
       )}
       {children}
-      {!isBusy && iconRight && <ElButtonIconContainer aria-hidden>{iconRight}</ElButtonIconContainer>}
+      {!isBusy && iconRight && (
+        <ElButtonIconContainer aria-hidden>{iconRight}</ElButtonIconContainer>
+      )}
     </Element>
-  )
+  );
 }

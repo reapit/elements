@@ -1,23 +1,24 @@
-import preview from '#.storybook/preview'
-import { Menu } from '#src/core/menu'
-import { TopBar } from '../top-bar'
+import preview from "#.storybook/preview";
+import { Menu } from "#src/core/menu";
+
+import { TopBar } from "../top-bar";
 
 const meta = preview.meta({
   component: TopBar.AvatarMenu,
-  title: 'Navigation/TopBar/AvatarMenu',
+  title: "Navigation/TopBar/AvatarMenu",
   argTypes: {
     children: {
       control: false,
     },
   },
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
-})
+});
 
 export const Example = meta.story({
   args: {
-    initials: 'KD',
+    initials: "KD",
     children: (
       <>
         <Menu.Item>Item 1</Menu.Item>
@@ -26,4 +27,4 @@ export const Example = meta.story({
       </>
     ),
   },
-})
+});

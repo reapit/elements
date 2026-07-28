@@ -1,21 +1,21 @@
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
 
 interface ElSecondaryTabsProps {
-  'data-overflow'?: 'scroll' | 'visible'
+  "data-overflow"?: "scroll" | "visible";
 }
 
 export const ElSecondaryTabs = styled.nav<ElSecondaryTabsProps>`
   @layer elements.main {
     &,
-    &[data-overflow='visible'] {
+    &[data-overflow="visible"] {
       overflow-x: visible;
     }
 
-    &[data-overflow='scroll'] {
+    &[data-overflow="scroll"] {
       overflow-x: auto;
     }
   }
-`
+`;
 
 export const ElSecondaryTabsList = styled.menu`
   @layer elements.main {
@@ -29,14 +29,14 @@ export const ElSecondaryTabsList = styled.menu`
     margin: 0;
     padding: 0;
   }
-`
+`;
 
 export const ElSecondaryTabsListItem = styled.li`
   @layer elements.main {
     display: flex;
     align-items: center;
   }
-`
+`;
 
 export const ElSecondaryTabsListItemSeparator = styled.span`
   @layer elements.main {
@@ -52,4 +52,4 @@ export const ElSecondaryTabsListItemSeparator = styled.span`
       display: none;
     }
   }
-`
+`;

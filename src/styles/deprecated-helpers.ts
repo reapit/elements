@@ -1,4 +1,4 @@
-import { css } from '@linaria/core'
+import { css } from "@linaria/core";
 
 /** @deprecated */
 export const elFadeIn = css`
@@ -15,4 +15,4 @@ export const elFadeIn = css`
   animation-fill-mode: both;
   animation-delay: 0.1s;
   animation-name: fade-in;
-`
+`;

@@ -1,5 +1,6 @@
-import { font } from '#src/utils/font'
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
+
+import { font } from "#src/utils/font";
 
 export const ElComboboxCard = styled.div`
   @layer elements.main {
@@ -24,21 +25,21 @@ export const ElComboboxCard = styled.div`
     border: var(--combobox-border-width, var(--comp-input-border-width)) solid
       var(--combobox-border-colour, var(--comp-input-colour-border-default));
 
-    &[data-size='small'] {
+    &[data-size="small"] {
       /* Combobox.CardDefaultContent inherits these size-based font styles */
-      ${font('xs', 'medium')}
+      ${font("xs", "medium")}
       min-height: var(--size-8);
       --combobox-button-icon-size: var(--icon_size-sm);
     }
     /* NOTE: Medium is the default size */
     &,
-    &[data-size='medium'] {
-      ${font('sm', 'medium')}
+    &[data-size="medium"] {
+      ${font("sm", "medium")}
       min-height: var(--size-9);
       --combobox-button-icon-size: var(--icon_size-sm);
     }
-    &[data-size='large'] {
-      ${font('base', 'medium')}
+    &[data-size="large"] {
+      ${font("base", "medium")}
       min-height: var(--size-10);
       --combobox-button-icon-size: var(--icon_size-md);
     }
@@ -49,7 +50,7 @@ export const ElComboboxCard = styled.div`
       border: var(--comp-input-border-width) solid var(--comp-input-colour-border-focused);
     }
   }
-`
+`;
 
 export const ElComboboxCardButton = styled.button`
   @layer elements.main {
@@ -70,7 +71,7 @@ export const ElComboboxCardButton = styled.button`
 
     color: var(--combobox-text-colour);
   }
-`
+`;
 
 export const ElComboboxCardActionContainer = styled.span`
   @layer elements.main {
@@ -85,4 +86,4 @@ export const ElComboboxCardActionContainer = styled.span`
 
     color: var(--combobox-icon-colour, var(--comp-input-colour-icon-default));
   }
-`
+`;

@@ -1,8 +1,8 @@
-import { Autocomplete } from '#src/core/autocomplete'
-import { FormControl } from '#src/core/form-control'
-import { useId } from 'react'
+import { useId } from "react";
+import type { ReactNode } from "react";
 
-import type { ReactNode } from 'react'
+import { Autocomplete } from "#src/core/autocomplete";
+import { FormControl } from "#src/core/form-control";
 
 export namespace AutocompleteControl {
   export interface ButtonProps extends Autocomplete.ButtonProps {}
@@ -17,20 +17,20 @@ export namespace AutocompleteControl {
   export interface SelectionChipsItemProps extends Autocomplete.SelectionChipsItemProps {}
 
   export interface Props extends Autocomplete.Props {
-    defaultOptions?: Autocomplete.DefaultOptionsContextValue
+    defaultOptions?: Autocomplete.DefaultOptionsContextValue;
     /** Optional error text that communicates why the autocomplete's value is invalid. */
-    errorText?: ReactNode
+    errorText?: ReactNode;
     /** Optional help text that provides more context about the autocomplete. */
-    helpText?: ReactNode
+    helpText?: ReactNode;
     /**
      * The visual label for the autocomplete. If no visual label is provided, an accessible
      * label should be provided via `aria-label`.
      */
-    label?: ReactNode
+    label?: ReactNode;
     /** The maximum width of the form control. */
-    maxWidth?: string
+    maxWidth?: string;
     /** Render-prop allowing custom rendering of selection chips. */
-    renderChips?: Autocomplete.SelectionChipsProps['children']
+    renderChips?: Autocomplete.SelectionChipsProps["children"];
   }
 }
 
@@ -51,14 +51,14 @@ export function AutocompleteControl({
   renderChips,
   required,
   showValidity,
-  size = 'medium',
+  size = "medium",
   ...rest
 }: AutocompleteControl.Props) {
-  const fallbackAutocompleteId = useId()
-  const autocompleteId = id ?? fallbackAutocompleteId
-  const labelId = useId()
-  const helpTextId = useId()
-  const errorTextId = useId()
+  const fallbackAutocompleteId = useId();
+  const autocompleteId = id ?? fallbackAutocompleteId;
+  const labelId = useId();
+  const helpTextId = useId();
+  const errorTextId = useId();
 
   return (
     <FormControl as="div" size={size} maxWidth={maxWidth}>
@@ -89,25 +89,28 @@ export function AutocompleteControl({
           helpText && <FormControl.HelpText id={helpTextId}>{helpText}</FormControl.HelpText>
         )}
         {multiple && (
-          <Autocomplete.SelectionChips disabled={disabled} listboxId={Autocomplete.getListboxId(autocompleteId)}>
+          <Autocomplete.SelectionChips
+            disabled={disabled}
+            listboxId={Autocomplete.getListboxId(autocompleteId)}
+          >
             {renderChips}
           </Autocomplete.SelectionChips>
         )}
       </Autocomplete.DefaultOptionsContext.Provider>
     </FormControl>
-  )
+  );
 }
 
-AutocompleteControl.getValue = Autocomplete.getValue
-AutocompleteControl.Button = Autocomplete.Button
-AutocompleteControl.CardDefaultContent = Autocomplete.CardDefaultContent
-AutocompleteControl.Divider = Autocomplete.Divider
-AutocompleteControl.Listbox = Autocomplete.Listbox
-AutocompleteControl.Option = Autocomplete.Option
-AutocompleteControl.OptionAdditionalInfo = Autocomplete.OptionAdditionalInfo
-AutocompleteControl.Optgroup = Autocomplete.Optgroup
-AutocompleteControl.Placeholder = Autocomplete.Placeholder
-AutocompleteControl.Popup = Autocomplete.Popup
-AutocompleteControl.SearchInput = Autocomplete.SearchInput
-AutocompleteControl.SelectionChipsItem = Autocomplete.SelectionChipsItem
-AutocompleteControl.useState = Autocomplete.useState
+AutocompleteControl.getValue = Autocomplete.getValue;
+AutocompleteControl.Button = Autocomplete.Button;
+AutocompleteControl.CardDefaultContent = Autocomplete.CardDefaultContent;
+AutocompleteControl.Divider = Autocomplete.Divider;
+AutocompleteControl.Listbox = Autocomplete.Listbox;
+AutocompleteControl.Option = Autocomplete.Option;
+AutocompleteControl.OptionAdditionalInfo = Autocomplete.OptionAdditionalInfo;
+AutocompleteControl.Optgroup = Autocomplete.Optgroup;
+AutocompleteControl.Placeholder = Autocomplete.Placeholder;
+AutocompleteControl.Popup = Autocomplete.Popup;
+AutocompleteControl.SearchInput = Autocomplete.SearchInput;
+AutocompleteControl.SelectionChipsItem = Autocomplete.SelectionChipsItem;
+AutocompleteControl.useState = Autocomplete.useState;

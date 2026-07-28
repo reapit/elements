@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
 
 export const ElGalleryViewerMediaList = styled.ul`
   @layer elements.main {
@@ -13,7 +13,7 @@ export const ElGalleryViewerMediaList = styled.ul`
     margin-block: 0;
     padding-inline: 0;
   }
-`
+`;
 
 export const ElGalleryViewerMediaListItem = styled.li`
   @layer elements.main {
@@ -21,4 +21,4 @@ export const ElGalleryViewerMediaListItem = styled.li`
     border-radius: var(--border-radius-l);
     overflow: hidden;
   }
-`
+`;

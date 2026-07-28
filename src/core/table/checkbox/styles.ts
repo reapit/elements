@@ -1,4 +1,4 @@
-import { css } from '@linaria/core'
+import { css } from "@linaria/core";
 
 export const elTableCellCheckbox = css`
   @layer elements.main {
@@ -14,4 +14,4 @@ export const elTableCellCheckbox = css`
     /* NOTE: This ensures the checkbox is layered above the table row's primary action */
     z-index: var(--z-index-elevated);
   }
-`
+`;

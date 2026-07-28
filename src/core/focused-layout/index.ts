@@ -1,1 +1,1 @@
-export { FocusedLayout } from './focused-layout'
+export { FocusedLayout } from "./focused-layout";

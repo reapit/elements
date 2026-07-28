@@ -1,1 +1,1 @@
-export type Theme = 'reapit' | 'payprop'
+export type Theme = "reapit" | "payprop";

@@ -1,15 +1,34 @@
-import preview from '#.storybook/preview'
-import { GridDemoBlock } from '../../storybook/demo-block'
-import { Grid, Col, ColHalf, ColQuarter, ColSplit, ColSplitThird, ColSplitTwoThirds, GridThirds } from './grid'
-import { GridResponsive, ColResponsive } from './grid-responsive'
-import { cx } from '@linaria/core'
-import { elColGap2, elRowGap3, elSpan12, elSpan8, elSpan4, elOffset4, elOffset8 } from './__styles__/units'
+import { cx } from "@linaria/core";
+
+import preview from "#.storybook/preview";
+
+import { GridDemoBlock } from "../../storybook/demo-block";
+import {
+  elColGap2,
+  elRowGap3,
+  elSpan12,
+  elSpan8,
+  elSpan4,
+  elOffset4,
+  elOffset8,
+} from "./__styles__/units";
+import {
+  Grid,
+  Col,
+  ColHalf,
+  ColQuarter,
+  ColSplit,
+  ColSplitThird,
+  ColSplitTwoThirds,
+  GridThirds,
+} from "./grid";
+import { GridResponsive, ColResponsive } from "./grid-responsive";
 
 const meta = preview.meta({
-  title: 'Deprecated/Grid',
-})
+  title: "Deprecated/Grid",
+});
 
-export default meta
+export default meta;
 
 export const BasicUsage = meta.story({
   render: () => (
@@ -31,7 +50,7 @@ export const BasicUsage = meta.story({
       </Col>
     </Grid>
   ),
-})
+});
 
 export const BasicUsageQuarterAndHalves = meta.story({
   render: () => (
@@ -68,8 +87,8 @@ export const BasicUsageQuarterAndHalves = meta.story({
       </ColQuarter>
     </Grid>
   ),
-  name: 'Basic Usage Quarter and Halves',
-})
+  name: "Basic Usage Quarter and Halves",
+});
 
 export const BasicUsageSplitScreenGrid = meta.story({
   render: () => (
@@ -82,8 +101,8 @@ export const BasicUsageSplitScreenGrid = meta.story({
       </ColSplit>
     </Grid>
   ),
-  name: 'Basic Usage - Split Screen Grid',
-})
+  name: "Basic Usage - Split Screen Grid",
+});
 
 export const BasicUsageSplitScreenGridThirds = meta.story({
   render: () => (
@@ -96,8 +115,8 @@ export const BasicUsageSplitScreenGridThirds = meta.story({
       </ColSplitTwoThirds>
     </GridThirds>
   ),
-  name: 'Basic Usage - Split Screen Grid Thirds',
-})
+  name: "Basic Usage - Split Screen Grid Thirds",
+});
 
 export const CustomUsage = meta.story({
   render: () => (
@@ -116,7 +135,7 @@ export const CustomUsage = meta.story({
       </Col>
     </Grid>
   ),
-})
+});
 
 export const ReactExampleResponsiveCustomisation = meta.story({
   render: () => (
@@ -236,5 +255,5 @@ export const ReactExampleResponsiveCustomisation = meta.story({
       </ColResponsive>
     </GridResponsive>
   ),
-  name: 'React Example - Responsive Customisation',
-})
+  name: "React Example - Responsive Customisation",
+});

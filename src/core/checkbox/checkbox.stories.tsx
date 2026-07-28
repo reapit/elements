@@ -1,39 +1,40 @@
-import preview from '#.storybook/preview'
-import { Checkbox } from './checkbox'
-import { LabelText } from '../label-text'
+import preview from "#.storybook/preview";
+
+import { LabelText } from "../label-text";
+import { Checkbox } from "./checkbox";
 
 const meta = preview.meta({
-  title: 'Input and selection/Checkbox',
+  title: "Input and selection/Checkbox",
   component: Checkbox,
   argTypes: {
     label: {
-      control: 'text',
+      control: "text",
     },
     supplementaryInfo: {
-      control: 'text',
+      control: "text",
     },
     disabled: {
-      control: 'boolean',
+      control: "boolean",
     },
     isIndeterminate: {
-      control: 'boolean',
+      control: "boolean",
     },
     required: {
-      control: 'boolean',
+      control: "boolean",
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
-    label: 'Label',
-    supplementaryInfo: 'Supplementary Info',
+    label: "Label",
+    supplementaryInfo: "Supplementary Info",
     disabled: false,
     isIndeterminate: false,
     required: false,
     showValidity: false,
   },
-})
+});
 
 /**
  * A checkbox can be marked as required. This indicates that the checkbox must be checked for its related form
@@ -45,7 +46,7 @@ export const Required = Example.extend({
     label: <LabelText isRequired>Label</LabelText>,
     required: true,
   },
-})
+});
 
 /**
  * Checkboxes can be set to an indeterminate state. When controlling `isIndeterminate`, it is important that
@@ -55,7 +56,7 @@ export const Indeterminate = Example.extend({
   args: {
     isIndeterminate: true,
   },
-})
+});
 
 /**
  * Checkboxes can be disabled. When they are, they do not participate in form submission.
@@ -64,7 +65,7 @@ export const Disabled = Example.extend({
   args: {
     disabled: true,
   },
-})
+});
 
 /**
  * Like all form controls that visually communicate their validity, the checkbox will display in an
@@ -77,4 +78,4 @@ export const Invalid = Example.extend({
     required: true,
     showValidity: true,
   },
-})
+});

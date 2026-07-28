@@ -1,19 +1,19 @@
-import { clearSearchInput } from '#src/core/search-input'
-import { closeDialog } from '#src/utils/dialog'
-import { OPTION_ROLE_SELECTOR } from '#src/utils/listbox/dom-helpers'
+import type { MouseEvent, SyntheticEvent } from "react";
 
-import type { MouseEvent, SyntheticEvent } from 'react'
+import { clearSearchInput } from "#src/core/search-input";
+import { closeDialog } from "#src/utils/dialog";
+import { OPTION_ROLE_SELECTOR } from "#src/utils/listbox/dom-helpers";
 
 /**
  * Valid values for the closeOnSelection behaviour.
  */
 export const CLOSE_ON_SELECTION = {
-  AUTO: 'auto',
-  ALWAYS: 'always',
-  NEVER: 'never',
-} as const
+  AUTO: "auto",
+  ALWAYS: "always",
+  NEVER: "never",
+} as const;
 
-export type CloseOnSelection = (typeof CLOSE_ON_SELECTION)[keyof typeof CLOSE_ON_SELECTION]
+export type CloseOnSelection = (typeof CLOSE_ON_SELECTION)[keyof typeof CLOSE_ON_SELECTION];
 
 /**
  * Closes the combobox popup when an option is clicked, based on the closeOnSelection setting.
@@ -35,36 +35,36 @@ export function maybeCloseOnSelection(event: MouseEvent<HTMLDialogElement>): voi
   // dispatches a synthetic (isTrusted: false) click, and it must close the popup the same way a
   // real mouse click does.
   if (event.defaultPrevented) {
-    return
+    return;
   }
 
-  const optionElement = getOptionElement(event.target)
+  const optionElement = getOptionElement(event.target);
 
   // Don't close if target is NOT an option or option descendant
   if (!optionElement) {
-    return
+    return;
   }
 
-  const { closeOnSelection } = event.currentTarget.dataset
+  const { closeOnSelection } = event.currentTarget.dataset;
 
   // Don't close if we're configured to never close on selection
   if (closeOnSelection === CLOSE_ON_SELECTION.NEVER) {
-    return
+    return;
   }
 
   // Always close if we're configured to always close on selection
   if (closeOnSelection === CLOSE_ON_SELECTION.ALWAYS) {
-    closeDialog(event.currentTarget)
-    return
+    closeDialog(event.currentTarget);
+    return;
   }
 
   // For 'auto' mode, close only for single-select listboxes
   if (closeOnSelection === CLOSE_ON_SELECTION.AUTO) {
-    const { listboxId } = optionElement.dataset
-    const listboxElement = listboxId ? document.getElementById(listboxId) : null
+    const { listboxId } = optionElement.dataset;
+    const listboxElement = listboxId ? document.getElementById(listboxId) : null;
 
     if (shouldCloseForAutoMode(listboxElement)) {
-      closeDialog(event.currentTarget)
+      closeDialog(event.currentTarget);
     }
   }
 }
@@ -88,9 +88,9 @@ export function maybeCloseOnSelection(event: MouseEvent<HTMLDialogElement>): voi
  */
 export function getOptionElement(element: unknown): HTMLElement | null {
   if (element instanceof HTMLElement) {
-    return element.closest(OPTION_ROLE_SELECTOR)
+    return element.closest(OPTION_ROLE_SELECTOR);
   }
-  return null
+  return null;
 }
 
 /**
@@ -106,12 +106,12 @@ export function getOptionElement(element: unknown): HTMLElement | null {
  */
 function shouldCloseForAutoMode(listboxElement: HTMLElement | null): boolean {
   // NOTE: `ariaMultiSelectable` is a Baseline 2023 "Newly Available" feature. We check for it before use.
-  if ('ariaMultiSelectable' in Element.prototype) {
-    return listboxElement?.ariaMultiSelectable === 'false'
+  if ("ariaMultiSelectable" in Element.prototype) {
+    return listboxElement?.ariaMultiSelectable === "false";
   }
 
   // Fall back to the `aria-multiselectable` attribute.
-  return listboxElement?.getAttribute('aria-multiselectable') === 'false'
+  return listboxElement?.getAttribute("aria-multiselectable") === "false";
 }
 
 /**
@@ -128,19 +128,19 @@ function shouldCloseForAutoMode(listboxElement: HTMLElement | null): boolean {
  * }
  */
 export function clearSearchInputOnClose(event: SyntheticEvent<HTMLDialogElement>): void {
-  const { preserveSearchOnClose } = event.currentTarget.dataset
+  const { preserveSearchOnClose } = event.currentTarget.dataset;
 
   // If the search input should be preserved, do nothing.
-  if (preserveSearchOnClose === 'true') {
-    return
+  if (preserveSearchOnClose === "true") {
+    return;
   }
 
   // We take a dumb approach by assuming the search input is the first and only
   // input element within the dialog. This may not hold in all cases, but it's
   // the cheapest thing we can do.
-  const searchInputElement = event.currentTarget.querySelector('input')
+  const searchInputElement = event.currentTarget.querySelector("input");
 
   if (searchInputElement instanceof HTMLInputElement) {
-    clearSearchInput(searchInputElement)
+    clearSearchInput(searchInputElement);
   }
 }

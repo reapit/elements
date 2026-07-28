@@ -1,18 +1,19 @@
-import { render } from '@testing-library/react'
-import { Avatar } from '..'
+import { render } from "@testing-library/react";
 
-describe('Avatar', () => {
-  it('should render properly with default props and match snapshot', () => {
-    const { asFragment } = render(<Avatar>Default Avatar</Avatar>)
-    expect(asFragment()).toMatchSnapshot()
-  })
+import { Avatar } from "..";
 
-  it('should render properly with specified props and match snapshot', () => {
+describe("Avatar", () => {
+  it("should render properly with default props and match snapshot", () => {
+    const { asFragment } = render(<Avatar>Default Avatar</Avatar>);
+    expect(asFragment()).toMatchSnapshot();
+  });
+
+  it("should render properly with specified props and match snapshot", () => {
     const { asFragment } = render(
       <Avatar shape="square" size="small" colour="primary">
         Square Avatar
       </Avatar>,
-    )
-    expect(asFragment()).toMatchSnapshot()
-  })
-})
+    );
+    expect(asFragment()).toMatchSnapshot();
+  });
+});

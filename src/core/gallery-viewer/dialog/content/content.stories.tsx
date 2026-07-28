@@ -1,30 +1,31 @@
-import preview from '#.storybook/preview'
-import { GalleryViewerDialog } from '../dialog'
+import preview from "#.storybook/preview";
+
+import { GalleryViewerDialog } from "../dialog";
 
 const meta = preview.meta({
-  title: 'Content display/GalleryViewer/Dialog/Content',
+  title: "Content display/GalleryViewer/Dialog/Content",
   component: GalleryViewerDialog.Content,
   argTypes: {
     children: {
-      control: 'text',
+      control: "text",
     },
   },
   globals: {
     backgrounds: {
-      value: 'light',
+      value: "light",
     },
   },
   decorators: [
     (Story) => (
-      <div style={{ containerType: 'inline-size', width: '100%' }}>
+      <div style={{ containerType: "inline-size", width: "100%" }}>
         <Story />
       </div>
     ),
   ],
-})
+});
 
 export const Example = meta.story({
   args: {
-    children: 'Content area',
+    children: "Content area",
   },
-})
+});

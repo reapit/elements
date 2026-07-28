@@ -1,14 +1,15 @@
-import { css } from '@linaria/core'
-import { DRAWER_WIDTH_SM_2XL, DRAWER_WIDTH_XS } from '#src/core/drawer/constants'
-import { styled } from '@linaria/react'
-import { isWidthAtOrAbove } from '#src/utils/breakpoints'
+import { css } from "@linaria/core";
+import { styled } from "@linaria/react";
 
-const BACKDROP_DURATION = '100ms'
-const DIALOG_DURATION = '200ms'
-const TOTAL_DURATION = '200ms'
+import { DRAWER_WIDTH_SM_2XL, DRAWER_WIDTH_XS } from "#src/core/drawer/constants";
+import { isWidthAtOrAbove } from "#src/utils/breakpoints";
 
-const BACKDROP_OUT_DELAY = '0ms'
-const DIALOG_IN_DELAY = '0ms'
+const BACKDROP_DURATION = "100ms";
+const DIALOG_DURATION = "200ms";
+const TOTAL_DURATION = "200ms";
+
+const BACKDROP_OUT_DELAY = "0ms";
+const DIALOG_IN_DELAY = "0ms";
 
 export const elComboboxPopupDialog = css`
   @layer elements.main {
@@ -65,7 +66,7 @@ export const elComboboxPopupDialog = css`
       max-width: 100%;
       min-width: ${DRAWER_WIDTH_XS};
 
-      @media screen and (${isWidthAtOrAbove('SM')}) {
+      @media screen and (${isWidthAtOrAbove("SM")}) {
         /* Position the drawer on the right side of the screen */
         inset-inline: auto 0;
 
@@ -85,7 +86,7 @@ export const elComboboxPopupDialog = css`
       @media (prefers-reduced-motion: no-preference) {
         transform: translateY(100%);
 
-        @media screen and (${isWidthAtOrAbove('SM')}) {
+        @media screen and (${isWidthAtOrAbove("SM")}) {
           transform: translateX(100%);
         }
 
@@ -103,7 +104,7 @@ export const elComboboxPopupDialog = css`
         &:is(:open, [open]) {
           transform: translateY(0);
 
-          @media screen and (${isWidthAtOrAbove('SM')}) {
+          @media screen and (${isWidthAtOrAbove("SM")}) {
             transform: translateX(0);
           }
 
@@ -123,7 +124,7 @@ export const elComboboxPopupDialog = css`
           &:is(:open, [open]) {
             transform: translateY(100%);
 
-            @media screen and (${isWidthAtOrAbove('SM')}) {
+            @media screen and (${isWidthAtOrAbove("SM")}) {
               transform: translateX(100%);
             }
 
@@ -138,7 +139,7 @@ export const elComboboxPopupDialog = css`
     /* Auto variant - popover on SM and above */
     &[data-variant='auto'] {
       /* On XS breakpoint, switch to popover styles */
-      @media screen and ${isWidthAtOrAbove('SM')} {
+      @media screen and ${isWidthAtOrAbove("SM")} {
         --combobox-popup-shadow: var(--combobox-popup-popover-shadow);
 
         border-radius: var(--comp-menu-border-radius);
@@ -171,7 +172,7 @@ export const elComboboxPopupDialog = css`
       }
     }
   }
-`
+`;
 
 export const ElComboboxPopupDialogHeader = styled.div`
   @layer elements.main {
@@ -190,7 +191,7 @@ export const ElComboboxPopupDialogHeader = styled.div`
 
     background: inherit;
   }
-`
+`;
 
 export const ElComboboxPopupDialogListboxContainer = styled.div`
   @layer elements.main {
@@ -206,4 +207,4 @@ export const ElComboboxPopupDialogListboxContainer = styled.div`
       padding-block: var(--combobox-popup-padding);
     }
   }
-`
+`;

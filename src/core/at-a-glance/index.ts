@@ -1,1 +1,1 @@
-export { AtAGlance } from './at-a-glance'
+export { AtAGlance } from "./at-a-glance";

@@ -1,6 +1,6 @@
-import { dispatchInputEvent, getListboxSelectElement, getSelectOptionByValue } from './common'
+import { dispatchInputEvent, getListboxSelectElement, getSelectOptionByValue } from "./common";
 
-export type SelectionSetter = (selected: boolean, selectElement: HTMLSelectElement) => boolean
+export type SelectionSetter = (selected: boolean, selectElement: HTMLSelectElement) => boolean;
 
 /**
  * Updates a listbox option's selected state and dispatches an input event when the state changes.
@@ -26,13 +26,17 @@ export type SelectionSetter = (selected: boolean, selectElement: HTMLSelectEleme
  * // Always deselect an option
  * setListboxOptionSelectedState('my-listbox', 'option3', () => false)
  */
-export function setListboxOptionSelectedState(listboxId: string, optionValue: string, setter: SelectionSetter): void {
-  const selectElement = getListboxSelectElement(listboxId)
-  const optionToSelect = getSelectOptionByValue(selectElement, optionValue)
-  const currentState = optionToSelect.selected
-  optionToSelect.selected = setter(optionToSelect.selected, selectElement)
+export function setListboxOptionSelectedState(
+  listboxId: string,
+  optionValue: string,
+  setter: SelectionSetter,
+): void {
+  const selectElement = getListboxSelectElement(listboxId);
+  const optionToSelect = getSelectOptionByValue(selectElement, optionValue);
+  const currentState = optionToSelect.selected;
+  optionToSelect.selected = setter(optionToSelect.selected, selectElement);
 
   if (currentState !== optionToSelect.selected) {
-    dispatchInputEvent(selectElement)
+    dispatchInputEvent(selectElement);
   }
 }

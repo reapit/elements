@@ -1,5 +1,6 @@
-import { styled } from '@linaria/react'
-import { elIsActive } from '../../styles/deprecated-states'
+import { styled } from "@linaria/react";
+
+import { elIsActive } from "../../styles/deprecated-states";
 
 /** @deprecated */
 export const ElDeprecatedAccordionContainer = styled.div`
@@ -7,7 +8,7 @@ export const ElDeprecatedAccordionContainer = styled.div`
   height: auto;
   display: flex;
   flex-direction: column;
-`
+`;
 
 /** @deprecated */
 export const ElDeprecatedAccordionItem = styled.a`
@@ -33,18 +34,18 @@ export const ElDeprecatedAccordionItem = styled.a`
   &:has(+ .${elIsActive}) {
     border-bottom: none;
   }
-`
+`;
 /** @deprecated */
 export const ElDeprecatedAccordionTitle = styled.div`
   color: var(--colour-text-primary);
   font-size: 0.875rem /* was --font-size-small */;
   font-weight: 500 /* was --font-weight-medium */;
-`
+`;
 
 /** @deprecated */
 export const ElDeprecatedAccordionTitleContentWrapper = styled.div`
   display: flex;
-`
+`;
 
 /** @deprecated */
 export const ElDeprecatedAccordionTitleContent = styled.div`
@@ -61,7 +62,7 @@ export const ElDeprecatedAccordionTitleContent = styled.div`
   &:last-child {
     margin: 0 0.75rem;
   }
-`
+`;
 
 /** @deprecated */
 export const ElDeprecatedAccordionContent = styled.div`
@@ -74,4 +75,4 @@ export const ElDeprecatedAccordionContent = styled.div`
     padding: 1.5rem 0;
     border-bottom: 1px solid var(--colour-border-neutral-light_default);
   }
-`
+`;

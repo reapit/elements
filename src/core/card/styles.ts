@@ -1,4 +1,4 @@
-import { css } from '@linaria/core'
+import { css } from "@linaria/core";
 
 /**
  * Base card surface styles shared by all card variants.
@@ -31,7 +31,7 @@ export const elCard = css`
     text-decoration: none;
     cursor: default;
 
-    &[data-is-borderless='true'] {
+    &[data-is-borderless="true"] {
       border: none;
     }
 
@@ -40,7 +40,7 @@ export const elCard = css`
       outline-offset: var(--border-width-default);
     }
   }
-`
+`;
 
 /**
  * Interactive state styles shared by ButtonCard and AnchorCard.
@@ -58,15 +58,15 @@ export const elInteractiveCard = css`
       transition: box-shadow 150ms ease-out;
     }
 
-    &:not(:is(:disabled, [aria-disabled='true'])):hover {
+    &:not(:is(:disabled, [aria-disabled="true"])):hover {
       box-shadow: var(--shadow-down-md);
     }
 
-    &:not(:is(:disabled, [aria-disabled='true'])):active {
+    &:not(:is(:disabled, [aria-disabled="true"])):active {
       box-shadow: var(--shadow-down-sm);
     }
 
-    &:where(:disabled, [aria-disabled='true']) {
+    &:where(:disabled, [aria-disabled="true"]) {
       cursor: not-allowed;
     }
 
@@ -94,4 +94,4 @@ export const elInteractiveCard = css`
       }
     }
   }
-`
+`;

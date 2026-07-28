@@ -1,7 +1,8 @@
-import { getInputElement } from './get-input-element'
-import { syncInputFiles } from './sync-input-files'
-import { validateFiles } from './validate-files'
-import { useEffect } from 'react'
+import { useEffect } from "react";
+
+import { getInputElement } from "./get-input-element";
+import { syncInputFiles } from "./sync-input-files";
+import { validateFiles } from "./validate-files";
 
 /**
  * Keeps the native input's raw `.files`, and its custom validity, in sync with `files` —
@@ -31,29 +32,35 @@ export function useFileInputValidity({
   maxFiles,
   maxTotalSize,
 }: {
-  inputId: string
-  files: File[]
-  accept: string | undefined
-  maxFileSize: number | undefined
-  minFiles: number | undefined
-  maxFiles: number | undefined
-  maxTotalSize: number | undefined
+  inputId: string;
+  files: File[];
+  accept: string | undefined;
+  maxFileSize: number | undefined;
+  minFiles: number | undefined;
+  maxFiles: number | undefined;
+  maxTotalSize: number | undefined;
 }): void {
   useEffect(() => {
-    const input = getInputElement(inputId)
-    if (!input) return
+    const input = getInputElement(inputId);
+    if (!input) return;
 
-    const { rejected, selectionError } = validateFiles(files, { accept, maxFileSize, minFiles, maxFiles, maxTotalSize })
+    const { rejected, selectionError } = validateFiles(files, {
+      accept,
+      maxFileSize,
+      minFiles,
+      maxFiles,
+      maxTotalSize,
+    });
 
     // Only a file failing a per-file rule (`accept`/`maxFileSize`) is dropped from the native
     // input's own `.files` — a file excluded solely by a selection-level rule stays put, since
     // `selectionError` below is what invalidates the input in that case.
-    const fileErrors = new Set(rejected.map((rejection) => rejection.file))
+    const fileErrors = new Set(rejected.map((rejection) => rejection.file));
     syncInputFiles(
       input,
       files.filter((file) => !fileErrors.has(file)),
-    )
+    );
 
-    input.setCustomValidity(selectionError ?? '')
-  }, [inputId, files, accept, maxFileSize, minFiles, maxFiles, maxTotalSize])
+    input.setCustomValidity(selectionError ?? "");
+  }, [inputId, files, accept, maxFileSize, minFiles, maxFiles, maxTotalSize]);
 }

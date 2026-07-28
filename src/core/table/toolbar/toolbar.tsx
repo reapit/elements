@@ -1,20 +1,20 @@
-import { ElTableToolbar, ElTableToolbarLeftContent, ElTableToolbarRightContent } from './styles'
+import type { HTMLAttributes, ReactNode } from "react";
 
-import type { HTMLAttributes, ReactNode } from 'react'
+import { ElTableToolbar, ElTableToolbarLeftContent, ElTableToolbarRightContent } from "./styles";
 
 // NOTE: we omit...
 // - children, because we internally control the child content
-type AttributesToOmit = 'children'
+type AttributesToOmit = "children";
 
 export namespace TableToolbar {
   export interface Props extends Omit<HTMLAttributes<HTMLDivElement>, AttributesToOmit> {
     /** Typically used to show the total number of items or the number of selected rows. */
-    leftContent?: ReactNode
+    leftContent?: ReactNode;
     /**
      * Typically used to display table controls, like page size, or actions available for
      * the selected rows.
      */
-    rightContent?: ReactNode
+    rightContent?: ReactNode;
   }
 }
 
@@ -29,10 +29,10 @@ export function TableToolbar({ leftContent, rightContent, ...rest }: TableToolba
       {leftContent && <ElTableToolbarLeftContent>{leftContent}</ElTableToolbarLeftContent>}
       {rightContent && <ElTableToolbarRightContent>{rightContent}</ElTableToolbarRightContent>}
     </ElTableToolbar>
-  )
+  );
 }
 
-TableToolbar.displayName = 'Table.Toolbar'
+TableToolbar.displayName = "Table.Toolbar";
 
 // Backward compatibility
-export type TableToolbarProps = TableToolbar.Props
+export type TableToolbarProps = TableToolbar.Props;

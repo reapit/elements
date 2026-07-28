@@ -1,9 +1,11 @@
-import { NotificationIcon } from '#src/icons/notification'
-import { render, screen } from '@testing-library/react'
-import { StarIcon } from '#src/icons/star'
-import { TopBarSecondaryNavListItem } from '../secondary-nav-list-item'
+import { render, screen } from "@testing-library/react";
 
-test('renders as a list item containing a navigation link', () => {
+import { NotificationIcon } from "#src/icons/notification";
+import { StarIcon } from "#src/icons/star";
+
+import { TopBarSecondaryNavListItem } from "../secondary-nav-list-item";
+
+test("renders as a list item containing a navigation link", () => {
   render(
     <TopBarSecondaryNavListItem
       href="https://example.com"
@@ -11,16 +13,16 @@ test('renders as a list item containing a navigation link', () => {
       aria-label="My nav item"
       icon={<StarIcon />}
     />,
-  )
+  );
 
-  const listItem = screen.getByRole('listitem')
-  expect(listItem).toBeVisible()
+  const listItem = screen.getByRole("listitem");
+  expect(listItem).toBeVisible();
 
-  const link = screen.getByRole('link', { name: 'My nav item' })
-  expect(link).toBeVisible()
-})
+  const link = screen.getByRole("link", { name: "My nav item" });
+  expect(link).toBeVisible();
+});
 
-test('forwards props to the underlying nav icon item', () => {
+test("forwards props to the underlying nav icon item", () => {
   render(
     <TopBarSecondaryNavListItem
       href="https://example.com"
@@ -29,11 +31,11 @@ test('forwards props to the underlying nav icon item', () => {
       icon={<StarIcon />}
       data-testid="nav-icon-item"
     />,
-  )
+  );
 
-  const link = screen.getByTestId('nav-icon-item')
-  expect(link).toBeVisible()
-})
+  const link = screen.getByTestId("nav-icon-item");
+  expect(link).toBeVisible();
+});
 
 test('has `aria-current="false"` when `aria-current={false}`', () => {
   render(
@@ -43,11 +45,11 @@ test('has `aria-current="false"` when `aria-current={false}`', () => {
       aria-label="My nav item"
       icon={<StarIcon />}
     />,
-  )
+  );
 
-  const link = screen.getByRole('link')
-  expect(link).toHaveAttribute('aria-current', 'false')
-})
+  const link = screen.getByRole("link");
+  expect(link).toHaveAttribute("aria-current", "false");
+});
 
 test('has `aria-current="page"` when `aria-current="page"`', () => {
   render(
@@ -57,13 +59,13 @@ test('has `aria-current="page"` when `aria-current="page"`', () => {
       aria-label="My nav item"
       icon={<StarIcon />}
     />,
-  )
+  );
 
-  const link = screen.getByRole('link')
-  expect(link).toHaveAttribute('aria-current', 'page')
-})
+  const link = screen.getByRole("link");
+  expect(link).toHaveAttribute("aria-current", "page");
+});
 
-test('renders the correct href attribute', () => {
+test("renders the correct href attribute", () => {
   render(
     <TopBarSecondaryNavListItem
       href="https://custom-url.com"
@@ -71,13 +73,13 @@ test('renders the correct href attribute', () => {
       aria-label="My nav item"
       icon={<StarIcon />}
     />,
-  )
+  );
 
-  const link = screen.getByRole('link')
-  expect(link).toHaveAttribute('href', 'https://custom-url.com')
-})
+  const link = screen.getByRole("link");
+  expect(link).toHaveAttribute("href", "https://custom-url.com");
+});
 
-test('can display a badge when `hasBadge` is `true`', () => {
+test("can display a badge when `hasBadge` is `true`", () => {
   render(
     <TopBarSecondaryNavListItem
       href="https://example.com"
@@ -86,8 +88,8 @@ test('can display a badge when `hasBadge` is `true`', () => {
       icon={<NotificationIcon />}
       hasBadge={true}
     />,
-  )
+  );
 
-  const link = screen.getByRole('link', { name: 'Notifications' })
-  expect(link.querySelector('span')).toBeVisible()
-})
+  const link = screen.getByRole("link", { name: "Notifications" });
+  expect(link.querySelector("span")).toBeVisible();
+});

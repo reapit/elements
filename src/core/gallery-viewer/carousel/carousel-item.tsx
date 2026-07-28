@@ -1,6 +1,7 @@
-import { cx } from '@linaria/core'
-import { GalleryViewerMediaItem } from '../media-item'
-import { elGalleryViewerCarouselItem } from './styles'
+import { cx } from "@linaria/core";
+
+import { GalleryViewerMediaItem } from "../media-item";
+import { elGalleryViewerCarouselItem } from "./styles";
 
 export namespace GalleryViewerCarouselItem {
   export interface Props extends GalleryViewerMediaItem.Props {}
@@ -14,7 +15,10 @@ export namespace GalleryViewerCarouselItem {
  * directly when the item is rendered outside a carousel context, e.g. in a vertical
  * stack on small devices.
  */
-export function GalleryViewerCarouselItem({ className, ...props }: GalleryViewerCarouselItem.Props) {
+export function GalleryViewerCarouselItem({
+  className,
+  ...props
+}: GalleryViewerCarouselItem.Props) {
   return (
     <GalleryViewerMediaItem
       {...props}
@@ -22,7 +26,7 @@ export function GalleryViewerCarouselItem({ className, ...props }: GalleryViewer
       aria-roledescription="slide"
       role="group"
     />
-  )
+  );
 }
 
-GalleryViewerCarouselItem.displayName = 'GalleryViewer.CarouselItem'
+GalleryViewerCarouselItem.displayName = "GalleryViewer.CarouselItem";

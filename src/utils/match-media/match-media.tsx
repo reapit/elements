@@ -1,13 +1,13 @@
-import { useMatchMedia } from './use-match-media'
+import type { ReactNode } from "react";
 
-import type { ReactNode } from 'react'
+import { useMatchMedia } from "./use-match-media";
 
 export namespace MatchMedia {
   export interface Props {
     /** The media query condition to match against (e.g., "(min-width: 768px)", "(prefers-color-scheme: dark)") */
-    condition: string
+    condition: string;
     /** The content to render when the media query matches */
-    children: ReactNode
+    children: ReactNode;
   }
 }
 
@@ -19,6 +19,6 @@ export namespace MatchMedia {
  * `useMatchMedia` is also available if you want a hook API rather than a component.
  */
 export function MatchMedia({ condition, children }: MatchMedia.Props) {
-  const matches = useMatchMedia(condition)
-  return matches ? children : null
+  const matches = useMatchMedia(condition);
+  return matches ? children : null;
 }

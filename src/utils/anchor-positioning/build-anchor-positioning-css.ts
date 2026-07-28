@@ -1,30 +1,30 @@
-import { mapInsetPositionToCSS } from './map-inset-position-to-css'
-import { mapPlacementToCSS } from './map-placement-to-css'
+import { mapInsetPositionToCSS } from "./map-inset-position-to-css";
+import { mapPlacementToCSS } from "./map-placement-to-css";
 
 export namespace buildAnchorPositioningCSS {
   export interface Input extends mapInsetPositionToCSS.Input, mapPlacementToCSS.Input {
     /** ID of the anchor element. */
-    anchorElementId: string
+    anchorElementId: string;
     /**
      * Maximum width of the positioned element. Accepts any valid CSS length, including the special
      * [anchor-size](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/anchor-size).
      * Defaults to content width. Prefer `--size-*` variables.
      */
-    maxWidth?: string
+    maxWidth?: string;
     /**
      * Minimum width of the positioned element. Accepts any valid CSS length, including the special
      * [anchor-size](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/anchor-size).
      * Defaults to content width. Prefer `--size-*` variables.
      */
-    minWidth?: string
+    minWidth?: string;
     /**
      * The position of the element. Must be absolute or fixed. Default is fixed.
      */
-    position?: 'absolute' | 'fixed'
+    position?: "absolute" | "fixed";
     /**
      * Positioned element ID.
      */
-    positionedElementId: string
+    positionedElementId: string;
     /**
      * Fallback positions when the positioned element overflows the viewport. See
      * [position-try-fallbacks](https://developer.mozilla.org/en-US/docs/Web/CSS/position-try-fallbacks).
@@ -32,7 +32,7 @@ export namespace buildAnchorPositioningCSS {
      *
      * Use "flip-block", "flip-inline", or both. Defaults to "none".
      */
-    positionTryFallbacks?: string
+    positionTryFallbacks?: string;
   }
 }
 
@@ -55,15 +55,15 @@ export function buildAnchorPositioningCSS({
   // NOTE: position="absolute" leads to scrolling on the document when a popup is
   // open in, for example, a drawer that itself has scrolled. Using fixed positioning
   // avoids this, hence it's the default.
-  position = 'fixed',
+  position = "fixed",
   positionedElementId,
-  positionTryFallbacks = 'none',
+  positionTryFallbacks = "none",
   right,
   top,
 }: buildAnchorPositioningCSS.Input): string {
   // NOTE: Anchor and positioned element IDs include reserved CSS characters like `:`
   // (especially from `useId`). Escape them before use.
-  const anchorName = `--${CSS.escape(anchorElementId)}`
+  const anchorName = `--${CSS.escape(anchorElementId)}`;
 
   // `placement` takes priority when it's specified
   const positioningCSS = placement
@@ -75,7 +75,7 @@ export function buildAnchorPositioningCSS({
         left,
         right,
         top,
-      })
+      });
 
   return `
     #${CSS.escape(anchorElementId)} {
@@ -86,9 +86,9 @@ export function buildAnchorPositioningCSS({
       position: ${position};
       position-anchor: ${anchorName};
       position-try-fallbacks: ${positionTryFallbacks};
-      ${maxWidth ? `max-width: ${maxWidth};` : ''}
-      ${minWidth ? `min-width: ${minWidth};` : ''}
+      ${maxWidth ? `max-width: ${maxWidth};` : ""}
+      ${minWidth ? `min-width: ${minWidth};` : ""}
       ${positioningCSS}
     }
-  `
+  `;
 }

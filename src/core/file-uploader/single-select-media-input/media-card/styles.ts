@@ -1,6 +1,7 @@
-import { styled } from '@linaria/react'
-import { font } from '#src/utils/font'
-import { css } from '@linaria/core'
+import { css } from "@linaria/core";
+import { styled } from "@linaria/react";
+
+import { font } from "#src/utils/font";
 
 export const ElFileUploaderSingleSelectMediaCard = styled.div`
   @layer elements.main {
@@ -20,11 +21,11 @@ export const ElFileUploaderSingleSelectMediaCard = styled.div`
       outline-offset: var(--border-width-default);
     }
 
-    &[data-disabled='true'] {
+    &[data-disabled="true"] {
       cursor: not-allowed;
     }
   }
-`
+`;
 
 export const elFileUploaderSingleSelectMediaCardRemoveButton = css`
   @layer elements.main {
@@ -32,7 +33,7 @@ export const elFileUploaderSingleSelectMediaCardRemoveButton = css`
     /* We need the remove button to sit above the replace overlay */
     z-index: var(--z-index-elevated);
   }
-`
+`;
 
 export const ElFileUploaderSingleSelectMediaCardReplaceOverlay = styled.div`
   @layer elements.main {
@@ -51,11 +52,11 @@ export const ElFileUploaderSingleSelectMediaCardReplaceOverlay = styled.div`
       opacity: 1;
     }
   }
-`
+`;
 
 export const ElFileUploaderSingleSelectMediaCardReplaceLabel = styled.span`
   @layer elements.main {
-    ${font('sm', 'bold')}
+    ${font("sm", "bold")}
     display: inline-flex;
     align-items: center;
     height: var(--size-9);
@@ -65,4 +66,4 @@ export const ElFileUploaderSingleSelectMediaCardReplaceLabel = styled.span`
     color: var(--comp-button-colour-text-primary-default);
     white-space: nowrap;
   }
-`
+`;

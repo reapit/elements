@@ -1,2 +1,2 @@
-export { Image } from './image'
-export { ResponsiveImage } from './responsive-image'
+export { Image } from "./image";
+export { ResponsiveImage } from "./responsive-image";

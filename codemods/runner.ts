@@ -1,12 +1,16 @@
-import { readFileSync, writeFileSync, readdirSync, statSync } from 'node:fs'
-import { join, resolve, relative } from 'node:path'
+import { readFileSync, writeFileSync, readdirSync, statSync } from "node:fs";
+import { join, resolve, relative } from "node:path";
 
-export type Transform = (source: string, filePath: string, options?: { facadePackage?: string }) => string
+export type Transform = (
+  source: string,
+  filePath: string,
+  options?: { facadePackage?: string },
+) => string;
 
 export interface RunOptions {
-  transform: Transform
-  codemodName: string
-  args: string[]
+  transform: Transform;
+  codemodName: string;
+  args: string[];
 }
 
 /**
@@ -18,20 +22,24 @@ export interface RunOptions {
  * @returns true if the target path is within the base directory, false otherwise
  */
 function isPathSafe(basePath: string, targetPath: string): boolean {
-  const resolvedBase = resolve(basePath)
-  const resolvedTarget = resolve(targetPath)
-  const relativePath = relative(resolvedBase, resolvedTarget)
+  const resolvedBase = resolve(basePath);
+  const resolvedTarget = resolve(targetPath);
+  const relativePath = relative(resolvedBase, resolvedTarget);
 
   // Empty string means target === base, which is safe
-  if (relativePath === '') {
-    return true
+  if (relativePath === "") {
+    return true;
   }
 
   // Check if relativePath tries to escape the base directory:
   // - Starts with '..' means going up and out of base (e.g., '../../etc/passwd')
   // - Starts with '/' means absolute Unix path (e.g., '/etc/passwd')
   // - Windows cross-drive paths return absolute paths from relative() (e.g., 'C:\Windows')
-  return !relativePath.startsWith('..') && !relativePath.startsWith('/') && !/^[a-zA-Z]:[\\/]/.test(relativePath)
+  return (
+    !relativePath.startsWith("..") &&
+    !relativePath.startsWith("/") &&
+    !/^[a-zA-Z]:[\\/]/.test(relativePath)
+  );
 }
 
 /**
@@ -45,29 +53,29 @@ function isPathSafe(basePath: string, targetPath: string): boolean {
  */
 export function findFiles(dir: string, patterns: string[], results: string[] = []): string[] {
   // readdirSync is safe here - dir is validated by isPathSafe, and entry names from filesystem are trusted
-  const entries = readdirSync(dir, { withFileTypes: true })
+  const entries = readdirSync(dir, { withFileTypes: true });
 
   for (const entry of entries) {
-    const fullPath = join(dir, entry.name)
+    const fullPath = join(dir, entry.name);
 
     // Validate path safety to prevent directory traversal
     if (!isPathSafe(dir, fullPath)) {
-      continue
+      continue;
     }
 
     // Skip node_modules and dist
-    if (entry.name === 'node_modules' || entry.name === 'dist') {
-      continue
+    if (entry.name === "node_modules" || entry.name === "dist") {
+      continue;
     }
 
     if (entry.isDirectory()) {
-      findFiles(fullPath, patterns, results)
+      findFiles(fullPath, patterns, results);
     } else if (entry.isFile() && matchesPatterns(entry.name, patterns)) {
-      results.push(fullPath)
+      results.push(fullPath);
     }
   }
 
-  return results
+  return results;
 }
 
 export function matchesPatterns(filename: string, patterns: string[]): boolean {
@@ -75,26 +83,26 @@ export function matchesPatterns(filename: string, patterns: string[]): boolean {
     // Security: Validate pattern to prevent ReDoS attacks
     // Limit pattern length and check for excessive wildcards
     if (pattern.length > 100 || (pattern.match(/\*/g) || []).length > 5) {
-      console.warn(`Warning: Skipping potentially unsafe pattern: ${pattern}`)
-      return false
+      console.warn(`Warning: Skipping potentially unsafe pattern: ${pattern}`);
+      return false;
     }
 
     // Simple pattern matching for common cases
-    if (pattern.startsWith('*.')) {
-      return filename.endsWith(pattern.slice(1))
+    if (pattern.startsWith("*.")) {
+      return filename.endsWith(pattern.slice(1));
     }
-    if (pattern.includes('*')) {
+    if (pattern.includes("*")) {
       // Additional protection: limit filename length to prevent catastrophic backtracking
       // Even with wildcard limits, long filenames + multiple wildcards can cause issues
       if (filename.length > 500) {
-        console.warn(`Warning: Filename too long for pattern matching: ${filename}`)
-        return false
+        console.warn(`Warning: Filename too long for pattern matching: ${filename}`);
+        return false;
       }
-      const regex = new RegExp('^' + pattern.replace(/\*/g, '.*') + '$')
-      return regex.test(filename)
+      const regex = new RegExp("^" + pattern.replace(/\*/g, ".*") + "$");
+      return regex.test(filename);
     }
-    return filename === pattern
-  })
+    return filename === pattern;
+  });
 }
 
 function printUsage(codemodName: string): void {
@@ -115,107 +123,111 @@ Examples:
   yarn dlx @reapit/elements codemod apply ${codemodName} src/ --dry-run
   yarn dlx @reapit/elements codemod apply ${codemodName} src/ --ext .tsx,.jsx
   yarn dlx @reapit/elements codemod apply ${codemodName} src/ --facade-package @company/ui-components
-`)
+`);
 }
 
 export async function run({ transform, codemodName, args }: RunOptions): Promise<void> {
-  if (args.length === 0 || args.includes('--help') || args.includes('-h')) {
-    printUsage(codemodName)
-    process.exit(0)
+  if (args.length === 0 || args.includes("--help") || args.includes("-h")) {
+    printUsage(codemodName);
+    process.exit(0);
   }
 
-  const dryRun = args.includes('--dry-run') || args.includes('-d')
-  const extIndex = args.indexOf('--ext')
-  if (extIndex !== -1 && (extIndex + 1 >= args.length || args[extIndex + 1].startsWith('-'))) {
-    console.error('Error: --ext flag requires a value (e.g. --ext .tsx,.ts)')
-    process.exit(1)
+  const dryRun = args.includes("--dry-run") || args.includes("-d");
+  const extIndex = args.indexOf("--ext");
+  if (extIndex !== -1 && (extIndex + 1 >= args.length || args[extIndex + 1].startsWith("-"))) {
+    console.error("Error: --ext flag requires a value (e.g. --ext .tsx,.ts)");
+    process.exit(1);
   }
-  let extensions: string[]
+  let extensions: string[];
   if (extIndex !== -1) {
-    const rawExtensions = args[extIndex + 1].split(',')
-    const trimmedExtensions = rawExtensions.map((ext) => ext.trim())
+    const rawExtensions = args[extIndex + 1].split(",");
+    const trimmedExtensions = rawExtensions.map((ext) => ext.trim());
     if (trimmedExtensions.some((ext) => ext.length === 0)) {
       console.error(
         'Error: --ext flag must not contain empty extensions (e.g. use "--ext .tsx,.ts" instead of "--ext .tsx," or "--ext ,")',
-      )
-      process.exit(1)
+      );
+      process.exit(1);
     }
-    extensions = trimmedExtensions
+    extensions = trimmedExtensions;
   } else {
-    extensions = ['.tsx', '.ts', '.jsx', '.js']
+    extensions = [".tsx", ".ts", ".jsx", ".js"];
   }
-  const patterns = extensions.map((ext) => `*${ext}`)
-  const facadePackageIndex = args.indexOf('--facade-package')
+  const patterns = extensions.map((ext) => `*${ext}`);
+  const facadePackageIndex = args.indexOf("--facade-package");
   if (facadePackageIndex !== -1) {
-    const facadeNextIndex = facadePackageIndex + 1
-    const facadeRaw = facadeNextIndex < args.length ? args[facadeNextIndex] : undefined
-    if (!facadeRaw || facadeRaw.startsWith('-') || facadeRaw.trim() === '') {
-      console.error('Error: --facade-package flag requires a non-empty value (e.g. --facade-package @company/ui)')
-      process.exit(1)
+    const facadeNextIndex = facadePackageIndex + 1;
+    const facadeRaw = facadeNextIndex < args.length ? args[facadeNextIndex] : undefined;
+    if (!facadeRaw || facadeRaw.startsWith("-") || facadeRaw.trim() === "") {
+      console.error(
+        "Error: --facade-package flag requires a non-empty value (e.g. --facade-package @company/ui)",
+      );
+      process.exit(1);
     }
   }
-  const facadePackage = facadePackageIndex !== -1 ? args[facadePackageIndex + 1].trim() : undefined
+  const facadePackage = facadePackageIndex !== -1 ? args[facadePackageIndex + 1].trim() : undefined;
 
   // Get directory argument (first non-flag argument, excluding --ext value if present)
-  const extValue = extIndex !== -1 ? args[extIndex + 1] : null
-  const facadePackageValue = facadePackageIndex !== -1 ? args[facadePackageIndex + 1] : null
-  const directory = args.find((arg) => !arg.startsWith('-') && arg !== extValue && arg !== facadePackageValue)
+  const extValue = extIndex !== -1 ? args[extIndex + 1] : null;
+  const facadePackageValue = facadePackageIndex !== -1 ? args[facadePackageIndex + 1] : null;
+  const directory = args.find(
+    (arg) => !arg.startsWith("-") && arg !== extValue && arg !== facadePackageValue,
+  );
 
   if (!directory) {
-    console.error('Error: No directory provided')
-    process.exit(1)
+    console.error("Error: No directory provided");
+    process.exit(1);
   }
 
-  const cwd = process.cwd()
-  const resolvedDir = resolve(directory)
+  const cwd = process.cwd();
+  const resolvedDir = resolve(directory);
 
   // Security: Validate path to prevent directory traversal attacks
   // Use isPathSafe to ensure the resolved directory is within the current working directory
   // This prevents accessing files outside the project (e.g., /etc/passwd, ../../../../sensitive-file)
   if (!isPathSafe(cwd, resolvedDir)) {
-    console.error('Error: Directory path is outside the current working directory')
-    process.exit(1)
+    console.error("Error: Directory path is outside the current working directory");
+    process.exit(1);
   }
 
   try {
     // NOTE: Path traversal protection implemented above via isPathSafe validation
-    statSync(resolvedDir)
+    statSync(resolvedDir);
   } catch {
-    console.error(`Error: Directory not found: ${directory}`)
-    process.exit(1)
+    console.error(`Error: Directory not found: ${directory}`);
+    process.exit(1);
   }
 
   // NOTE: Path traversal protection implemented via isPathSafe validation in findFiles
-  const files = findFiles(resolvedDir, patterns)
+  const files = findFiles(resolvedDir, patterns);
 
   if (files.length === 0) {
-    console.error('Error: No matching files found')
-    process.exit(1)
+    console.error("Error: No matching files found");
+    process.exit(1);
   }
 
-  console.log(`Found ${files.length} file(s) to process${dryRun ? ' (dry run)' : ''}...\n`)
+  console.log(`Found ${files.length} file(s) to process${dryRun ? " (dry run)" : ""}...\n`);
 
-  let transformedCount = 0
+  let transformedCount = 0;
 
   for (const filePath of files) {
     try {
-      const source = readFileSync(filePath, 'utf-8')
-      const result = transform(source, filePath, facadePackage ? { facadePackage } : undefined)
+      const source = readFileSync(filePath, "utf-8");
+      const result = transform(source, filePath, facadePackage ? { facadePackage } : undefined);
 
       if (result !== source) {
-        transformedCount++
-        const relativePath = relative(process.cwd(), filePath)
-        console.log(`  ${dryRun ? 'Would transform' : 'Transformed'}: ${relativePath}`)
+        transformedCount++;
+        const relativePath = relative(process.cwd(), filePath);
+        console.log(`  ${dryRun ? "Would transform" : "Transformed"}: ${relativePath}`);
 
         if (!dryRun) {
-          writeFileSync(filePath, result, 'utf-8')
+          writeFileSync(filePath, result, "utf-8");
         }
       }
     } catch (error) {
-      const relativePath = relative(process.cwd(), filePath)
-      console.error(`  Error processing ${relativePath}: ${(error as Error).message}`)
+      const relativePath = relative(process.cwd(), filePath);
+      console.error(`  Error processing ${relativePath}: ${(error as Error).message}`);
     }
   }
 
-  console.log(`\n${dryRun ? 'Would transform' : 'Transformed'} ${transformedCount} file(s)`)
+  console.log(`\n${dryRun ? "Would transform" : "Transformed"} ${transformedCount} file(s)`);
 }

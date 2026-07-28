@@ -1,7 +1,7 @@
-import { cx } from '@linaria/core'
-import { elTableBodyCell } from './styles'
+import { cx } from "@linaria/core";
+import type { HTMLAttributes, ReactNode, TdHTMLAttributes, ThHTMLAttributes } from "react";
 
-import type { HTMLAttributes, ReactNode, TdHTMLAttributes, ThHTMLAttributes } from 'react'
+import { elTableBodyCell } from "./styles";
 
 export namespace TableBodyCell {
   interface CommonProps {
@@ -9,34 +9,34 @@ export namespace TableBodyCell {
      * Remove default padding. Useful for cells that contain an interactive element whose hit area
      * should fill the entire cell.
      */
-    hasNoPadding?: boolean
+    hasNoPadding?: boolean;
     /** The alignment of the cell's content. */
-    justifySelf?: 'start' | 'center' | 'end'
+    justifySelf?: "start" | "center" | "end";
   }
 
   interface AsTdProps extends CommonProps, TdHTMLAttributes<HTMLTableCellElement> {
-    as?: 'td'
+    as?: "td";
     /** The cell content. */
-    children: ReactNode
+    children: ReactNode;
   }
 
   interface AsThProps
     extends
       CommonProps,
       // NOTE: we omit scope because it should always be "row"
-      Omit<ThHTMLAttributes<HTMLTableCellElement>, 'scope'> {
-    as: 'th'
+      Omit<ThHTMLAttributes<HTMLTableCellElement>, "scope"> {
+    as: "th";
     /** The cell content. */
-    children: ReactNode
+    children: ReactNode;
   }
 
   interface AsDivProps extends CommonProps, HTMLAttributes<HTMLDivElement> {
-    as: 'div'
+    as: "div";
     /** The cell content. */
-    children: ReactNode
+    children: ReactNode;
   }
 
-  export type Props = AsTdProps | AsThProps | AsDivProps
+  export type Props = AsTdProps | AsThProps | AsDivProps;
 }
 
 /**
@@ -44,14 +44,14 @@ export namespace TableBodyCell {
  * `<th>`, or `<div>` element. Typically used via `Table.BodyCell`.
  */
 export function TableBodyCell({
-  as: Element = 'td',
+  as: Element = "td",
   children,
   className,
   hasNoPadding,
   justifySelf,
   ...rest
 }: TableBodyCell.Props) {
-  const thElementScope = Element === 'th' ? { scope: 'row' } : undefined
+  const thElementScope = Element === "th" ? { scope: "row" } : undefined;
   return (
     <Element
       {...rest}
@@ -62,10 +62,10 @@ export function TableBodyCell({
     >
       {children}
     </Element>
-  )
+  );
 }
 
-TableBodyCell.displayName = 'Table.BodyCell'
+TableBodyCell.displayName = "Table.BodyCell";
 
 // Backward compatibility
-export type TableBodyCellProps = TableBodyCell.Props
+export type TableBodyCellProps = TableBodyCell.Props;

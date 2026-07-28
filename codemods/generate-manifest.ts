@@ -1,15 +1,16 @@
-import { dirname, join } from 'node:path'
-import { fileURLToPath } from 'node:url'
-import { readdirSync, readFileSync, statSync, writeFileSync, mkdirSync, existsSync } from 'node:fs'
-import { parseFrontMatter } from './readme-parser.ts'
-import { styleText } from 'node:util'
+import { readdirSync, readFileSync, statSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
+import { styleText } from "node:util";
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = dirname(__filename)
+import { parseFrontMatter } from "./readme-parser.ts";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 interface CodemodMetadata {
-  name: string
-  description: string | null
+  name: string;
+  description: string | null;
 }
 
 /**
@@ -21,27 +22,31 @@ interface CodemodMetadata {
  */
 export function discoverCodemods(codemodDir: string): string[] {
   try {
-    const entries = readdirSync(codemodDir, { withFileTypes: true })
+    const entries = readdirSync(codemodDir, { withFileTypes: true });
 
     return entries
       .filter((entry) => {
-        if (!entry.isDirectory()) return false
+        if (!entry.isDirectory()) return false;
         // Skip special directories
-        if (entry.name === 'node_modules' || entry.name === '__tests__' || entry.name.startsWith('.')) {
-          return false
+        if (
+          entry.name === "node_modules" ||
+          entry.name === "__tests__" ||
+          entry.name.startsWith(".")
+        ) {
+          return false;
         }
         // Check if directory contains a transform.ts file
         try {
-          statSync(join(codemodDir, entry.name, 'transform.ts'))
-          return true
+          statSync(join(codemodDir, entry.name, "transform.ts"));
+          return true;
         } catch {
-          return false
+          return false;
         }
       })
       .map((entry) => entry.name)
-      .sort() // Sort alphabetically for consistent output
+      .sort(); // Sort alphabetically for consistent output
   } catch {
-    return []
+    return [];
   }
 }
 
@@ -55,22 +60,25 @@ export function discoverCodemods(codemodDir: string): string[] {
  */
 export function getCodemodMetadata(codemodDir: string, name: string): CodemodMetadata {
   try {
-    const readmePath = join(codemodDir, name, 'README.md')
-    const readme = readFileSync(readmePath, 'utf-8')
-    const { description } = parseFrontMatter(readme)
+    const readmePath = join(codemodDir, name, "README.md");
+    const readme = readFileSync(readmePath, "utf-8");
+    const { description } = parseFrontMatter(readme);
 
     return {
       name,
       description: description ?? null,
-    }
+    };
   } catch (error) {
     console.warn(
-      styleText('yellow', `Warning: Could not read README for codemod '${name}': ${(error as Error).message}`),
-    )
+      styleText(
+        "yellow",
+        `Warning: Could not read README for codemod '${name}': ${(error as Error).message}`,
+      ),
+    );
     return {
       name,
       description: null,
-    }
+    };
   }
 }
 
@@ -82,10 +90,10 @@ export function getCodemodMetadata(codemodDir: string, name: string): CodemodMet
  */
 export function generateTransformsContent(codemodNames: string[]): string {
   const entries = codemodNames.map((name) => {
-    const keyLiteral = JSON.stringify(name)
-    const importPathLiteral = JSON.stringify(`./${name}/transform.js`)
-    return `  ${keyLiteral}: () => import(${importPathLiteral}),`
-  })
+    const keyLiteral = JSON.stringify(name);
+    const importPathLiteral = JSON.stringify(`./${name}/transform.js`);
+    return `  ${keyLiteral}: () => import(${importPathLiteral}),`;
+  });
   return [
     `import type { Transform } from './runner.js'`,
     ``,
@@ -95,7 +103,7 @@ export function generateTransformsContent(codemodNames: string[]): string {
     ...entries,
     `} satisfies Record<string, () => Promise<{ default: Transform }>>`,
     ``,
-  ].join('\n')
+  ].join("\n");
 }
 
 /**
@@ -107,10 +115,10 @@ export function generateTransformsContent(codemodNames: string[]): string {
  */
 export function hasTransformsChanged(transformsPath: string, newContent: string): boolean {
   try {
-    const existing = readFileSync(transformsPath, 'utf-8')
-    return existing !== newContent
+    const existing = readFileSync(transformsPath, "utf-8");
+    return existing !== newContent;
   } catch {
-    return true
+    return true;
   }
 }
 
@@ -119,15 +127,15 @@ export function hasTransformsChanged(transformsPath: string, newContent: string)
  */
 function generateManifestContent(codemods: CodemodMetadata[], timestamp: string): string {
   const manifest = {
-    $schema: './manifest.schema.json',
+    $schema: "./manifest.schema.json",
     generated: timestamp,
     codemods: codemods.map((c) => ({
       name: c.name,
       description: c.description,
     })),
-  }
+  };
 
-  return JSON.stringify(manifest, null, 2) + '\n'
+  return JSON.stringify(manifest, null, 2) + "\n";
 }
 
 /**
@@ -140,41 +148,41 @@ function generateManifestContent(codemods: CodemodMetadata[], timestamp: string)
  */
 export function hasCodemodsChanged(manifestPath: string, newCodemods: CodemodMetadata[]): boolean {
   try {
-    const existingContent = readFileSync(manifestPath, 'utf-8')
-    const existingManifest = JSON.parse(existingContent)
+    const existingContent = readFileSync(manifestPath, "utf-8");
+    const existingManifest = JSON.parse(existingContent);
 
     // Compare the codemods arrays (excluding timestamp)
-    const existingCodemods: CodemodMetadata[] = existingManifest.codemods || []
+    const existingCodemods: CodemodMetadata[] = existingManifest.codemods || [];
 
     // Quick length check to detect obvious differences
     if (existingCodemods.length !== newCodemods.length) {
-      return true
+      return true;
     }
 
     // Order-independent deep comparison of codemods by name
     const toMap = (arr: CodemodMetadata[]): Map<string, string | null> =>
-      new Map(arr.map((c) => [c.name, c.description ?? null]))
+      new Map(arr.map((c) => [c.name, c.description ?? null]));
 
-    const existingMap = toMap(existingCodemods)
-    const newMap = toMap(newCodemods)
+    const existingMap = toMap(existingCodemods);
+    const newMap = toMap(newCodemods);
 
     if (existingMap.size !== newMap.size) {
-      return true
+      return true;
     }
 
     for (const [name, description] of newMap) {
       if (!existingMap.has(name)) {
-        return true
+        return true;
       }
       if (existingMap.get(name) !== description) {
-        return true
+        return true;
       }
     }
 
-    return false
+    return false;
   } catch {
     // If manifest doesn't exist or can't be read, consider it changed
-    return true
+    return true;
   }
 }
 
@@ -183,76 +191,78 @@ export function hasCodemodsChanged(manifestPath: string, newCodemods: CodemodMet
  */
 function main(): void {
   // Always read from the script's own directory (codemods/)
-  const sourceDir = __dirname
+  const sourceDir = __dirname;
 
   // Define output paths
-  const sourceManifestPath = join(sourceDir, 'manifest.json')
-  const distManifestPath = join(__dirname, '..', 'dist', 'codemods', 'manifest.json')
-  const transformsPath = join(sourceDir, 'transforms.ts')
+  const sourceManifestPath = join(sourceDir, "manifest.json");
+  const distManifestPath = join(__dirname, "..", "dist", "codemods", "manifest.json");
+  const transformsPath = join(sourceDir, "transforms.ts");
 
-  console.log('Generating codemod manifest...')
+  console.log("Generating codemod manifest...");
 
   // Discover available codemods (read from source)
-  const codemodNames = discoverCodemods(sourceDir)
-  console.log(`Found ${codemodNames.length} codemod(s): ${codemodNames.join(', ')}`)
+  const codemodNames = discoverCodemods(sourceDir);
+  console.log(`Found ${codemodNames.length} codemod(s): ${codemodNames.join(", ")}`);
 
   // Get metadata for each codemod
-  const codemods = codemodNames.map((name) => getCodemodMetadata(sourceDir, name))
+  const codemods = codemodNames.map((name) => getCodemodMetadata(sourceDir, name));
 
   // Check if source manifest needs updating based on codemod changes
-  const sourceNeedsUpdate = hasCodemodsChanged(sourceManifestPath, codemods)
+  const sourceNeedsUpdate = hasCodemodsChanged(sourceManifestPath, codemods);
 
   if (!sourceNeedsUpdate) {
-    console.log('No changes detected. Source manifest is up to date.')
+    console.log("No changes detected. Source manifest is up to date.");
 
     // Still write dist manifest if it doesn't exist, copying from source
     try {
-      const sourceContent = readFileSync(sourceManifestPath, 'utf-8')
-      const distDir = dirname(distManifestPath)
+      const sourceContent = readFileSync(sourceManifestPath, "utf-8");
+      const distDir = dirname(distManifestPath);
 
       if (!existsSync(distManifestPath)) {
         if (!existsSync(distDir)) {
-          mkdirSync(distDir, { recursive: true })
+          mkdirSync(distDir, { recursive: true });
         }
-        writeFileSync(distManifestPath, sourceContent, 'utf-8')
-        console.log(styleText('green', `✓ Copied manifest to ${distManifestPath}`))
+        writeFileSync(distManifestPath, sourceContent, "utf-8");
+        console.log(styleText("green", `✓ Copied manifest to ${distManifestPath}`));
       }
     } catch (error) {
-      console.warn(styleText('yellow', `Warning: Could not sync dist manifest: ${(error as Error).message}`))
+      console.warn(
+        styleText("yellow", `Warning: Could not sync dist manifest: ${(error as Error).message}`),
+      );
     }
 
-    console.log(`  ${codemods.length} codemod(s) registered`)
+    console.log(`  ${codemods.length} codemod(s) registered`);
   } else {
     // Generate new manifest content with current timestamp
-    const manifestContent = generateManifestContent(codemods, new Date().toISOString())
+    const manifestContent = generateManifestContent(codemods, new Date().toISOString());
 
     // Write to source directory
-    writeFileSync(sourceManifestPath, manifestContent, 'utf-8')
-    console.log(styleText('green', `✓ Generated manifest at ${sourceManifestPath}`))
+    writeFileSync(sourceManifestPath, manifestContent, "utf-8");
+    console.log(styleText("green", `✓ Generated manifest at ${sourceManifestPath}`));
 
     // Write to dist directory
-    const distDir = dirname(distManifestPath)
+    const distDir = dirname(distManifestPath);
     if (!existsSync(distDir)) {
-      mkdirSync(distDir, { recursive: true })
+      mkdirSync(distDir, { recursive: true });
     }
-    writeFileSync(distManifestPath, manifestContent, 'utf-8')
-    console.log(styleText('green', `✓ Generated manifest at ${distManifestPath}`))
+    writeFileSync(distManifestPath, manifestContent, "utf-8");
+    console.log(styleText("green", `✓ Generated manifest at ${distManifestPath}`));
 
-    console.log(`  ${codemods.length} codemod(s) registered`)
+    console.log(`  ${codemods.length} codemod(s) registered`);
   }
 
   // Generate transforms.ts (independent of manifest change detection — always
   // regenerate if content differs, so it stays in sync with the filesystem)
-  const transformsContent = generateTransformsContent(codemodNames)
+  const transformsContent = generateTransformsContent(codemodNames);
 
   if (hasTransformsChanged(transformsPath, transformsContent)) {
-    writeFileSync(transformsPath, transformsContent, 'utf-8')
-    console.log(styleText('green', `✓ Generated transforms module at ${transformsPath}`))
+    writeFileSync(transformsPath, transformsContent, "utf-8");
+    console.log(styleText("green", `✓ Generated transforms module at ${transformsPath}`));
   } else {
-    console.log('No changes detected. transforms.ts is up to date.')
+    console.log("No changes detected. transforms.ts is up to date.");
   }
 }
 
 if (import.meta.main) {
-  main()
+  main();
 }

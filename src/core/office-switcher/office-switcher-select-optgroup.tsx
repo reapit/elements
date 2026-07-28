@@ -1,6 +1,8 @@
-import { OfficeSwitcherOfficeGroup } from './office-group'
-import { Listbox } from '#src/utils/listbox'
-import type { ReactNode } from 'react'
+import type { ReactNode } from "react";
+
+import { Listbox } from "#src/utils/listbox";
+
+import { OfficeSwitcherOfficeGroup } from "./office-group";
 
 export namespace OfficeSwitcherSelectOptgroup {
   export interface Props extends Listbox.OptgroupProps {
@@ -8,11 +10,11 @@ export namespace OfficeSwitcherSelectOptgroup {
      * The office items to display within the group. Typically a collection of
      * `OfficeSwitcher.Option` components.
      */
-    children?: ReactNode
+    children?: ReactNode;
     /**
      * Indicates whether the group is open/expanded.
      */
-    open?: boolean
+    open?: boolean;
   }
 }
 
@@ -21,7 +23,7 @@ export namespace OfficeSwitcherSelectOptgroup {
  * collapsible group of office options and renders as a native `<optgroup>` when needed.
  */
 export function OfficeSwitcherSelectOptgroup(props: OfficeSwitcherSelectOptgroup.Props) {
-  return <Listbox.Optgroup as={OfficeSwitcherOfficeGroup} {...props} />
+  return <Listbox.Optgroup as={OfficeSwitcherOfficeGroup} {...props} />;
 }
 
-OfficeSwitcherSelectOptgroup.displayName = 'OfficeSwitcher.Optgroup'
+OfficeSwitcherSelectOptgroup.displayName = "OfficeSwitcher.Optgroup";

@@ -1,7 +1,7 @@
-import { BottomBarItemAnchor } from '../item'
-import { ElBottomBarMenuListItem } from './styles'
+import type { ComponentProps } from "react";
 
-import type { ComponentProps } from 'react'
+import { BottomBarItemAnchor } from "../item";
+import { ElBottomBarMenuListItem } from "./styles";
 
 export namespace BottomBarListItem {
   export interface Props extends ComponentProps<typeof BottomBarItemAnchor> {}
@@ -18,7 +18,7 @@ export function BottomBarListItem({ children, ...props }: BottomBarListItem.Prop
     <ElBottomBarMenuListItem>
       <BottomBarItemAnchor {...props}>{children}</BottomBarItemAnchor>
     </ElBottomBarMenuListItem>
-  )
+  );
 }
 
-BottomBarListItem.displayName = 'BottomBar.Item'
+BottomBarListItem.displayName = "BottomBar.Item";

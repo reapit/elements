@@ -1,25 +1,26 @@
-import { BottomBar } from './bottom-bar'
-import figma from '@figma/code-connect'
+import figma from "@figma/code-connect";
 
-figma.connect(BottomBar, '<BOTTOM_BAR_URL>', {
+import { BottomBar } from "./bottom-bar";
+
+figma.connect(BottomBar, "<BOTTOM_BAR_URL>", {
   props: {
-    children: figma.children('*'),
+    children: figma.children("*"),
   },
   example: (props) => (
     <BottomBar>
       <BottomBar.MenuList>{props.children}</BottomBar.MenuList>
     </BottomBar>
   ),
-})
+});
 
-figma.connect(BottomBar, '<BOTTOM_BAR_URL>', {
-  variant: { Items: '6+' },
+figma.connect(BottomBar, "<BOTTOM_BAR_URL>", {
+  variant: { Items: "6+" },
   props: {
-    children: figma.children('Item*'),
-    moreButton: figma.nestedProps('More button', {
-      hasBadge: figma.boolean('Badge'),
-      icon: figma.instance('Icon'),
-      label: figma.string('Label'),
+    children: figma.children("Item*"),
+    moreButton: figma.nestedProps("More button", {
+      hasBadge: figma.boolean("Badge"),
+      icon: figma.instance("Icon"),
+      label: figma.string("Label"),
     }),
   },
   example: (props) => (
@@ -36,4 +37,4 @@ figma.connect(BottomBar, '<BOTTOM_BAR_URL>', {
       </BottomBar.MenuList>
     </BottomBar>
   ),
-})
+});

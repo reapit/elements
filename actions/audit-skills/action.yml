@@ -9,13 +9,13 @@ inputs:
     description: >
       When 'true', only skills that have changed relative to base-ref are scanned.
       Requires base-ref. When 'false', all skills in path are scanned.
-    default: 'false'
+    default: "false"
   base-ref:
     description: >
       Base branch to diff against when changed-only is 'true'. Pass github.base_ref
       in pull_request workflows. Ignored when changed-only is 'false'.
       The calling job must use fetch-depth: 0 on its checkout step.
-    default: ''
+    default: ""
 
 runs:
   using: composite

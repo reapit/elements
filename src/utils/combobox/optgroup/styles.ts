@@ -1,5 +1,6 @@
-import { font } from '#src/utils/font'
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
+
+import { font } from "#src/utils/font";
 
 export const ElComboboxOptgroup = styled.div`
   @layer elements.main {
@@ -8,7 +9,7 @@ export const ElComboboxOptgroup = styled.div`
 
     padding-inline: var(--spacing-2);
   }
-`
+`;
 
 export const ElComboboxOptgroupLabelContainer = styled.div`
   @layer elements.main {
@@ -17,11 +18,11 @@ export const ElComboboxOptgroupLabelContainer = styled.div`
 
     background: var(--colour-fill-white);
 
-    ${font('2xs', 'bold')}
+    ${font("2xs", "bold")}
     text-transform: uppercase;
 
     color: var(--comp-menu-colour-text-group_title);
     padding-block: var(--spacing-2);
     padding-inline: var(--spacing-3);
   }
-`
+`;

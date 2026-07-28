@@ -1,48 +1,51 @@
-import { AtAGlanceCardContext } from './context'
-import { Card, AnchorCard, ButtonCard } from '#src/core/card'
-import { cx } from '@linaria/core'
-import { elAtAGlanceCard } from './styles'
+import { cx } from "@linaria/core";
+import type { AnchorHTMLAttributes, ButtonHTMLAttributes, HTMLAttributes, ReactNode } from "react";
 
-import type { AnchorHTMLAttributes, ButtonHTMLAttributes, HTMLAttributes, ReactNode } from 'react'
+import { Card, AnchorCard, ButtonCard } from "#src/core/card";
+
+import { AtAGlanceCardContext } from "./context";
+import { elAtAGlanceCard } from "./styles";
 
 export namespace AtAGlanceCard {
   interface BaseProps {
     /** Card content. Use AtAGlance.Icon, Label, Description, Value subcomponents. */
-    children: ReactNode
+    children: ReactNode;
     /**
      * CSS Grid shorthand for custom layouts.
      * Mutually exclusive with `layout` - if both are provided, `grid` takes precedence.
      */
-    grid?: string
+    grid?: string;
     /**
      * The layout for the card content.
      * Mutually exclusive with `grid` - if both are provided, `grid` takes precedence.
      */
-    layout?: 'vertical' | 'horizontal' | 'compact'
+    layout?: "vertical" | "horizontal" | "compact";
     /** Maximum width of the card. */
-    maxWidth?: string
+    maxWidth?: string;
     /** Minimum width of the card. */
-    minWidth?: string
+    minWidth?: string;
   }
 
-  export interface AsArticleProps extends BaseProps, Omit<HTMLAttributes<HTMLElement>, 'children'> {
+  export interface AsArticleProps extends BaseProps, Omit<HTMLAttributes<HTMLElement>, "children"> {
     /** Render as a static article element. */
-    as?: 'article'
+    as?: "article";
   }
 
-  export interface AsAnchorProps extends BaseProps, Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'children'> {
+  export interface AsAnchorProps
+    extends BaseProps, Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "children"> {
     /** Render as an anchor element. */
-    as: 'a'
+    as: "a";
     /** The URL to link to. */
-    href: string
+    href: string;
   }
 
-  export interface AsButtonProps extends BaseProps, Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'children'> {
+  export interface AsButtonProps
+    extends BaseProps, Omit<ButtonHTMLAttributes<HTMLButtonElement>, "children"> {
     /** Render as a button element. */
-    as: 'button'
+    as: "button";
   }
 
-  export type Props = AsArticleProps | AsAnchorProps | AsButtonProps
+  export type Props = AsArticleProps | AsAnchorProps | AsButtonProps;
 }
 
 /**
@@ -52,12 +55,12 @@ export namespace AtAGlanceCard {
  * For standard layouts, prefer `AtAGlance.ArticleCard`, `AnchorCard`, or `ButtonCard`.
  */
 export function AtAGlanceCard(props: AtAGlanceCard.Props) {
-  if (props.as === 'a') {
-    return <AtAGlanceCardAnchor {...props} />
-  } else if (props.as === 'button') {
-    return <AtAGlanceCardButton {...props} />
+  if (props.as === "a") {
+    return <AtAGlanceCardAnchor {...props} />;
+  } else if (props.as === "button") {
+    return <AtAGlanceCardButton {...props} />;
   } else {
-    return <AtAGlanceCardArticle {...props} />
+    return <AtAGlanceCardArticle {...props} />;
   }
 }
 
@@ -72,7 +75,7 @@ function AtAGlanceCardArticle({
   ...rest
 }: AtAGlanceCard.AsArticleProps) {
   return (
-    <AtAGlanceCardContext.Provider value={{ as: 'article' }}>
+    <AtAGlanceCardContext.Provider value={{ as: "article" }}>
       <Card
         {...rest}
         as="article"
@@ -84,7 +87,7 @@ function AtAGlanceCardArticle({
         {children}
       </Card>
     </AtAGlanceCardContext.Provider>
-  )
+  );
 }
 
 function AtAGlanceCardAnchor({
@@ -98,7 +101,7 @@ function AtAGlanceCardAnchor({
   ...rest
 }: AtAGlanceCard.AsAnchorProps) {
   return (
-    <AtAGlanceCardContext.Provider value={{ as: 'a' }}>
+    <AtAGlanceCardContext.Provider value={{ as: "a" }}>
       <AnchorCard
         {...rest}
         className={cx(className, elAtAGlanceCard)}
@@ -108,7 +111,7 @@ function AtAGlanceCardAnchor({
         {children}
       </AnchorCard>
     </AtAGlanceCardContext.Provider>
-  )
+  );
 }
 
 function AtAGlanceCardButton({
@@ -119,11 +122,11 @@ function AtAGlanceCardButton({
   maxWidth,
   minWidth,
   style,
-  type = 'button',
+  type = "button",
   ...rest
 }: AtAGlanceCard.AsButtonProps) {
   return (
-    <AtAGlanceCardContext.Provider value={{ as: 'button' }}>
+    <AtAGlanceCardContext.Provider value={{ as: "button" }}>
       <ButtonCard
         {...rest}
         className={cx(className, elAtAGlanceCard)}
@@ -134,7 +137,7 @@ function AtAGlanceCardButton({
         {children}
       </ButtonCard>
     </AtAGlanceCardContext.Provider>
-  )
+  );
 }
 
-AtAGlanceCard.displayName = 'AtAGlance.Card'
+AtAGlanceCard.displayName = "AtAGlance.Card";

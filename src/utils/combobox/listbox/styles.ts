@@ -1,5 +1,6 @@
-import { font } from '#src/utils/font'
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
+
+import { font } from "#src/utils/font";
 
 export const ElComboboxListbox = styled.div`
   @layer elements.main {
@@ -7,7 +8,7 @@ export const ElComboboxListbox = styled.div`
     flex-flow: column nowrap;
     height: 100%;
   }
-`
+`;
 
 export const ElComboboxListboxPlaceholder = styled.div`
   @layer elements.main {
@@ -24,12 +25,12 @@ export const ElComboboxListboxPlaceholder = styled.div`
     text-align: center;
 
     &,
-    &[data-size='medium'] {
-      ${font('sm', 'regular')}
+    &[data-size="medium"] {
+      ${font("sm", "regular")}
     }
 
-    &[data-size='large'] {
-      ${font('base', 'regular')}
+    &[data-size="large"] {
+      ${font("base", "regular")}
     }
   }
-`
+`;

@@ -1,4 +1,4 @@
-import StatusPausedSvg from './svgs/status-paused.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import StatusPausedSvg from "./svgs/status-paused.svg?react";
 
-export const StatusPausedIcon = makeIcon('StatusPausedIcon', StatusPausedSvg)
+export const StatusPausedIcon = makeIcon("StatusPausedIcon", StatusPausedSvg);

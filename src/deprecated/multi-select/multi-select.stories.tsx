@@ -1,12 +1,13 @@
-import preview from '#.storybook/preview'
-import { MultiSelect, MultiSelectChip, MultiSelectInput, elHasGreyChips } from './index'
+import preview from "#.storybook/preview";
+
+import { MultiSelect, MultiSelectChip, MultiSelectInput, elHasGreyChips } from "./index";
 
 const meta = preview.meta({
-  title: 'Deprecated/MultiSelect',
+  title: "Deprecated/MultiSelect",
   component: MultiSelect,
-})
+});
 
-export default meta
+export default meta;
 
 export const BasicExample = meta.story({
   render: () => (
@@ -19,7 +20,7 @@ export const BasicExample = meta.story({
       <MultiSelectChip id="item-6">Item Six</MultiSelectChip>
     </MultiSelect>
   ),
-})
+});
 
 export const GreyChips = meta.story({
   render: () => (
@@ -44,7 +45,7 @@ export const GreyChips = meta.story({
       </MultiSelectChip>
     </MultiSelect>
   ),
-})
+});
 
 export const ReactExample = meta.story({
   render: () => (
@@ -52,19 +53,19 @@ export const ReactExample = meta.story({
       id="react-example"
       options={[
         {
-          name: 'Item one',
-          value: 'item-one',
+          name: "Item one",
+          value: "item-one",
         },
         {
-          name: 'Item two',
-          value: 'item-two',
+          name: "Item two",
+          value: "item-two",
         },
         {
-          name: 'Item three',
-          value: 'item-three',
+          name: "Item three",
+          value: "item-three",
         },
       ]}
-      defaultValues={['item-one']}
+      defaultValues={["item-one"]}
     />
   ),
-})
+});

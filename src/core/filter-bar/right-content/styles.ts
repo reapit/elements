@@ -1,5 +1,6 @@
-import { isWidthAtOrAbove } from '#src/utils/breakpoints/conditions'
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
+
+import { isWidthAtOrAbove } from "#src/utils/breakpoints/conditions";
 
 export const ElFilterBarRightContent = styled.div`
   @layer elements.main {
@@ -9,8 +10,8 @@ export const ElFilterBarRightContent = styled.div`
     flex-flow: row nowrap;
     gap: var(--spacing-3);
 
-    @media screen and (${isWidthAtOrAbove('SM')}) {
+    @media screen and (${isWidthAtOrAbove("SM")}) {
       justify-content: end;
     }
   }
-`
+`;

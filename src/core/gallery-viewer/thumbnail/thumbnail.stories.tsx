@@ -1,41 +1,43 @@
-import preview from '#.storybook/preview'
-import { GalleryViewerThumbnail } from './thumbnail'
-import { GalleryViewerThumbnailButton } from './thumbnail-button'
+import preview from "#.storybook/preview";
 
-const EXAMPLE_IMAGE_SRC = 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=176&h=112&fit=crop'
+import { GalleryViewerThumbnail } from "./thumbnail";
+import { GalleryViewerThumbnailButton } from "./thumbnail-button";
+
+const EXAMPLE_IMAGE_SRC =
+  "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=176&h=112&fit=crop";
 
 const meta = preview.meta({
-  title: 'Content display/GalleryViewer/Thumbnail',
+  title: "Content display/GalleryViewer/Thumbnail",
   component: GalleryViewerThumbnail,
   subcomponents: { ThumbnailButton: GalleryViewerThumbnailButton },
   argTypes: {
-    'aria-current': {
-      control: 'radio',
-      options: ['location', false],
+    "aria-current": {
+      control: "radio",
+      options: ["location", false],
     },
     isVideo: {
-      control: 'boolean',
+      control: "boolean",
     },
     src: {
-      control: 'text',
+      control: "text",
     },
   },
   decorators: (Story) => (
-    <div style={{ width: '120px' }}>
+    <div style={{ width: "120px" }}>
       <Story />
     </div>
   ),
-})
+});
 
 export const Example = meta.story({
   args: {
-    'aria-current': false,
-    'aria-label': 'View photo of the pool',
-    href: '#',
+    "aria-current": false,
+    "aria-label": "View photo of the pool",
+    href: "#",
     isVideo: false,
     src: EXAMPLE_IMAGE_SRC,
   },
-})
+});
 
 /**
  * When `aria-current="location"` is set, the thumbnail displays a highlighted border
@@ -43,9 +45,9 @@ export const Example = meta.story({
  */
 export const Selected = Example.extend({
   args: {
-    'aria-current': 'location',
+    "aria-current": "location",
   },
-})
+});
 
 /**
  * When `isVideo` is `true`, a play icon overlay is displayed over the thumbnail
@@ -53,10 +55,10 @@ export const Selected = Example.extend({
  */
 export const Video = Example.extend({
   args: {
-    'aria-label': 'View video walkthrough',
+    "aria-label": "View video walkthrough",
     isVideo: true,
   },
-})
+});
 
 /**
  * When the image fails to load, the thumbnail displays a neutral placeholder via the `Image` utility's
@@ -64,9 +66,9 @@ export const Video = Example.extend({
  */
 export const Fallback = Example.extend({
   args: {
-    src: 'https://invalid.example/does-not-exist.jpg',
+    src: "https://invalid.example/does-not-exist.jpg",
   },
-})
+});
 
 /**
  * `GalleryViewer.ThumbnailButton` renders as a `<button>` element and uses
@@ -75,31 +77,31 @@ export const Fallback = Example.extend({
  */
 export const Button = meta.story({
   args: {
-    'aria-current': false,
-    'aria-pressed': false,
-    'aria-label': 'View photo of the pool',
-    href: '#',
+    "aria-current": false,
+    "aria-pressed": false,
+    "aria-label": "View photo of the pool",
+    href: "#",
     isVideo: false,
     src: EXAMPLE_IMAGE_SRC,
   },
   argTypes: {
-    'aria-current': {
+    "aria-current": {
       table: { disable: true },
     },
-    'aria-pressed': {
-      control: 'boolean',
+    "aria-pressed": {
+      control: "boolean",
     },
     href: {
       table: { disable: true },
     },
     isVideo: {
-      control: 'boolean',
+      control: "boolean",
     },
     src: {
-      control: 'text',
+      control: "text",
     },
   },
-  render: ({ href: _, 'aria-current': __, ...args }) => (
+  render: ({ href: _, "aria-current": __, ...args }) => (
     <GalleryViewerThumbnailButton {...(args as unknown as GalleryViewerThumbnailButton.Props)} />
   ),
-})
+});

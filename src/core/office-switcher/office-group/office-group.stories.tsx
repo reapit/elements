@@ -1,16 +1,17 @@
-import preview from '#.storybook/preview'
-import { OfficeSwitcherOfficeGroup } from './office-group'
-import { OfficeItem } from '../office-item'
+import preview from "#.storybook/preview";
+
+import { OfficeItem } from "../office-item";
+import { OfficeSwitcherOfficeGroup } from "./office-group";
 
 const meta = preview.meta({
-  title: 'Input and selection/OfficeSwitcher/OfficeGroup',
+  title: "Input and selection/OfficeSwitcher/OfficeGroup",
   component: OfficeSwitcherOfficeGroup,
   argTypes: {
     children: {
       control: false,
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
@@ -21,9 +22,9 @@ export const Example = meta.story({
         <OfficeItem value="office-3">Office 3</OfficeItem>
       </>
     ),
-    label: 'Office group',
+    label: "Office group",
   },
-})
+});
 
 /**
  * A group can be initially open by passing the `open` prop. Generally, there should be no need to control
@@ -32,7 +33,7 @@ export const Example = meta.story({
 export const Open = meta.story({
   args: {
     open: true,
-    label: 'Office group',
+    label: "Office group",
     children: (
       <>
         <OfficeItem value="office-1">Office 1</OfficeItem>
@@ -41,4 +42,4 @@ export const Open = meta.story({
       </>
     ),
   },
-})
+});

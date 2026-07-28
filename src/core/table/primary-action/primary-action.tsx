@@ -1,14 +1,14 @@
-import { cx } from '@linaria/core'
-import { elTableRowPrimaryAction } from './styles'
+import { cx } from "@linaria/core";
+import type { AnchorHTMLAttributes, ReactNode } from "react";
 
-import type { AnchorHTMLAttributes, ReactNode } from 'react'
+import { elTableRowPrimaryAction } from "./styles";
 
 export namespace TableRowPrimaryAction {
   export interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
     /** The content of the primary action */
-    children: ReactNode
+    children: ReactNode;
     /** The URL to which this primary action navigates */
-    href: string
+    href: string;
   }
 }
 
@@ -19,10 +19,10 @@ export namespace TableRowPrimaryAction {
  * Typically used via `Table.PrimaryAction`.
  */
 export function TableRowPrimaryAction({ className, ...rest }: TableRowPrimaryAction.Props) {
-  return <a {...rest} className={cx(elTableRowPrimaryAction, className)} />
+  return <a {...rest} className={cx(elTableRowPrimaryAction, className)} />;
 }
 
-TableRowPrimaryAction.displayName = 'Table.PrimaryAction'
+TableRowPrimaryAction.displayName = "Table.PrimaryAction";
 
 // Backward compatibility
-export type TableRowPrimaryActionProps = TableRowPrimaryAction.Props
+export type TableRowPrimaryActionProps = TableRowPrimaryAction.Props;

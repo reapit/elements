@@ -1,19 +1,20 @@
-import { render } from '@testing-library/react'
-import { DeprecatedTable, handleToggleExpandedRow } from '..'
-import { elSpan2 } from '../../grid'
+import { render } from "@testing-library/react";
 
-describe('DeprecatedTable Component', () => {
-  it('should match a snapshot', () => {
-    const wrapper = render(<DeprecatedTable />)
-    expect(wrapper.asFragment()).toMatchSnapshot()
-  })
+import { DeprecatedTable, handleToggleExpandedRow } from "..";
+import { elSpan2 } from "../../grid";
 
-  it('should match a snapshot with varied number columns', () => {
-    const wrapper = render(<DeprecatedTable numberColumns={4} />)
-    expect(wrapper.asFragment()).toMatchSnapshot()
-  })
+describe("DeprecatedTable Component", () => {
+  it("should match a snapshot", () => {
+    const wrapper = render(<DeprecatedTable />);
+    expect(wrapper.asFragment()).toMatchSnapshot();
+  });
 
-  it('should match a snapshot with full props and expandable content', () => {
+  it("should match a snapshot with varied number columns", () => {
+    const wrapper = render(<DeprecatedTable numberColumns={4} />);
+    expect(wrapper.asFragment()).toMatchSnapshot();
+  });
+
+  it("should match a snapshot with full props and expandable content", () => {
     const wrapper = render(
       <DeprecatedTable
         numberColumns={9}
@@ -23,41 +24,41 @@ describe('DeprecatedTable Component', () => {
           {
             cells: [
               {
-                label: 'Property',
-                value: 'Mt Ash Jacket, Brassey Road',
+                label: "Property",
+                value: "Mt Ash Jacket, Brassey Road",
                 className: elSpan2,
-                icon: 'property',
+                icon: "property",
                 cellHasDarkText: true,
                 narrowTable: { showLabel: true },
               },
               {
-                label: 'Customer',
-                value: 'Mr Johnny Corrigan',
-                icon: 'user',
+                label: "Customer",
+                value: "Mr Johnny Corrigan",
+                icon: "user",
                 narrowTable: { showLabel: true },
               },
               {
-                label: 'Client A/C',
-                value: 'Alternate Lettings Client Acc',
+                label: "Client A/C",
+                value: "Alternate Lettings Client Acc",
               },
               {
-                label: 'Description',
-                value: 'Tenant Payment Request',
+                label: "Description",
+                value: "Tenant Payment Request",
               },
               {
-                label: 'Request Date',
-                value: '19 Apr 2021',
+                label: "Request Date",
+                value: "19 Apr 2021",
                 narrowTable: { showLabel: true },
               },
               {
-                label: 'Amount',
-                value: '£50.00',
+                label: "Amount",
+                value: "£50.00",
                 cellHasDarkText: true,
               },
               {
-                label: 'Payment Status',
-                value: 'Not Requested',
-                statusCircleIntent: 'danger',
+                label: "Payment Status",
+                value: "Not Requested",
+                statusCircleIntent: "danger",
               },
             ],
             expandableContent: {
@@ -66,11 +67,11 @@ describe('DeprecatedTable Component', () => {
           },
         ]}
       />,
-    )
-    expect(wrapper.asFragment()).toMatchSnapshot()
-  })
+    );
+    expect(wrapper.asFragment()).toMatchSnapshot();
+  });
 
-  it('should match a snapshot for expandable content alternate settings', () => {
+  it("should match a snapshot for expandable content alternate settings", () => {
     const wrapper = render(
       <DeprecatedTable
         rows={[
@@ -78,19 +79,19 @@ describe('DeprecatedTable Component', () => {
             cells: [],
             expandableContent: {
               content: <p>I am the content that is only visible when expanded</p>,
-              headerContent: 'Some Content',
+              headerContent: "Some Content",
               onClick: vi.fn(),
-              className: 'foo-bar',
-              icon: 'property',
+              className: "foo-bar",
+              icon: "property",
             },
           },
         ]}
       />,
-    )
-    expect(wrapper.asFragment()).toMatchSnapshot()
-  })
+    );
+    expect(wrapper.asFragment()).toMatchSnapshot();
+  });
 
-  it('should match a snapshot with full props and cta content', () => {
+  it("should match a snapshot with full props and cta content", () => {
     const wrapper = render(
       <DeprecatedTable
         numberColumns={9}
@@ -100,57 +101,57 @@ describe('DeprecatedTable Component', () => {
           {
             cells: [
               {
-                label: 'Property',
-                value: 'Mt Ash Jacket, Brassey Road',
+                label: "Property",
+                value: "Mt Ash Jacket, Brassey Road",
                 className: elSpan2,
-                icon: 'property',
+                icon: "property",
                 cellHasDarkText: true,
                 narrowTable: { showLabel: true },
               },
               {
-                label: 'Customer',
-                value: 'Mr Johnny Corrigan',
-                icon: 'user',
+                label: "Customer",
+                value: "Mr Johnny Corrigan",
+                icon: "user",
                 narrowTable: { showLabel: true },
               },
               {
-                label: 'Client A/C',
-                value: 'Alternate Lettings Client Acc',
+                label: "Client A/C",
+                value: "Alternate Lettings Client Acc",
               },
               {
-                label: 'Description',
-                value: 'Tenant Payment Request',
+                label: "Description",
+                value: "Tenant Payment Request",
               },
               {
-                label: 'Request Date',
-                value: '19 Apr 2021',
+                label: "Request Date",
+                value: "19 Apr 2021",
                 narrowTable: { showLabel: true },
               },
               {
-                label: 'Amount',
-                value: '£50.00',
+                label: "Amount",
+                value: "£50.00",
                 cellHasDarkText: true,
               },
               {
-                label: 'Payment Status',
-                value: 'Not Requested',
-                statusCircleIntent: 'danger',
+                label: "Payment Status",
+                value: "Not Requested",
+                statusCircleIntent: "danger",
               },
             ],
             ctaContent: {
-              headerContent: 'Some Action',
+              headerContent: "Some Action",
               onClick: vi.fn(),
-              className: 'foo-bar',
-              icon: 'property',
+              className: "foo-bar",
+              icon: "property",
             },
           },
         ]}
       />,
-    )
-    expect(wrapper.asFragment()).toMatchSnapshot()
-  })
+    );
+    expect(wrapper.asFragment()).toMatchSnapshot();
+  });
 
-  it('should match a snapshot for cta content alternate settings', () => {
+  it("should match a snapshot for cta content alternate settings", () => {
     const wrapper = render(
       <DeprecatedTable
         rows={[
@@ -158,45 +159,45 @@ describe('DeprecatedTable Component', () => {
             cells: [],
             ctaContent: {
               onClick: vi.fn(),
-              className: 'foo-bar',
-              icon: 'property',
+              className: "foo-bar",
+              icon: "property",
             },
           },
         ]}
       />,
-    )
-    expect(wrapper.asFragment()).toMatchSnapshot()
-  })
+    );
+    expect(wrapper.asFragment()).toMatchSnapshot();
+  });
 
-  it('should handleToggleExpandedRow to close a row with the default behaviour', () => {
-    const setExpandedRow = vi.fn()
-    const curried = handleToggleExpandedRow(1, 1, setExpandedRow)
-    curried()
-    expect(setExpandedRow).toHaveBeenCalledWith(null)
-  })
+  it("should handleToggleExpandedRow to close a row with the default behaviour", () => {
+    const setExpandedRow = vi.fn();
+    const curried = handleToggleExpandedRow(1, 1, setExpandedRow);
+    curried();
+    expect(setExpandedRow).toHaveBeenCalledWith(null);
+  });
 
-  it('should handleToggleExpandedRow to open a row with the default behaviour', () => {
-    const setExpandedRow = vi.fn()
-    const curried = handleToggleExpandedRow(null, 1, setExpandedRow)
-    curried()
-    expect(setExpandedRow).toHaveBeenCalledWith(null)
-  })
+  it("should handleToggleExpandedRow to open a row with the default behaviour", () => {
+    const setExpandedRow = vi.fn();
+    const curried = handleToggleExpandedRow(null, 1, setExpandedRow);
+    curried();
+    expect(setExpandedRow).toHaveBeenCalledWith(null);
+  });
 
-  it('should handleToggleExpandedRow to close a row with the override behaviour', () => {
-    const setIndexExpandedRow = vi.fn()
-    const setExpandedRow = vi.fn()
-    const curried = handleToggleExpandedRow(1, 1, setExpandedRow, 1, setIndexExpandedRow)
-    curried()
-    expect(setExpandedRow).not.toHaveBeenCalled()
-    expect(setIndexExpandedRow).toHaveBeenCalledWith(null)
-  })
+  it("should handleToggleExpandedRow to close a row with the override behaviour", () => {
+    const setIndexExpandedRow = vi.fn();
+    const setExpandedRow = vi.fn();
+    const curried = handleToggleExpandedRow(1, 1, setExpandedRow, 1, setIndexExpandedRow);
+    curried();
+    expect(setExpandedRow).not.toHaveBeenCalled();
+    expect(setIndexExpandedRow).toHaveBeenCalledWith(null);
+  });
 
-  it('should handleToggleExpandedRow to open a row with the override behaviour', () => {
-    const setIndexExpandedRow = vi.fn()
-    const setExpandedRow = vi.fn()
-    const curried = handleToggleExpandedRow(1, 1, setExpandedRow, null, setIndexExpandedRow)
-    curried()
-    expect(setExpandedRow).not.toHaveBeenCalled()
-    expect(setIndexExpandedRow).toHaveBeenCalledWith(1)
-  })
-})
+  it("should handleToggleExpandedRow to open a row with the override behaviour", () => {
+    const setIndexExpandedRow = vi.fn();
+    const setExpandedRow = vi.fn();
+    const curried = handleToggleExpandedRow(1, 1, setExpandedRow, null, setIndexExpandedRow);
+    curried();
+    expect(setExpandedRow).not.toHaveBeenCalled();
+    expect(setIndexExpandedRow).toHaveBeenCalledWith(1);
+  });
+});

@@ -1,5 +1,9 @@
-import React, { Dispatch, FC, HTMLAttributes, ReactNode, SetStateAction, useState } from 'react'
-import { ElDeprecatedTable } from './__styles__'
+import React, { Dispatch, FC, HTMLAttributes, ReactNode, SetStateAction, useState } from "react";
+
+import { SettingsIcon } from "#src/icons/settings";
+
+import { Intent } from "../../helpers/intent";
+import { ElDeprecatedTable } from "./__styles__";
 import {
   DeprecatedTableHeadersRow,
   DeprecatedTableHeader,
@@ -10,54 +14,52 @@ import {
   DeprecatedTableRowContainer,
   NarrowOrderType,
   TableCtaTriggerCell,
-} from './molecules'
-import { Intent } from '../../helpers/intent'
-import { SettingsIcon } from '#src/icons/settings'
+} from "./molecules";
 
 /** @deprecated */
 export type NarrowOptionsType = {
-  showLabel?: boolean
-  isFullWidth?: boolean
-  order?: NarrowOrderType
-}
+  showLabel?: boolean;
+  isFullWidth?: boolean;
+  order?: NarrowOrderType;
+};
 
 /** @deprecated */
 export interface DeprecatedCellProps {
-  label: string
-  labelChild?: ReactNode
-  onLabelClick?: (event: React.MouseEvent) => void
-  value?: ReactNode
-  children?: ReactNode
-  icon?: ReactNode
-  className?: string
-  statusCircleIntent?: Intent
-  cellHasDarkText?: boolean
-  narrowTable?: NarrowOptionsType
+  label: string;
+  labelChild?: ReactNode;
+  onLabelClick?: (event: React.MouseEvent) => void;
+  value?: ReactNode;
+  children?: ReactNode;
+  icon?: ReactNode;
+  className?: string;
+  statusCircleIntent?: Intent;
+  cellHasDarkText?: boolean;
+  narrowTable?: NarrowOptionsType;
 }
 
 /** @deprecated */
 export interface RowActionProps {
-  content?: ReactNode
-  cellContent?: ReactNode
-  headerContent?: ReactNode
-  onClick?: () => void
-  className?: string
-  icon?: ReactNode
+  content?: ReactNode;
+  cellContent?: ReactNode;
+  headerContent?: ReactNode;
+  onClick?: () => void;
+  className?: string;
+  icon?: ReactNode;
 }
 
 /** @deprecated */
 export interface DeprecatedRowProps {
-  cells: DeprecatedCellProps[]
-  expandableContent?: RowActionProps
-  ctaContent?: RowActionProps
+  cells: DeprecatedCellProps[];
+  expandableContent?: RowActionProps;
+  ctaContent?: RowActionProps;
 }
 
 /** @deprecated */
 export interface DeprecatedTableProps extends HTMLAttributes<HTMLDivElement> {
-  rows?: DeprecatedRowProps[]
-  numberColumns?: number
-  indexExpandedRow?: number | null
-  setIndexExpandedRow?: Dispatch<SetStateAction<number | null>>
+  rows?: DeprecatedRowProps[];
+  numberColumns?: number;
+  indexExpandedRow?: number | null;
+  setIndexExpandedRow?: Dispatch<SetStateAction<number | null>>;
 }
 
 /** @deprecated */
@@ -72,18 +74,18 @@ export const handleToggleExpandedRow =
   () => {
     if (indexExpandedRow !== undefined && setIndexExpandedRow) {
       if (indexExpandedRow === index) {
-        setIndexExpandedRow(null)
+        setIndexExpandedRow(null);
       } else {
-        setIndexExpandedRow(index)
+        setIndexExpandedRow(index);
       }
     } else {
       if (expandedRow === index) {
-        setExpandedRow(null)
+        setExpandedRow(null);
       } else {
-        setExpandedRow(index)
+        setExpandedRow(index);
       }
     }
-  }
+  };
 
 /** @deprecated */
 export const DeprecatedTable: FC<DeprecatedTableProps> = ({
@@ -94,13 +96,13 @@ export const DeprecatedTable: FC<DeprecatedTableProps> = ({
   setIndexExpandedRow,
   ...rest
 }) => {
-  const firstRow = rows?.[0]
-  const [expandedRow, setExpandedRow] = useState<null | number>(null)
+  const firstRow = rows?.[0];
+  const [expandedRow, setExpandedRow] = useState<null | number>(null);
 
-  if (!rows || !firstRow) return <ElDeprecatedTable {...rest}>{children}</ElDeprecatedTable>
+  if (!rows || !firstRow) return <ElDeprecatedTable {...rest}>{children}</ElDeprecatedTable>;
 
-  const hasExpandableRows = rows.some((row) => Boolean(row.expandableContent))
-  const hasCallToAction = rows.some((row) => Boolean(row.ctaContent))
+  const hasExpandableRows = rows.some((row) => Boolean(row.expandableContent));
+  const hasCallToAction = rows.some((row) => Boolean(row.ctaContent));
 
   return (
     <ElDeprecatedTable
@@ -127,7 +129,7 @@ export const DeprecatedTable: FC<DeprecatedTableProps> = ({
             key={cell.label?.toString()}
             onClick={(event) => {
               if (cell.onLabelClick) {
-                cell.onLabelClick(event)
+                cell.onLabelClick(event);
               }
             }}
           >
@@ -154,12 +156,13 @@ export const DeprecatedTable: FC<DeprecatedTableProps> = ({
         )}
       </DeprecatedTableHeadersRow>
       {rows.map((row, index) => {
-        const expandableRowIsOpen = indexExpandedRow !== undefined ? indexExpandedRow === index : expandedRow === index
+        const expandableRowIsOpen =
+          indexExpandedRow !== undefined ? indexExpandedRow === index : expandedRow === index;
         return (
           <DeprecatedTableRowContainer role="row" key={index} isOpen={expandableRowIsOpen}>
             <DeprecatedTableRow>
               {row.cells.map((cell, cellIndex) => {
-                if (!cell) return <DeprecatedTableCell key={`${cellIndex}-${index}`} />
+                if (!cell) return <DeprecatedTableCell key={`${cellIndex}-${index}`} />;
 
                 return (
                   <DeprecatedTableCell
@@ -174,7 +177,7 @@ export const DeprecatedTable: FC<DeprecatedTableProps> = ({
                   >
                     {cell.children || cell.value}
                   </DeprecatedTableCell>
-                )
+                );
               })}
               {row.expandableContent && (
                 <TableExpandableRowTriggerCell
@@ -208,11 +211,13 @@ export const DeprecatedTable: FC<DeprecatedTableProps> = ({
               )}
             </DeprecatedTableRow>
             {row.expandableContent && row.expandableContent.content && (
-              <TableExpandableRow isOpen={expandableRowIsOpen}>{row.expandableContent.content}</TableExpandableRow>
+              <TableExpandableRow isOpen={expandableRowIsOpen}>
+                {row.expandableContent.content}
+              </TableExpandableRow>
             )}
           </DeprecatedTableRowContainer>
-        )
+        );
       })}
     </ElDeprecatedTable>
-  )
-}
+  );
+};

@@ -1,27 +1,28 @@
-import preview from '#.storybook/preview'
-import { Table } from '../table'
-import { useArgs } from 'storybook/preview-api'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef } from "react";
+import type { ChangeEventHandler } from "react";
+import { useArgs } from "storybook/preview-api";
 
-import type { ChangeEventHandler } from 'react'
+import preview from "#.storybook/preview";
+
+import { Table } from "../table";
 
 const meta = preview.meta({
-  title: 'Data and tables/Table/Checkbox',
+  title: "Data and tables/Table/Checkbox",
   component: Table.Checkbox,
   argTypes: {
     checked: {
-      control: 'boolean',
+      control: "boolean",
     },
     value: {
-      control: 'text',
+      control: "text",
       table: {
         type: {
-          summary: 'string | number | readonly string[] | undefined',
+          summary: "string | number | readonly string[] | undefined",
         },
       },
     },
   },
-})
+});
 
 /**
  * The checkbox is designed to fill its parent container. In the case of tables, this should mean it will
@@ -36,21 +37,21 @@ const meta = preview.meta({
  */
 export const Example = meta.story({
   args: {
-    'aria-label': 'Select 10 Hay St, Melbourne 3100',
+    "aria-label": "Select 10 Hay St, Melbourne 3100",
     checked: undefined,
     disabled: false,
     form: undefined,
-    name: 'selectedRows',
-    value: 'abc-123',
+    name: "selectedRows",
+    value: "abc-123",
   },
   render: (args) => {
-    const [, setArgs] = useArgs()
+    const [, setArgs] = useArgs();
     const updateSortDirection: ChangeEventHandler<HTMLInputElement> = (event) => {
-      setArgs({ checked: event.currentTarget.checked })
-    }
-    return <Table.Checkbox {...args} onChange={updateSortDirection} />
+      setArgs({ checked: event.currentTarget.checked });
+    };
+    return <Table.Checkbox {...args} onChange={updateSortDirection} />;
   },
-})
+});
 
 /**
  * While it does not support an indeterminate prop that can be controlled by consumers, the checkbox
@@ -61,12 +62,12 @@ export const Example = meta.story({
  */
 export const Indeterminate = Example.extend({
   render: (args) => {
-    const inputRef = useRef<HTMLInputElement>(null)
+    const inputRef = useRef<HTMLInputElement>(null);
     useEffect(() => {
       if (inputRef.current) {
-        inputRef.current.indeterminate = true
+        inputRef.current.indeterminate = true;
       }
-    }, [])
-    return <Table.Checkbox {...args} ref={inputRef} />
+    }, []);
+    return <Table.Checkbox {...args} ref={inputRef} />;
   },
-})
+});

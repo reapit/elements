@@ -26,10 +26,10 @@ When a facade package is present, the rule is: **rename identifiers, but preserv
 
 ```tsx
 // Before (imports from facade package)
-import { InputGroup } from '@company/ui'
+import { InputGroup } from "@company/ui";
 
 // After — identifier renamed, import path unchanged
-import { TextControl } from '@company/ui'
+import { TextControl } from "@company/ui";
 ```
 
 The import path `'@company/ui'` stays the same because the facade package controls which identifiers it re-exports. Do not rewrite facade import paths to `@reapit/elements/core/text-control` or any other Elements subpath.
@@ -107,22 +107,22 @@ The two modes have different migration strategies.
 
 ```tsx
 // Before
-import { InputGroup } from '@reapit/elements/deprecated/input-group'
+import { InputGroup } from "@reapit/elements/deprecated/input-group";
 // or
-import { InputGroup } from '@reapit/elements'
+import { InputGroup } from "@reapit/elements";
 
 // After
-import { TextControl } from '@reapit/elements/core/text-control'
+import { TextControl } from "@reapit/elements/core/text-control";
 ```
 
 **Import change (facade package)** — identifier renamed, path unchanged:
 
 ```tsx
 // Before
-import { InputGroup } from '@company/ui'
+import { InputGroup } from "@company/ui";
 
 // After
-import { TextControl } from '@company/ui'
+import { TextControl } from "@company/ui";
 ```
 
 ---
@@ -141,10 +141,10 @@ Apply the same prop mapping as Rule 1. Pass the `type` prop through (`date`, `ti
 
 ```tsx
 // Before
-import { InputGroup } from '@reapit/elements/deprecated/input-group'
+import { InputGroup } from "@reapit/elements/deprecated/input-group";
 
 // After
-import { DateTimeControl } from '@reapit/elements/core/date-time-control'
+import { DateTimeControl } from "@reapit/elements/core/date-time-control";
 ```
 
 ---
@@ -177,10 +177,10 @@ import { DateTimeControl } from '@reapit/elements/core/date-time-control'
 
 ```tsx
 // Before
-import { InputGroup } from '@reapit/elements/deprecated/input-group'
+import { InputGroup } from "@reapit/elements/deprecated/input-group";
 
 // After
-import { CheckboxControl } from '@reapit/elements/core/checkbox-control'
+import { CheckboxControl } from "@reapit/elements/core/checkbox-control";
 ```
 
 If multiple `<InputGroup type="checkbox">` elements share a `name` and represent a logical group, migrate to `<CheckboxGroupControl>`:
@@ -233,10 +233,10 @@ import { CheckboxGroupControl } from '@reapit/elements/core/checkbox-group-contr
 
 ```tsx
 // Before
-import { InputGroup } from '@reapit/elements/deprecated/input-group'
+import { InputGroup } from "@reapit/elements/deprecated/input-group";
 
 // After
-import { RadioGroupControl } from '@reapit/elements/core/radio-group-control'
+import { RadioGroupControl } from "@reapit/elements/core/radio-group-control";
 ```
 
 ---
@@ -249,11 +249,11 @@ import { RadioGroupControl } from '@reapit/elements/core/radio-group-control'
 
 ```tsx
 // TODO: No dedicated Control exists for type="number". Review this migration manually and apply styling as needed.
-import { FormControl } from '@reapit/elements/core/form-control'
-;<FormControl>
+import { FormControl } from "@reapit/elements/core/form-control";
+<FormControl>
   <FormControl.Label htmlFor="qty">Quantity</FormControl.Label>
   <input id="qty" type="number" min={0} max={100} />
-</FormControl>
+</FormControl>;
 ```
 
 ---
@@ -286,11 +286,16 @@ The composition-mode `<InputGroup>` was used as a layout wrapper. Migrate based 
 
 ```tsx
 // Before
-import { InputGroup, ElInputGroupLabel, InputAddOn, InputError } from '@reapit/elements/deprecated/input-group'
+import {
+  InputGroup,
+  ElInputGroupLabel,
+  InputAddOn,
+  InputError,
+} from "@reapit/elements/deprecated/input-group";
 
 // After
-import { FormControl } from '@reapit/elements/core/form-control'
-import { TextInput } from '@reapit/elements/core/text-input'
+import { FormControl } from "@reapit/elements/core/form-control";
+import { TextInput } from "@reapit/elements/core/text-input";
 ```
 
 ---
@@ -311,11 +316,11 @@ import { TextInput } from '@reapit/elements/core/text-input'
 
 ```tsx
 // Before
-import { InputGroup, ElInputGroupLabel } from '@reapit/elements/deprecated/input-group'
-import { Textarea } from '@reapit/elements/core/textarea'
+import { InputGroup, ElInputGroupLabel } from "@reapit/elements/deprecated/input-group";
+import { Textarea } from "@reapit/elements/core/textarea";
 
 // After
-import { TextareaControl } from '@reapit/elements/core/textarea-control'
+import { TextareaControl } from "@reapit/elements/core/textarea-control";
 ```
 
 ---
@@ -384,21 +389,21 @@ If `hasError` was driven by a variable (e.g. `hasError={!!errors.email}`), carry
 **Before:**
 
 ```tsx
-import { InputGroup } from '@reapit/elements'
+import { InputGroup } from "@reapit/elements";
 
 export const AddressField = () => (
   <InputGroup label="Property address" name="address" placeholder="Start typing an address..." />
-)
+);
 ```
 
 **After:**
 
 ```tsx
-import { TextControl } from '@reapit/elements/core/text-control'
+import { TextControl } from "@reapit/elements/core/text-control";
 
 export const AddressField = () => (
   <TextControl label="Property address" name="address" placeholder="Start typing an address..." />
-)
+);
 ```
 
 ---
@@ -408,7 +413,7 @@ export const AddressField = () => (
 **Before:**
 
 ```tsx
-import { InputGroup } from '@reapit/elements'
+import { InputGroup } from "@reapit/elements";
 
 export const EmailField = ({ error }: { error?: string }) => (
   <InputGroup
@@ -422,13 +427,13 @@ export const EmailField = ({ error }: { error?: string }) => (
     hasError={!!error}
     intent="danger"
   />
-)
+);
 ```
 
 **After:**
 
 ```tsx
-import { TextControl } from '@reapit/elements/core/text-control'
+import { TextControl } from "@reapit/elements/core/text-control";
 
 export const EmailField = ({ error }: { error?: string }) => (
   <TextControl
@@ -440,7 +445,7 @@ export const EmailField = ({ error }: { error?: string }) => (
     suffix="Required"
     errorText={error}
   />
-)
+);
 ```
 
 Note: `hasError` and `intent` are removed — `errorText` drives error state automatically.
@@ -452,19 +457,19 @@ Note: `hasError` and `intent` are removed — `errorText` drives error state aut
 **Before:**
 
 ```tsx
-import { InputGroup } from '@reapit/elements'
+import { InputGroup } from "@reapit/elements";
 
 export const DobField = () => (
   <InputGroup type="date" label="Date of birth" name="dob" icon={<CalendarIcon size="sm" />} />
-)
+);
 ```
 
 **After:**
 
 ```tsx
-import { DateTimeControl } from '@reapit/elements/core/date-time-control'
+import { DateTimeControl } from "@reapit/elements/core/date-time-control";
 
-export const DobField = () => <DateTimeControl type="date" label="Date of birth" name="dob" />
+export const DobField = () => <DateTimeControl type="date" label="Date of birth" name="dob" />;
 ```
 
 Note: `icon` is removed — `DateTimeControl` provides its own picker button.
@@ -476,21 +481,38 @@ Note: `icon` is removed — `DateTimeControl` provides its own picker button.
 **Before:**
 
 ```tsx
-import { InputGroup } from '@reapit/elements'
+import { InputGroup } from "@reapit/elements";
 
-export const SearchField = ({ value, onChange }: { value: string; onChange: (v: string) => void }) => (
+export const SearchField = ({
+  value,
+  onChange,
+}: {
+  value: string;
+  onChange: (v: string) => void;
+}) => (
   <InputGroup type="text" label="Search" value={value} onChange={(e) => onChange(e.target.value)} />
-)
+);
 ```
 
 **After:**
 
 ```tsx
-import { TextControl } from '@reapit/elements/core/text-control'
+import { TextControl } from "@reapit/elements/core/text-control";
 
-export const SearchField = ({ value, onChange }: { value: string; onChange: (v: string) => void }) => (
-  <TextControl type="text" label="Search" value={value} onChange={(e) => onChange(e.target.value)} />
-)
+export const SearchField = ({
+  value,
+  onChange,
+}: {
+  value: string;
+  onChange: (v: string) => void;
+}) => (
+  <TextControl
+    type="text"
+    label="Search"
+    value={value}
+    onChange={(e) => onChange(e.target.value)}
+  />
+);
 ```
 
 ---
@@ -500,7 +522,7 @@ export const SearchField = ({ value, onChange }: { value: string; onChange: (v: 
 **Before:**
 
 ```tsx
-import { InputGroup } from '@reapit/elements'
+import { InputGroup } from "@reapit/elements";
 
 export const AgreeField = () => (
   <InputGroup
@@ -510,13 +532,13 @@ export const AgreeField = () => (
     label="I agree to the terms and conditions"
     inputAddOnText="Required to proceed"
   />
-)
+);
 ```
 
 **After:**
 
 ```tsx
-import { CheckboxControl } from '@reapit/elements/core/checkbox-control'
+import { CheckboxControl } from "@reapit/elements/core/checkbox-control";
 
 export const AgreeField = () => (
   <CheckboxControl
@@ -525,7 +547,7 @@ export const AgreeField = () => (
     label="I agree to the terms and conditions"
     supplementaryInfo="Required to proceed"
   />
-)
+);
 ```
 
 ---
@@ -535,7 +557,7 @@ export const AgreeField = () => (
 **Before:**
 
 ```tsx
-import { InputGroup } from '@reapit/elements'
+import { InputGroup } from "@reapit/elements";
 
 export const StatusField = () => (
   <>
@@ -543,13 +565,13 @@ export const StatusField = () => (
     <InputGroup type="radio" name="status" value="inactive" label="Inactive" />
     <InputGroup type="radio" name="status" value="archived" label="Archived" />
   </>
-)
+);
 ```
 
 **After:**
 
 ```tsx
-import { RadioGroupControl } from '@reapit/elements/core/radio-group-control'
+import { RadioGroupControl } from "@reapit/elements/core/radio-group-control";
 
 export const StatusField = () => (
   <RadioGroupControl label="Status" name="status">
@@ -557,7 +579,7 @@ export const StatusField = () => (
     <RadioGroupControl.Option value="inactive" label="Inactive" />
     <RadioGroupControl.Option value="archived" label="Archived" />
   </RadioGroupControl>
-)
+);
 ```
 
 Note: `RadioGroupControl` requires a group label. Choose a descriptive label (here `"Status"`). If the deprecated code had no group label, add one — an unlabelled radio group is inaccessible.
@@ -569,8 +591,8 @@ Note: `RadioGroupControl` requires a group label. Choose a descriptive label (he
 **Before:**
 
 ```tsx
-import { InputGroup, ElInputGroupLabel, InputAddOn } from '@reapit/elements'
-import { Input } from '@reapit/elements'
+import { InputGroup, ElInputGroupLabel, InputAddOn } from "@reapit/elements";
+import { Input } from "@reapit/elements";
 
 export const UsernameField = () => (
   <InputGroup>
@@ -579,17 +601,23 @@ export const UsernameField = () => (
     <ElInputGroupLabel htmlFor="username">Username</ElInputGroupLabel>
     <InputAddOn>Required</InputAddOn>
   </InputGroup>
-)
+);
 ```
 
 **After:**
 
 ```tsx
-import { TextControl } from '@reapit/elements/core/text-control'
+import { TextControl } from "@reapit/elements/core/text-control";
 
 export const UsernameField = () => (
-  <TextControl id="username" type="text" label="Username" leadingIcon={<UserIcon size="sm" />} suffix="Required" />
-)
+  <TextControl
+    id="username"
+    type="text"
+    label="Username"
+    leadingIcon={<UserIcon size="sm" />}
+    suffix="Required"
+  />
+);
 ```
 
 Composition mode collapses back to the shorthand Control API when children map cleanly to Control props.
@@ -601,23 +629,25 @@ Composition mode collapses back to the shorthand Control API when children map c
 **Before:**
 
 ```tsx
-import { InputGroup, ElInputGroupLabel } from '@reapit/elements'
-import { Textarea } from '@reapit/elements/core/textarea'
+import { InputGroup, ElInputGroupLabel } from "@reapit/elements";
+import { Textarea } from "@reapit/elements/core/textarea";
 
 export const NotesField = () => (
   <InputGroup>
     <ElInputGroupLabel>Notes</ElInputGroupLabel>
     <Textarea fieldSizing="content" placeholder="Add notes here..." />
   </InputGroup>
-)
+);
 ```
 
 **After:**
 
 ```tsx
-import { TextareaControl } from '@reapit/elements/core/textarea-control'
+import { TextareaControl } from "@reapit/elements/core/textarea-control";
 
-export const NotesField = () => <TextareaControl fieldSizing="content" label="Notes" placeholder="Add notes here..." />
+export const NotesField = () => (
+  <TextareaControl fieldSizing="content" label="Notes" placeholder="Add notes here..." />
+);
 ```
 
 ---
@@ -627,17 +657,17 @@ export const NotesField = () => <TextareaControl fieldSizing="content" label="No
 **Before:**
 
 ```tsx
-import { Input } from '@reapit/elements'
+import { Input } from "@reapit/elements";
 
-export const InlineSearch = () => <Input type="search" placeholder="Search..." hasError={false} />
+export const InlineSearch = () => <Input type="search" placeholder="Search..." hasError={false} />;
 ```
 
 **After:**
 
 ```tsx
-import { TextInput } from '@reapit/elements/core/text-input'
+import { TextInput } from "@reapit/elements/core/text-input";
 
-export const InlineSearch = () => <TextInput type="search" placeholder="Search..." />
+export const InlineSearch = () => <TextInput type="search" placeholder="Search..." />;
 ```
 
 `hasError={false}` is removed — `showValidity` defaults to `false`, so no error styling appears.
@@ -649,25 +679,37 @@ export const InlineSearch = () => <TextInput type="search" placeholder="Search..
 **Before:**
 
 ```tsx
-import { Input } from '@reapit/elements'
+import { Input } from "@reapit/elements";
 
-export const SelectionCell = ({ checked, onChange }: { checked: boolean; onChange: () => void }) => (
+export const SelectionCell = ({
+  checked,
+  onChange,
+}: {
+  checked: boolean;
+  onChange: () => void;
+}) => (
   <td>
     <Input type="checkbox" checked={checked} onChange={onChange} aria-label="Select row" />
   </td>
-)
+);
 ```
 
 **After:**
 
 ```tsx
-import { CheckboxInput } from '@reapit/elements/core/checkbox-input'
+import { CheckboxInput } from "@reapit/elements/core/checkbox-input";
 
-export const SelectionCell = ({ checked, onChange }: { checked: boolean; onChange: () => void }) => (
+export const SelectionCell = ({
+  checked,
+  onChange,
+}: {
+  checked: boolean;
+  onChange: () => void;
+}) => (
   <td>
     <CheckboxInput checked={checked} onChange={onChange} aria-label="Select row" />
   </td>
-)
+);
 ```
 
 ---
@@ -677,21 +719,21 @@ export const SelectionCell = ({ checked, onChange }: { checked: boolean; onChang
 **Before:**
 
 ```tsx
-import { InputGroup, InputError } from '@company/ui'
+import { InputGroup, InputError } from "@company/ui";
 
 export const PostcodeField = ({ error }: { error?: string }) => (
   <InputGroup label="Postcode" name="postcode" errorMessage={error} />
-)
+);
 ```
 
 **After:**
 
 ```tsx
-import { TextControl } from '@company/ui'
+import { TextControl } from "@company/ui";
 
 export const PostcodeField = ({ error }: { error?: string }) => (
   <TextControl label="Postcode" name="postcode" errorText={error} />
-)
+);
 ```
 
 The import path `'@company/ui'` is unchanged. Only the identifier changes (`InputGroup` → `TextControl`).

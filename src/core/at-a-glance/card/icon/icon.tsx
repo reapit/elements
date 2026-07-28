@@ -1,12 +1,12 @@
-import { cx } from '@linaria/core'
-import { elAtAGlanceCardIcon } from './styles'
+import { cx } from "@linaria/core";
+import type { HTMLAttributes, ReactNode } from "react";
 
-import type { HTMLAttributes, ReactNode } from 'react'
+import { elAtAGlanceCardIcon } from "./styles";
 
 export namespace AtAGlanceCardIcon {
   export interface Props extends HTMLAttributes<HTMLSpanElement> {
     /** The icon to display. */
-    children: ReactNode
+    children: ReactNode;
   }
 }
 
@@ -19,7 +19,7 @@ export function AtAGlanceCardIcon({ children, className, ...rest }: AtAGlanceCar
     <span {...rest} className={cx(className, elAtAGlanceCardIcon)}>
       {children}
     </span>
-  )
+  );
 }
 
-AtAGlanceCardIcon.displayName = 'AtAGlance.CardIcon'
+AtAGlanceCardIcon.displayName = "AtAGlance.CardIcon";

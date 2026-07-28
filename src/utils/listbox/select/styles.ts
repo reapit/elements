@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
 
 export const ElListboxSelect = styled.select`
   @layer elements.main {
@@ -7,4 +7,4 @@ export const ElListboxSelect = styled.select`
     height: 0;
     visibility: hidden;
   }
-`
+`;

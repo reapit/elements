@@ -1,13 +1,14 @@
-import { render, screen } from '@testing-library/react'
-import { Textarea } from '../textarea'
+import { render, screen } from "@testing-library/react";
 
-test('renders a textbox element regardless of chosen `fieldSizing`', () => {
-  const { rerender } = render(<Textarea fieldSizing="fixed" />)
-  expect(screen.getByRole('textbox')).toBeVisible()
+import { Textarea } from "../textarea";
 
-  rerender(<Textarea fieldSizing="content" />)
-  expect(screen.getByRole('textbox')).toBeVisible()
+test("renders a textbox element regardless of chosen `fieldSizing`", () => {
+  const { rerender } = render(<Textarea fieldSizing="fixed" />);
+  expect(screen.getByRole("textbox")).toBeVisible();
 
-  rerender(<Textarea fieldSizing="manual" />)
-  expect(screen.getByRole('textbox')).toBeVisible()
-})
+  rerender(<Textarea fieldSizing="content" />);
+  expect(screen.getByRole("textbox")).toBeVisible();
+
+  rerender(<Textarea fieldSizing="manual" />);
+  expect(screen.getByRole("textbox")).toBeVisible();
+});

@@ -1,5 +1,6 @@
-import { font } from '#src/utils/font'
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
+
+import { font } from "#src/utils/font";
 
 export const ElFileUploaderMediaThumbnail = styled.div`
   @layer elements.main {
@@ -18,11 +19,11 @@ export const ElFileUploaderMediaThumbnail = styled.div`
     min-width: var(--size-32);
     min-height: var(--size-20);
 
-    &[data-status='error'] {
+    &[data-status="error"] {
       border-color: var(--colour-border-error-default);
     }
   }
-`
+`;
 
 export const ElFileUploaderMediaThumbnailOverlay = styled.div`
   @layer elements.main {
@@ -30,7 +31,7 @@ export const ElFileUploaderMediaThumbnailOverlay = styled.div`
     inset: 0;
     background: var(--overlay-50);
   }
-`
+`;
 
 export const ElFileUploaderMediaThumbnailActionContainer = styled.div`
   @layer elements.main {
@@ -38,11 +39,11 @@ export const ElFileUploaderMediaThumbnailActionContainer = styled.div`
     top: 0;
     right: 0;
   }
-`
+`;
 
 export const ElFileUploaderMediaThumbnailDuration = styled.span`
   @layer elements.main {
-    ${font('3xs', 'medium')}
+    ${font("3xs", "medium")}
     position: absolute;
     right: var(--spacing-2);
     bottom: var(--spacing-2);
@@ -50,7 +51,7 @@ export const ElFileUploaderMediaThumbnailDuration = styled.span`
     text-shadow: 0 0 10px var(--overlay-50);
     white-space: nowrap;
   }
-`
+`;
 
 export const ElFileUploaderMediaThumbnailStatusIcon = styled.div`
   @layer elements.main {
@@ -59,7 +60,7 @@ export const ElFileUploaderMediaThumbnailStatusIcon = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
   }
-`
+`;
 
 export const ElFileUploaderMediaThumbnailErrorBadge = styled.div`
   @layer elements.main {
@@ -75,4 +76,4 @@ export const ElFileUploaderMediaThumbnailErrorBadge = styled.div`
     background: var(--colour-fill-white);
     transform: translate(-50%, -50%);
   }
-`
+`;

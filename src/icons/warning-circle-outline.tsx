@@ -1,4 +1,7 @@
-import WarningCircleOutlineSvg from './svgs/warning-circle-outline.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import WarningCircleOutlineSvg from "./svgs/warning-circle-outline.svg?react";
 
-export const WarningCircleOutlineIcon = makeIcon('WarningCircleOutlineIcon', WarningCircleOutlineSvg)
+export const WarningCircleOutlineIcon = makeIcon(
+  "WarningCircleOutlineIcon",
+  WarningCircleOutlineSvg,
+);

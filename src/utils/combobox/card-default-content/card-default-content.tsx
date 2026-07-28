@@ -1,10 +1,10 @@
+import type { HTMLAttributes, ReactNode } from "react";
+
 import {
   ElComboboxCardDefaultContent,
   ElComboboxCardDefaultContentAdditionalInfo,
   ElComboboxCardDefaultContentLabel,
-} from './styles'
-
-import type { HTMLAttributes, ReactNode } from 'react'
+} from "./styles";
 
 export namespace ComboboxCardDefaultContent {
   export interface Props extends HTMLAttributes<HTMLSpanElement> {
@@ -12,9 +12,9 @@ export namespace ComboboxCardDefaultContent {
      * Optional supplementary information items to display below the label.
      * Typically one or more `SupplementaryInfo.Item` components.
      */
-    additionalInfo?: ReactNode
+    additionalInfo?: ReactNode;
     /** The main label text. */
-    children: ReactNode
+    children: ReactNode;
   }
 }
 
@@ -22,13 +22,19 @@ export namespace ComboboxCardDefaultContent {
  * Default content layout for combobox cards. Displays a label and optional supplementary information below.
  * Designed to be used within `ComboboxCard`.
  */
-export function ComboboxCardDefaultContent({ additionalInfo, children, ...rest }: ComboboxCardDefaultContent.Props) {
+export function ComboboxCardDefaultContent({
+  additionalInfo,
+  children,
+  ...rest
+}: ComboboxCardDefaultContent.Props) {
   return (
     <ElComboboxCardDefaultContent {...rest}>
       <ElComboboxCardDefaultContentLabel>{children}</ElComboboxCardDefaultContentLabel>
-      <ElComboboxCardDefaultContentAdditionalInfo>{additionalInfo}</ElComboboxCardDefaultContentAdditionalInfo>
+      <ElComboboxCardDefaultContentAdditionalInfo>
+        {additionalInfo}
+      </ElComboboxCardDefaultContentAdditionalInfo>
     </ElComboboxCardDefaultContent>
-  )
+  );
 }
 
-ComboboxCardDefaultContent.displayName = 'Combobox.CardDefaultContent'
+ComboboxCardDefaultContent.displayName = "Combobox.CardDefaultContent";

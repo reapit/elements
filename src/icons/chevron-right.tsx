@@ -1,4 +1,4 @@
-import ChevronRightSvg from './svgs/chevron-right.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import ChevronRightSvg from "./svgs/chevron-right.svg?react";
 
-export const ChevronRightIcon = makeIcon('ChevronRightIcon', ChevronRightSvg)
+export const ChevronRightIcon = makeIcon("ChevronRightIcon", ChevronRightSvg);

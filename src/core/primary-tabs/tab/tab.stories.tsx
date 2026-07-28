@@ -1,18 +1,19 @@
-import preview from '#.storybook/preview'
-import { PrimaryTab } from './tab'
+import preview from "#.storybook/preview";
+
+import { PrimaryTab } from "./tab";
 
 const meta = preview.meta({
-  title: 'Navigation/PrimaryTabs/Tab',
+  title: "Navigation/PrimaryTabs/Tab",
   component: PrimaryTab,
-})
+});
 
 export const Example = meta.story({
   args: {
-    'aria-current': false,
-    children: 'Primary tab',
-    href: '#',
+    "aria-current": false,
+    children: "Primary tab",
+    href: "#",
   },
-})
+});
 
 /**
  * When the tab represents the current page, `aria-current="page"` should be supplied to communicate to
@@ -20,6 +21,6 @@ export const Example = meta.story({
  */
 export const Selected = Example.extend({
   args: {
-    'aria-current': 'page',
+    "aria-current": "page",
   },
-})
+});

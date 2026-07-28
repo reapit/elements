@@ -1,4 +1,4 @@
-import { css } from '@linaria/core'
+import { css } from "@linaria/core";
 
 export const elFormLayoutFooter = css`
   @layer elements.main {
@@ -9,4 +9,4 @@ export const elFormLayoutFooter = css`
     margin: 0;
     padding: 0;
   }
-`
+`;

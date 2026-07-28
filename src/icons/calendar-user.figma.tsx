@@ -1,4 +1,5 @@
-import figma from '@figma/code-connect'
-import { CalendarUserIcon } from './calendar-user'
+import figma from "@figma/code-connect";
 
-figma.connect(CalendarUserIcon, 'https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=13215-293')
+import { CalendarUserIcon } from "./calendar-user";
+
+figma.connect(CalendarUserIcon, "https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=13215-293");

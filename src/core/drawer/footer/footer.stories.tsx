@@ -1,12 +1,16 @@
-import preview from '#.storybook/preview'
-import { Button } from '#src/core/button/index'
-import { Breakpoint, useDrawerBreakpointDecorator } from '../__story__/useDrawerBreakpointDecorator'
-import { DRAWER_CSS_CONTAINER_NAME } from '../constants'
-import { Drawer } from '../drawer'
-import { Pattern } from '../__story__/Pattern'
+import preview from "#.storybook/preview";
+import { Button } from "#src/core/button/index";
+
+import { Pattern } from "../__story__/Pattern";
+import {
+  Breakpoint,
+  useDrawerBreakpointDecorator,
+} from "../__story__/useDrawerBreakpointDecorator";
+import { DRAWER_CSS_CONTAINER_NAME } from "../constants";
+import { Drawer } from "../drawer";
 
 const meta = preview.meta({
-  title: 'Containers and layout/Drawer/Footer',
+  title: "Containers and layout/Drawer/Footer",
   component: Drawer.Footer,
   argTypes: {
     children: {
@@ -17,17 +21,17 @@ const meta = preview.meta({
     (Story) => (
       // NOTE: The footer requires a parent container with `containerType: 'inline-size'` to allow its container
       // queries to work. Typically, this would be the Drawer itself, but we're not rendering that here.
-      <div style={{ containerName: DRAWER_CSS_CONTAINER_NAME, containerType: 'inline-size' }}>
+      <div style={{ containerName: DRAWER_CSS_CONTAINER_NAME, containerType: "inline-size" }}>
         <Story />
       </div>
     ),
   ],
   globals: {
     backgrounds: {
-      value: 'light',
+      value: "light",
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
@@ -36,7 +40,7 @@ export const Example = meta.story({
         {/* Note: We use `display: contents` to allow the grid layout of the footer to affect the Cancel button.
          * There are other ways to achieve this, but this is one of the simplest. We may chose, in future, to
          * provide a Drawer-specific Cancel button similar to the header's Close button.*/}
-        <form style={{ display: 'contents' }}>
+        <form style={{ display: "contents" }}>
           <Button formMethod="dialog" size="medium" type="submit" variant="secondary">
             Cancel
           </Button>
@@ -47,7 +51,7 @@ export const Example = meta.story({
       </>
     ),
   },
-})
+});
 
 /**
  * The drawer footer is always sticky positioned to the bottom of its parent container when its parent overflows.
@@ -57,12 +61,12 @@ export const StickyPositioning = Example.extend({
     (Story) => (
       <div
         style={{
-          boxSizing: 'border-box',
-          border: '1px solid #FA00FF',
+          boxSizing: "border-box",
+          border: "1px solid #FA00FF",
           containerName: DRAWER_CSS_CONTAINER_NAME,
-          containerType: 'inline-size',
-          maxHeight: '200px',
-          overflow: 'auto',
+          containerType: "inline-size",
+          maxHeight: "200px",
+          overflow: "auto",
         }}
       >
         <Pattern />
@@ -70,7 +74,7 @@ export const StickyPositioning = Example.extend({
       </div>
     ),
   ],
-})
+});
 
 /**
  * Like the header and body, the drawer footer will adjust it's layout based on the inline-size of its parent
@@ -89,4 +93,4 @@ export const DynamicLayout = meta.story({
       </Breakpoint>
     </>
   ),
-})
+});

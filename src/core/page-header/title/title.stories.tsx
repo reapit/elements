@@ -1,20 +1,21 @@
-import preview from '#.storybook/preview'
-import { AddIcon } from '#src/icons/add'
-import { Badge } from '#src/core/badge/index'
-import { Button } from '#src/core/button/index'
-import { ButtonGroup } from '#src/core/button-group/index'
-import { MoreIcon } from '#src/icons/more'
-import { PageHeader } from '../page-header'
-import { StarIcon } from '#src/icons/star'
-import { TagGroup } from '#src/core/tag-group/index'
+import preview from "#.storybook/preview";
+import { Badge } from "#src/core/badge/index";
+import { ButtonGroup } from "#src/core/button-group/index";
+import { Button } from "#src/core/button/index";
+import { TagGroup } from "#src/core/tag-group/index";
+import { AddIcon } from "#src/icons/add";
+import { MoreIcon } from "#src/icons/more";
+import { StarIcon } from "#src/icons/star";
+
+import { PageHeader } from "../page-header";
 
 const meta = preview.meta({
-  title: 'Containers and layout/PageHeader/Title',
+  title: "Containers and layout/PageHeader/Title",
   component: PageHeader.Title,
   argTypes: {
     actions: {
-      control: 'radio',
-      options: ['None', 'One', 'Some'],
+      control: "radio",
+      options: ["None", "One", "Some"],
       mapping: {
         None: null,
         One: (
@@ -36,8 +37,8 @@ const meta = preview.meta({
       },
     },
     additionalInfo: {
-      control: 'radio',
-      options: ['None', 'Tag', 'Badge', 'Icon', 'All'],
+      control: "radio",
+      options: ["None", "Tag", "Badge", "Icon", "All"],
       mapping: {
         None: null,
         Tag: (
@@ -59,21 +60,21 @@ const meta = preview.meta({
       },
     },
     children: {
-      control: 'text',
+      control: "text",
     },
   },
-})
+});
 
 /**
  * At its simplest, the page header's title contains just that: the page's title.
  */
 export const Example = meta.story({
   args: {
-    actions: 'None',
-    additionalInfo: 'None',
-    children: 'Page Title',
+    actions: "None",
+    additionalInfo: "None",
+    children: "Page Title",
   },
-})
+});
 
 /**
  * Additional information can follow the title. This information is typically some combination of one or more tags,
@@ -81,9 +82,9 @@ export const Example = meta.story({
  */
 export const AdditionalInfo = Example.extend({
   args: {
-    additionalInfo: 'All',
+    additionalInfo: "All",
   },
-})
+});
 
 /**
  * The title can also contain a primary action for the page. If it does, this should be the only primary action
@@ -91,9 +92,9 @@ export const AdditionalInfo = Example.extend({
  */
 export const SingleAction = Example.extend({
   args: {
-    actions: 'One',
+    actions: "One",
   },
-})
+});
 
 /**
  * It's also common for pages to have multiple secondary actions. When more than one action is present, a `ButtonGroup`
@@ -101,9 +102,9 @@ export const SingleAction = Example.extend({
  */
 export const MultipleActions = Example.extend({
   args: {
-    actions: 'Some',
+    actions: "Some",
   },
-})
+});
 
 /**
  * When the title (and any additional information) do not have enough space to display on a single line, they will
@@ -111,20 +112,20 @@ export const MultipleActions = Example.extend({
  */
 export const Overflow = Example.extend({
   args: {
-    actions: 'One',
-    additionalInfo: 'All',
-    children: 'This is a long title that flows into the next line.',
+    actions: "One",
+    additionalInfo: "All",
+    children: "This is a long title that flows into the next line.",
   },
   decorators: [
     (Story) => (
-      <div style={{ display: 'flex', flexFlow: 'column', gap: 'var(--spacing-10)' }}>
-        <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', width: '650px' }}>
+      <div style={{ display: "flex", flexFlow: "column", gap: "var(--spacing-10)" }}>
+        <div style={{ boxSizing: "content-box", border: "1px solid #FA00FF", width: "650px" }}>
           <Story />
         </div>
-        <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', width: '400px' }}>
+        <div style={{ boxSizing: "content-box", border: "1px solid #FA00FF", width: "400px" }}>
           <Story />
         </div>
       </div>
     ),
   ],
-})
+});

@@ -1,24 +1,25 @@
-import preview from '#.storybook/preview'
-import { Badge } from '#src/core/badge'
-import { Features } from '#src/core/features'
-import { Skeleton } from '#src/core/skeleton'
-import { StarIcon } from '#src/icons/star'
-import { StatusIndicator } from '#src/core/status-indicator'
-import { SupplementaryInfo } from '../../supplementary-info'
-import { Table } from '../table'
-import { TagGroup } from '#src/core/tag-group'
-import { Text } from '#src/utils/text'
-import { Tooltip } from '#src/core/tooltip'
-import { WarningIcon } from '#src/icons/warning'
-import { useTableDecorator } from '../__story__/use-table-decorator'
+import preview from "#.storybook/preview";
+import { Badge } from "#src/core/badge";
+import { Features } from "#src/core/features";
+import { Skeleton } from "#src/core/skeleton";
+import { StatusIndicator } from "#src/core/status-indicator";
+import { TagGroup } from "#src/core/tag-group";
+import { Tooltip } from "#src/core/tooltip";
+import { StarIcon } from "#src/icons/star";
+import { WarningIcon } from "#src/icons/warning";
+import { Text } from "#src/utils/text";
+
+import { SupplementaryInfo } from "../../supplementary-info";
+import { useTableDecorator } from "../__story__/use-table-decorator";
+import { Table } from "../table";
 
 const meta = preview.meta({
-  title: 'Data and tables/Table/BodyCell',
+  title: "Data and tables/Table/BodyCell",
   component: Table.BodyCell,
   argTypes: {
     as: {
       control: false,
-      description: 'The element this table cell will render as.',
+      description: "The element this table cell will render as.",
       table: {
         type: {
           summary: "'td' | 'th' | 'div'",
@@ -26,23 +27,25 @@ const meta = preview.meta({
       },
     },
     children: {
-      control: 'select',
-      description: 'The cell content.',
+      control: "select",
+      description: "The cell content.",
       options: [
-        'Plain text',
-        'Text + icons',
-        'Double-line layout',
-        'Badge',
-        'Icon',
-        'Features',
-        'Status indicator',
-        'Tag group',
-        'Skeleton',
+        "Plain text",
+        "Text + icons",
+        "Double-line layout",
+        "Badge",
+        "Icon",
+        "Features",
+        "Status indicator",
+        "Tag group",
+        "Skeleton",
       ],
       mapping: {
-        'Plain text': '10 Hay St, Melbourne 3100',
-        'Text + icons': <Table.PrimaryData iconRight={<StarIcon />}>10 Hay St, Melbourne 3100</Table.PrimaryData>,
-        'Double-line layout': (
+        "Plain text": "10 Hay St, Melbourne 3100",
+        "Text + icons": (
+          <Table.PrimaryData iconRight={<StarIcon />}>10 Hay St, Melbourne 3100</Table.PrimaryData>
+        ),
+        "Double-line layout": (
           <Table.DoubleLineLayout
             supplementaryData={
               <SupplementaryInfo size="xs">
@@ -66,8 +69,8 @@ const meta = preview.meta({
             <Features.CarSpaces value={2} />
           </Features>
         ),
-        'Status indicator': <StatusIndicator variant="neutral">Status indicator</StatusIndicator>,
-        'Tag group': (
+        "Status indicator": <StatusIndicator variant="neutral">Status indicator</StatusIndicator>,
+        "Tag group": (
           <TagGroup flow="nowrap">
             <TagGroup.Item>Tag 1</TagGroup.Item>
             <TagGroup.Item>Tag 2</TagGroup.Item>
@@ -79,12 +82,12 @@ const meta = preview.meta({
       },
       table: {
         type: {
-          summary: 'ReactNode',
+          summary: "ReactNode",
         },
       },
     },
   },
-})
+});
 
 /**
  * At their simplest, body cell's will contain a single line of plain text. However, it's important
@@ -93,11 +96,11 @@ const meta = preview.meta({
  */
 export const Example = meta.story({
   args: {
-    as: 'td',
-    children: 'Plain text',
+    as: "td",
+    children: "Plain text",
   },
-  decorators: [useTableDecorator('body-cell')],
-})
+  decorators: [useTableDecorator("body-cell")],
+});
 
 /**
  * Often, the cell content will include some text paired with an icon. To achieve this,
@@ -105,22 +108,22 @@ export const Example = meta.story({
  */
 export const Icons = Example.extend({
   args: {
-    children: 'Text + icons',
+    children: "Text + icons",
   },
-  decorators: [useTableDecorator('body-cell')],
-})
+  decorators: [useTableDecorator("body-cell")],
+});
 
 /**
  * For cells that need to communicate more information than can fit on a single line,
  * [Table.DoubleLineLayout](./?path=/docs/core-table-doublelinelayout--docs) can be used.
  */
 export const DoubleLineLayout = Example.extend({
-  name: 'Double-line layout',
+  name: "Double-line layout",
   args: {
-    children: 'Double-line layout',
+    children: "Double-line layout",
   },
-  decorators: [useTableDecorator('body-cell')],
-})
+  decorators: [useTableDecorator("body-cell")],
+});
 
 /**
  * Often it will be necessary to render a table cell as a row header, `<th>`. When you
@@ -130,11 +133,11 @@ export const DoubleLineLayout = Example.extend({
  */
 export const RowHeader = Example.extend({
   args: {
-    as: 'th',
+    as: "th",
     children: <Text font="text-sm/medium">I&apos;m in a &lt;th&gt;</Text>,
   },
-  decorators: [useTableDecorator('body-cell')],
-})
+  decorators: [useTableDecorator("body-cell")],
+});
 
 /**
  * Sometimes it may be necessary to render the table cell as a plain `<div>`. Providing
@@ -144,10 +147,10 @@ export const RowHeader = Example.extend({
  */
 export const Divs = Example.extend({
   args: {
-    as: 'div',
+    as: "div",
     children: "I'm in a <div>",
   },
-})
+});
 
 /**
  * In cases where the content can’t fit inside the cell due to the columns width, it will be clipped
@@ -162,15 +165,22 @@ export const Overflow = Example.extend({
     ),
   },
   decorators: [
-    useTableDecorator('body-cell', '150px'),
+    useTableDecorator("body-cell", "150px"),
     (Story) => (
       // NOTE: This div wraps the entire table.
-      <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', display: 'flex', width: 'min-content' }}>
+      <div
+        style={{
+          boxSizing: "content-box",
+          border: "1px solid #FA00FF",
+          display: "flex",
+          width: "min-content",
+        }}
+      >
         <Story />
       </div>
     ),
   ],
-})
+});
 
 /**
  * When possible, truncation should be preferred over clipping, with a tooltip displayed when
@@ -194,7 +204,7 @@ export const Truncation = Example.extend({
     ),
   },
   decorators: Overflow.input.decorators,
-})
+});
 
 /**
  * When the cell has no data to display, it can either be blank or it can display a placeholder message.
@@ -207,8 +217,8 @@ export const EmptyCells = Example.extend({
       </Text>
     ),
   },
-  decorators: [useTableDecorator('body-cell')],
-})
+  decorators: [useTableDecorator("body-cell")],
+});
 
 /**
  * The justification of the cell's content within the cell's bounding box can be specified using
@@ -216,18 +226,18 @@ export const EmptyCells = Example.extend({
  */
 export const Alignment = DoubleLineLayout.extend({
   args: {
-    justifySelf: 'end',
+    justifySelf: "end",
   },
   decorators: [
-    useTableDecorator('body-cell', '300px'),
+    useTableDecorator("body-cell", "300px"),
     (Story) => (
       // NOTE: This div wraps the entire table.
-      <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', width: 'min-content' }}>
+      <div style={{ boxSizing: "content-box", border: "1px solid #FA00FF", width: "min-content" }}>
         <Story />
       </div>
     ),
   ],
-})
+});
 
 /**
  * In some cases, the content of the cell may want to fill the full height of the row and the full
@@ -241,19 +251,19 @@ export const Alignment = DoubleLineLayout.extend({
  */
 export const NoPadding = Example.extend({
   args: {
-    children: 'Checkbox',
+    children: "Checkbox",
     hasNoPadding: true,
   },
   decorators: [
-    useTableDecorator('body-cell', 'var(--size-64)'),
+    useTableDecorator("body-cell", "var(--size-64)"),
     (Story) => (
       // NOTE: This div wraps the entire table.
-      <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', width: 'min-content' }}>
+      <div style={{ boxSizing: "content-box", border: "1px solid #FA00FF", width: "min-content" }}>
         <Story />
       </div>
     ),
   ],
-})
+});
 
 /**
  * A simple loading state can be achieved by providing a [Skeleton](?path=/docs/core-skeleton--docs)
@@ -261,7 +271,7 @@ export const NoPadding = Example.extend({
  */
 export const Loading = Example.extend({
   args: {
-    children: 'Skeleton',
+    children: "Skeleton",
   },
-  decorators: [useTableDecorator('body-cell')],
-})
+  decorators: [useTableDecorator("body-cell")],
+});

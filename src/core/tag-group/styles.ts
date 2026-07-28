@@ -1,8 +1,8 @@
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
 
 interface ElTagGroupListProps {
-  'data-flow': 'wrap' | 'nowrap'
-  'data-overflow': 'auto' | 'visible'
+  "data-flow": "wrap" | "nowrap";
+  "data-overflow": "auto" | "visible";
 }
 
 export const ElTagGroupList = styled.ul<ElTagGroupListProps>`
@@ -20,25 +20,25 @@ export const ElTagGroupList = styled.ul<ElTagGroupListProps>`
     vertical-align: middle;
 
     &,
-    &[data-flow='wrap'] {
+    &[data-flow="wrap"] {
       flex-flow: row wrap;
     }
 
-    &[data-flow='nowrap'] {
+    &[data-flow="nowrap"] {
       flex-flow: row nowrap;
     }
 
     &,
-    &[data-overflow='visible'] {
+    &[data-overflow="visible"] {
       overflow: visible;
     }
 
-    &[data-overflow='auto'] {
+    &[data-overflow="auto"] {
       overflow: auto;
       scrollbar-width: none;
     }
   }
-`
+`;
 
 export const ElTagGroupListItem = styled.li`
   @layer elements.main {
@@ -46,4 +46,4 @@ export const ElTagGroupListItem = styled.li`
     align-items: center;
     flex: 0 0 auto;
   }
-`
+`;

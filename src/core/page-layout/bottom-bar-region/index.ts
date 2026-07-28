@@ -1,1 +1,1 @@
-export * from './bottom-bar-region'
+export * from "./bottom-bar-region";

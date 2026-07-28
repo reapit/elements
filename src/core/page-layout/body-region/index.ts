@@ -1,1 +1,1 @@
-export * from './body-region'
+export * from "./body-region";

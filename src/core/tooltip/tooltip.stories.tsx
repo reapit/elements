@@ -1,37 +1,39 @@
-import preview from '#.storybook/preview'
-import { Tooltip } from './tooltip'
-import { useId } from 'react'
+import { useId } from "react";
+
+import preview from "#.storybook/preview";
+
+import { Tooltip } from "./tooltip";
 
 const meta = preview.meta({
-  title: 'Messaging/Tooltip',
+  title: "Messaging/Tooltip",
   component: Tooltip,
   argTypes: {
     children: {
-      control: 'text',
+      control: "text",
     },
     maxWidth: {
-      control: 'text',
+      control: "text",
       table: {
         type: {
-          summary: '--size-*',
+          summary: "--size-*",
         },
       },
     },
     placement: {
-      control: 'select',
+      control: "select",
       options: [
-        'top',
-        'top-start',
-        'top-end',
-        'right',
-        'right-start',
-        'right-end',
-        'bottom',
-        'bottom-start',
-        'bottom-end',
-        'left',
-        'left-start',
-        'left-end',
+        "top",
+        "top-start",
+        "top-end",
+        "right",
+        "right-start",
+        "right-end",
+        "bottom",
+        "bottom-start",
+        "bottom-end",
+        "left",
+        "left-start",
+        "left-end",
       ],
     },
   },
@@ -39,43 +41,49 @@ const meta = preview.meta({
     // NOTE: because we have multiple stories on the one docs page, we append a "suffix" to
     // the IDs so they are unique per story. This ensures our positioning of the tooltip will
     // be anchored to the correct element.
-    const suffix = useId()
+    const suffix = useId();
     const props = {
       ...args,
       id: `${args.id}-${suffix}`,
       triggerId: `${args.triggerId}-${suffix}`,
-      truncationTargetId: args.truncationTargetId ? `${args.truncationTargetId}-${suffix}` : undefined,
-    }
+      truncationTargetId: args.truncationTargetId
+        ? `${args.truncationTargetId}-${suffix}`
+        : undefined,
+    };
 
     return (
       <>
         <button
-          {...Tooltip.getTriggerProps({ id: props.triggerId, tooltipId: props.id, tooltipPurpose: 'describe' })}
+          {...Tooltip.getTriggerProps({
+            id: props.triggerId,
+            tooltipId: props.id,
+            tooltipPurpose: "describe",
+          })}
           style={{
-            whiteSpace: 'nowrap',
-            overflow: 'hidden',
-            textOverflow: 'ellipsis',
-            width: '100%',
+            whiteSpace: "nowrap",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+            width: "100%",
           }}
         >
           Hover or focus me!
         </button>
         <Tooltip {...props} />
       </>
-    )
+    );
   },
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
-})
+});
 
 export const Example = meta.story({
   args: {
     children: "I'm a helpful tooltip, short and concise",
-    id: 'tooltip',
-    triggerId: 'trigger',
+    id: "tooltip",
+    triggerId: "trigger",
   },
-})
+});
 
 /**
  * Tooltips can be positioned in different locations relative to their trigger element.
@@ -83,21 +91,21 @@ export const Example = meta.story({
  */
 export const Placement = Example.extend({
   args: {
-    placement: 'bottom',
+    placement: "bottom",
   },
-})
+});
 
 /**
  * Tooltips will grow to the width of their content, up to a default maximum of `--size-100` (400px).
  * This maximum width can be overridden when required.
  */
 export const MaxWidth = Example.extend({
-  name: 'Max-width',
+  name: "Max-width",
   args: {
-    children: 'This is a very long tooltip message that will wrap to additional lines.',
-    maxWidth: '--size-40',
+    children: "This is a very long tooltip message that will wrap to additional lines.",
+    maxWidth: "--size-40",
   },
-})
+});
 
 /**
  * In some cases, we only want the tooltip to display if some or all of the trigger's content is truncated.
@@ -106,17 +114,17 @@ export const MaxWidth = Example.extend({
  */
 export const ConditionalDisplay = Example.extend({
   args: {
-    children: 'Hover or focus me!',
-    truncationTargetId: 'trigger',
+    children: "Hover or focus me!",
+    truncationTargetId: "trigger",
   },
   decorators: [
     (Story) => (
-      <div style={{ display: 'flex', gap: 'var(--spacing-6)' }}>
-        <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', width: '50px' }}>
+      <div style={{ display: "flex", gap: "var(--spacing-6)" }}>
+        <div style={{ boxSizing: "content-box", border: "1px solid #FA00FF", width: "50px" }}>
           <Story />
         </div>
         <Story />
       </div>
     ),
   ],
-})
+});

@@ -1,11 +1,11 @@
-import { ElDrawerFooter } from './styles'
+import type { HTMLAttributes, ReactNode } from "react";
 
-import type { HTMLAttributes, ReactNode } from 'react'
+import { ElDrawerFooter } from "./styles";
 
 export namespace DrawerFooter {
   export interface Props extends HTMLAttributes<HTMLDivElement> {
     /** The footer actions. Typically one or more buttons. */
-    children: ReactNode
+    children: ReactNode;
   }
 }
 
@@ -14,7 +14,7 @@ export namespace DrawerFooter {
  * "Save" and "Cancel" buttons when the drawer contains a form).
  */
 export function DrawerFooter({ children, ...rest }: DrawerFooter.Props) {
-  return <ElDrawerFooter {...rest}>{children}</ElDrawerFooter>
+  return <ElDrawerFooter {...rest}>{children}</ElDrawerFooter>;
 }
 
-DrawerFooter.displayName = 'Drawer.Footer'
+DrawerFooter.displayName = "Drawer.Footer";

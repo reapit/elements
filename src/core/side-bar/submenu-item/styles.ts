@@ -1,6 +1,7 @@
-import { css } from '@linaria/core'
-import { styled } from '@linaria/react'
-import { font } from '#src/utils/font'
+import { css } from "@linaria/core";
+import { styled } from "@linaria/react";
+
+import { font } from "#src/utils/font";
 
 export const ElSideBarSubmenuItemLabel = styled.span`
   @layer elements.main {
@@ -9,14 +10,14 @@ export const ElSideBarSubmenuItemLabel = styled.span`
     text-overflow: ellipsis;
 
     color: var(--comp-navigation-colour-text-sidebar-default);
-    ${font('sm', 'regular')}
+    ${font("sm", "regular")}
 
-    [aria-current='page'] > & {
+    [aria-current="page"] > & {
       color: var(--comp-navigation-colour-text-sidebar-select);
-      ${font('sm', 'medium')}
+      ${font("sm", "medium")}
     }
   }
-`
+`;
 
 export const elSideBarSubmenuItem = css`
   @layer elements.main {
@@ -41,4 +42,4 @@ export const elSideBarSubmenuItem = css`
       outline-offset: var(--border-width-default);
     }
   }
-`
+`;

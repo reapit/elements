@@ -1,9 +1,10 @@
-import figma from '@figma/code-connect'
-import { TopBar } from '../../top-bar'
+import figma from "@figma/code-connect";
 
-figma.connect(TopBar, '<TOP_BAR_MENU_LIST_URL>', {
+import { TopBar } from "../../top-bar";
+
+figma.connect(TopBar, "<TOP_BAR_MENU_LIST_URL>", {
   props: {
-    children: figma.children('*'),
+    children: figma.children("*"),
   },
   example: (props) => (
     <TopBar.MenuList>
@@ -11,4 +12,4 @@ figma.connect(TopBar, '<TOP_BAR_MENU_LIST_URL>', {
       {props.children}
     </TopBar.MenuList>
   ),
-})
+});

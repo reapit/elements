@@ -1,13 +1,14 @@
-import preview from '#.storybook/preview'
-import { Features } from './features'
+import preview from "#.storybook/preview";
+
+import { Features } from "./features";
 
 const meta = preview.meta({
-  title: 'Content display/Features',
+  title: "Content display/Features",
   component: Features,
   argTypes: {
     children: {
-      control: 'radio',
-      options: ['One', 'Some', 'Many'],
+      control: "radio",
+      options: ["One", "Some", "Many"],
       mapping: {
         One: <Features.Bedrooms value={4} />,
         Some: (
@@ -34,19 +35,19 @@ const meta = preview.meta({
       },
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
-    children: 'Many',
-    size: '2xs',
+    children: "Many",
+    size: "2xs",
   },
-})
+});
 
 /** There are four sizes available: `2xs`, `xs`, `sm`, and `base`. */
 export const Sizes = Example.extend({
   args: {
-    size: 'base',
+    size: "base",
   },
   argTypes: {
     size: {
@@ -57,10 +58,10 @@ export const Sizes = Example.extend({
     (Story) => (
       <div
         style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(4, max-content)',
-          gridAutoFlow: 'row',
-          gap: 'var(--spacing-10)',
+          display: "grid",
+          gridTemplateColumns: "repeat(4, max-content)",
+          gridAutoFlow: "row",
+          gap: "var(--spacing-10)",
         }}
       >
         <Story />
@@ -75,37 +76,37 @@ export const Sizes = Example.extend({
       <Features {...args} size="base" />
     </>
   ),
-})
+});
 
 /**
  * By default, feature items will wrap if they do not have enough space.
  */
 export const Overflow = meta.story({
   args: {
-    children: 'Many',
-    size: '2xs',
+    children: "Many",
+    size: "2xs",
   },
   decorators: [
     (Story) => (
-      <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', width: '120px' }}>
+      <div style={{ boxSizing: "content-box", border: "1px solid #FA00FF", width: "120px" }}>
         <Story />
       </div>
     ),
   ],
-})
+});
 
 /**
  * However, wrapping can be prevented with `wrap="nowrap"`.
  */
 export const NoWrap = Overflow.extend({
   args: {
-    wrap: 'nowrap',
+    wrap: "nowrap",
   },
   decorators: [
     (Story) => (
-      <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', width: '120px' }}>
+      <div style={{ boxSizing: "content-box", border: "1px solid #FA00FF", width: "120px" }}>
         <Story />
       </div>
     ),
   ],
-})
+});

@@ -1,4 +1,4 @@
-import KeyboardSvg from './svgs/keyboard.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import KeyboardSvg from "./svgs/keyboard.svg?react";
 
-export const KeyboardIcon = makeIcon('KeyboardIcon', KeyboardSvg)
+export const KeyboardIcon = makeIcon("KeyboardIcon", KeyboardSvg);

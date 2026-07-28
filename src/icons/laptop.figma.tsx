@@ -1,4 +1,5 @@
-import figma from '@figma/code-connect'
-import { LaptopIcon } from './laptop'
+import figma from "@figma/code-connect";
 
-figma.connect(LaptopIcon, 'https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=20-499')
+import { LaptopIcon } from "./laptop";
+
+figma.connect(LaptopIcon, "https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=20-499");

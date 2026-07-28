@@ -1,4 +1,4 @@
-import { css } from '@linaria/core'
+import { css } from "@linaria/core";
 
 export const elTable = css`
   @layer elements.main {
@@ -12,16 +12,16 @@ export const elTable = css`
     width: 100%;
     isolation: isolate;
 
-    &[data-justify-items='start'] {
+    &[data-justify-items="start"] {
       --__table-column-justification: start;
     }
 
-    &[data-justify-items='center'] {
+    &[data-justify-items="center"] {
       --__table-column-justification: center;
     }
 
-    &[data-justify-items='end'] {
+    &[data-justify-items="end"] {
       --__table-column-justification: end;
     }
   }
-`
+`;

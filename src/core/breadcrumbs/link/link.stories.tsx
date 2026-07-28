@@ -1,22 +1,23 @@
-import preview from '#.storybook/preview'
-import { Breadcrumbs } from '../breadcrumbs'
+import preview from "#.storybook/preview";
+
+import { Breadcrumbs } from "../breadcrumbs";
 
 const meta = preview.meta({
-  title: 'Navigation/Breadcrumbs/Link',
+  title: "Navigation/Breadcrumbs/Link",
   component: Breadcrumbs.Link,
   argTypes: {
     children: {
-      control: 'text',
+      control: "text",
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
-    children: 'Dashboard',
-    href: '#',
+    children: "Dashboard",
+    href: "#",
   },
-})
+});
 
 /**
  * Overflow should be avoided as much as possible. When space becomes limited, a link's text will truncate
@@ -25,13 +26,20 @@ export const Example = meta.story({
  */
 export const Overflow = Example.extend({
   args: {
-    children: 'Long breadcrumb link',
+    children: "Long breadcrumb link",
   },
   decorators: [
     (Story) => (
-      <div style={{ display: 'inline-grid', boxSizing: 'content-box', border: '1px solid #FA00FF', width: '100px' }}>
+      <div
+        style={{
+          display: "inline-grid",
+          boxSizing: "content-box",
+          border: "1px solid #FA00FF",
+          width: "100px",
+        }}
+      >
         <Story />
       </div>
     ),
   ],
-})
+});

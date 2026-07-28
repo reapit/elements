@@ -1,4 +1,4 @@
-import PrinterSvg from './svgs/printer.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import PrinterSvg from "./svgs/printer.svg?react";
 
-export const PrinterIcon = makeIcon('PrinterIcon', PrinterSvg)
+export const PrinterIcon = makeIcon("PrinterIcon", PrinterSvg);

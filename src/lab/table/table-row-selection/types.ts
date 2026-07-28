@@ -7,8 +7,8 @@
  * These will be the data displayed in the table cells.
  */
 export interface Row {
-  id?: string
-  [key: string]: any
+  id?: string;
+  [key: string]: any;
 }
 
 /**
@@ -17,8 +17,8 @@ export interface Row {
  * @property {string} idKey - The key used to access the unique ID of each row.
  */
 export interface UseRowSelectionProps {
-  rows: Row[]
-  idKey: string
+  rows: Row[];
+  idKey: string;
 }
 
 /**
@@ -31,9 +31,9 @@ export interface UseRowSelectionProps {
  * @property {boolean} checked - Whether the checkbox is currently checked.
  */
 export interface TableRowSelectionProps {
-  id?: string
-  isSelectAll?: boolean
-  isIndeterminate?: boolean
-  onChange: (checked: boolean) => void
-  checked: boolean
+  id?: string;
+  isSelectAll?: boolean;
+  isIndeterminate?: boolean;
+  onChange: (checked: boolean) => void;
+  checked: boolean;
 }

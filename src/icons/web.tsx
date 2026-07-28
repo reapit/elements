@@ -1,4 +1,4 @@
-import WebSvg from './svgs/web.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import WebSvg from "./svgs/web.svg?react";
 
-export const WebIcon = makeIcon('WebIcon', WebSvg)
+export const WebIcon = makeIcon("WebIcon", WebSvg);

@@ -3,7 +3,14 @@
     "name": "CSS anchor positioning",
     "webFeaturesKey": "anchor-positioning",
     "category": "css",
-    "patterns": ["anchor-name", "position-anchor", "anchor\\(", "position-try", "@position-try", "position-area"],
+    "patterns": [
+      "anchor-name",
+      "position-anchor",
+      "anchor\\(",
+      "position-try",
+      "@position-try",
+      "position-area"
+    ],
     "include": "*.{ts,tsx,css}",
     "knownPolyfill": "@oddbird/css-anchor-positioning"
   },

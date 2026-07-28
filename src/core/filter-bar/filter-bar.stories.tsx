@@ -1,26 +1,32 @@
-import preview from '#.storybook/preview'
-import { Button } from '#src/core/button'
-import { ButtonGroup } from '#src/core/button-group'
-import { ChipGroup } from '#src/core/chip-group'
-import { SearchInput } from '#src/core/search-input'
-import { FilterBar } from './filter-bar'
-import { FilterIcon } from '#src/icons/filter'
+import preview from "#.storybook/preview";
+import { Button } from "#src/core/button";
+import { ButtonGroup } from "#src/core/button-group";
+import { ChipGroup } from "#src/core/chip-group";
+import { SearchInput } from "#src/core/search-input";
+import { FilterIcon } from "#src/icons/filter";
+
+import { FilterBar } from "./filter-bar";
 
 const meta = preview.meta({
-  title: 'Input and selection/FilterBar',
+  title: "Input and selection/FilterBar",
   component: FilterBar,
   argTypes: {
     leftContent: {
-      control: 'radio',
-      options: ['None', 'Search', 'Filter Button', 'Both'],
+      control: "radio",
+      options: ["None", "Search", "Filter Button", "Both"],
       mapping: {
         None: null,
         Search: (
           <FilterBar.LeftContent>
-            <SearchInput aria-label="Search" maxWidth="var(--size-60)" placeholder="Search" size="small" />
+            <SearchInput
+              aria-label="Search"
+              maxWidth="var(--size-60)"
+              placeholder="Search"
+              size="small"
+            />
           </FilterBar.LeftContent>
         ),
-        'Filter Button': (
+        "Filter Button": (
           <FilterBar.LeftContent>
             <Button iconLeft={<FilterIcon />} size="small" variant="secondary">
               Filter
@@ -29,7 +35,12 @@ const meta = preview.meta({
         ),
         Both: (
           <FilterBar.LeftContent>
-            <SearchInput aria-label="Search" maxWidth="var(--size-60)" placeholder="Search" size="small" />
+            <SearchInput
+              aria-label="Search"
+              maxWidth="var(--size-60)"
+              placeholder="Search"
+              size="small"
+            />
             <ButtonGroup>
               <Button iconLeft={<FilterIcon />} size="small" variant="secondary">
                 Filter
@@ -40,8 +51,8 @@ const meta = preview.meta({
       },
     },
     rightContent: {
-      control: 'radio',
-      options: ['None', 'Buttons'],
+      control: "radio",
+      options: ["None", "Buttons"],
       mapping: {
         None: null,
         Buttons: (
@@ -56,11 +67,11 @@ const meta = preview.meta({
       },
     },
     appliedFilters: {
-      control: 'radio',
-      options: ['None', 'Some Filters', 'Many Filters', 'With Action'],
+      control: "radio",
+      options: ["None", "Some Filters", "Many Filters", "With Action"],
       mapping: {
         None: undefined,
-        'Some Filters': (
+        "Some Filters": (
           <FilterBar.AppliedFilters>
             <ChipGroup variant="filter">
               <ChipGroup.Item>Label</ChipGroup.Item>
@@ -72,7 +83,7 @@ const meta = preview.meta({
             </ChipGroup>
           </FilterBar.AppliedFilters>
         ),
-        'Many Filters': (
+        "Many Filters": (
           <FilterBar.AppliedFilters>
             <ChipGroup variant="filter">
               <ChipGroup.Item>Label</ChipGroup.Item>
@@ -89,7 +100,7 @@ const meta = preview.meta({
             </ChipGroup>
           </FilterBar.AppliedFilters>
         ),
-        'With Action': (
+        "With Action": (
           <FilterBar.AppliedFilters
             action={
               <Button size="small" variant="tertiary" useLinkStyle>
@@ -110,12 +121,12 @@ const meta = preview.meta({
       },
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
-    leftContent: 'Both',
-    rightContent: 'Buttons',
-    appliedFilters: 'Some Filters',
+    leftContent: "Both",
+    rightContent: "Buttons",
+    appliedFilters: "Some Filters",
   },
-})
+});

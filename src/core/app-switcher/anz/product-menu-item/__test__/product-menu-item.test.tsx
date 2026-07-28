@@ -1,49 +1,62 @@
-import { AppSwitcherProductMenuItem } from '../product-menu-item'
-import { render, screen } from '@testing-library/react'
-import { productConfigs, SupportedProductId } from '../../config'
+import { render, screen } from "@testing-library/react";
 
-const productIds = Object.keys(productConfigs) as SupportedProductId[]
+import { productConfigs, SupportedProductId } from "../../config";
+import { AppSwitcherProductMenuItem } from "../product-menu-item";
 
-test.each(productIds)('renders %s product menu item with the expected app name and supplementary info', (productId) => {
-  const expectedAppName = productConfigs[productId].appName
-  const expectedSupplementaryInfo = productConfigs[productId].supplementaryInfo
+const productIds = Object.keys(productConfigs) as SupportedProductId[];
 
-  render(<AppSwitcherProductMenuItem productId={productId} href="https://fake.url" />)
+test.each(productIds)(
+  "renders %s product menu item with the expected app name and supplementary info",
+  (productId) => {
+    const expectedAppName = productConfigs[productId].appName;
+    const expectedSupplementaryInfo = productConfigs[productId].supplementaryInfo;
 
-  const link = screen.getByRole('link', { name: expectedAppName })
-  expect(link).toBeVisible()
-  expect(link).toHaveAccessibleDescription(expectedSupplementaryInfo)
-})
+    render(<AppSwitcherProductMenuItem productId={productId} href="https://fake.url" />);
 
-test('link has specified href', () => {
-  render(<AppSwitcherProductMenuItem productId="consoleCloud" href="https://fake.url" />)
-  expect(screen.getByRole('link')).toHaveAttribute('href', 'https://fake.url')
-})
+    const link = screen.getByRole("link", { name: expectedAppName });
+    expect(link).toBeVisible();
+    expect(link).toHaveAccessibleDescription(expectedSupplementaryInfo);
+  },
+);
 
-test('allows app name to be overridden', () => {
-  render(<AppSwitcherProductMenuItem appName="Bob" productId="consoleCloud" href="https://fake.url" />)
-  expect(screen.getByRole('link', { name: 'Bob' })).toBeVisible()
-})
+test("link has specified href", () => {
+  render(<AppSwitcherProductMenuItem productId="consoleCloud" href="https://fake.url" />);
+  expect(screen.getByRole("link")).toHaveAttribute("href", "https://fake.url");
+});
 
-test('allows supplementary info to be overridden', () => {
+test("allows app name to be overridden", () => {
+  render(
+    <AppSwitcherProductMenuItem appName="Bob" productId="consoleCloud" href="https://fake.url" />,
+  );
+  expect(screen.getByRole("link", { name: "Bob" })).toBeVisible();
+});
+
+test("allows supplementary info to be overridden", () => {
   render(
     <AppSwitcherProductMenuItem
       supplementaryInfo="Your property management tool"
       productId="consoleCloud"
       href="https://fake.url"
     />,
-  )
-  expect(screen.getByRole('link')).toHaveAccessibleDescription('Your property management tool')
-})
+  );
+  expect(screen.getByRole("link")).toHaveAccessibleDescription("Your property management tool");
+});
 
-test('allows avatar to be overridden', () => {
-  render(<AppSwitcherProductMenuItem avatar="😎" productId="consoleCloud" href="https://fake.url" />)
-  expect(screen.getByText('😎')).toBeVisible()
-})
-
-test('forwards additional attributes to link element', () => {
+test("allows avatar to be overridden", () => {
   render(
-    <AppSwitcherProductMenuItem data-testid="test-id" avatar="😎" productId="consoleCloud" href="https://fake.url" />,
-  )
-  expect(screen.getByTestId('test-id')).toBe(screen.getByRole('link'))
-})
+    <AppSwitcherProductMenuItem avatar="😎" productId="consoleCloud" href="https://fake.url" />,
+  );
+  expect(screen.getByText("😎")).toBeVisible();
+});
+
+test("forwards additional attributes to link element", () => {
+  render(
+    <AppSwitcherProductMenuItem
+      data-testid="test-id"
+      avatar="😎"
+      productId="consoleCloud"
+      href="https://fake.url"
+    />,
+  );
+  expect(screen.getByTestId("test-id")).toBe(screen.getByRole("link"));
+});

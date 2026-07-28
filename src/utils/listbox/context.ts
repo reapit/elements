@@ -1,19 +1,19 @@
-import { createContext, useContext } from 'react'
+import { createContext, useContext } from "react";
 
 export namespace ListboxContext {
   export interface Value {
     /** Whether the listbox and its options are disabled */
-    disabled: boolean
+    disabled: boolean;
     /** Listbox element ID */
-    listboxId: string
+    listboxId: string;
     /** Allows multiple option selection */
-    multiple: boolean
+    multiple: boolean;
     /** ARIA role used by the listbox container */
-    role: 'listbox' | 'tree'
+    role: "listbox" | "tree";
     /** Whether to toggle or select the option when clicked */
-    selectAction: 'auto' | 'select' | 'toggle'
+    selectAction: "auto" | "select" | "toggle";
     /** Currently selected option values from the hidden select element */
-    selectValue: readonly string[]
+    selectValue: readonly string[];
   }
 }
 
@@ -21,7 +21,7 @@ export namespace ListboxContext {
  * Provides configuration and state to Listbox descendants for managing
  * listbox behavior, selection, and form integration.
  */
-export const ListboxContext = createContext<ListboxContext.Value | null>(null)
+export const ListboxContext = createContext<ListboxContext.Value | null>(null);
 
 /**
  * Returns the current ListboxContext value.
@@ -29,9 +29,9 @@ export const ListboxContext = createContext<ListboxContext.Value | null>(null)
  * @throws {Error} when used outside a Listbox
  */
 export function useListboxContext(): ListboxContext.Value {
-  const context = useContext(ListboxContext)
+  const context = useContext(ListboxContext);
   if (!context) {
-    throw new Error('useListboxContext must be used within a Listbox')
+    throw new Error("useListboxContext must be used within a Listbox");
   }
-  return context
+  return context;
 }

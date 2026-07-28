@@ -1,18 +1,19 @@
-import preview from '#.storybook/preview'
-import { FileUploaderRemoveButton } from './remove-button'
+import preview from "#.storybook/preview";
+
+import { FileUploaderRemoveButton } from "./remove-button";
 
 const meta = preview.meta({
-  title: 'Input and selection/FileUploader/RemoveButton',
+  title: "Input and selection/FileUploader/RemoveButton",
   component: FileUploaderRemoveButton,
   globals: {
     backgrounds: {
-      value: 'light',
+      value: "light",
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
-    'aria-label': 'Remove Invoice.pdf',
+    "aria-label": "Remove Invoice.pdf",
   },
-})
+});

@@ -1,19 +1,20 @@
-import preview from '#.storybook/preview'
-import { CompactSelect } from './compact-select'
+import preview from "#.storybook/preview";
+
+import { CompactSelect } from "./compact-select";
 
 const meta = preview.meta({
-  title: 'Input and selection/CompactSelect',
+  title: "Input and selection/CompactSelect",
   component: CompactSelect,
   argTypes: {
     children: {
       control: false,
     },
     size: {
-      control: 'select',
-      options: ['small', 'medium', 'large'],
+      control: "select",
+      options: ["small", "medium", "large"],
     },
   },
-})
+});
 
 /**
  * Demonstrates a single-select Select.
@@ -38,9 +39,9 @@ export const Example = meta.story({
       </CompactSelect.Popup>,
     ],
     disabled: false,
-    size: 'medium',
+    size: "medium",
   },
-})
+});
 
 /**
  * Options can be grouped using the `CompactSelect.Optgroup`. Groups should always be separated
@@ -70,15 +71,15 @@ export const Groups = Example.extend({
       </CompactSelect.Popup>,
     ],
   },
-})
+});
 
 /**
  * The select's width can be constrained using `maxWidth`. When the label text is too long, it will
  * truncate, and a tooltip will be available on focus or hover.
  */
 export const MaxWidth = Example.extend({
-  name: 'Max-width',
+  name: "Max-width",
   args: {
-    maxWidth: '80px',
+    maxWidth: "80px",
   },
-})
+});

@@ -1,29 +1,30 @@
-import preview from '#.storybook/preview'
-import { MainContainer } from '../main-container'
-import { ContentPlaceholder } from './__story__/placeholders'
+import preview from "#.storybook/preview";
+
+import { MainContainer } from "../main-container";
+import { ContentPlaceholder } from "./__story__/placeholders";
 
 const meta = preview.meta({
-  title: 'Containers and layout/MainContainer',
+  title: "Containers and layout/MainContainer",
   component: MainContainer,
   argTypes: {
     backgroundColour: {
-      control: 'select',
-      options: ['--colour-fill-white', '--colour-fill-neutral-lightest'],
+      control: "select",
+      options: ["--colour-fill-white", "--colour-fill-neutral-lightest"],
     },
     children: {
       control: false,
     },
     size: {
-      control: 'radio',
-      options: ['fluid', 'wide', 'narrow'],
+      control: "radio",
+      options: ["fluid", "wide", "narrow"],
     },
   },
   decorators: (Story) => (
-    <div style={{ containerType: 'inline-size', width: '100%' }}>
+    <div style={{ containerType: "inline-size", width: "100%" }}>
       <Story />
     </div>
   ),
-})
+});
 
 /**
  * By default, the main container will take up the full width of its parent. This is the `fluid` size.
@@ -35,10 +36,10 @@ export const Example = meta.story({
     hasNoBottomPadding: false,
     hasNoTopPadding: false,
     children: <ContentPlaceholder />,
-    size: 'fluid',
-    template: 'single-column',
+    size: "fluid",
+    template: "single-column",
   },
-})
+});
 
 /**
  * To constrain the width of the main container's content, the `wide` size can be used. Below the MD
@@ -46,9 +47,9 @@ export const Example = meta.story({
  */
 export const Wide = Example.extend({
   args: {
-    size: 'wide',
+    size: "wide",
   },
-})
+});
 
 /**
  * The `narrow` size also constrains the width of the main container's content. Below the MD
@@ -56,9 +57,9 @@ export const Wide = Example.extend({
  */
 export const Narrow = Example.extend({
   args: {
-    size: 'narrow',
+    size: "narrow",
   },
-})
+});
 
 /**
  * A two-column, symmetrical layout can be achieved using the `two-columns-symmetrical` template. This
@@ -71,9 +72,9 @@ export const TwoColumnSymmetrical = Example.extend({
       <ContentPlaceholder key="col-2">Column 2</ContentPlaceholder>,
     ],
 
-    template: 'two-columns-symmetrical',
+    template: "two-columns-symmetrical",
   },
-})
+});
 
 /**
  * A two-column, asymmetrical layout with the larger column logically first can be achieved using
@@ -87,9 +88,9 @@ export const TwoColumnAsymmetricalStart = Example.extend({
       <ContentPlaceholder key="col-2">Column 2</ContentPlaceholder>,
     ],
 
-    template: 'two-columns-asymmetrical-start',
+    template: "two-columns-asymmetrical-start",
   },
-})
+});
 
 /**
  * A two-column, asymmetrical layout with the larger column logically last can be achieved using
@@ -103,9 +104,9 @@ export const TwoColumnAsymmetricalEnd = Example.extend({
       <ContentPlaceholder key="col-2">Column 2</ContentPlaceholder>,
     ],
 
-    template: 'two-columns-asymmetrical-end',
+    template: "two-columns-asymmetrical-end",
   },
-})
+});
 
 /**
  * A three-column, symmetrical layout can be achieved using the `three-columns` template. This
@@ -119,9 +120,9 @@ export const ThreeColumns = Example.extend({
       <ContentPlaceholder key="col-3">Column 3</ContentPlaceholder>,
     ],
 
-    template: 'three-columns',
+    template: "three-columns",
   },
-})
+});
 
 /**
  * By default, the main container will have a transparent background. This can be changed using the optional
@@ -129,9 +130,9 @@ export const ThreeColumns = Example.extend({
  */
 export const Background = Example.extend({
   args: {
-    backgroundColour: '--colour-fill-neutral-lightest',
+    backgroundColour: "--colour-fill-neutral-lightest",
   },
-})
+});
 
 /**
  * In some cases, it may be useful to have the main container render as a
@@ -143,8 +144,8 @@ export const Background = Example.extend({
  */
 export const Semantics = Background.extend({
   args: {
-    'aria-labelledby': 'my-title',
-    as: 'section',
+    "aria-labelledby": "my-title",
+    as: "section",
     children: <h2 id="my-title">I am a section</h2>,
   },
-})
+});

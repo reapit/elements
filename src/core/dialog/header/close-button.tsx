@@ -1,5 +1,5 @@
-import { Button } from '#src/core/button/index'
-import { CloseIcon } from '#src/icons/close'
+import { Button } from "#src/core/button/index";
+import { CloseIcon } from "#src/icons/close";
 
 /**
  * A close button for dialog headers. Combines a form with a button in order to close the dialog via the
@@ -19,7 +19,7 @@ export function DialogHeaderCloseButton() {
         variant="tertiary"
       />
     </form>
-  )
+  );
 }
 
-DialogHeaderCloseButton.displayName = 'Dialog.HeaderCloseButton'
+DialogHeaderCloseButton.displayName = "Dialog.HeaderCloseButton";

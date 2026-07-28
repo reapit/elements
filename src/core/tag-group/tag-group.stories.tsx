@@ -1,16 +1,20 @@
-import preview from '#.storybook/preview'
-import { TagGroup } from './tag-group'
+import preview from "#.storybook/preview";
+
+import { TagGroup } from "./tag-group";
 
 const meta = preview.meta({
-  title: 'Indicators and status/TagGroup',
+  title: "Indicators and status/TagGroup",
   component: TagGroup,
   argTypes: {
     children: {
-      control: 'radio',
-      options: ['One', 'Some', 'Many'],
+      control: "radio",
+      options: ["One", "Some", "Many"],
       mapping: {
         One: <TagGroup.Item>Tag 1</TagGroup.Item>,
-        Some: [<TagGroup.Item key="1">Tag 1</TagGroup.Item>, <TagGroup.Item key="2">Tag 2</TagGroup.Item>],
+        Some: [
+          <TagGroup.Item key="1">Tag 1</TagGroup.Item>,
+          <TagGroup.Item key="2">Tag 2</TagGroup.Item>,
+        ],
         Many: [
           <TagGroup.Item key="1">Tag 1</TagGroup.Item>,
           <TagGroup.Item key="2">Tag 2</TagGroup.Item>,
@@ -21,31 +25,31 @@ const meta = preview.meta({
       },
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
-    children: 'Many',
-    flow: 'wrap',
-    overflow: 'visible',
+    children: "Many",
+    flow: "wrap",
+    overflow: "visible",
   },
-})
+});
 
 /**
  * By default, tags within the tag group will wrap to the next line if the container is too small.
  */
 export const Wrapping = meta.story({
   args: {
-    children: 'Many',
+    children: "Many",
   },
   decorators: [
     (Story) => (
-      <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', width: '200px' }}>
+      <div style={{ boxSizing: "content-box", border: "1px solid #FA00FF", width: "200px" }}>
         <Story />
       </div>
     ),
   ],
-})
+});
 
 /**
  * The default wrapping behaviour can be overridden by setting `flow="nowrap"`. This is often
@@ -54,10 +58,10 @@ export const Wrapping = meta.story({
  */
 export const NoWrapping = Wrapping.extend({
   args: {
-    flow: 'nowrap',
+    flow: "nowrap",
   },
   decorators: Wrapping.input.decorators,
-})
+});
 
 /**
  * When wrapping is disabled, the overflow behaviour can also be configured using `overflow`. By
@@ -66,8 +70,8 @@ export const NoWrapping = Wrapping.extend({
  */
 export const Overflow = NoWrapping.extend({
   args: {
-    flow: 'nowrap',
-    overflow: 'auto',
+    flow: "nowrap",
+    overflow: "auto",
   },
   decorators: NoWrapping.input.decorators,
-})
+});

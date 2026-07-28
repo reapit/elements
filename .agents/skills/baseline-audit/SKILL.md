@@ -75,12 +75,12 @@ The `macosSafariMap` in `check-vendor-support.ts` maps macOS major versions to S
 
 ```ts
 const macosSafariMap: Record<string, string> = {
-  '26': '26', // macOS 26 Tahoe
-  '15': '18', // macOS 15 Sequoia
-  '14': '17', // macOS 14 Sonoma
-  '13': '16', // macOS 13 Ventura
-  '12': '15', // macOS 12 Monterey
-}
+  "26": "26", // macOS 26 Tahoe
+  "15": "18", // macOS 15 Sequoia
+  "14": "17", // macOS 14 Sonoma
+  "13": "16", // macOS 13 Ventura
+  "12": "15", // macOS 12 Monterey
+};
 ```
 
 Similarly, the `computeBaselineFloors` function contains hardcoded Baseline year → minimum browser version mappings. When a new Baseline year is defined, add a new row.

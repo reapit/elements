@@ -43,10 +43,10 @@ If your project imports Elements through an internal facade package, the rule is
 
 ```tsx
 // Before
-import { InputGroup } from '@company/ui'
+import { InputGroup } from "@company/ui";
 
 // After — identifier renamed, import path unchanged
-import { TextControl } from '@company/ui'
+import { TextControl } from "@company/ui";
 ```
 
 The facade package itself must also be updated to re-export the new component names from Elements. That's a separate task — complete it before or immediately after migrating consumer code so imports resolve correctly.

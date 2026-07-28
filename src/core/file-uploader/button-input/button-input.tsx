@@ -1,52 +1,58 @@
-import { Button } from '#src/core/button'
-import { cx } from '@linaria/core'
-import { elFileUploaderButtonInput } from './styles'
-import { FileInput } from '#src/utils/file-input'
-import { useFileUploaderContext } from '../context'
-import { useFileUploaderInput } from '../use-file-uploader-input'
+import { cx } from "@linaria/core";
+import type {
+  ComponentProps,
+  FocusEventHandler,
+  KeyboardEventHandler,
+  MouseEventHandler,
+} from "react";
 
-import type { ComponentProps, FocusEventHandler, KeyboardEventHandler, MouseEventHandler } from 'react'
+import { Button } from "#src/core/button";
+import { FileInput } from "#src/utils/file-input";
+
+import { useFileUploaderContext } from "../context";
+import { useFileUploaderInput } from "../use-file-uploader-input";
+import { elFileUploaderButtonInput } from "./styles";
 
 type ButtonAttributesToForward =
-  | 'aria-disabled'
-  | 'children'
-  | 'className'
-  | 'hasNoPadding'
-  | 'iconLeft'
-  | 'iconRight'
-  | 'isBusy'
-  | 'isDestructive'
-  | 'size'
-  | 'style'
-  | 'useAIStyle'
-  | 'useLinkStyle'
-  | 'variant'
+  | "aria-disabled"
+  | "children"
+  | "className"
+  | "hasNoPadding"
+  | "iconLeft"
+  | "iconRight"
+  | "isBusy"
+  | "isDestructive"
+  | "size"
+  | "style"
+  | "useAIStyle"
+  | "useLinkStyle"
+  | "variant";
 
 type FileInputAttributesToOmit =
-  | 'autoFocus'
-  | 'children'
-  | 'className'
-  | 'defaultValue'
-  | 'onBlur'
-  | 'onClick'
-  | 'onFocus'
-  | 'onKeyDown'
-  | 'size'
-  | 'style'
-  | 'tabIndex'
-  | 'value'
+  | "autoFocus"
+  | "children"
+  | "className"
+  | "defaultValue"
+  | "onBlur"
+  | "onClick"
+  | "onFocus"
+  | "onKeyDown"
+  | "size"
+  | "style"
+  | "tabIndex"
+  | "value";
 
 export namespace FileUploaderButtonInput {
   export interface Props
     extends
       Pick<ComponentProps<typeof Button>, ButtonAttributesToForward>,
       Omit<FileInput.Props, FileInputAttributesToOmit> {
-    autoFocus?: boolean
-    onBlur?: FocusEventHandler<HTMLButtonElement>
-    onClick?: MouseEventHandler<HTMLButtonElement>
-    onFocus?: FocusEventHandler<HTMLButtonElement>
-    onKeyDown?: KeyboardEventHandler<HTMLButtonElement>
-    tabIndex?: number
+    autoFocus?: boolean;
+    onBlur?: FocusEventHandler<HTMLButtonElement>;
+    onClick?: MouseEventHandler<HTMLButtonElement>;
+    onFocus?: FocusEventHandler<HTMLButtonElement>;
+    onKeyDown?: KeyboardEventHandler<HTMLButtonElement>;
+    tabIndex?: number;
   }
 }
 
@@ -54,7 +60,7 @@ export namespace FileUploaderButtonInput {
  * `FileUploader`'s standard button trigger.
  */
 export function FileUploaderButtonInput({
-  'aria-disabled': ariaDisabled,
+  "aria-disabled": ariaDisabled,
   accept,
   autoFocus,
   capture,
@@ -77,12 +83,12 @@ export function FileUploaderButtonInput({
   onKeyDown,
   required,
   showValidity,
-  size = 'medium',
+  size = "medium",
   style,
   tabIndex,
   useAIStyle,
   useLinkStyle,
-  variant = 'secondary',
+  variant = "secondary",
   ...rest
 }: FileUploaderButtonInput.Props) {
   const { files, handleChange } = useFileUploaderInput({
@@ -91,8 +97,8 @@ export function FileUploaderButtonInput({
     maxFileSize,
     multiple,
     onChange,
-  })
-  const { triggerId } = useFileUploaderContext('FileUploader.ButtonInput')
+  });
+  const { triggerId } = useFileUploaderContext("FileUploader.ButtonInput");
 
   return (
     <FileInput
@@ -125,8 +131,8 @@ export function FileUploaderButtonInput({
           isDestructive={isDestructive}
           onBlur={onBlur}
           onClick={(event) => {
-            openFilePicker()
-            onClick?.(event)
+            openFilePicker();
+            onClick?.(event);
           }}
           onFocus={onFocus}
           onKeyDown={onKeyDown}
@@ -142,7 +148,7 @@ export function FileUploaderButtonInput({
         </Button>
       )}
     </FileInput>
-  )
+  );
 }
 
-FileUploaderButtonInput.displayName = 'FileUploader.ButtonInput'
+FileUploaderButtonInput.displayName = "FileUploader.ButtonInput";

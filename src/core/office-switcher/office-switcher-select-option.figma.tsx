@@ -1,11 +1,12 @@
-import figma from '@figma/code-connect'
-import { OfficeSwitcher } from './office-switcher'
+import figma from "@figma/code-connect";
 
-figma.connect(OfficeSwitcher.Option, '<OFFICE_SWITCHER_OFFICE_ITEM_URL>', {
+import { OfficeSwitcher } from "./office-switcher";
+
+figma.connect(OfficeSwitcher.Option, "<OFFICE_SWITCHER_OFFICE_ITEM_URL>", {
   props: {
-    label: figma.string('Office label'),
-    badge: figma.boolean('Show Badge', {
-      true: figma.children('Badge'),
+    label: figma.string("Office label"),
+    badge: figma.boolean("Show Badge", {
+      true: figma.children("Badge"),
       false: undefined,
     }),
   },
@@ -14,17 +15,17 @@ figma.connect(OfficeSwitcher.Option, '<OFFICE_SWITCHER_OFFICE_ITEM_URL>', {
       {props.label}
     </OfficeSwitcher.Option>
   ),
-})
+});
 
 // NOTE: The Figma component we use to connect to the option group includes a variant
 // that represents a single option. So we connect our option component to that variant here.
-figma.connect(OfficeSwitcher.Option, '<OFFICE_SWITCHER_OFFICE_GROUP_URL>', {
-  variant: { Variant: 'Office' },
+figma.connect(OfficeSwitcher.Option, "<OFFICE_SWITCHER_OFFICE_GROUP_URL>", {
+  variant: { Variant: "Office" },
   props: {
-    item: figma.nestedProps('Office item', {
-      label: figma.string('Office label'),
-      badge: figma.boolean('Show Badge', {
-        true: figma.children('Badge'),
+    item: figma.nestedProps("Office item", {
+      label: figma.string("Office label"),
+      badge: figma.boolean("Show Badge", {
+        true: figma.children("Badge"),
         false: undefined,
       }),
     }),
@@ -34,4 +35,4 @@ figma.connect(OfficeSwitcher.Option, '<OFFICE_SWITCHER_OFFICE_GROUP_URL>', {
       {props.item.label}
     </OfficeSwitcher.Option>
   ),
-})
+});

@@ -1,12 +1,17 @@
-import preview from '#.storybook/preview'
-import { SearchableDropdown, ControlledSearchableDropdown, SearchableDropdownSearchLabel } from './index'
+import preview from "#.storybook/preview";
+
+import {
+  SearchableDropdown,
+  ControlledSearchableDropdown,
+  SearchableDropdownSearchLabel,
+} from "./index";
 
 const meta = preview.meta({
-  title: 'Deprecated/SearchableDropdown',
+  title: "Deprecated/SearchableDropdown",
   component: SearchableDropdown,
-})
+});
 
-export default meta
+export default meta;
 
 export const BasicUsage = meta.story({
   render: () => (
@@ -16,20 +21,20 @@ export const BasicUsage = meta.story({
           setTimeout(() => {
             resolve([
               {
-                id: '1',
-                name: 'First',
+                id: "1",
+                name: "First",
               },
               {
-                id: '2',
-                name: 'Second',
+                id: "2",
+                name: "Second",
               },
               {
-                id: '3',
-                name: 'Third',
+                id: "3",
+                name: "Third",
               },
-            ])
-          }, 1000)
-        })
+            ]);
+          }, 1000);
+        });
       }}
       getResultLabel={(result: any) => result.name}
       getResultValue={(result: any) => result.id}
@@ -37,12 +42,12 @@ export const BasicUsage = meta.story({
       placeholder="Search"
     />
   ),
-})
+});
 
 export const UseWithALabel = meta.story({
   render: () => <SearchableDropdownSearchLabel>Select an option</SearchableDropdownSearchLabel>,
-  name: 'Use with a label',
-})
+  name: "Use with a label",
+});
 
 export const UseWithAnIcon = meta.story({
   render: () => (
@@ -52,20 +57,20 @@ export const UseWithAnIcon = meta.story({
           setTimeout(() => {
             resolve([
               {
-                id: '1',
-                name: 'First',
+                id: "1",
+                name: "First",
               },
               {
-                id: '2',
-                name: 'Second',
+                id: "2",
+                name: "Second",
               },
               {
-                id: '3',
-                name: 'Third',
+                id: "3",
+                name: "Third",
               },
-            ])
-          }, 1000)
-        })
+            ]);
+          }, 1000);
+        });
       }}
       getResultLabel={(result: any) => result.name}
       getResultValue={(result: any) => result.id}
@@ -74,8 +79,8 @@ export const UseWithAnIcon = meta.story({
     />
   ),
 
-  name: 'Use with an icon',
-})
+  name: "Use with an icon",
+});
 
 export const ControlledUsage = meta.story({
   render: () => (
@@ -86,25 +91,25 @@ export const ControlledUsage = meta.story({
       selectedValue=""
       resultsList={[
         {
-          result: '1',
-          label: 'First',
+          result: "1",
+          label: "First",
         },
         {
-          result: '2',
-          label: 'Second',
+          result: "2",
+          label: "Second",
         },
         {
-          result: '3',
-          label: 'Third',
+          result: "3",
+          label: "Third",
         },
       ]}
       onResultClick={(result) => console.log(result)}
-      onClear={() => console.log('clear')}
+      onClear={() => console.log("clear")}
       icon="locationAlt"
     />
   ),
-})
+});
 
 export const DefaultValue = meta.story({
   render: () => <SearchableDropdownSearchLabel>Select an option</SearchableDropdownSearchLabel>,
-})
+});

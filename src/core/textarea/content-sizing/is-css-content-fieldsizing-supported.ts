@@ -1,5 +1,5 @@
 function isCSSContentFieldSizingSupported(): boolean {
-  return CSS.supports('field-sizing', 'content')
+  return CSS.supports("field-sizing", "content");
 }
 
-export default isCSSContentFieldSizingSupported
+export default isCSSContentFieldSizingSupported;

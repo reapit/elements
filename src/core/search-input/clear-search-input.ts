@@ -13,7 +13,7 @@
  * }
  */
 export function clearSearchInput(inputElement: HTMLInputElement): void {
-  inputElement.value = ''
-  const inputEvent = new Event('input', { bubbles: true, cancelable: true })
-  inputElement.dispatchEvent(inputEvent)
+  inputElement.value = "";
+  const inputEvent = new Event("input", { bubbles: true, cancelable: true });
+  inputElement.dispatchEvent(inputEvent);
 }

@@ -1,1 +1,1 @@
-export { CompactSelect } from './compact-select'
+export { CompactSelect } from "./compact-select";

@@ -1,7 +1,7 @@
-import { getClosestDialogElement } from '#src/utils/dialog'
-import { useCallback } from 'react'
+import { useCallback } from "react";
+import type { MouseEventHandler } from "react";
 
-import type { MouseEventHandler } from 'react'
+import { getClosestDialogElement } from "#src/utils/dialog";
 
 /**
  * By default, we will close the menu drawer whenever the dialog receives a click event from an
@@ -19,9 +19,9 @@ export function useCloseTopBarMenuDrawerOnClick(): MouseEventHandler<HTMLDivElem
       event.isTrusted &&
       event.target instanceof HTMLElement &&
       // Targets that are anchors, or children of anchors, should close the drawer
-      (event.target instanceof HTMLAnchorElement || event.target.closest('a') !== null)
+      (event.target instanceof HTMLAnchorElement || event.target.closest("a") !== null)
     ) {
-      getClosestDialogElement(event.currentTarget)?.close()
+      getClosestDialogElement(event.currentTarget)?.close();
     }
-  }, [])
+  }, []);
 }

@@ -1,14 +1,16 @@
-import addonDocs from '@storybook/addon-docs'
-import addonA11y from '@storybook/addon-a11y'
-import addonLinks from '@storybook/addon-links'
-import { definePreview } from '@storybook/react-vite'
-import { ThemeProvider } from '#src/utils/theme-provider'
-import { BreakpointMinimumDimensions } from '#src/utils/breakpoints'
+import addonA11y from "@storybook/addon-a11y";
+import addonDocs from "@storybook/addon-docs";
+import addonLinks from "@storybook/addon-links";
+import { definePreview } from "@storybook/react-vite";
 
-import '../src/styles/globals'
-import './preview.css'
+import { BreakpointMinimumDimensions } from "#src/utils/breakpoints";
+import { ThemeProvider } from "#src/utils/theme-provider";
 
-import type { Theme } from '../src/tokens'
+import "../src/styles/globals";
+
+import "./preview.css";
+
+import type { Theme } from "../src/tokens";
 
 export default definePreview({
   decorators: [
@@ -23,12 +25,12 @@ export default definePreview({
 
   globalTypes: {
     theme: {
-      description: 'Reapit Design System theme',
+      description: "Reapit Design System theme",
       toolbar: {
         dynamicTitle: true,
-        icon: 'paintbrush',
-        items: ['reapit', 'payprop'] satisfies Theme[],
-        title: 'Theme',
+        icon: "paintbrush",
+        items: ["reapit", "payprop"] satisfies Theme[],
+        title: "Theme",
       },
     },
   },
@@ -36,75 +38,75 @@ export default definePreview({
   parameters: {
     backgrounds: {
       options: {
-        light: { name: 'light', value: 'var(--colour-fill-neutral-lightest)' },
-        dark: { name: 'dark', value: 'var(--colour-fill-neutral-darkest)' },
+        light: { name: "light", value: "var(--colour-fill-neutral-lightest)" },
+        dark: { name: "dark", value: "var(--colour-fill-neutral-darkest)" },
       },
     },
     viewport: {
       options: {
-        '2XL': {
-          name: '2XL (4KScreen)',
-          type: 'desktop',
+        "2XL": {
+          name: "2XL (4KScreen)",
+          type: "desktop",
           styles: {
-            width: BreakpointMinimumDimensions['2XL'],
-            height: '1500px',
+            width: BreakpointMinimumDimensions["2XL"],
+            height: "1500px",
           },
         },
         XL: {
-          name: 'XL (SuperWideScreen)',
-          type: 'desktop',
+          name: "XL (SuperWideScreen)",
+          type: "desktop",
           styles: {
             width: BreakpointMinimumDimensions.XL,
-            height: '1500px',
+            height: "1500px",
           },
         },
         LG: {
-          name: 'LG (WideScreen)',
-          type: 'desktop',
+          name: "LG (WideScreen)",
+          type: "desktop",
           styles: {
             width: BreakpointMinimumDimensions.LG,
-            height: '900px',
+            height: "900px",
           },
         },
         MD: {
-          name: 'MD (Desktop)',
-          type: 'desktop',
+          name: "MD (Desktop)",
+          type: "desktop",
           styles: {
             width: BreakpointMinimumDimensions.MD,
-            height: '900px',
+            height: "900px",
           },
         },
         SM: {
-          name: 'SM (Tablet)',
-          type: 'tablet',
+          name: "SM (Tablet)",
+          type: "tablet",
           styles: {
             width: BreakpointMinimumDimensions.SM,
-            height: '1024px',
+            height: "1024px",
           },
         },
         XS: {
-          name: 'XS (Mobile)',
-          type: 'mobile',
+          name: "XS (Mobile)",
+          type: "mobile",
           styles: {
-            width: '375px',
-            height: '667px',
+            width: "375px",
+            height: "667px",
           },
         },
       },
     },
-    viewMode: 'docs',
+    viewMode: "docs",
     options: {
       storySort: {
-        method: 'alphabetical',
-        order: ['Welcome', 'Getting Started', 'Changelog', '*'],
+        method: "alphabetical",
+        order: ["Welcome", "Getting Started", "Changelog", "*"],
       },
     },
   },
 
   initialGlobals: {
-    theme: 'reapit',
+    theme: "reapit",
   },
 
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   addons: [addonLinks(), addonA11y(), addonDocs()],
-})
+});

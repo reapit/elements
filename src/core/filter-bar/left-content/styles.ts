@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
 
 export const ElFilterBarLeftContent = styled.div`
   @layer elements.main {
@@ -7,4 +7,4 @@ export const ElFilterBarLeftContent = styled.div`
     flex-flow: row nowrap;
     gap: var(--spacing-3);
   }
-`
+`;

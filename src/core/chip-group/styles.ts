@@ -1,8 +1,8 @@
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
 
 interface ElChipGroupListProps {
-  'data-flow': 'wrap' | 'nowrap'
-  'data-overflow': 'auto' | 'visible'
+  "data-flow": "wrap" | "nowrap";
+  "data-overflow": "auto" | "visible";
 }
 
 export const ElChipGroupList = styled.ul<ElChipGroupListProps>`
@@ -16,24 +16,24 @@ export const ElChipGroupList = styled.ul<ElChipGroupListProps>`
     width: 100%;
 
     &,
-    &[data-flow='wrap'] {
+    &[data-flow="wrap"] {
       flex-flow: row wrap;
     }
 
-    &[data-flow='nowrap'] {
+    &[data-flow="nowrap"] {
       flex-flow: row nowrap;
     }
 
     &,
-    &[data-overflow='visible'] {
+    &[data-overflow="visible"] {
       overflow: visible;
     }
 
-    &[data-overflow='auto'] {
+    &[data-overflow="auto"] {
       overflow: auto;
     }
   }
-`
+`;
 
 export const ElChipGroupListItem = styled.li`
   @layer elements.main {
@@ -42,4 +42,4 @@ export const ElChipGroupListItem = styled.li`
     flex: 0 0 auto;
     max-width: 100%;
   }
-`
+`;

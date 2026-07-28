@@ -1,36 +1,39 @@
-import { AnchorPositioning } from '#src/utils/anchor-positioning'
-import { cx } from '@linaria/core'
-import { elPopover } from './styles'
-import { getClosestPopoverElement } from './get-closest-popover-element'
-import { getPopoverTriggerProps } from './get-popover-trigger-props'
+import { cx } from "@linaria/core";
+import type { CSSProperties, HTMLAttributes, ReactNode } from "react";
 
-import type { CSSProperties, HTMLAttributes, ReactNode } from 'react'
+import { AnchorPositioning } from "#src/utils/anchor-positioning";
+
+import { getClosestPopoverElement } from "./get-closest-popover-element";
+import { getPopoverTriggerProps } from "./get-popover-trigger-props";
+import { elPopover } from "./styles";
 
 // We omit these ID props because Popover accepts them via different names.
-type AttributesToOmit = 'anchorElementId' | 'position' | 'positionedElementId'
+type AttributesToOmit = "anchorElementId" | "position" | "positionedElementId";
 
 export namespace Popover {
   export interface Props
-    extends Omit<AnchorPositioning.PositioningProps, AttributesToOmit>, HTMLAttributes<HTMLDivElement> {
+    extends
+      Omit<AnchorPositioning.PositioningProps, AttributesToOmit>,
+      HTMLAttributes<HTMLDivElement> {
     /** ID of the element to anchor this popover to. */
-    anchorId: string
+    anchorId: string;
     /**
      * Border radius. Accepts any valid CSS length. Defaults to zero. Prefer CSS variables.
      */
-    borderRadius?: string
+    borderRadius?: string;
     /** Popover content. */
-    children: ReactNode
+    children: ReactNode;
     /** Visual elevation. Determines shadow depth. */
-    elevation?: 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+    elevation?: "none" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
     /**
      * Popover ID. Required for the trigger's `popovertarget` attribute.
      */
-    id: string
+    id: string;
     /**
      * Maximum height. Accepts any valid CSS length. Defaults to content height.
      * Prefer `--size-*` variables.
      */
-    maxHeight?: string
+    maxHeight?: string;
     /**
      * Popover type. See
      * [popover](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/popover).
@@ -40,11 +43,11 @@ export namespace Popover {
      * Use `null` to display the popover permanently (for documentation or examples). Without the
      * `popover` attribute, the element won't render in the top layer and may encounter z-index issues.
      */
-    popover?: 'auto' | 'hint' | 'manual' | null
+    popover?: "auto" | "hint" | "manual" | null;
     /**
      * The position of the popover. Must be absolute or fixed. Default is fixed.
      */
-    position?: AnchorPositioning.Props['position']
+    position?: AnchorPositioning.Props["position"];
   }
 }
 
@@ -67,7 +70,7 @@ export function Popover({
   children,
   className,
   bottom,
-  elevation = 'none',
+  elevation = "none",
   gap,
   id,
   justifySelf,
@@ -78,7 +81,7 @@ export function Popover({
   placement,
   position,
   positionTryFallbacks,
-  popover = 'auto',
+  popover = "auto",
   right,
   style,
   top,
@@ -95,8 +98,8 @@ export function Popover({
       style={
         {
           ...style,
-          '--popover-border-radius': borderRadius,
-          '--popover-max-height': maxHeight,
+          "--popover-border-radius": borderRadius,
+          "--popover-max-height": maxHeight,
         } as CSSProperties
       }
     >
@@ -118,8 +121,8 @@ export function Popover({
       />
       {children}
     </div>
-  )
+  );
 }
 
-Popover.getTriggerProps = getPopoverTriggerProps
-Popover.getClosestPopoverElement = getClosestPopoverElement
+Popover.getTriggerProps = getPopoverTriggerProps;
+Popover.getClosestPopoverElement = getClosestPopoverElement;

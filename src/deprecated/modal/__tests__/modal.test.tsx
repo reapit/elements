@@ -1,67 +1,68 @@
-import { render } from '@testing-library/react'
-import { Modal, handleModalFocus } from '../modal'
-import { createRef } from 'react'
+import { render } from "@testing-library/react";
+import { createRef } from "react";
 
-describe('Modal component', () => {
-  let consoleWarn: ReturnType<typeof vi.spyOn>
+import { Modal, handleModalFocus } from "../modal";
+
+describe("Modal component", () => {
+  let consoleWarn: ReturnType<typeof vi.spyOn>;
 
   beforeEach(() => {
-    consoleWarn = vi.spyOn(console, 'warn').mockImplementation(() => {})
-  })
+    consoleWarn = vi.spyOn(console, "warn").mockImplementation(() => {});
+  });
 
   afterEach(() => {
-    consoleWarn.mockRestore()
-  })
+    consoleWarn.mockRestore();
+  });
 
-  it('should match a snapshot when closed', () => {
+  it("should match a snapshot when closed", () => {
     const wrapper = render(
       <Modal isOpen={false} onModalClose={() => {}} title="test">
         Content within modal
       </Modal>,
-    )
-    expect(wrapper.asFragment()).toMatchSnapshot()
-  })
+    );
+    expect(wrapper.asFragment()).toMatchSnapshot();
+  });
 
-  it('should match a snapshot when open', () => {
+  it("should match a snapshot when open", () => {
     const wrapper = render(
       <Modal isOpen={true} onModalClose={() => {}} title="test">
         Content within modal
       </Modal>,
-    )
-    expect(wrapper.asFragment()).toMatchSnapshot()
-  })
-})
+    );
+    expect(wrapper.asFragment()).toMatchSnapshot();
+  });
+});
 
-describe('handleModalFocus', () => {
-  it('should focus on the modal if it is open', () => {
-    const modalRef = createRef<HTMLDivElement>()
-    const mockElement = document.createElement('div')
-    const focusSpy = vi.spyOn(mockElement, 'focus')
+describe("handleModalFocus", () => {
+  it("should focus on the modal if it is open", () => {
+    const modalRef = createRef<HTMLDivElement>();
+    const mockElement = document.createElement("div");
+    const focusSpy = vi.spyOn(mockElement, "focus");
 
-    Object.defineProperty(modalRef, 'current', {
+    Object.defineProperty(modalRef, "current", {
       value: mockElement,
-    })
+    });
 
-    const curried = handleModalFocus(modalRef, true)
+    const curried = handleModalFocus(modalRef, true);
 
-    curried()
+    curried();
 
-    expect(focusSpy).toHaveBeenCalled()
-  })
+    expect(focusSpy).toHaveBeenCalled();
+  });
 
-  it('should not focus on the modal if it is not open', () => {
-    const modalRef = createRef<HTMLDivElement>()
-    const mockElement = document.createElement('div')
-    const focusSpy = vi.spyOn(mockElement, 'focus')
+  it("should not focus on the modal if it is not open", () => {
+    const modalRef = createRef<HTMLDivElement>();
+    const mockElement = document.createElement("div");
+    const focusSpy = vi.spyOn(mockElement, "focus");
 
-    Object.defineProperty(modalRef, 'current', {
+    Object.defineProperty(modalRef, "current", {
       value: mockElement,
-    })
+    });
 
-    const curried = handleModalFocus(modalRef, false)
+    const curried = handleModalFocus(modalRef, false);
 
-    curried()
+    curried();
 
-    expect(focusSpy).not.toHaveBeenCalled()
-  })
-})
+    expect(focusSpy).not.toHaveBeenCalled();
+  });
+});

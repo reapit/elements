@@ -1,5 +1,6 @@
-import { styled } from '@linaria/react'
-import { font } from '#src/utils/font'
+import { styled } from "@linaria/react";
+
+import { font } from "#src/utils/font";
 
 export const ElAtAGlanceHeader = styled.header`
   @layer elements.main {
@@ -9,7 +10,7 @@ export const ElAtAGlanceHeader = styled.header`
     gap: var(--spacing-2);
     width: 100%;
   }
-`
+`;
 
 export const ElAtAGlanceHeaderTitle = styled.h1`
   flex: 1 1 auto;
@@ -17,6 +18,6 @@ export const ElAtAGlanceHeaderTitle = styled.h1`
   margin: 0;
   padding: 0;
 
-  ${font('lg', 'medium')}
+  ${font("lg", "medium")}
   color: var(--colour-text-primary);
-`
+`;

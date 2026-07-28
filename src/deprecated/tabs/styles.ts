@@ -1,5 +1,5 @@
-import { styled } from '@linaria/react'
-import { css } from '@linaria/core'
+import { css } from "@linaria/core";
+import { styled } from "@linaria/react";
 
 /** @deprecated */
 export const ElTabsItem = styled.span`
@@ -15,16 +15,16 @@ export const ElTabsItem = styled.span`
   font-size: 0.9375rem /* was --font-size-default */;
   font-weight: 500 /* was --font-weight-medium */;
   color: var(--colour-text-secondary);
-`
+`;
 
 /** @deprecated */
 export const elTabsFullWidth = css`
   width: 100%;
   justify-content: space-evenly;
-`
+`;
 
 /** @deprecated */
-export const elTabsHasNoBorder = css``
+export const elTabsHasNoBorder = css``;
 
 /** @deprecated */
 export const ElTab = styled.input`
@@ -48,7 +48,7 @@ export const ElTab = styled.input`
     color: var(--colour-text-action);
     border-bottom: 2px solid var(--colour-fill-action-dark);
   }
-`
+`;
 
 /** @deprecated */
 export const ElTabsLabel = styled.label`
@@ -62,7 +62,7 @@ export const ElTabsLabel = styled.label`
   &:last-child {
     margin-right: 0;
   }
-`
+`;
 
 /** @deprecated */
 export const ElTabsWrap = styled.div`
@@ -83,13 +83,13 @@ export const ElTabsWrap = styled.div`
   &.${elTabsFullWidth} {
     width: 100%;
   }
-`
+`;
 
 /** @deprecated */
 export const ElTabsOptionsWrap = styled.div`
   display: flex;
   gap: 1.5rem;
-`
+`;
 
 /** @deprecated */
 export const ElTabsFooter = styled.div`
@@ -104,4 +104,4 @@ export const ElTabsFooter = styled.div`
   &.${elTabsHasNoBorder} {
     display: none;
   }
-`
+`;

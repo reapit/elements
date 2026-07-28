@@ -1,22 +1,23 @@
-import { cx } from '@linaria/core'
-import { elTopBarMenuDrawer } from './styles'
-import { getClosestDialogElement, HTMLDialog, useDialogOpenController } from '#src/utils/dialog'
-import { TopBarMenuDrawerContent } from './content'
-import { TopBarMenuDrawerHeader } from './header'
-import { TopBarMenuDrawerMainNav } from './main-nav'
-import { TopBarMenuDrawerSecondaryNav } from './secondary-nav'
-import { TopBarMenuDrawerProfileNav } from './profile-nav'
-import { TopBarMenuDrawerMenuList } from './menu-list'
-import { TopBarMenuDrawerSubmenu } from './submenu'
-import { useTopBarMenuDrawerKeyboardNavigation } from './use-keyboard-navigation'
+import { cx } from "@linaria/core";
+import type { DialogHTMLAttributes, ReactNode } from "react";
 
-import type { DialogHTMLAttributes, ReactNode } from 'react'
-import { useCloseTopBarMenuDrawerOnClick } from './use-close-menu-on-click'
+import { getClosestDialogElement, HTMLDialog, useDialogOpenController } from "#src/utils/dialog";
+
+import { TopBarMenuDrawerContent } from "./content";
+import { TopBarMenuDrawerHeader } from "./header";
+import { TopBarMenuDrawerMainNav } from "./main-nav";
+import { TopBarMenuDrawerMenuList } from "./menu-list";
+import { TopBarMenuDrawerProfileNav } from "./profile-nav";
+import { TopBarMenuDrawerSecondaryNav } from "./secondary-nav";
+import { elTopBarMenuDrawer } from "./styles";
+import { TopBarMenuDrawerSubmenu } from "./submenu";
+import { useCloseTopBarMenuDrawerOnClick } from "./use-close-menu-on-click";
+import { useTopBarMenuDrawerKeyboardNavigation } from "./use-keyboard-navigation";
 
 // NOTE: we omit 'open' because we do not want React consumers to use it directly as it results in a
 // non-modal experience. Instead, our React `TopBarMenuDrawer` component provides an `isOpen` prop that ensures
 // a modal experience is achieved.
-type AttributesToOmit = 'open'
+type AttributesToOmit = "open";
 
 export namespace TopBarMenuDrawer {
   export interface ContentProps extends TopBarMenuDrawerContent.Props {}
@@ -35,7 +36,7 @@ export namespace TopBarMenuDrawer {
 
   export interface Props extends Omit<DialogHTMLAttributes<HTMLDialogElement>, AttributesToOmit> {
     /** The menu content */
-    children: ReactNode
+    children: ReactNode;
     /**
      * Specifies the types of user actions that can be used to close the drawer. This property distinguishes
      * three methods by which a drawer can be closed:
@@ -63,9 +64,9 @@ export namespace TopBarMenuDrawer {
      *
      * @default 'any'
      */
-    closedBy?: 'any' | 'closerequest' | 'none'
+    closedBy?: "any" | "closerequest" | "none";
     /** Indicates whether the drawer is open or not */
-    isOpen?: boolean
+    isOpen?: boolean;
   }
 }
 
@@ -84,11 +85,11 @@ export namespace TopBarMenuDrawer {
  * menu drawer for use in the top bar's secondary nav region.
  */
 export function TopBarMenuDrawer({
-  'aria-label': ariaLabel,
-  'aria-labelledby': ariaLabelledBy,
+  "aria-label": ariaLabel,
+  "aria-labelledby": ariaLabelledBy,
   children,
   className,
-  closedBy = 'any',
+  closedBy = "any",
   isOpen: isOpenProp,
   onCancel,
   onClick,
@@ -96,9 +97,9 @@ export function TopBarMenuDrawer({
   ...rest
 }: TopBarMenuDrawer.Props) {
   // We need to imperatively show or close the dialog element when the `isOpen` prop changes.
-  const ref = useDialogOpenController(isOpenProp)
-  const handleKeyboardNavigation = useTopBarMenuDrawerKeyboardNavigation()
-  const closeOnClick = useCloseTopBarMenuDrawerOnClick()
+  const ref = useDialogOpenController(isOpenProp);
+  const handleKeyboardNavigation = useTopBarMenuDrawerKeyboardNavigation();
+  const closeOnClick = useCloseTopBarMenuDrawerOnClick();
 
   return (
     <HTMLDialog
@@ -118,25 +119,25 @@ export function TopBarMenuDrawer({
         {children}
       </div>
     </HTMLDialog>
-  )
+  );
 }
 
-TopBarMenuDrawer.getClosestDialogElement = getClosestDialogElement
+TopBarMenuDrawer.getClosestDialogElement = getClosestDialogElement;
 
-TopBarMenuDrawer.Content = TopBarMenuDrawerContent
-TopBarMenuDrawer.Header = TopBarMenuDrawerHeader
-TopBarMenuDrawer.MainNav = TopBarMenuDrawerMainNav
-TopBarMenuDrawer.SecondaryNav = TopBarMenuDrawerSecondaryNav
-TopBarMenuDrawer.ProfileNav = TopBarMenuDrawerProfileNav
-TopBarMenuDrawer.MenuList = TopBarMenuDrawerMenuList
-TopBarMenuDrawer.MenuItem = TopBarMenuDrawerMenuList.Item
-TopBarMenuDrawer.MenuItemButton = TopBarMenuDrawerMenuList.ItemButton
-TopBarMenuDrawer.MenuGroup = TopBarMenuDrawerMenuList.Group
-TopBarMenuDrawer.MenuGroupSummary = TopBarMenuDrawerMenuList.GroupSummary
-TopBarMenuDrawer.Submenu = TopBarMenuDrawerSubmenu
-TopBarMenuDrawer.SubmenuItem = TopBarMenuDrawerSubmenu.Item
-TopBarMenuDrawer.SubmenuItemButton = TopBarMenuDrawerSubmenu.ItemButton
+TopBarMenuDrawer.Content = TopBarMenuDrawerContent;
+TopBarMenuDrawer.Header = TopBarMenuDrawerHeader;
+TopBarMenuDrawer.MainNav = TopBarMenuDrawerMainNav;
+TopBarMenuDrawer.SecondaryNav = TopBarMenuDrawerSecondaryNav;
+TopBarMenuDrawer.ProfileNav = TopBarMenuDrawerProfileNav;
+TopBarMenuDrawer.MenuList = TopBarMenuDrawerMenuList;
+TopBarMenuDrawer.MenuItem = TopBarMenuDrawerMenuList.Item;
+TopBarMenuDrawer.MenuItemButton = TopBarMenuDrawerMenuList.ItemButton;
+TopBarMenuDrawer.MenuGroup = TopBarMenuDrawerMenuList.Group;
+TopBarMenuDrawer.MenuGroupSummary = TopBarMenuDrawerMenuList.GroupSummary;
+TopBarMenuDrawer.Submenu = TopBarMenuDrawerSubmenu;
+TopBarMenuDrawer.SubmenuItem = TopBarMenuDrawerSubmenu.Item;
+TopBarMenuDrawer.SubmenuItemButton = TopBarMenuDrawerSubmenu.ItemButton;
 
-TopBarMenuDrawer.displayName = 'TopBar.MenuDrawer'
+TopBarMenuDrawer.displayName = "TopBar.MenuDrawer";
 
-export { getClosestDialogElement } from '#src/utils/dialog'
+export { getClosestDialogElement } from "#src/utils/dialog";

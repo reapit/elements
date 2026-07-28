@@ -1,9 +1,10 @@
-import { InteractiveCardBase } from './interactive-card-base'
+import type { AnchorHTMLAttributes } from "react";
 
-import type { AnchorHTMLAttributes } from 'react'
+import { InteractiveCardBase } from "./interactive-card-base";
 
 export namespace AnchorCard {
-  export interface Props extends InteractiveCardBase.CommonProps, AnchorHTMLAttributes<HTMLAnchorElement> {
+  export interface Props
+    extends InteractiveCardBase.CommonProps, AnchorHTMLAttributes<HTMLAnchorElement> {
     /**
      * Indicates that this card represents the current item within a navigation context.
      * Use `'page'` when the card represents the current page or URL. Other values (`'step'`,
@@ -12,9 +13,9 @@ export namespace AnchorCard {
      * a non-current state to assistive technologies. Omit the prop entirely to exclude the
      * attribute from the DOM.
      */
-    'aria-current'?: boolean | 'false' | 'true' | 'page' | 'step' | 'location' | 'date' | 'time'
+    "aria-current"?: boolean | "false" | "true" | "page" | "step" | "location" | "date" | "time";
     /** The URL the card navigates to. */
-    href: string
+    href: string;
   }
 }
 
@@ -26,5 +27,5 @@ export namespace AnchorCard {
  * rather than navigate, use `ButtonCard` instead.
  */
 export function AnchorCard(props: AnchorCard.Props) {
-  return <InteractiveCardBase as="a" {...props} />
+  return <InteractiveCardBase as="a" {...props} />;
 }

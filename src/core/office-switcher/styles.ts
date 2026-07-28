@@ -1,6 +1,7 @@
-import { font } from '#src/utils/font'
-import { isWidthAtOrAbove } from '#src/utils/breakpoints'
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
+
+import { isWidthAtOrAbove } from "#src/utils/breakpoints";
+import { font } from "#src/utils/font";
 
 export const ElOfficeSwitcher = styled.div`
   @layer elements.main {
@@ -11,16 +12,17 @@ export const ElOfficeSwitcher = styled.div`
 
     background: var(--comp-office_switcher-colour-fill-default);
     color: var(--comp-office_switcher-colour-text-default);
-    border-bottom: var(--comp-office_switcher-border-width) solid var(--comp-office_switcher-colour-border);
+    border-bottom: var(--comp-office_switcher-border-width) solid
+      var(--comp-office_switcher-colour-border);
 
     height: var(--size-10);
     width: 100%;
     padding-inline: var(--spacing-5);
 
-    ${font('sm', 'regular')}
+    ${font("sm", "regular")}
 
-    @media screen and (${isWidthAtOrAbove('SM')}) {
+    @media screen and (${isWidthAtOrAbove("SM")}) {
       display: grid;
     }
   }
-`
+`;

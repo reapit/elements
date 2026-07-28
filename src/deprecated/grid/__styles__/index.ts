@@ -1,5 +1,12 @@
-import { styled } from '@linaria/react'
-import { is4KScreen, isDesktop, isSuperWideScreen, isTablet, isWideScreen } from '../../../styles/deprecated-media'
+import { styled } from "@linaria/react";
+
+import {
+  is4KScreen,
+  isDesktop,
+  isSuperWideScreen,
+  isTablet,
+  isWideScreen,
+} from "../../../styles/deprecated-media";
 
 /** @deprecated */
 export const ElGrid = styled.div`
@@ -26,22 +33,22 @@ export const ElGrid = styled.div`
   ${is4KScreen} {
     grid-template-columns: repeat(20, 1fr);
   }
-`
+`;
 
 /** @deprecated */
 export const ElCol = styled.div`
   grid-column-end: span 4;
-`
+`;
 
 /** @deprecated */
 export const ElColHalf = styled.div`
   grid-column-end: span 2;
-`
+`;
 
 /** @deprecated */
 export const ElColQuarter = styled.div`
   grid-column-end: span 1;
-`
+`;
 
 /** @deprecated */
 export const ElColSplit = styled.div`
@@ -58,7 +65,7 @@ export const ElColSplit = styled.div`
   ${is4KScreen} {
     grid-column-end: span 10;
   }
-`
+`;
 
 /** @deprecated */
 export const ElGridThirds = styled.div`
@@ -69,7 +76,7 @@ export const ElGridThirds = styled.div`
   ${isTablet} {
     grid-gap: 1.25rem;
   }
-`
+`;
 
 /** @deprecated */
 export const ElColSplitThird = styled.div`
@@ -78,7 +85,7 @@ export const ElColSplitThird = styled.div`
   ${isDesktop} {
     grid-column-end: span 1;
   }
-`
+`;
 
 /** @deprecated */
 export const ElColSplitTwoThirds = styled.div`
@@ -87,4 +94,4 @@ export const ElColSplitTwoThirds = styled.div`
   ${isDesktop} {
     grid-column-end: span 2;
   }
-`
+`;

@@ -1,8 +1,9 @@
-import { isWidthAtOrAbove, isWidthBelow } from '#src/utils/breakpoints'
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
+
+import { isWidthAtOrAbove, isWidthBelow } from "#src/utils/breakpoints";
 
 interface PageHeaderLeadingElementProps {
-  'data-type': 'icon' | 'image'
+  "data-type": "icon" | "image";
 }
 
 export const ElPageHeaderLeadingElement = styled.div<PageHeaderLeadingElementProps>`
@@ -20,13 +21,13 @@ export const ElPageHeaderLeadingElement = styled.div<PageHeaderLeadingElementPro
       height: var(--size-6);
       width: var(--size-6);
 
-      @media screen and ${isWidthAtOrAbove('SM')} {
+      @media screen and ${isWidthAtOrAbove("SM")} {
         padding-block-start: var(--spacing-1);
         height: var(--size-10);
         width: var(--size-10);
       }
 
-      @container ${isWidthAtOrAbove('SM')} {
+      @container ${isWidthAtOrAbove("SM")} {
         padding-block-start: var(--spacing-1);
         height: var(--size-10);
         width: var(--size-10);
@@ -35,7 +36,7 @@ export const ElPageHeaderLeadingElement = styled.div<PageHeaderLeadingElementPro
       /* NOTE: This container query will override the default media query behaviour above if there's
        * an ancestor is a container. If there's no ancestral container, the media query will behave
        * as defined above. */
-      @container ${isWidthBelow('SM')} {
+      @container ${isWidthBelow("SM")} {
         padding-block-start: var(--spacing-2);
         height: var(--size-6);
         width: var(--size-6);
@@ -49,20 +50,20 @@ export const ElPageHeaderLeadingElement = styled.div<PageHeaderLeadingElementPro
       padding-block-start: var(--spacing-1);
       width: var(--size-16);
 
-      @media screen and ${isWidthAtOrAbove('SM')} {
+      @media screen and ${isWidthAtOrAbove("SM")} {
         width: var(--size-24);
       }
 
-      @container ${isWidthAtOrAbove('SM')} {
+      @container ${isWidthAtOrAbove("SM")} {
         width: var(--size-24);
       }
 
       /* NOTE: This container query will override the default media query behaviour above if there's
        * an ancestor is a container. If there's no ancestral container, the media query will behave
        * as defined above. */
-      @container ${isWidthBelow('SM')} {
+      @container ${isWidthBelow("SM")} {
         width: var(--size-16);
       }
     }
   }
-`
+`;

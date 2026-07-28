@@ -1,10 +1,10 @@
-import { ElPagination, ElPaginationItem, ElPaginationList } from './styles'
-import { getLinkProps } from './get-link-props'
-import { PaginationInfo } from './info'
-import { PaginationLink, PaginationLinkButton } from './link'
-import { useCallback } from 'react'
+import { useCallback } from "react";
+import type { ReactNode } from "react";
 
-import type { ReactNode } from 'react'
+import { getLinkProps } from "./get-link-props";
+import { PaginationInfo } from "./info";
+import { PaginationLink, PaginationLinkButton } from "./link";
+import { ElPagination, ElPaginationItem, ElPaginationList } from "./styles";
 
 export namespace Pagination {
   export interface Props {
@@ -12,25 +12,25 @@ export namespace Pagination {
      * The action to go to the next page. Typically a `Pagination.Link`
      * or `Pagination.LinkButton`.
      */
-    leftAction?: ReactNode
+    leftAction?: ReactNode;
     /**
      * Optional callback useful when relying on the deprecated, built-in button controls
      * @deprecated use `leftAction` and `rightAction`
      */
-    onPageChange?: (page: number) => void
+    onPageChange?: (page: number) => void;
     /**
      * The total number of pages.
      */
-    pageCount: number
+    pageCount: number;
     /**
      * The current page number. Expects a 1-based value.
      */
-    pageNumber: number
+    pageNumber: number;
     /**
      * The action to go to the previous page. Typically a `Pagination.Link`
      * or `Pagination.LinkButton`.
      */
-    rightAction?: ReactNode
+    rightAction?: ReactNode;
   }
 }
 
@@ -38,14 +38,20 @@ export namespace Pagination {
  * The pagination component is used to navigate between pages. It displays the current page and the total
  * number of pages available.
  */
-export function Pagination({ leftAction, onPageChange, pageCount, pageNumber, rightAction }: Pagination.Props) {
+export function Pagination({
+  leftAction,
+  onPageChange,
+  pageCount,
+  pageNumber,
+  rightAction,
+}: Pagination.Props) {
   const deprecatedHandleOnNextPageClick = useCallback(() => {
-    onPageChange?.(pageNumber + 1)
-  }, [pageNumber])
+    onPageChange?.(pageNumber + 1);
+  }, [pageNumber]);
 
   const deprecatedHandleOnBackPageClick = useCallback(() => {
-    onPageChange?.(pageNumber - 1)
-  }, [pageNumber])
+    onPageChange?.(pageNumber - 1);
+  }, [pageNumber]);
 
   return (
     <ElPagination aria-label="Pagination">
@@ -79,14 +85,14 @@ export function Pagination({ leftAction, onPageChange, pageCount, pageNumber, ri
         </ElPaginationItem>
       </ElPaginationList>
     </ElPagination>
-  )
+  );
 }
 
-Pagination.Info = PaginationInfo
-Pagination.Link = PaginationLink
-Pagination.LinkButton = PaginationLinkButton
+Pagination.Info = PaginationInfo;
+Pagination.Link = PaginationLink;
+Pagination.LinkButton = PaginationLinkButton;
 
-Pagination.getLinkProps = getLinkProps
+Pagination.getLinkProps = getLinkProps;
 
 /** @deprecated Use Pagination.Props instead */
-export type PaginationProps = Pagination.Props
+export type PaginationProps = Pagination.Props;

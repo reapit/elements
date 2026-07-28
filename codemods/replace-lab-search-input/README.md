@@ -80,7 +80,7 @@ A comment is inserted before each JSX statement from which `unstable_onSearch` w
 
 ```tsx
 // TODO: Replace the removed unstable_onSearch prop with onChange.
-const el = <SearchInput size="medium" />
+const el = <SearchInput size="medium" />;
 ```
 
 ## Limitations

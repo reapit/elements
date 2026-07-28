@@ -1,4 +1,4 @@
-import MenuCollapseSvg from './svgs/menu-collapse.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import MenuCollapseSvg from "./svgs/menu-collapse.svg?react";
 
-export const MenuCollapseIcon = makeIcon('MenuCollapseIcon', MenuCollapseSvg)
+export const MenuCollapseIcon = makeIcon("MenuCollapseIcon", MenuCollapseSvg);

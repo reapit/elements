@@ -1,10 +1,10 @@
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
 
 export const GridDemoBlock = styled.div`
   width: 100%;
   min-height: 3rem;
   background-color: var(--colour-fill-action-dark);
-`
+`;
 
 export const GridDemoBlockFeatured = styled.div`
   width: 100%;
@@ -15,7 +15,7 @@ export const GridDemoBlockFeatured = styled.div`
   align-items: center;
   justify-content: center;
   color: white;
-`
+`;
 
 export const GridDemoBlockWithMargin = styled.div`
   height: 3rem;
@@ -28,7 +28,7 @@ export const GridDemoBlockWithMargin = styled.div`
   justify-content: center;
   align-items: center;
   padding: 1rem;
-`
+`;
 
 export const GridDemoBlockSizing = styled.div`
   background-color: var(--colour-fill-action-dark);
@@ -39,7 +39,7 @@ export const GridDemoBlockSizing = styled.div`
   padding: 1rem;
   overflow: visible;
   white-space: nowrap;
-`
+`;
 
 export const GridDemoBorders = styled.div`
   background-color: var(--colour-fill-neutral-light);
@@ -51,4 +51,4 @@ export const GridDemoBorders = styled.div`
   align-items: center;
   overflow: visible;
   margin-bottom: 1rem;
-`
+`;

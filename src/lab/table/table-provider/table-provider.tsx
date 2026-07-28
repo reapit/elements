@@ -1,7 +1,8 @@
-import React, { createContext, useContext } from 'react'
-import { TableProviderProps, TableContextProps } from './types'
+import React, { createContext, useContext } from "react";
 
-const TableContext = createContext<TableContextProps | null>(null)
+import { TableProviderProps, TableContextProps } from "./types";
+
+const TableContext = createContext<TableContextProps | null>(null);
 
 /**
  * TableProvider component: Provides context for table rows and their unique ID key.
@@ -11,9 +12,9 @@ const TableContext = createContext<TableContextProps | null>(null)
  * @returns {ReactNode} The context provider wrapping its children.
  */
 export const TableProvider: React.FC<TableProviderProps> = ({ rows, idKey, children }) => {
-  const value = { rows, idKey }
-  return <TableContext.Provider value={value}>{children}</TableContext.Provider>
-}
+  const value = { rows, idKey };
+  return <TableContext.Provider value={value}>{children}</TableContext.Provider>;
+};
 
 /**
  * Custom hook to access the table context.
@@ -22,9 +23,9 @@ export const TableProvider: React.FC<TableProviderProps> = ({ rows, idKey, child
  * @returns {TableContextProps} The context value containing rows and idKey.
  */
 export const useTableContext = () => {
-  const context = useContext(TableContext)
+  const context = useContext(TableContext);
   if (!context) {
-    throw new Error('useTableContext must be used within a TableProvider')
+    throw new Error("useTableContext must be used within a TableProvider");
   }
-  return context
-}
+  return context;
+};

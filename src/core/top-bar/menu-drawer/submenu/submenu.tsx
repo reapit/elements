@@ -1,8 +1,8 @@
-import { ElTopBarMenuDrawerSubmenuList } from './styles'
-import { TopBarMenuDrawerSubmenuListItem } from './submenu-list-item'
-import { TopBarMenuDrawerSubmenuListItemButton } from './submenu-list-item-button'
+import type { ComponentProps, ReactNode } from "react";
 
-import type { ComponentProps, ReactNode } from 'react'
+import { ElTopBarMenuDrawerSubmenuList } from "./styles";
+import { TopBarMenuDrawerSubmenuListItem } from "./submenu-list-item";
+import { TopBarMenuDrawerSubmenuListItemButton } from "./submenu-list-item-button";
 
 export namespace TopBarMenuDrawerSubmenu {
   export interface ItemProps extends TopBarMenuDrawerSubmenuListItem.Props {}
@@ -13,7 +13,7 @@ export namespace TopBarMenuDrawerSubmenu {
      * A collection of items, typically `TopBar.MenuDrawer.SubmenuItem` or
      * `TopBar.MenuDrawerSubmenuItemButton` components
      */
-    children: ReactNode
+    children: ReactNode;
   }
 }
 
@@ -22,10 +22,10 @@ export namespace TopBarMenuDrawerSubmenu {
  * The submenu itself will typically contain a collection of SubmenuItem or SubmenuItemButton components.
  */
 export function TopBarMenuDrawerSubmenu({ children, ...rest }: TopBarMenuDrawerSubmenu.Props) {
-  return <ElTopBarMenuDrawerSubmenuList {...rest}>{children}</ElTopBarMenuDrawerSubmenuList>
+  return <ElTopBarMenuDrawerSubmenuList {...rest}>{children}</ElTopBarMenuDrawerSubmenuList>;
 }
 
-TopBarMenuDrawerSubmenu.displayName = 'TopBar.MenuSubmenu'
+TopBarMenuDrawerSubmenu.displayName = "TopBar.MenuSubmenu";
 
-TopBarMenuDrawerSubmenu.Item = TopBarMenuDrawerSubmenuListItem
-TopBarMenuDrawerSubmenu.ItemButton = TopBarMenuDrawerSubmenuListItemButton
+TopBarMenuDrawerSubmenu.Item = TopBarMenuDrawerSubmenuListItem;
+TopBarMenuDrawerSubmenu.ItemButton = TopBarMenuDrawerSubmenuListItemButton;

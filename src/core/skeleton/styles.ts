@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
 
 export const ElSkeleton = styled.span`
   @layer elements.main {
@@ -18,4 +18,4 @@ export const ElSkeleton = styled.span`
       }
     }
   }
-`
+`;

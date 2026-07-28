@@ -1,23 +1,31 @@
-import preview from '#.storybook/preview'
-import { GalleryViewer } from '../gallery-viewer'
+import preview from "#.storybook/preview";
 
-const EXAMPLE_IMAGE_SRC = 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=176&h=112&fit=crop'
-const EXAMPLE_IMAGE_SRC_2 = 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=176&h=112&fit=crop'
-const EXAMPLE_IMAGE_SRC_3 = 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=176&h=112&fit=crop'
-const EXAMPLE_IMAGE_SRC_4 = 'https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=176&h=112&fit=crop'
-const EXAMPLE_IMAGE_SRC_5 = 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=176&h=112&fit=crop'
-const EXAMPLE_IMAGE_SRC_6 = 'https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=176&h=112&fit=crop'
-const EXAMPLE_IMAGE_SRC_7 = 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=176&h=112&fit=crop'
+import { GalleryViewer } from "../gallery-viewer";
+
+const EXAMPLE_IMAGE_SRC =
+  "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=176&h=112&fit=crop";
+const EXAMPLE_IMAGE_SRC_2 =
+  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=176&h=112&fit=crop";
+const EXAMPLE_IMAGE_SRC_3 =
+  "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=176&h=112&fit=crop";
+const EXAMPLE_IMAGE_SRC_4 =
+  "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=176&h=112&fit=crop";
+const EXAMPLE_IMAGE_SRC_5 =
+  "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=176&h=112&fit=crop";
+const EXAMPLE_IMAGE_SRC_6 =
+  "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=176&h=112&fit=crop";
+const EXAMPLE_IMAGE_SRC_7 =
+  "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=176&h=112&fit=crop";
 
 const meta = preview.meta({
-  title: 'Content display/GalleryViewer/ThumbnailList',
+  title: "Content display/GalleryViewer/ThumbnailList",
   component: GalleryViewer.ThumbnailList,
   argTypes: {
     children: {
       control: false,
     },
   },
-})
+});
 
 /**
  * The default usage with anchor-based thumbnails. Wrap in a `<nav
@@ -73,7 +81,7 @@ export const Example = meta.story({
       </>
     ),
   },
-})
+});
 
 /**
  * Use `GalleryViewer.ThumbnailList.ButtonItem` when managing selection via a
@@ -83,7 +91,11 @@ export const Button = meta.story({
   args: {
     children: (
       <>
-        <GalleryViewer.ThumbnailList.ButtonItem aria-pressed={true} aria-label="View photo 1" src={EXAMPLE_IMAGE_SRC} />
+        <GalleryViewer.ThumbnailList.ButtonItem
+          aria-pressed={true}
+          aria-label="View photo 1"
+          src={EXAMPLE_IMAGE_SRC}
+        />
         <GalleryViewer.ThumbnailList.ButtonItem
           aria-pressed={false}
           aria-label="View photo 2"
@@ -118,12 +130,12 @@ export const Button = meta.story({
       </>
     ),
   },
-})
+});
 
 export const Layout = Example.extend({
   decorators: (Story) => (
-    <div style={{ boxSizing: 'content-box', width: 'var(--size-64)', border: '1px solid #FA00FF' }}>
+    <div style={{ boxSizing: "content-box", width: "var(--size-64)", border: "1px solid #FA00FF" }}>
       <Story />
     </div>
   ),
-})
+});

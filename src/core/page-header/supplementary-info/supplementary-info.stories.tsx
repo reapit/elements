@@ -1,16 +1,17 @@
-import preview from '#.storybook/preview'
-import { CompactSelectNative } from '#src/core/compact-select-native/index'
-import { Features } from '#src/core/features/index'
-import { PageHeader } from '../page-header'
-import { SupplementaryInfo } from '#src/core/supplementary-info/index'
+import preview from "#.storybook/preview";
+import { CompactSelectNative } from "#src/core/compact-select-native/index";
+import { Features } from "#src/core/features/index";
+import { SupplementaryInfo } from "#src/core/supplementary-info/index";
+
+import { PageHeader } from "../page-header";
 
 const meta = preview.meta({
-  title: 'Containers and layout/PageHeader/SupplementaryInfo',
+  title: "Containers and layout/PageHeader/SupplementaryInfo",
   component: PageHeader.SupplementaryInfo,
   argTypes: {
     children: {
-      control: 'radio',
-      options: ['Select', 'Supplementary Info', 'Features', 'All'],
+      control: "radio",
+      options: ["Select", "Supplementary Info", "Features", "All"],
       mapping: {
         Select: (
           <CompactSelectNative aria-label="Select portfolio" size="small">
@@ -20,7 +21,7 @@ const meta = preview.meta({
             <option>Portfolio 3</option>
           </CompactSelectNative>
         ),
-        'Supplementary Info': (
+        "Supplementary Info": (
           <SupplementaryInfo size="sm">
             <SupplementaryInfo.Item>Supplementary Info 1</SupplementaryInfo.Item>
             <SupplementaryInfo.Item>Supplementary Info 2</SupplementaryInfo.Item>
@@ -57,13 +58,13 @@ const meta = preview.meta({
       },
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
-    children: 'All',
+    children: "All",
   },
-})
+});
 
 /**
  * When there is not enough space to display all the supplementary information on a single line, they will wrap to
@@ -72,11 +73,11 @@ export const Example = meta.story({
 export const Overflow = Example.extend({
   decorators: [
     (Story) => (
-      <div style={{ display: 'flex', flexFlow: 'column', gap: 'var(--spacing-10)' }}>
-        <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', width: '400px' }}>
+      <div style={{ display: "flex", flexFlow: "column", gap: "var(--spacing-10)" }}>
+        <div style={{ boxSizing: "content-box", border: "1px solid #FA00FF", width: "400px" }}>
           <Story />
         </div>
       </div>
     ),
   ],
-})
+});

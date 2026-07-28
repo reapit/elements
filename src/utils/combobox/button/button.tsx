@@ -1,17 +1,17 @@
-import { ComboboxButtonClearButton } from './clear-button'
-import { ComboboxButtonOpenPopupButton } from './open-popup-button'
+import type { ButtonHTMLAttributes, ReactNode } from "react";
+
+import { ComboboxButtonClearButton } from "./clear-button";
+import { ComboboxButtonOpenPopupButton } from "./open-popup-button";
 import {
   ElComboboxButton,
   ElComboboxButtonActionContainer,
   ElComboboxButtonContainer,
   ElComboboxButtonIconContainer,
   ElComboboxButtonLabelContainer,
-} from './styles'
-
-import type { ButtonHTMLAttributes, ReactNode } from 'react'
+} from "./styles";
 
 // NOTE: we omit size because we use it for our own purposes.
-type AttributesToOmit = 'size'
+type AttributesToOmit = "size";
 
 export namespace ComboboxButton {
   export interface ClearButtonProps extends ComboboxButtonClearButton.Props {}
@@ -19,26 +19,26 @@ export namespace ComboboxButton {
 
   export interface Props extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, AttributesToOmit> {
     /** Secondary button displayed at the end (e.g., clear button or toggle button). */
-    action?: ReactNode
+    action?: ReactNode;
     /** ID of the popup element controlled by this button. */
-    'aria-controls': string
+    "aria-controls": string;
     /** Whether the popup is open. */
-    'aria-expanded': boolean
+    "aria-expanded": boolean;
     /** Current label of the button. Must be plain text. */
-    children?: ReactNode
+    children?: ReactNode;
     /** ID of the button */
-    id: string
+    id: string;
     /** Icon displayed at the start of the button. */
-    leadingIcon?: ReactNode
+    leadingIcon?: ReactNode;
     /** Maximum width of the button container. Accepts any valid CSS width value. */
-    maxWidth?: string
+    maxWidth?: string;
     /** Text displayed when no value is selected. Defaults to "Select an option". */
-    placeholder?: string
+    placeholder?: string;
     /** Visual size of the button. */
-    size?: 'small' | 'medium' | 'large'
+    size?: "small" | "medium" | "large";
     /** Visual style of the button. Use `"borderless"` to remove the border, for example when
      * embedding the button in a surface that provides its own border or background. */
-    variant?: 'default' | 'borderless'
+    variant?: "default" | "borderless";
   }
 }
 
@@ -51,25 +51,30 @@ export namespace ComboboxButton {
  */
 export function ComboboxButton({
   action,
-  'aria-controls': ariaControls,
-  'aria-expanded': ariaExpanded,
+  "aria-controls": ariaControls,
+  "aria-expanded": ariaExpanded,
   children,
   className,
   id,
   leadingIcon,
-  placeholder = 'Select an option',
-  size = 'medium',
+  placeholder = "Select an option",
+  size = "medium",
   style,
-  variant = 'default',
+  variant = "default",
   ...rest
 }: ComboboxButton.Props) {
   // Children = selected content; no children = no selected content and placeholder should be displayed
-  const hasSelection = !!children
+  const hasSelection = !!children;
 
   return (
     // Applies consumer class names and inline styles to the container, not the button.
     // Minimizes easy override of button styles critical to component function.
-    <ElComboboxButtonContainer className={className} data-size={size} data-variant={variant} style={style}>
+    <ElComboboxButtonContainer
+      className={className}
+      data-size={size}
+      data-variant={variant}
+      style={style}
+    >
       <ElComboboxButton
         {...rest}
         aria-autocomplete="list"
@@ -80,15 +85,20 @@ export function ComboboxButton({
         role="combobox"
         type="button"
       >
-        {leadingIcon && <ElComboboxButtonIconContainer>{leadingIcon}</ElComboboxButtonIconContainer>}
-        <ElComboboxButtonLabelContainer data-has-selection={hasSelection} data-placeholder={placeholder}>
+        {leadingIcon && (
+          <ElComboboxButtonIconContainer>{leadingIcon}</ElComboboxButtonIconContainer>
+        )}
+        <ElComboboxButtonLabelContainer
+          data-has-selection={hasSelection}
+          data-placeholder={placeholder}
+        >
           {hasSelection ? children : placeholder}
         </ElComboboxButtonLabelContainer>
       </ElComboboxButton>
       {action && <ElComboboxButtonActionContainer>{action}</ElComboboxButtonActionContainer>}
     </ElComboboxButtonContainer>
-  )
+  );
 }
 
-ComboboxButton.ClearButton = ComboboxButtonClearButton
-ComboboxButton.OpenPopupButton = ComboboxButtonOpenPopupButton
+ComboboxButton.ClearButton = ComboboxButtonClearButton;
+ComboboxButton.OpenPopupButton = ComboboxButtonOpenPopupButton;

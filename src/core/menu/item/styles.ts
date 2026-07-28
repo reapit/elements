@@ -1,6 +1,7 @@
-import { css } from '@linaria/core'
-import { styled } from '@linaria/react'
-import { font } from '#src/utils/font'
+import { css } from "@linaria/core";
+import { styled } from "@linaria/react";
+
+import { font } from "#src/utils/font";
 
 export const elMenuItem = css`
   @layer elements.main {
@@ -34,18 +35,18 @@ export const elMenuItem = css`
       background: var(--comp-menu-colour-fill-hover);
     }
 
-    &[aria-disabled='true'],
+    &[aria-disabled="true"],
     &:disabled {
       cursor: not-allowed;
       background: var(--comp-menu-colour-fill-default);
     }
 
-    &[aria-checked='true']:enabled,
-    &[aria-current='page']:not([aria-disabled='true']) {
+    &[aria-checked="true"]:enabled,
+    &[aria-current="page"]:not([aria-disabled="true"]) {
       background: var(--comp-menu-colour-fill-highlighted);
     }
   }
-`
+`;
 
 export const ElMenuItemIconContainer = styled.span`
   @layer elements.main {
@@ -66,7 +67,7 @@ export const ElMenuItemIconContainer = styled.span`
       color: var(--comp-menu-colour-icon-default-right);
     }
 
-    [aria-disabled='true'] &,
+    [aria-disabled="true"] &,
     :disabled & {
       &:first-of-type {
         color: var(--comp-menu-colour-icon-disabled-left);
@@ -76,21 +77,21 @@ export const ElMenuItemIconContainer = styled.span`
       }
     }
 
-    [aria-checked='true']:enabled &,
-    [aria-current='page']:not([aria-disabled='true']) & {
+    [aria-checked="true"]:enabled &,
+    [aria-current="page"]:not([aria-disabled="true"]) & {
       &:first-of-type {
         color: var(--comp-menu-colour-icon-default-action);
       }
     }
 
-    [aria-checked='true']:enabled:hover &,
-    [aria-current='page']:not([aria-disabled='true']):hover & {
+    [aria-checked="true"]:enabled:hover &,
+    [aria-current="page"]:not([aria-disabled="true"]):hover & {
       &:first-of-type {
         color: var(--comp-menu-colour-icon-hover-action);
       }
     }
   }
-`
+`;
 
 export const ElMenuItemContentContainer = styled.span`
   @layer elements.main {
@@ -100,7 +101,7 @@ export const ElMenuItemContentContainer = styled.span`
     align-items: start;
     width: 100%;
   }
-`
+`;
 
 export const ElMenuItemLabel = styled.span`
   @layer elements.main {
@@ -111,29 +112,29 @@ export const ElMenuItemLabel = styled.span`
     justify-content: start;
     width: 100%;
   }
-`
+`;
 
 export const ElMenuItemLabelText = styled.span`
   @layer elements.main {
-    ${font('sm', 'regular')}
+    ${font("sm", "regular")}
     color: var(--comp-menu-colour-text-default-primary);
 
-    [aria-disabled='true'] &,
+    [aria-disabled="true"] &,
     :disabled & {
       color: var(--comp-menu-colour-text-disabled-primary);
     }
 
-    [aria-checked='true']:enabled &,
-    [aria-current='page']:not([aria-disabled='true']) & {
+    [aria-checked="true"]:enabled &,
+    [aria-current="page"]:not([aria-disabled="true"]) & {
       color: var(--comp-menu-colour-text-default-action);
     }
 
-    [aria-checked='true']:enabled:hover &,
-    [aria-current='page']:not([aria-disabled='true']):hover & {
+    [aria-checked="true"]:enabled:hover &,
+    [aria-current="page"]:not([aria-disabled="true"]):hover & {
       color: var(--comp-menu-colour-text-hover-action);
     }
   }
-`
+`;
 
 export const ElMenuItemBadgeContainer = styled.span`
   @layer elements.main {
@@ -143,16 +144,16 @@ export const ElMenuItemBadgeContainer = styled.span`
      * Hence, why this comment is within the template string.
      */
   }
-`
+`;
 
 export const ElMenuItemSupplementaryInfo = styled.span`
   @layer elements.main {
-    ${font('xs', 'regular')}
+    ${font("xs", "regular")}
     color: var(--comp-menu-colour-text-default-secondary);
 
-    [aria-disabled='true'] &,
+    [aria-disabled="true"] &,
     :disabled & {
       color: var(--comp-menu-colour-text-disabled-secondary);
     }
   }
-`
+`;

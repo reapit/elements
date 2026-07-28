@@ -1,30 +1,31 @@
-import { createContext, useContext, useMemo } from 'react'
-import type { useSideBar } from './use-side-bar'
+import { createContext, useContext, useMemo } from "react";
+
+import type { useSideBar } from "./use-side-bar";
 
 interface SideBarContextValue extends useSideBar.Result {
-  id: string
+  id: string;
 }
 
-export const SideBarContext = createContext<SideBarContextValue | undefined>(undefined)
+export const SideBarContext = createContext<SideBarContextValue | undefined>(undefined);
 
 interface SideBarContextPublisherProps extends SideBarContextValue {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 export function SideBarContextPublisher(props: SideBarContextPublisherProps) {
   const contextValue = useMemo(() => {
     // oxlint-disable-next-line typescript/no-unused-vars -- we need to drop `children` */
-    const { children: _children, ...contextValue } = props
-    return contextValue
-  }, [props])
+    const { children: _children, ...contextValue } = props;
+    return contextValue;
+  }, [props]);
 
-  return <SideBarContext.Provider value={contextValue}>{props.children}</SideBarContext.Provider>
+  return <SideBarContext.Provider value={contextValue}>{props.children}</SideBarContext.Provider>;
 }
 
 export function useSideBarContext(): SideBarContextValue {
-  const context = useContext(SideBarContext)
+  const context = useContext(SideBarContext);
   if (!context) {
-    throw new Error('useSideBarContext must be used within a SideBarContext.Provider')
+    throw new Error("useSideBarContext must be used within a SideBarContext.Provider");
   }
-  return context
+  return context;
 }

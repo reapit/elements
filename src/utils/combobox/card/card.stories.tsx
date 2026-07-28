@@ -1,33 +1,34 @@
-import preview from '#.storybook/preview'
-import { ComboboxButtonClearButton } from '../button'
-import { ComboboxCard } from './card'
-import { ComboboxCardDefaultContent } from '../card-default-content'
-import { ElCombobox } from '../styles'
-import { SupplementaryInfo } from '#src/core/supplementary-info'
+import type { CSSProperties } from "react";
 
-import type { CSSProperties } from 'react'
+import preview from "#.storybook/preview";
+import { SupplementaryInfo } from "#src/core/supplementary-info";
+
+import { ComboboxButtonClearButton } from "../button";
+import { ComboboxCardDefaultContent } from "../card-default-content";
+import { ElCombobox } from "../styles";
+import { ComboboxCard } from "./card";
 
 const meta = preview.meta({
-  title: 'Utils/Combobox/Card',
+  title: "Utils/Combobox/Card",
   component: ComboboxCard,
   argTypes: {
     action: {
       control: false,
     },
-    'aria-controls': {
-      control: 'text',
+    "aria-controls": {
+      control: "text",
     },
     children: {
       control: false,
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
     action: <ComboboxButtonClearButton aria-controls="example-listbox-id" />,
-    'aria-controls': 'listbox-id',
-    'aria-expanded': false,
+    "aria-controls": "listbox-id",
+    "aria-expanded": false,
     children: (
       <ComboboxCardDefaultContent
         additionalInfo={
@@ -55,7 +56,7 @@ export const Example = meta.story({
       </ElCombobox>
     ),
   ],
-})
+});
 
 /**
  * The parent combobox provides styles to the combobox card via CSS variables. When
@@ -67,7 +68,7 @@ export const Example = meta.story({
 export const Disabled = Example.extend({
   args: {
     action: <ComboboxButtonClearButton aria-controls="disabled-example-listbox-id" disabled />,
-    'aria-controls': 'disabled-example',
+    "aria-controls": "disabled-example",
     disabled: true,
   },
   decorators: [
@@ -80,7 +81,7 @@ export const Disabled = Example.extend({
       </ElCombobox>
     ),
   ],
-})
+});
 
 /**
  * Likewise, when the parent combobox has an invalid state, it sets CSS variables to values that help
@@ -89,7 +90,7 @@ export const Disabled = Example.extend({
 export const Invalid = Example.extend({
   args: {
     action: <ComboboxButtonClearButton aria-controls="invalid-example-listbox-id" />,
-    'aria-controls': 'invalid-example',
+    "aria-controls": "invalid-example",
   },
   decorators: [
     (Story) => (
@@ -101,21 +102,21 @@ export const Invalid = Example.extend({
       </ElCombobox>
     ),
   ],
-})
+});
 
 /**
  * By default, combobox cards will fill their parent's width. This can be constrained by providing
  * a `maxWidth` to the combobox.
  */
 export const MaxWidth = Example.extend({
-  name: 'Max-width',
+  name: "Max-width",
 
   decorators: [
     (Story) => (
       // This CSS variable is set by ElCombobox when Combobox is constrained by its maxWidth prop.
-      <div style={{ '--combobox-max-width': 'var(--size-40)' } as CSSProperties}>
+      <div style={{ "--combobox-max-width": "var(--size-40)" } as CSSProperties}>
         <Story />
       </div>
     ),
   ],
-})
+});

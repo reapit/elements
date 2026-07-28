@@ -1,4 +1,4 @@
-import { JsxOpeningElement, JsxSelfClosingElement, Node, SourceFile, SyntaxKind } from 'ts-morph'
+import { JsxOpeningElement, JsxSelfClosingElement, Node, SourceFile, SyntaxKind } from "ts-morph";
 
 /**
  * Returns all JSX opening and self-closing elements in `sourceFile` whose tag
@@ -14,9 +14,9 @@ export function getJsxElements(
   const elements: Array<JsxOpeningElement | JsxSelfClosingElement> = [
     ...sourceFile.getDescendantsOfKind(SyntaxKind.JsxOpeningElement),
     ...sourceFile.getDescendantsOfKind(SyntaxKind.JsxSelfClosingElement),
-  ]
+  ];
 
-  return elements.filter((element) => tagNames.has(element.getTagNameNode().getText()))
+  return elements.filter((element) => tagNames.has(element.getTagNameNode().getText()));
 }
 
 /**
@@ -28,17 +28,17 @@ export function getJsxElements(
  * @param tagNames - The set of tag name strings to match against.
  */
 export function hasJsxUsage(sourceFile: SourceFile, tagNames: Set<string>): boolean {
-  const openingElements = sourceFile.getDescendantsOfKind(SyntaxKind.JsxOpeningElement)
+  const openingElements = sourceFile.getDescendantsOfKind(SyntaxKind.JsxOpeningElement);
   for (const element of openingElements) {
-    if (tagNames.has(element.getTagNameNode().getText())) return true
+    if (tagNames.has(element.getTagNameNode().getText())) return true;
   }
 
-  const selfClosingElements = sourceFile.getDescendantsOfKind(SyntaxKind.JsxSelfClosingElement)
+  const selfClosingElements = sourceFile.getDescendantsOfKind(SyntaxKind.JsxSelfClosingElement);
   for (const element of selfClosingElements) {
-    if (tagNames.has(element.getTagNameNode().getText())) return true
+    if (tagNames.has(element.getTagNameNode().getText())) return true;
   }
 
-  return false
+  return false;
 }
 
 /**
@@ -62,16 +62,16 @@ export function syncClosingTag(
   oldName: string,
   newName: string,
 ): void {
-  if (element.getKind() !== SyntaxKind.JsxOpeningElement) return
+  if (element.getKind() !== SyntaxKind.JsxOpeningElement) return;
 
-  const parent = element.getParent()
-  if (parent?.getKind() !== SyntaxKind.JsxElement) return
+  const parent = element.getParent();
+  if (parent?.getKind() !== SyntaxKind.JsxElement) return;
 
-  const jsxElement = parent.asKind(SyntaxKind.JsxElement)
-  const closingTag = jsxElement?.getClosingElement()
+  const jsxElement = parent.asKind(SyntaxKind.JsxElement);
+  const closingTag = jsxElement?.getClosingElement();
 
   if (closingTag?.getTagNameNode().getText() === oldName) {
-    closingTag.getTagNameNode().replaceWithText(newName)
+    closingTag.getTagNameNode().replaceWithText(newName);
   }
 }
 
@@ -96,11 +96,11 @@ export function shouldUseJsxComment(element: JsxOpeningElement | JsxSelfClosingE
   // JsxElement wrapper. Use that as the outer node so we check *its* parent
   // rather than the opening element's parent, which is always JsxElement.
   const outerNode: Node =
-    element.getKind() === SyntaxKind.JsxOpeningElement ? (element.getParent() ?? element) : element
+    element.getKind() === SyntaxKind.JsxOpeningElement ? (element.getParent() ?? element) : element;
 
-  const outerParent = outerNode.getParent()
-  if (!outerParent) return false
+  const outerParent = outerNode.getParent();
+  if (!outerParent) return false;
 
-  const parentKind = outerParent.getKind()
-  return parentKind === SyntaxKind.JsxElement || parentKind === SyntaxKind.JsxFragment
+  const parentKind = outerParent.getKind();
+  return parentKind === SyntaxKind.JsxElement || parentKind === SyntaxKind.JsxFragment;
 }

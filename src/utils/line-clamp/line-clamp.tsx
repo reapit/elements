@@ -1,26 +1,27 @@
-import { AnchorPositioning } from '#src/utils/anchor-positioning'
-import { Button } from '#src/core/button'
-import { elLineClampText, elLineClampDisclosureButton } from './styles'
-import { useId, useState } from 'react'
-import { useIsHeightTruncated } from './use-is-truncated'
+import { useId, useState } from "react";
+import type { CSSProperties, ElementType, HTMLAttributes, ReactNode } from "react";
 
-import type { CSSProperties, ElementType, HTMLAttributes, ReactNode } from 'react'
+import { Button } from "#src/core/button";
+import { AnchorPositioning } from "#src/utils/anchor-positioning";
+
+import { elLineClampText, elLineClampDisclosureButton } from "./styles";
+import { useIsHeightTruncated } from "./use-is-truncated";
 
 export namespace LineClamp {
   export interface Props extends HTMLAttributes<HTMLElement> {
     /** The element to render as. Defaults to `<p>` */
-    as?: ElementType
+    as?: ElementType;
     /** The textual content to clamp. */
-    children: ReactNode
+    children: ReactNode;
     /** The number of lines that should be visible */
-    clampTo: number | 'none'
+    clampTo: number | "none";
     /**
      * The CSS `white-space` value to apply to the text. Use `pre-wrap` to preserve newlines,
      * tabs, and runs of spaces (e.g. user-authored content with manual indentation). Use
      * `pre-line` to preserve only newlines whilst collapsing spaces. Use `normal` to explicitly
      * reset any inherited whitespace handling.
      */
-    whiteSpace?: 'normal' | 'pre-line' | 'pre-wrap'
+    whiteSpace?: "normal" | "pre-line" | "pre-wrap";
   }
 }
 
@@ -34,15 +35,21 @@ export namespace LineClamp {
  * use the [line-clamp](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/line-clamp)
  * CSS property instead of this component.
  */
-export function LineClamp({ as: Element = 'p', children, clampTo, whiteSpace, ...rest }: LineClamp.Props) {
-  const disclosureButtonId = useId()
-  const truncationTargetId = useId()
+export function LineClamp({
+  as: Element = "p",
+  children,
+  clampTo,
+  whiteSpace,
+  ...rest
+}: LineClamp.Props) {
+  const disclosureButtonId = useId();
+  const truncationTargetId = useId();
 
-  const hasClamp = clampTo !== 'none'
-  const isTruncated = useIsHeightTruncated(truncationTargetId, [children, clampTo, whiteSpace])
-  const [showAll, setShowAll] = useState(false)
+  const hasClamp = clampTo !== "none";
+  const isTruncated = useIsHeightTruncated(truncationTargetId, [children, clampTo, whiteSpace]);
+  const [showAll, setShowAll] = useState(false);
 
-  const appliedLineClamp = showAll ? undefined : clampTo
+  const appliedLineClamp = showAll ? undefined : clampTo;
 
   return (
     <Element {...rest}>
@@ -57,7 +64,7 @@ export function LineClamp({ as: Element = 'p', children, clampTo, whiteSpace, ..
         data-is-clamped={isTruncated && !showAll}
         data-white-space={whiteSpace}
         id={truncationTargetId}
-        style={{ '--line-clamp': appliedLineClamp } as CSSProperties}
+        style={{ "--line-clamp": appliedLineClamp } as CSSProperties}
       >
         {children}
       </span>
@@ -78,8 +85,8 @@ export function LineClamp({ as: Element = 'p', children, clampTo, whiteSpace, ..
         size="medium"
         variant="tertiary"
       >
-        {showAll ? 'Show less' : 'Show more'}
+        {showAll ? "Show less" : "Show more"}
       </Button>
     </Element>
-  )
+  );
 }

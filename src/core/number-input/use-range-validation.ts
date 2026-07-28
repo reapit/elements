@@ -1,6 +1,7 @@
-import { useEffect } from 'react'
-import { validateRange } from './validate-range'
-import { getInputElement } from './get-input-element'
+import { useEffect } from "react";
+
+import { getInputElement } from "./get-input-element";
+import { validateRange } from "./validate-range";
 
 /**
  * Keeps the input element's native validity in sync with the `min`/`max`
@@ -20,28 +21,28 @@ export function useRangeValidation({
   parsedMin,
   parsedMax,
 }: {
-  inputId: string
-  isControlled: boolean
-  value: string | number | readonly string[] | undefined
-  parsedMin: number
-  parsedMax: number
+  inputId: string;
+  isControlled: boolean;
+  value: string | number | readonly string[] | undefined;
+  parsedMin: number;
+  parsedMax: number;
 }): void {
   useEffect(() => {
-    const input = getInputElement(inputId)
-    if (!input) return
+    const input = getInputElement(inputId);
+    if (!input) return;
 
     const validate = (raw: string) => {
-      input.setCustomValidity(validateRange(raw, parsedMin, parsedMax))
-    }
+      input.setCustomValidity(validateRange(raw, parsedMin, parsedMax));
+    };
 
     if (isControlled) {
-      validate(String(value ?? ''))
-      return
+      validate(String(value ?? ""));
+      return;
     }
 
-    const handleInput = () => validate(input.value)
-    validate(input.value)
-    input.addEventListener('input', handleInput)
-    return () => input.removeEventListener('input', handleInput)
-  }, [inputId, isControlled, parsedMax, parsedMin, value])
+    const handleInput = () => validate(input.value);
+    validate(input.value);
+    input.addEventListener("input", handleInput);
+    return () => input.removeEventListener("input", handleInput);
+  }, [inputId, isControlled, parsedMax, parsedMin, value]);
 }

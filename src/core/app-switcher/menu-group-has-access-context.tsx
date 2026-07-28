@@ -1,7 +1,7 @@
-import { createContext, useContext } from 'react'
+import { createContext, useContext } from "react";
 
-export const AppSwitcherMenuGroupHasAccessContext = createContext<boolean>(false)
+export const AppSwitcherMenuGroupHasAccessContext = createContext<boolean>(false);
 
 export function useAppSwitcherMenuGroupHasAccessContext() {
-  return useContext(AppSwitcherMenuGroupHasAccessContext)
+  return useContext(AppSwitcherMenuGroupHasAccessContext);
 }

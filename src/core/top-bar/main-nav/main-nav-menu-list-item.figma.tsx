@@ -1,19 +1,20 @@
-import figma from '@figma/code-connect'
-import { TopBar } from '../top-bar'
+import figma from "@figma/code-connect";
 
-figma.connect(TopBar.NavMenuItem, '<TOP_BAR_NAV_DROPDOWN_BUTTON_URL>', {
+import { TopBar } from "../top-bar";
+
+figma.connect(TopBar.NavMenuItem, "<TOP_BAR_NAV_DROPDOWN_BUTTON_URL>", {
   props: {
-    ariaCurrent: figma.enum('State', {
+    ariaCurrent: figma.enum("State", {
       Default: false,
       Focus: false,
       Hover: false,
-      Select: 'page',
+      Select: "page",
     }),
-    label: figma.textContent('Label'),
+    label: figma.textContent("Label"),
   },
   example: (props) => (
     <TopBar.NavMenuItem aria-current={props.ariaCurrent} label={props.label}>
       TODO: Add menu items
     </TopBar.NavMenuItem>
   ),
-})
+});

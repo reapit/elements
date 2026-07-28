@@ -1,2 +1,2 @@
-export * from './__styles__'
-export * from './avatar'
+export * from "./__styles__";
+export * from "./avatar";

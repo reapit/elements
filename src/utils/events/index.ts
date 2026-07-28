@@ -1,1 +1,1 @@
-export { useWithStopPropagation } from './use-with-stop-propagation'
+export { useWithStopPropagation } from "./use-with-stop-propagation";

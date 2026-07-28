@@ -1,4 +1,5 @@
-import figma from '@figma/code-connect'
-import { ExpandIcon } from './expand'
+import figma from "@figma/code-connect";
 
-figma.connect(ExpandIcon, 'https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=9117-8038')
+import { ExpandIcon } from "./expand";
+
+figma.connect(ExpandIcon, "https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=9117-8038");

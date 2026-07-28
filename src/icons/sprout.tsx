@@ -1,4 +1,4 @@
-import SproutSvg from './svgs/sprout.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import SproutSvg from "./svgs/sprout.svg?react";
 
-export const SproutIcon = makeIcon('SproutIcon', SproutSvg)
+export const SproutIcon = makeIcon("SproutIcon", SproutSvg);

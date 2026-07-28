@@ -1,47 +1,48 @@
-import { AlertBannerOutlet } from '../../outlet'
-import { AlertBannerPortal } from '../portal'
-import { render, screen } from '@testing-library/react'
+import { render, screen } from "@testing-library/react";
 
-test('does not render when outlet does not exist', () => {
+import { AlertBannerOutlet } from "../../outlet";
+import { AlertBannerPortal } from "../portal";
+
+test("does not render when outlet does not exist", () => {
   render(
     <AlertBannerPortal>
       <div data-testid="portal-content">Portal content</div>
     </AlertBannerPortal>,
-  )
+  );
 
-  expect(screen.queryByTestId('portal-content')).not.toBeInTheDocument()
-})
+  expect(screen.queryByTestId("portal-content")).not.toBeInTheDocument();
+});
 
-test('renders children when outlet exists', () => {
+test("renders children when outlet exists", () => {
   // Set up outlet first
-  render(<AlertBannerOutlet id="test-outlet" data-testid="outlet" />)
+  render(<AlertBannerOutlet id="test-outlet" data-testid="outlet" />);
 
   // Then render portal
   render(
     <AlertBannerPortal outletId="test-outlet">
       <div data-testid="portal-content">Portal content</div>
     </AlertBannerPortal>,
-  )
+  );
 
-  expect(screen.getByTestId('portal-content')).toBeVisible()
-})
+  expect(screen.getByTestId("portal-content")).toBeVisible();
+});
 
-test('renders to default outlet when no id provided', () => {
+test("renders to default outlet when no id provided", () => {
   // Set up default outlet
-  render(<AlertBannerOutlet data-testid="default-outlet" />)
+  render(<AlertBannerOutlet data-testid="default-outlet" />);
 
   // Then render portal without id
   render(
     <AlertBannerPortal>
       <div data-testid="portal-content">Portal content</div>
     </AlertBannerPortal>,
-  )
+  );
 
-  expect(screen.getByTestId('portal-content')).toBeVisible()
-})
+  expect(screen.getByTestId("portal-content")).toBeVisible();
+});
 
-test('forwards additional props to portal children', () => {
-  render(<AlertBannerOutlet id="test-outlet" />)
+test("forwards additional props to portal children", () => {
+  render(<AlertBannerOutlet id="test-outlet" />);
 
   render(
     <AlertBannerPortal outletId="test-outlet">
@@ -49,14 +50,14 @@ test('forwards additional props to portal children', () => {
         Portal content
       </div>
     </AlertBannerPortal>,
-  )
+  );
 
-  const portalContent = screen.getByTestId('portal-content')
-  expect(portalContent).toHaveClass('custom-class')
-})
+  const portalContent = screen.getByTestId("portal-content");
+  expect(portalContent).toHaveClass("custom-class");
+});
 
-test('can render multiple portals to same outlet', () => {
-  render(<AlertBannerOutlet id="test-outlet" />)
+test("can render multiple portals to same outlet", () => {
+  render(<AlertBannerOutlet id="test-outlet" />);
 
   render(
     <>
@@ -67,20 +68,20 @@ test('can render multiple portals to same outlet', () => {
         <div data-testid="content-2">Content 2</div>
       </AlertBannerPortal>
     </>,
-  )
+  );
 
-  expect(screen.getByTestId('content-1')).toBeVisible()
-  expect(screen.getByTestId('content-2')).toBeVisible()
-})
+  expect(screen.getByTestId("content-1")).toBeVisible();
+  expect(screen.getByTestId("content-2")).toBeVisible();
+});
 
-test('does not render to wrong outlet', () => {
-  render(<AlertBannerOutlet id="wrong-outlet" />)
+test("does not render to wrong outlet", () => {
+  render(<AlertBannerOutlet id="wrong-outlet" />);
 
   render(
     <AlertBannerPortal outletId="correct-outlet">
       <div data-testid="portal-content">Portal content</div>
     </AlertBannerPortal>,
-  )
+  );
 
-  expect(screen.queryByTestId('portal-content')).not.toBeInTheDocument()
-})
+  expect(screen.queryByTestId("portal-content")).not.toBeInTheDocument();
+});

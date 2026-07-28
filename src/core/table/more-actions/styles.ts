@@ -1,4 +1,4 @@
-import { css } from '@linaria/core'
+import { css } from "@linaria/core";
 
 // NOTE: we use `css` instead of `styled` because the latter omits the popover-related
 // attributes we need to pass to the button.
@@ -32,9 +32,9 @@ export const elTableRowMoreActionsButton = css`
       color: var(--colour-icon-secondary);
     }
 
-    &[aria-disabled='true'],
+    &[aria-disabled="true"],
     &:disabled {
       color: var(--colour-icon-disabled);
     }
   }
-`
+`;

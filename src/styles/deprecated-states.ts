@@ -1,10 +1,10 @@
-import { css } from '@linaria/core'
+import { css } from "@linaria/core";
 
 /** @deprecated */
-export const elIsLoading = css``
+export const elIsLoading = css``;
 /** @deprecated */
-export const elIsActive = css``
+export const elIsActive = css``;
 /** @deprecated */
-export const elIsUsed = css``
+export const elIsUsed = css``;
 /** @deprecated */
-export const elIsFullPage = css``
+export const elIsFullPage = css``;

@@ -1,34 +1,35 @@
-import preview from '#.storybook/preview'
-import { AtAGlance } from '../at-a-glance'
-import { buildCards } from '../__story__/build-cards'
+import preview from "#.storybook/preview";
+
+import { buildCards } from "../__story__/build-cards";
+import { AtAGlance } from "../at-a-glance";
 
 const meta = preview.meta({
-  title: 'Content display/AtAGlance/Grid',
+  title: "Content display/AtAGlance/Grid",
   component: AtAGlance.Grid,
   argTypes: {
     children: {
       control: false,
     },
     gap: {
-      control: 'text',
+      control: "text",
     },
     templateColumns: {
-      control: 'text',
+      control: "text",
     },
   },
-})
+});
 
 /**
  * By default, content is laid out in a grid whose columns are explicitly defined by `templateColumns`.
  */
 export const Example = meta.story({
   args: {
-    children: buildCards({ variant: 'with-link' }),
+    children: buildCards({ variant: "with-link" }),
     gap: undefined,
-    templateColumns: '1fr 1fr 1fr 1fr',
-    layout: 'template',
+    templateColumns: "1fr 1fr 1fr 1fr",
+    layout: "template",
   },
-})
+});
 
 /**
  * To layout content in a grid using implicitly created columns, use `layout="auto"` and `autoColumns`
@@ -36,17 +37,17 @@ export const Example = meta.story({
  */
 export const Layout = meta.story({
   args: {
-    autoColumns: 'minmax(200px, 1fr)',
-    children: buildCards({ variant: 'with-link' }),
-    layout: 'auto',
+    autoColumns: "minmax(200px, 1fr)",
+    children: buildCards({ variant: "with-link" }),
+    layout: "auto",
   },
-})
+});
 
 /**
  * The gap between grid items can be adjusted using `gap`.
  */
 export const Gap = Example.extend({
   args: {
-    gap: '--spacing-8',
+    gap: "--spacing-8",
   },
-})
+});

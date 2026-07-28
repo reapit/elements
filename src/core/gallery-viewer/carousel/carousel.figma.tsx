@@ -1,8 +1,10 @@
-import { GalleryViewer } from '../gallery-viewer'
-import { Image } from '#src/utils/image'
-import figma from '@figma/code-connect'
+import figma from "@figma/code-connect";
 
-figma.connect(GalleryViewer.Carousel, '<GALLERY_VIEWER_CAROUSEL_URL>', {
+import { Image } from "#src/utils/image";
+
+import { GalleryViewer } from "../gallery-viewer";
+
+figma.connect(GalleryViewer.Carousel, "<GALLERY_VIEWER_CAROUSEL_URL>", {
   example: () => (
     <GalleryViewer.Carousel aria-label="TODO: add carousel label">
       <GalleryViewer.CarouselButton direction="previous" />
@@ -22,4 +24,4 @@ figma.connect(GalleryViewer.Carousel, '<GALLERY_VIEWER_CAROUSEL_URL>', {
       <GalleryViewer.CarouselButton direction="next" />
     </GalleryViewer.Carousel>
   ),
-})
+});

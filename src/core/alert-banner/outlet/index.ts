@@ -1,2 +1,2 @@
-export { AlertBannerOutlet } from './outlet'
-export * from './prioritiseByVariantAndDOMOrder'
+export { AlertBannerOutlet } from "./outlet";
+export * from "./prioritiseByVariantAndDOMOrder";

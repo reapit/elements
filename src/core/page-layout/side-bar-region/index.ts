@@ -1,1 +1,1 @@
-export * from './side-bar-region'
+export * from "./side-bar-region";

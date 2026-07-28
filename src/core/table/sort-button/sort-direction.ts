@@ -1,4 +1,4 @@
-export type SortDirection = 'ascending' | 'descending' | 'none'
+export type SortDirection = "ascending" | "descending" | "none";
 
 /**
  * Parses an unknown value into a valid sort direction. Values that are not valid sort directions
@@ -6,11 +6,11 @@ export type SortDirection = 'ascending' | 'descending' | 'none'
  */
 export function parseSortDirection(value: unknown): SortDirection {
   switch (value) {
-    case 'ascending':
-    case 'descending':
-      return value
+    case "ascending":
+    case "descending":
+      return value;
     default:
-      return 'none'
+      return "none";
   }
 }
 
@@ -28,14 +28,14 @@ export function parseSortDirection(value: unknown): SortDirection {
  * sort direction will be "descending".
  */
 export function getNextSortDirection(value: unknown): SortDirection {
-  const currentDirection = parseSortDirection(value)
+  const currentDirection = parseSortDirection(value);
 
   switch (currentDirection) {
-    case 'ascending':
-      return 'descending'
-    case 'descending':
-      return 'ascending'
-    case 'none':
-      return 'descending'
+    case "ascending":
+      return "descending";
+    case "descending":
+      return "ascending";
+    case "none":
+      return "descending";
   }
 }

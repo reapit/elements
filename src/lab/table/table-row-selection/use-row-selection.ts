@@ -1,28 +1,29 @@
-import { useState } from 'react'
-import { UseRowSelectionProps } from './types'
+import { useState } from "react";
+
+import { UseRowSelectionProps } from "./types";
 
 export const useRowSelection = ({ rows, idKey }: UseRowSelectionProps) => {
-  const [selectedRows, setSelectedRows] = useState(new Set<string>())
+  const [selectedRows, setSelectedRows] = useState(new Set<string>());
 
-  const isIndeterminate = selectedRows.size > 0 && selectedRows.size < rows.length
+  const isIndeterminate = selectedRows.size > 0 && selectedRows.size < rows.length;
 
   const handleRowSelect = (id: string) => {
     setSelectedRows((prevSelected) => {
-      const newSelected = new Set(prevSelected)
+      const newSelected = new Set(prevSelected);
       if (newSelected.has(id)) {
-        newSelected.delete(id)
+        newSelected.delete(id);
       } else {
-        newSelected.add(id)
+        newSelected.add(id);
       }
-      return newSelected
-    })
-  }
+      return newSelected;
+    });
+  };
 
   const handleSelectAll = (isSelected: boolean) => {
-    setSelectedRows(isSelected ? new Set(rows.map((row) => row[idKey])) : new Set())
-  }
+    setSelectedRows(isSelected ? new Set(rows.map((row) => row[idKey])) : new Set());
+  };
 
-  const isRowSelected = (id: string) => selectedRows.has(id)
+  const isRowSelected = (id: string) => selectedRows.has(id);
 
   return {
     selectedRows,
@@ -30,5 +31,5 @@ export const useRowSelection = ({ rows, idKey }: UseRowSelectionProps) => {
     handleSelectAll,
     isRowSelected,
     isIndeterminate,
-  }
-}
+  };
+};

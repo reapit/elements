@@ -1,8 +1,9 @@
-import { SyntaxKind } from 'ts-morph'
-import { createComponentMigration } from '../shared/migration-engine.js'
-import { collectStatementCommentPositions, insertLineComments } from '../shared/comments.js'
-import type { JsxOpeningElement, JsxSelfClosingElement, SourceFile, Node } from 'ts-morph'
-import { isElementsImport } from '../shared/elements-import.js'
+import { SyntaxKind } from "ts-morph";
+import type { JsxOpeningElement, JsxSelfClosingElement, SourceFile, Node } from "ts-morph";
+
+import { collectStatementCommentPositions, insertLineComments } from "../shared/comments.js";
+import { isElementsImport } from "../shared/elements-import.js";
+import { createComponentMigration } from "../shared/migration-engine.js";
 
 /**
  * Codemod to replace the lab SearchInput with the core SearchInput component.
@@ -28,30 +29,30 @@ import { isElementsImport } from '../shared/elements-import.js'
  * - Files not containing SearchInput symbols
  */
 
-const TARGET_SPECIFIER = '@reapit/elements/core/search-input'
+const TARGET_SPECIFIER = "@reapit/elements/core/search-input";
 
 interface SearchInputContext {
-  todoNodes: Node[]
+  todoNodes: Node[];
 }
 
 const baseTransform = createComponentMigration<SearchInputContext>({
   identifiers: [
     {
-      from: 'SearchInput',
-      to: 'SearchInput',
+      from: "SearchInput",
+      to: "SearchInput",
       targetSpecifier: TARGET_SPECIFIER,
     },
   ],
   props: [
     {
-      from: 'SearchInputProps',
-      to: 'SearchInput.Props',
+      from: "SearchInputProps",
+      to: "SearchInput.Props",
       targetSpecifier: TARGET_SPECIFIER,
     },
   ],
   propRenames: {
-    inputSize: 'size',
-    isDisabled: 'disabled',
+    inputSize: "size",
+    isDisabled: "disabled",
   },
   // Local re-exports (`export { SearchInput }` without `from`) count as usage
   // and require a new import to be added.
@@ -59,13 +60,18 @@ const baseTransform = createComponentMigration<SearchInputContext>({
   createContext: () => ({ todoNodes: [] }),
   // unstable_onSearch is handled here so we can detect its presence before
   // removal and conditionally insert the TODO comment in afterTransform.
-  customJsxTransform(element: JsxOpeningElement | JsxSelfClosingElement, _sourceFile, _facadePackage, context): void {
+  customJsxTransform(
+    element: JsxOpeningElement | JsxSelfClosingElement,
+    _sourceFile,
+    _facadePackage,
+    context,
+  ): void {
     for (const attr of element.getAttributes().slice()) {
-      if (attr.getKind() !== SyntaxKind.JsxAttribute) continue
-      const jsxAttr = attr.asKindOrThrow(SyntaxKind.JsxAttribute)
-      if (jsxAttr.getNameNode().getText() === 'unstable_onSearch') {
-        jsxAttr.remove()
-        context.todoNodes.push(element)
+      if (attr.getKind() !== SyntaxKind.JsxAttribute) continue;
+      const jsxAttr = attr.asKindOrThrow(SyntaxKind.JsxAttribute);
+      if (jsxAttr.getNameNode().getText() === "unstable_onSearch") {
+        jsxAttr.remove();
+        context.todoNodes.push(element);
       }
     }
   },
@@ -80,52 +86,60 @@ const baseTransform = createComponentMigration<SearchInputContext>({
     //   3. Removing the spurious unaliased `SearchInput` specifier.
     // -----------------------------------------------------------------------
     for (const importDecl of sourceFile.getImportDeclarations()) {
-      const specifier = importDecl.getModuleSpecifierValue()
-      const effectiveTarget = facadePackage ?? TARGET_SPECIFIER
-      if (!isElementsImport(specifier, facadePackage)) continue
+      const specifier = importDecl.getModuleSpecifierValue();
+      const effectiveTarget = facadePackage ?? TARGET_SPECIFIER;
+      if (!isElementsImport(specifier, facadePackage)) continue;
       // Only examine the target import (or the facade package import).
-      if (specifier !== effectiveTarget && specifier !== TARGET_SPECIFIER) continue
+      if (specifier !== effectiveTarget && specifier !== TARGET_SPECIFIER) continue;
 
-      const namedImports = importDecl.getNamedImports()
-      const aliasedEntry = namedImports.find((ni) => ni.getName() === 'SearchInput' && ni.getAliasNode() != null)
-      if (!aliasedEntry) continue
+      const namedImports = importDecl.getNamedImports();
+      const aliasedEntry = namedImports.find(
+        (ni) => ni.getName() === "SearchInput" && ni.getAliasNode() != null,
+      );
+      if (!aliasedEntry) continue;
 
-      const alias = aliasedEntry.getAliasNode()!.getText()
+      const alias = aliasedEntry.getAliasNode()!.getText();
 
       // Rewrite `SearchInput.Props` type references to `<alias>.Props`.
       for (const typeRef of sourceFile.getDescendantsOfKind(SyntaxKind.TypeReference)) {
-        const typeName = typeRef.getTypeName()
-        if (typeName.getText() === 'SearchInput.Props') {
-          typeName.replaceWithText(`${alias}.Props`)
+        const typeName = typeRef.getTypeName();
+        if (typeName.getText() === "SearchInput.Props") {
+          typeName.replaceWithText(`${alias}.Props`);
         }
       }
-      for (const heritage of sourceFile.getDescendantsOfKind(SyntaxKind.ExpressionWithTypeArguments)) {
-        const expression = heritage.getExpression()
-        if (expression.getText() === 'SearchInput.Props') {
-          expression.replaceWithText(`${alias}.Props`)
+      for (const heritage of sourceFile.getDescendantsOfKind(
+        SyntaxKind.ExpressionWithTypeArguments,
+      )) {
+        const expression = heritage.getExpression();
+        if (expression.getText() === "SearchInput.Props") {
+          expression.replaceWithText(`${alias}.Props`);
         }
       }
 
       // Remove the spurious unaliased `SearchInput` specifier (if present).
       for (const ni of importDecl.getNamedImports()) {
-        if (ni.getName() === 'SearchInput' && ni.getAliasNode() == null) {
-          ni.remove()
-          break
+        if (ni.getName() === "SearchInput" && ni.getAliasNode() == null) {
+          ni.remove();
+          break;
         }
       }
 
       // We only need to process one import declaration.
-      break
+      break;
     }
 
     // -----------------------------------------------------------------------
     // TODO comment insertion for removed unstable_onSearch prop.
     // -----------------------------------------------------------------------
     if (context.todoNodes.length > 0) {
-      const positions = collectStatementCommentPositions(sourceFile, context.todoNodes)
-      insertLineComments(sourceFile, positions, ' TODO: Replace the removed unstable_onSearch prop with onChange.')
+      const positions = collectStatementCommentPositions(sourceFile, context.todoNodes);
+      insertLineComments(
+        sourceFile,
+        positions,
+        " TODO: Replace the removed unstable_onSearch prop with onChange.",
+      );
     }
   },
-})
+});
 
-export default baseTransform
+export default baseTransform;

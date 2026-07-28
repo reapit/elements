@@ -1,18 +1,24 @@
-import preview from '#.storybook/preview'
-import { PageLayout } from './page-layout'
-import { TopBarPlaceholder, SideBarPlaceholder, BodyPlaceholder, BottomBarPlaceholder } from './__story__/placeholders'
+import preview from "#.storybook/preview";
+
+import {
+  TopBarPlaceholder,
+  SideBarPlaceholder,
+  BodyPlaceholder,
+  BottomBarPlaceholder,
+} from "./__story__/placeholders";
+import { PageLayout } from "./page-layout";
 
 const meta = preview.meta({
-  title: 'Containers and layout/PageLayout',
+  title: "Containers and layout/PageLayout",
   component: PageLayout,
   argTypes: {
     backgroundColour: {
-      control: 'select',
-      options: ['--colour-fill-white', '--colour-fill-neutral-lightest'],
+      control: "select",
+      options: ["--colour-fill-white", "--colour-fill-neutral-lightest"],
     },
     children: {
-      control: 'select',
-      options: ['Simple', 'SideBar', 'Mobile'],
+      control: "select",
+      options: ["Simple", "SideBar", "Mobile"],
       mapping: {
         Simple: [
           <PageLayout.TopBarRegion key="top-bar">
@@ -44,14 +50,14 @@ const meta = preview.meta({
       },
     },
     scroll: {
-      control: 'select',
-      options: ['self', 'body'],
+      control: "select",
+      options: ["self", "body"],
     },
   },
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
   },
-})
+});
 
 /**
  * A simple, common layout uses the top bar and body regions. Navigation within the app is
@@ -59,12 +65,12 @@ const meta = preview.meta({
  */
 export const Example = meta.story({
   args: {
-    backgroundColour: '--colour-fill-white',
-    children: 'Simple',
-    id: 'my-app-layout',
-    scroll: 'body',
+    backgroundColour: "--colour-fill-white",
+    children: "Simple",
+    id: "my-app-layout",
+    scroll: "body",
   },
-})
+});
 
 /**
  * A more complex layout uses the top bar, side bar and body regions. The side bar provides the main
@@ -73,9 +79,9 @@ export const Example = meta.story({
  */
 export const SideBar = Example.extend({
   args: {
-    children: 'SideBar',
+    children: "SideBar",
   },
-})
+});
 
 /**
  * On mobile devices, the bottom bar can be used in place of the top bar. In this case, the root
@@ -86,13 +92,13 @@ export const SideBar = Example.extend({
  */
 export const Mobile = Example.extend({
   args: {
-    children: 'Mobile',
-    scroll: 'self',
+    children: "Mobile",
+    scroll: "self",
   },
   globals: {
-    viewport: { value: 'XS' },
+    viewport: { value: "XS" },
   },
-})
+});
 
 /**
  * When the content of the body region flows beyond the viewport, either the root element of the page
@@ -103,9 +109,9 @@ export const Mobile = Example.extend({
  */
 export const Scroll = Example.extend({
   args: {
-    scroll: 'self',
+    scroll: "self",
   },
-})
+});
 
 /**
  * The background colour of all regions can be set using the `backgroundColour` prop. This will
@@ -113,6 +119,6 @@ export const Scroll = Example.extend({
  */
 export const BackgroundColour = SideBar.extend({
   args: {
-    backgroundColour: '--colour-fill-neutral-lightest',
+    backgroundColour: "--colour-fill-neutral-lightest",
   },
-})
+});

@@ -1,5 +1,6 @@
-import { css } from '@linaria/core'
-import { font } from '#src/utils/font'
+import { css } from "@linaria/core";
+
+import { font } from "#src/utils/font";
 
 export const elTooltip = css`
   @layer elements.main {
@@ -10,7 +11,7 @@ export const elTooltip = css`
     padding: var(--spacing-2) var(--spacing-3);
     width: max-content;
 
-    ${font('xs', 'regular')}
+    ${font("xs", "regular")}
     text-align: left;
   }
-`
+`;

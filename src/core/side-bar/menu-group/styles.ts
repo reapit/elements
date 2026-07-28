@@ -1,7 +1,9 @@
-import { css } from '@linaria/core'
-import { styled } from '@linaria/react'
-import { ElSideBarMenuItemIcon, ElSideBarMenuItemLabel } from '../menu-item/styles'
-import { font } from '#src/utils/font'
+import { css } from "@linaria/core";
+import { styled } from "@linaria/react";
+
+import { font } from "#src/utils/font";
+
+import { ElSideBarMenuItemIcon, ElSideBarMenuItemLabel } from "../menu-item/styles";
 
 export const elSideBarMenuGroup = css`
   @layer elements.main {
@@ -10,40 +12,40 @@ export const elSideBarMenuGroup = css`
 
     &:open,
     &[open],
-    &[data-is-active='true'],
-    &:has([aria-current='page']) {
+    &[data-is-active="true"],
+    &:has([aria-current="page"]) {
       background: var(--comp-navigation-colour-fill-sidebar-select);
     }
   }
-`
+`;
 
 // NOTE: This is designed to work in conjunction with `elSideBarMenuItem`
 export const elSideBarMenuGroupSummary = css`
   @layer elements.main {
-    grid-template-areas: 'icon label dropdown';
+    grid-template-areas: "icon label dropdown";
     grid-template-columns: auto 1fr auto;
     overflow: hidden;
 
     cursor: pointer;
   }
-`
+`;
 
 export const ElSideBarMenuGroupSummaryIcon = styled(ElSideBarMenuItemIcon)`
   @layer elements.main {
-    :where(details[data-is-active='true'], details:has([aria-current='page'])) & {
+    :where(details[data-is-active="true"], details:has([aria-current="page"])) & {
       color: var(--comp-navigation-colour-icon-sidebar-select);
     }
   }
-`
+`;
 
 export const ElSideBarMenuGroupSummaryLabel = styled(ElSideBarMenuItemLabel)`
   @layer elements.main {
-    :where(details[data-is-active='true'], details:has([aria-current='page'])) & {
+    :where(details[data-is-active="true"], details:has([aria-current="page"])) & {
       color: var(--comp-navigation-colour-text-sidebar-select);
-      ${font('sm', 'medium')}
+      ${font("sm", "medium")}
     }
   }
-`
+`;
 
 export const ElSideBarMenuGroupSummaryDropdownIcon = styled.span`
   @layer elements.main {
@@ -66,4 +68,4 @@ export const ElSideBarMenuGroupSummaryDropdownIcon = styled.span`
       transform: rotate(180deg);
     }
   }
-`
+`;

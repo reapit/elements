@@ -1,38 +1,43 @@
-import preview from '#.storybook/preview'
-import { Menu } from '#src/core/menu'
-import { TopBar } from '../top-bar'
+import preview from "#.storybook/preview";
+import { Menu } from "#src/core/menu";
+
+import { TopBar } from "../top-bar";
 
 const meta = preview.meta({
   component: TopBar.AvatarButton,
-  title: 'Navigation/TopBar/AvatarButton',
-})
+  title: "Navigation/TopBar/AvatarButton",
+});
 
 export const Example = meta.story({
   args: {
-    children: 'KD',
+    children: "KD",
   },
-})
+});
 
 /**
  * The following example demonstrates the use of `TopBar.AvatarButton` with the `Menu` component.
  */
 export const WithMenu = Example.extend({
-  name: 'With a Menu',
+  name: "With a Menu",
 
   argTypes: {
-    'aria-expanded': {
+    "aria-expanded": {
       control: false,
     },
   },
 
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
 
   render: ({ children }) => (
     <>
       <TopBar.AvatarButton
-        {...Menu.getTriggerProps({ id: 'trigger', popoverTarget: 'menu', popoverTargetAction: 'toggle' })}
+        {...Menu.getTriggerProps({
+          id: "trigger",
+          popoverTarget: "menu",
+          popoverTargetAction: "toggle",
+        })}
       >
         {children}
       </TopBar.AvatarButton>
@@ -43,4 +48,4 @@ export const WithMenu = Example.extend({
       </Menu>
     </>
   ),
-})
+});

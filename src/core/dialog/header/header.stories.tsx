@@ -1,31 +1,32 @@
-import preview from '#.storybook/preview'
-import { Dialog } from '../dialog'
-import { Pattern } from '#src/core/drawer/__story__/Pattern'
-import { useDialogContextDecorator } from '../__story__/useDialogContextDecorator'
+import preview from "#.storybook/preview";
+import { Pattern } from "#src/core/drawer/__story__/Pattern";
+
+import { useDialogContextDecorator } from "../__story__/useDialogContextDecorator";
+import { Dialog } from "../dialog";
 
 const meta = preview.meta({
-  title: 'Containers and layout/Dialog/Header',
+  title: "Containers and layout/Dialog/Header",
   component: Dialog.Header,
   argTypes: {
     action: {
-      control: 'radio',
+      control: "radio",
       mapping: {
         Close: <Dialog.Header.CloseButton />,
         None: null,
       },
-      options: ['Close', 'None'],
+      options: ["Close", "None"],
     },
     children: {
-      control: 'text',
+      control: "text",
     },
   },
   globals: {
     backgrounds: {
-      value: 'light',
+      value: "light",
     },
   },
   decorators: [useDialogContextDecorator()],
-})
+});
 
 /**
  * The dialog header can be used without an action. This will typically be the case when the dialog has a footer
@@ -33,11 +34,11 @@ const meta = preview.meta({
  */
 export const Example = meta.story({
   args: {
-    action: 'None',
-    'aria-label': '',
-    children: 'Dialog Title',
+    action: "None",
+    "aria-label": "",
+    children: "Dialog Title",
   },
-})
+});
 
 /**
  * Dialogs that do not provide one or more actions in a footer should have a close action in the header to allow
@@ -45,9 +46,9 @@ export const Example = meta.story({
  */
 export const Action = Example.extend({
   args: {
-    action: 'Close',
+    action: "Close",
   },
-})
+});
 
 /**
  * The dialog header can also be used without a visible title. In this case, an `aria-label` should be provided
@@ -55,10 +56,10 @@ export const Action = Example.extend({
  */
 export const NoTitle = Action.extend({
   args: {
-    'aria-label': 'Dialog Title',
+    "aria-label": "Dialog Title",
     children: null,
   },
-})
+});
 
 /**
  * By default, the dialog header will be sticky when the dialog content scrolls. This ensures the context displayed by
@@ -69,11 +70,11 @@ export const StickyPositioning = Example.extend({
     (Story) => (
       <div
         style={{
-          boxSizing: 'border-box',
-          border: '1px solid #FA00FF',
-          containerType: 'inline-size',
-          maxHeight: '200px',
-          overflow: 'auto',
+          boxSizing: "border-box",
+          border: "1px solid #FA00FF",
+          containerType: "inline-size",
+          maxHeight: "200px",
+          overflow: "auto",
         }}
       >
         <Story />
@@ -81,7 +82,7 @@ export const StickyPositioning = Example.extend({
       </div>
     ),
   ],
-})
+});
 
 /**
  * However, when the drawer has a footer, the header will not be sticky and it will have no bottom border. This
@@ -90,17 +91,17 @@ export const StickyPositioning = Example.extend({
  */
 export const StaticPositioning = Example.extend({
   args: {
-    action: 'None',
+    action: "None",
   },
   decorators: [
     (Story) => (
       <div
         style={{
-          boxSizing: 'border-box',
-          border: '1px solid #FA00FF',
-          containerType: 'inline-size',
-          maxHeight: '200px',
-          overflow: 'auto',
+          boxSizing: "border-box",
+          border: "1px solid #FA00FF",
+          containerType: "inline-size",
+          maxHeight: "200px",
+          overflow: "auto",
         }}
       >
         <Story />
@@ -109,4 +110,4 @@ export const StaticPositioning = Example.extend({
       </div>
     ),
   ],
-})
+});

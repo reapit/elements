@@ -1,16 +1,17 @@
-import { font } from '#src/utils/font'
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
+
+import { font } from "#src/utils/font";
 
 export const ElTableCellPrimaryData = styled.div`
   @layer elements.main {
     display: inline-grid;
-    grid-template: 'icon-left data icon-right' auto / auto auto auto;
+    grid-template: "icon-left data icon-right" auto / auto auto auto;
     align-items: center;
     justify-content: start;
 
-    ${font('sm', 'regular')}
+    ${font("sm", "regular")}
   }
-`
+`;
 
 export const ElTableCellPrimaryDataContentContainer = styled.div`
   @layer elements.main {
@@ -20,10 +21,10 @@ export const ElTableCellPrimaryDataContentContainer = styled.div`
     overflow: hidden;
     white-space: break-spaces nowrap;
   }
-`
+`;
 
 interface ElTableCellPrimaryDataIconContainerProps {
-  'data-placement': 'left' | 'right'
+  "data-placement": "left" | "right";
 }
 
 export const ElTableCellPrimaryDataIconContainer = styled.span<ElTableCellPrimaryDataIconContainerProps>`
@@ -36,14 +37,14 @@ export const ElTableCellPrimaryDataIconContainer = styled.span<ElTableCellPrimar
 
     color: var(--colour-icon-primary);
 
-    &[data-placement='left'] {
+    &[data-placement="left"] {
       grid-area: icon-left;
       margin-inline-end: var(--spacing-2);
     }
 
-    &[data-placement='right'] {
+    &[data-placement="right"] {
       grid-area: icon-right;
       margin-inline-start: var(--spacing-2);
     }
   }
-`
+`;

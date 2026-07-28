@@ -1,22 +1,23 @@
-import { figma } from '@figma/code-connect'
-import { Toast } from './toast'
+import { figma } from "@figma/code-connect";
 
-figma.connect(Toast, '<TOAST_URL>', {
+import { Toast } from "./toast";
+
+figma.connect(Toast, "<TOAST_URL>", {
   props: {
-    icon: figma.enum('Variant', {
+    icon: figma.enum("Variant", {
       Success: undefined,
       Error: undefined,
       Warning: undefined,
       Info: undefined,
-      Neutral: figma.instance('Icon'),
+      Neutral: figma.instance("Icon"),
     }),
-    message: figma.string('Message'),
-    variant: figma.enum('Variant', {
-      Success: 'success',
-      Error: 'error',
-      Warning: 'warning',
-      Info: 'info',
-      Neutral: 'neutral',
+    message: figma.string("Message"),
+    variant: figma.enum("Variant", {
+      Success: "success",
+      Error: "error",
+      Warning: "warning",
+      Info: "info",
+      Neutral: "neutral",
     }),
   },
   example: ({ icon, message, variant }) => (
@@ -29,4 +30,4 @@ figma.connect(Toast, '<TOAST_URL>', {
       {message}
     </Toast>
   ),
-})
+});

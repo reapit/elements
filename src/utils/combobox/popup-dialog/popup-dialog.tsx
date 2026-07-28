@@ -1,58 +1,63 @@
-import { AnchorPositioning } from '#src/utils/anchor-positioning'
-import { closeDialog, HTMLDialog, openDialog } from '#src/utils/dialog'
-import { clearSearchInputOnClose, maybeCloseOnSelection } from './event-handlers'
-import { ComboboxPopupDialogCloseButton } from './close-button'
-import { ComboboxPopupDialogContext, useComboboxPopupDialogContext } from './context'
-import { cx } from '@linaria/core'
-import { elComboboxPopupDialog, ElComboboxPopupDialogHeader, ElComboboxPopupDialogListboxContainer } from './styles'
-import { isWidthAtOrAbove } from '#src/utils/breakpoints'
-import { useMatchMedia } from '#src/utils/match-media'
+import { cx } from "@linaria/core";
+import type { DialogHTMLAttributes, MouseEventHandler, ReactEventHandler, ReactNode } from "react";
 
-import type { CloseOnSelection } from './event-handlers'
-import type { DialogHTMLAttributes, MouseEventHandler, ReactEventHandler, ReactNode } from 'react'
+import { AnchorPositioning } from "#src/utils/anchor-positioning";
+import { isWidthAtOrAbove } from "#src/utils/breakpoints";
+import { closeDialog, HTMLDialog, openDialog } from "#src/utils/dialog";
+import { useMatchMedia } from "#src/utils/match-media";
+
+import { ComboboxPopupDialogCloseButton } from "./close-button";
+import { ComboboxPopupDialogContext, useComboboxPopupDialogContext } from "./context";
+import { clearSearchInputOnClose, maybeCloseOnSelection } from "./event-handlers";
+import type { CloseOnSelection } from "./event-handlers";
+import {
+  elComboboxPopupDialog,
+  ElComboboxPopupDialogHeader,
+  ElComboboxPopupDialogListboxContainer,
+} from "./styles";
 
 export namespace ComboboxPopupDialog {
   export interface Props extends DialogHTMLAttributes<HTMLDialogElement> {
     /** ID of the element that labels the popup. */
-    'aria-labelledby': string
+    "aria-labelledby": string;
     /** Popup content. */
-    children: ReactNode
+    children: ReactNode;
     /**
      * Whether the popup should close when an option is selected. Default is 'auto'
      * which will close on selection for single-select comboboxes, but not for
      * multi-select comboboxes.
      */
-    closeOnSelection?: CloseOnSelection
+    closeOnSelection?: CloseOnSelection;
     /** ID of the popup element. */
-    id: string
+    id: string;
     /** Maximum height. By default, the popover will grow to fit its content. */
-    maxHeight?: string
+    maxHeight?: string;
     /** Maximum width. By default, the popover is slightly wider than the anchor. */
-    maxWidth?: string
+    maxWidth?: string;
     /** Minimum width. By default, the popover is slightly wider than the anchor. */
-    minWidth?: string
+    minWidth?: string;
     /**
      * Whether to preserve (keep) the search input value when the popup closes.
      * When false (default), the search input, if present, will be cleared on close.
      * @default false
      */
-    preserveSearchOnClose?: boolean
+    preserveSearchOnClose?: boolean;
     /** Optional search input component for filtering options (typically Combobox.SearchInput). */
-    search?: ReactNode
+    search?: ReactNode;
     /**
      * Variant type:
      * - **auto**: The default. Displays as a drawer on XS breakpoint, popover on SM and above
      * - **popover**: Displays as a popover anchored to the combobox button
      * - **drawer**: Displays as a drawer (full-screen modal on mobile)
      */
-    variant?: 'popover' | 'drawer' | 'auto'
+    variant?: "popover" | "drawer" | "auto";
   }
 }
 
 // NOTE: --combobox-popup-padding is defined in styles.ts
-export const defaultPopupWidth = 'calc(anchor-size(width) + 2 * var(--combobox-popup-padding))'
-export const defaultPopupInsetLeft = 'calc(anchor(left) - var(--combobox-popup-padding))'
-export const defaultPopupInsetTop = 'calc(anchor(top) - var(--combobox-popup-padding))'
+export const defaultPopupWidth = "calc(anchor-size(width) + 2 * var(--combobox-popup-padding))";
+export const defaultPopupInsetLeft = "calc(anchor(left) - var(--combobox-popup-padding))";
+export const defaultPopupInsetTop = "calc(anchor(top) - var(--combobox-popup-padding))";
 
 /**
  * Combobox popup dialog that can be displayed as a popover, drawer, or auto.
@@ -66,10 +71,10 @@ export const defaultPopupInsetTop = 'calc(anchor(top) - var(--combobox-popup-pad
  * wired up via the `Combobox.Context`.
  */
 export function ComboboxPopupDialog({
-  'aria-labelledby': ariaLabelledBy,
+  "aria-labelledby": ariaLabelledBy,
   children,
   className,
-  closeOnSelection = 'auto',
+  closeOnSelection = "auto",
   id,
   maxHeight,
   maxWidth = defaultPopupWidth,
@@ -80,24 +85,24 @@ export function ComboboxPopupDialog({
   preserveSearchOnClose = false,
   search,
   style,
-  variant = 'auto',
+  variant = "auto",
   ...rest
 }: ComboboxPopupDialog.Props) {
-  const isSMOrAbove = useMatchMedia(isWidthAtOrAbove('SM'))
-  const needsAnchorPositioning = variant === 'popover' || (variant === 'auto' && isSMOrAbove)
-  const needsCloseButton = variant === 'drawer' || (variant === 'auto' && !isSMOrAbove)
+  const isSMOrAbove = useMatchMedia(isWidthAtOrAbove("SM"));
+  const needsAnchorPositioning = variant === "popover" || (variant === "auto" && isSMOrAbove);
+  const needsCloseButton = variant === "drawer" || (variant === "auto" && !isSMOrAbove);
 
   const handleClose: ReactEventHandler<HTMLDialogElement> = (event) => {
-    onClose?.(event)
+    onClose?.(event);
     if (search) {
-      clearSearchInputOnClose(event)
+      clearSearchInputOnClose(event);
     }
-  }
+  };
 
   const handleClick: MouseEventHandler<HTMLDialogElement> = (event) => {
-    onClick?.(event)
-    maybeCloseOnSelection(event)
-  }
+    onClick?.(event);
+    maybeCloseOnSelection(event);
+  };
 
   return (
     <HTMLDialog
@@ -140,12 +145,15 @@ export function ComboboxPopupDialog({
         <ElComboboxPopupDialogListboxContainer>{children}</ElComboboxPopupDialogListboxContainer>
       </ComboboxPopupDialogContext.Provider>
     </HTMLDialog>
-  )
+  );
 }
 
-ComboboxPopupDialog.Context = ComboboxPopupDialogContext
-ComboboxPopupDialog.useContext = useComboboxPopupDialogContext
-ComboboxPopupDialog.open = openDialog
-ComboboxPopupDialog.close = closeDialog
+ComboboxPopupDialog.Context = ComboboxPopupDialogContext;
+ComboboxPopupDialog.useContext = useComboboxPopupDialogContext;
+ComboboxPopupDialog.open = openDialog;
+ComboboxPopupDialog.close = closeDialog;
 
-export { closeDialog as closeComboboxPopup, openDialog as openComboboxPopup } from '#src/utils/dialog'
+export {
+  closeDialog as closeComboboxPopup,
+  openDialog as openComboboxPopup,
+} from "#src/utils/dialog";

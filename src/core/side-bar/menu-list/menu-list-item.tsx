@@ -1,7 +1,7 @@
-import { SideBarMenuItem as BaseSideBarMenuItem } from '../menu-item'
-import { ElSideBarMenuListItem } from './styles'
+import type { ComponentProps } from "react";
 
-import type { ComponentProps } from 'react'
+import { SideBarMenuItem as BaseSideBarMenuItem } from "../menu-item";
+import { ElSideBarMenuListItem } from "./styles";
 
 export namespace SideBarMenuListItem {
   export interface Props extends ComponentProps<typeof BaseSideBarMenuItem> {}
@@ -10,7 +10,7 @@ export namespace SideBarMenuListItem {
 /**
  * @deprecated Use `SideBarMenuListItem.Props` instead
  */
-export type SideBarMenuListItemProps = SideBarMenuListItem.Props
+export type SideBarMenuListItemProps = SideBarMenuListItem.Props;
 
 /**
  * A thin wrapper around `SideBarMenuItem` that ensures it is contained within a list item (`<li>`) for
@@ -23,7 +23,7 @@ export function SideBarMenuListItem({ children, ...props }: SideBarMenuListItem.
     <ElSideBarMenuListItem>
       <BaseSideBarMenuItem {...props}>{children}</BaseSideBarMenuItem>
     </ElSideBarMenuListItem>
-  )
+  );
 }
 
-SideBarMenuListItem.displayName = 'SideBar.MenuItem'
+SideBarMenuListItem.displayName = "SideBar.MenuItem";

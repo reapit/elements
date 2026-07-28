@@ -1,15 +1,16 @@
-import preview from '#.storybook/preview'
-import { Button } from '#src/core/button'
-import { ButtonGroup } from '#src/core/button-group'
-import { FormLayout } from '../form-layout'
+import preview from "#.storybook/preview";
+import { Button } from "#src/core/button";
+import { ButtonGroup } from "#src/core/button-group";
+
+import { FormLayout } from "../form-layout";
 
 const meta = preview.meta({
-  title: 'Containers and layout/FormLayout/Footer',
+  title: "Containers and layout/FormLayout/Footer",
   component: FormLayout.Footer,
   parameters: {
-    docs: { source: { type: 'code' } },
+    docs: { source: { type: "code" } },
   },
-})
+});
 
 export const Example = meta.story({
   render: function Example() {
@@ -20,6 +21,6 @@ export const Example = meta.story({
           <Button variant="primary">Save</Button>
         </ButtonGroup>
       </FormLayout.Footer>
-    )
+    );
   },
-})
+});

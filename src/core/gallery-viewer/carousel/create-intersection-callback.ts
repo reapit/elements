@@ -1,8 +1,8 @@
-import type { MutableRefObject } from 'react'
+import type { MutableRefObject } from "react";
 
 export interface CreateIntersectionCallbackOptions {
-  container: HTMLElement
-  activeItemRef: MutableRefObject<string | undefined>
+  container: HTMLElement;
+  activeItemRef: MutableRefObject<string | undefined>;
 }
 
 /**
@@ -22,26 +22,26 @@ export function createIntersectionCallback({
 }: CreateIntersectionCallbackOptions): IntersectionObserverCallback {
   return (entries) => {
     for (const entry of entries) {
-      const target = entry.target as HTMLElement
+      const target = entry.target as HTMLElement;
 
       if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
         // Mark all items: remove inert from the visible one, add to the rest.
         // TODO: replace with CSS `interactivity: inert` / `interactivity: auto` once
         // browser support is sufficient (currently Chrome/Edge 135+ only, no Firefox/Safari).
         // https://caniuse.com/mdn-css_properties_interactivity
-        const allItems = Array.from(container.children) as HTMLElement[]
+        const allItems = Array.from(container.children) as HTMLElement[];
         for (const item of allItems) {
           if (item === target) {
-            item.removeAttribute('inert')
+            item.removeAttribute("inert");
           } else {
-            item.inert = true
+            item.inert = true;
           }
         }
 
         if (target.id) {
-          activeItemRef.current = target.id
+          activeItemRef.current = target.id;
         }
       }
     }
-  }
+  };
 }

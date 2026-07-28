@@ -1,18 +1,19 @@
-import preview from '#.storybook/preview'
-import { DescriptionList } from './description-list'
-import { Features } from '#src/core/features'
-import { LineClamp } from '#src/utils/line-clamp'
-import { Text } from '#src/utils/text'
+import preview from "#.storybook/preview";
+import { Features } from "#src/core/features";
+import { LineClamp } from "#src/utils/line-clamp";
+import { Text } from "#src/utils/text";
+
+import { DescriptionList } from "./description-list";
 
 const meta = preview.meta({
-  title: 'Content display/DescriptionList',
+  title: "Content display/DescriptionList",
   component: DescriptionList,
   argTypes: {
     children: {
       control: false,
     },
   },
-})
+});
 
 /**
  * By default, items will stack vertically in a one-column grid.
@@ -39,28 +40,31 @@ export const Example = meta.story({
       </DescriptionList.Item>,
       <DescriptionList.Item key="Description" label="Description">
         <LineClamp as="div" clampTo={4}>
-          <Text as="p" style={{ marginBlockEnd: 'var(--spacing-2)' }}>
-            This exceptional four-bedroom house, situated in the desirable MK17 0QL area, presents an attractive
-            opportunity for a discerning buyer seeking a comfortable and spacious home. With its impressive layout, the
-            property boasts four well-appointed bedrooms, ideal for families or professionals, and two modern bathrooms,
-            ensuring ample storage and convenience. The property&apos;s exterior features two allocated parking spaces,
-            providing secure and convenient parking for residents and visitors alike. As an investment opportunity, this
-            house offers a solid foundation for long-term ownership, with potential for future growth and development.
+          <Text as="p" style={{ marginBlockEnd: "var(--spacing-2)" }}>
+            This exceptional four-bedroom house, situated in the desirable MK17 0QL area, presents
+            an attractive opportunity for a discerning buyer seeking a comfortable and spacious
+            home. With its impressive layout, the property boasts four well-appointed bedrooms,
+            ideal for families or professionals, and two modern bathrooms, ensuring ample storage
+            and convenience. The property&apos;s exterior features two allocated parking spaces,
+            providing secure and convenient parking for residents and visitors alike. As an
+            investment opportunity, this house offers a solid foundation for long-term ownership,
+            with potential for future growth and development.
           </Text>
           <Text as="p">
-            Inside, the property&apos;s neutral décor provides a blank canvas for buyers to put their own stamp,
-            allowing for easy personalisation and customisation. With its central location, the property is
-            well-connected to local amenities, schools, and transport links, making it an ideal choice for those seeking
-            a convenient and hassle-free lifestyle.
+            Inside, the property&apos;s neutral décor provides a blank canvas for buyers to put
+            their own stamp, allowing for easy personalisation and customisation. With its central
+            location, the property is well-connected to local amenities, schools, and transport
+            links, making it an ideal choice for those seeking a convenient and hassle-free
+            lifestyle.
           </Text>
         </LineClamp>
       </DescriptionList.Item>,
     ],
     gap: undefined,
     grid: undefined,
-    layout: 'stacked',
+    layout: "stacked",
   },
-})
+});
 
 /**
  * Any valid CSS grid layout can be used to control how items are placed in the description list.
@@ -70,9 +74,9 @@ export const Example = meta.story({
  */
 export const Grid = Example.extend({
   args: {
-    grid: 'auto-flow / 1fr 1fr 1fr',
+    grid: "auto-flow / 1fr 1fr 1fr",
   },
-})
+});
 
 /**
  * The gap between items in the grid can be adjusted using the `gap` props. It accepts any valid
@@ -80,9 +84,9 @@ export const Grid = Example.extend({
  */
 export const Gap = Grid.extend({
   args: {
-    gap: 'var(--spacing-40)',
+    gap: "var(--spacing-40)",
   },
-})
+});
 
 /**
  * In a tabular layout, each item's label and description is aligned to the description list's grid.
@@ -90,20 +94,20 @@ export const Gap = Grid.extend({
  */
 export const Tabular = Example.extend({
   args: {
-    grid: 'auto-flow / var(--size-36) 1fr',
-    layout: 'tabular',
+    grid: "auto-flow / var(--size-36) 1fr",
+    layout: "tabular",
   },
-})
+});
 
 /**
  * In an inline layout, each item's label and description are displayed inline with each other.
  */
 export const Inline = Example.extend({
   args: {
-    grid: 'auto-flow / 1fr',
-    layout: 'inline',
+    grid: "auto-flow / 1fr",
+    layout: "inline",
   },
-})
+});
 
 /**
  * An item can also be configured to span multiple columns in the description list's grid.
@@ -112,7 +116,7 @@ export const Inline = Example.extend({
  * on the syntax.
  */
 export const SpanningColumns = Grid.extend({
-  name: 'Spanning columns',
+  name: "Spanning columns",
   args: {
     children: [
       <DescriptionList.Item key="Property style" label="Property style">
@@ -134,22 +138,25 @@ export const SpanningColumns = Grid.extend({
       </DescriptionList.Item>,
       <DescriptionList.Item key="Description" area="auto / span 3" label="Description">
         <LineClamp as="div" clampTo={4}>
-          <Text as="p" style={{ marginBlockEnd: 'var(--spacing-2)' }}>
-            This exceptional four-bedroom house, situated in the desirable MK17 0QL area, presents an attractive
-            opportunity for a discerning buyer seeking a comfortable and spacious home. With its impressive layout, the
-            property boasts four well-appointed bedrooms, ideal for families or professionals, and two modern bathrooms,
-            ensuring ample storage and convenience. The property&apos;s exterior features two allocated parking spaces,
-            providing secure and convenient parking for residents and visitors alike. As an investment opportunity, this
-            house offers a solid foundation for long-term ownership, with potential for future growth and development.
+          <Text as="p" style={{ marginBlockEnd: "var(--spacing-2)" }}>
+            This exceptional four-bedroom house, situated in the desirable MK17 0QL area, presents
+            an attractive opportunity for a discerning buyer seeking a comfortable and spacious
+            home. With its impressive layout, the property boasts four well-appointed bedrooms,
+            ideal for families or professionals, and two modern bathrooms, ensuring ample storage
+            and convenience. The property&apos;s exterior features two allocated parking spaces,
+            providing secure and convenient parking for residents and visitors alike. As an
+            investment opportunity, this house offers a solid foundation for long-term ownership,
+            with potential for future growth and development.
           </Text>
           <Text as="p">
-            Inside, the property&apos;s neutral décor provides a blank canvas for buyers to put their own stamp,
-            allowing for easy personalisation and customisation. With its central location, the property is
-            well-connected to local amenities, schools, and transport links, making it an ideal choice for those seeking
-            a convenient and hassle-free lifestyle.
+            Inside, the property&apos;s neutral décor provides a blank canvas for buyers to put
+            their own stamp, allowing for easy personalisation and customisation. With its central
+            location, the property is well-connected to local amenities, schools, and transport
+            links, making it an ideal choice for those seeking a convenient and hassle-free
+            lifestyle.
           </Text>
         </LineClamp>
       </DescriptionList.Item>,
     ],
   },
-})
+});

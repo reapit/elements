@@ -1,7 +1,7 @@
-import { Combobox } from '#src/utils/combobox'
+import { Combobox } from "#src/utils/combobox";
 
 export namespace OfficeSwitcherListbox {
-  export interface Props extends Omit<Combobox.ListboxProps, 'role'> {}
+  export interface Props extends Omit<Combobox.ListboxProps, "role"> {}
 }
 
 /**
@@ -10,7 +10,7 @@ export namespace OfficeSwitcherListbox {
  * pattern.
  */
 export function OfficeSwitcherListbox(props: OfficeSwitcherListbox.Props) {
-  return <Combobox.Listbox {...props} role="tree" />
+  return <Combobox.Listbox {...props} role="tree" />;
 }
 
-OfficeSwitcherListbox.displayName = 'OfficeSwitcher.Listbox'
+OfficeSwitcherListbox.displayName = "OfficeSwitcher.Listbox";

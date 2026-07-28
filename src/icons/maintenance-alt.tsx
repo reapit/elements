@@ -1,4 +1,4 @@
-import MaintenanceAltSvg from './svgs/maintenance-alt.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import MaintenanceAltSvg from "./svgs/maintenance-alt.svg?react";
 
-export const MaintenanceAltIcon = makeIcon('MaintenanceAltIcon', MaintenanceAltSvg)
+export const MaintenanceAltIcon = makeIcon("MaintenanceAltIcon", MaintenanceAltSvg);

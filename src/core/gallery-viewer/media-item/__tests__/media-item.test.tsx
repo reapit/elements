@@ -1,49 +1,52 @@
-import { render, screen } from '@testing-library/react'
-import { GalleryViewerMediaItem } from '../media-item'
+import { render, screen } from "@testing-library/react";
 
-test('renders a figure element', () => {
-  const { container } = render(<GalleryViewerMediaItem id="item-1">Content</GalleryViewerMediaItem>)
+import { GalleryViewerMediaItem } from "../media-item";
+
+test("renders a figure element", () => {
+  const { container } = render(
+    <GalleryViewerMediaItem id="item-1">Content</GalleryViewerMediaItem>,
+  );
   // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
-  expect(container.querySelector('figure')).toBeInTheDocument()
-})
+  expect(container.querySelector("figure")).toBeInTheDocument();
+});
 
-test('sets the id attribute', () => {
+test("sets the id attribute", () => {
   render(
     <GalleryViewerMediaItem id="item-1" data-testid="item">
       Content
     </GalleryViewerMediaItem>,
-  )
-  expect(screen.getByTestId('item')).toHaveAttribute('id', 'item-1')
-})
+  );
+  expect(screen.getByTestId("item")).toHaveAttribute("id", "item-1");
+});
 
-test('forwards className', () => {
+test("forwards className", () => {
   render(
     <GalleryViewerMediaItem id="item-1" className="custom" data-testid="item">
       Content
     </GalleryViewerMediaItem>,
-  )
-  expect(screen.getByTestId('item')).toHaveClass('custom')
-})
+  );
+  expect(screen.getByTestId("item")).toHaveClass("custom");
+});
 
-test('forwards additional props', () => {
+test("forwards additional props", () => {
   render(
     <GalleryViewerMediaItem id="item-1" data-testid="item">
       Content
     </GalleryViewerMediaItem>,
-  )
-  expect(screen.getByTestId('item')).toBeVisible()
-})
+  );
+  expect(screen.getByTestId("item")).toBeVisible();
+});
 
 test('does not set role="group"', () => {
-  render(<GalleryViewerMediaItem id="item-1">Content</GalleryViewerMediaItem>)
-  expect(screen.queryByRole('group')).toBeNull()
-})
+  render(<GalleryViewerMediaItem id="item-1">Content</GalleryViewerMediaItem>);
+  expect(screen.queryByRole("group")).toBeNull();
+});
 
-test('does not set aria-roledescription', () => {
+test("does not set aria-roledescription", () => {
   render(
     <GalleryViewerMediaItem id="item-1" data-testid="item">
       Content
     </GalleryViewerMediaItem>,
-  )
-  expect(screen.getByTestId('item')).not.toHaveAttribute('aria-roledescription')
-})
+  );
+  expect(screen.getByTestId("item")).not.toHaveAttribute("aria-roledescription");
+});

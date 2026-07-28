@@ -1,11 +1,11 @@
-import { createContext, useContext } from 'react'
+import { createContext, useContext } from "react";
 
-export type BottomBarState = 'extended' | 'retracted'
+export type BottomBarState = "extended" | "retracted";
 
 export namespace BottomBarContext {
   export interface Value {
     /** Whether the bottom bar is currently extended or retracted */
-    state: BottomBarState
+    state: BottomBarState;
   }
 }
 
@@ -13,16 +13,18 @@ export namespace BottomBarContext {
  * The context available to a BottomBar's descendants. Provides access to a single `isOpen` boolean
  * that allows them to be aware of the BottomBar's open state.
  */
-export const BottomBarContext = createContext<BottomBarContext.Value | null>(null)
+export const BottomBarContext = createContext<BottomBarContext.Value | null>(null);
 
 /**
  * Returns the current `BottomBarContext` value.
  * @throws an error if the context is not defined.
  */
 export function useBottomBarContext(): BottomBarContext.Value {
-  const context = useContext(BottomBarContext)
+  const context = useContext(BottomBarContext);
   if (!context) {
-    throw new Error('BottomBarContext not defined: useBottomBarContext can only be used in a child of BottomBarContext')
+    throw new Error(
+      "BottomBarContext not defined: useBottomBarContext can only be used in a child of BottomBarContext",
+    );
   }
-  return context
+  return context;
 }

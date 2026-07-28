@@ -1,12 +1,12 @@
-import { Button } from '../button'
-import { useButtonGroupContext } from './context'
+import { Button } from "../button";
+import { useButtonGroupContext } from "./context";
 
 // We omit `size` because we make it optional
-type AttributesToOmit = 'size'
+type AttributesToOmit = "size";
 
 export namespace ButtonGroupItem {
   export interface Props extends Omit<Button.Props, AttributesToOmit> {
-    size?: Button.Props['size']
+    size?: Button.Props["size"];
   }
 }
 
@@ -14,8 +14,8 @@ export namespace ButtonGroupItem {
  * A thin wrapper around a button to ensure it uses the button group's size.
  */
 export function ButtonGroupItem({ size, ...rest }: ButtonGroupItem.Props) {
-  const context = useButtonGroupContext()
-  return <Button {...rest} size={size ?? context.size} />
+  const context = useButtonGroupContext();
+  return <Button {...rest} size={size ?? context.size} />;
 }
 
-ButtonGroupItem.displayName = 'ButtonGroup.Item'
+ButtonGroupItem.displayName = "ButtonGroup.Item";

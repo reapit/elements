@@ -1,6 +1,6 @@
-import { ElTopBarMenuDrawerContent } from './styles'
+import type { HTMLAttributes } from "react";
 
-import type { HTMLAttributes } from 'react'
+import { ElTopBarMenuDrawerContent } from "./styles";
 
 export namespace TopBarMenuDrawerContent {
   export interface Props extends HTMLAttributes<HTMLElement> {}
@@ -11,7 +11,7 @@ export namespace TopBarMenuDrawerContent {
  * menu lists.
  */
 export function TopBarMenuDrawerContent(props: TopBarMenuDrawerContent.Props) {
-  return <ElTopBarMenuDrawerContent {...props} />
+  return <ElTopBarMenuDrawerContent {...props} />;
 }
 
-TopBarMenuDrawerContent.displayName = 'TopBar.MenuContent'
+TopBarMenuDrawerContent.displayName = "TopBar.MenuContent";

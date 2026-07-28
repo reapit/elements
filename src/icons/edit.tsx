@@ -1,4 +1,4 @@
-import EditSvg from './svgs/edit.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import EditSvg from "./svgs/edit.svg?react";
 
-export const EditIcon = makeIcon('EditIcon', EditSvg)
+export const EditIcon = makeIcon("EditIcon", EditSvg);

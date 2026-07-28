@@ -1,22 +1,23 @@
-import { Combobox } from '#src/utils/combobox'
-import { ReactNode } from 'react'
+import { ReactNode } from "react";
+
+import { Combobox } from "#src/utils/combobox";
 
 export namespace OfficeSwitcherPopup {
   export interface Props extends Combobox.PopupProps {
     /** Search input component for filtering options (typically CompactSelect.SearchInput). */
-    search?: ReactNode
+    search?: ReactNode;
   }
 }
 
-const defaultMaxWidth = 'fit-content'
+const defaultMaxWidth = "fit-content";
 
 /**
  * OfficeSwitcher popups are used to display a list of offices.
  */
 export function OfficeSwitcherPopup({
-  closeOnSelection = 'auto',
+  closeOnSelection = "auto",
   maxWidth = defaultMaxWidth,
   ...rest
 }: OfficeSwitcherPopup.Props) {
-  return <Combobox.Popup {...rest} closeOnSelection={closeOnSelection} maxWidth={maxWidth} />
+  return <Combobox.Popup {...rest} closeOnSelection={closeOnSelection} maxWidth={maxWidth} />;
 }

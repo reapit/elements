@@ -1,33 +1,34 @@
-import { elTooltip } from './styles'
-import { getTooltipTriggerProps } from './get-tooltip-trigger-props'
-import { Popover } from '#src/utils/popover'
-import { useTooltipController } from './use-tooltip-controller'
+import type { HTMLAttributes } from "react";
 
-import type { HTMLAttributes } from 'react'
-import type { PopoverPlacement } from '#src/utils/popover'
+import { Popover } from "#src/utils/popover";
+import type { PopoverPlacement } from "#src/utils/popover";
+
+import { getTooltipTriggerProps } from "./get-tooltip-trigger-props";
+import { elTooltip } from "./styles";
+import { useTooltipController } from "./use-tooltip-controller";
 
 // NOTE: We omit...
 // - role, because the Tooltip's role should always be "menu".
-type AttributesToOmit = 'role'
+type AttributesToOmit = "role";
 
 export namespace Tooltip {
   export interface Props extends Omit<HTMLAttributes<HTMLDivElement>, AttributesToOmit> {
     /** The ID of the tooltip. */
-    id: string
+    id: string;
     /** The maximum width of the menu. By default, the menu will be as wide as its widest item. */
-    maxWidth?: `--size-${string}`
+    maxWidth?: `--size-${string}`;
     /** Where the popover should be placed relative to its anchor. */
-    placement?: PopoverPlacement
+    placement?: PopoverPlacement;
     /**
      * The ID of the element described by this tooltip. When this element receives focus or is
      * hovered by the mouse, the tooltip will be displayed.
      */
-    triggerId: string
+    triggerId: string;
     /**
      * The ID of element to measure for truncation. If supplied, the tooltip will only display
      * if this element's content has been truncated.
      */
-    truncationTargetId?: string
+    truncationTargetId?: string;
   }
 }
 
@@ -44,13 +45,13 @@ export namespace Tooltip {
 export function Tooltip({
   children,
   id,
-  maxWidth = '--size-100',
-  placement = 'top',
+  maxWidth = "--size-100",
+  placement = "top",
   triggerId,
   truncationTargetId,
   ...rest
 }: Tooltip.Props) {
-  useTooltipController({ tooltipId: id, triggerId, truncationTargetId })
+  useTooltipController({ tooltipId: id, triggerId, truncationTargetId });
 
   return (
     <Popover
@@ -69,10 +70,10 @@ export function Tooltip({
     >
       {children}
     </Popover>
-  )
+  );
 }
 
-Tooltip.getTriggerProps = getTooltipTriggerProps
+Tooltip.getTriggerProps = getTooltipTriggerProps;
 
 /** @deprecated use Tooltip.Props instead */
-export type TooltipProps = Tooltip.Props
+export type TooltipProps = Tooltip.Props;

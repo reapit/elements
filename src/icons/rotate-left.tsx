@@ -1,4 +1,4 @@
-import RotateLeftSvg from './svgs/rotate-left.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import RotateLeftSvg from "./svgs/rotate-left.svg?react";
 
-export const RotateLeftIcon = makeIcon('RotateLeftIcon', RotateLeftSvg)
+export const RotateLeftIcon = makeIcon("RotateLeftIcon", RotateLeftSvg);

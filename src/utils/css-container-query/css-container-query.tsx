@@ -1,13 +1,12 @@
-import { useRef } from 'react'
+import { useRef } from "react";
+import type { FC, ReactNode } from "react";
 
-import type { FC, ReactNode } from 'react'
-
-let baseId = 1
+let baseId = 1;
 
 export namespace CSSContainerQuery {
   export interface Props {
-    children: ReactNode
-    condition: string
+    children: ReactNode;
+    condition: string;
   }
 }
 
@@ -17,7 +16,7 @@ export const CSSContainerQuery: FC<CSSContainerQuery.Props> = ({ children, condi
    * This is only necessary because Firefox does not yet support the @scope CSS at-rule
    * and the `useId` hook available via React does not produce IDs that are compatible with CSS.
    */
-  const id = useRef(baseId++)
+  const id = useRef(baseId++);
   return (
     <>
       <style>{`
@@ -31,5 +30,5 @@ export const CSSContainerQuery: FC<CSSContainerQuery.Props> = ({ children, condi
       `}</style>
       <div className={`el-css-container-query-${id.current}`}>{children}</div>
     </>
-  )
-}
+  );
+};

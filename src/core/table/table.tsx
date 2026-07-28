@@ -1,21 +1,21 @@
-import { cx } from '@linaria/core'
-import { elTable } from './styles'
-import { TableBody } from './body'
-import { TableBodyCell } from './body-cell'
-import { TableBodyRow } from './body-row'
-import { TableCellCheckbox } from './checkbox'
-import { TableCellDoubleLineLayout } from './double-line-layout'
-import { TableCellPrimaryData } from './primary-data'
-import { TableCellSortButton } from './sort-button'
-import { TableHead } from './head'
-import { TableHeaderCell } from './header-cell'
-import { TableHeaderRow } from './header-row'
-import { TableRowMoreActions } from './more-actions'
-import { TableRowPrimaryAction } from './primary-action'
-import { TableRowPrimaryActionButton } from './primary-action/primary-action-button'
-import { TableToolbar } from './toolbar'
+import { cx } from "@linaria/core";
+import type { HTMLAttributes, ReactNode } from "react";
 
-import type { HTMLAttributes, ReactNode } from 'react'
+import { TableBody } from "./body";
+import { TableBodyCell } from "./body-cell";
+import { TableBodyRow } from "./body-row";
+import { TableCellCheckbox } from "./checkbox";
+import { TableCellDoubleLineLayout } from "./double-line-layout";
+import { TableHead } from "./head";
+import { TableHeaderCell } from "./header-cell";
+import { TableHeaderRow } from "./header-row";
+import { TableRowMoreActions } from "./more-actions";
+import { TableRowPrimaryAction } from "./primary-action";
+import { TableRowPrimaryActionButton } from "./primary-action/primary-action-button";
+import { TableCellPrimaryData } from "./primary-data";
+import { TableCellSortButton } from "./sort-button";
+import { elTable } from "./styles";
+import { TableToolbar } from "./toolbar";
 
 export namespace Table {
   interface CommonProps {
@@ -24,29 +24,29 @@ export namespace Table {
      * [grid-template-columns)(https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns)
      * syntax.
      */
-    columns: string
+    columns: string;
     /**
      * Defines how column content is positioned along the inline axis. By default, content is packed
      * against the starting edge of the column.
      */
-    justifyItems?: 'start' | 'center' | 'end'
+    justifyItems?: "start" | "center" | "end";
   }
 
   // NOTE: We do not use TableHTMLAttributes because the table-specific attributes it provides are
   // deprecated (see https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/table#attributes).
   interface AsTableProps extends CommonProps, HTMLAttributes<HTMLTableElement> {
-    as?: 'table'
+    as?: "table";
     /** The table's content. */
-    children: ReactNode
+    children: ReactNode;
   }
 
   interface AsDivProps extends CommonProps, HTMLAttributes<HTMLDivElement> {
-    as: 'div'
+    as: "div";
     /** The table's content. */
-    children: ReactNode
+    children: ReactNode;
   }
 
-  export type Props = AsTableProps | AsDivProps
+  export type Props = AsTableProps | AsDivProps;
 }
 
 /**
@@ -71,11 +71,11 @@ export namespace Table {
  * [Table.Checkbox](./?path=/docs/core-table-checkbox--docs)
  */
 export function Table({
-  as: Element = 'table',
+  as: Element = "table",
   children,
   className,
   columns,
-  justifyItems = 'start',
+  justifyItems = "start",
   style,
   ...rest
 }: Table.Props) {
@@ -88,26 +88,26 @@ export function Table({
     >
       {children}
     </Element>
-  )
+  );
 }
 
-Table.Body = TableBody
-Table.BodyCell = TableBodyCell
-Table.BodyRow = TableBodyRow
-Table.PrimaryAction = TableRowPrimaryAction
-Table.PrimaryActionButton = TableRowPrimaryActionButton
-Table.MoreActions = TableRowMoreActions
-Table.DoubleLineLayout = TableCellDoubleLineLayout
-Table.PrimaryData = TableCellPrimaryData
+Table.Body = TableBody;
+Table.BodyCell = TableBodyCell;
+Table.BodyRow = TableBodyRow;
+Table.PrimaryAction = TableRowPrimaryAction;
+Table.PrimaryActionButton = TableRowPrimaryActionButton;
+Table.MoreActions = TableRowMoreActions;
+Table.DoubleLineLayout = TableCellDoubleLineLayout;
+Table.PrimaryData = TableCellPrimaryData;
 
-Table.Head = TableHead
-Table.HeaderCell = TableHeaderCell
-Table.HeaderRow = TableHeaderRow
-Table.SortButton = TableCellSortButton
+Table.Head = TableHead;
+Table.HeaderCell = TableHeaderCell;
+Table.HeaderRow = TableHeaderRow;
+Table.SortButton = TableCellSortButton;
 
-Table.Checkbox = TableCellCheckbox
+Table.Checkbox = TableCellCheckbox;
 
-Table.Toolbar = TableToolbar
+Table.Toolbar = TableToolbar;
 
 // Backward compatibility
-export type TableProps = Table.Props
+export type TableProps = Table.Props;

@@ -1,7 +1,7 @@
-import { SideBarMenuGroup } from '../menu-group'
-import { ElSideBarMenuListItem } from './styles'
+import type { ComponentProps } from "react";
 
-import type { ComponentProps } from 'react'
+import { SideBarMenuGroup } from "../menu-group";
+import { ElSideBarMenuListItem } from "./styles";
 
 export namespace SideBarMenuListGroup {
   export interface Props extends ComponentProps<typeof SideBarMenuGroup> {}
@@ -10,7 +10,7 @@ export namespace SideBarMenuListGroup {
 /**
  * @deprecated Use `SideBarMenuListGroup.Props` instead
  */
-export type SideBarMenuListGroupProps = SideBarMenuListGroup.Props
+export type SideBarMenuListGroupProps = SideBarMenuListGroup.Props;
 
 /**
  * A thin wrapper around `SideBarMenuGroup` that ensures it is contained within a list item (`<li>`) for
@@ -23,9 +23,9 @@ export function SideBarMenuListGroup({ children, ...props }: SideBarMenuListGrou
     <ElSideBarMenuListItem>
       <SideBarMenuGroup {...props}>{children}</SideBarMenuGroup>
     </ElSideBarMenuListItem>
-  )
+  );
 }
 
-SideBarMenuListGroup.displayName = 'SideBar.MenuGroup'
+SideBarMenuListGroup.displayName = "SideBar.MenuGroup";
 
-SideBarMenuListGroup.Summary = SideBarMenuGroup.Summary
+SideBarMenuListGroup.Summary = SideBarMenuGroup.Summary;

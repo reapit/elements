@@ -1,5 +1,6 @@
-import { font } from '#src/utils/font'
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
+
+import { font } from "#src/utils/font";
 
 export const ElSwitch = styled.label`
   @layer elements.main {
@@ -30,12 +31,12 @@ export const ElSwitch = styled.label`
       --switch-label-colour: var(--comp-switch-colour-text-hover-checked);
     }
   }
-`
+`;
 
 export const ElSwitchLabelText = styled.span`
   @layer elements.main {
-    ${font('base', 'regular')}
+    ${font("base", "regular")}
     color: var(--switch-label-colour);
     white-space: nowrap;
   }
-`
+`;

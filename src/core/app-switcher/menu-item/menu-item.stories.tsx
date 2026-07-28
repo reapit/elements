@@ -1,10 +1,11 @@
-import preview from '#.storybook/preview'
-import { AppSwitcher } from '../app-switcher'
+import preview from "#.storybook/preview";
+
+import { AppSwitcher } from "../app-switcher";
 
 const meta = preview.meta({
-  title: 'Navigation/AppSwitcher/MenuItem',
+  title: "Navigation/AppSwitcher/MenuItem",
   component: AppSwitcher.MenuItem,
-})
+});
 
 /**
  * A basic menu item that renders an avatar, product name, and supplementary info. All content is supplied
@@ -13,12 +14,17 @@ const meta = preview.meta({
  */
 export const Example = meta.story({
   args: {
-    appName: 'App name',
-    avatar: <div aria-hidden style={{ background: 'currentColor', borderRadius: 4, height: 32, width: 32 }} />,
-    supplementaryInfo: 'Supplementary info',
-    href: '#',
+    appName: "App name",
+    avatar: (
+      <div
+        aria-hidden
+        style={{ background: "currentColor", borderRadius: 4, height: 32, width: 32 }}
+      />
+    ),
+    supplementaryInfo: "Supplementary info",
+    href: "#",
   },
-})
+});
 
 /**
  * If the text content of the menu item is too long for the available space, it will wrap to the next line.
@@ -26,12 +32,12 @@ export const Example = meta.story({
 export const Wrapping = Example.extend({
   decorators: [
     (Story) => (
-      <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', width: '180px' }}>
+      <div style={{ boxSizing: "content-box", border: "1px solid #FA00FF", width: "180px" }}>
         <Story />
       </div>
     ),
   ],
-})
+});
 
 /**
  * If individual words are too long for the available space, mid-word breaks may occur. This ensures no overflow
@@ -41,9 +47,9 @@ export const Wrapping = Example.extend({
 export const WordBreaks = Example.extend({
   decorators: [
     (Story) => (
-      <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', width: '150px' }}>
+      <div style={{ boxSizing: "content-box", border: "1px solid #FA00FF", width: "150px" }}>
         <Story />
       </div>
     ),
   ],
-})
+});

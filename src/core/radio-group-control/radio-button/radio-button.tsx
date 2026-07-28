@@ -1,20 +1,21 @@
-import { RadioInput } from '#src/core/radio-input'
-import { ElRadioButton, ElRadioButtonLabelText, ElRadioButtonSupplementaryInfo } from './styles'
-import { forwardRef, useId } from 'react'
+import { forwardRef, useId } from "react";
+import type { ReactNode } from "react";
 
-import type { ReactNode } from 'react'
+import { RadioInput } from "#src/core/radio-input";
+
+import { ElRadioButton, ElRadioButtonLabelText, ElRadioButtonSupplementaryInfo } from "./styles";
 
 // NOTE: we omit...
 // - aria-labelledby, because we label the radio button internally using the label prop
 // - size, because we don't support it for radio buttons
-type AttributesToOmit = 'aria-labelledby' | 'size'
+type AttributesToOmit = "aria-labelledby" | "size";
 
 export namespace RadioButton {
   export interface Props extends Omit<RadioInput.Props, AttributesToOmit> {
     /** Radio button label. */
-    label: ReactNode
+    label: ReactNode;
     /** Supplementary information for the radio button. Acts as an accessible description for the input. */
-    supplementaryInfo?: ReactNode
+    supplementaryInfo?: ReactNode;
   }
 }
 
@@ -23,10 +24,21 @@ export namespace RadioButton {
  * `RadioGroupControl.Option`.
  */
 export const RadioButton = forwardRef<HTMLInputElement, RadioButton.Props>(
-  ({ 'aria-describedby': ariaDescribedBy, className, id, label, required, supplementaryInfo, ...rest }, ref) => {
-    const descriptionId = useId()
-    const inputId = id ?? useId()
-    const labelId = useId()
+  (
+    {
+      "aria-describedby": ariaDescribedBy,
+      className,
+      id,
+      label,
+      required,
+      supplementaryInfo,
+      ...rest
+    },
+    ref,
+  ) => {
+    const descriptionId = useId();
+    const inputId = id ?? useId();
+    const labelId = useId();
 
     return (
       <ElRadioButton className={className}>
@@ -40,9 +52,11 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButton.Props>(
         />
         <ElRadioButtonLabelText id={labelId}>{label}</ElRadioButtonLabelText>
         {supplementaryInfo && (
-          <ElRadioButtonSupplementaryInfo id={descriptionId}>{supplementaryInfo}</ElRadioButtonSupplementaryInfo>
+          <ElRadioButtonSupplementaryInfo id={descriptionId}>
+            {supplementaryInfo}
+          </ElRadioButtonSupplementaryInfo>
         )}
       </ElRadioButton>
-    )
+    );
   },
-)
+);

@@ -1,1 +1,1 @@
-export { FormLayoutFooter } from './footer'
+export { FormLayoutFooter } from "./footer";

@@ -1,11 +1,12 @@
-import { isMobile, isTablet } from '../../styles/deprecated-media'
-import { elHFull } from '../../styles/deprecated-sizing'
-import { css } from '@linaria/core'
+import { css } from "@linaria/core";
+
+import { isMobile, isTablet } from "../../styles/deprecated-media";
+import { elHFull } from "../../styles/deprecated-sizing";
 
 /** @deprecated */
-export const elHasGreyBackground = css``
+export const elHasGreyBackground = css``;
 /** @deprecated */
-export const elHasMaxWidth = css``
+export const elHasMaxWidth = css``;
 
 /** @deprecated */
 export const elDeprecatedMainContainer = css`
@@ -24,7 +25,7 @@ export const elDeprecatedMainContainer = css`
     max-width: 1200px;
     margin: 0 auto;
   }
-`
+`;
 
 /** @deprecated */
 export const elPageContainer = css`
@@ -51,7 +52,7 @@ export const elPageContainer = css`
     max-width: 1200px;
     margin: 0 auto;
   }
-`
+`;
 
 /** @deprecated */
 export const elSecondaryNavContainer = css`
@@ -71,7 +72,7 @@ export const elSecondaryNavContainer = css`
   ${isMobile} {
     display: none;
   }
-`
+`;
 
 /** @deprecated */
 export const elFlexContainer = css`
@@ -87,4 +88,4 @@ export const elFlexContainer = css`
     max-width: 1200px;
     margin: 0 auto;
   }
-`
+`;

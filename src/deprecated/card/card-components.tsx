@@ -1,5 +1,10 @@
-import { cx } from '@linaria/core'
-import { Dispatch, FC, HTMLAttributes, SetStateAction, ReactNode } from 'react'
+import { cx } from "@linaria/core";
+import { Dispatch, FC, HTMLAttributes, SetStateAction, ReactNode } from "react";
+
+import { Intent } from "../../helpers/intent";
+import { elMb5, elMt5 } from "../../styles/deprecated-spacing";
+import { DeprecatedAvatar } from "../avatar";
+import { elCardFocussed, elCardSubHeadingWrapAvatar } from "./__styles__";
 import {
   CardWrap,
   CardHeading,
@@ -16,59 +21,55 @@ import {
   CardListItemTextSecondary,
   CardMainWrap,
   CardListMainWrap,
-} from './card'
-import { elCardFocussed, elCardSubHeadingWrapAvatar } from './__styles__'
-import { elMb5, elMt5 } from '../../styles/deprecated-spacing'
-import { Intent } from '../../helpers/intent'
-import { DeprecatedAvatar } from '../avatar'
+} from "./card";
 
 /** @deprecated */
 export interface CardListItemProps {
   // Card list items have a heading, a sub heading an icon name from our icon list and an onClick action
-  listCardItemHeading?: ReactNode
-  listCardItemSubHeading?: ReactNode
-  listCardItemIcon?: ReactNode
-  onClick?: () => void
+  listCardItemHeading?: ReactNode;
+  listCardItemSubHeading?: ReactNode;
+  listCardItemIcon?: ReactNode;
+  onClick?: () => void;
 }
 
 /** @deprecated */
 export interface ContextMenuItem {
-  icon: ReactNode
-  onClick: () => void
-  intent?: Intent
+  icon: ReactNode;
+  onClick: () => void;
+  intent?: Intent;
 }
 
 // As per above, each of the context menu options should have an icon name, a click action and
 // optionally, an intent for example "danger", will render a red icon
 /** @deprecated */
 export interface CardContextMenuProps extends HTMLAttributes<HTMLDivElement> {
-  contextMenuItems?: ContextMenuItem[]
+  contextMenuItems?: ContextMenuItem[];
 }
 
 /** @deprecated */
 export interface CardProps extends HTMLAttributes<HTMLDivElement> {
-  hasMainCard?: boolean // Should we render an Image card as the main card?
+  hasMainCard?: boolean; // Should we render an Image card as the main card?
   // Supplied text options for the various fields
-  mainCardHeading?: ReactNode
-  mainCardSubHeading?: ReactNode
-  mainCardSubHeadingAdditional?: ReactNode
-  mainCardBody?: ReactNode
-  mainCardImgUrl?: ReactNode
-  mainCardAvatarUrl?: ReactNode
+  mainCardHeading?: ReactNode;
+  mainCardSubHeading?: ReactNode;
+  mainCardSubHeadingAdditional?: ReactNode;
+  mainCardBody?: ReactNode;
+  mainCardImgUrl?: ReactNode;
+  mainCardAvatarUrl?: ReactNode;
   // Should we render a bottom list section. If supplied without hasMainCard, will just render a list
-  hasListCard?: boolean
+  hasListCard?: boolean;
   // Heading strings for the list
-  listCardHeading?: ReactNode
-  listCardSubHeading?: ReactNode
-  listCardItems?: CardListItemProps[] // A list of options for the list - see CardList item above
-  isSelected?: boolean // Does the card have the blue selected border
+  listCardHeading?: ReactNode;
+  listCardSubHeading?: ReactNode;
+  listCardItems?: CardListItemProps[]; // A list of options for the list - see CardList item above
+  isSelected?: boolean; // Does the card have the blue selected border
 }
 
 /** @deprecated */
 export const handleMouseHover =
   (hoverIndex: number | null, setHoverIndex: Dispatch<SetStateAction<number | null>>) => () => {
-    setHoverIndex(hoverIndex)
-  }
+    setHoverIndex(hoverIndex);
+  };
 
 /** @deprecated */
 export const Card: FC<CardProps> = ({
@@ -93,11 +94,16 @@ export const Card: FC<CardProps> = ({
         <>
           <CardMainWrap>
             {mainCardAvatarUrl ? (
-              <DeprecatedAvatar src={typeof mainCardAvatarUrl === 'string' ? mainCardAvatarUrl : undefined}>
+              <DeprecatedAvatar
+                src={typeof mainCardAvatarUrl === "string" ? mainCardAvatarUrl : undefined}
+              >
                 {mainCardAvatarUrl}
               </DeprecatedAvatar>
             ) : mainCardImgUrl ? (
-              <DeprecatedAvatar src={typeof mainCardImgUrl === 'string' ? mainCardImgUrl : undefined} type="image">
+              <DeprecatedAvatar
+                src={typeof mainCardImgUrl === "string" ? mainCardImgUrl : undefined}
+                type="image"
+              >
                 {mainCardImgUrl}
               </DeprecatedAvatar>
             ) : null}
@@ -107,7 +113,9 @@ export const Card: FC<CardProps> = ({
               <CardSubHeadingAdditional>{mainCardSubHeadingAdditional}</CardSubHeadingAdditional>
             </CardHeadingWrap>
           </CardMainWrap>
-          {mainCardBody && <CardBodyWrap className={cx(hasListCard && elMb5)}>{mainCardBody}</CardBodyWrap>}
+          {mainCardBody && (
+            <CardBodyWrap className={cx(hasListCard && elMb5)}>{mainCardBody}</CardBodyWrap>
+          )}
         </>
       )}
       {hasListCard && (
@@ -117,17 +125,22 @@ export const Card: FC<CardProps> = ({
             <CardListSubHeading>{listCardSubHeading}</CardListSubHeading>
           </CardListMainWrap>
           {listCardItems &&
-            listCardItems.map(({ listCardItemHeading, listCardItemSubHeading, listCardItemIcon, onClick }, index) => (
-              <CardListItem key={index} onClick={onClick}>
-                {listCardItemIcon && <CardListIcon>{listCardItemIcon}</CardListIcon>}
-                <CardListItemTextWrap>
-                  <CardListItemTextPrimary>{listCardItemHeading}</CardListItemTextPrimary>
-                  <CardListItemTextSecondary>{listCardItemSubHeading}</CardListItemTextSecondary>
-                </CardListItemTextWrap>
-              </CardListItem>
-            ))}
+            listCardItems.map(
+              (
+                { listCardItemHeading, listCardItemSubHeading, listCardItemIcon, onClick },
+                index,
+              ) => (
+                <CardListItem key={index} onClick={onClick}>
+                  {listCardItemIcon && <CardListIcon>{listCardItemIcon}</CardListIcon>}
+                  <CardListItemTextWrap>
+                    <CardListItemTextPrimary>{listCardItemHeading}</CardListItemTextPrimary>
+                    <CardListItemTextSecondary>{listCardItemSubHeading}</CardListItemTextSecondary>
+                  </CardListItemTextWrap>
+                </CardListItem>
+              ),
+            )}
         </>
       )}
     </CardWrap>
-  )
-}
+  );
+};

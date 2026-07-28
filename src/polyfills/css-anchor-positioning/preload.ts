@@ -23,4 +23,4 @@
  * await applyCSSAnchorPositioningPolyfill({ elements: [myElement] })
  * ```
  */
-export { default as polyfill } from '@oddbird/css-anchor-positioning/fn'
+export { default as polyfill } from "@oddbird/css-anchor-positioning/fn";

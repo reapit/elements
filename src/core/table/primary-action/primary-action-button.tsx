@@ -1,16 +1,16 @@
-import { cx } from '@linaria/core'
-import { elTableRowPrimaryAction } from './styles'
+import { cx } from "@linaria/core";
+import type { ButtonHTMLAttributes, ReactNode } from "react";
 
-import type { ButtonHTMLAttributes, ReactNode } from 'react'
+import { elTableRowPrimaryAction } from "./styles";
 
 // NOTE: we omit...
 // - type, because we internally control the button type
-type AttributesToOmit = 'type'
+type AttributesToOmit = "type";
 
 export namespace TableRowPrimaryActionButton {
   export interface Props extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, AttributesToOmit> {
     /** The content of the primary action */
-    children: ReactNode
+    children: ReactNode;
   }
 }
 
@@ -20,11 +20,14 @@ export namespace TableRowPrimaryActionButton {
  * designed to integrate seamlessly with table layouts while providing clear interactive feedback.
  * Typically used via `Table.PrimaryActionButton`.
  */
-export function TableRowPrimaryActionButton({ className, ...rest }: TableRowPrimaryActionButton.Props) {
-  return <button {...rest} className={cx(elTableRowPrimaryAction, className)} />
+export function TableRowPrimaryActionButton({
+  className,
+  ...rest
+}: TableRowPrimaryActionButton.Props) {
+  return <button {...rest} className={cx(elTableRowPrimaryAction, className)} />;
 }
 
-TableRowPrimaryActionButton.displayName = 'Table.PrimaryActionButton'
+TableRowPrimaryActionButton.displayName = "Table.PrimaryActionButton";
 
 // Backward compatibility
-export type TableRowPrimaryActionButtonProps = TableRowPrimaryActionButton.Props
+export type TableRowPrimaryActionButtonProps = TableRowPrimaryActionButton.Props;

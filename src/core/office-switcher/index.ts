@@ -1,1 +1,1 @@
-export { OfficeSwitcher } from './office-switcher'
+export { OfficeSwitcher } from "./office-switcher";

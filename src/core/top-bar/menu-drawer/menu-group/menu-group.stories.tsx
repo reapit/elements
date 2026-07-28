@@ -1,10 +1,11 @@
-import preview from '#.storybook/preview'
-import { TopBarMenuDrawerMenuGroup } from './menu-group'
-import { TopBarMenuDrawerMenuGroupSummary } from './menu-group-summary'
-import { TopBarMenuDrawerSubmenu } from '../submenu'
+import preview from "#.storybook/preview";
+
+import { TopBarMenuDrawerSubmenu } from "../submenu";
+import { TopBarMenuDrawerMenuGroup } from "./menu-group";
+import { TopBarMenuDrawerMenuGroupSummary } from "./menu-group-summary";
 
 const meta = preview.meta({
-  title: 'Navigation/TopBar/MenuDrawer/MenuGroup',
+  title: "Navigation/TopBar/MenuDrawer/MenuGroup",
   component: TopBarMenuDrawerMenuGroup,
   argTypes: {
     children: {
@@ -14,7 +15,7 @@ const meta = preview.meta({
       control: false,
     },
   },
-})
+});
 
 export const Example = meta.story({
   args: {
@@ -30,7 +31,7 @@ export const Example = meta.story({
     ),
     summary: <TopBarMenuDrawerMenuGroupSummary>Settings</TopBarMenuDrawerMenuGroupSummary>,
   },
-})
+});
 
 /**
  * When a submenu item within the group represents the current page, it should have an `aria-current="page"`
@@ -53,7 +54,7 @@ export const Selected = Example.extend({
       </TopBarMenuDrawerSubmenu>
     ),
   },
-})
+});
 
 /**
  * When a menu group needs to be open and visually active but no submenu item within a group can be uniquely identified
@@ -63,7 +64,7 @@ export const ManuallyActive = Example.extend({
   args: {
     isActive: true,
   },
-})
+});
 
 /**
  * If an item within the group has a notification badge, a badge can also be displayed on the group
@@ -84,7 +85,7 @@ export const Badge = Example.extend({
 
     summary: <TopBarMenuDrawerMenuGroupSummary hasBadge>Settings</TopBarMenuDrawerMenuGroupSummary>,
   },
-})
+});
 
 /**
  * Menu groups should have concise labels. In cases where the label is too long, it will truncate.
@@ -93,14 +94,16 @@ export const Badge = Example.extend({
 export const Truncation = Badge.extend({
   args: {
     summary: (
-      <TopBarMenuDrawerMenuGroupSummary hasBadge>All your base are belong to me</TopBarMenuDrawerMenuGroupSummary>
+      <TopBarMenuDrawerMenuGroupSummary hasBadge>
+        All your base are belong to me
+      </TopBarMenuDrawerMenuGroupSummary>
     ),
   },
   decorators: [
     (Story) => (
-      <div style={{ border: '1px solid #FA00FF', width: '200px' }}>
+      <div style={{ border: "1px solid #FA00FF", width: "200px" }}>
         <Story />
       </div>
     ),
   ],
-})
+});

@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
 
 export const ElBrandLogo = styled.a`
   @layer elements.main {
@@ -10,4 +10,4 @@ export const ElBrandLogo = styled.a`
       outline-offset: var(--border-width-default);
     }
   }
-`
+`;

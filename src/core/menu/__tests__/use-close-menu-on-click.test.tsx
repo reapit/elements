@@ -1,90 +1,90 @@
-import { fireEvent, render, screen } from '@testing-library/react'
-import { useCloseMenuOnClick } from '../use-close-menu-on-click'
+import { fireEvent, render, screen } from "@testing-library/react";
+import type { MouseEventHandler } from "react";
 
-import type { MouseEventHandler } from 'react'
+import { useCloseMenuOnClick } from "../use-close-menu-on-click";
 
 beforeEach(() => {
-  if (!('isTrusted' in MouseEvent.prototype)) {
-    Object.defineProperty(MouseEvent.prototype, 'isTrusted', { value: true })
+  if (!("isTrusted" in MouseEvent.prototype)) {
+    Object.defineProperty(MouseEvent.prototype, "isTrusted", { value: true });
   }
-})
+});
 
-test('calls hidePopover by default for menuitem click events', () => {
-  const hidePopover = vi.fn()
-  render(<TestComponent hidePopover={hidePopover} />)
+test("calls hidePopover by default for menuitem click events", () => {
+  const hidePopover = vi.fn();
+  render(<TestComponent hidePopover={hidePopover} />);
 
-  const element = screen.getByRole('menuitem', { name: 'Item 1' })
-  fireEvent.click(element)
+  const element = screen.getByRole("menuitem", { name: "Item 1" });
+  fireEvent.click(element);
 
-  expect(hidePopover).toHaveBeenCalled()
-})
+  expect(hidePopover).toHaveBeenCalled();
+});
 
-test('calls hidePopover by default for menuitem descendant click events', () => {
-  const hidePopover = vi.fn()
-  render(<TestComponent hidePopover={hidePopover} />)
+test("calls hidePopover by default for menuitem descendant click events", () => {
+  const hidePopover = vi.fn();
+  render(<TestComponent hidePopover={hidePopover} />);
 
-  const element = screen.getByTestId('item-2-inner-span')
-  fireEvent.click(element)
+  const element = screen.getByTestId("item-2-inner-span");
+  fireEvent.click(element);
 
-  expect(hidePopover).toHaveBeenCalled()
-})
+  expect(hidePopover).toHaveBeenCalled();
+});
 
-test('always calls onClick handler when provided', () => {
-  const onClick = vi.fn()
-  const hidePopover = vi.fn()
-  render(<TestComponent hidePopover={hidePopover} onClick={onClick} />)
+test("always calls onClick handler when provided", () => {
+  const onClick = vi.fn();
+  const hidePopover = vi.fn();
+  render(<TestComponent hidePopover={hidePopover} onClick={onClick} />);
 
-  const element = screen.getByRole('menuitem', { name: 'Item 1' })
-  fireEvent.click(element)
+  const element = screen.getByRole("menuitem", { name: "Item 1" });
+  fireEvent.click(element);
 
-  expect(onClick).toHaveBeenCalled()
-})
+  expect(onClick).toHaveBeenCalled();
+});
 
-test('does not call hidePopover when default action has been prevented by a menu item', () => {
-  const hidePopover = vi.fn()
-  render(<TestComponent hidePopover={hidePopover} />)
+test("does not call hidePopover when default action has been prevented by a menu item", () => {
+  const hidePopover = vi.fn();
+  render(<TestComponent hidePopover={hidePopover} />);
 
-  const element = screen.getByRole('menuitem', { name: 'Item that will not close the menu' })
-  fireEvent.click(element)
+  const element = screen.getByRole("menuitem", { name: "Item that will not close the menu" });
+  fireEvent.click(element);
 
-  expect(hidePopover).not.toHaveBeenCalled()
-})
+  expect(hidePopover).not.toHaveBeenCalled();
+});
 
-test('does not call hidePopover when default action has been prevented by the consumer onClick', () => {
-  const onClick = vi.fn((event) => event.preventDefault())
-  const hidePopover = vi.fn()
-  render(<TestComponent hidePopover={hidePopover} onClick={onClick} />)
+test("does not call hidePopover when default action has been prevented by the consumer onClick", () => {
+  const onClick = vi.fn((event) => event.preventDefault());
+  const hidePopover = vi.fn();
+  render(<TestComponent hidePopover={hidePopover} onClick={onClick} />);
 
-  const element = screen.getByRole('menuitem', { name: 'Item 1' })
-  fireEvent.click(element)
+  const element = screen.getByRole("menuitem", { name: "Item 1" });
+  fireEvent.click(element);
 
-  expect(hidePopover).not.toHaveBeenCalled()
-})
+  expect(hidePopover).not.toHaveBeenCalled();
+});
 
-test('does not call hidePopover when event target is not a menu item or menu item descendant', () => {
-  const hidePopover = vi.fn()
-  render(<TestComponent hidePopover={hidePopover} />)
+test("does not call hidePopover when event target is not a menu item or menu item descendant", () => {
+  const hidePopover = vi.fn();
+  render(<TestComponent hidePopover={hidePopover} />);
 
-  const element = screen.getByTestId('test-div')
-  fireEvent.click(element)
+  const element = screen.getByTestId("test-div");
+  fireEvent.click(element);
 
-  expect(hidePopover).not.toHaveBeenCalled()
-})
+  expect(hidePopover).not.toHaveBeenCalled();
+});
 
 interface TestComponentProps {
-  onClick?: MouseEventHandler<HTMLDivElement>
-  hidePopover?: () => void
+  onClick?: MouseEventHandler<HTMLDivElement>;
+  hidePopover?: () => void;
 }
 
 function TestComponent({ onClick, hidePopover }: TestComponentProps) {
-  const handleClick = useCloseMenuOnClick(onClick)
+  const handleClick = useCloseMenuOnClick(onClick);
 
   // TODO: When Happy DOM supports the Popover API, we can remove this mock
   const divRef = (element: HTMLDivElement | null) => {
     if (element && hidePopover) {
-      element.hidePopover = hidePopover
+      element.hidePopover = hidePopover;
     }
-  }
+  };
 
   return (
     // @ts-expect-error -- React 18 does not have types for the popover attributes.
@@ -97,5 +97,5 @@ function TestComponent({ onClick, hidePopover }: TestComponentProps) {
         Item that will not close the menu
       </div>
     </div>
-  )
+  );
 }

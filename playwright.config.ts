@@ -1,4 +1,4 @@
-import { defineConfig, devices } from '@playwright/test'
+import { defineConfig, devices } from "@playwright/test";
 
 /**
  * Read environment variables from file.
@@ -10,7 +10,7 @@ import { defineConfig, devices } from '@playwright/test'
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  testDir: './visual-tests',
+  testDir: "./visual-tests",
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -22,24 +22,24 @@ export default defineConfig({
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
     [
-      'html',
+      "html",
       {
-        outputFolder: '.visual-test/spec/results',
-        open: 'never',
+        outputFolder: ".visual-test/spec/results",
+        open: "never",
       },
     ],
-    process.env.CI ? ['github'] : ['line'],
+    process.env.CI ? ["github"] : ["line"],
   ],
 
-  outputDir: '.visual-test/spec/output',
-  snapshotPathTemplate: '.visual-test/spec/snaps/{projectName}/{testFilePath}/{arg}{ext}',
+  outputDir: ".visual-test/spec/output",
+  snapshotPathTemplate: ".visual-test/spec/snaps/{projectName}/{testFilePath}/{arg}{ext}",
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://127.0.0.1:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
+    trace: "on-first-retry",
   },
 
   // 2 min a bit high but want to ensure we doesn't timeout on CI
@@ -48,8 +48,8 @@ export default defineConfig({
   // Just adding Chrome for now, we can look at browser matrix later
   projects: [
     {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      name: "chromium",
+      use: { ...devices["Desktop Chrome"] },
     },
 
     // {
@@ -85,11 +85,11 @@ export default defineConfig({
 
   /* Run your local dev server before starting the tests */
   webServer: {
-    command: 'yarn http-server public/dist -p 6006',
-    url: 'http://localhost:6006',
+    command: "yarn http-server public/dist -p 6006",
+    url: "http://localhost:6006",
     reuseExistingServer: !process.env.CI,
     timeout: 120000,
-    stdout: 'ignore',
-    stderr: 'ignore',
+    stdout: "ignore",
+    stderr: "ignore",
   },
-})
+});

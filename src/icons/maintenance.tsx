@@ -1,4 +1,4 @@
-import MaintenanceSvg from './svgs/maintenance.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import MaintenanceSvg from "./svgs/maintenance.svg?react";
 
-export const MaintenanceIcon = makeIcon('MaintenanceIcon', MaintenanceSvg)
+export const MaintenanceIcon = makeIcon("MaintenanceIcon", MaintenanceSvg);

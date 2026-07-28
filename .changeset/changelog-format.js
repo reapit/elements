@@ -1,6 +1,6 @@
 // @ts-check
 
-import { getCommitInfo, getPullRequestInfo } from '@changesets/get-github-info'
+import { getCommitInfo, getPullRequestInfo } from "@changesets/get-github-info";
 
 /**
  * Maps a Keep a Changelog category prefix to its category label.
@@ -12,14 +12,14 @@ import { getCommitInfo, getPullRequestInfo } from '@changesets/get-github-info'
  * @type {Record<string, string>}
  */
 const PREFIX_TO_CATEGORY = {
-  'added:': 'Added',
-  'fixed:': 'Fixed',
-  'changed:': 'Changed',
-  'deprecated:': 'Deprecated',
-  'removed:': 'Removed',
-  'security:': 'Security',
-  'internal:': 'Internal',
-}
+  "added:": "Added",
+  "fixed:": "Fixed",
+  "changed:": "Changed",
+  "deprecated:": "Deprecated",
+  "removed:": "Removed",
+  "security:": "Security",
+  "internal:": "Internal",
+};
 
 /**
  * Infers a Keep a Changelog category from the semver bump type when no
@@ -28,11 +28,11 @@ const PREFIX_TO_CATEGORY = {
  * @type {Record<string, string>}
  */
 const BUMP_TO_CATEGORY = {
-  major: 'Removed',
-  minor: 'Added',
-  patch: 'Fixed',
-  none: 'Changed',
-}
+  major: "Removed",
+  minor: "Added",
+  patch: "Fixed",
+  none: "Changed",
+};
 
 /**
  * Parses the category from the beginning of a changeset summary.
@@ -45,16 +45,16 @@ const BUMP_TO_CATEGORY = {
  * @returns {{ category: string, body: string }}
  */
 function parseCategory(summary, type) {
-  const lower = summary.trimStart().toLowerCase()
+  const lower = summary.trimStart().toLowerCase();
 
   for (const [prefix, category] of Object.entries(PREFIX_TO_CATEGORY)) {
     if (lower.startsWith(prefix)) {
-      const body = summary.trimStart().slice(prefix.length).trimStart()
-      return { category, body }
+      const body = summary.trimStart().slice(prefix.length).trimStart();
+      return { category, body };
     }
   }
 
-  return { category: BUMP_TO_CATEGORY[type] ?? 'Changed', body: summary }
+  return { category: BUMP_TO_CATEGORY[type] ?? "Changed", body: summary };
 }
 
 /**
@@ -66,7 +66,7 @@ function parseCategory(summary, type) {
  * @returns {string}
  */
 function buildMetaSuffix(links) {
-  return links.pull ? ` (${links.pull})` : ''
+  return links.pull ? ` (${links.pull})` : "";
 }
 
 /**
@@ -82,33 +82,33 @@ function buildMetaSuffix(links) {
  * @returns {Promise<{ links: { pull: string | null }, cleanedSummary: string }>}
  */
 async function resolveLinks(rawSummary, changesetCommit, opts) {
-  const { repo } = opts
+  const { repo } = opts;
 
   /** @type {number | undefined} */
-  let prFromSummary = undefined
+  let prFromSummary = undefined;
 
   const cleanedSummary = rawSummary
     .replace(/^\s*(?:pr|pull|pull\s+request):\s*#?(\d+)/im, (_, pr) => {
-      const num = Number(pr)
-      if (!isNaN(num)) prFromSummary = num
-      return ''
+      const num = Number(pr);
+      if (!isNaN(num)) prFromSummary = num;
+      return "";
     })
-    .trim()
+    .trim();
 
   /** @type {{ pull: string | null }} */
-  let resolvedLinks
+  let resolvedLinks;
 
   if (prFromSummary !== undefined) {
-    const info = await getPullRequestInfo({ repo, pull: prFromSummary })
-    resolvedLinks = { pull: info?.pull.markdownLink ?? null }
+    const info = await getPullRequestInfo({ repo, pull: prFromSummary });
+    resolvedLinks = { pull: info?.pull.markdownLink ?? null };
   } else if (changesetCommit) {
-    const info = await getCommitInfo({ repo, commit: changesetCommit })
-    resolvedLinks = { pull: info?.pull?.markdownLink ?? null }
+    const info = await getCommitInfo({ repo, commit: changesetCommit });
+    resolvedLinks = { pull: info?.pull?.markdownLink ?? null };
   } else {
-    resolvedLinks = { pull: null }
+    resolvedLinks = { pull: null };
   }
 
-  return { links: resolvedLinks, cleanedSummary }
+  return { links: resolvedLinks, cleanedSummary };
 }
 
 // ---------------------------------------------------------------------------
@@ -130,34 +130,34 @@ async function resolveLinks(rawSummary, changesetCommit, opts) {
 const getReleaseLine = async (changeset, type, options) => {
   if (!options?.repo) {
     throw new Error(
-      'Please provide a repo to this changelog generator:\n' +
+      "Please provide a repo to this changelog generator:\n" +
         '"changelog": ["./changelog-format.js", { "repo": "org/repo" }]',
-    )
+    );
   }
 
-  const serverUrl = process.env.GITHUB_SERVER_URL ?? 'https://github.com'
+  const serverUrl = process.env.GITHUB_SERVER_URL ?? "https://github.com";
 
   const { links, cleanedSummary } = await resolveLinks(changeset.summary, changeset.commit, {
     repo: options.repo,
     serverUrl,
-  })
+  });
 
-  const { category, body } = parseCategory(cleanedSummary, type)
+  const { category, body } = parseCategory(cleanedSummary, type);
 
-  const [firstLine, ...remainingLines] = body.split('\n').map((l) => l.trimEnd())
+  const [firstLine, ...remainingLines] = body.split("\n").map((l) => l.trimEnd());
 
-  const meta = buildMetaSuffix(links)
-  const categoryPrefix = category ? `**[${category}]** ` : ''
+  const meta = buildMetaSuffix(links);
+  const categoryPrefix = category ? `**[${category}]** ` : "";
 
-  const entry = `- ${categoryPrefix}${firstLine}${meta}`
+  const entry = `- ${categoryPrefix}${firstLine}${meta}`;
 
   if (remainingLines.length === 0) {
-    return `\n\n${entry}`
+    return `\n\n${entry}`;
   }
 
-  const continuation = remainingLines.map((l) => (l ? `  ${l}` : '')).join('\n')
-  return `\n\n${entry}\n${continuation}`
-}
+  const continuation = remainingLines.map((l) => (l ? `  ${l}` : "")).join("\n");
+  return `\n\n${entry}\n${continuation}`;
+};
 
 /**
  * Formats the list of packages whose versions were bumped solely because a
@@ -170,19 +170,19 @@ const getReleaseLine = async (changeset, type, options) => {
  * @type {import('@changesets/types').GetDependencyReleaseLine}
  */
 const getDependencyReleaseLine = async (changesets, dependenciesUpdated, options) => {
-  if (dependenciesUpdated.length === 0) return ''
+  if (dependenciesUpdated.length === 0) return "";
 
   if (!options?.repo) {
     throw new Error(
-      'Please provide a repo to this changelog generator:\n' +
+      "Please provide a repo to this changelog generator:\n" +
         '"changelog": ["./changelog-format.js", { "repo": "org/repo" }]',
-    )
+    );
   }
 
-  const header = `- **[Changed]** Updated dependencies:`
-  const depList = dependenciesUpdated.map((dep) => `  - ${dep.name}@${dep.newVersion}`)
+  const header = `- **[Changed]** Updated dependencies:`;
+  const depList = dependenciesUpdated.map((dep) => `  - ${dep.name}@${dep.newVersion}`);
 
-  return [header, ...depList].join('\n')
-}
+  return [header, ...depList].join("\n");
+};
 
-export { getReleaseLine, getDependencyReleaseLine }
+export { getReleaseLine, getDependencyReleaseLine };

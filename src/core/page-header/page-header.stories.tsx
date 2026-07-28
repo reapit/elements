@@ -1,40 +1,41 @@
-import preview from '#.storybook/preview'
-import { AddIcon } from '#src/icons/add'
-import { Badge } from '../badge'
-import { Breadcrumbs } from '../breadcrumbs'
-import { BreakpointMinimumDimensions } from '#src/utils/breakpoints'
-import { Button } from '../button'
-import { ButtonGroup } from '../button-group'
-import { CompactSelectNative } from '../compact-select-native'
-import { FakeImage } from './leading-element/__story__/fake-image'
-import { Features } from '../features'
-import LogoDevice from './leading-element/__story__/logo-device.svg?react'
-import { PageHeader } from './page-header'
-import { StarIcon } from '#src/icons/star'
-import { SupplementaryInfo } from '../supplementary-info'
-import { TagGroup } from '../tag-group'
+import preview from "#.storybook/preview";
+import { AddIcon } from "#src/icons/add";
+import { StarIcon } from "#src/icons/star";
+import { BreakpointMinimumDimensions } from "#src/utils/breakpoints";
 
-const href = '#'
+import { Badge } from "../badge";
+import { Breadcrumbs } from "../breadcrumbs";
+import { Button } from "../button";
+import { ButtonGroup } from "../button-group";
+import { CompactSelectNative } from "../compact-select-native";
+import { Features } from "../features";
+import { SupplementaryInfo } from "../supplementary-info";
+import { TagGroup } from "../tag-group";
+import { FakeImage } from "./leading-element/__story__/fake-image";
+import LogoDevice from "./leading-element/__story__/logo-device.svg?react";
+import { PageHeader } from "./page-header";
+
+const href = "#";
 
 const meta = preview.meta({
-  title: 'Containers and layout/PageHeader',
+  title: "Containers and layout/PageHeader",
   component: PageHeader,
   argTypes: {
     backgroundColour: {
-      control: 'select',
-      options: ['none', 'white', 'neutral-lightest'],
+      control: "select",
+      options: ["none", "white", "neutral-lightest"],
       mapping: {
         none: null,
       },
     },
     leadingElement: {
-      control: 'select',
-      options: ['None', 'Icon', 'Image'],
+      control: "select",
+      options: ["None", "Icon", "Image"],
       mapping: {
         None: null,
         Icon: (
           <PageHeader.LeadingElement type="icon">
-            <LogoDevice style={{ width: '100%', height: '100%' }} />
+            <LogoDevice style={{ width: "100%", height: "100%" }} />
           </PageHeader.LeadingElement>
         ),
         Image: (
@@ -46,8 +47,8 @@ const meta = preview.meta({
       },
     },
     navigation: {
-      control: 'select',
-      options: ['None', 'Some', 'Many'],
+      control: "select",
+      options: ["None", "Some", "Many"],
       mapping: {
         None: null,
         Some: (
@@ -79,16 +80,16 @@ const meta = preview.meta({
       },
     },
     size: {
-      control: 'select',
-      options: ['fluid', 'wide', 'narrow'],
+      control: "select",
+      options: ["fluid", "wide", "narrow"],
     },
     subtitle: {
-      control: 'select',
-      options: ['None', 'Basic', 'Additional Info'],
+      control: "select",
+      options: ["None", "Basic", "Additional Info"],
       mapping: {
         None: null,
         Basic: <PageHeader.Subtitle>Subtitle</PageHeader.Subtitle>,
-        'Additional Info': (
+        "Additional Info": (
           <PageHeader.Subtitle
             additionalInfo={
               <>
@@ -106,8 +107,8 @@ const meta = preview.meta({
       },
     },
     supplementaryInfo: {
-      control: 'select',
-      options: ['None', 'Select', 'Summary Info', 'Everything'],
+      control: "select",
+      options: ["None", "Select", "Summary Info", "Everything"],
       mapping: {
         None: null,
         Select: (
@@ -120,7 +121,7 @@ const meta = preview.meta({
             </CompactSelectNative>
           </PageHeader.SupplementaryInfo>
         ),
-        'Summary Info': (
+        "Summary Info": (
           <PageHeader.SupplementaryInfo>
             <SupplementaryInfo size="sm">
               <SupplementaryInfo.Item>Supplementary Info 1</SupplementaryInfo.Item>
@@ -157,11 +158,11 @@ const meta = preview.meta({
       },
     },
     title: {
-      control: 'select',
-      options: ['Basic', 'Single Action', 'Multiple Actions', 'Additional Info'],
+      control: "select",
+      options: ["Basic", "Single Action", "Multiple Actions", "Additional Info"],
       mapping: {
         Basic: <PageHeader.Title>Title</PageHeader.Title>,
-        'Single Action': (
+        "Single Action": (
           <PageHeader.Title
             actions={
               <Button iconLeft={<AddIcon />} size="medium" variant="primary">
@@ -172,7 +173,7 @@ const meta = preview.meta({
             Title
           </PageHeader.Title>
         ),
-        'Multiple Actions': (
+        "Multiple Actions": (
           <PageHeader.Title
             actions={
               <ButtonGroup>
@@ -188,7 +189,7 @@ const meta = preview.meta({
             Title
           </PageHeader.Title>
         ),
-        'Additional Info': (
+        "Additional Info": (
           <PageHeader.Title
             additionalInfo={
               <>
@@ -208,30 +209,30 @@ const meta = preview.meta({
   },
   decorators: [
     (Story) => (
-      <main style={{ containerType: 'inline-size' }}>
+      <main style={{ containerType: "inline-size" }}>
         <Story />
       </main>
     ),
   ],
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
   },
-})
+});
 
 /**
  * The main purpose of the page header is to title the page.
  */
 export const Example = meta.story({
   args: {
-    backgroundColour: '--colour-fill-neutral-lightest',
-    leadingElement: 'None',
-    navigation: 'None',
-    size: 'fluid',
-    subtitle: 'None',
-    supplementaryInfo: 'None',
-    title: 'Basic',
+    backgroundColour: "--colour-fill-neutral-lightest",
+    leadingElement: "None",
+    navigation: "None",
+    size: "fluid",
+    subtitle: "None",
+    supplementaryInfo: "None",
+    title: "Basic",
   },
-})
+});
 
 /**
  * A key feature of the page header is the ability to provide navigation breadcrumbs. This is useful for providing
@@ -239,9 +240,9 @@ export const Example = meta.story({
  */
 export const Navigation = Example.extend({
   args: {
-    navigation: 'Some',
+    navigation: "Some",
   },
-})
+});
 
 /**
  * Often, a page header will contain one or more actions. These are provided as part of the page header's `title`
@@ -250,19 +251,19 @@ export const Navigation = Example.extend({
  */
 export const Actions = Example.extend({
   args: {
-    title: 'Single Action',
+    title: "Single Action",
   },
-})
+});
 
 /**
  * The page header also supports a leading element, such as an image or product icon.
  */
 export const LeadingElement = Example.extend({
   args: {
-    subtitle: 'Basic',
-    leadingElement: 'Image',
+    subtitle: "Basic",
+    leadingElement: "Image",
   },
-})
+});
 
 /**
  * The title can also include additional information such as tags, badges, and icons. This is useful for providing
@@ -270,9 +271,9 @@ export const LeadingElement = Example.extend({
  */
 export const Title = Example.extend({
   args: {
-    title: 'Additional Info',
+    title: "Additional Info",
   },
-})
+});
 
 /**
  * Sometimes a page will want to provide a subtitle for the page in addition to the title. This is useful for providing
@@ -281,10 +282,10 @@ export const Title = Example.extend({
  */
 export const Subtitle = Example.extend({
   args: {
-    subtitle: 'Additional Info',
-    title: 'Multiple Actions',
+    subtitle: "Additional Info",
+    title: "Multiple Actions",
   },
-})
+});
 
 /**
  * Often a page will also need to provide supplementary information within the page header. This will typically be
@@ -294,9 +295,9 @@ export const Subtitle = Example.extend({
  */
 export const Supplementary = Example.extend({
   args: {
-    supplementaryInfo: 'Summary Info',
+    supplementaryInfo: "Summary Info",
   },
-})
+});
 
 /**
  * The page header can be sized in a similar manner to `MainContainer`, with `fluid`, `wide`, and `narrow`
@@ -305,16 +306,16 @@ export const Supplementary = Example.extend({
  */
 export const Size = Example.extend({
   args: {
-    size: 'narrow',
+    size: "narrow",
   },
   decorators: [
     (Story) => (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-10)' }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "var(--spacing-10)" }}>
         <article
           style={{
-            containerType: 'inline-size',
-            boxSizing: 'content-box',
-            border: '1px solid #FA00FF',
+            containerType: "inline-size",
+            boxSizing: "content-box",
+            border: "1px solid #FA00FF",
             width: BreakpointMinimumDimensions.SM,
           }}
         >
@@ -322,9 +323,9 @@ export const Size = Example.extend({
         </article>
         <article
           style={{
-            containerType: 'inline-size',
-            boxSizing: 'content-box',
-            border: '1px solid #FA00FF',
+            containerType: "inline-size",
+            boxSizing: "content-box",
+            border: "1px solid #FA00FF",
             width: BreakpointMinimumDimensions.MD,
           }}
         >
@@ -334,9 +335,9 @@ export const Size = Example.extend({
     ),
   ],
   parameters: {
-    layout: 'padded',
+    layout: "padded",
   },
-})
+});
 
 /**
  * The page header can support alternative background colours. Typically, the background will either be
@@ -346,14 +347,14 @@ export const Size = Example.extend({
  */
 export const BackgroundColour = Example.extend({
   args: {
-    backgroundColour: '--colour-fill-white',
+    backgroundColour: "--colour-fill-white",
   },
   globals: {
     backgrounds: {
-      value: 'light',
+      value: "light",
     },
   },
-})
+});
 
 /**
  * The page header is designed to be responsive, and will adapt to the size of the container it is in. This is largely
@@ -363,30 +364,30 @@ export const BackgroundColour = Example.extend({
  */
 export const Breakpoints = Example.extend({
   args: {
-    leadingElement: 'Image',
-    navigation: 'Many',
-    subtitle: 'Additional Info',
-    supplementaryInfo: 'Summary Info',
-    title: 'Multiple Actions',
+    leadingElement: "Image",
+    navigation: "Many",
+    subtitle: "Additional Info",
+    supplementaryInfo: "Summary Info",
+    title: "Multiple Actions",
   },
   decorators: [
     (Story) => (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-10)' }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "var(--spacing-10)" }}>
         <article
           style={{
-            containerType: 'inline-size',
-            boxSizing: 'content-box',
-            border: '1px solid #FA00FF',
-            width: '500px',
+            containerType: "inline-size",
+            boxSizing: "content-box",
+            border: "1px solid #FA00FF",
+            width: "500px",
           }}
         >
           <Story />
         </article>
         <article
           style={{
-            containerType: 'inline-size',
-            boxSizing: 'content-box',
-            border: '1px solid #FA00FF',
+            containerType: "inline-size",
+            boxSizing: "content-box",
+            border: "1px solid #FA00FF",
             width: BreakpointMinimumDimensions.SM,
           }}
         >
@@ -394,9 +395,9 @@ export const Breakpoints = Example.extend({
         </article>
         <article
           style={{
-            containerType: 'inline-size',
-            boxSizing: 'content-box',
-            border: '1px solid #FA00FF',
+            containerType: "inline-size",
+            boxSizing: "content-box",
+            border: "1px solid #FA00FF",
             width: BreakpointMinimumDimensions.MD,
           }}
         >
@@ -406,9 +407,9 @@ export const Breakpoints = Example.extend({
     ),
   ],
   parameters: {
-    layout: 'padded',
+    layout: "padded",
   },
-})
+});
 
 /**
  * Overflow should be avoided as much as possible, but when it is unavoidable, most of the page header's information
@@ -416,13 +417,15 @@ export const Breakpoints = Example.extend({
  */
 export const Overflow = Example.extend({
   args: {
-    navigation: 'Many',
-    subtitle: 'Additional Info',
-    supplementaryInfo: 'Summary Info',
+    navigation: "Many",
+    subtitle: "Additional Info",
+    supplementaryInfo: "Summary Info",
 
     title: (
       <PageHeader.Title
-        actions={<Button aria-label="Add new" iconLeft={<AddIcon />} size="medium" variant="primary" />}
+        actions={
+          <Button aria-label="Add new" iconLeft={<AddIcon />} size="medium" variant="primary" />
+        }
       >
         Title with a very long title that will overflow
       </PageHeader.Title>
@@ -431,13 +434,18 @@ export const Overflow = Example.extend({
   decorators: [
     (Story) => (
       <div
-        style={{ containerType: 'inline-size', boxSizing: 'content-box', border: '1px solid #FA00FF', width: '375px' }}
+        style={{
+          containerType: "inline-size",
+          boxSizing: "content-box",
+          border: "1px solid #FA00FF",
+          width: "375px",
+        }}
       >
         <Story />
       </div>
     ),
   ],
   parameters: {
-    layout: 'padded',
+    layout: "padded",
   },
-})
+});

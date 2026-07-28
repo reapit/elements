@@ -1,4 +1,4 @@
-import CalendarUserSvg from './svgs/calendar-user.svg?react'
-import { makeIcon } from './make-icon'
+import { makeIcon } from "./make-icon";
+import CalendarUserSvg from "./svgs/calendar-user.svg?react";
 
-export const CalendarUserIcon = makeIcon('CalendarUserIcon', CalendarUserSvg)
+export const CalendarUserIcon = makeIcon("CalendarUserIcon", CalendarUserSvg);

@@ -1,6 +1,6 @@
-import { ElPageHeaderSupplementaryInfo } from './styles'
+import type { HTMLAttributes, ReactNode } from "react";
 
-import type { HTMLAttributes, ReactNode } from 'react'
+import { ElPageHeaderSupplementaryInfo } from "./styles";
 
 export namespace PageHeaderSupplementaryInfo {
   export interface Props extends HTMLAttributes<HTMLDivElement> {
@@ -8,7 +8,7 @@ export namespace PageHeaderSupplementaryInfo {
      * The supplementary info to display. Will typically be some combination of `SupplementaryInfo`, `Features` and
      * `CompactSelectNative`.
      */
-    children: ReactNode
+    children: ReactNode;
   }
 }
 
@@ -16,8 +16,11 @@ export namespace PageHeaderSupplementaryInfo {
  * Allows for supplementary info to be displayed in the page header. Used to display supplementary info, features and,
  * sometimes, compact selects. Typically used via `PageHeader.SupplementaryInfo`.
  */
-export function PageHeaderSupplementaryInfo({ children, ...rest }: PageHeaderSupplementaryInfo.Props) {
-  return <ElPageHeaderSupplementaryInfo {...rest}>{children}</ElPageHeaderSupplementaryInfo>
+export function PageHeaderSupplementaryInfo({
+  children,
+  ...rest
+}: PageHeaderSupplementaryInfo.Props) {
+  return <ElPageHeaderSupplementaryInfo {...rest}>{children}</ElPageHeaderSupplementaryInfo>;
 }
 
-PageHeaderSupplementaryInfo.displayName = 'PageHeader.SupplementaryInfo'
+PageHeaderSupplementaryInfo.displayName = "PageHeader.SupplementaryInfo";

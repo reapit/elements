@@ -1,18 +1,19 @@
-import preview from '#.storybook/preview'
-import { useModal } from '.'
-import { Button } from '../../core/button'
-import { ButtonGroup } from '../../core/button-group'
-import { TextBase } from '../typography'
+import preview from "#.storybook/preview";
+
+import { useModal } from ".";
+import { Button } from "../../core/button";
+import { ButtonGroup } from "../../core/button-group";
+import { TextBase } from "../typography";
 
 const meta = preview.meta({
-  title: 'Deprecated/useModal',
-})
+  title: "Deprecated/useModal",
+});
 
-export default meta
+export default meta;
 
 export const BasicUsage = meta.story({
   render: () => {
-    const { Modal: ModalComponent, openModal, closeModal } = useModal('portal-root')
+    const { Modal: ModalComponent, openModal, closeModal } = useModal("portal-root");
 
     return (
       <>
@@ -29,14 +30,14 @@ export const BasicUsage = meta.story({
           </ButtonGroup>
         </ModalComponent>
       </>
-    )
+    );
   },
-})
+});
 
 export const MultipleModals = meta.story({
   render: () => {
-    const { Modal: ModalA, openModal: openModalA } = useModal('portal-root')
-    const { Modal: ModalB, openModal: openModalB } = useModal('portal-root')
+    const { Modal: ModalA, openModal: openModalA } = useModal("portal-root");
+    const { Modal: ModalB, openModal: openModalB } = useModal("portal-root");
 
     return (
       <>
@@ -51,6 +52,6 @@ export const MultipleModals = meta.story({
         <ModalA title="Modal A">I&apos;m the modal A&apos;s content</ModalA>
         <ModalB title="Modal B">I&apos;m the modal B&apos;s content</ModalB>
       </>
-    )
+    );
   },
-})
+});

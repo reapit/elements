@@ -1,6 +1,8 @@
-import { css } from '@linaria/core'
-import { elDivider } from '#src/core/divider/styles'
-import { ElMenuGroup } from './group/styles'
+import { css } from "@linaria/core";
+
+import { elDivider } from "#src/core/divider/styles";
+
+import { ElMenuGroup } from "./group/styles";
 
 export const elMenu = css`
   @layer elements.main {
@@ -25,4 +27,4 @@ export const elMenu = css`
       }
     }
   }
-`
+`;

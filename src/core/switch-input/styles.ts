@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react'
+import { styled } from "@linaria/react";
 
 export const ElSwitchInput = styled.input`
   @layer elements.main {
@@ -33,7 +33,7 @@ export const ElSwitchInput = styled.input`
 
     /* This is the switch's handle */
     &::before {
-      content: '';
+      content: "";
       pointer-events: none;
       grid-area: track;
       inline-size: var(--switch-handle-size);
@@ -82,4 +82,4 @@ export const ElSwitchInput = styled.input`
       --switch-track-background_colour: var(--comp-switch-colour-fill-disabled-checked);
     }
   }
-`
+`;

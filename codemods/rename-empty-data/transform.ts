@@ -1,6 +1,6 @@
-import { createComponentMigration } from '../shared/migration-engine.js'
+import { createComponentMigration } from "../shared/migration-engine.js";
 
-const TARGET_SPECIFIER = '@reapit/elements/core/empty-state'
+const TARGET_SPECIFIER = "@reapit/elements/core/empty-state";
 
 /**
  * Codemod to migrate EmptyData to the renamed EmptyState component.
@@ -16,7 +16,7 @@ const TARGET_SPECIFIER = '@reapit/elements/core/empty-state'
  * - Files not containing any EmptyData identifiers
  */
 const transform = createComponentMigration({
-  identifiers: [{ from: 'EmptyData', to: 'EmptyState', targetSpecifier: TARGET_SPECIFIER }],
-})
+  identifiers: [{ from: "EmptyData", to: "EmptyState", targetSpecifier: TARGET_SPECIFIER }],
+});
 
-export default transform
+export default transform;

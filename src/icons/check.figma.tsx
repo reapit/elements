@@ -1,4 +1,5 @@
-import figma from '@figma/code-connect'
-import { CheckIcon } from './check'
+import figma from "@figma/code-connect";
 
-figma.connect(CheckIcon, 'https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=20-564')
+import { CheckIcon } from "./check";
+
+figma.connect(CheckIcon, "https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=20-564");

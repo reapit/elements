@@ -1,86 +1,91 @@
-import { act, fireEvent, render, screen } from '@testing-library/react'
-import { FileUploaderContext } from '../../context'
-import { FileUploaderSingleSelectMediaInput } from '../single-select-media-input'
-import { FileUploadQueue } from '../../file-upload-queue'
+import { act, fireEvent, render, screen } from "@testing-library/react";
+
+import { FileUploaderContext } from "../../context";
+import { FileUploadQueue } from "../../file-upload-queue";
+import { FileUploaderSingleSelectMediaInput } from "../single-select-media-input";
 
 function renderInput(props: Partial<FileUploaderSingleSelectMediaInput.Props> = {}) {
-  const queue = new FileUploadQueue({ onUpload: async () => 'file-id' })
+  const queue = new FileUploadQueue({ onUpload: async () => "file-id" });
   render(
-    <FileUploaderContext.Provider value={{ queue, triggerId: 'trigger' }}>
-      <FileUploaderSingleSelectMediaInput {...props}>Drag and drop your file here</FileUploaderSingleSelectMediaInput>
+    <FileUploaderContext.Provider value={{ queue, triggerId: "trigger" }}>
+      <FileUploaderSingleSelectMediaInput {...props}>
+        Drag and drop your file here
+      </FileUploaderSingleSelectMediaInput>
     </FileUploaderContext.Provider>,
-  )
-  return { queue }
+  );
+  return { queue };
 }
 
 // `onUpload` resolves on a later microtask, so its follow-up state update must be flushed inside
 // `act` here — otherwise it lands after the test's synchronous body has already finished.
 async function selectFile(
   queue: FileUploadQueue,
-  file = new File([new Uint8Array(10)], 'photo.jpg', { type: 'image/jpeg' }),
+  file = new File([new Uint8Array(10)], "photo.jpg", { type: "image/jpeg" }),
 ) {
-  const input = document.querySelector('input[type="file"]') as HTMLInputElement
+  const input = document.querySelector('input[type="file"]') as HTMLInputElement;
   await act(async () => {
-    fireEvent.change(input, { target: { files: [file] } })
-  })
-  return file
+    fireEvent.change(input, { target: { files: [file] } });
+  });
+  return file;
 }
 
-test('renders the empty placeholder trigger by default', () => {
-  renderInput()
-  expect(screen.getByRole('button', { name: 'Drag and drop your file here' })).toBeInTheDocument()
-})
+test("renders the empty placeholder trigger by default", () => {
+  renderInput();
+  expect(screen.getByRole("button", { name: "Drag and drop your file here" })).toBeInTheDocument();
+});
 
-test('opens the file picker when the empty placeholder is clicked', () => {
-  renderInput()
-  const input = document.querySelector('input[type="file"]') as HTMLInputElement
-  const click = vi.spyOn(input, 'click')
+test("opens the file picker when the empty placeholder is clicked", () => {
+  renderInput();
+  const input = document.querySelector('input[type="file"]') as HTMLInputElement;
+  const click = vi.spyOn(input, "click");
 
-  fireEvent.click(screen.getByRole('button', { name: 'Drag and drop your file here' }))
+  fireEvent.click(screen.getByRole("button", { name: "Drag and drop your file here" }));
 
-  expect(click).toHaveBeenCalledTimes(1)
-})
+  expect(click).toHaveBeenCalledTimes(1);
+});
 
-test('swaps to the media card once a file is selected', async () => {
-  const { queue } = renderInput()
+test("swaps to the media card once a file is selected", async () => {
+  const { queue } = renderInput();
 
-  const file = await selectFile(queue)
+  const file = await selectFile(queue);
 
-  expect(screen.queryByRole('button', { name: 'Drag and drop your file here' })).not.toBeInTheDocument()
-  expect(screen.getByRole('button', { name: `Replace ${file.name}` })).toBeInTheDocument()
-})
+  expect(
+    screen.queryByRole("button", { name: "Drag and drop your file here" }),
+  ).not.toBeInTheDocument();
+  expect(screen.getByRole("button", { name: `Replace ${file.name}` })).toBeInTheDocument();
+});
 
-test('removing the selected file swaps back to the empty placeholder and restores focus to it', async () => {
-  const { queue } = renderInput()
-  const file = await selectFile(queue)
+test("removing the selected file swaps back to the empty placeholder and restores focus to it", async () => {
+  const { queue } = renderInput();
+  const file = await selectFile(queue);
 
-  fireEvent.click(screen.getByRole('button', { name: `Remove ${file.name}` }))
+  fireEvent.click(screen.getByRole("button", { name: `Remove ${file.name}` }));
 
-  const trigger = screen.getByRole('button', { name: 'Drag and drop your file here' })
-  expect(trigger).toBeInTheDocument()
-  expect(trigger).toHaveFocus()
-})
+  const trigger = screen.getByRole("button", { name: "Drag and drop your file here" });
+  expect(trigger).toBeInTheDocument();
+  expect(trigger).toHaveFocus();
+});
 
-test('replaces the selected file when the media card is clicked', async () => {
-  const { queue } = renderInput()
-  const file = await selectFile(queue)
-  const input = document.querySelector('input[type="file"]') as HTMLInputElement
-  const click = vi.spyOn(input, 'click')
+test("replaces the selected file when the media card is clicked", async () => {
+  const { queue } = renderInput();
+  const file = await selectFile(queue);
+  const input = document.querySelector('input[type="file"]') as HTMLInputElement;
+  const click = vi.spyOn(input, "click");
 
-  fireEvent.click(screen.getByRole('button', { name: `Replace ${file.name}` }))
+  fireEvent.click(screen.getByRole("button", { name: `Replace ${file.name}` }));
 
-  expect(click).toHaveBeenCalledTimes(1)
-})
+  expect(click).toHaveBeenCalledTimes(1);
+});
 
-test('disables the empty placeholder trigger when disabled', () => {
-  renderInput({ disabled: true })
-  expect(screen.getByRole('button', { name: 'Drag and drop your file here' })).toBeDisabled()
-})
+test("disables the empty placeholder trigger when disabled", () => {
+  renderInput({ disabled: true });
+  expect(screen.getByRole("button", { name: "Drag and drop your file here" })).toBeDisabled();
+});
 
-test('disables the media card when disabled', async () => {
-  const { queue } = renderInput({ disabled: true })
-  const file = await selectFile(queue)
+test("disables the media card when disabled", async () => {
+  const { queue } = renderInput({ disabled: true });
+  const file = await selectFile(queue);
 
-  const card = screen.getByRole('button', { name: `Replace ${file.name}` })
-  expect(card).not.toHaveAttribute('tabindex')
-})
+  const card = screen.getByRole("button", { name: `Replace ${file.name}` });
+  expect(card).not.toHaveAttribute("tabindex");
+});

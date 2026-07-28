@@ -1,5 +1,6 @@
-import { SourceFile } from 'ts-morph'
-import { isElementsImport, createProjectFromSource } from '../shared/index.js'
+import { SourceFile } from "ts-morph";
+
+import { isElementsImport, createProjectFromSource } from "../shared/index.js";
 
 /**
  * Codemod to migrate Combobox imports from @reapit/elements/core/combobox to its new location.
@@ -14,45 +15,45 @@ import { isElementsImport, createProjectFromSource } from '../shared/index.js'
 
 function isCoreComboboxImport(moduleSpecifier: string, facadePackage?: string): boolean {
   if (!isElementsImport(moduleSpecifier, facadePackage)) {
-    return false
+    return false;
   }
-  return moduleSpecifier.endsWith('/core/combobox')
+  return moduleSpecifier.endsWith("/core/combobox");
 }
 
 function buildImportPath(moduleSpecifier: string): string {
-  return moduleSpecifier.replace(/\/core\/combobox$/, '/utils/combobox')
+  return moduleSpecifier.replace(/\/core\/combobox$/, "/utils/combobox");
 }
 
 function transformImports(sourceFile: SourceFile, facadePackage?: string): void {
-  const importDeclarations = sourceFile.getImportDeclarations()
+  const importDeclarations = sourceFile.getImportDeclarations();
 
   const coreComboboxImports = importDeclarations.filter((importDecl) => {
-    const moduleSpecifier = importDecl.getModuleSpecifierValue()
-    return isCoreComboboxImport(moduleSpecifier, facadePackage)
-  })
+    const moduleSpecifier = importDecl.getModuleSpecifierValue();
+    return isCoreComboboxImport(moduleSpecifier, facadePackage);
+  });
 
   if (coreComboboxImports.length === 0) {
-    return
+    return;
   }
 
   for (const importDecl of coreComboboxImports) {
-    const moduleSpecifier = importDecl.getModuleSpecifierValue()
-    importDecl.setModuleSpecifier(buildImportPath(moduleSpecifier))
+    const moduleSpecifier = importDecl.getModuleSpecifierValue();
+    importDecl.setModuleSpecifier(buildImportPath(moduleSpecifier));
   }
 }
 
 export default function transform(
   source: string,
-  filePath: string = 'file.tsx',
+  filePath: string = "file.tsx",
   options?: { facadePackage?: string },
 ): string {
-  if (!source.includes('/core/combobox')) {
-    return source
+  if (!source.includes("/core/combobox")) {
+    return source;
   }
 
-  const sourceFile = createProjectFromSource(source, filePath)
+  const sourceFile = createProjectFromSource(source, filePath);
 
-  transformImports(sourceFile, options?.facadePackage)
+  transformImports(sourceFile, options?.facadePackage);
 
-  return sourceFile.getFullText()
+  return sourceFile.getFullText();
 }

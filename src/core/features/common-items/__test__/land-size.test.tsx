@@ -1,9 +1,10 @@
-import { render, screen } from '@testing-library/react'
-import { FeaturesLandSizeItem } from '../land-size'
+import { render, screen } from "@testing-library/react";
 
-test('renders land size feature item with correct accessible name and value', () => {
-  render(<FeaturesLandSizeItem value="375 sq m" />)
+import { FeaturesLandSizeItem } from "../land-size";
 
-  expect(screen.getByRole('term', { name: 'Land size' })).toBeVisible()
-  expect(screen.getByRole('definition').textContent).toBe('375 sq m')
-})
+test("renders land size feature item with correct accessible name and value", () => {
+  render(<FeaturesLandSizeItem value="375 sq m" />);
+
+  expect(screen.getByRole("term", { name: "Land size" })).toBeVisible();
+  expect(screen.getByRole("definition").textContent).toBe("375 sq m");
+});

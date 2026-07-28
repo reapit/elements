@@ -1,13 +1,15 @@
-import { getOptionLabel } from './option'
-import { useListboxSelectionObserver } from '#src/utils/listbox/use-selection-observer'
-import { useState } from 'react'
+import { useState } from "react";
+
+import { useListboxSelectionObserver } from "#src/utils/listbox/use-selection-observer";
+
+import { getOptionLabel } from "./option";
 
 export namespace useComboboxSelectedOptions {
   export interface Option {
     /** The option's label text as returned by `Combobox.getOptionLabel` */
-    label: string
+    label: string;
     /** The option's value */
-    value: string
+    value: string;
   }
 }
 
@@ -33,12 +35,16 @@ export function useComboboxSelectedOptions(
   listboxId: string,
   defaultOptions: readonly useComboboxSelectedOptions.Option[] = [],
 ): readonly useComboboxSelectedOptions.Option[] {
-  const [selections, setSelections] = useState<readonly useComboboxSelectedOptions.Option[]>(() => defaultOptions)
+  const [selections, setSelections] = useState<readonly useComboboxSelectedOptions.Option[]>(
+    () => defaultOptions,
+  );
 
   useListboxSelectionObserver(listboxId, (visibleOptions, listboxState) => {
     setSelections((selections) => {
       // Get the selections whose values are still part of the listbox's state
-      const existingSelections = selections.filter((selection) => listboxState.includes(selection.value))
+      const existingSelections = selections.filter((selection) =>
+        listboxState.includes(selection.value),
+      );
 
       // Get the visible options that have been newly selected
       const newSelections = visibleOptions
@@ -46,11 +52,11 @@ export function useComboboxSelectedOptions(
         .map((option) => ({
           label: getOptionLabel(option),
           value: option.value,
-        }))
+        }));
 
-      return [...existingSelections, ...newSelections]
-    })
-  })
+      return [...existingSelections, ...newSelections];
+    });
+  });
 
-  return selections
+  return selections;
 }

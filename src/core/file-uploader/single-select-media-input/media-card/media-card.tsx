@@ -1,44 +1,44 @@
+import type { KeyboardEventHandler, MouseEventHandler } from "react";
+
+import { FileUploaderMediaThumbnail } from "../../media-thumbnail";
+import { FileUploaderRemoveButton } from "../../remove-button";
 import {
   ElFileUploaderSingleSelectMediaCard,
   elFileUploaderSingleSelectMediaCardRemoveButton,
   ElFileUploaderSingleSelectMediaCardReplaceOverlay,
   ElFileUploaderSingleSelectMediaCardReplaceLabel,
-} from './styles'
-import { FileUploaderMediaThumbnail } from '../../media-thumbnail'
-import { FileUploaderRemoveButton } from '../../remove-button'
-
-import type { KeyboardEventHandler, MouseEventHandler } from 'react'
+} from "./styles";
 
 export namespace FileUploaderSingleSelectMediaCard {
-  export type Status = FileUploaderMediaThumbnail.Status
+  export type Status = FileUploaderMediaThumbnail.Status;
 
   export interface Props {
     /** The thumbnail image URL. */
-    src: string
+    src: string;
     /** Alt text for the thumbnail image. Defaults to an empty string, since the filename already labels the item. */
-    alt?: string
+    alt?: string;
     /** The item's lifecycle status. */
-    status: Status
+    status: Status;
     /**
      * Upload progress as a percentage between `0` and `100`. Only meaningful while `status` is `'uploading'`.
      * Omit to render an indeterminate spinner while uploading.
      */
-    progress?: number
+    progress?: number;
     /** Disables both the replace and remove affordances without hiding the selected file. */
-    disabled?: boolean
+    disabled?: boolean;
     /**
      * A formatted duration (e.g. `"15:39"`), shown as an overlay badge on the thumbnail. Only meaningful for video
      * files — omit for images.
      */
-    duration?: string
+    duration?: string;
     /** The file's name, used only for the remove/replace buttons' accessible names. */
-    fileName: string
+    fileName: string;
     /** Whether a file is currently being dragged over the trigger — reveals the Replace affordance, matching hover/focus. */
-    isDraggingOver?: boolean
+    isDraggingOver?: boolean;
     /** Called when the remove button is clicked. Omit to render a card with no remove button. */
-    onRemove?: MouseEventHandler<HTMLButtonElement>
+    onRemove?: MouseEventHandler<HTMLButtonElement>;
     /** Called when the card itself — anywhere other than the remove button — is activated, to trigger picking a replacement file. */
-    onReplace: () => void
+    onReplace: () => void;
   }
 }
 
@@ -63,18 +63,18 @@ export function FileUploaderSingleSelectMediaCard({
   onReplace,
 }: FileUploaderSingleSelectMediaCard.Props) {
   const handleKeyDown: KeyboardEventHandler<HTMLDivElement> = (event) => {
-    if (event.target !== event.currentTarget) return
-    if (event.key === 'Enter' || event.key === ' ') {
-      event.preventDefault()
-      onReplace()
+    if (event.target !== event.currentTarget) return;
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      onReplace();
     }
-  }
+  };
 
   const handleRemove: MouseEventHandler<HTMLButtonElement> = (event) => {
     // We don't want the click to bubble up to the card and trigger a replace, so stop propagation here.
-    event.stopPropagation()
-    onRemove?.(event)
-  }
+    event.stopPropagation();
+    onRemove?.(event);
+  };
 
   return (
     <ElFileUploaderSingleSelectMediaCard
@@ -104,11 +104,13 @@ export function FileUploaderSingleSelectMediaCard({
         src={src}
         status={status}
       />
-      {status === 'uploaded' && !disabled && (
+      {status === "uploaded" && !disabled && (
         <ElFileUploaderSingleSelectMediaCardReplaceOverlay aria-hidden>
-          <ElFileUploaderSingleSelectMediaCardReplaceLabel>Replace</ElFileUploaderSingleSelectMediaCardReplaceLabel>
+          <ElFileUploaderSingleSelectMediaCardReplaceLabel>
+            Replace
+          </ElFileUploaderSingleSelectMediaCardReplaceLabel>
         </ElFileUploaderSingleSelectMediaCardReplaceOverlay>
       )}
     </ElFileUploaderSingleSelectMediaCard>
-  )
+  );
 }

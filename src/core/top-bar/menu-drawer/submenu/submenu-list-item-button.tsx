@@ -1,7 +1,7 @@
-import { ElTopBarMenuDrawerSubmenuListItem } from './styles'
-import { TopBarMenuDrawerSubmenuItemButton } from '../submenu-item'
+import type { ComponentProps } from "react";
 
-import type { ComponentProps } from 'react'
+import { TopBarMenuDrawerSubmenuItemButton } from "../submenu-item";
+import { ElTopBarMenuDrawerSubmenuListItem } from "./styles";
 
 export namespace TopBarMenuDrawerSubmenuListItemButton {
   export interface Props extends ComponentProps<typeof TopBarMenuDrawerSubmenuItemButton> {}
@@ -13,12 +13,14 @@ export namespace TopBarMenuDrawerSubmenuListItemButton {
  *
  * All props are passed through to `TopBarMenuDrawerSubmenuItemButton`.
  */
-export function TopBarMenuDrawerSubmenuListItemButton(props: TopBarMenuDrawerSubmenuListItemButton.Props) {
+export function TopBarMenuDrawerSubmenuListItemButton(
+  props: TopBarMenuDrawerSubmenuListItemButton.Props,
+) {
   return (
     <ElTopBarMenuDrawerSubmenuListItem>
       <TopBarMenuDrawerSubmenuItemButton {...props} />
     </ElTopBarMenuDrawerSubmenuListItem>
-  )
+  );
 }
 
-TopBarMenuDrawerSubmenuListItemButton.displayName = 'TopBar.MenuSubmenuItemButton'
+TopBarMenuDrawerSubmenuListItemButton.displayName = "TopBar.MenuSubmenuItemButton";

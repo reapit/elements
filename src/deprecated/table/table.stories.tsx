@@ -1,6 +1,19 @@
-import preview from '#.storybook/preview'
-import { useState } from 'react'
-import { DeprecatedTable } from './index'
+import { useState } from "react";
+
+import preview from "#.storybook/preview";
+import { EditIcon } from "#src/icons/edit";
+
+import { Button } from "../../core/button";
+import { ButtonGroup } from "../../core/button-group";
+import { TextInput } from "../../core/text-input";
+import { elMlAuto } from "../../styles/deprecated-spacing";
+import { elIsActive } from "../../styles/deprecated-states";
+import { DeprecatedAvatar } from "../avatar";
+import { FormLayout, InputWrap } from "../form-layout";
+import { elSpan2, elSpan3 } from "../grid";
+import { DeprecatedStatusIndicator } from "../status-indicator";
+import { TextBase } from "../typography";
+import { DeprecatedTable } from "./index";
 import {
   DeprecatedTableHeadersRow,
   DeprecatedTableHeader,
@@ -11,25 +24,14 @@ import {
   DeprecatedTableRowContainer,
   TableCtaTriggerCell,
   TableCellSplit,
-} from './molecules'
-import { elSpan2, elSpan3 } from '../grid'
-import { Button } from '../../core/button'
-import { ButtonGroup } from '../../core/button-group'
-import { TextInput } from '../../core/text-input'
-import { DeprecatedStatusIndicator } from '../status-indicator'
-import { elMlAuto } from '../../styles/deprecated-spacing'
-import { FormLayout, InputWrap } from '../form-layout'
-import { elIsActive } from '../../styles/deprecated-states'
-import { DeprecatedAvatar } from '../avatar'
-import { TextBase } from '../typography'
-import { EditIcon } from '#src/icons/edit'
+} from "./molecules";
 
 const meta = preview.meta({
-  title: 'Deprecated/DeprecatedTable',
+  title: "Deprecated/DeprecatedTable",
   component: DeprecatedTable,
-})
+});
 
-export default meta
+export default meta;
 
 export const BasicUsage = meta.story({
   render: () => (
@@ -73,7 +75,7 @@ export const BasicUsage = meta.story({
       </DeprecatedTableRowContainer>
     </DeprecatedTable>
   ),
-})
+});
 
 export const ColumnWidths = meta.story({
   render: () => (
@@ -94,7 +96,9 @@ export const ColumnWidths = meta.story({
           <DeprecatedTableCell narrowLabel="Image">
             <DeprecatedAvatar type="image" src="https://picsum.photos/200/300" />
           </DeprecatedTableCell>
-          <DeprecatedTableCell className={elSpan2}>Second Column with more data</DeprecatedTableCell>
+          <DeprecatedTableCell className={elSpan2}>
+            Second Column with more data
+          </DeprecatedTableCell>
           <DeprecatedTableCell className={elSpan3}>
             <TableCellSplit data="Third Data" subData="Some much much much Longer Sub Data" />
           </DeprecatedTableCell>
@@ -109,7 +113,9 @@ export const ColumnWidths = meta.story({
           <DeprecatedTableCell narrowLabel="Image">
             <DeprecatedAvatar type="image" src="https://picsum.photos/200/300" />
           </DeprecatedTableCell>
-          <DeprecatedTableCell className={elSpan2}>Second Column with more data</DeprecatedTableCell>
+          <DeprecatedTableCell className={elSpan2}>
+            Second Column with more data
+          </DeprecatedTableCell>
           <DeprecatedTableCell className={elSpan3}>
             <TableCellSplit data="Third Data" subData="Some much much much Longer Sub Data" />
           </DeprecatedTableCell>
@@ -117,8 +123,8 @@ export const ColumnWidths = meta.story({
       </DeprecatedTableRowContainer>
     </DeprecatedTable>
   ),
-  name: 'Column widths',
-})
+  name: "Column widths",
+});
 
 export const BasicCustomisationTableCells = meta.story({
   render: () => (
@@ -162,8 +168,8 @@ export const BasicCustomisationTableCells = meta.story({
       </DeprecatedTableRowContainer>
     </DeprecatedTable>
   ),
-  name: 'Basic Customisation - DeprecatedTable Cells',
-})
+  name: "Basic Customisation - DeprecatedTable Cells",
+});
 
 export const ExpandingTableCellSpace = meta.story({
   render: () => (
@@ -201,7 +207,7 @@ export const ExpandingTableCellSpace = meta.story({
       </DeprecatedTableRowContainer>
     </DeprecatedTable>
   ),
-})
+});
 
 export const ExpandableContent = meta.story({
   render: () => (
@@ -264,7 +270,7 @@ export const ExpandableContent = meta.story({
       </DeprecatedTableRowContainer>
     </DeprecatedTable>
   ),
-})
+});
 
 export const CallToActionContent = meta.story({
   render: () => (
@@ -304,7 +310,7 @@ export const CallToActionContent = meta.story({
       </DeprecatedTableRowContainer>
     </DeprecatedTable>
   ),
-})
+});
 
 export const ReactShorthandUsage = meta.story({
   render: ({ rows }) => <DeprecatedTable rows={rows} />,
@@ -313,17 +319,17 @@ export const ReactShorthandUsage = meta.story({
       {
         cells: [
           {
-            label: 'Is Active',
+            label: "Is Active",
             value: <input type="checkbox" />,
           },
           {
-            label: 'Property Image',
+            label: "Property Image",
             value: <DeprecatedAvatar type="image" src="https://picsum.photos/200/300" />,
           },
           {
-            label: 'Property',
-            value: 'Mt Ash Jacket, Brassey Road',
-            icon: 'property',
+            label: "Property",
+            value: "Mt Ash Jacket, Brassey Road",
+            icon: "property",
             cellHasDarkText: true,
 
             narrowTable: {
@@ -331,27 +337,27 @@ export const ReactShorthandUsage = meta.story({
             },
           },
           {
-            label: 'Customer',
-            value: 'Mr Johnny Corrigan',
-            icon: 'contact',
+            label: "Customer",
+            value: "Mr Johnny Corrigan",
+            icon: "contact",
 
             narrowTable: {
               showLabel: true,
             },
           },
           {
-            label: 'Description',
+            label: "Description",
             value: <TableCellSplit data="Some Data" subData="Some Longer Sub Data" />,
           },
           {
-            label: 'Amount',
-            value: '£50.00',
+            label: "Amount",
+            value: "£50.00",
             cellHasDarkText: true,
           },
           {
-            label: 'Payment Status',
-            value: 'Not Requested',
-            statusCircleIntent: 'danger',
+            label: "Payment Status",
+            value: "Not Requested",
+            statusCircleIntent: "danger",
           },
         ],
 
@@ -362,17 +368,17 @@ export const ReactShorthandUsage = meta.story({
       {
         cells: [
           {
-            label: 'Is Active',
+            label: "Is Active",
             value: <input type="checkbox" />,
           },
           {
-            label: 'Property Image',
+            label: "Property Image",
             value: <DeprecatedAvatar type="image" src="https://picsum.photos/200/300" />,
           },
           {
-            label: 'Property',
-            value: 'Property Name, Road Name',
-            icon: 'property',
+            label: "Property",
+            value: "Property Name, Road Name",
+            icon: "property",
             cellHasDarkText: true,
 
             narrowTable: {
@@ -380,26 +386,26 @@ export const ReactShorthandUsage = meta.story({
             },
           },
           {
-            label: 'Customer',
-            value: 'Mrs Davina Corrigan',
-            icon: 'contact',
+            label: "Customer",
+            value: "Mrs Davina Corrigan",
+            icon: "contact",
 
             narrowTable: {
               showLabel: true,
             },
           },
           {
-            label: 'Description',
+            label: "Description",
             value: <TableCellSplit data="Some Data" subData="Some Longer Sub Data" />,
           },
           {
-            label: 'Amount',
-            value: '£665.21',
+            label: "Amount",
+            value: "£665.21",
             cellHasDarkText: true,
           },
           {
-            label: 'Payment Status',
-            value: 'Pending',
+            label: "Payment Status",
+            value: "Pending",
 
             children: (
               <>
@@ -415,11 +421,11 @@ export const ReactShorthandUsage = meta.story({
       },
     ],
   },
-})
+});
 
 export const AdvancedCustomisationReact = meta.story({
   render: ({ rows }) => {
-    const [indexExpandedRow, setIndexExpandedRow] = useState<number | null>(0)
+    const [indexExpandedRow, setIndexExpandedRow] = useState<number | null>(0);
 
     return (
       <DeprecatedTable
@@ -428,21 +434,21 @@ export const AdvancedCustomisationReact = meta.story({
         setIndexExpandedRow={setIndexExpandedRow}
         rows={rows}
       />
-    )
+    );
   },
   args: {
     rows: [
       {
         cells: [
           {
-            label: 'Is Active',
+            label: "Is Active",
             value: <input type="checkbox" />,
           },
           {
-            label: 'Property',
-            value: 'Mt Ash Jacket, Brassey Road',
+            label: "Property",
+            value: "Mt Ash Jacket, Brassey Road",
             className: elSpan2,
-            icon: 'property',
+            icon: "property",
             cellHasDarkText: true,
 
             narrowTable: {
@@ -450,35 +456,35 @@ export const AdvancedCustomisationReact = meta.story({
             },
           },
           {
-            label: 'Customer',
-            value: 'Mr Johnny Corrigan',
-            icon: 'contact',
+            label: "Customer",
+            value: "Mr Johnny Corrigan",
+            icon: "contact",
 
             narrowTable: {
               showLabel: true,
             },
           },
           {
-            label: 'Description',
+            label: "Description",
             value: <TableCellSplit data="Some Data" subData="Some Longer Sub Data" />,
           },
           {
-            label: 'Request Date',
-            value: '19 Apr 2021',
+            label: "Request Date",
+            value: "19 Apr 2021",
 
             narrowTable: {
               showLabel: true,
             },
           },
           {
-            label: 'Amount',
-            value: '£50.00',
+            label: "Amount",
+            value: "£50.00",
             cellHasDarkText: true,
           },
           {
-            label: 'Payment Status',
-            value: 'Not Requested',
-            statusCircleIntent: 'danger',
+            label: "Payment Status",
+            value: "Not Requested",
+            statusCircleIntent: "danger",
           },
         ],
 
@@ -489,14 +495,14 @@ export const AdvancedCustomisationReact = meta.story({
       {
         cells: [
           {
-            label: 'Is Active',
+            label: "Is Active",
             value: <input type="checkbox" />,
           },
           {
-            label: 'Property',
-            value: 'Property Name, Road Name',
+            label: "Property",
+            value: "Property Name, Road Name",
             className: elSpan2,
-            icon: 'property',
+            icon: "property",
             cellHasDarkText: true,
 
             narrowTable: {
@@ -504,34 +510,34 @@ export const AdvancedCustomisationReact = meta.story({
             },
           },
           {
-            label: 'Customer',
-            value: 'Mrs Davina Corrigan',
-            icon: 'contact',
+            label: "Customer",
+            value: "Mrs Davina Corrigan",
+            icon: "contact",
 
             narrowTable: {
               showLabel: true,
             },
           },
           {
-            label: 'Description',
+            label: "Description",
             value: <TableCellSplit data="Some Data" subData="Some Longer Sub Data" />,
           },
           {
-            label: 'Request Date',
-            value: '23rd Apr 2021',
+            label: "Request Date",
+            value: "23rd Apr 2021",
 
             narrowTable: {
               showLabel: true,
             },
           },
           {
-            label: 'Amount',
-            value: '£665.21',
+            label: "Amount",
+            value: "£665.21",
             cellHasDarkText: true,
           },
           {
-            label: 'Payment Status',
-            value: 'Pending',
+            label: "Payment Status",
+            value: "Pending",
 
             children: (
               <>
@@ -548,4 +554,4 @@ export const AdvancedCustomisationReact = meta.story({
       },
     ],
   },
-})
+});

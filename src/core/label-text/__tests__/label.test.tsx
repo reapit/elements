@@ -1,14 +1,15 @@
-import { render } from '@testing-library/react'
-import { LabelText } from '..'
+import { render } from "@testing-library/react";
 
-describe('Label component', () => {
-  it('should match a snapshot', () => {
-    const wrapper = render(<LabelText />)
-    expect(wrapper.asFragment()).toMatchSnapshot()
-  })
+import { LabelText } from "..";
 
-  it('should match a snapshot if it required', () => {
-    const wrapper = render(<LabelText isRequired />)
-    expect(wrapper.asFragment()).toMatchSnapshot()
-  })
-})
+describe("Label component", () => {
+  it("should match a snapshot", () => {
+    const wrapper = render(<LabelText />);
+    expect(wrapper.asFragment()).toMatchSnapshot();
+  });
+
+  it("should match a snapshot if it required", () => {
+    const wrapper = render(<LabelText isRequired />);
+    expect(wrapper.asFragment()).toMatchSnapshot();
+  });
+});
