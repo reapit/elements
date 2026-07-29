@@ -1,0 +1,96 @@
+name: Sticky Comment
+description: Create or update a single marker-tagged issue/PR comment instead of posting a new one on every run.
+
+inputs:
+  marker:
+    description: >
+      Identifier used to find this comment across runs. The '<!-- ' and ' -->' affixes are added
+      automatically — pass only the inner text (e.g. 'my-tool:comment'). Passing the full HTML
+      comment syntax is also accepted; the affixes are stripped and re-applied.
+    required: true
+  body:
+    description: Comment body (markdown). The marker is prepended automatically — do not include it here.
+    required: true
+  issue-number:
+    description: Issue or pull request number to comment on.
+    required: true
+  repo:
+    description: "owner/repo to comment on. Defaults to the current repository (github.repository)."
+    default: ${{ github.repository }}
+  mode:
+    description: >
+      'upsert' (default) creates the comment if absent, otherwise updates it in place.
+      'update-only' updates an existing comment and silently no-ops if none is found.
+    default: upsert
+  append-counter:
+    description: When 'true', appends "Updated #N time(s)." to the body, counting prior updates to this comment.
+    default: "false"
+  github-token:
+    description: Token with permission to read/write issue comments.
+    default: ${{ github.token }}
+
+outputs:
+  comment-id:
+    description: The id of the created or updated comment. Empty when mode is 'update-only' and no comment was found.
+    value: ${{ steps.upsert.outputs.comment-id }}
+  comment-url:
+    description: The HTML URL of the created or updated comment. Empty when mode is 'update-only' and no comment was found.
+    value: ${{ steps.upsert.outputs.comment-url }}
+
+runs:
+  using: composite
+  steps:
+    - name: Normalise marker
+      id: marker
+      env:
+        RAW_MARKER: ${{ inputs.marker }}
+      run: |
+        clean=$(printf '%s' "$RAW_MARKER" | tr -d '\r\n' | sed 's/^[[:space:]]*<!--[[:space:]]*//' | sed 's/[[:space:]]*-->[[:space:]]*$//')
+        printf 'value=<!-- %s -->\n' "$clean" >> "$GITHUB_OUTPUT"
+      shell: bash
+    - name: Create or update comment
+      id: upsert
+      env:
+        GH_TOKEN: ${{ inputs.github-token }}
+        REPO: ${{ inputs.repo }}
+        ISSUE_NUMBER: ${{ inputs.issue-number }}
+        MARKER: ${{ steps.marker.outputs.value }}
+        BODY: ${{ inputs.body }}
+        MODE: ${{ inputs.mode }}
+        APPEND_COUNTER: ${{ inputs.append-counter }}
+      run: |
+        set -euo pipefail
+
+        existing_id=$(gh api "repos/${REPO}/issues/${ISSUE_NUMBER}/comments" --paginate --slurp \
+          | jq -r --arg marker "$MARKER" '[.[].[] | select(.body | startswith($marker)) | .id] | first // empty')
+
+        footer=""
+        if [ "$APPEND_COUNTER" = "true" ]; then
+          count=1
+          if [ -n "$existing_id" ]; then
+            prev_body=$(gh api "repos/${REPO}/issues/comments/${existing_id}" --jq '.body')
+            prev_count=$(printf '%s' "$prev_body" | grep -oE 'Updated #[0-9]+ time' | grep -oE '[0-9]+' | tail -1 || true)
+            if [ -n "$prev_count" ]; then
+              count=$((prev_count + 1))
+            fi
+          fi
+          footer=$'\n\n<sub>Updated #'"${count}"' time(s).</sub>'
+        fi
+
+        body_file=$(mktemp)
+        printf '%s\n%s%s' "$MARKER" "$BODY" "$footer" > "$body_file"
+
+        body_content=$(cat "$body_file")
+
+        result=""
+        if [ -n "$existing_id" ]; then
+          result=$(gh api "repos/${REPO}/issues/comments/${existing_id}" -X PATCH -f body="$body_content")
+        elif [ "$MODE" != "update-only" ]; then
+          result=$(gh api "repos/${REPO}/issues/${ISSUE_NUMBER}/comments" -X POST -f body="$body_content")
+        fi
+
+        if [ -n "${result}" ]; then
+          echo "comment-id=$(printf '%s' "$result" | jq -r '.id')" >> "$GITHUB_OUTPUT"
+          echo "comment-url=$(printf '%s' "$result" | jq -r '.html_url')" >> "$GITHUB_OUTPUT"
+        fi
+      shell: bash

@@ -47,27 +47,15 @@ jobs:
           wranglerVersion: "4"
           command: delete --env preview --name gbl-ds-elements-pr-${{ github.event.pull_request.number }} --force
       - name: Update PR comment
-        env:
-          GH_TOKEN: ${{ github.token }}
-          PR: ${{ github.event.pull_request.number }}
-        run: |
-          set -euo pipefail
-
-          BODY="<!-- storybook-preview -->
-          > [!NOTE]
-          > ### 🧹 Storybook preview removed
-          > The preview for this PR has been cleaned up."
-
-          # Find the existing preview comment by its hidden marker and update it in
-          # place. `first // empty` yields a single id (or nothing) without a `head`
-          # pipe, keeping it SIGPIPE-safe under `set -o pipefail`.
-          COMMENT_ID=$(gh api "repos/${{ github.repository }}/issues/${PR}/comments" \
-            --jq '[.[] | select(.body | startswith("<!-- storybook-preview -->")) | .id] | first // empty')
-
-          if [ -n "$COMMENT_ID" ]; then
-            gh api "repos/${{ github.repository }}/issues/comments/${COMMENT_ID}" \
-              -X PATCH -f body="$BODY"
-          fi
+        uses: ./actions/sticky-comment
+        with:
+          marker: storybook-preview
+          mode: update-only
+          body: |
+            > [!NOTE]
+            > ### 🧹 Storybook preview removed
+            > The preview for this PR has been cleaned up.
+          issue-number: ${{ github.event.pull_request.number }}
       - name: Deactivate deployments
         env:
           GH_TOKEN: ${{ github.token }}

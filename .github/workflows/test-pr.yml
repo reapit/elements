@@ -174,35 +174,23 @@ jobs:
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.ANZ_CLOUDFLARE_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.ANZ_CLOUDFLARE_ACCOUNT_ID }}
-      - name: Comment on PR
+      - name: Compute short SHA
+        id: sha
         env:
-          GH_TOKEN: ${{ github.token }}
-          PR: ${{ github.event.pull_request.number }}
-          URL: ${{ steps.deploy.outputs.url }}
           SHA: ${{ github.event.pull_request.head.sha }}
-        run: |
-          set -euo pipefail
-
-          BODY="<!-- storybook-preview -->
-          > [!TIP]
-          > ### 🚀 Storybook preview is live
-          > **[→ Open the preview](${URL})**
-          >
-          > <sub>Updated for commit \`${SHA:0:7}\`</sub>"
-
-          # Reuse the existing preview comment (found by its hidden marker) so each
-          # push updates it in place rather than posting a new one. `first // empty`
-          # returns a single id or nothing, avoiding a `head` pipe that could raise
-          # SIGPIPE under `set -o pipefail`.
-          COMMENT_ID=$(gh api "repos/${{ github.repository }}/issues/${PR}/comments" \
-            --jq '[.[] | select(.body | startswith("<!-- storybook-preview -->")) | .id] | first // empty')
-
-          if [ -n "$COMMENT_ID" ]; then
-            gh api "repos/${{ github.repository }}/issues/comments/${COMMENT_ID}" \
-              -X PATCH -f body="$BODY"
-          else
-            gh pr comment "$PR" --body "$BODY"
-          fi
+        run: echo "short=${SHA:0:7}" >> "$GITHUB_OUTPUT"
+        shell: bash
+      - name: Comment on PR
+        uses: ./actions/sticky-comment
+        with:
+          marker: storybook-preview
+          body: |
+            > [!TIP]
+            > ### 🚀 Storybook preview is live
+            > **[→ Open the preview](${{ steps.deploy.outputs.url }})**
+            >
+            > <sub>Updated for commit `${{ steps.sha.outputs.short }}`</sub>
+          issue-number: ${{ github.event.pull_request.number }}
       - name: Mark deployment active
         # Keyed to the deploy step's outcome rather than overall job success, so
         # a failure in a later step (e.g. the PR comment) does not mislabel a
