@@ -1,5 +1,15 @@
 # @reapit/elements
 
+## 5.2.1
+
+### Patch Changes
+
+- **[Fixed]** `FileUploader`'s circular progress indicator now animates smoothly between progress values. ([#1573](https://github.com/reapit-global/gbl-ds-elements/pull/1573))
+
+- **[Fixed]** Deprecated `KeyValueList`, `Snack`, `PersistentNotification`, `SearchableDropdown`, and `Card` components now render string `icon` values (e.g. `icon="contact"`) correctly. ([#1569](https://github.com/reapit-global/gbl-ds-elements/pull/1569))
+
+- **[Fixed]** `Menu.Divider` now spans the full width of the menu. ([#1572](https://github.com/reapit-global/gbl-ds-elements/pull/1572))
+
 ## 5.2.0
 
 ### Minor Changes
