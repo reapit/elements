@@ -7,21 +7,22 @@ test("is hidden from assistive technology", () => {
   expect(container.querySelector("svg")).toHaveAttribute("aria-hidden", "true");
 });
 
-test("renders a wedge path for a partial value", () => {
+test("renders a circle indicator for a partial value", () => {
   const { container } = render(<FileUploaderCircularProgress value={50} />);
-  expect(container.querySelector("path")).toBeInTheDocument();
+  expect(container.querySelector("path")).toBeNull();
+  expect(container.querySelectorAll("circle")).toHaveLength(2);
 });
 
-test("renders a full circle instead of a wedge when value is 100", () => {
+test("renders a full circle instead of a stroke indicator when value is 100", () => {
   const { container } = render(<FileUploaderCircularProgress value={100} />);
   expect(container.querySelector("path")).toBeNull();
   expect(container.querySelectorAll("circle")).toHaveLength(2);
 });
 
-test("renders no wedge when value is 0", () => {
+test("renders a circle indicator with full dashoffset when value is 0", () => {
   const { container } = render(<FileUploaderCircularProgress value={0} />);
   expect(container.querySelector("path")).toBeNull();
-  expect(container.querySelectorAll("circle")).toHaveLength(1);
+  expect(container.querySelectorAll("circle")).toHaveLength(2);
 });
 
 test("clamps values above 100 to a full circle", () => {
@@ -30,8 +31,8 @@ test("clamps values above 100 to a full circle", () => {
   expect(container.querySelectorAll("circle")).toHaveLength(2);
 });
 
-test("clamps values below 0 to no wedge", () => {
+test("clamps values below 0 to a circle indicator with full dashoffset", () => {
   const { container } = render(<FileUploaderCircularProgress value={-10} />);
   expect(container.querySelector("path")).toBeNull();
-  expect(container.querySelectorAll("circle")).toHaveLength(1);
+  expect(container.querySelectorAll("circle")).toHaveLength(2);
 });

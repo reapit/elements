@@ -64,7 +64,7 @@ test("renders a determinate circular progress indicator while uploading with kno
   const { container } = render(
     <FileUploaderMediaCard fileName="Photo.jpg" progress={45} src={src} status="uploading" />,
   );
-  expect(container.querySelector("path")).toBeInTheDocument();
+  expect(container.querySelector("circle[stroke-dasharray]")).toBeInTheDocument();
 });
 
 test("renders an indeterminate spinner while uploading with no known progress", () => {

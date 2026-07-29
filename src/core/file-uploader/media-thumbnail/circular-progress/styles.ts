@@ -7,10 +7,14 @@ export const ElCircularProgressTrack = styled.circle`
   }
 `;
 
-export const ElCircularProgressIndicator = styled.path`
+export const ElCircularProgressIndicator = styled.circle`
   @layer elements.main {
-    fill: var(--comp-uploader-colour-fill-progress_bar-indicator);
-    stroke: none;
+    fill: none;
+    stroke: var(--comp-uploader-colour-fill-progress_bar-indicator);
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: stroke-dashoffset 200ms ease-out;
+    }
   }
 `;
 

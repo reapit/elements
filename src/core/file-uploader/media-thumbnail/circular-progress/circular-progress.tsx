@@ -9,6 +9,8 @@ const SIZE = 32;
 const CENTER = SIZE / 2;
 const TRACK_RADIUS = SIZE / 2;
 const INDICATOR_RADIUS = TRACK_RADIUS - 2;
+const INDICATOR_STROKE_RADIUS = INDICATOR_RADIUS / 2;
+const CIRCUMFERENCE = 2 * Math.PI * INDICATOR_STROKE_RADIUS;
 
 export namespace FileUploaderCircularProgress {
   export interface Props {
@@ -23,6 +25,7 @@ export namespace FileUploaderCircularProgress {
  */
 export function FileUploaderCircularProgress({ value }: FileUploaderCircularProgress.Props) {
   const clampedValue = clampPercentage(value);
+  const dashoffset = CIRCUMFERENCE * (1 - clampedValue / 100);
 
   return (
     <svg aria-hidden height={SIZE} viewBox={`0 0 ${SIZE} ${SIZE}`} width={SIZE}>
@@ -30,25 +33,16 @@ export function FileUploaderCircularProgress({ value }: FileUploaderCircularProg
       {clampedValue >= 100 ? (
         <ElCircularProgressIndicatorComplete cx={CENTER} cy={CENTER} r={INDICATOR_RADIUS} />
       ) : (
-        clampedValue > 0 && <ElCircularProgressIndicator d={getWedgePath(clampedValue)} />
+        <ElCircularProgressIndicator
+          cx={CENTER}
+          cy={CENTER}
+          r={INDICATOR_STROKE_RADIUS}
+          strokeDasharray={CIRCUMFERENCE}
+          strokeDashoffset={dashoffset}
+          strokeWidth={INDICATOR_RADIUS}
+          transform={`rotate(-90, ${CENTER}, ${CENTER})`}
+        />
       )}
     </svg>
   );
-}
-
-/**
- * The path for a pie wedge, swept clockwise from 12 o'clock, covering `value` percent of the disk.
- */
-function getWedgePath(value: number): string {
-  const sweepAngle = (value / 100) * 2 * Math.PI;
-  const startAngle = -Math.PI / 2;
-  const endAngle = startAngle + sweepAngle;
-
-  const startX = CENTER + INDICATOR_RADIUS * Math.cos(startAngle);
-  const startY = CENTER + INDICATOR_RADIUS * Math.sin(startAngle);
-  const endX = CENTER + INDICATOR_RADIUS * Math.cos(endAngle);
-  const endY = CENTER + INDICATOR_RADIUS * Math.sin(endAngle);
-  const largeArcFlag = sweepAngle > Math.PI ? 1 : 0;
-
-  return `M ${CENTER} ${CENTER} L ${startX} ${startY} A ${INDICATOR_RADIUS} ${INDICATOR_RADIUS} 0 ${largeArcFlag} 1 ${endX} ${endY} Z`;
 }
