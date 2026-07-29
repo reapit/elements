@@ -1,0 +1,53 @@
+name: Gaffer
+
+on:
+  pull_request:
+    types: ["opened", "synchronize", "reopened", "ready_for_review"]
+
+concurrency:
+  group: gaffer-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pull-requests: read
+  issues: write
+
+jobs:
+  classify:
+    name: Classify
+    # Runs on every push to a non-draft PR so classification stays accurate
+    # after further changes.
+    if: "!github.event.pull_request.draft"
+    runs-on:
+      group: rpt-gbl-linux-x64
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Use base-branch policy
+        run: git fetch origin ${{ github.event.pull_request.base.sha }} && git checkout ${{ github.event.pull_request.base.sha }} -- .gaffer/policy.yml
+
+      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
+        with:
+          node-version: 24
+          cache: yarn
+
+      - run: yarn install --immutable
+
+      - name: Classify PR
+        id: classify
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node --experimental-strip-types tools/pr-approval-agent/classify-pr.ts ${{ github.event.pull_request.number }}
+
+      - name: Post classification comment
+        uses: ./actions/sticky-comment
+        with:
+          marker: gaffer-classification
+          body: ${{ steps.classify.outputs.comment }}
+          issue-number: ${{ github.event.pull_request.number }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}

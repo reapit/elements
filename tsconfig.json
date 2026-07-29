@@ -29,7 +29,7 @@
     "outDir": "dist/types",
     "rootDir": "./"
   },
-  "include": [".storybook", "codemods", "src", "workers"],
+  "include": [".storybook", "codemods", "src", "tools", "workers"],
   "exclude": [
     ".yarn",
     "archive",
