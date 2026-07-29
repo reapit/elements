@@ -6,15 +6,16 @@
 
 Five workflows drive CI and deployment:
 
-| Trigger                                                 | Workflow                 | Purpose                                                     |
-| ------------------------------------------------------- | ------------------------ | ----------------------------------------------------------- |
-| Pull request (opened / synchronize / reopened / edited) | `lint-pr.yml`            | Validate the PR title                                       |
-| Pull request (opened / synchronize / reopened)          | `test-pr.yml`            | Validate the PR before merge and deploy a Storybook preview |
-| Pull request (closed) / schedule (weekly)               | `cleanup-preview.yml`    | Delete preview Workers when a PR is closed or orphaned      |
-| Push to `main`                                          | `release.yml`            | Run CI, create the version PR or publish, deploy docs       |
-| Push to `lts`                                           | `release.yml`            | Run CI, create the version PR or publish v4 LTS docs        |
-| Manual (`workflow_dispatch`)                            | `release.yml`            | Recovery publish from a specific ref                        |
-| Manual (`workflow_dispatch`)                            | `deploy-docs-manual.yml` | Emergency deploys and v4 LTS storybook updates              |
+| Trigger                                                 | Workflow                 | Purpose                                                               |
+| ------------------------------------------------------- | ------------------------ | --------------------------------------------------------------------- |
+| Pull request (opened / synchronize / reopened / edited) | `lint-pr.yml`            | Validate the PR title                                                 |
+| Pull request (opened / synchronize / reopened)          | `test-pr.yml`            | Validate the PR before merge and deploy a Storybook preview           |
+| Pull request (closed) / schedule (weekly)               | `cleanup-preview.yml`    | Delete preview Workers when a PR is closed or orphaned                |
+| Push to `main`                                          | `release.yml`            | Run CI, create the version PR or publish, deploy docs                 |
+| Push to `lts`                                           | `release.yml`            | Run CI, create the version PR or publish v4 LTS docs                  |
+| Manual (`workflow_dispatch`)                            | `release.yml`            | Recovery publish from a specific ref                                  |
+| Manual (`workflow_dispatch`)                            | `deploy-docs-manual.yml` | Emergency deploys and v4 LTS storybook updates                        |
+| Manual (`workflow_dispatch`)                            | `eval-docs.yml`          | Run documentation quality evals against ZeroHeight and Storybook docs |
 
 ## Workflow map
 

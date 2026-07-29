@@ -1,0 +1,71 @@
+name: Documentation evals
+
+on:
+  workflow_dispatch:
+    inputs:
+      storybook_env:
+        description: "Storybook environment to run evals against"
+        required: true
+        default: "prod"
+        type: choice
+        options:
+          - prod
+          - canary
+          - pr
+      pr_number:
+        description: 'PR number (required when storybook_env is "pr")'
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+env:
+  CI: true
+
+jobs:
+  eval:
+    name: Run Evals
+    runs-on:
+      group: rpt-gbl-linux-x64
+    timeout-minutes: 60
+    env:
+      AWS_BEARER_TOKEN_BEDROCK: ${{ secrets.AWS_BEARER_TOKEN_BEDROCK }}
+      ZEROHEIGHT_MCP_URL: ${{ vars.ZEROHEIGHT_MCP_URL }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Resolve Storybook MCP URL
+        run: |
+          if [[ "${{ inputs.storybook_env }}" == "pr" && -z "${{ inputs.pr_number }}" ]]; then
+            echo "Error: pr_number is required when storybook_env is 'pr'" >&2
+            exit 1
+          fi
+          case "${{ inputs.storybook_env }}" in
+            prod)    echo "STORYBOOK_MCP_URL=https://elements.reapit.cloud" >> "$GITHUB_ENV" ;;
+            canary)  echo "STORYBOOK_MCP_URL=https://canary.elements.reapit.cloud" >> "$GITHUB_ENV" ;;
+            pr)      echo "STORYBOOK_MCP_URL=https://pr-${{ inputs.pr_number }}.elements.reapit.com.au" >> "$GITHUB_ENV" ;;
+          esac
+
+      - name: Run evals
+        run: yarn eval:run
+
+      - name: Export eval results
+        if: always()
+        run: npx evalite export --output ./evalite-export
+
+      - name: Upload eval results
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: evalite-results
+          path: evalite-export/
+          retention-days: 90

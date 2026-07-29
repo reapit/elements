@@ -22,6 +22,7 @@ yarn-error.log*
 .vite/
 dist/
 public/dist
+.env
 
 # Python
 __pycache__
@@ -84,6 +85,9 @@ cdk.out
 .claude/worktrees/
 .opencode/worktrees/
 .worktrees/
+
+# Evalite
+node_modules/.evalite
 
 # Exceptions
 !src/tokens/dist
