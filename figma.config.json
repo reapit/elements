@@ -1,6 +1,11 @@
 {
   "codeConnect": {
-    "include": ["src/core/**/*.tsx", "src/icons/*.tsx"],
+    "include": [
+      "src/core/**/*.figma.ts",
+      "src/icons/icons.figma.ts",
+      "src/icons/icons.figma.batch.json",
+      "src/utils/**/*.figma.ts"
+    ],
     "importPaths": {
       "src/core/*": "@reapit/elements/core/*",
       "src/icons/*": "@reapit/elements/icons/*",
@@ -11,7 +16,6 @@
     },
     "interactiveSetupFigmaFileUrl": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=136-3822",
     "label": "React",
-    "parser": "react",
     "documentUrlSubstitutions": {
       "<ACCORDION_GROUP_URL>": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=14328-20323&m=dev",
       "<ACCORDION_HEADER_URL>": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=18266-17027&m=dev",

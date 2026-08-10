@@ -23,7 +23,8 @@
       "vite/client",
       "vitest/globals",
       "vite-plugin-svgr/client",
-      "@testing-library/jest-dom/vitest"
+      "@testing-library/jest-dom/vitest",
+      "@figma/code-connect/figma-types"
     ],
     "lib": ["ESNext", "dom"],
     "outDir": "dist/types",

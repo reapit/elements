@@ -201,28 +201,44 @@ export const ${pascalCaseName}Icon = makeIcon('${pascalCaseName}Icon', ${pascalC
   writeFileSync(outputPath, fileContent);
 }
 
-/** Create a Figma code connect file for a specific icon */
-function generateIconCodeConnectFile(
-  svgFileName: string,
-  figmaIconComponent?: FigmaComponent,
-): void {
-  if (!figmaIconComponent) {
-    return;
-  }
+/**
+ * Write the Figma Code Connect batch file listing every icon. Icons with no matching Figma
+ * component (e.g. removed or renamed in Figma) are omitted, mirroring the previous per-file
+ * generator's behaviour of skipping icons it couldn't find a Figma URL for.
+ */
+function writeIconsBatchFile(svgFiles: string[], figmaIcons: FigmaComponent[]): void {
+  const figmaIconsByName = new Map(figmaIcons.map((icon) => [icon.name, icon]));
 
-  const baseName = basename(svgFileName, ".svg");
-  const pascalCaseName = kebabToPascalCase(baseName);
-  const iconComponentName = `${pascalCaseName}Icon`;
-  const iconImportPath = `./${baseName}`;
+  const components = svgFiles
+    .map((file) => {
+      const baseName = basename(file, ".svg");
+      const figmaIconComponent = figmaIconsByName.get(baseName);
+      if (!figmaIconComponent) {
+        return null;
+      }
 
-  const fileContent = `import figma from '@figma/code-connect'
-import { ${iconComponentName} } from '${iconImportPath}'
+      const iconComponentName = `${kebabToPascalCase(baseName)}Icon`;
 
-figma.connect(${iconComponentName}, '${figmaIconComponent.figmaUrl}')
-`;
+      return {
+        url: figmaIconComponent.figmaUrl,
+        name: iconComponentName,
+        component: iconComponentName,
+        id: baseName,
+        source: `src/icons/${baseName}.tsx`,
+        importPath: `@reapit/elements/icons/${baseName}`,
+      };
+    })
+    .filter((component) => component !== null);
 
-  const outputPath = join(outputDir, `${baseName}.figma.tsx`);
-  writeFileSync(outputPath, fileContent);
+  const batchFileContent = {
+    templateFile: "./icons.figma.batch.ts",
+    components,
+  };
+
+  writeFileSync(
+    join(outputDir, "icons.figma.batch.json"),
+    `${JSON.stringify(batchFileContent, null, 2)}\n`,
+  );
 }
 
 /** Create a barrel file for all icons */
@@ -320,29 +336,9 @@ async function main() {
   svgFiles.forEach(generateIconFile);
   console.log(styleText("green", `✔️  Generated ${svgFiles.length} icon files`));
 
-  // 7. Generate Figma Code Connect files
-  const failedCodeConnectFiles = svgFiles
-    .map((file) => {
-      const figmaIcon = figmaIcons.find((icon) => icon.name === basename(file, ".svg"));
-      try {
-        generateIconCodeConnectFile(file, figmaIcon);
-      } catch (error) {
-        console.log(styleText("red", `❌ Error generating code connect file for ${file}`));
-        return file;
-      }
-    })
-    .filter(Boolean);
-
-  if (failedCodeConnectFiles.length === 0) {
-    console.log(styleText("green", `✔️  Generated ${svgFiles.length} code connect files`));
-  } else {
-    console.log(
-      styleText(
-        "yellow",
-        `⚠️  Generated ${svgFiles.length - failedCodeConnectFiles.length} code connect files`,
-      ),
-    );
-  }
+  // 7. Write the Figma Code Connect batch file
+  writeIconsBatchFile(svgFiles, figmaIcons);
+  console.log(styleText("green", "✔️  Generated Figma Code Connect batch file"));
 
   // 8. Write the barrel file
   writeBarrelFile(svgFiles);

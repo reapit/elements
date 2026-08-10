@@ -114,7 +114,7 @@
     "@changesets/cli": "^2.31.1",
     "@changesets/get-github-info": "1.0.0-next.4",
     "@changesets/types": "^6.1.0",
-    "@figma/code-connect": "^1.4.9",
+    "@figma/code-connect": "^1.5.1",
     "@linaria/postcss-linaria": "8.1.1",
     "@modelcontextprotocol/sdk": "^1.29.0",
     "@playwright/test": "1.61.1",
