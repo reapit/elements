@@ -11,7 +11,6 @@ concurrency:
 permissions:
   contents: read
   pull-requests: read
-  issues: write
 
 jobs:
   classify:
@@ -23,6 +22,17 @@ jobs:
       group: rpt-gbl-linux-x64
     timeout-minutes: 10
     steps:
+      # Dependabot-authored PRs get a read-only default GITHUB_TOKEN
+      # regardless of the permissions block above, so classification (which
+      # needs to add labels and post a comment) authenticates as the GH App
+      # instead.
+      - name: Generate app token
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        id: app-token
+        with:
+          app-id: ${{ vars.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: ${{ github.event.pull_request.head.sha }}
@@ -40,7 +50,7 @@ jobs:
       - name: Classify PR
         id: classify
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: node --experimental-strip-types tools/pr-approval-agent/classify-pr.ts ${{ github.event.pull_request.number }}
 
@@ -50,4 +60,4 @@ jobs:
           marker: gaffer-classification
           body: ${{ steps.classify.outputs.comment }}
           issue-number: ${{ github.event.pull_request.number }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ steps.app-token.outputs.token }}
