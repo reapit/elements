@@ -4,7 +4,7 @@ A record of _why_ gaffer looks the way it does.
 [`README.md`](./README.md) covers what is built and how to use it; this file
 covers the decisions and open items behind it.
 
-**Status: proof of concept.** Everything under `tools/pr-approval-agent/`,
+**Status: proof of concept.** Everything under `tools/gaffer/`,
 `.gaffer/`, and `.github/workflows/gaffer.yml` has not been run
 against a live PR. `package.json`, `yarn.lock`, and `tsconfig.json` were
 modified in place (new devDependencies, `tools` added to the typecheck
@@ -15,7 +15,8 @@ local smoke test of the pure gate logic — see "Testing status" below.
 ## Origin
 
 Ported from PostHog's stamphog
-([`tools/pr-approval-agent/`](https://github.com/PostHog/posthog/blob/master/tools/pr-approval-agent/README.md)).
+([`tools/pr-approval-agent/`](https://github.com/PostHog/posthog/blob/master/tools/pr-approval-agent/README.md))
+— note that path is PostHog's, this repo's port now lives under `tools/gaffer/`.
 The brief was: copy the architecture, preserve its safety invariants, but
 re-derive the deny-list and size thresholds from this repo's own risk surface
 rather than copying PostHog's. Their categories (auth, billing, migrations,
@@ -26,13 +27,13 @@ no backend, published to npm and consumed by other teams' frontends.
 
 - **Fails closed.** A gate denial or unmet condition never defaults to
   `factory-made`. When prerequisites cannot be confirmed (e.g. `mergeable`
-  is still `null` after polling), the PR receives `handmade`.
+  is still `null` after polling), the PR receives `quality-hold`.
 - **Never posts reviews, never merges.** Phase 1 applies a label and posts a
   classification comment. Nothing else.
 - **Classification is idempotent and self-correcting.** The label is
   re-evaluated on every push. A PR that previously passed can be reclassified
-  `handmade` if a subsequent push crosses a threshold.
-- **Nothing is a permanent block.** A `handmade` label means a human review is
+  `quality-hold` if a subsequent push crosses a threshold.
+- **Nothing is a permanent block.** A `quality-hold` label means a human review is
   required — it does not close the PR or prevent further runs.
 
 ## Key decisions
@@ -77,7 +78,7 @@ against the diff patch. Ordinary dependency add, bump, or remove is not denied.
 
 ### Gaffer's own files: scrutiny floor for implementation, hard deny for the workflow
 
-`tools/pr-approval-agent/**` and `.gaffer/policy.yml` are in
+`tools/gaffer/**` and `.gaffer/policy.yml` are in
 `scrutinyFloorCategories` (`gaffer_agent`). Changes to gaffer's own
 implementation have legitimate churn and should not be hard-denied, but they
 should never be treated as trivial by line count alone.
@@ -122,7 +123,7 @@ T1c ≤300/≤15, hard ceiling >800 lines or >30 files).
 
 Rather than appending blindly, `GitHubClient.setLabel` fetches the current
 label set, adds the new label, and removes any other gaffer-managed labels
-(`factory-made` / `handmade`) in a single parallel call. This ensures a label
+(`factory-made` / `quality-hold`) in a single parallel call. This ensures a label
 flip on a subsequent push leaves the PR in a clean state — never both labels
 applied simultaneously.
 
@@ -141,7 +142,7 @@ Pulled live via `gh api` — worth re-checking if this document gets stale:
 
 ## Prerequisites not yet done
 
-- [ ] Create the `factory-made` and `handmade` labels in the repo.
+- [ ] Create the `factory-made` and `quality-hold` labels in the repo.
 - [ ] A real end-to-end run against a live PR — see "Testing status."
 
 ## Testing status

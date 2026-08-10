@@ -22,7 +22,7 @@ const MERGEABLE_POLL_ATTEMPTS = 5;
 const MERGEABLE_POLL_DELAY_MS = 2000;
 
 const LABEL_FACTORY_MADE = "factory-made";
-const LABEL_HANDMADE = "handmade";
+const LABEL_QUALITY_HOLD = "quality-hold";
 
 function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -33,8 +33,8 @@ function buildComment(label: string, classification: Classification): string {
   const isFactoryMade = label === LABEL_FACTORY_MADE;
   const alertType = isFactoryMade ? "[!TIP]" : "[!CAUTION]";
   const heading = isFactoryMade
-    ? "### 🤩 Gaffer classified this PR as factory-made"
-    : "### 🙅‍♂️ Gaffer classified this PR as handmade";
+    ? "### 🤩 Gaffer cleared this PR as factory-made"
+    : "### 🙅‍♂️ Gaffer placed this PR on quality-hold";
 
   const inlineList = (matches: Classification["denyMatches"]) =>
     matches.map((m) => `\`${m.category}\``).join(" · ");
@@ -124,7 +124,7 @@ async function main() {
   gateResults.push(sizeCeilingGate(classification, policy));
 
   const gatesPassed = gateResults.every((g) => g.passed);
-  const label = gatesPassed ? LABEL_FACTORY_MADE : LABEL_HANDMADE;
+  const label = gatesPassed ? LABEL_FACTORY_MADE : LABEL_QUALITY_HOLD;
   const denyingGate = gateResults.find((g) => !g.passed);
   const comment = buildComment(label, classification);
 
@@ -150,7 +150,7 @@ async function main() {
     return;
   }
 
-  await client.setLabel(args.prNumber, label, [LABEL_FACTORY_MADE, LABEL_HANDMADE]);
+  await client.setLabel(args.prNumber, label, [LABEL_FACTORY_MADE, LABEL_QUALITY_HOLD]);
   writeStepOutput("comment", comment);
   console.log(
     `Classified PR #${args.prNumber} as "${label}".${denyingGate ? ` Reason: ${denyingGate.message}` : ""}`,

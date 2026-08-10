@@ -1,9 +1,9 @@
 # Gaffer — PR classifier
 
-Classifies pull requests as `factory-made` or `handmade` by running a chain
+Classifies pull requests as `factory-made` or `quality-hold` by running a chain
 of deterministic safety gates against this repo's policy. A `factory-made`
 label means all gates passed and an automated review workflow may proceed; a
-`handmade` label means at least one gate denied the PR and a human review is
+`quality-hold` label means at least one gate denied the PR and a human review is
 required.
 
 Architecture ported from
@@ -19,14 +19,14 @@ Gates run in order. The first failure short-circuits the remainder.
 1. **Prerequisites gate** — PR must be non-draft, mergeable, and have no
    outstanding change requests.
 2. **Deny-list gate** — any file matching a `denyCategories` glob in
-   `.gaffer/policy.yml` makes the PR `T2-never`: automatically `handmade`,
+   `.gaffer/policy.yml` makes the PR `T2-never`: automatically `quality-hold`,
    regardless of size.
 3. **Size-ceiling gate** — PRs exceeding the hard ceiling (>800 substantive
    lines or >30 substantive files) are denied as too large to classify
    automatically.
 
 If all gates pass, the PR is `factory-made`. If any gate fails, the PR is
-`handmade`. The label is applied (or updated) on every run, so a subsequent
+`quality-hold`. The label is applied (or updated) on every run, so a subsequent
 push that crosses a threshold flips the label correctly.
 
 ## Deny-list vs. scrutiny-floor
@@ -34,7 +34,7 @@ push that crosses a threshold flips the label correctly.
 Two mechanisms in `.gaffer/policy.yml`:
 
 - **`denyCategories`** — hard deny. Any match makes the PR `T2-never` and
-  `handmade`. Reserved for high-blast-radius paths: CI/CD, workflow changes
+  `quality-hold`. Reserved for high-blast-radius paths: CI/CD, workflow changes
   referencing secrets, deploy infra, git hooks, release/publish config.
 - **`scrutinyFloorCategories`** — not denied. The tier is floored at
   `T1c-medium` so a change here can never be classified as trivial by line
@@ -52,7 +52,7 @@ lines / 1 file; p90 ~240 lines / 8 files):
 - `T1b-small` — ≤100 lines, ≤5 files
 - `T1c-medium` — ≤300 lines, ≤15 files
 - `T1d-complex` — over T1c but within the hard ceiling
-- hard ceiling: **>800 substantive lines or >30 substantive files → handmade**
+- hard ceiling: **>800 substantive lines or >30 substantive files → quality-hold**
 - `T2-never` — any deny-list match, regardless of size
 
 ## Branch-protection prerequisites
@@ -60,7 +60,7 @@ lines / 1 file; p90 ~240 lines / 8 files):
 | Requirement                  | Current state                                           |
 | ---------------------------- | ------------------------------------------------------- |
 | `factory-made` label created | **Not yet** — create in repo settings before first run. |
-| `handmade` label created     | **Not yet** — create in repo settings before first run. |
+| `quality-hold` label created | **Not yet** — create in repo settings before first run. |
 
 ## Local usage
 
@@ -68,10 +68,10 @@ lines / 1 file; p90 ~240 lines / 8 files):
 export GH_TOKEN=$(gh auth token)
 
 # Classify only — no side effects:
-node --experimental-strip-types tools/pr-approval-agent/classify-pr.ts 1517 --dry-run
+node --experimental-strip-types tools/gaffer/classify-pr.ts 1517 --dry-run
 
 # Full run, verbose evidence bundle to stderr:
-node --experimental-strip-types tools/pr-approval-agent/classify-pr.ts 1517 -v
+node --experimental-strip-types tools/gaffer/classify-pr.ts 1517 -v
 ```
 
 `--repo owner/repo` overrides the target repository; defaults to
@@ -80,7 +80,7 @@ node --experimental-strip-types tools/pr-approval-agent/classify-pr.ts 1517 -v
 ## File layout
 
 ```
-tools/pr-approval-agent/
+tools/gaffer/
 ├── README.md              — this file
 ├── classify-pr.ts         — classification pipeline (CLI entry point)
 ├── classify-gates.ts      — policy loading, deny-list/scrutiny-floor matching, tier classification
