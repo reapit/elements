@@ -51,6 +51,7 @@ export * from "../contacts-alt";
 export * from "../contacts";
 export * from "../copy";
 export * from "../dashboard";
+export * from "../devices";
 export * from "../drag-indicator-alt";
 export * from "../drag-indicator";
 export * from "../edit";
@@ -257,6 +258,7 @@ export const ICON_KEBAB_NAMES: Record<string, string> = {
   ContactsIcon: "contacts",
   CopyIcon: "copy",
   DashboardIcon: "dashboard",
+  DevicesIcon: "devices",
   DragIndicatorAltIcon: "drag-indicator-alt",
   DragIndicatorIcon: "drag-indicator",
   EditIcon: "edit",

@@ -191,10 +191,10 @@ function generateIconFile(svgFileName: string): void {
   const pascalCaseName = kebabToPascalCase(baseName);
   const svgImportPath = `./svgs/${baseName}.svg?react`;
 
-  const fileContent = `import ${pascalCaseName}Svg from '${svgImportPath}'
-import { makeIcon } from './make-icon'
+  const fileContent = `import { makeIcon } from "./make-icon";
+import ${pascalCaseName}Svg from "${svgImportPath}";
 
-export const ${pascalCaseName}Icon = makeIcon('${pascalCaseName}Icon', ${pascalCaseName}Svg)
+export const ${pascalCaseName}Icon = makeIcon("${pascalCaseName}Icon", ${pascalCaseName}Svg);
 `;
 
   const outputPath = join(outputDir, `${baseName}.tsx`);
@@ -246,7 +246,7 @@ function writeBarrelFile(svgFiles: string[]): void {
   const exports = svgFiles
     .map((file) => {
       const baseName = basename(file, ".svg");
-      return `export * from '../${baseName}'`;
+      return `export * from "../${baseName}";`;
     })
     .join("\n");
 
@@ -257,7 +257,7 @@ function writeBarrelFile(svgFiles: string[]): void {
     .map((file) => {
       const baseName = basename(file, ".svg");
       const pascalCaseName = kebabToPascalCase(baseName);
-      return `  ${pascalCaseName}Icon: '${baseName}',`;
+      return `  ${pascalCaseName}Icon: "${baseName}",`;
     })
     .join("\n");
 
@@ -265,7 +265,7 @@ function writeBarrelFile(svgFiles: string[]): void {
 
 export const ICON_KEBAB_NAMES: Record<string, string> = {
 ${kebabEntries}
-}
+};
 `;
 
   writeFileSync(join(outputDir, "docs", "all-icons.ts"), fileContent);

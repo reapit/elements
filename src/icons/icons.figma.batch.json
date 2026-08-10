@@ -426,6 +426,14 @@
       "importPath": "@reapit/elements/icons/dashboard"
     },
     {
+      "url": "https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=21142-132717",
+      "name": "DevicesIcon",
+      "component": "DevicesIcon",
+      "id": "devices",
+      "source": "src/icons/devices.tsx",
+      "importPath": "@reapit/elements/icons/devices"
+    },
+    {
       "url": "https://figma.com/file/6CaivqdlTX0UkFYJkpBKDu/?node-id=20-568",
       "name": "DragIndicatorAltIcon",
       "component": "DragIndicatorAltIcon",
