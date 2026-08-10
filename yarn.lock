@@ -1386,29 +1386,29 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@floating-ui/core@npm:^1.7.4":
-  version: 1.7.4
-  resolution: "@floating-ui/core@npm:1.7.4"
+"@floating-ui/core@npm:^1.8.0":
+  version: 1.8.0
+  resolution: "@floating-ui/core@npm:1.8.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40floating-ui%2Fcore%2F-%2Fcore-1.8.0.tgz"
   dependencies:
-    "@floating-ui/utils": "npm:^0.2.10"
-  checksum: 10/b750f306a99be879f0bce879108c440d5b0a67303d3d8318e153687f6ed1af27908428e27cc955475253bd902b95452a3434bd4f0cf96e66e5b5d0db1aa8ea3c
+    "@floating-ui/utils": "npm:^0.2.12"
+  checksum: 10/762cd5677fd4e82597db2efdd8f1e81d248eac5615d8be755e1bbb5f12a14c56a6bccd735676374d4914db7ccb3f09ec405ec7433e8c48a5521f5d66dc8dd5d6
   languageName: node
   linkType: hard
 
-"@floating-ui/dom@npm:^1.7.5":
-  version: 1.7.5
-  resolution: "@floating-ui/dom@npm:1.7.5"
+"@floating-ui/dom@npm:^1.7.6":
+  version: 1.8.0
+  resolution: "@floating-ui/dom@npm:1.8.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40floating-ui%2Fdom%2F-%2Fdom-1.8.0.tgz"
   dependencies:
-    "@floating-ui/core": "npm:^1.7.4"
-    "@floating-ui/utils": "npm:^0.2.10"
-  checksum: 10/2764990da82bd5cfe942211480aa82352926326008de93f5f3f19749cc8b171fe05b77526a2652605eadcbeab902c6506f18d60a4c43281f2651802047de100b
+    "@floating-ui/core": "npm:^1.8.0"
+    "@floating-ui/utils": "npm:^0.2.12"
+  checksum: 10/2e7d75fb702875a62795dd8529569f27eff53167768d75476056d6bf824a1ba608177a8877ed9d728eadb5787b4bd07b043fb2c3125b7ad2505a398680b323c0
   languageName: node
   linkType: hard
 
-"@floating-ui/utils@npm:^0.2.10":
-  version: 0.2.10
-  resolution: "@floating-ui/utils@npm:0.2.10"
-  checksum: 10/b635ea865a8be2484b608b7157f5abf9ed439f351011a74b7e988439e2898199a9a8b790f52291e05bdcf119088160dc782d98cff45cc98c5a271bc6f51327ae
+"@floating-ui/utils@npm:^0.2.12":
+  version: 0.2.12
+  resolution: "@floating-ui/utils@npm:0.2.12::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40floating-ui%2Futils%2F-%2Futils-0.2.12.tgz"
+  checksum: 10/ec4e176fb22d33d75df752c5acf82dcaacae40ed2d09c1a5015cb4081318fff20260db216678e952344b95f90c6b43214762b69eba7c51556ecd82c35a795cff
   languageName: node
   linkType: hard
 
@@ -2236,15 +2236,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@oddbird/css-anchor-positioning@npm:^0.9.0":
-  version: 0.9.0
-  resolution: "@oddbird/css-anchor-positioning@npm:0.9.0"
+"@oddbird/css-anchor-positioning@npm:^0.10.1":
+  version: 0.10.1
+  resolution: "@oddbird/css-anchor-positioning@npm:0.10.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oddbird%2Fcss-anchor-positioning%2F-%2Fcss-anchor-positioning-0.10.1.tgz"
   dependencies:
-    "@floating-ui/dom": "npm:^1.7.5"
+    "@floating-ui/dom": "npm:^1.7.6"
     "@types/css-tree": "npm:^2.3.11"
-    css-tree: "npm:^3.1.0"
-    nanoid: "npm:^5.1.6"
-  checksum: 10/1b8b35db03df484e8c276eec88a37e28fdf1c68cc4ae3f8c3b00d1a169a9735b043d3d998f1b251b118a5996675215ceffbc683fee8ffe49c4a131891cd977da
+    css-tree: "npm:^3.2.1"
+    nanoid: "npm:^5.1.16"
+  checksum: 10/4049561ae4b0b98204a6c1655eae7a3649a0b403bd3c2814f58c32f57bd37ad8da06da800782fd36d3b0160bfa5c5d1249135731f60ea5887c796dc2e738c472
   languageName: node
   linkType: hard
 
@@ -3154,7 +3154,7 @@ __metadata:
     "@linaria/postcss-linaria": "npm:8.1.1"
     "@linaria/react": "npm:8.1.1"
     "@modelcontextprotocol/sdk": "npm:^1.29.0"
-    "@oddbird/css-anchor-positioning": "npm:^0.9.0"
+    "@oddbird/css-anchor-positioning": "npm:^0.10.1"
     "@playwright/test": "npm:1.61.1"
     "@storybook/addon-a11y": "npm:10.5.3"
     "@storybook/addon-docs": "npm:10.5.3"
@@ -5910,7 +5910,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"css-tree@npm:^3.0.1, css-tree@npm:^3.1.0, css-tree@npm:^3.2.1":
+"css-tree@npm:^3.0.1, css-tree@npm:^3.2.1":
   version: 3.2.1
   resolution: "css-tree@npm:3.2.1"
   dependencies:
@@ -9241,12 +9241,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nanoid@npm:^5.1.6":
-  version: 5.1.6
-  resolution: "nanoid@npm:5.1.6"
+"nanoid@npm:^5.1.16":
+  version: 5.1.16
+  resolution: "nanoid@npm:5.1.16::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fnanoid%2F-%2Fnanoid-5.1.16.tgz"
   bin:
     nanoid: bin/nanoid.js
-  checksum: 10/4109dbcf596d7f297a9b42f459b8f01694a03ebbdd2f41408d963ad54e5ec7234cbe7b4acad137751f31add11bb4fb3415a3e688082516745812811f05570014
+  checksum: 10/b1e702e2b7072e74ac2ae880907d0a291853a36617ec5c3d27d81ab04965ebc0d4d0f707cf9220928cf93d5370b1f561c930efee853dc9c1a3facaefdf1a42ee
   languageName: node
   linkType: hard
 
