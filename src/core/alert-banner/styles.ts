@@ -20,8 +20,8 @@ export const ElAlertBanner = styled.div<ElAlertBannerProps>`
     position: relative;
     display: grid;
     grid:
-      'icon description' auto
-      'icon actions' minmax(0, auto) / minmax(0, auto) 1fr;
+      "icon description" auto
+      "icon actions" minmax(0, auto) / minmax(0, auto) 1fr;
     gap: 0 var(--spacing-2);
     width: 100%;
 
@@ -31,7 +31,7 @@ export const ElAlertBanner = styled.div<ElAlertBannerProps>`
 
     /* Responsive padding adjustments */
     @container ${isWidthAtOrAbove("SM")} {
-      grid: 'icon description actions' auto / minmax(0, auto) 1fr minmax(0, auto);
+      grid: "icon description actions" auto / minmax(0, auto) 1fr minmax(0, auto);
       --alert-banner-actions-padding-block-start: 0;
     }
 
@@ -39,23 +39,23 @@ export const ElAlertBanner = styled.div<ElAlertBannerProps>`
       display: none;
     }
 
-    &[data-is-dismissable='true'] {
+    &[data-is-dismissable="true"] {
       padding-inline-end: var(--spacing-14);
     }
 
-    &[data-variant='error'] {
+    &[data-variant="error"] {
       --alert-banner-background: var(--colour-fill-error-lightest);
       --alert-banner-border-colour: var(--colour-border-error-default);
       --alert-banner-icon-colour: var(--colour-icon-error);
     }
 
-    &[data-variant='warning'] {
+    &[data-variant="warning"] {
       --alert-banner-background: var(--colour-fill-warning-lightest);
       --alert-banner-border-colour: var(--colour-border-warning-default);
       --alert-banner-icon-colour: var(--colour-icon-warning);
     }
 
-    &[data-variant='info'] {
+    &[data-variant="info"] {
       --alert-banner-background: var(--colour-fill-info-lightest);
       --alert-banner-border-colour: var(--colour-border-info-default);
       --alert-banner-icon-colour: var(--colour-icon-info);

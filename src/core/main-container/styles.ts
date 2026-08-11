@@ -18,26 +18,26 @@ export const ElMainContainer = styled.div<ElMainContainerProps>`
     background-color: transparent;
 
     @container ${isWidthAtOrAbove("MD")} {
-      &[data-size='narrow'] {
+      &[data-size="narrow"] {
         --main_container-max_width: 800px;
       }
-      &[data-size='wide'] {
+      &[data-size="wide"] {
         --main_container-max_width: 1200px;
       }
     }
     @container ${isWidthAtOrAbove("XL")} {
-      &[data-size='narrow'] {
+      &[data-size="narrow"] {
         --main_container-max_width: 1200px;
       }
-      &[data-size='wide'] {
+      &[data-size="wide"] {
         --main_container-max_width: 1600px;
       }
     }
     @container ${isWidthAtOrAbove("2XL")} {
-      &[data-size='narrow'] {
+      &[data-size="narrow"] {
         --main_container-max_width: 1400px;
       }
-      &[data-size='wide'] {
+      &[data-size="wide"] {
         --main_container-max_width: 1800px;
       }
     }
@@ -67,31 +67,31 @@ export const ElMainContainerContent = styled.div<ElMainContainerContentProps>`
       padding: var(--spacing-10);
     }
 
-    &[data-has-no-bottom-padding='true'] {
+    &[data-has-no-bottom-padding="true"] {
       padding-block-end: 0;
     }
 
-    &[data-has-no-top-padding='true'] {
+    &[data-has-no-top-padding="true"] {
       padding-block-start: 0;
     }
 
     &,
-    &[data-template='single-column'] {
+    &[data-template="single-column"] {
       grid-template: auto / 100%;
     }
 
     /* minmax(0, Xfr) prevents content from forcing columns wider than their fraction */
-    &[data-template='two-columns-asymmetrical-start'] {
+    &[data-template="two-columns-asymmetrical-start"] {
       grid-template: auto / minmax(0, 2fr) minmax(0, 1fr);
       column-gap: var(--spacing-10);
     }
 
-    &[data-template='two-columns-asymmetrical-end'] {
+    &[data-template="two-columns-asymmetrical-end"] {
       grid-template: auto / minmax(0, 1fr) minmax(0, 2fr);
       column-gap: var(--spacing-10);
     }
 
-    &[data-template='two-columns-symmetrical'] {
+    &[data-template="two-columns-symmetrical"] {
       grid-template: auto / minmax(0, 1fr) minmax(0, 1fr);
 
       @container ${isWidthAtOrAbove("SM")} {
@@ -103,7 +103,7 @@ export const ElMainContainerContent = styled.div<ElMainContainerContentProps>`
       }
     }
 
-    &[data-template='three-columns'] {
+    &[data-template="three-columns"] {
       grid-template: auto / minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
       column-gap: var(--spacing-10);
     }
