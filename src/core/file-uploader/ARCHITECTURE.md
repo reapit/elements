@@ -11,13 +11,11 @@ root that provides context).
 
 ## Component layers
 
-**`FileInput`** (`src/utils/file-input/`) is the native file selection
-primitive. It owns file selection mechanics only — a real
-`<input type="file">`, drag-and-drop, and custom size and count constraints.
-It has no knowledge of upload queues or item rendering. It lives in
-`src/utils/` because it has no Figma component of its own and is designed for
-use outside a `FileUploader` context (for example, a single-avatar-upload
-trigger with no progress UI).
+**[`FileInput`](../../utils/file-input/ARCHITECTURE.md)** is the native file
+selection primitive that every control in this family renders under the
+hood. It is designed for use outside a `FileUploader` context too — for
+example, a single-avatar-upload trigger with no progress UI — which is why it
+lives in `src/utils/` rather than being private to `file-uploader/`.
 
 **`FileUploadQueue`** (`src/core/file-uploader/`) is an external store class
 that owns the upload lifecycle for a set of files: status, progress, and
@@ -55,7 +53,8 @@ the form can be submitted. Only field-level validity, surfaced through
 
 This means a consumer can submit a form that contains invalid queued files.
 Invalid files do not count towards field-level validity and are not included
-in form data on submission.
+in form data on submission: `FileUploader.File` renders no hidden input at
+all for an invalid item, rather than one with an empty value.
 
 ### 2. Validation constraints belong with the control/input
 
@@ -137,6 +136,11 @@ failed upload attempt. `processing` is optional and consumer-driven, for
 backends with a post-upload server-side step such as virus scanning or
 transcoding. There is no retry: removing and re-adding the file starts a new
 attempt.
+
+Each item added to the queue gets its own generated ID, and the queue never
+deduplicates by filename. Selecting the same file again after it errors adds
+a second, independent item rather than replacing or retrying the first — the
+original stays in the list in its `error` state until removed.
 
 Validation-rejected files are not a lifecycle state. An item rejected by
 validation remains `queued` with a `validationError` annotation; it does not
