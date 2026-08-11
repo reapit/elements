@@ -82,9 +82,8 @@ Thumbs.db
 cdk.out
 
 # Worktrees
-.claude/worktrees/
-.opencode/worktrees/
-.worktrees/
+.agents/worktrees
+.opencode/worktrees
 
 # Evalite
 node_modules/.evalite
