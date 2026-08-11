@@ -12,6 +12,21 @@ test("renders the filename and thumbnail", () => {
   expect(container.querySelector("img")).toHaveAttribute("src", src);
 });
 
+test("renders no file name row when fileName is omitted", () => {
+  const { container } = render(<FileUploaderMediaCard src={src} status="uploaded" />);
+  expect(container.querySelector("p")).toBeNull();
+});
+
+test("renders an accessibly-named remove button with a generic label when fileName is omitted", () => {
+  const onRemove = vi.fn();
+  render(<FileUploaderMediaCard src={src} status="uploaded" onRemove={onRemove} />);
+
+  const button = screen.getByRole("button", { name: "Remove" });
+  fireEvent.click(button);
+
+  expect(onRemove).toHaveBeenCalledTimes(1);
+});
+
 test("renders the formatted file size and status text", () => {
   render(
     <FileUploaderMediaCard

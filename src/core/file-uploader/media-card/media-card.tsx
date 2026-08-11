@@ -19,8 +19,8 @@ export namespace FileUploaderMediaCard {
   export interface Props extends HTMLAttributes<HTMLDivElement> {
     /** Aspect ratio of the media thumbnail. Useful when you want the height to scale proportionally to the width. */
     aspectRatio?: string;
-    /** The file's name, rendered with end-truncation. */
-    fileName: string;
+    /** The file's name, rendered with end-truncation. Omit to skip rendering a file name. */
+    fileName?: string;
     /** The file's size in bytes. Omit to skip rendering a size. */
     fileSize?: number;
     /** The item's lifecycle status. */
@@ -34,7 +34,11 @@ export namespace FileUploaderMediaCard {
     errorMessage?: string;
     /** The thumbnail image URL. */
     src: string;
-    /** Alt text for the thumbnail image. Defaults to an empty string, since the filename already labels the item. */
+    /**
+     * Alt text for the thumbnail image. Defaults to an empty string, since the filename already labels the item.
+     * If `fileName` is omitted, pass alt text describing the image instead, so the item still has an accessible
+     * name.
+     */
     alt?: string;
     /**
      * A formatted duration (e.g. `"15:39"`), shown as an overlay badge on the thumbnail. Only meaningful for video
@@ -82,7 +86,10 @@ export function FileUploaderMediaCard({
       <FileUploaderMediaThumbnail
         action={
           onRemove ? (
-            <FileUploaderRemoveButton aria-label={`Remove ${fileName}`} onClick={onRemove} />
+            <FileUploaderRemoveButton
+              aria-label={fileName ? `Remove ${fileName}` : "Remove"}
+              onClick={onRemove}
+            />
           ) : undefined
         }
         alt={alt}
@@ -93,9 +100,11 @@ export function FileUploaderMediaCard({
         status={status}
       />
       <ElFileUploaderMediaCardContent>
-        <ElFileUploaderMediaCardFileName title={fileName}>
-          {fileName}
-        </ElFileUploaderMediaCardFileName>
+        {fileName && (
+          <ElFileUploaderMediaCardFileName title={fileName}>
+            {fileName}
+          </ElFileUploaderMediaCardFileName>
+        )}
         <ElFileUploaderMediaCardSecondaryInfo data-wrap={isError || undefined}>
           {sizeText && (
             <>
