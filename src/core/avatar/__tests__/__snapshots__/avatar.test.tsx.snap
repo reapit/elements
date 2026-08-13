@@ -3,10 +3,10 @@
 exports[`Avatar > should render properly with default props and match snapshot 1`] = `
 <DocumentFragment>
   <span
-    class="mocked-styled-0 el-avatar"
+    class="el-avatar"
     data-colour="default"
     data-shape="circle"
-    data-size="medium"
+    data-size="md"
     role="presentation"
   >
     Default Avatar
@@ -17,10 +17,10 @@ exports[`Avatar > should render properly with default props and match snapshot 1
 exports[`Avatar > should render properly with specified props and match snapshot 1`] = `
 <DocumentFragment>
   <span
-    class="mocked-styled-0 el-avatar"
+    class="el-avatar"
     data-colour="primary"
     data-shape="square"
-    data-size="small"
+    data-size="sm"
     role="presentation"
   >
     Square Avatar

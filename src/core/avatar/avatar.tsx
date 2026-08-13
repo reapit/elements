@@ -1,40 +1,18 @@
 import type { FC, HTMLAttributes } from "react";
 
-import { ElAvatar } from "./styles";
+import { AvatarBase } from "./avatar-base";
 
 export namespace Avatar {
-  export interface Props extends HTMLAttributes<HTMLSpanElement> {
-    /** The colour of the avatar. */
-    colour?: "default" | "primary";
-    /** The shape of the avatar. */
-    shape?: "circle" | "square";
-    /** The size of the avatar. */
-    size?: "medium" | "small";
-  }
+  export interface Props extends AvatarBase.CommonProps, HTMLAttributes<HTMLSpanElement> {}
 }
 
 /** @deprecated Use Avatar.Props instead */
 export type AvatarProps = Avatar.Props;
 
 /**
- * A simple avatar component that can be used to represent a user or other entity.
+ * A simple avatar component that can be used to represent a user or other entity. Use `AvatarButton` or `AvatarAnchor`
+ * instead when the avatar should be interactive.
  */
-export const Avatar: FC<Avatar.Props> = ({
-  colour = "default",
-  children,
-  shape = "circle",
-  size = "medium",
-  ...props
-}) => {
-  return (
-    <ElAvatar
-      role="presentation"
-      data-shape={shape}
-      data-size={size}
-      data-colour={colour}
-      {...props}
-    >
-      {children}
-    </ElAvatar>
-  );
+export const Avatar: FC<Avatar.Props> = (props) => {
+  return <AvatarBase as="span" {...props} />;
 };

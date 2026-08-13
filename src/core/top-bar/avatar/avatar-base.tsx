@@ -47,7 +47,7 @@ export function TopBarAvatarBase({
       aria-label={ariaLabel}
       className={cx(elTopBarAvatarBase, className)}
     >
-      <Avatar size="small" shape="circle" colour="primary">
+      <Avatar size="sm" shape="circle" colour="primary">
         {children}
       </Avatar>
     </Element>

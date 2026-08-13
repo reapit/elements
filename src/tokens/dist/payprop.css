@@ -18,6 +18,7 @@
   --shadow-up-xs: 0px -1px 2px 0px #0000001a;
   --border-radius-2xl: 16px;
   --border-radius-3xl: 24px;
+  --border-radius-full: 9999px;
   --border-radius-l: 8px;
   --border-radius-m: 4px;
   --border-radius-none: 0px;
@@ -119,6 +120,9 @@
   --comp-accordion-colour-border: #e5e9ed;
   --comp-accordion-colour-icon: #607890;
   --comp-accordion-colour-text: #222b33;
+  --comp-avatar-colour-overlay-fill-default: #00000000;
+  --comp-avatar-colour-overlay-fill-disabled: #ffffff99;
+  --comp-avatar-colour-overlay-fill-hover: #00000033;
   --comp-badge-border-radius: 4px;
   --comp-badge-colour-fill-default-accent_1: #e2fafa;
   --comp-badge-colour-fill-default-accent_2: #faf4ff;

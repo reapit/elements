@@ -383,7 +383,7 @@ export const Example = meta.story({
                                 gap: "var(--spacing-3)",
                               }}
                             >
-                              <Avatar size="small">{contact.initials}</Avatar>
+                              <Avatar size="sm">{contact.initials}</Avatar>
                               <Table.DoubleLineLayout
                                 supplementaryData={`${contact.propertyCount} ${contact.propertyCount === 1 ? "property" : "properties"}`}
                               >

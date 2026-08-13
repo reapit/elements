@@ -1,11 +1,15 @@
 import preview from "#.storybook/preview";
 import { ContactIcon } from "#src/icons/contact";
+import { Flex } from "#src/utils/flex";
 
 import { Avatar } from ".";
+import { AvatarAnchor } from "./avatar-anchor";
+import { AvatarButton } from "./avatar-button";
 
 const meta = preview.meta({
   title: "Content display/Avatar",
   component: Avatar,
+  subcomponents: { AvatarButton, AvatarAnchor },
   args: {
     children: "AD",
   },
@@ -20,7 +24,7 @@ export const Example = meta.story({
     children: "AB",
     colour: "default",
     shape: "circle",
-    size: "medium",
+    size: "md",
   },
 });
 
@@ -35,7 +39,29 @@ export const Icons = Example.extend({
 });
 
 /**
- * There are two colours supported by the avatar: `default` and `purple`, which is shown here.
+ * The avatar can display an image instead of initials or an icon by providing `src` and `alt`. If the image fails to
+ * load, the avatar falls back to its `children`.
+ */
+export const Images = Example.extend({
+  args: {
+    alt: "A person smiling",
+    src: "https://picsum.photos/id/64/200/200",
+  },
+});
+
+/**
+ * If the image fails to load, the avatar falls back to rendering its `children`.
+ */
+export const BrokenImages = Example.extend({
+  name: "Broken images",
+  args: {
+    alt: "A person smiling",
+    src: "https://broken.example/not-a-real-image.jpg",
+  },
+});
+
+/**
+ * There are two colours supported by the avatar: `default` and `primary`, which is shown here.
  */
 export const Colour = Example.extend({
   args: {
@@ -63,10 +89,130 @@ export const Shape = Example.extend({
 });
 
 /**
- * There are two sizes supported by the avatar: `medium` (the default) and `small`, which is shown here.
+ * The avatar supports six sizes: `xs`, `sm`, `md` (the default), `lg`, `xl`, and `2xl`.
+ *
+ * The previous `small` and `medium` sizes are deprecated aliases for `sm` and `md` respectively, kept for backwards
+ * compatibility. Use `sm`/`md` instead.
  */
-export const Size = Example.extend({
-  args: {
-    size: "small",
+export const Sizes = Example.extend({
+  argTypes: {
+    size: {
+      control: false,
+    },
   },
+  decorators: [
+    (Story) => (
+      <Flex alignItems="center" columnGap="--spacing-6">
+        <Story />
+      </Flex>
+    ),
+  ],
+  render: (args) => (
+    <>
+      <Avatar {...args} size="xs" />
+      <Avatar {...args} size="sm" />
+      <Avatar {...args} size="md" />
+      <Avatar {...args} size="lg" />
+      <Avatar {...args} size="xl" />
+      <Avatar {...args} size="2xl" />
+    </>
+  ),
+});
+
+/**
+ * The `borderColour` prop adds a ring border around the avatar, accepting any `--colour-border-*` design token,
+ * such as `--colour-border-white` or `--colour-border-action-default`. This is useful when avatars are stacked or
+ * displayed over coloured or patterned backgrounds, so the avatar remains visually distinct.
+ */
+export const Border = Example.extend({
+  argTypes: {
+    borderColour: {
+      control: false,
+    },
+  },
+  decorators: [
+    (Story) => (
+      <Flex columnGap="--spacing-6">
+        <Story />
+      </Flex>
+    ),
+  ],
+  globals: {
+    backgrounds: {
+      value: "light",
+    },
+  },
+  render: (args) => (
+    <>
+      <Avatar {...args} borderColour="--colour-border-white" />
+      <Avatar {...args} borderColour="--colour-border-action-default" />
+      <Avatar {...args} borderColour="--colour-border-success-default" />
+      <Avatar {...args} borderColour="--colour-border-warning-default" />
+      <Avatar {...args} borderColour="--colour-border-error-default" />
+    </>
+  ),
+});
+
+/**
+ * Use `AvatarButton` instead of `Avatar` when clicking the avatar should trigger an action, such as opening a menu.
+ * `AvatarButton` requires an `aria-label` since it typically has no visible text label of its own describing its
+ * purpose.
+ */
+export const Buttons = meta.story({
+  args: {
+    "aria-label": "Open profile menu",
+    children: "AB",
+    colour: "primary",
+    shape: "circle",
+    size: "md",
+  },
+  render: (args) => <AvatarButton {...(args as unknown as AvatarButton.Props)} />,
+});
+
+/**
+ * A disabled `AvatarButton` fades towards white to indicate that it cannot be interacted with.
+ */
+export const DisabledButton = meta.story({
+  args: {
+    "aria-label": "Open profile menu",
+    children: "AB",
+    colour: "primary",
+    disabled: true,
+    shape: "circle",
+    size: "md",
+  },
+  render: (args) => <AvatarButton {...(args as unknown as AvatarButton.Props)} />,
+});
+
+/**
+ * Use `AvatarAnchor` instead of `Avatar` when clicking the avatar should navigate to another page, such as a user's
+ * profile page. `AvatarAnchor` requires `href` and an `aria-label`.
+ */
+export const Anchors = meta.story({
+  args: {
+    "aria-label": "View profile",
+    children: "AB",
+    colour: "primary",
+    href: "#",
+    shape: "circle",
+    size: "md",
+  },
+  render: (args) => <AvatarAnchor {...(args as unknown as AvatarAnchor.Props)} />,
+});
+
+/**
+ * A disabled `AvatarAnchor` fades towards white to indicate that it cannot be interacted with. Since anchor elements
+ * have no native `disabled` attribute, use `aria-disabled` instead.
+ */
+export const DisabledAnchor = meta.story({
+  args: {
+    "aria-disabled": true,
+    "aria-label": "View profile",
+    children: "AB",
+    colour: "primary",
+    href: "#",
+    shape: "circle",
+    size: "md",
+  },
+  render: (args) => <AvatarAnchor {...(args as unknown as AvatarAnchor.Props)} />,
 });

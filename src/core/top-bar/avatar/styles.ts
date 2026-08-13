@@ -1,6 +1,6 @@
 import { css } from "@linaria/core";
 
-import { ElAvatar } from "#src/core/avatar/styles";
+import { elAvatar } from "#src/core/avatar/styles";
 
 export const elTopBarAvatarBase = css`
   @layer elements.main {
@@ -19,7 +19,7 @@ export const elTopBarAvatarBase = css`
       outline-offset: var(--border-width-default);
     }
 
-    &:hover ${ElAvatar} {
+    &:hover .${elAvatar} {
       background: var(--comp-navigation-colour-fill-avatar_button-hover);
     }
   }

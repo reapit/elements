@@ -9,6 +9,10 @@
         "$type": "dimension",
         "$value": "{unit-6}"
       },
+      "full": {
+        "$type": "dimension",
+        "$value": "9999px"
+      },
       "l": {
         "$type": "dimension",
         "$value": "{unit-2}"
@@ -467,6 +471,26 @@
         "text": {
           "$type": "color",
           "$value": "{neutral-900}"
+        }
+      }
+    },
+    "avatar": {
+      "colour": {
+        "overlay": {
+          "fill": {
+            "default": {
+              "$type": "color",
+              "$value": "{black-000}"
+            },
+            "disabled": {
+              "$type": "color",
+              "$value": "{white-500}"
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{black-100}"
+            }
+          }
         }
       }
     },
