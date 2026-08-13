@@ -53,7 +53,12 @@ export function Image({
   width,
   ...rest
 }: Image.Props) {
-  const { handleError, handleLoad, hasError } = useImage({ onError, onLoad, src });
+  const { handleError, handleLoad, hasError } = useImage({
+    onError,
+    onLoad,
+    src,
+    srcSet: rest.srcSet,
+  });
   const isDecorative = alt === "";
   const shouldAnnounceDefaultFallback = !isDecorative && !fallback;
   const defaultFallbackMessage = alt

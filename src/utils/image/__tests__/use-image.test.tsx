@@ -90,3 +90,18 @@ test("resets hasError when src changes after a previous load error", () => {
 
   expect(result.current.hasError).toBe(false);
 });
+
+test("resets hasError when srcSet changes after a previous load error", () => {
+  const { result, rerender } = renderHook(({ srcSet }) => useImage({ src: "same.png", srcSet }), {
+    initialProps: { srcSet: "broken-2x.png 2x" },
+  });
+
+  act(() => {
+    result.current.handleError(new Event("error") as unknown as SyntheticEvent<HTMLImageElement>);
+  });
+  expect(result.current.hasError).toBe(true);
+
+  rerender({ srcSet: "valid-2x.png 2x" });
+
+  expect(result.current.hasError).toBe(false);
+});

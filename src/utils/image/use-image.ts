@@ -12,9 +12,13 @@ export namespace useImage {
      */
     onLoad?: ReactEventHandler<HTMLImageElement>;
     /**
-     * The image's `src`. When this changes, `hasError` is reset so a new `src` gets a chance to load.
+     * The image's `src`. When this or `srcSet` changes, `hasError` is reset so a new image gets a chance to load.
      */
     src?: string;
+    /**
+     * The image's `srcSet`. When this or `src` changes, `hasError` is reset so a new image gets a chance to load.
+     */
+    srcSet?: string;
   }
 
   export interface Output {
@@ -36,12 +40,14 @@ export namespace useImage {
 /**
  * Tracks image load/error state and returns event handlers for `img` elements.
  */
-export function useImage({ onError, onLoad, src }: useImage.Input = {}): useImage.Output {
+export function useImage({ onError, onLoad, src, srcSet }: useImage.Input = {}): useImage.Output {
   const [hasError, setHasError] = useState(false);
   const previousSrc = useRef(src);
+  const previousSrcSet = useRef(srcSet);
 
-  if (previousSrc.current !== src) {
+  if (previousSrc.current !== src || previousSrcSet.current !== srcSet) {
     previousSrc.current = src;
+    previousSrcSet.current = srcSet;
     if (hasError) setHasError(false);
   }
 
