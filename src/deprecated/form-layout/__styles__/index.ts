@@ -9,10 +9,10 @@ import {
 } from "../../../styles/deprecated-media";
 
 /** @deprecated */
-export const elFormLayoutHasMargin = css``;
+export const elDeprecatedFormLayoutHasMargin = css``;
 
 /** @deprecated */
-export const ElFormLayout = styled.div`
+export const ElDeprecatedFormLayout = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 1rem;
@@ -33,29 +33,29 @@ export const ElFormLayout = styled.div`
     grid-template-columns: repeat(16, 1fr);
   }
 
-  &.${elFormLayoutHasMargin} {
+  &.${elDeprecatedFormLayoutHasMargin} {
     margin-bottom: 1.5rem;
   }
 `;
 
 /** @deprecated */
-export const ElFormSectionDivider = styled.div`
+export const ElDeprecatedFormSectionDivider = styled.div`
   margin: 1.5rem 0;
   border-bottom: 1px solid var(--colour-border-neutral-light_default);
 `;
 
 /** @deprecated */
-export const ElInputWrapSmall = styled.div`
+export const ElDeprecatedInputWrapSmall = styled.div`
   grid-column-end: span 2;
 `;
 
 /** @deprecated */
-export const ElInputWrap = styled.div`
+export const ElDeprecatedInputWrap = styled.div`
   grid-column-end: span 4;
 `;
 
 /** @deprecated */
-export const ElInputWrapMed = styled.div`
+export const ElDeprecatedInputWrapMed = styled.div`
   grid-column-end: span 4;
 
   ${isDesktop} {
@@ -72,7 +72,7 @@ export const ElInputWrapMed = styled.div`
 `;
 
 /** @deprecated */
-export const ElInputWrapFull = styled.div`
+export const ElDeprecatedInputWrapFull = styled.div`
   grid-column-end: span 4;
 
   ${isDesktop} {
@@ -89,7 +89,7 @@ export const ElInputWrapFull = styled.div`
 `;
 
 /** @deprecated */
-export const ElInputWrapHalf = styled.div`
+export const ElDeprecatedInputWrapHalf = styled.div`
   grid-column-end: span 2;
 
   ${isDesktop} {

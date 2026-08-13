@@ -2,14 +2,14 @@ import { cx } from "@linaria/core";
 import React, { FC, HTMLAttributes, forwardRef, LegacyRef } from "react";
 
 import {
-  ElFormLayout,
-  ElInputWrap,
-  ElInputWrapMed,
-  ElInputWrapFull,
-  elFormLayoutHasMargin,
-  ElInputWrapSmall,
-  ElFormSectionDivider,
-  ElInputWrapHalf,
+  ElDeprecatedFormLayout,
+  ElDeprecatedInputWrap,
+  ElDeprecatedInputWrapMed,
+  ElDeprecatedInputWrapFull,
+  elDeprecatedFormLayoutHasMargin,
+  ElDeprecatedInputWrapSmall,
+  ElDeprecatedFormSectionDivider,
+  ElDeprecatedInputWrapHalf,
 } from "./__styles__";
 
 /** @deprecated */
@@ -20,15 +20,18 @@ export type FormLayoutProps = HTMLAttributes<HTMLDivElement> & {
 /** @deprecated */
 export const FormLayout: FC<FormLayoutProps> = ({ children, hasMargin, className, ...rest }) => {
   return (
-    <ElFormLayout className={cx(hasMargin && elFormLayoutHasMargin, className)} {...rest}>
+    <ElDeprecatedFormLayout
+      className={cx(hasMargin && elDeprecatedFormLayoutHasMargin, className)}
+      {...rest}
+    >
       {children}
-    </ElFormLayout>
+    </ElDeprecatedFormLayout>
   );
 };
 
 /** @deprecated */
 export const FormSectionDivider: FC<FormLayoutProps> = ({ children, ...rest }) => {
-  return <ElFormSectionDivider {...rest}>{children}</ElFormSectionDivider>;
+  return <ElDeprecatedFormSectionDivider {...rest}>{children}</ElDeprecatedFormSectionDivider>;
 };
 
 /** @deprecated */
@@ -36,28 +39,28 @@ export const InputWrap: React.ForwardRefExoticComponent<
   FormLayoutProps & React.RefAttributes<HTMLDivElement>
 > = forwardRef(({ children, ...rest }, ref) => {
   return (
-    <ElInputWrap {...rest} ref={ref as LegacyRef<HTMLDivElement>}>
+    <ElDeprecatedInputWrap {...rest} ref={ref as LegacyRef<HTMLDivElement>}>
       {children}
-    </ElInputWrap>
+    </ElDeprecatedInputWrap>
   );
 });
 
 /** @deprecated */
 export const InputWrapSmall: FC<FormLayoutProps> = ({ children, ...rest }) => {
-  return <ElInputWrapSmall {...rest}>{children}</ElInputWrapSmall>;
+  return <ElDeprecatedInputWrapSmall {...rest}>{children}</ElDeprecatedInputWrapSmall>;
 };
 
 /** @deprecated */
 export const InputWrapMed: FC<FormLayoutProps> = ({ children, ...rest }) => {
-  return <ElInputWrapMed {...rest}>{children}</ElInputWrapMed>;
+  return <ElDeprecatedInputWrapMed {...rest}>{children}</ElDeprecatedInputWrapMed>;
 };
 
 /** @deprecated */
 export const InputWrapFull: FC<FormLayoutProps> = ({ children, ...rest }) => {
-  return <ElInputWrapFull {...rest}>{children}</ElInputWrapFull>;
+  return <ElDeprecatedInputWrapFull {...rest}>{children}</ElDeprecatedInputWrapFull>;
 };
 
 /** @deprecated */
 export const InputWrapHalf: FC<FormLayoutProps> = ({ children, ...rest }) => {
-  return <ElInputWrapHalf {...rest}>{children}</ElInputWrapHalf>;
+  return <ElDeprecatedInputWrapHalf {...rest}>{children}</ElDeprecatedInputWrapHalf>;
 };

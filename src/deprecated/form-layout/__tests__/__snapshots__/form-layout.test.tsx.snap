@@ -3,7 +3,7 @@
 exports[`FormLayout component > should match a snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-0 el-form-layout"
+    class="mocked-styled-0 el-deprecated-form-layout"
   />
 </DocumentFragment>
 `;
@@ -11,7 +11,7 @@ exports[`FormLayout component > should match a snapshot 1`] = `
 exports[`InputWrap component > should match a snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-3 el-input-wrap"
+    class="mocked-styled-3 el-deprecated-input-wrap"
   />
 </DocumentFragment>
 `;
@@ -19,7 +19,7 @@ exports[`InputWrap component > should match a snapshot 1`] = `
 exports[`InputWrapFull component > should match a snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-5 el-input-wrap-full"
+    class="mocked-styled-5 el-deprecated-input-wrap-full"
   />
 </DocumentFragment>
 `;
@@ -27,7 +27,7 @@ exports[`InputWrapFull component > should match a snapshot 1`] = `
 exports[`InputWrapHalf component > should match a snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-6 el-input-wrap-half"
+    class="mocked-styled-6 el-deprecated-input-wrap-half"
   />
 </DocumentFragment>
 `;
@@ -35,7 +35,7 @@ exports[`InputWrapHalf component > should match a snapshot 1`] = `
 exports[`InputWrapMed component > should match a snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-4 el-input-wrap-med"
+    class="mocked-styled-4 el-deprecated-input-wrap-med"
   />
 </DocumentFragment>
 `;
