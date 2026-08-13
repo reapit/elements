@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import type { ReactEventHandler } from "react";
 
 export namespace useImage {
@@ -11,6 +11,10 @@ export namespace useImage {
      * Optional callback invoked when the image loads successfully.
      */
     onLoad?: ReactEventHandler<HTMLImageElement>;
+    /**
+     * The image's `src`. When this changes, `hasError` is reset so a new `src` gets a chance to load.
+     */
+    src?: string;
   }
 
   export interface Output {
@@ -32,8 +36,14 @@ export namespace useImage {
 /**
  * Tracks image load/error state and returns event handlers for `img` elements.
  */
-export function useImage({ onError, onLoad }: useImage.Input = {}): useImage.Output {
+export function useImage({ onError, onLoad, src }: useImage.Input = {}): useImage.Output {
   const [hasError, setHasError] = useState(false);
+  const previousSrc = useRef(src);
+
+  if (previousSrc.current !== src) {
+    previousSrc.current = src;
+    if (hasError) setHasError(false);
+  }
 
   const handleLoad: ReactEventHandler<HTMLImageElement> = (event) => {
     setHasError(false);

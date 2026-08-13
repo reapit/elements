@@ -80,7 +80,7 @@ export function AvatarBase({
   style,
   ...rest
 }: AvatarBase.Props) {
-  const { handleError, handleLoad, hasError } = useImage();
+  const { handleError, handleLoad, hasError } = useImage({ src });
 
   const handleClick = useCallback<MouseEventHandler<HTMLElement>>(
     (event) => {

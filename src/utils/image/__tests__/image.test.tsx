@@ -61,7 +61,7 @@ test("calls onError when the image fails to load", () => {
   expect(onError).toHaveBeenCalledTimes(1);
 });
 
-test("keeps fallback visible until a subsequent load event", () => {
+test("recovers from a previous load failure when src changes", () => {
   const { rerender } = render(
     <Image
       alt="A test image"
@@ -77,9 +77,6 @@ test("keeps fallback visible until a subsequent load event", () => {
   rerender(
     <Image alt="A test image" height="300px" src="https://example.com/valid-b.jpg" width="200px" />,
   );
-  expect(screen.getByText("The image could not be loaded: A test image")).toBeVisible();
-
-  fireEvent.load(screen.getByRole("img", { hidden: true }));
   expect(screen.queryByText("The image could not be loaded: A test image")).toBeNull();
   expect(screen.getByRole("img")).toHaveAttribute("src", "https://example.com/valid-b.jpg");
   expect(screen.getByRole("img")).not.toHaveAttribute("aria-hidden");

@@ -50,3 +50,43 @@ test("calls onLoad when handleLoad is called", () => {
 
   expect(onLoad).toHaveBeenCalledTimes(1);
 });
+
+test("keeps hasError as false on initial load success", () => {
+  const { result, rerender } = renderHook(({ src }) => useImage({ src }), {
+    initialProps: { src: "valid.png" },
+  });
+
+  act(() => {
+    result.current.handleLoad(new Event("load") as unknown as SyntheticEvent<HTMLImageElement>);
+  });
+  rerender({ src: "valid.png" });
+
+  expect(result.current.hasError).toBe(false);
+});
+
+test("sets hasError to true on initial load failure", () => {
+  const { result } = renderHook(({ src }) => useImage({ src }), {
+    initialProps: { src: "broken.png" },
+  });
+
+  act(() => {
+    result.current.handleError(new Event("error") as unknown as SyntheticEvent<HTMLImageElement>);
+  });
+
+  expect(result.current.hasError).toBe(true);
+});
+
+test("resets hasError when src changes after a previous load error", () => {
+  const { result, rerender } = renderHook(({ src }) => useImage({ src }), {
+    initialProps: { src: "broken.png" },
+  });
+
+  act(() => {
+    result.current.handleError(new Event("error") as unknown as SyntheticEvent<HTMLImageElement>);
+  });
+  expect(result.current.hasError).toBe(true);
+
+  rerender({ src: "valid.png" });
+
+  expect(result.current.hasError).toBe(false);
+});
