@@ -74,6 +74,25 @@ jobs:
               -X POST \
               -f state=inactive
           done
+      - name: Generate app token
+        id: app-token
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        with:
+          app-id: ${{ vars.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+          permission-administration: write
+      - name: Delete environment
+        # Environments created via the Deployments API are never garbage-collected
+        # by GitHub, so they otherwise accumulate forever in Settings > Environments.
+        # Deleting one requires the "administration" permission, which isn't
+        # available to GITHUB_TOKEN, hence the app token. continue-on-error so a
+        # transient failure here doesn't fail the whole job — the weekly sweep
+        # below backstops anything missed.
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          PR: ${{ github.event.pull_request.number }}
+        run: gh api "repos/${{ github.repository }}/environments/pr-${PR}" -X DELETE
 
   sweep:
     name: Remove Orphaned Previews
@@ -122,5 +141,42 @@ jobs:
               # Tolerate a single failed delete so one error doesn't abort the whole
               # sweep under `set -e`; the next weekly run will retry it.
               npx wrangler@4 delete --env preview --name "$WORKER" --force || true
+            fi
+          done
+      - name: Generate app token
+        id: app-token
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        with:
+          app-id: ${{ vars.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+          permission-administration: write
+      - name: Delete orphaned environments
+        # Backstop for the per-PR "Delete environment" step above: if that step
+        # is skipped (fork/Dependabot PR) or fails, the pr-<number> environment
+        # would otherwise sit in Settings > Environments forever, since GitHub
+        # never garbage-collects them on its own.
+        env:
+          GH_TOKEN: ${{ github.token }}
+          APP_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: |
+          set -euo pipefail
+
+          if ! OPEN_PRS=$(gh pr list --state open --limit 1000 --json number --jq '.[].number'); then
+            echo "Failed to list open PRs — aborting sweep to avoid deleting active environments." >&2
+            exit 1
+          fi
+
+          ENVIRONMENTS=$(GH_TOKEN="$APP_TOKEN" gh api "repos/${{ github.repository }}/environments" \
+            --paginate \
+            --jq '.environments[].name | select(startswith("pr-"))')
+
+          for ENV in $ENVIRONMENTS; do
+            PR_NUM="${ENV#pr-}"
+
+            if echo "$OPEN_PRS" | grep -qx "$PR_NUM"; then
+              echo "Skipping ${ENV} — PR #${PR_NUM} is still open."
+            else
+              echo "Deleting orphaned environment ${ENV} (PR #${PR_NUM} is closed)."
+              GH_TOKEN="$APP_TOKEN" gh api "repos/${{ github.repository }}/environments/${ENV}" -X DELETE || true
             fi
           done
