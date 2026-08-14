@@ -55,7 +55,7 @@ export const ElGalleryViewerThumbnailVideoOverlay = styled.div`
     justify-content: center;
 
     border-radius: var(--border-radius-m);
-    background: var(--black-300, rgb(0 0 0 / 0.4));
+    background: var(--comp-gallery_viewer-colour-fill-video_overlay);
 
     pointer-events: none;
   }
