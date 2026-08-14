@@ -70,7 +70,7 @@ function getConfig(themeName: Theme): Config {
         options: {
           selector:
             themeName === "reapit"
-              ? ':root, :root[data-theme="reapit"]'
+              ? ':root,\n:root[data-theme="reapit"]'
               : `:root[data-theme="${themeName}"]`,
         },
         transforms: ["name/custom-format", "attribute/cti", "shadow/css/shorthand"],

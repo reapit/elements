@@ -1658,18 +1658,22 @@
           "caption": {
             "light": {
               "$type": "color",
-              "$value": "#ffffff"
+              "$value": "{white-800}"
             }
           },
           "gallery_button": {
             "default": {
               "$type": "color",
-              "$value": "#ffffff"
+              "$value": "{black-300}"
             },
             "hover": {
               "$type": "color",
-              "$value": "#ffffff"
+              "$value": "{black-500}"
             }
+          },
+          "video_overlay": {
+            "$type": "color",
+            "$value": "{black-300}"
           }
         },
         "icon": {
@@ -1688,7 +1692,7 @@
           "caption": {
             "dark": {
               "$type": "color",
-              "$value": "#ffffff"
+              "$value": "{neutral-900}"
             }
           }
         }
@@ -3150,6 +3154,10 @@
             "$value": "{neutral-100}"
           },
           "primary": {
+            "disabled": {
+              "$type": "color",
+              "$value": "{neutral-200}"
+            },
             "hover": {
               "$type": "color",
               "$value": "{neutral-150}"
@@ -3163,6 +3171,14 @@
             "hover": {
               "$type": "color",
               "$value": "{neutral-150}"
+            }
+          }
+        },
+        "icon": {
+          "primary": {
+            "disabled": {
+              "$type": "color",
+              "$value": "{neutral-200}"
             }
           }
         },
@@ -3196,11 +3212,11 @@
             },
             "hover": {
               "$type": "color",
-              "$value": "{neutral-500}"
+              "$value": "{neutral-900}"
             },
             "selected": {
               "$type": "color",
-              "$value": "{neutral-900}"
+              "$value": "{purple-500}"
             }
           }
         }
