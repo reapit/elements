@@ -78,21 +78,21 @@ test("sets data-is-clamped to false when showing all content", () => {
 test('hides disclosure button when clampTo is "none"', () => {
   vi.mocked(useIsHeightTruncated).mockReturnValue(false);
   render(<LineClamp clampTo="none">Test content</LineClamp>);
-  const button = screen.getByText("Show more");
+  const button = screen.getByText("Show more").closest("button");
   expect(button).toHaveAttribute("hidden");
 });
 
 test("hides disclosure button when content is not truncated", () => {
   vi.mocked(useIsHeightTruncated).mockReturnValue(false);
   render(<LineClamp clampTo={3}>Test content</LineClamp>);
-  const button = screen.getByText("Show more");
+  const button = screen.getByText("Show more").closest("button");
   expect(button).toHaveAttribute("hidden");
 });
 
 test('shows "Show more" button when content is truncated', () => {
   vi.mocked(useIsHeightTruncated).mockReturnValue(true);
   render(<LineClamp clampTo={2}>Test content</LineClamp>);
-  const button = screen.getByText("Show more");
+  const button = screen.getByText("Show more").closest("button");
   expect(button).not.toHaveAttribute("hidden");
 });
 

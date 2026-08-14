@@ -9,7 +9,7 @@ import type {
 } from "react";
 
 import Spinner from "./spinner.svg?react";
-import { elButton, elButtonSpinner, ElButtonIconContainer } from "./styles";
+import { elButton, elButtonSpinner, ElButtonIconContainer, ElButtonLabel } from "./styles";
 
 export namespace ButtonBase {
   export interface CommonProps {
@@ -136,7 +136,7 @@ export function ButtonBase({
       ) : (
         iconLeft && <ElButtonIconContainer aria-hidden>{iconLeft}</ElButtonIconContainer>
       )}
-      {children}
+      {children && <ElButtonLabel>{children}</ElButtonLabel>}
       {!isBusy && iconRight && (
         <ElButtonIconContainer aria-hidden>{iconRight}</ElButtonIconContainer>
       )}

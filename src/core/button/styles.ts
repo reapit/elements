@@ -214,6 +214,12 @@ export const elButton = css`
   }
 `;
 
+export const ElButtonLabel = styled.span`
+  @layer elements.base {
+    padding-inline: var(--spacing-half);
+  }
+`;
+
 export const ElButtonIconContainer = styled.span`
   @layer elements.base {
     box-sizing: content-box;
