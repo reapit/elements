@@ -7,6 +7,7 @@ export const transforms = {
   "at-a-glance-article-card": () => import("./at-a-glance-article-card/transform.js"),
   "focused-layout-content-full-bleed": () => import("./focused-layout-content-full-bleed/transform.js"),
   "rename-empty-data": () => import("./rename-empty-data/transform.js"),
+  "replace-deprecated-avatar-sizes": () => import("./replace-deprecated-avatar-sizes/transform.js"),
   "replace-deprecated-button-group-layout-props": () => import("./replace-deprecated-button-group-layout-props/transform.js"),
   "replace-deprecated-label": () => import("./replace-deprecated-label/transform.js"),
   "replace-deprecated-pagination": () => import("./replace-deprecated-pagination/transform.js"),

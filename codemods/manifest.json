@@ -1,6 +1,6 @@
 {
   "$schema": "./manifest.schema.json",
-  "generated": "2026-07-21T12:47:54.531Z",
+  "generated": "2026-08-13T23:38:46.369Z",
   "codemods": [
     {
       "name": "apply-textarea-field-sizing",
@@ -17,6 +17,10 @@
     {
       "name": "rename-empty-data",
       "description": "Renames EmptyData to EmptyState"
+    },
+    {
+      "name": "replace-deprecated-avatar-sizes",
+      "description": "Migrate deprecated Avatar \"small\" and \"medium\" sizes to \"sm\" and \"md\""
     },
     {
       "name": "replace-deprecated-button-group-layout-props",
