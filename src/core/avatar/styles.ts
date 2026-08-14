@@ -43,7 +43,6 @@ export const elAvatar = css`
         border-radius: var(--border-radius-m);
       }
 
-      &[data-size="xl"],
       &[data-size="2xl"] {
         border-radius: var(--border-radius-xl);
       }
@@ -80,7 +79,7 @@ export const elAvatar = css`
     &[data-size="md"] {
       width: var(--size-10);
       height: var(--size-10);
-      ${font("base", "medium")}
+      ${font("xs", "medium")}
 
       svg {
         width: var(--icon_size-md);
@@ -92,7 +91,7 @@ export const elAvatar = css`
       width: var(--size-12);
       height: var(--size-12);
 
-      ${font("lg", "medium")}
+      ${font("base", "medium")}
 
       svg {
         width: var(--icon_size-lg);

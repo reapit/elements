@@ -35,7 +35,7 @@ export function AvatarGroup({ children, colour, shape, size = "md", ...rest }: A
   );
 
   return (
-    <ElAvatarGroupList {...rest}>
+    <ElAvatarGroupList {...rest} data-size={size}>
       <AvatarGroupContext.Provider value={contextValue}>{children}</AvatarGroupContext.Provider>
     </ElAvatarGroupList>
   );
