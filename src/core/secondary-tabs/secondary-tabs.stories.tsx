@@ -1,4 +1,5 @@
 import preview from "#.storybook/preview";
+import { Badge } from "#src/core/badge";
 
 import { SecondaryTabs } from "./secondary-tabs";
 
@@ -10,10 +11,12 @@ const meta = preview.meta({
   argTypes: {
     children: {
       control: "radio",
-      options: ["No selected tab", "Selected tab"],
+      options: ["No selected tab", "Selected tab", "With badges", "With disabled tab"],
       mapping: {
         "No selected tab": buildTabs("No selected tab"),
         "Selected tab": buildTabs("Selected tab"),
+        "With badges": buildTabs("With badges"),
+        "With disabled tab": buildTabs("With disabled tab"),
       },
     },
     overflow: {
@@ -43,6 +46,25 @@ export const SelectedTab = meta.story({
 });
 
 /**
+ * Tabs can show a badge at the end of their label.
+ */
+export const Badges = meta.story({
+  args: {
+    children: "With badges",
+  },
+});
+
+/**
+ * Tabs can be disabled using `aria-disabled` (since tabs are always rendered as links, which don't
+ * support the native `disabled` attribute).
+ */
+export const Disabled = meta.story({
+  args: {
+    children: "With disabled tab",
+  },
+});
+
+/**
  * Ideally, overflowing should be avoided as much as possible. When it can't be avoided (e.g. small
  * breakpoints) use horizontal scrolling by providing `overflow="scroll"`. By default, tabs will simply
  * overflow the container.
@@ -63,19 +85,32 @@ export const Overflow = meta.story({
   ],
 });
 
-function buildTabs(type: "No selected tab" | "Selected tab") {
+type TabsType = "No selected tab" | "Selected tab" | "With badges" | "With disabled tab";
+
+function buildTabs(type: TabsType) {
   return [
     <SecondaryTabs.Item
       key="apples"
       href={href}
       aria-current={type === "Selected tab" ? "page" : false}
+      badge={type === "With badges" ? <Badge colour="inactive">3</Badge> : undefined}
     >
       Apples
     </SecondaryTabs.Item>,
-    <SecondaryTabs.Item key="bananas" aria-current={false} href={href}>
+    <SecondaryTabs.Item
+      key="bananas"
+      aria-current={false}
+      href={href}
+      badge={type === "With badges" ? <Badge colour="inactive">12</Badge> : undefined}
+    >
       Bananas
     </SecondaryTabs.Item>,
-    <SecondaryTabs.Item key="peaches" aria-current={false} href={href}>
+    <SecondaryTabs.Item
+      key="peaches"
+      aria-current={false}
+      href={href}
+      aria-disabled={type === "With disabled tab" ? true : undefined}
+    >
       Peaches
     </SecondaryTabs.Item>,
     <SecondaryTabs.Item key="strawberries" aria-current={false} href={href}>
