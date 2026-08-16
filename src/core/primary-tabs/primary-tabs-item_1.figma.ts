@@ -1,4 +1,4 @@
-// url=https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Elements-DS?node-id=21129-130593
+// url=https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Elements-DS?node-id=21138-131622
 // source=https://github.com/reapit-global/gbl-ds-elements/blob/main/src/core/primary-tabs/tab/tab.tsx
 // component=PrimaryTabs.Item
 

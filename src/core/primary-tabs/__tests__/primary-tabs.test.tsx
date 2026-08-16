@@ -40,3 +40,13 @@ test("forwards additional props to the nav element", () => {
   render(<PrimaryTabs data-testid="test">{children}</PrimaryTabs>);
   expect(screen.getByTestId("test")).toBeVisible();
 });
+
+test('has a default data-justify-content of "start" on the list', () => {
+  render(<PrimaryTabs>{children}</PrimaryTabs>);
+  expect(screen.getByRole("list")).toHaveAttribute("data-justify-content", "start");
+});
+
+test("allows overriding the data-justify-content", () => {
+  render(<PrimaryTabs justifyContent="stretch">{children}</PrimaryTabs>);
+  expect(screen.getByRole("list")).toHaveAttribute("data-justify-content", "stretch");
+});

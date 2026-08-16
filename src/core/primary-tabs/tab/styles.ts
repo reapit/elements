@@ -10,6 +10,8 @@ export const ElPrimaryTab = styled.a<ElPrimaryTabProps>`
   @layer elements.main {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
+    gap: var(--spacing-2);
     height: var(--size-12);
     width: min-content;
     padding-block: var(--spacing-3);
@@ -34,6 +36,17 @@ export const ElPrimaryTab = styled.a<ElPrimaryTabProps>`
       color: var(--comp-tab-colour-text-primary-selected);
       border-bottom-color: var(--comp-tab-colour-border-primary-selected);
     }
+
+    &[aria-disabled="true"],
+    &[aria-disabled="true"]:hover {
+      color: var(--comp-tab-colour-text-primary-disabled);
+      border-bottom-color: transparent;
+      cursor: not-allowed;
+    }
+
+    menu[data-justify-content="stretch"] & {
+      width: 100%;
+    }
   }
 `;
 
@@ -43,5 +56,27 @@ export const ElPrimaryTabLabel = styled.span`
     ${font("base", "medium")}
 
     color: inherit;
+  }
+`;
+
+export const ElPrimaryTabIcon = styled.span`
+  @layer elements.main {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+
+    width: var(--icon_size-sm);
+    height: var(--icon_size-sm);
+
+    color: var(--colour-icon-primary);
+
+    a[aria-current="page"] > & {
+      color: var(--colour-icon-action);
+    }
+
+    a[aria-disabled="true"] > & {
+      color: var(--colour-icon-disabled);
+    }
   }
 `;

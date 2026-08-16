@@ -10,6 +10,11 @@ export namespace PrimaryTabs {
      */
     children: ReactNode;
     /**
+     * Controls how tabs are laid out along the main axis. `start` (the default) sizes each tab to its
+     * content. `stretch` grows tabs so they equally fill the available width.
+     */
+    justifyContent?: "start" | "stretch";
+    /**
      * Ideally, overflow is avoided as much as possible. When it can't be avoided (e.g. small screens),
      * use horizontal scrolling by providing `overflow="scroll"`. By default, overflow will be visible
      * without scrolling.
@@ -21,10 +26,15 @@ export namespace PrimaryTabs {
 /**
  * A navigation container for primary tabs. Typically used with `PrimaryTabs.Item`.
  */
-export function PrimaryTabs({ children, overflow = "visible", ...rest }: PrimaryTabs.Props) {
+export function PrimaryTabs({
+  children,
+  justifyContent = "start",
+  overflow = "visible",
+  ...rest
+}: PrimaryTabs.Props) {
   return (
     <ElPrimaryTabs data-overflow={overflow} {...rest}>
-      <ElPrimaryTabsList>{children}</ElPrimaryTabsList>
+      <ElPrimaryTabsList data-justify-content={justifyContent}>{children}</ElPrimaryTabsList>
     </ElPrimaryTabs>
   );
 }
