@@ -140,13 +140,15 @@ jobs:
 
       - name: Create Release Pull Request or Publish
         id: changesets
-        uses: changesets/action@198f833dd7d863100ea6e28967bc9a9fdefadb0a # v2.1.0
+        uses: changesets/action@a45c4d594aa4e2c509dc14a9f2b3b67ba3780d0d # v1.9.0
         with:
-          version-script: yarn changeset version
-          publish-script: yarn changeset publish
-          pr-title: "chore: version packages"
-          commit-message: "chore: version packages"
+          version: yarn changeset version
+          publish: yarn changeset publish
+          title: "chore: version packages"
+          commit: "chore: version packages"
           github-token: ${{ steps.app-token.outputs.token }}
+        env:
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
 
       - name: Upload npm debug logs
         if: failure()
