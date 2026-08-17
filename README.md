@@ -4,6 +4,10 @@ A React implementation of Reapit's Design System for cross-platform web applicat
 
 ![lines](/coverage/badges/badge-lines.svg) ![functions](/coverage/badges/badge-functions.svg) ![branches](/coverage/badges/badge-branches.svg) ![statements](/coverage/badges/badge-statements.svg)
 
+## Claude Code Plugin Marketplace
+
+This repo hosts a [Claude Code plugin marketplace](.claude-plugin/marketplace.json) for the Design System — currently the `elements` plugin, giving consumer teams skills for working with Elements from their own codebases (Design System MCP server guidance, tokens, z-index conventions, and codemods). See [plugins/elements](plugins/elements).
+
 ## Documentation
 
 Components and utilities are documented via Storybook and can be accessed via the following links:

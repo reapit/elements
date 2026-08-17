@@ -1,0 +1,10 @@
+{
+  "name": "elements",
+  "version": "0.1.0",
+  "description": "Skills for consumer teams working with Reapit Elements (the Design System) from their own codebases.",
+  "author": {
+    "name": "Reapit Design System"
+  },
+  "repository": "https://github.com/reapit-global/gbl-ds-elements",
+  "keywords": ["design-system", "elements", "tokens", "codemods", "figma"]
+}
