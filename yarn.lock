@@ -3153,8 +3153,6 @@ __metadata:
     "@testing-library/dom": "npm:10.4.1"
     "@testing-library/jest-dom": "npm:7.0.0"
     "@testing-library/react": "npm:16.3.2"
-    "@types/caniuse-lite": "npm:1.0.5"
-    "@types/js-yaml": "npm:^3.12.10"
     "@types/node": "npm:^24.13.3"
     "@types/react": "npm:18.3.31"
     "@types/react-dom": "npm:18.3.7"
@@ -4160,13 +4158,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/caniuse-lite@npm:1.0.5":
-  version: 1.0.5
-  resolution: "@types/caniuse-lite@npm:1.0.5"
-  checksum: 10/9f6fb42bf56504184a65f217fd0d31359e8a0898de0aa4f88e8e28c6771b205e5bd7c15bb4958470adfc6b390c84e7358647ec932fce1fc6a97f9a2e538dc0ba
-  languageName: node
-  linkType: hard
-
 "@types/chai@npm:^5.2.2":
   version: 5.2.2
   resolution: "@types/chai@npm:5.2.2"
@@ -4220,13 +4211,6 @@ __metadata:
     "@types/jsonfile": "npm:*"
     "@types/node": "npm:*"
   checksum: 10/acc4c1eb0cde7b1f23f3fe6eb080a14832d8fa9dc1761aa444c5e2f0f6b6fa657ed46ebae32fb580a6700fc921b6165ce8ac3e3ba030c3dd15f10ad4dd4cae98
-  languageName: node
-  linkType: hard
-
-"@types/js-yaml@npm:^3.12.10":
-  version: 3.12.10
-  resolution: "@types/js-yaml@npm:3.12.10::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40types%2Fjs-yaml%2F-%2Fjs-yaml-3.12.10.tgz"
-  checksum: 10/5b5bc63d368f9499fe29ac61a51a802d7ce984599772e421a8dd29cc70ff0dd48149391ca1a56305a71b8707fda6fc50ba5b97412d9c1c4470f547f3a1fcf2bc
   languageName: node
   linkType: hard
 
