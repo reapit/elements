@@ -150,6 +150,10 @@ jobs:
           app-id: ${{ vars.APP_ID }}
           private-key: ${{ secrets.APP_PRIVATE_KEY }}
           permission-administration: write
+          # Listing environments is a read operation and is gated on Actions
+          # read access, distinct from the Administration permission needed
+          # to delete one — see docs.github.com/en/rest/deployments/environments.
+          permission-actions: read
       - name: Delete orphaned environments
         # Backstop for the per-PR "Delete environment" step above: if that step
         # is skipped (fork/Dependabot PR) or fails, the pr-<number> environment
