@@ -9,6 +9,8 @@ import type {
 } from "react";
 
 import { Tooltip } from "#src/core/tooltip";
+import { BuildingIcon } from "#src/icons/building";
+import { UserOutlineIcon } from "#src/icons/user-outline";
 import { useImage } from "#src/utils/image/use-image";
 
 import { elAvatar } from "./styles";
@@ -67,6 +69,11 @@ export namespace AvatarBase {
   }
 
   export type Props = AsSpanProps | AsAnchorProps | AsButtonProps;
+}
+
+/** Renders the icon shown when an avatar has no image and no `children`. */
+function FallbackIcon({ shape }: { shape: NonNullable<AvatarBase.CommonProps["shape"]> }) {
+  return shape === "square" ? <BuildingIcon /> : <UserOutlineIcon />;
 }
 
 /**
@@ -157,10 +164,10 @@ export function AvatarBase({
         // the initials/icon `children` are purely visual and would otherwise be redundant (or, for icons,
         // potentially exposed as an unnamed nested graphic) to assistive technology.
         <span aria-hidden style={{ display: "contents" }}>
-          {children}
+          {children ?? <FallbackIcon shape={shape} />}
         </span>
       ) : (
-        children
+        (children ?? <FallbackIcon shape={shape} />)
       )}
       {ariaLabel && (
         <Tooltip id={tooltipId} triggerId={triggerId}>

@@ -1,5 +1,8 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 
+import { BuildingIcon } from "#src/icons/building";
+import { UserOutlineIcon } from "#src/icons/user-outline";
+
 import { AvatarBase } from "../avatar-base";
 
 test('renders as a span element when `as="span"`', () => {
@@ -92,6 +95,33 @@ test("falls back to children when the image errors", () => {
   );
   fireEvent.error(screen.getByRole("img"));
   expect(screen.getByText("AB")).toBeVisible();
+});
+
+test("renders a `user-outline` fallback icon when circular with no `src` or `children`", () => {
+  const { container: expected } = render(<UserOutlineIcon />);
+  render(<AvatarBase as="span" shape="circle" />);
+  expect(screen.getByRole("presentation").querySelector("svg")?.outerHTML).toBe(
+    expected.querySelector("svg")?.outerHTML,
+  );
+});
+
+test("renders a `building` fallback icon when square with no `src` or `children`", () => {
+  const { container: expected } = render(<BuildingIcon />);
+  render(<AvatarBase as="span" shape="square" />);
+  expect(screen.getByRole("presentation").querySelector("svg")?.outerHTML).toBe(
+    expected.querySelector("svg")?.outerHTML,
+  );
+});
+
+test("renders the fallback icon when the image errors and no `children` is provided", () => {
+  render(<AvatarBase as="span" src="https://example.com/broken.png" alt="A user" />);
+  fireEvent.error(screen.getByRole("img"));
+  expect(screen.getByRole("presentation").querySelector("svg")).toBeInTheDocument();
+});
+
+test("does not render the fallback icon when `children` is provided", () => {
+  render(<AvatarBase as="span">AB</AvatarBase>);
+  expect(screen.getByRole("presentation").querySelector("svg")).not.toBeInTheDocument();
 });
 
 test("is ARIA disabled when `aria-disabled` is true", () => {

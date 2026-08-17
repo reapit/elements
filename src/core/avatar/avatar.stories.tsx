@@ -45,6 +45,38 @@ export const Icons = Example.extend({
 });
 
 /**
+ * When no `src`, image, or `children` is provided, the avatar falls back to a default icon: `user-outline` for the
+ * `circle` shape, and `building` for the `square` shape.
+ */
+export const FallbackIcons = Example.extend({
+  name: "Fallback icons",
+  argTypes: {
+    children: {
+      control: false,
+    },
+    shape: {
+      control: false,
+    },
+  },
+  args: {
+    children: undefined,
+  },
+  decorators: [
+    (Story) => (
+      <Flex columnGap="--spacing-6">
+        <Story />
+      </Flex>
+    ),
+  ],
+  render: (args) => (
+    <>
+      <Avatar {...args} shape="circle" />
+      <Avatar {...args} shape="square" />
+    </>
+  ),
+});
+
+/**
  * The avatar can display an image instead of initials or an icon by providing `src` and `alt`. If the image fails to
  * load, the avatar falls back to its `children`.
  */
