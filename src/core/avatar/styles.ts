@@ -123,10 +123,12 @@ export const elAvatar = css`
       }
     }
 
-    /** Interactive styles, only applied when the avatar renders as an anchor or button element. */
+    /**
+     * Focus styles, applied whenever the avatar renders as an anchor or button element, including a plain
+     * Avatar rendered as a button purely to support a focusable tooltip.
+     */
     &:is(a, button) {
       appearance: none;
-      cursor: pointer;
       border: none;
       padding: 0;
       font-family: inherit;
@@ -137,6 +139,14 @@ export const elAvatar = css`
         outline: var(--border-width-double) solid var(--colour-border-focus);
         outline-offset: var(--border-width-default);
       }
+    }
+
+    /**
+     * Hover, disabled and pointer-cursor styles, only applied to "real" interactive avatars, i.e. AvatarButton
+     * and AvatarAnchor. A plain Avatar rendered as a button to support a focusable tooltip does not adopt these.
+     */
+    &[data-interactive="true"] {
+      cursor: pointer;
 
       &::after {
         content: "";

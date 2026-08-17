@@ -4,7 +4,7 @@ import { AvatarBase } from "./avatar-base";
 
 export namespace AvatarAnchor {
   export interface Props extends AvatarBase.CommonProps, AnchorHTMLAttributes<HTMLAnchorElement> {
-    /** The accessible name of the avatar anchor. */
+    /** The accessible name of the avatar anchor, also rendered as a tooltip. */
     "aria-label": string;
     /** The URL to which this avatar navigates. */
     href: string;

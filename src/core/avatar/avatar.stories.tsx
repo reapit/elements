@@ -11,6 +11,7 @@ const meta = preview.meta({
   component: Avatar,
   subcomponents: { AvatarButton, AvatarAnchor },
   args: {
+    "aria-label": "Alex Doe",
     children: "AD",
   },
 });
@@ -18,9 +19,14 @@ const meta = preview.meta({
 /**
  * The simplest avatar is one that displays some letters, typically the initials of the user or
  * other entity represented by the avatar.
+ *
+ * Providing `aria-label` is strongly encouraged: it renders as a tooltip (shown on hover or focus) and makes the
+ * avatar focusable, so keyboard users can reveal it too. Typically, the label should be the full name of the
+ * entity represented by the avatar.
  */
 export const Example = meta.story({
   args: {
+    "aria-label": "Alex Beckett",
     children: "AB",
     colour: "default",
     shape: "circle",
@@ -80,10 +86,14 @@ export const ColouredIcons = Example.extend({
 });
 
 /**
- * There are two shapes supported by the avatar: `circle` (the default) and `square`, which is shown here.
+ * There are two shapes supported by the avatar: `circle` (the default) and `square`. The square shape is
+ * conventionally used to represent a business or other non-human entity, and should display a single initial
+ * rather than two.
  */
 export const Shape = Example.extend({
   args: {
+    "aria-label": "Acme Corp",
+    children: "A",
     shape: "square",
   },
 });
@@ -156,7 +166,7 @@ export const Border = Example.extend({
 /**
  * Use `AvatarButton` instead of `Avatar` when clicking the avatar should trigger an action, such as opening a menu.
  * `AvatarButton` requires an `aria-label` since it typically has no visible text label of its own describing its
- * purpose.
+ * purpose. This label is also rendered as a tooltip, shown on hover or focus.
  */
 export const Buttons = meta.story({
   args: {
@@ -186,7 +196,8 @@ export const DisabledButton = meta.story({
 
 /**
  * Use `AvatarAnchor` instead of `Avatar` when clicking the avatar should navigate to another page, such as a user's
- * profile page. `AvatarAnchor` requires `href` and an `aria-label`.
+ * profile page. `AvatarAnchor` requires `href` and an `aria-label`. This label is also rendered as a tooltip,
+ * shown on hover or focus.
  */
 export const Anchors = meta.story({
   args: {

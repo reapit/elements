@@ -1,5 +1,5 @@
 import { cx } from "@linaria/core";
-import { useCallback } from "react";
+import { useCallback, useId } from "react";
 import type {
   AnchorHTMLAttributes,
   ButtonHTMLAttributes,
@@ -8,6 +8,7 @@ import type {
   ReactNode,
 } from "react";
 
+import { Tooltip } from "#src/core/tooltip";
 import { useImage } from "#src/utils/image/use-image";
 
 import { elAvatar } from "./styles";
@@ -42,6 +43,13 @@ export namespace AvatarBase {
   }
 
   export interface AsSpanProps extends CommonProps, HTMLAttributes<HTMLSpanElement> {
+    /**
+     * The accessible name of the avatar. When provided, a tooltip displaying this text is rendered, and the
+     * avatar renders as a focusable `button` so keyboard users can reveal the tooltip. Although optional,
+     * providing this prop is strongly encouraged. Typically, the label should contain the full name of the
+     * entity represented by the avatar.
+     */
+    "aria-label"?: string;
     as: "span";
   }
 
@@ -67,12 +75,14 @@ export namespace AvatarBase {
  */
 export function AvatarBase({
   "aria-disabled": ariaDisabled,
+  "aria-label": ariaLabel,
   alt,
-  as: Element,
+  as: as_,
   borderColour,
   children,
   className,
   colour = "default",
+  id,
   onClick,
   shape = "circle",
   size = "md",
@@ -81,6 +91,18 @@ export function AvatarBase({
   ...rest
 }: AvatarBase.Props) {
   const { handleError, handleLoad, hasError } = useImage({ src });
+
+  // NOTE: `AvatarButton` and `AvatarAnchor` are always interactive (they render as `a`/`button` regardless of
+  // `aria-label`), whereas a plain `Avatar` (rendered as `span`) only becomes a focusable `button` to support the
+  // tooltip below, and should not adopt the hover/disabled/pointer-cursor styles of a "real" interactive avatar.
+  const isInteractiveElement = as_ !== "span";
+  const Element = ariaLabel && as_ === "span" ? "button" : as_;
+
+  const triggerId = id ?? useId();
+  const tooltipId = useId();
+  const a11yProps = ariaLabel
+    ? Tooltip.getTriggerProps({ id: triggerId, tooltipId, tooltipPurpose: "label" })
+    : { id };
 
   const handleClick = useCallback<MouseEventHandler<HTMLElement>>(
     (event) => {
@@ -105,13 +127,15 @@ export function AvatarBase({
   return (
     <Element
       {...(rest as HTMLAttributes<HTMLElement>)}
+      {...a11yProps}
       className={cx(elAvatar, className)}
       role={Element === "span" ? "presentation" : undefined}
       data-shape={shape}
       data-size={size}
       data-colour={colour}
-      onClick={Element === "span" ? onClick : handleClick}
-      {...(Element !== "span" && {
+      data-interactive={isInteractiveElement || undefined}
+      onClick={isInteractiveElement ? handleClick : onClick}
+      {...(isInteractiveElement && {
         "aria-disabled": !!rest["disabled"] || ariaDisabled === true || ariaDisabled === "true",
       })}
       // content-box sizing means the border adds to the avatar's box size rather than being drawn inside it,
@@ -128,8 +152,20 @@ export function AvatarBase({
     >
       {src && !hasError ? (
         <img src={src} alt={alt} onError={handleError} onLoad={handleLoad} />
+      ) : ariaLabel ? (
+        // NOTE: when `aria-label` is set, the accessible name comes from the tooltip via `aria-labelledby`, so
+        // the initials/icon `children` are purely visual and would otherwise be redundant (or, for icons,
+        // potentially exposed as an unnamed nested graphic) to assistive technology.
+        <span aria-hidden style={{ display: "contents" }}>
+          {children}
+        </span>
       ) : (
         children
+      )}
+      {ariaLabel && (
+        <Tooltip id={tooltipId} triggerId={triggerId}>
+          {ariaLabel}
+        </Tooltip>
       )}
     </Element>
   );

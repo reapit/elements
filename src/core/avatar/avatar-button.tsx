@@ -4,7 +4,7 @@ import { AvatarBase } from "./avatar-base";
 
 export namespace AvatarButton {
   export interface Props extends AvatarBase.CommonProps, ButtonHTMLAttributes<HTMLButtonElement> {
-    /** The accessible name of the avatar button. */
+    /** The accessible name of the avatar button, also rendered as a tooltip. */
     "aria-label": string;
     /**
      * Whether the avatar button is disabled or not. Unlike `aria-disabled`, avatars disabled with this prop will

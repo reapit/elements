@@ -13,5 +13,7 @@ export const elTooltip = css`
 
     ${font("xs", "regular")}
     text-align: left;
+    /* Reset in case the tooltip's trigger sets a text-transform, e.g. Avatar's uppercase initials. */
+    text-transform: none;
   }
 `;

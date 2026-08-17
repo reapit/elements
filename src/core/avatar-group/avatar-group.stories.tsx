@@ -23,11 +23,19 @@ const meta = preview.meta({
 export const Example = meta.story({
   args: {
     children: [
-      <AvatarGroup.Item key="1">AB</AvatarGroup.Item>,
-      <AvatarGroup.Item key="2">CD</AvatarGroup.Item>,
-      <AvatarGroup.Item key="3">EF</AvatarGroup.Item>,
-      <AvatarGroup.Item key="4">GH</AvatarGroup.Item>,
-      <AvatarGroup.OverflowItem key="overflow" count={3} />,
+      <AvatarGroup.Item key="1" aria-label="Alice Brown">
+        AB
+      </AvatarGroup.Item>,
+      <AvatarGroup.Item key="2" aria-label="Charlie Davis">
+        CD
+      </AvatarGroup.Item>,
+      <AvatarGroup.Item key="3" aria-label="Emma Fox">
+        EF
+      </AvatarGroup.Item>,
+      <AvatarGroup.Item key="4" aria-label="George Harris">
+        GH
+      </AvatarGroup.Item>,
+      <AvatarGroup.OverflowItem key="overflow" aria-label="3 more people" count={3} />,
     ],
     size: "md",
   },
@@ -66,9 +74,13 @@ export const Sizes = Example.extend({
 export const OverflowItem = Example.extend({
   args: {
     children: [
-      <AvatarGroup.Item key="1">AB</AvatarGroup.Item>,
-      <AvatarGroup.Item key="2">CD</AvatarGroup.Item>,
-      <AvatarGroup.OverflowItem key="overflow" count={0} />,
+      <AvatarGroup.Item key="1" aria-label="Alice Brown">
+        AB
+      </AvatarGroup.Item>,
+      <AvatarGroup.Item key="2" aria-label="Charlie Davis">
+        CD
+      </AvatarGroup.Item>,
+      <AvatarGroup.OverflowItem key="overflow" aria-label="No more people" count={0} />,
     ],
   },
 });
@@ -133,28 +145,52 @@ export const ResponsiveOverflow = meta.story({
     <>
       <CSSContainerQuery condition="(max-width: 300px)">
         <AvatarGroup>
-          <AvatarGroup.Item key="1">AB</AvatarGroup.Item>
-          <AvatarGroup.Item key="2">CD</AvatarGroup.Item>
-          <AvatarGroup.Item key="3">EF</AvatarGroup.Item>
-          <AvatarGroup.Item key="4">GH</AvatarGroup.Item>
-          <AvatarGroup.Item key="5">IJ</AvatarGroup.Item>
-          <AvatarGroup.Item key="6">KL</AvatarGroup.Item>
+          <AvatarGroup.Item key="1" aria-label="Alice Brown">
+            AB
+          </AvatarGroup.Item>
+          <AvatarGroup.Item key="2" aria-label="Charlie Davis">
+            CD
+          </AvatarGroup.Item>
+          <AvatarGroup.Item key="3" aria-label="Emma Fox">
+            EF
+          </AvatarGroup.Item>
+          <AvatarGroup.Item key="4" aria-label="George Harris">
+            GH
+          </AvatarGroup.Item>
+          <AvatarGroup.Item key="5" aria-label="Isla Jones">
+            IJ
+          </AvatarGroup.Item>
+          <AvatarGroup.Item key="6" aria-label="Kevin Lee">
+            KL
+          </AvatarGroup.Item>
         </AvatarGroup>
       </CSSContainerQuery>
       <CSSContainerQuery condition="(max-width: 200px) or (min-width: 301px)">
         <AvatarGroup>
-          <AvatarGroup.Item key="1">AB</AvatarGroup.Item>
-          <AvatarGroup.Item key="2">CD</AvatarGroup.Item>
-          <AvatarGroup.Item key="3">EF</AvatarGroup.Item>
-          <AvatarGroup.Item key="4">GH</AvatarGroup.Item>
-          <AvatarGroup.OverflowItem key="overflow" count={2} />
+          <AvatarGroup.Item key="1" aria-label="Alice Brown">
+            AB
+          </AvatarGroup.Item>
+          <AvatarGroup.Item key="2" aria-label="Charlie Davis">
+            CD
+          </AvatarGroup.Item>
+          <AvatarGroup.Item key="3" aria-label="Emma Fox">
+            EF
+          </AvatarGroup.Item>
+          <AvatarGroup.Item key="4" aria-label="George Harris">
+            GH
+          </AvatarGroup.Item>
+          <AvatarGroup.OverflowItem key="overflow" aria-label="2 more people" count={2} />
         </AvatarGroup>
       </CSSContainerQuery>
       <CSSContainerQuery condition="(min-width: 201px)">
         <AvatarGroup>
-          <AvatarGroup.Item key="1">AB</AvatarGroup.Item>
-          <AvatarGroup.Item key="2">CD</AvatarGroup.Item>
-          <AvatarGroup.OverflowItem key="overflow" count={4} />
+          <AvatarGroup.Item key="1" aria-label="Alice Brown">
+            AB
+          </AvatarGroup.Item>
+          <AvatarGroup.Item key="2" aria-label="Charlie Davis">
+            CD
+          </AvatarGroup.Item>
+          <AvatarGroup.OverflowItem key="overflow" aria-label="4 more people" count={4} />
         </AvatarGroup>
       </CSSContainerQuery>
     </>
@@ -167,12 +203,18 @@ export const ResponsiveOverflow = meta.story({
 export const ColourAndShape = Example.extend({
   args: {
     children: [
-      <AvatarGroup.Item key="1">AB</AvatarGroup.Item>,
-      <AvatarGroup.Item key="2">CD</AvatarGroup.Item>,
-      <AvatarGroup.Item key="3" colour="default" shape="square">
-        EF
+      <AvatarGroup.Item key="1" aria-label="Alice Brown">
+        AB
       </AvatarGroup.Item>,
-      <AvatarGroup.Item key="4">GH</AvatarGroup.Item>,
+      <AvatarGroup.Item key="2" aria-label="Charlie Davis">
+        CD
+      </AvatarGroup.Item>,
+      <AvatarGroup.Item key="3" aria-label="Acme Corp" colour="default" shape="square">
+        A
+      </AvatarGroup.Item>,
+      <AvatarGroup.Item key="4" aria-label="George Harris">
+        GH
+      </AvatarGroup.Item>,
     ],
     colour: "primary",
     shape: "circle",

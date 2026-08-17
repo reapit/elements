@@ -22,6 +22,11 @@ describe("Avatar", () => {
     expect(screen.getByText("AB").tagName).toBe("SPAN");
   });
 
+  it("renders as a focusable button with a tooltip when `aria-label` is provided", () => {
+    render(<Avatar aria-label="Alex Doe">AD</Avatar>);
+    expect(screen.getByRole("button", { name: "Alex Doe" })).toBeVisible();
+  });
+
   it("supports the new size scale", () => {
     render(<Avatar size="2xl">AB</Avatar>);
     expect(screen.getByText("AB")).toHaveAttribute("data-size", "2xl");

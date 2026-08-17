@@ -117,6 +117,58 @@ test("does not have `aria-disabled` when rendered as a span", () => {
   expect(screen.getByText("AB")).not.toHaveAttribute("aria-disabled");
 });
 
+test("renders as a button and shows a tooltip when `aria-label` is provided to a span avatar", () => {
+  render(
+    <AvatarBase as="span" aria-label="Alex Doe">
+      AD
+    </AvatarBase>,
+  );
+  const avatar = screen.getByRole("button", { name: "Alex Doe" });
+  expect(avatar).toBeVisible();
+  expect(screen.getByText("Alex Doe")).toBeInTheDocument();
+});
+
+test("does not render a tooltip when a span avatar has no `aria-label`", () => {
+  render(<AvatarBase as="span">AB</AvatarBase>);
+  expect(screen.queryByRole("tooltip")).not.toBeInTheDocument();
+});
+
+test("does not mark a span-turned-button avatar as interactive", () => {
+  render(
+    <AvatarBase as="span" aria-label="Alex Doe">
+      AD
+    </AvatarBase>,
+  );
+  expect(screen.getByRole("button")).not.toHaveAttribute("data-interactive");
+});
+
+test("does not put `aria-disabled` on a span-turned-button avatar", () => {
+  render(
+    <AvatarBase as="span" aria-disabled="true" aria-label="Alex Doe">
+      AD
+    </AvatarBase>,
+  );
+  expect(screen.getByRole("button")).not.toHaveAttribute("aria-disabled");
+});
+
+test("marks a real interactive avatar rendered as a button as interactive", () => {
+  render(
+    <AvatarBase as="button" aria-label="Profile menu">
+      AB
+    </AvatarBase>,
+  );
+  expect(screen.getByRole("button")).toHaveAttribute("data-interactive", "true");
+});
+
+test("marks a real interactive avatar rendered as an anchor as interactive", () => {
+  render(
+    <AvatarBase as="a" aria-label="View profile" href="https://fake.url">
+      AB
+    </AvatarBase>,
+  );
+  expect(screen.getByRole("link")).toHaveAttribute("data-interactive", "true");
+});
+
 describe('when `aria-disabled="true"`', () => {
   test("does not call the consumer-supplied `onClick` handler", () => {
     const onClick = vi.fn();

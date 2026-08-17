@@ -14,6 +14,7 @@ const meta = preview.meta({
 
 export const Example = meta.story({
   args: {
+    "aria-label": "Alice Brown",
     children: "AB",
   },
   decorators: [
@@ -46,13 +47,14 @@ export const Overrides = meta.story({
   ],
   render: () => (
     <>
-      <AvatarGroup.Item>AB</AvatarGroup.Item>
+      <AvatarGroup.Item aria-label="Alice Brown">AB</AvatarGroup.Item>
       <AvatarGroup.Item
+        aria-label="Acme Corp"
         borderColour="--colour-border-action-default"
         colour="default"
         shape="square"
       >
-        CD
+        A
       </AvatarGroup.Item>
     </>
   ),

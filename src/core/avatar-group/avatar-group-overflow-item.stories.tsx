@@ -13,6 +13,7 @@ const meta = preview.meta({
  */
 export const Example = meta.story({
   args: {
+    "aria-label": "3 more people",
     count: 3,
   },
   decorators: [
@@ -30,6 +31,7 @@ export const Example = meta.story({
  */
 export const NoOverflow = Example.extend({
   args: {
+    "aria-label": "No more people",
     count: 0,
   },
 });
