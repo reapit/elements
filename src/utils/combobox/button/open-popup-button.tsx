@@ -5,8 +5,12 @@ import { ChevronDownIcon } from "#src/icons/chevron-down";
 
 import { openComboboxPopup } from "../popup-dialog";
 
+// NOTE: we omit...
+// - type, because we want it pinned to "button" to prevent form submission
+type AttributesToOmit = "type";
+
 export namespace ComboboxButtonOpenPopupButton {
-  export interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
+  export interface Props extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, AttributesToOmit> {
     /** Accessible label for the button. Defaults to "Toggle popup". */
     "aria-label"?: string;
     /** ID of the popup element controlled by this button. */
@@ -41,6 +45,7 @@ export function ComboboxButtonOpenPopupButton({
       // Removed from tab order because this is primarily a visual addon.
       // Accessible users will open the popup from the primary combobox button.
       tabIndex={-1}
+      type="button"
       variant="tertiary"
     />
   );
