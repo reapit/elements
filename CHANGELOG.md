@@ -1,5 +1,55 @@
 # @reapit/elements
 
+## 5.3.0
+
+### Minor Changes
+
+- **[Added]** `borderColour` prop to `Avatar`, accepting any `--colour-border-*` design token, for a ring border. This is useful when an avatar sits over a coloured or patterned background and needs to stand out. ([#1594](https://github.com/reapit-global/gbl-ds-elements/pull/1594))
+
+- **[Added]** `AvatarButton` and `AvatarAnchor` components for interactive avatars. ([#1594](https://github.com/reapit-global/gbl-ds-elements/pull/1594))
+
+- **[Added]** `Avatar`, `AvatarButton`, and `AvatarAnchor` now render a fallback icon when no image or `children` is provided — `user-outline` for the `circle` shape, and `building` for the `square` shape. ([#1612](https://github.com/reapit-global/gbl-ds-elements/pull/1612))
+
+- **[Added]** `AvatarGroup` component. Renders `Avatar` components as an overlapping stack via `AvatarGroup.Item`, with every avatar pinned to the same `size`. `AvatarGroup.OverflowItem` renders a pre-styled `+N` avatar for representing avatars a consumer chooses not to display. `colour` and `shape` set group-wide defaults that individual items can override. ([#1600](https://github.com/reapit-global/gbl-ds-elements/pull/1600))
+
+- **[Added]** image rendering support to `Avatar`, via `src` and `alt` props, falling back to `children` on load failure. ([#1594](https://github.com/reapit-global/gbl-ds-elements/pull/1594))
+
+- **[Added]** `replace-deprecated-avatar-sizes` codemod to migrate the deprecated `"small"` and `"medium"` `Avatar` sizes to `"sm"` and `"md"`. ([#1603](https://github.com/reapit-global/gbl-ds-elements/pull/1603))
+
+- **[Added]** `xs`, `sm`, `md`, `lg`, `xl`, and `2xl` sizes to `Avatar`. `small` and `medium` remain supported as aliases for `sm` and `md`. ([#1594](https://github.com/reapit-global/gbl-ds-elements/pull/1594))
+
+- **[Added]** `DevicesIcon`. ([#1589](https://github.com/reapit-global/gbl-ds-elements/pull/1589))
+
+- **[Added]** `icon`, `badge`, and `aria-disabled` props to `PrimaryTab`. `icon` and `badge` render alongside the label, and `aria-disabled` makes the tab appear disabled and ignore click events, while remaining focusable. ([#1607](https://github.com/reapit-global/gbl-ds-elements/pull/1607))
+
+- **[Added]** `justifyContent` prop to `PrimaryTabs`, supporting `start` (default, sizes each tab to its content) and `stretch` (grows tabs to equally fill the available width). ([#1607](https://github.com/reapit-global/gbl-ds-elements/pull/1607))
+
+- **[Added]** `AvatarButton` and `AvatarAnchor` now render their `aria-label` as a tooltip, shown on hover or focus. ([#1608](https://github.com/reapit-global/gbl-ds-elements/pull/1608))
+
+- **[Added]** optional `aria-label` prop to `Avatar`. When provided, it renders as a tooltip shown on hover or focus, and `Avatar` becomes a focusable `button` so keyboard users can reveal it. ([#1608](https://github.com/reapit-global/gbl-ds-elements/pull/1608))
+
+- **[Deprecated]** `small` and `medium` values for `Avatar`'s `size` prop. Use `sm` and `md` instead. ([#1594](https://github.com/reapit-global/gbl-ds-elements/pull/1594))
+
+- **[Changed]** `FileUploader.MediaCard`'s `fileName` prop is now optional. Omit it to render the card without a file name row. ([#1591](https://github.com/reapit-global/gbl-ds-elements/pull/1591))
+
+- **[Added]** `badge` prop to `SecondaryTabs.Item`/`SecondaryTab`. Displays a badge at the end of a tab, after its label. ([#1606](https://github.com/reapit-global/gbl-ds-elements/pull/1606))
+
+- **[Added]** `aria-disabled` prop to `SecondaryTabs.Item`/`SecondaryTab`. Disables a tab while keeping it focusable. ([#1606](https://github.com/reapit-global/gbl-ds-elements/pull/1606))
+
+### Patch Changes
+
+- **[Changed]** Update `gallery_viewer` and `tab` design tokens to match Figma. Adds a `video_overlay` fill token and adjusts caption and button colours for `gallery_viewer`; adds disabled tokens and updates hover and selected text colours for `tab`. ([#1605](https://github.com/reapit-global/gbl-ds-elements/pull/1605))
+
+- **[Fixed]** `Avatar` now displays initials in uppercase. ([#1594](https://github.com/reapit-global/gbl-ds-elements/pull/1594))
+
+- **[Fixed]** `Button` and `AnchorButton` label spacing now matches the Figma component, adding a small inline padding around the label text alongside any icons. The label text is now wrapped in its own element, so tests querying by label text (e.g. `getByText`) should switch to role-based queries (e.g. `getByRole("button", { name })`). ([#1602](https://github.com/reapit-global/gbl-ds-elements/pull/1602))
+
+- **[Fixed]** the chevron and clear buttons inside `Select`, `Autocomplete`, and their `Control` variants now have `type="button"` set explicitly, so clicking them inside a `<form>` no longer triggers an unintended form submission. ([#1622](https://github.com/reapit-global/gbl-ds-elements/pull/1622))
+
+- **[Fixed]** deprecated `FormLayout` no longer shares a CSS class name with `core/form-layout`, which was breaking the current `FormLayout` component's rendering when both were present on a page. ([#1598](https://github.com/reapit-global/gbl-ds-elements/pull/1598))
+
+- **[Fixed]** `Image` and `Avatar` no longer get stuck showing the fallback after a failed image load. Changing `src` or `srcSet` now clears the error state and gives the new image a chance to load. ([#1595](https://github.com/reapit-global/gbl-ds-elements/pull/1595))
+
 ## 5.2.1
 
 ### Patch Changes
