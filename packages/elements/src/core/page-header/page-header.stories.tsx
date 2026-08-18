@@ -23,7 +23,7 @@ const meta = preview.meta({
   argTypes: {
     backgroundColour: {
       control: "select",
-      options: ["none", "white", "neutral-lightest"],
+      options: ["none", "--colour-fill-white", "--colour-fill-neutral-lightest"],
       mapping: {
         none: null,
       },
