@@ -9,7 +9,6 @@
   },
   "workspaces": [
     "packages/*",
-    "evals",
     "tools/gaffer"
   ],
   "type": "module",

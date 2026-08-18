@@ -6,6 +6,7 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
+    "check": "tsc --noEmit",
     "eval:dev": "evalite watch",
     "eval:run": "evalite"
   },

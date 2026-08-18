@@ -4,7 +4,7 @@ updates:
     directories:
       - "/"
       - "/packages/elements"
-      - "/evals"
+      - "/packages/doc-evals"
       - "/tools/gaffer"
     versioning-strategy: increase
     schedule:

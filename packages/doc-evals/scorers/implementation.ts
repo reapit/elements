@@ -20,7 +20,6 @@ export const implementationScorer = createScorer<unknown, string, string[]>({
 
     const { object } = await generateObject({
       model: getJudgeModel(),
-      mode: "tool",
       schema: z.object({
         criteriaResults: z
           .array(

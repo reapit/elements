@@ -61,7 +61,7 @@ jobs:
       - name: Export eval results
         if: always()
         # evalite writes its results database into the workspace it ran in.
-        working-directory: evals
+        working-directory: packages/doc-evals
         run: npx evalite export --output ./evalite-export
 
       - name: Upload eval results
@@ -69,5 +69,5 @@ jobs:
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         with:
           name: evalite-results
-          path: evals/evalite-export/
+          path: packages/doc-evals/evalite-export/
           retention-days: 90

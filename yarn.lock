@@ -3127,9 +3127,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@reapit/elements-evals@workspace:evals":
+"@reapit/elements-evals@workspace:packages/doc-evals":
   version: 0.0.0-use.local
-  resolution: "@reapit/elements-evals@workspace:evals"
+  resolution: "@reapit/elements-evals@workspace:packages/doc-evals"
   dependencies:
     "@ai-sdk/amazon-bedrock": "npm:^5.0.50"
     "@modelcontextprotocol/sdk": "npm:^1.30.0"

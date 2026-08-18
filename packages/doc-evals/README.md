@@ -34,7 +34,7 @@ Three tasks are included as the initial POC foundation. Each covers a distinct f
 | `settings-toggles`    | Switch vs Toggle naming, Switch vs Checkbox distinction              |
 | `form-validation`     | Error hierarchy: inline errors, Section message, Alert Banner, Toast |
 
-More tasks can be added to `evals/fixtures/tasks/` as the eval suite matures.
+More tasks can be added to `packages/doc-evals/fixtures/tasks/` as the eval suite matures.
 
 ## Running locally
 
@@ -77,7 +77,7 @@ A consistently low score on a specific task points to a concrete documentation g
 ## Directory structure
 
 ```
-evals/
+packages/doc-evals/
 ├── README.md               # This file
 ├── model.ts                # Agent and judge model configuration
 ├── storybook.eval.ts       # Storybook-only eval scenario

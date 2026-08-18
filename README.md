@@ -4,11 +4,11 @@ Monorepo for Reapit's Design System. Managed with [Yarn workspaces](https://yarn
 
 ## Workspaces
 
-| Workspace                                  | Package                  | Description                                                       |
-| ------------------------------------------ | ------------------------ | ----------------------------------------------------------------- |
-| [`packages/elements`](./packages/elements) | `@reapit/elements`       | The published React component library, its Storybook and codemods |
-| [`evals`](./evals)                         | `@reapit/elements-evals` | Documentation quality evals (private)                             |
-| [`tools/gaffer`](./tools/gaffer)           | `@reapit/gaffer`         | PR classification and merge gating (private)                      |
+| Workspace                                    | Package                  | Description                                                       |
+| -------------------------------------------- | ------------------------ | ----------------------------------------------------------------- |
+| [`packages/elements`](./packages/elements)   | `@reapit/elements`       | The published React component library, its Storybook and codemods |
+| [`packages/doc-evals`](./packages/doc-evals) | `@reapit/elements-evals` | Documentation quality evals (private)                             |
+| [`tools/gaffer`](./tools/gaffer)             | `@reapit/gaffer`         | PR classification and merge gating (private)                      |
 
 Repo-wide tooling — changesets, linting, formatting and git hooks — is configured at the root. Everything specific to a workspace lives inside it.
 
