@@ -6,6 +6,58 @@
 which is gitignored and not checked into this repo. Run the `/design-sync` command locally first;
 it generates `.ds-sync/` as part of its setup, before any of the override scripts can run.
 
+## [GENERAL] Monorepo layout (post-DS-335) — what a sync must get right
+
+The repo became a Yarn workspaces monorepo in `77c4c71f` (DS-335, 2026-08-18).
+The published library is `packages/elements` (`@reapit/elements`); the repo-root
+`package.json` is private and named `gbl-ds-elements`. That rename is the trap
+behind almost everything below.
+
+- **The synthesised barrel MUST live inside the package**:
+  `packages/elements/.design-sync/entry.mjs`, exporting `../dist/js/{core,icons,utils}/*.js`.
+  `package-build.mjs` derives `PKG_DIR` by walking up from `dirname(cfg.entry)`
+  to the first `package.json` with a `name`. With the barrel at the repo root,
+  `PKG_DIR` becomes the repo root (`gbl-ds-elements`), and `dist/types`
+  discovery (`findTypesRoot`/`exportedNames`), `src/` scanning, docs discovery
+  and every `cfgPath()` resolution silently point at the wrong tree — the sync
+  still runs, it just produces a hollow bundle.
+- **`cssEntry` and `extraEntries` are `PKG_DIR`-relative — do NOT prefix them
+  with `packages/elements/`.** Correct values are `"dist/js/style.css"` and
+  `["./dist/js/core/app-switcher/anz.js"]`. The migration commit helpfully
+  re-pointed both at repo-root paths; both had to be reverted. Extra danger:
+  `extraEntries` is hashed verbatim into the grade contract
+  (`configSlicesFor` in `lib/sync-hashes.mjs`), so "fixing" that string wipes
+  every grade in the project. Restore the historic string rather than an
+  equivalent one.
+- **`entry`, `storybookStatic` and `storybookConfigDir` are cwd-relative**
+  (the sync runs from the repo root), hence
+  `"storybookConfigDir": "packages/elements/.storybook"`. `readmeHeader`
+  resolves from the config's own home, i.e. the repo root.
+- **Pass `--node-modules packages/elements/node_modules` to every script**
+  (`package-build.mjs`, `package-validate.mjs`, `package-capture.mjs`,
+  `resync.mjs`, `lib/preview-rebuild.mjs`). Under `nodeLinker: pnpm` React and
+  React-DOM are installed per workspace, not at the repo root; the flag also
+  defaults `--inputs` to `packages/elements`, which is where the
+  `source-storybook.mjs` fork looks for `.storybook`.
+- **Reference Storybook build**:
+  `yarn workspace @reapit/elements exec storybook build -o ../../.design-sync/sb-reference`
+  (the `-o` is relative to the workspace directory).
+- `manifests/components.json` records package-relative story paths (`./src/...`),
+  which the `source-storybook.mjs` fork resolves against its `bases` list — no
+  config needed, but don't "helpfully" rewrite those paths.
+- **Subagents do not have the `DesignSync` tool.** Anchor fetches, `list_files`,
+  `finalize_plan` and all uploads must be done by the main agent; delegating
+  them fails with "unable to locate the DesignSync tool".
+- `.gitignore` patterns are repo-root anchored post-migration:
+  `/.ds-sync/`, `/ds-bundle/`, `/.design-sync/{sb-reference,learnings,.cache,node_modules}`.
+  The durable committed set is `.design-sync/{config.json,NOTES.md,conventions.md,overrides/*.mjs}`
+  plus `packages/elements/.design-sync/entry.mjs`.
+- **The move itself does not clear grades.** `srcSha` hashes story-file
+  _contents_ only (no paths — see `source-storybook.mjs`), and the migration
+  commit changed zero story bytes (287 story paths, all pure renames). If a
+  post-migration sync clears grades wholesale, the cause is real story churn,
+  not the move: 310 story files changed content between the last sync and 5.3.
+
 ## Scope
 
 First sync scoped to `src/core` + `src/icons` only (per user choice), excluding
@@ -201,6 +253,29 @@ hand-written with `"basis": "manual-verify"` notes explaining the deviation.
 it's the known flake — re-verify manually rather than skipping.** If it
 newly appears elsewhere, investigate for real — don't assume every
 `sb-error` is this same flake.
+
+Reproduced a third time on the 5.3 re-sync (2026-08-18): same 2 components,
+same 6 stories (`ChipSelect` Example/Multi-select, all 4 of
+`ChipSelectControl`). Practical notes for the next person doing the
+manual re-verification:
+
+- `compare.mjs` `continue`s on `sb-error` **before** it captures the DS panel,
+  so no raw shot exists for EITHER side — the manual script must shoot both
+  panels itself, not just the storybook one.
+- Reuse the harness's own primitives so the comparison is like-for-like:
+  `.ds-sync/storybook/http-serve.mjs`'s `serveDir` for both roots, the
+  `#storybook-root, #root` content-wait, `settleRender`'s
+  `fonts.ready` + `image.decode()` settle, and `{animations:'disabled'}` shots.
+  The DS panel is the card at
+  `components/<group>/<Name>/<Name>.html?story=<cellLabel>`, where the label
+  comes from the card page's own `window.__dsCells`.
+- `playwright` is installed under `.ds-sync/node_modules`, NOT repo root or the
+  package — a bare `import 'playwright'` only resolves for scripts living
+  inside `.ds-sync/`. A scratch script elsewhere must import it by absolute
+  path (`NODE_PATH` does nothing for ESM).
+- Outcome each time: storybook rendered fine on every attempt (no error,
+  ~3.7-3.9KB of root HTML) and all 6 pairs were pixel-faithful, so the 6
+  hand-written `manual-verify` verdicts stand.
 
 **ProgressIndicator, Skeleton, StatusIndicator, CheckboxInput, RadioInput,
 SwitchInput**: render without error but with placeholder/thin content — not
@@ -514,6 +589,75 @@ Linaria ancestor-selector, argTypes-mapping). Skeleton's thin/placeholder look i
 once judged against the true render. Textarea needed `--max-stories 10` (default cap is 6) to grade
 its Fixed/Manual Sizing stories — all matched, including the resize-handle grip render.
 
+## [GENERAL] Dead `.cache/compare/` entries for components that dropped out of capture
+
+When a component stops being capturable, `compare.mjs` simply never visits it
+again — and **nothing deletes its old `.design-sync/.cache/compare/<Name>.json`
+or `<Name>.grade.json`**. The stale pair then sits in the cache describing
+stories that no longer exist, which actively misleads a grading fan-out: on the
+5.3 re-sync one wave "verified" `Listbox` against a stale grade file and another
+reported it `blocked` for having no screenshots, when the truth was that
+Listbox needs no grade at all.
+
+Two ways a component drops out:
+
+- **All its stories are skipped** via `cfg.overrides.<Name>.skip` → it lands in
+  `ds-bundle/.stories-map.json` with `stories: []`. `resync.mjs`'s
+  `isCapturable` then removes it from the worklist ("nothing to capture —
+  re-ships via the upload partition, no grading needed") and it is correctly
+  absent from `verification.pendingGrade`. It still ships, as a **floor card**:
+  a `components/<group>/<Name>/<Name>.html` with no `_preview/<Name>.js` and no
+  `<script src="_preview/">`. This is `Listbox`'s permanent state (all 12
+  `utils-listbox--*` ids are skipped to resolve the title collision).
+- **Only subcomponent-depth titles remain** → it leaves the stories-map
+  entirely. This is `AnchorCard`/`ButtonCard` (see the DS-286 note below).
+
+Rules that follow:
+
+- **`pendingGrade` is the authority on what needs grading, not the cache
+  directory.** A `<Name>.json` present in the cache does not mean the component
+  is in this run's scope.
+- **A `<Name>.grade.json` older than its `<Name>.json` is not evidence.** It was
+  written against screenshots that no longer exist; re-judge from the current
+  images or delete it. (`.grade.json` mtime < `.json` mtime is the cheap test —
+  it is how the stale `Listbox` grade was caught.)
+- Cross-check the cache against the stories-map when a fan-out starts, and
+  delete entries whose component is missing from it or has `stories: []`. The
+  three dead entries (`AnchorCard`, `ButtonCard`, `Listbox`) were removed on
+  2026-08-18; they will reappear only if those components become capturable
+  again.
+
+## 5.3 + monorepo full-roster re-grade (2026-08-18) — outcome
+
+Every one of the 84 synced components was re-graded in twelve parallel batches
+(waves A-L) after 5.3's story churn cleared the whole roster's grades. Result:
+**all `match`, except AppSwitcher's `All Accessible` / `None Accessible`, which
+stay at the documented `close`** (story-level `decorators` limitation, see
+below). Three components are new to the roster this release — `AvatarGroup`,
+`FileUploader`, `FileInput` — and all three were graded exhaustively; nothing
+was removed.
+
+No new shared-infra bug surfaced. Every previously-recorded fix was re-confirmed
+holding against fresh screenshots: the argTypes per-key `mapping` merge, the
+Linaria ancestor-selector CSS, `globals.backgrounds` full-bleed paint, the
+decorator merge order, Tooltip's nested inline-flex `layout: 'centered'`
+wrapper, Drawer's `viewport` override, and TopBar's force-bundled
+`top-bar/menu-drawer/`. The `.el-form-layout` css-fallback fork fired as
+expected on the rebuilt `dist/js/style.css`.
+
+Two process notes worth keeping for the next full-roster wave:
+
+- Run the fan-out in **grade-only** mode (agents read sheets and write
+  `<Name>.grade.json`, and are explicitly forbidden from running `compare.mjs`,
+  `preview-rebuild.mjs`, `package-build.mjs` or `package-validate.mjs`). Four
+  concurrent agents plus the driver otherwise contend for `ds-bundle/` and for
+  chromium, and a scoped rebuild by one agent invalidates another's sheets
+  mid-judgement. Fixes stay with the orchestrator.
+- Subagents do **not** have the `DesignSync` tool, and `SendMessage` does not
+  exist in every build — so anything needing the tool, or a batch needing to be
+  sent back for re-grading, has to be done by the orchestrator itself. Budget
+  for that rather than delegating and discovering it late.
+
 ## Capture flakes seen once, not reproduced (informational, don't re-chase on sight)
 
 - **FolderTabs**: one capture showed broken tab-connector "waves" (gap instead of smooth curve);
@@ -522,10 +666,30 @@ its Fixed/Manual Sizing stories — all matched, including the resize-handle gri
 
 ## Re-sync risks
 
-- `.design-sync/entry.mjs` is a generated file (not hand-maintained) —
-  regenerate it if new files are added under `dist/js/{core,icons,utils}/`
-  by re-running the same `readdirSync` + `export *` script (see git history
-  of this file, or ask a future sync to regenerate it fresh).
+- `packages/elements/.design-sync/entry.mjs` is a generated file (not
+  hand-maintained) — regenerate it if new files are added under
+  `dist/js/{core,icons,utils}/` by re-running the same `readdirSync` +
+  `export *` script (see git history of this file, or ask a future sync to
+  regenerate it fresh). It must stay inside the package — see the monorepo
+  section above for why.
+- **5.3 + monorepo re-sync (2026-08-18)**: 5.3 changed every story file's
+  contents (310 files between the last sync and HEAD), so the driver cleared
+  the entire roster's grades and the run required a full re-grade wave. This
+  is expected for a release-spanning sync and is NOT a symptom of the
+  monorepo move (which changed no story bytes at all).
+- 5.3 added components not present in the previous 82-component roster
+  (AvatarGroup among them). `AvatarGroup` flagged `[GRID_OVERFLOW]` on its
+  `ResponsiveOverflow`/`Sizes` stories and now carries
+  `cfg.overrides.AvatarGroup.cardMode: "column"`.
+- Seven storybook titles are deliberately dropped and now carry explicit
+  `cfg.titleMap: null` entries so `[TITLE_UNMAPPED]` stays quiet:
+  `AllocateFunds`, `ContactsList`, `CreateManagementAgreement`,
+  `PropertyDetail` (all `src/blocks/` full-page composition examples, which
+  export nothing by design), `Gallery` (`src/icons/docs/icon-gallery.stories.tsx`,
+  a docs index of all icons), `Icon` (`src/icons/docs/icon.stories.tsx` — a
+  usage demo whose manifest name is actually `StarIcon`; mapping it would
+  card one arbitrary icon out of 205), and `useCSSCustomHighlights` (a hook
+  demo, not a visual component).
 - The Linaria runtime stub silently drops function-valued CSS template
   interpolations — if a component's real styling depends on dynamic
   (prop-based) Linaria values, its rendered preview will look visually
@@ -554,7 +718,10 @@ its Fixed/Manual Sizing stories — all matched, including the resize-handle gri
   story-pairing collision (an earlier note misdiagnosed this — there's only
   one `Sizing` export in the whole component; see the 2026-07-16 correction
   above). Not fixable via an owned preview. All other GalleryViewer stories
-  match.
+  match. **Superseded as of 5.3 (2026-08-18)**: `Carousel/Sizing` is no longer
+  in GalleryViewer's captured story set — the component now captures only
+  `Example`, so this mismatch is dormant rather than fixed. If a future release
+  reintroduces a `Sizing` story, expect the decorator limitation to return.
 - AppSwitcher's `All Accessible` / `None Accessible` stories grade `close` for
   the same root cause as GalleryViewer's `Sizing` above: a story-level
   `decorators` array (magenta debug-border wrapper) isn't honoured by the
@@ -582,6 +749,24 @@ css-fallback.mjs`. If `dist/js/style.css` changes (new build), the upstream
   then.
 - `@types/react` version pin and chromium build pin are toolchain-state
   assumptions made this run — re-verify if the toolchain changes.
+- **Orphaned `_preview/*.js` on the remote when a component becomes a floor
+  card.** `Listbox` had a compiled preview in earlier syncs; now that all its
+  stories are skipped it ships as a floor card with no local
+  `_preview/Listbox.js` — but `.sync-diff.json`'s `deletePaths` came back
+  empty, so the remote kept the old module. It is harmless (the card HTML
+  references no `_preview/` script, so nothing loads it) but it is dead weight
+  and the diff will not clean it up on its own. Delete
+  `_preview/Listbox.js` from the project by hand, or include `_preview/**` in a
+  plan's `deletes` on a future sync. Check for this whenever a component moves
+  from having stories to having none.
+- The project also holds files this sync neither writes nor owns —
+  `uploads/**` (design screenshots), `Canvas.dc.html`, `support.js`,
+  `_ds_manifest.json`, `_adherence.oxlintrc.json`. The first two are
+  user-authored, the rest app-managed. **Never include them in a plan's
+  `deletes`**, and prefer finalizing the upload plan with `deletes: []`
+  entirely when the diff reports no deletions — a bare
+  `deletes: ["components/**", ...]` glob would put user content one bug away
+  from removal for no benefit.
 
 ## [GENERAL] SB10 manifest sort had own-package components sorting LAST, not first (fixed, no re-grade needed)
 

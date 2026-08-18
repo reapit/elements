@@ -4,10 +4,12 @@
   "pkg": "@reapit/elements",
   "globalName": "ReapitElements",
   "storybookStatic": ".design-sync/sb-reference",
-  "entry": "./.design-sync/entry.mjs",
-  "cssEntry": "packages/elements/dist/js/style.css",
+  "storybookConfigDir": "packages/elements/.storybook",
+  "buildCmd": "yarn install --immutable && yarn build:lib",
+  "entry": "./packages/elements/.design-sync/entry.mjs",
+  "cssEntry": "dist/js/style.css",
   "readmeHeader": ".design-sync/conventions.md",
-  "extraEntries": ["./packages/elements/dist/js/core/app-switcher/anz.js"],
+  "extraEntries": ["./dist/js/core/app-switcher/anz.js"],
   "libOverrides": {
     "source-storybook.mjs": "Storybook 10 replaced index.json with manifests/components.json; component IDs encode the old title in lowercase kebab form; stories are nested under components not flat; yarn storybook build replaces npx storybook build (Yarn Berry PnP, no node_modules/.bin/)",
     "dts.mjs": "package has no root '.' export/types field (subpath-only exports); projectFor's entry fallback must resolve against typesRoot (dist/types), not pkgDir",
@@ -25,6 +27,9 @@
     "bundle": ["top-bar/menu-drawer/"]
   },
   "overrides": {
+    "AvatarGroup": {
+      "cardMode": "column"
+    },
     "Button": {
       "cardMode": "column"
     },
@@ -163,6 +168,13 @@
     }
   },
   "titleMap": {
+    "AllocateFunds": null,
+    "ContactsList": null,
+    "CreateManagementAgreement": null,
+    "PropertyDetail": null,
+    "Gallery": null,
+    "Icon": null,
+    "useCSSCustomHighlights": null,
     "Title": null,
     "Subtitle": null,
     "Text": null,
