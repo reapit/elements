@@ -1,4 +1,4 @@
-// url=<SECONDARY_TABS_URL>
+// url=https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Elements-DS?node-id=21142-132872&m=dev
 // source=https://github.com/reapit-global/gbl-ds-elements/blob/main/src/core/secondary-tabs/secondary-tabs.tsx
 // component=SecondaryTabs
 
