@@ -8,8 +8,7 @@
     "url": "git+https://github.com/reapit-global/gbl-ds-elements.git"
   },
   "workspaces": [
-    "packages/*",
-    "tools/gaffer"
+    "packages/*"
   ],
   "type": "module",
   "scripts": {

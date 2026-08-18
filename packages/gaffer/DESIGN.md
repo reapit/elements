@@ -4,7 +4,7 @@ A record of _why_ gaffer looks the way it does.
 [`README.md`](./README.md) covers what is built and how to use it; this file
 covers the decisions and open items behind it.
 
-**Status: proof of concept.** Everything under `tools/gaffer/`,
+**Status: proof of concept.** Everything under `packages/gaffer/`,
 `.gaffer/`, and `.github/workflows/gaffer.yml` has not been run
 against a live PR. `package.json`, `yarn.lock`, and `tsconfig.json` were
 modified in place (new devDependencies, `tools` added to the typecheck
@@ -16,7 +16,7 @@ local smoke test of the pure gate logic — see "Testing status" below.
 
 Ported from PostHog's stamphog
 ([`tools/pr-approval-agent/`](https://github.com/PostHog/posthog/blob/master/tools/pr-approval-agent/README.md))
-— note that path is PostHog's, this repo's port now lives under `tools/gaffer/`.
+— note that path is PostHog's, this repo's port now lives under `packages/gaffer/`.
 The brief was: copy the architecture, preserve its safety invariants, but
 re-derive the deny-list and size thresholds from this repo's own risk surface
 rather than copying PostHog's. Their categories (auth, billing, migrations,
@@ -78,7 +78,7 @@ against the diff patch. Ordinary dependency add, bump, or remove is not denied.
 
 ### Gaffer's own files: scrutiny floor for implementation, hard deny for the workflow
 
-`tools/gaffer/**` and `.gaffer/policy.yml` are in
+`packages/gaffer/**` and `.gaffer/policy.yml` are in
 `scrutinyFloorCategories` (`gaffer_agent`). Changes to gaffer's own
 implementation have legitimate churn and should not be hard-denied, but they
 should never be treated as trivial by line count alone.

@@ -68,10 +68,10 @@ lines / 1 file; p90 ~240 lines / 8 files):
 export GH_TOKEN=$(gh auth token)
 
 # Classify only — no side effects:
-node --experimental-strip-types tools/gaffer/classify-pr.ts 1517 --dry-run
+node --experimental-strip-types packages/gaffer/classify-pr.ts 1517 --dry-run
 
 # Full run, verbose evidence bundle to stderr:
-node --experimental-strip-types tools/gaffer/classify-pr.ts 1517 -v
+node --experimental-strip-types packages/gaffer/classify-pr.ts 1517 -v
 ```
 
 `--repo owner/repo` overrides the target repository; defaults to
@@ -80,7 +80,7 @@ node --experimental-strip-types tools/gaffer/classify-pr.ts 1517 -v
 ## File layout
 
 ```
-tools/gaffer/
+packages/gaffer/
 ├── README.md              — this file
 ├── classify-pr.ts         — classification pipeline (CLI entry point)
 ├── classify-gates.ts      — policy loading, deny-list/scrutiny-floor matching, tier classification

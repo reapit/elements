@@ -3199,9 +3199,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@reapit/gaffer@workspace:tools/gaffer":
+"@reapit/gaffer@workspace:packages/gaffer":
   version: 0.0.0-use.local
-  resolution: "@reapit/gaffer@workspace:tools/gaffer"
+  resolution: "@reapit/gaffer@workspace:packages/gaffer"
   dependencies:
     "@types/node": "npm:^24.13.3"
     "@typescript/native": "npm:typescript@^7.0.2"

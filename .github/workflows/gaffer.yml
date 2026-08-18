@@ -52,7 +52,7 @@ jobs:
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
           GITHUB_REPOSITORY: ${{ github.repository }}
-        run: node --experimental-strip-types tools/gaffer/classify-pr.ts ${{ github.event.pull_request.number }}
+        run: node --experimental-strip-types packages/gaffer/classify-pr.ts ${{ github.event.pull_request.number }}
 
       - name: Post classification comment
         uses: ./actions/sticky-comment

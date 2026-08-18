@@ -1,6 +1,6 @@
 # Gaffer policy — deterministic gate configuration.
 #
-# This file is read by tools/gaffer/classify-gates.ts. Changing
+# This file is read by packages/gaffer/classify-gates.ts. Changing
 # thresholds or category patterns here changes gate behaviour without a code
 # change.
 
@@ -129,7 +129,7 @@ scrutinyFloorCategories:
   gaffer_agent:
     description: Gaffer's own implementation and policy (not the workflow — that is covered by ci_cd deny)
     pathPatterns:
-      - "tools/gaffer/**"
+      - "packages/gaffer/**"
       - ".gaffer/policy.yml"
 
 # Advisory-only flags. Never change the gate verdict or tier — surfaced to

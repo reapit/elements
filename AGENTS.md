@@ -15,7 +15,7 @@ This is a Yarn workspaces monorepo. Run yarn scripts from the repo root — `che
 
 - `packages/elements/` - `@reapit/elements`, the published library, its Storybook and codemods
 - `packages/doc-evals/` - `@reapit/elements-evals`, documentation quality evals (private)
-- `tools/gaffer/` - `@reapit/gaffer`, PR classification and merge gating (private)
+- `packages/gaffer/` - `@reapit/gaffer`, PR classification and merge gating (private)
 
 Repo-wide tooling lives at the root: changesets, oxlint, oxfmt, lint-staged and git hooks.
 Everything specific to a workspace lives inside it.
