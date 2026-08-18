@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { appendFileSync } from "node:fs";
+import { appendFileSync, existsSync, readFileSync } from "node:fs";
 import path from "node:path";
 import process from "node:process";
 import { parseArgs } from "node:util";
@@ -15,7 +15,25 @@ import {
 import { GitHubClient } from "./github.ts";
 import type { Classification, GateResult, PullRequestData } from "./types.ts";
 
-const REPO_ROOT = path.resolve(import.meta.dirname, "../..");
+function findRepoRoot(startDir: string): string {
+  let dir = startDir;
+  while (true) {
+    const packageJsonPath = path.join(dir, "package.json");
+    if (existsSync(packageJsonPath)) {
+      const packageJson = JSON.parse(readFileSync(packageJsonPath, "utf8"));
+      if (packageJson.workspaces) return dir;
+    }
+    const parent = path.dirname(dir);
+    if (parent === dir) {
+      throw new Error(
+        `Could not find repo root (a package.json with "workspaces") above ${startDir}`,
+      );
+    }
+    dir = parent;
+  }
+}
+
+const REPO_ROOT = findRepoRoot(import.meta.dirname);
 const POLICY_PATH = path.join(REPO_ROOT, ".gaffer/policy.yml");
 
 const MERGEABLE_POLL_ATTEMPTS = 5;

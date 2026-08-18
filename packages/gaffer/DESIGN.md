@@ -6,11 +6,11 @@ covers the decisions and open items behind it.
 
 **Status: proof of concept.** Everything under `packages/gaffer/`,
 `.gaffer/`, and `.github/workflows/gaffer.yml` has not been run
-against a live PR. `package.json`, `yarn.lock`, and `tsconfig.json` were
-modified in place (new devDependencies, `tools` added to the typecheck
-`include`) and `yarn install` has been run, so those are consistent. All
-other code is unverified beyond typecheck, lint, format, and a throwaway
-local smoke test of the pure gate logic — see "Testing status" below.
+against a live PR. `package.json` and `yarn.lock` were modified in place
+(new devDependencies) and `yarn install` has been run, so those are
+consistent. All other code is unverified beyond typecheck, lint, format,
+and a throwaway local smoke test of the pure gate logic — see "Testing
+status" below.
 
 ## Origin
 
