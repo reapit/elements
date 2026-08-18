@@ -173,7 +173,11 @@ export default defineConfig({
     },
     environment: "happy-dom",
     globals: true,
-    include: ["src/**/*.test.ts?(x)", "codemods/**/*.test.ts", ".changeset/**/*.test.js"],
+    // The changeset changelog formatter is tested from here rather than the repo root because
+    // vitest has to be installed in exactly one workspace: @testing-library/jest-dom binds to
+    // whichever vitest instance it resolves, and a second copy at the root leaves the runner
+    // and the snapshot matcher holding different instances.
+    include: ["src/**/*.test.ts?(x)", "codemods/**/*.test.ts", "../../.changeset/**/*.test.js"],
     setupFiles: ["vitest.setup.ts"],
   },
 });

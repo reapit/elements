@@ -174,7 +174,7 @@ test("handles edge case with children", () => {
 **Critical step - do not skip.**
 
 ```bash
-yarn generate:codemod-manifest
+yarn workspace @reapit/elements run build:codemods:manifest
 ```
 
 This regenerates `codemods/manifest.json` and `codemods/transforms.ts` from the filesystem. No other files need to be updated manually.

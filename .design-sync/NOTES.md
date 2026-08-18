@@ -533,8 +533,11 @@ its Fixed/Manual Sizing stories — all matched, including the resize-handle gri
 - `sb-reference/index.json` was hand-regenerated this sync (ground-truth
   title extraction from compiled `*.stories-*.js` assets) due to Storybook 10
   removing `index.json`. On a re-sync, rebuild `sb-reference` with the full
-  storybook build first (`yarn storybook build -o .design-sync/sb-reference`);
-  the regenerated `index.json` is part of the build output and does not need
+  storybook build first. Since the library moved into the `packages/elements`
+  workspace (DS-335), run it from the repo root via
+  `yarn workspace @reapit/elements exec storybook build -o ../../.design-sync/sb-reference`
+  so the output still lands at `.design-sync/sb-reference`; the regenerated
+  `index.json` is part of the build output and does not need
   manual authoring — the `source-storybook.mjs` fork generates it from
   `manifests/components.json`.
 - **Resolved (2026-07-16 re-grade wave)**: the "Accepted close/mismatch"

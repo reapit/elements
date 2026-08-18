@@ -69,9 +69,9 @@ denyCategories:
   deploy_infra:
     description: Cloudflare Workers deployment configuration
     pathPatterns:
-      - "wrangler.jsonc"
-      - "wrangler.v4.jsonc"
-      - "workers/**"
+      - "**/wrangler.jsonc"
+      - "**/wrangler.v4.jsonc"
+      - "**/workers/**"
   git_hooks:
     description: Local git hook scripts (can silently disable checks)
     pathPatterns:
@@ -80,11 +80,11 @@ denyCategories:
     description: Release/publish configuration (not package.json — see publish_release_manifest)
     pathPatterns:
       - ".changeset/config.json"
-      - "changelog-format.js"
+      - ".changeset/changelog-format.js"
   publish_release_manifest:
     description: Dangerous package.json fields (scripts, toolchain, publish target, identity)
     pathPatterns:
-      - "package.json"
+      - "**/package.json"
     # Ordinary dependency add/bump/remove is NOT denied — only these fields are.
     contentPattern: '"(scripts|engines|packageManager|publishConfig|name)"\s*:'
 
@@ -98,33 +98,34 @@ scrutinyFloorCategories:
   design_tokens:
     description: Generated design tokens consumed by every component
     pathPatterns:
-      - "src/tokens/**"
+      - "**/src/tokens/**"
   codemods:
     description: Automated migration tooling run against consumer code
     pathPatterns:
-      - "codemods/**"
+      - "**/codemods/**"
   barrel_exports:
     description: Top-level barrel files controlling the public export surface
     pathPatterns:
-      - "src/core/index.ts*"
-      - "src/utils/index.ts*"
-      - "src/lab/index.ts*"
-      - "src/icons/index.ts*"
+      - "**/src/core/index.ts*"
+      - "**/src/utils/index.ts*"
+      - "**/src/lab/index.ts*"
+      - "**/src/icons/index.ts*"
   figma_contract:
     description: Design-to-code contract other teams rely on
     pathPatterns:
-      - "figma.config.json"
+      - "**/figma.config.json"
       - "**/*.figma.tsx"
   build_toolchain:
     description: Build, lint and format toolchain configuration
     pathPatterns:
-      - "vite.config.ts"
-      - "tsconfig*.json"
-      - "wyw-in-js.config.cjs"
-      - ".oxlintrc.json"
-      - ".oxfmtrc.json"
-      - "stylelint.config.js"
-      - "playwright.config.ts"
+      - "**/vite.config.ts"
+      - "**/vitest.config.ts"
+      - "**/tsconfig*.json"
+      - "**/wyw-in-js.config.cjs"
+      - "oxlint.config.ts"
+      - "oxfmt.config.ts"
+      - "**/stylelint.config.js"
+      - "**/playwright.config.ts"
   gaffer_agent:
     description: Gaffer's own implementation and policy (not the workflow — that is covered by ci_cd deny)
     pathPatterns:
@@ -137,7 +138,7 @@ advisoryCategories:
   deprecated_touch:
     description: "AGENTS.md asks contributors to avoid modifying src/deprecated/"
     pathPatterns:
-      - "src/deprecated/**"
+      - "**/src/deprecated/**"
 
 # Dependency ecosystems used for the "manifest changed without a paired
 # lockfile" integrity check. A manifest edit alone (dependency added/bumped/

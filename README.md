@@ -1,8 +1,26 @@
-# Reapit Elements
+# Reapit Design System
 
-A React implementation of Reapit's Design System for cross-platform web applications. Distributed via NPM [here](https://www.npmjs.com/package/@reapit/elements).
+Monorepo for Reapit's Design System. Managed with [Yarn workspaces](https://yarnpkg.com/features/workspaces).
 
-![lines](/coverage/badges/badge-lines.svg) ![functions](/coverage/badges/badge-functions.svg) ![branches](/coverage/badges/badge-branches.svg) ![statements](/coverage/badges/badge-statements.svg)
+## Workspaces
+
+| Workspace                                  | Package                  | Description                                                       |
+| ------------------------------------------ | ------------------------ | ----------------------------------------------------------------- |
+| [`packages/elements`](./packages/elements) | `@reapit/elements`       | The published React component library, its Storybook and codemods |
+| [`evals`](./evals)                         | `@reapit/elements-evals` | Documentation quality evals (private)                             |
+| [`tools/gaffer`](./tools/gaffer)           | `@reapit/gaffer`         | PR classification and merge gating (private)                      |
+
+Repo-wide tooling — changesets, linting, formatting and git hooks — is configured at the root. Everything specific to a workspace lives inside it.
+
+Common tasks run from the root and fan out across workspaces:
+
+```bash
+yarn install
+yarn start        # starts the Storybook dev server for @reapit/elements
+yarn check        # type-checking and linting
+yarn test:ci      # unit tests
+yarn build:lib    # builds the library
+```
 
 ## Claude Code Plugin Marketplace
 

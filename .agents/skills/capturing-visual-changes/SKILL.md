@@ -32,7 +32,7 @@ This prints a free port number (e.g. `52341`). Use this value as `<PORT>` throug
 ### Step 2: Start Storybook
 
 ```bash
-yarn storybook dev -p <PORT> --ci > /tmp/storybook-<PORT>.log 2>&1 &
+yarn workspace @reapit/elements exec storybook dev -p <PORT> --ci > /tmp/storybook-<PORT>.log 2>&1 &
 echo $!
 ```
 

@@ -27,6 +27,13 @@ runs:
         apiToken: ${{ env.CLOUDFLARE_API_TOKEN }}
         accountId: ${{ env.CLOUDFLARE_ACCOUNT_ID }}
         wranglerVersion: "4"
+        # wrangler.jsonc and the ./public/dist assets it serves both live in the
+        # elements workspace, so wrangler has to run from there.
+        workingDirectory: packages/elements
+        # The action infers the package manager from a lockfile and falls back to npm
+        # when it finds none. The lockfile is at the repo root, not in the workspace,
+        # so state yarn explicitly — npm fails on peer conflicts that yarn only warns about.
+        packageManager: yarn
         command: >-
           ${{ inputs.target == 'v4'
             && 'deploy --config wrangler.v4.jsonc'

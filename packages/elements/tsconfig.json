@@ -1,0 +1,19 @@
+{
+  // `types`, `outDir` and `rootDir` are declared here rather than in the base
+  // config because TypeScript resolves relative paths in an extended config
+  // against the directory of the file that declares them.
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "types": [
+      "vite/client",
+      "vitest/globals",
+      "vite-plugin-svgr/client",
+      "@testing-library/jest-dom/vitest",
+      "@figma/code-connect/figma-types"
+    ],
+    "outDir": "dist/types",
+    "rootDir": "./"
+  },
+  "include": [".storybook", "codemods", "src", "workers"],
+  "exclude": [".yarn", "archive", "dist", "node_modules", "public", "storybook-static"]
+}

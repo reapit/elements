@@ -13,7 +13,8 @@ runs:
         cache: yarn
     - run: yarn install --immutable
       shell: bash
-    - run: yarn figma connect publish $ARGS
+    # Code Connect definitions and figma.config.json both live in the elements workspace.
+    - run: yarn workspace @reapit/elements exec figma connect publish $ARGS
       shell: bash
       env:
         ARGS: ${{ inputs.args }}

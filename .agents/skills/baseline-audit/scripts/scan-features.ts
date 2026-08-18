@@ -168,7 +168,9 @@ function checkIfGuarded(matches: Match[], scanRoot: string): boolean {
 
 async function run() {
   const repoRoot = resolve(__dirname, "../../../..");
-  const scanRoot = resolve(repoRoot, "src");
+  // The audit targets the published library, which is one workspace within the repo.
+  const elementsRoot = resolve(repoRoot, "packages/elements");
+  const scanRoot = resolve(elementsRoot, "src");
   const excludeDirs = ["src/lab", "src/deprecated"];
   const excludeDirsForGrep = ["**/lab/**", "**/deprecated/**"];
 
@@ -176,11 +178,11 @@ async function run() {
     readFileSync(resolve(__dirname, "feature-patterns.json"), "utf-8"),
   );
 
-  const declaredTarget = findDeclaredTarget(repoRoot);
+  const declaredTarget = findDeclaredTarget(elementsRoot);
 
   const webFeatures = await fetchWebFeatures();
 
-  const pkg = JSON.parse(readFileSync(resolve(repoRoot, "package.json"), "utf-8"));
+  const pkg = JSON.parse(readFileSync(resolve(elementsRoot, "package.json"), "utf-8"));
   const allDeps = { ...pkg.dependencies, ...pkg.devDependencies };
 
   const results: FeatureResult[] = [];

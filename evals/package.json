@@ -1,0 +1,21 @@
+{
+  "name": "@reapit/elements-evals",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Documentation quality evals for Reapit Elements",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "eval:dev": "evalite watch",
+    "eval:run": "evalite"
+  },
+  "devDependencies": {
+    "@ai-sdk/amazon-bedrock": "^5.0.50",
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "@types/node": "^24.13.3",
+    "@typescript/native": "npm:typescript@^7.0.2",
+    "ai": "^7.0.48",
+    "evalite": "^1.0.0-beta.16",
+    "zod": "^4.4.3"
+  }
+}

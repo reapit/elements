@@ -1,9 +1,5 @@
 name: Test
-description: Run yarn test
-inputs:
-  args:
-    description: Extra arguments appended to yarn test run
-    default: ""
+description: Run unit tests across all workspaces
 runs:
   using: composite
   steps:
@@ -13,7 +9,5 @@ runs:
         cache: yarn
     - run: yarn install --immutable
       shell: bash
-    - run: yarn test run $ARGS
+    - run: yarn test:ci
       shell: bash
-      env:
-        ARGS: ${{ inputs.args }}

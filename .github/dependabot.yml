@@ -1,7 +1,11 @@
 version: 2
 updates:
   - package-ecosystem: "npm"
-    directory: "/"
+    directories:
+      - "/"
+      - "/packages/elements"
+      - "/evals"
+      - "/tools/gaffer"
     versioning-strategy: increase
     schedule:
       interval: "weekly"

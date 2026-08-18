@@ -1,11 +1,10 @@
 {
-  "extends": "../tsconfig.base.json",
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "noEmit": true,
     "emitDeclarationOnly": false,
     "declaration": false,
     "declarationMap": false,
-    "allowImportingTsExtensions": false,
     "types": ["node"]
   },
   "include": ["."]

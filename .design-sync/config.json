@@ -5,9 +5,9 @@
   "globalName": "ReapitElements",
   "storybookStatic": ".design-sync/sb-reference",
   "entry": "./.design-sync/entry.mjs",
-  "cssEntry": "dist/js/style.css",
+  "cssEntry": "packages/elements/dist/js/style.css",
   "readmeHeader": ".design-sync/conventions.md",
-  "extraEntries": ["./dist/js/core/app-switcher/anz.js"],
+  "extraEntries": ["./packages/elements/dist/js/core/app-switcher/anz.js"],
   "libOverrides": {
     "source-storybook.mjs": "Storybook 10 replaced index.json with manifests/components.json; component IDs encode the old title in lowercase kebab form; stories are nested under components not flat; yarn storybook build replaces npx storybook build (Yarn Berry PnP, no node_modules/.bin/)",
     "dts.mjs": "package has no root '.' export/types field (subpath-only exports); projectFor's entry fallback must resolve against typesRoot (dist/types), not pkgDir",

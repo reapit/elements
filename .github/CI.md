@@ -80,16 +80,34 @@ Shared step bundles, split across two locations:
 
 All calling jobs must run `actions/checkout` first — GitHub Actions requires the repository to be present on the runner before it can locate a local composite action.
 
-| Action           | Location          | Command                             | Used by                                                                                                |
-| ---------------- | ----------------- | ----------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| `check`          | `.github/actions` | `yarn check`                        | `test-pr.yml` check job, `release.yml` check job                                                       |
-| `test`           | `.github/actions` | `yarn test run [args]`              | `test-pr.yml` test job (with `--coverage --silent`), `release.yml` test job                            |
-| `build-lib`      | `.github/actions` | `yarn build:lib`                    | `test-pr.yml` build job, `release.yml` build job                                                       |
-| `build-docs`     | `.github/actions` | `yarn build:docs`                   | `test-pr.yml` docs job, `release.yml` docs job, `deploy-docs-manual.yml`                               |
-| `deploy-docs`    | `.github/actions` | Cloudflare Wrangler deploy          | `release.yml` deploy-docs job, `deploy-docs-manual.yml`                                                |
-| `deploy-preview` | `.github/actions` | Cloudflare Wrangler deploy          | `test-pr.yml` deploy-preview job                                                                       |
-| `publish-figma`  | `.github/actions` | `yarn figma connect publish [args]` | `test-pr.yml` figma job (with `--dry-run --exit-on-unreadable-files`), `release.yml` publish-figma job |
-| `audit-skills`   | `actions`         | `skillspector scan`                 | `test-pr.yml` audit-skills job; available to other org repos                                           |
+| Action           | Location          | Command                        | Used by                                                                                                |
+| ---------------- | ----------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| `check`          | `.github/actions` | `yarn check`                   | `test-pr.yml` check job, `release.yml` check job                                                       |
+| `test`           | `.github/actions` | `yarn test:ci`                 | `test-pr.yml` test job, `release.yml` test job                                                         |
+| `build-lib`      | `.github/actions` | `yarn build:lib`               | `test-pr.yml` build job, `release.yml` build job                                                       |
+| `build-docs`     | `.github/actions` | `yarn build:docs`              | `test-pr.yml` docs job, `release.yml` docs job, `deploy-docs-manual.yml`                               |
+| `deploy-docs`    | `.github/actions` | Cloudflare Wrangler deploy     | `release.yml` deploy-docs job, `deploy-docs-manual.yml`                                                |
+| `deploy-preview` | `.github/actions` | Cloudflare Wrangler deploy     | `test-pr.yml` deploy-preview job                                                                       |
+| `publish-figma`  | `.github/actions` | `figma connect publish [args]` | `test-pr.yml` figma job (with `--dry-run --exit-on-unreadable-files`), `release.yml` publish-figma job |
+| `audit-skills`   | `actions`         | `skillspector scan`            | `test-pr.yml` audit-skills job; available to other org repos                                           |
+
+## Workspaces
+
+Every action above invokes a yarn script at the repo root, and the root scripts fan out across
+workspaces with `yarn workspaces foreach`. Workspaces that do not define a given script are
+skipped, so CI does not need to know which workspaces exist — adding one is a `package.json`
+change, not a workflow change.
+
+This is why `test-pr.yml` carries no `paths:` filters: it runs for every pull request, and what
+actually executes is decided by which workspaces define the script. Note that `--since` is
+deliberately not used to narrow the fan-out. Files outside any workspace — root configs,
+`.changeset/`, `plugins/` — belong to the root workspace, so a change to shared tooling would
+select only the root and skip every workspace check.
+
+Build and test output lives inside the workspace that produced it, so artifacts are uploaded
+from `packages/elements/dist/`, `packages/elements/public/dist/` and
+`packages/elements/coverage/`. The Wrangler, Figma and Playwright steps target that workspace
+directly, since their configs live beside the code they act on.
 
 ## Deployment strategy
 
@@ -109,7 +127,7 @@ All calling jobs must run `actions/checkout` first — GitHub Actions requires t
 
 ### Preview deployments
 
-`test-pr.yml` deploys a Storybook preview for every PR. The `docs` job builds Storybook and uploads the artifact. The `deploy-preview` job downloads it and deploys to a Cloudflare Worker named `gbl-ds-elements-pr-<number>` on the custom domain `pr-<number>.elements.reapit.com.au`. The preview uses the `preview` environment in `wrangler.jsonc`, which inherits the MCP worker from the top-level config. Each push to the PR overwrites the same Worker.
+`test-pr.yml` deploys a Storybook preview for every PR. The `docs` job builds Storybook and uploads the artifact. The `deploy-preview` job downloads it and deploys to a Cloudflare Worker named `gbl-ds-elements-pr-<number>` on the custom domain `pr-<number>.elements.reapit.com.au`. The preview uses the `preview` environment in `packages/elements/wrangler.jsonc`, which inherits the MCP worker from the top-level config. Each push to the PR overwrites the same Worker.
 
 After deployment, a sticky PR comment is posted (or updated) with the preview URL. The comment uses a hidden HTML marker (`<!-- storybook-preview -->`) so subsequent pushes update the same comment rather than creating new ones. A GitHub Deployment status is also created, surfacing a "View deployment" link on the pull request.
 
@@ -169,7 +187,7 @@ It provides an emergency path that bypasses the full CI pipeline — useful when
 
 ### Preview deployments
 
-**Why do preview deployments use the same `wrangler.jsonc` instead of a separate config?**
+**Why do preview deployments use the same `packages/elements/wrangler.jsonc` instead of a separate config?**
 The `preview` environment inherits the top-level `main` entry point (`workers/mcp.ts`), so the MCP endpoint is available on previews for free. A separate config would duplicate the assets configuration and risk drift. The Worker name and custom domain are overridden at deploy time via `--name` and `--domain` flags.
 
 **Why does preview cleanup use both a PR close trigger and a scheduled sweep?**

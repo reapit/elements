@@ -73,7 +73,7 @@ jobs:
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         with:
           name: dist
-          path: dist/
+          path: packages/elements/dist/
           retention-days: 1
 
   docs:
@@ -89,7 +89,7 @@ jobs:
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         with:
           name: docs
-          path: public/dist/
+          path: packages/elements/public/dist/
           retention-days: 1
 
   release:
@@ -136,7 +136,7 @@ jobs:
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         with:
           name: dist
-          path: dist/
+          path: packages/elements/dist/
 
       - name: Create Release Pull Request or Publish
         id: changesets
@@ -196,16 +196,17 @@ jobs:
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         with:
           name: dist
-          path: dist/
+          path: packages/elements/dist/
 
       - name: Derive Version and Tag
         id: derive-tag
         run: |
-          VERSION=$(node -p "require('./package.json').version")
+          VERSION=$(node -p "require('./packages/elements/package.json').version")
           if [ -n "${{ inputs.tag }}" ]; then
             TAG="${{ inputs.tag }}"
           else
-            TAG="v${VERSION}"
+            # Matches the tag changesets creates for a workspace package.
+            TAG="@reapit/elements@${VERSION}"
           fi
           echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
           echo "tag=${TAG}" >> "$GITHUB_OUTPUT"
@@ -258,10 +259,10 @@ jobs:
             exit 0
           fi
 
-          NOTES=$(awk "/^## ${VERSION}$/{found=1; next} found && /^## /{exit} found{print}" CHANGELOG.md | sed '/^$/d')
+          NOTES=$(awk "/^## ${VERSION}$/{found=1; next} found && /^## /{exit} found{print}" packages/elements/CHANGELOG.md | sed '/^$/d')
 
           if [ -z "${NOTES}" ]; then
-            echo "::error::No changelog entry found for version ${VERSION} in CHANGELOG.md. Aborting release creation."
+            echo "::error::No changelog entry found for version ${VERSION} in packages/elements/CHANGELOG.md. Aborting release creation."
             exit 1
           fi
 
@@ -346,7 +347,7 @@ jobs:
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         with:
           name: docs
-          path: public/dist/
+          path: packages/elements/public/dist/
       - uses: ./.github/actions/deploy-docs
         with:
           # lts always deploys v4 docs; main deploys prod if published, otherwise dev

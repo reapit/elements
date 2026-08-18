@@ -1,17 +1,29 @@
+# Anchoring convention
+#
+# A slash anywhere but the end anchors a pattern to this file's directory. In a
+# workspaces monorepo that distinction decides whether a pattern reaches inside
+# packages/*, so declare the intent on every pattern containing a slash:
+#
+#   **/foo/bar   matches at any depth, including inside every workspace
+#   /foo/bar     matches the repo root only
+#   foo/bar      root only, but silently — never write this
+#
+# Single-segment patterns such as `dist/` and `*.log` already match at any depth,
+# so prefixing those with `**/` changes nothing.
+
 # Node
-/node_modules
-/packages/*/node_modules
+node_modules/
 *.log
 npm-debug.log*
 
 # Yarn
-.yarn/*
+/.yarn/*
 !yarn.lock
-!.yarn/patches
-!.yarn/releases
-!.yarn/plugins
-!.yarn/sdks
-!.yarn/versions
+!/.yarn/patches
+!/.yarn/releases
+!/.yarn/plugins
+!/.yarn/sdks
+!/.yarn/versions
 yarn-debug.log*
 yarn-error.log*
 
@@ -21,7 +33,7 @@ yarn-error.log*
 # Vite
 .vite/
 dist/
-public/dist
+**/public/dist
 .env
 
 # Python
@@ -31,24 +43,24 @@ __pycache__
 
 # Storybook
 storybook-static
-.storybook/preview.d.ts
-.storybook/preview.d.ts.map
-.storybook/certs/
+**/.storybook/preview.d.ts
+**/.storybook/preview.d.ts.map
+**/.storybook/certs/
 
 # Linaria
 .linaria-cache
 
 # Vitest
-coverage/**
-!coverage/badges
-!coverage/badges/*
+**/coverage/**
+!**/coverage/badges
+!**/coverage/badges/*
 
 # Playwright
 test-results/
 playwright-report/
 blob-report/
-playwright/.cache/
-.visual-test/**
+**/playwright/.cache/
+**/.visual-test/**
 
 # oxlint
 .oxlintcache
@@ -78,24 +90,17 @@ playwright/.cache/
 ehthumbs.db
 Thumbs.db
 
-# AWS CDK
-cdk.out
-
 # Worktrees
-.agents/worktrees
-.opencode/worktrees
-
-# Evalite
-node_modules/.evalite
+/.agents/worktrees
+/.opencode/worktrees
 
 # Exceptions
-!src/tokens/dist
-!output.cts
+!/packages/elements/src/tokens/dist
 
 # Claude Design sync
-.design-sync/sb-reference/
-.design-sync/learnings/
-.design-sync/.cache/
-.design-sync/node_modules
-.ds-sync/
-ds-bundle/
+/.design-sync/sb-reference/
+/.design-sync/learnings/
+/.design-sync/.cache/
+/.design-sync/node_modules
+/.ds-sync/
+/ds-bundle/

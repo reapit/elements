@@ -8,7 +8,21 @@
 - Branch name format: `<type>/<DS-123>-<short-description>` or `<type>/<short-description>`
 - Allowed types: `feat` · `fix` · `chore` · `ci` · `docs` · `refactor` · `revert`
 
+## Workspaces
+
+This is a Yarn workspaces monorepo. Run yarn scripts from the repo root — `check`, `test:ci`,
+`build:lib` and `build:docs` fan out across every workspace that defines them.
+
+- `packages/elements/` - `@reapit/elements`, the published library, its Storybook and codemods
+- `evals/` - `@reapit/elements-evals`, documentation quality evals (private)
+- `tools/gaffer/` - `@reapit/gaffer`, PR classification and merge gating (private)
+
+Repo-wide tooling lives at the root: changesets, oxlint, oxfmt, lint-staged and git hooks.
+Everything specific to a workspace lives inside it.
+
 ## Core Directories
+
+All paths below, and in `guidelines/` and the skills, are relative to `packages/elements/`.
 
 - `src/core/` - Main UI components (buttons, inputs, dialogs, etc.)
 - `src/icons/` - Generated SVG icon components
@@ -47,6 +61,7 @@
 - PR titles and descriptions MUST follow the pull request conventions
 - PRs with UI changes MUST include screenshots or video
 - When workflow architecture changes, update `.github/CI.md` (new jobs, composite actions, job dependencies, or deployment strategy)
+- `.gitignore` patterns containing a slash MUST declare their anchoring: `**/` for any depth, leading `/` for the repo root only
 
 ## Code Quality
 

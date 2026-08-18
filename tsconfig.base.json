@@ -19,25 +19,6 @@
     "diagnostics": true,
     "declaration": true,
     "declarationMap": true,
-    "types": [
-      "vite/client",
-      "vitest/globals",
-      "vite-plugin-svgr/client",
-      "@testing-library/jest-dom/vitest",
-      "@figma/code-connect/figma-types"
-    ],
-    "lib": ["ESNext", "dom"],
-    "outDir": "dist/types",
-    "rootDir": "./"
-  },
-  "include": [".storybook", "codemods", "src", "tools", "workers"],
-  "exclude": [
-    ".yarn",
-    "archive",
-    "dist",
-    "node_modules",
-    "public",
-    "scripts/cdk",
-    "storybook-static"
-  ]
+    "lib": ["ESNext", "dom"]
+  }
 }

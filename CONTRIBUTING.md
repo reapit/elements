@@ -11,6 +11,10 @@ yarn install
 yarn start        # starts the Storybook dev server
 ```
 
+This is a Yarn workspaces monorepo. Run yarn scripts from the repo root — they fan out across
+the workspaces that define them. The published library lives in `packages/elements`; see the
+[README](README.md) for the full layout.
+
 ## Branching
 
 Branch from `main` for all new work. Target `lts` only when backporting a fix
@@ -56,3 +60,9 @@ format for them.
 Linting (`oxlint`) and formatting (`oxfmt`) run automatically on commit via git
 hooks and on CI. Use British English for all prose — documentation, comments,
 error messages, and UI text.
+
+When adding a `.gitignore` pattern that contains a slash, declare its anchoring:
+prefix `**/` to match at any depth, or `/` to match the repo root only. A slash
+anywhere but the end anchors a pattern silently, which hid a stale exception
+through the move to workspaces. The header comment in [`.gitignore`](.gitignore)
+gives the full convention.

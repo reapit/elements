@@ -1,7 +1,13 @@
+import postcssLinaria from "@linaria/postcss-linaria";
+import noUnsupportedBrowserFeatures from "stylelint-no-unsupported-browser-features";
+
+// The syntax and plugin are imported rather than named as bare specifiers because stylelint
+// resolves those relative to its own install location, which in a workspace no longer sits
+// above this package's dependencies. Importing here resolves them from this config instead.
 /** @type {import('stylelint').Config} */
 export default {
-  customSyntax: "@linaria/postcss-linaria",
-  plugins: ["stylelint-no-unsupported-browser-features"],
+  customSyntax: postcssLinaria,
+  plugins: [noUnsupportedBrowserFeatures],
   rules: {
     // Zero-support violations are reported as errors. Partial-support violations are suppressed
     // via ignorePartialSupport, because caniuse groups CSS features coarsely: a single entry can

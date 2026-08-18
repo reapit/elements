@@ -1,183 +1,52 @@
 {
-  "name": "@reapit/elements",
-  "version": "5.3.0",
-  "description": "A React implementation of Reapit's Design System",
-  "homepage": "https://github.com/reapit-global/gbl-ds-elements#readme",
-  "bugs": {
-    "url": "https://github.com/reapit-global/gbl-ds-elements/issues"
-  },
+  "name": "gbl-ds-elements",
+  "private": true,
+  "description": "Monorepo for Reapit's Design System — the published library lives in packages/elements",
   "license": "MIT",
-  "author": "Will McVay <wmcvay@reapit.com>",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/reapit-global/gbl-ds-elements.git"
   },
-  "bin": "./bin/elements.js",
-  "files": [
-    "dist/",
-    "assets/reset.css",
-    "bin/"
+  "workspaces": [
+    "packages/*",
+    "evals",
+    "tools/gaffer"
   ],
   "type": "module",
-  "imports": {
-    "#.storybook/*": {
-      "types": [
-        "./.storybook/*.tsx",
-        "./.storybook/*.ts",
-        "./.storybook/*"
-      ],
-      "import": "./.storybook/*"
-    },
-    "#src/*": {
-      "types": [
-        "./src/*.js",
-        "./src/*/index.js",
-        "./dist/types/*.d.ts",
-        "./dist/types/*/index.d.ts"
-      ],
-      "import": "./src/*"
-    }
-  },
-  "exports": {
-    "./core/app-switcher/anz": {
-      "types": "./dist/types/core/app-switcher/anz/index.d.ts",
-      "import": "./dist/js/core/app-switcher/anz.js"
-    },
-    "./core/*": {
-      "types": "./dist/types/core/*/index.d.ts",
-      "import": "./dist/js/core/*.js"
-    },
-    "./deprecated/*": {
-      "types": "./dist/types/deprecated/*/index.d.ts",
-      "import": "./dist/js/deprecated/*.js"
-    },
-    "./icons/*": {
-      "types": "./dist/types/icons/*.d.ts",
-      "import": "./dist/js/icons/*.js"
-    },
-    "./lab/*": {
-      "types": "./dist/types/lab/*/index.d.ts",
-      "import": "./dist/js/lab/*.js"
-    },
-    "./polyfills/*": {
-      "types": "./dist/types/polyfills/*/index.d.ts",
-      "import": "./dist/js/polyfills/*.js"
-    },
-    "./utils/*": {
-      "types": "./dist/types/utils/*/index.d.ts",
-      "import": "./dist/js/utils/*.js"
-    },
-    "./reset.css": "./assets/reset.css",
-    "./styles.css": "./dist/js/style.css",
-    "./dist/index.css": "./dist/js/style.css"
-  },
   "scripts": {
-    "build": "yarn build:lib && yarn build:docs",
-    "build:codemods": "yarn build:codemods:export-map && yarn build:codemods:compile && yarn build:codemods:manifest",
-    "build:codemods:export-map": "node --experimental-strip-types codemods/rewrite-v5-imports/generate-export-map.ts",
-    "build:codemods:compile": "node --experimental-strip-types codemods/build.ts",
-    "build:codemods:manifest": "node --experimental-strip-types codemods/generate-manifest.ts",
-    "build:docs": "rimraf public/dist && NODE_ENV=production storybook build -o public/dist",
-    "build:js": "vite build",
-    "build:lib": "yarn build:types && yarn build:js && yarn build:codemods",
-    "build:types": "tsc --project tsconfig.build.json",
-    "commit": "yarn test run --coverage --silent && yarn coverage:badges && yarn lint && yarn check",
-    "coverage:badges": "yarn make-badge branches && yarn make-badge functions && yarn make-badge lines && yarn make-badge statements",
-    "generate:icons": "yarn node --experimental-strip-types src/icons/bin/generate-icons.ts",
-    "generate:tokens": "yarn generate:tokens:preprocess && yarn generate:tokens:css",
-    "generate:tokens:css": "yarn node --experimental-strip-types ./src/tokens/build.ts",
-    "generate:tokens:preprocess": "yarn node ./src/tokens/preprocess.js",
-    "lint": "yarn lint:es && yarn lint:css && yarn lint:fmt",
-    "lint:css": "stylelint \"src/**/*.{ts,tsx,js,jsx,css}\"",
-    "lint:es": "oxlint --fix src",
-    "lint:fmt": "oxfmt",
-    "check": "yarn check:types && yarn check:lint",
-    "check:types": "tsc --noEmit",
-    "check:lint": "yarn check:lint:css && yarn check:lint:es && yarn check:lint:fmt",
-    "check:lint:css": "stylelint \"src/**/*.{ts,tsx,js,jsx,css}\"",
-    "check:lint:es": "oxlint src",
+    "build": "yarn workspaces foreach --all --topological-dev --exclude gbl-ds-elements run build",
+    "build:docs": "yarn workspaces foreach --all --topological-dev --exclude gbl-ds-elements run build:docs",
+    "build:lib": "yarn workspaces foreach --all --topological-dev --exclude gbl-ds-elements run build:lib",
+    "check": "yarn workspaces foreach --all --topological-dev --exclude gbl-ds-elements run check && yarn check:lint:es && yarn check:lint:fmt",
+    "check:lint:es": "oxlint packages/elements/src",
     "check:lint:fmt": "oxfmt --check",
-    "make-badge": "coverage-badges --type ${0} --source coverage/report/coverage-summary.json --output coverage/badges/badge-${0}.svg --jsonPath total.${0}.pct",
-    "start": "storybook dev -p 6006",
-    "test": "vitest",
-    "visual-test": "yarn build:docs && yarn playwright test",
-    "eval:dev": "evalite watch",
-    "eval:run": "evalite"
-  },
-  "dependencies": {
-    "@linaria/core": "8.1.1",
-    "@linaria/react": "8.1.1",
-    "@oddbird/css-anchor-positioning": "^0.10.1"
+    "commit": "yarn test:ci && yarn workspace @reapit/elements run coverage:badges && yarn lint && yarn check",
+    "eval:dev": "yarn workspace @reapit/elements-evals run eval:dev",
+    "eval:run": "yarn workspace @reapit/elements-evals run eval:run",
+    "lint": "yarn workspaces foreach --all --exclude gbl-ds-elements run lint && yarn lint:es && yarn lint:fmt",
+    "lint:es": "oxlint --fix packages/elements/src",
+    "lint:fmt": "oxfmt",
+    "start": "yarn workspace @reapit/elements run start",
+    "test": "yarn workspace @reapit/elements run test",
+    "test:ci": "yarn workspaces foreach --all --exclude gbl-ds-elements run test:ci",
+    "visual-test": "yarn workspace @reapit/elements run visual-test"
   },
   "devDependencies": {
-    "@ai-sdk/amazon-bedrock": "^5.0.50",
     "@changesets/cli": "^2.31.1",
     "@changesets/get-github-info": "1.0.0-next.4",
     "@changesets/types": "^6.1.0",
-    "@figma/code-connect": "^1.5.1",
-    "@linaria/postcss-linaria": "8.1.1",
-    "@modelcontextprotocol/sdk": "^1.30.0",
-    "@playwright/test": "1.62.1",
-    "@storybook/addon-a11y": "10.5.7",
-    "@storybook/addon-docs": "10.5.7",
-    "@storybook/addon-links": "10.5.7",
-    "@storybook/addon-mcp": "^0.7.0",
-    "@storybook/cli": "10.5.7",
-    "@storybook/codemod": "^10.5.7",
-    "@storybook/mcp": "^0.8.0",
-    "@storybook/react-vite": "10.5.7",
-    "@testing-library/dom": "10.4.1",
-    "@testing-library/jest-dom": "7.0.0",
-    "@testing-library/react": "16.3.2",
     "@types/node": "^24.13.3",
-    "@types/react": "18.3.31",
-    "@types/react-dom": "18.3.7",
-    "@typescript/native": "npm:typescript@^7.0.2",
-    "@vitejs/plugin-react": "^6.0.5",
-    "@vitest/coverage-v8": "^4.1.10",
-    "@wyw-in-js/vite": "2.3.1",
-    "ai": "^7.0.48",
-    "browserslist-config-baseline": "^0.5.0",
-    "caniuse-lite": "^1.0.30001809",
-    "colord": "2.9.3",
-    "coverage-badges-cli": "2.2.0",
-    "dashify": "2.0.0",
-    "esbuild": "^0.28.1",
-    "evalite": "^1.0.0-beta.16",
-    "happy-dom": "^20.11.2",
-    "http-server": "^14.1.1",
     "husky": "^9.1.7",
-    "js-yaml": "^5.2.3",
     "lint-staged": "^17.3.0",
-    "minimatch": "^10.2.6",
-    "octokit": "^5.0.5",
     "oxfmt": "^0.62.0",
     "oxlint": "^1.77.0",
-    "postcss": "8.5.26",
-    "react": "18.3.1",
-    "react-dom": "18.3.1",
-    "rimraf": "6.1.3",
     "snyk": "^1.1306.2",
-    "storybook": "^10.5.7",
-    "style-dictionary": "5.5.0",
-    "stylelint": "17.14.1",
-    "stylelint-no-unsupported-browser-features": "^8.1.1",
-    "svgo": "^4.0.2",
-    "ts-morph": "^28.0.0",
-    "typescript": "npm:@typescript/typescript6@^6.0.2",
-    "vite": "^8.2.1",
-    "vite-plugin-svgr": "^5.2.0",
-    "vitest": "^4.1.10",
-    "zod": "^4.4.3"
+    "typescript": "npm:@typescript/typescript6@^6.0.2"
   },
   "dependenciesMeta": {
     "better-sqlite3": {
       "built": true
     }
-  },
-  "peerDependencies": {
-    "react": ">=18.0.2",
-    "react-dom": ">=18.0.2"
   },
   "resolutions": {
     "@isaacs/brace-expansion@npm:^5.0.0": "5.0.1",
