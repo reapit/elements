@@ -1,11 +1,7 @@
 import { defineConfig } from "oxfmt";
 
 export default defineConfig({
-  ignorePatterns: [
-    "packages/elements/codemods/transforms.ts",
-    "packages/elements/CHANGELOG.md",
-    ".changeset/pre.json",
-  ],
+  ignorePatterns: ["packages/elements/codemods/transforms.ts", ".changeset/pre.json"],
   printWidth: 100,
   semi: true,
   singleQuote: false,
