@@ -99,8 +99,8 @@
     "visual-test": "yarn build:docs && yarn playwright test"
   },
   "dependencies": {
-    "@linaria/core": "8.1.1",
-    "@linaria/react": "8.1.1",
+    "@linaria/core": "8.2.0",
+    "@linaria/react": "8.2.0",
     "@oddbird/css-anchor-positioning": "^0.10.1"
   },
   "devDependencies": {

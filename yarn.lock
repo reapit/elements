@@ -1767,12 +1767,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@linaria/core@npm:8.1.1, @linaria/core@npm:^8.1.1":
-  version: 8.1.1
-  resolution: "@linaria/core@npm:8.1.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40linaria%2Fcore%2F-%2Fcore-8.1.1.tgz"
+"@linaria/core@npm:8.2.0, @linaria/core@npm:^8.2.0":
+  version: 8.2.0
+  resolution: "@linaria/core@npm:8.2.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40linaria%2Fcore%2F-%2Fcore-8.2.0.tgz"
   dependencies:
-    "@wyw-in-js/processor-utils": "npm:2.1.0"
-  checksum: 10/6197ab8107dfa24e573d425983ec65a9040565e0577194c2c4587701f17093e7c36937f3fe0acd531404230bafd9268b50e641aada669be4d75aa21efcfc68f6
+    "@wyw-in-js/processor-utils": "npm:2.4.0"
+  checksum: 10/cab6f0d97e55e177a5c258b87e6799c0ec234bb1e99daa8a43d3eeb3c44d4139ce1b7775703668fffa19d403f8f8913150c0dc0a8022c6e9d3a47821f35f9e4b
   languageName: node
   linkType: hard
 
@@ -1789,20 +1789,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@linaria/react@npm:8.1.1":
-  version: 8.1.1
-  resolution: "@linaria/react@npm:8.1.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40linaria%2Freact%2F-%2Freact-8.1.1.tgz"
+"@linaria/react@npm:8.2.0":
+  version: 8.2.0
+  resolution: "@linaria/react@npm:8.2.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40linaria%2Freact%2F-%2Freact-8.2.0.tgz"
   dependencies:
     "@emotion/is-prop-valid": "npm:^1.2.0"
-    "@linaria/core": "npm:^8.1.1"
-    "@wyw-in-js/processor-utils": "npm:2.1.0"
-    "@wyw-in-js/shared": "npm:2.1.0"
+    "@linaria/core": "npm:^8.2.0"
+    "@wyw-in-js/processor-utils": "npm:2.4.0"
+    "@wyw-in-js/shared": "npm:2.4.0"
     minimatch: "npm:^9.0.3"
     react-html-attributes: "npm:^1.4.6"
     resolve: "npm:^1.22.8"
   peerDependencies:
     react: ">=16"
-  checksum: 10/a5edfb0f7ac34a81d489108a6c52dd6d50666a0067402b28135ba799ca1e1180439e86d8631c66152b29358c3eada4791fc90110e16579e1be664d6cf06dbdf6
+  checksum: 10/4ade840b45d5cae216f2f84444df8cec4b957a88513f5f6937b6bf97549d599ead9b18346ee5c1b915089ebbbcd8ef30c6f443dd8ef984e5a2e0cd48b1ead117
   languageName: node
   linkType: hard
 
@@ -3146,9 +3146,9 @@ __metadata:
   resolution: "@reapit/elements@workspace:packages/elements"
   dependencies:
     "@figma/code-connect": "npm:^1.5.1"
-    "@linaria/core": "npm:8.1.1"
+    "@linaria/core": "npm:8.2.0"
     "@linaria/postcss-linaria": "npm:8.1.1"
-    "@linaria/react": "npm:8.1.1"
+    "@linaria/react": "npm:8.2.0"
     "@oddbird/css-anchor-positioning": "npm:^0.10.1"
     "@playwright/test": "npm:1.62.1"
     "@storybook/addon-a11y": "npm:10.5.7"
@@ -4734,15 +4734,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@wyw-in-js/processor-utils@npm:2.1.0":
-  version: 2.1.0
-  resolution: "@wyw-in-js/processor-utils@npm:2.1.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40wyw-in-js%2Fprocessor-utils%2F-%2Fprocessor-utils-2.1.0.tgz"
-  dependencies:
-    "@wyw-in-js/shared": "npm:2.1.0"
-  checksum: 10/4b948898db313cbdaef8fde2f0e8898a5568add54a736ae2fbd62b8889e9e53c466b56165c43e99e1ba5c8ccf3b224075cccf1d94ae8664a588dd4fbc506aea0
-  languageName: node
-  linkType: hard
-
 "@wyw-in-js/processor-utils@npm:2.3.0":
   version: 2.3.0
   resolution: "@wyw-in-js/processor-utils@npm:2.3.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40wyw-in-js%2Fprocessor-utils%2F-%2Fprocessor-utils-2.3.0.tgz"
@@ -4752,14 +4743,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@wyw-in-js/shared@npm:2.1.0":
-  version: 2.1.0
-  resolution: "@wyw-in-js/shared@npm:2.1.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40wyw-in-js%2Fshared%2F-%2Fshared-2.1.0.tgz"
+"@wyw-in-js/processor-utils@npm:2.4.0":
+  version: 2.4.0
+  resolution: "@wyw-in-js/processor-utils@npm:2.4.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40wyw-in-js%2Fprocessor-utils%2F-%2Fprocessor-utils-2.4.0.tgz"
   dependencies:
-    debug: "npm:^4.3.4"
-    find-up: "npm:^5.0.0"
-    minimatch: "npm:^9.0.3"
-  checksum: 10/563702c92f6bc460feacdc9679323a01d30fe193fad6faf5bc27bcfa9c27294afa7c756716ca11eb97c3baae33b68d39fadbd2179b2a3a3f4ac9f669ea94c0c1
+    "@wyw-in-js/shared": "npm:2.4.0"
+  checksum: 10/24c253c6264cf4b78b724c1bae5b7235af2465a8962e79411d011d1ba0fd3d974a78d9f86e2b41877ea38c005ed3bee091679ad52e08d0271e8ce20b71a58aa3
   languageName: node
   linkType: hard
 
@@ -4771,6 +4760,17 @@ __metadata:
     find-up: "npm:^5.0.0"
     minimatch: "npm:^9.0.3"
   checksum: 10/70675f6d637e7947e0882c77d3a42d06112b7a8f232712e9c3c92fcd2690f6535b93893d80127b45d2a79fb64aac53d2de7f767fd648f29958960ff9d95efbe0
+  languageName: node
+  linkType: hard
+
+"@wyw-in-js/shared@npm:2.4.0":
+  version: 2.4.0
+  resolution: "@wyw-in-js/shared@npm:2.4.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40wyw-in-js%2Fshared%2F-%2Fshared-2.4.0.tgz"
+  dependencies:
+    debug: "npm:^4.3.4"
+    find-up: "npm:^5.0.0"
+    minimatch: "npm:^9.0.3"
+  checksum: 10/0eeaaf6bd5f90032fc5e008271cf290f3e04b55b3b06fcb48912ecff8771df266524d3376bc772204b979da83dcf6040f5670b49536e79dabdc7ef3d9fe08a82
   languageName: node
   linkType: hard
 
