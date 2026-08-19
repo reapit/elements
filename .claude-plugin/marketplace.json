@@ -12,8 +12,7 @@
     {
       "name": "elements",
       "source": "./plugins/elements",
-      "description": "Skills for consumer teams working with Reapit Elements (the Design System) from their own codebases.",
-      "version": "0.1.0"
+      "description": "Skills for consumer teams working with Reapit Elements (the Design System) from their own codebases."
     }
   ]
 }

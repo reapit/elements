@@ -42,23 +42,14 @@ All paths below, and in `guidelines/` and the skills, are relative to `packages/
 
 ## Contributing Guidelines
 
-- Write components in TypeScript with explicit type definitions
-- Follow existing naming conventions and file structure
-- Include Storybook stories
-- Use design tokens for consistent styling
-- Make components accessible
-- Top-level barrel files MUST follow the barrel export conventions
-- All components MUST follow the namespace interface pattern
-- React contexts MUST follow the context pattern
-- Components with `z-index` MUST follow the z-index layering conventions
-- All component styles MUST use the cascade layering pattern
-- Tests MUST follow testing guidelines
-- Stories MUST follow Storybook documentation guidelines
-- All prose MUST use British English and follow clarity principles
-- Codemods for breaking changes MUST follow the codemod workflow
-- When addressing PR review comments, use the end-to-end review workflow
-- Changesets MUST follow the changeset conventions
-- PR titles and descriptions MUST follow the pull request conventions
+Write idiomatic TypeScript that matches the surrounding code and file structure. Skills cover
+the conventions that aren't obvious from reading the code — barrel exports, the namespace
+interface pattern, the React context pattern, z-index and cascade layering, testing, Storybook
+docs, prose style, codemods, PR review, changesets, and PR conventions. They load automatically
+when relevant; don't restate their rules here.
+
+Gotchas not covered by a skill:
+
 - PRs with UI changes MUST include screenshots or video
 - When workflow architecture changes, update `.github/CI.md` (new jobs, composite actions, job dependencies, or deployment strategy)
 - `.gitignore` patterns containing a slash MUST declare their anchoring: `**/` for any depth, leading `/` for the repo root only

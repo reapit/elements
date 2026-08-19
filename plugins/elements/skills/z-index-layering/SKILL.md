@@ -31,11 +31,14 @@ import "@reapit/elements/styles.css";
 
 The three tokens are:
 
-| Token                | Value | Purpose                                                                                          |
-| -------------------- | ----- | ------------------------------------------------------------------------------------------------ |
-| `--z-index-base`     | `0`   | Explicit base stacking level — use when an element must sit visibly below elevated siblings      |
-| `--z-index-elevated` | `1`   | Internal component stacking (e.g., active tab indicator, focus ring) — contained by `isolation`  |
-| `--z-index-sticky`   | `10`  | Sticky or fixed elements that must stay above scrolling content (e.g., fixed header, sticky nav) |
+| Token                | Purpose                                                                                          |
+| -------------------- | ------------------------------------------------------------------------------------------------ |
+| `--z-index-base`     | Explicit base stacking level — use when an element must sit visibly below elevated siblings      |
+| `--z-index-elevated` | Internal component stacking (e.g., active tab indicator, focus ring) — contained by `isolation`  |
+| `--z-index-sticky`   | Sticky or fixed elements that must stay above scrolling content (e.g., fixed header, sticky nav) |
+
+Reference them by name via `var(--z-index-*)` — their actual numeric values are an Elements
+implementation detail and may change between versions; don't hardcode them.
 
 ## Required Pattern for Your Custom Components
 
