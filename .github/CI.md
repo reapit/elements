@@ -61,7 +61,7 @@ test ──── codacy
 build
 docs ──── deploy-preview
 figma
-audit-skills          (scan skipped when .agents/skills unchanged)
+audit-skills          (scans .agents/skills and plugins/elements/skills; each scan skipped when its path is unchanged)
 ```
 
 `cleanup-preview.yml` runs one of two jobs depending on the trigger:

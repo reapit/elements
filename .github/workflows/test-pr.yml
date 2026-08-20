@@ -90,8 +90,15 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
-      - uses: ./actions/audit-skills
+      - name: Audit .agents/skills
+        uses: ./actions/audit-skills
         with:
+          changed-only: "true"
+          base-ref: ${{ github.base_ref }}
+      - name: Audit plugins/elements/skills
+        uses: ./actions/audit-skills
+        with:
+          path: plugins/elements/skills
           changed-only: "true"
           base-ref: ${{ github.base_ref }}
 

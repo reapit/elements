@@ -47,7 +47,7 @@ runs:
     - name: Install SkillSpector
       if: ${{ inputs.changed-only == 'false' || steps.detect.outputs.has-changes == 'true' }}
       run: |
-        uv tool install "skillspector @ git+https://github.com/NVIDIA/SkillSpector.git@ab0431ff2a9e9d75ba866f986be17f8600cfd086" # v2.3.7
+        uv tool install "skillspector @ git+https://github.com/NVIDIA/SkillSpector.git@29b0dc8c39424e8e31ca055fa027adf8ba8f9650" # v2.9.6
       shell: bash
     - name: Scan skills
       id: scan
