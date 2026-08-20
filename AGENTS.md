@@ -20,6 +20,20 @@ This is a Yarn workspaces monorepo. Run yarn scripts from the repo root — `che
 Repo-wide tooling lives at the root: changesets, oxlint, oxfmt, lint-staged and git hooks.
 Everything specific to a workspace lives inside it.
 
+## Running a Single Test
+
+Unit tests are vitest, owned by `packages/elements` (`doc-evals` and `gaffer` have no `test:ci`,
+only `check`). Run one file or pattern via:
+
+```bash
+yarn workspace @reapit/elements test src/core/button/button.test.tsx
+```
+
+`packages/elements` intentionally also owns the test run for `.changeset/**/*.test.js` (the
+changelog formatter) - vitest can only be installed in one workspace for
+`@testing-library/jest-dom` to resolve correctly, so don't add a second vitest setup at root or
+in another workspace.
+
 ## Core Directories
 
 All paths below, and in `guidelines/` and the skills, are relative to `packages/elements/`.
