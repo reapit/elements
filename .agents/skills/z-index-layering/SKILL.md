@@ -1,6 +1,6 @@
 ---
 name: z-index-layering
-description: Enforce correct z-index usage in Reapit Elements components. Use when adding z-index to a new component, reviewing a PR that touches z-index or stacking, or migrating hardcoded z-index values to semantic tokens.
+description: Enforce correct z-index usage inside the Reapit Elements library's own source (this repo). Use when adding z-index to a new Elements component, reviewing a PR in this repo that touches z-index or stacking, or migrating hardcoded z-index values to semantic tokens. Do not use for consumer apps building custom components alongside Elements.
 ---
 
 # Z-Index Layering

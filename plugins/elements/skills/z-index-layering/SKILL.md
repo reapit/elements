@@ -1,6 +1,6 @@
 ---
 name: z-index-layering
-description: Apply z-index layering conventions in your own custom components alongside Reapit Elements. Use when adding z-index to a custom component, reviewing a PR that introduces z-index in your own code, or ensuring custom overlays do not conflict with Elements' overlay components.
+description: Apply z-index layering conventions in your own custom components alongside Reapit Elements. Use when adding z-index to a custom component, reviewing a PR that introduces z-index in your own code, or ensuring custom overlays do not conflict with Elements' overlay components. Do not use when authoring components inside Reapit Elements itself.
 ---
 
 # Z-Index Layering for Custom Components
