@@ -8,6 +8,7 @@
     "name": "Reapit Design System",
     "url": "https://reapit-global.atlassian.net/wiki/spaces/DS/overview"
   },
+  "allowCrossMarketplaceDependenciesOn": ["claude-plugins-official"],
   "plugins": [
     {
       "name": "elements",
