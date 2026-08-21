@@ -1,13 +1,13 @@
 ---
-name: review-figma-file
-description: Review a Figma file for engineering-handoff readiness against the Reapit Design System, reporting blockers and advisories. Use before marking a file Ready for Dev, or when checking a design's use of Elements components and variables — either triggers the same full review.
+name: review-figma-design
+description: Review a Figma design for engineering-handoff readiness against the Reapit Design System, reporting blockers and advisories. Use before marking a design Ready for Dev, or when checking a design's use of Elements components and variables — either triggers the same full review.
 argument-hint: [Figma file, page, or frame URL]
 compatibility: requires a connected Figma MCP server with read access to the file under review
 ---
 
-# Review a Figma File
+# Review a Figma Design
 
-Produce a handoff readiness report for a Figma file: what engineering can build
+Produce a handoff readiness report for a Figma design: what engineering can build
 as-is, what needs the designer's attention first, and what only the designer can
 confirm.
 

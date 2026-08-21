@@ -9,6 +9,6 @@ stand on its own — no repository checkout, and no paths into this monorepo.
 | --------------------- | ----------------------------------------------------------- |
 | `design-tokens`       | Applying Design System tokens in consumer code              |
 | `mcp-server-guidance` | Choosing between the two Design System MCP servers          |
-| `review-figma-file`   | Reviewing a Figma file for engineering-handoff readiness    |
+| `review-figma-design` | Reviewing a Figma design for engineering-handoff readiness  |
 | `running-codemods`    | Migrating components when upgrading `@reapit/elements`      |
 | `z-index-layering`    | Z-index conventions in custom components alongside Elements |
