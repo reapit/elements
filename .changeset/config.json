@@ -1,6 +1,6 @@
 {
   "$schema": "https://unpkg.com/@changesets/config@4.0.0/schema.json",
-  "changelog": ["./changelog-format.js", { "repo": "reapit-global/gbl-ds-elements" }],
+  "changelog": ["changelog-format", { "repo": "reapit-global/gbl-ds-elements" }],
   "commit": false,
   "fixed": [],
   "linked": [],

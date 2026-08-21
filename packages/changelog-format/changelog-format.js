@@ -131,7 +131,7 @@ const getReleaseLine = async (changeset, type, options) => {
   if (!options?.repo) {
     throw new Error(
       "Please provide a repo to this changelog generator:\n" +
-        '"changelog": ["./changelog-format.js", { "repo": "org/repo" }]',
+        '"changelog": ["changelog-format", { "repo": "org/repo" }]',
     );
   }
 
@@ -175,7 +175,7 @@ const getDependencyReleaseLine = async (changesets, dependenciesUpdated, options
   if (!options?.repo) {
     throw new Error(
       "Please provide a repo to this changelog generator:\n" +
-        '"changelog": ["./changelog-format.js", { "repo": "org/repo" }]',
+        '"changelog": ["changelog-format", { "repo": "org/repo" }]',
     );
   }
 

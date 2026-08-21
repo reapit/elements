@@ -16,23 +16,20 @@ This is a Yarn workspaces monorepo. Run yarn scripts from the repo root — `che
 - `packages/elements/` - `@reapit/elements`, the published library, its Storybook and codemods
 - `packages/doc-evals/` - `@reapit/elements-evals`, documentation quality evals (private)
 - `packages/gaffer/` - `@reapit/gaffer`, PR classification and merge gating (private)
+- `packages/changelog-format/` - `changelog-format`, the changesets changelog formatter
+  referenced by `.changeset/config.json` (private)
 
 Repo-wide tooling lives at the root: changesets, oxlint, oxfmt, lint-staged and git hooks.
 Everything specific to a workspace lives inside it.
 
 ## Running a Single Test
 
-Unit tests are vitest, owned by `packages/elements` (`doc-evals` and `gaffer` have no `test:ci`,
-only `check`). Run one file or pattern via:
+Unit tests are vitest, each workspace installing and configuring its own (`doc-evals` and
+`gaffer` have no `test:ci`, only `check`). Run one file or pattern via:
 
 ```bash
 yarn workspace @reapit/elements test src/core/button/button.test.tsx
 ```
-
-`packages/elements` intentionally also owns the test run for `.changeset/**/*.test.js` (the
-changelog formatter) - vitest can only be installed in one workspace for
-`@testing-library/jest-dom` to resolve correctly, so don't add a second vitest setup at root or
-in another workspace.
 
 ## Core Directories
 
