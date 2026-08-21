@@ -2,9 +2,13 @@
 
 Skills for this plugin land here, one directory per skill (`<skill-name>/SKILL.md`), following this repo's skill-authoring conventions.
 
-Planned skills (tracked as separate tickets, not yet written):
+Consumers reach these through Claude Code or Claude Cowork, so a skill here must
+stand on its own — no repository checkout, and no paths into this monorepo.
 
-- DS-326 — guidance on which Design System MCP server to use and when
-- DS-327 — using Design System tokens/variables in consumer code
-- DS-328 — z-index layering conventions in custom components
-- DS-329 — running codemods / migrating components as a consumer
+| Skill                 | Covers                                                      |
+| --------------------- | ----------------------------------------------------------- |
+| `design-tokens`       | Applying Design System tokens in consumer code              |
+| `mcp-server-guidance` | Choosing between the two Design System MCP servers          |
+| `review-figma-file`   | Reviewing a Figma file for engineering-handoff readiness    |
+| `running-codemods`    | Migrating components when upgrading `@reapit/elements`      |
+| `z-index-layering`    | Z-index conventions in custom components alongside Elements |
