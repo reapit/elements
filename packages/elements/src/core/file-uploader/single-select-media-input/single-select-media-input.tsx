@@ -10,12 +10,7 @@ import type {
 import { FileInput } from "#src/utils/file-input";
 
 import { useFileUploaderContext } from "../context";
-import {
-  elFileUploaderDropzoneFileInput,
-  ElFileUploaderDropzone,
-  ElFileUploaderDropzoneIcon,
-  ElFileUploaderDropzoneText,
-} from "../dropzone-input/styles";
+import { elFileUploaderDropzoneFileInput, FileUploaderDropzoneArea } from "../dropzone-area";
 import { useFileUploaderInput } from "../use-file-uploader-input";
 import { useObjectUrl } from "../use-object-url";
 import { FileUploaderSingleSelectMediaCard } from "./media-card";
@@ -145,13 +140,13 @@ export function FileUploaderSingleSelectMediaInput({
             status={item.status}
           />
         ) : (
-          <ElFileUploaderDropzone
+          <FileUploaderDropzoneArea
             autoFocus={autoFocus}
             className={className}
-            data-is-dragging-over={isDraggingOver}
-            data-variant="large"
             disabled={disabled}
+            icon={icon}
             id={triggerId}
+            isDraggingOver={isDraggingOver}
             onBlur={onBlur}
             onClick={(event) => {
               openFilePicker();
@@ -160,18 +155,13 @@ export function FileUploaderSingleSelectMediaInput({
             onFocus={onFocus}
             onKeyDown={onKeyDown}
             ref={emptyTriggerRef}
+            secondaryText={secondaryText}
             style={{ ...style, aspectRatio }}
             tabIndex={tabIndex}
-            type="button"
+            variant="large"
           >
-            {icon && <ElFileUploaderDropzoneIcon aria-hidden>{icon}</ElFileUploaderDropzoneIcon>}
-            <ElFileUploaderDropzoneText data-slot="primary">{children}</ElFileUploaderDropzoneText>
-            {secondaryText && (
-              <ElFileUploaderDropzoneText data-slot="secondary">
-                {secondaryText}
-              </ElFileUploaderDropzoneText>
-            )}
-          </ElFileUploaderDropzone>
+            {children}
+          </FileUploaderDropzoneArea>
         )
       }
     </FileInput>

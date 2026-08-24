@@ -9,13 +9,8 @@ import type {
 import { FileInput } from "#src/utils/file-input";
 
 import { useFileUploaderContext } from "../context";
+import { elFileUploaderDropzoneFileInput, FileUploaderDropzoneArea } from "../dropzone-area";
 import { useFileUploaderInput } from "../use-file-uploader-input";
-import {
-  elFileUploaderDropzoneFileInput,
-  ElFileUploaderDropzone,
-  ElFileUploaderDropzoneIcon,
-  ElFileUploaderDropzoneText,
-} from "./styles";
 
 type FileInputAttributesToOmit =
   | "autoFocus"
@@ -111,13 +106,13 @@ export function FileUploaderDropzoneInput({
       value={files}
     >
       {({ disabled, isDraggingOver, openFilePicker }) => (
-        <ElFileUploaderDropzone
+        <FileUploaderDropzoneArea
           autoFocus={autoFocus}
           className={className}
-          data-is-dragging-over={isDraggingOver}
-          data-variant={variant}
           disabled={disabled}
+          icon={icon}
           id={triggerId}
+          isDraggingOver={isDraggingOver}
           onBlur={onBlur}
           onClick={(event) => {
             openFilePicker();
@@ -125,18 +120,13 @@ export function FileUploaderDropzoneInput({
           }}
           onFocus={onFocus}
           onKeyDown={onKeyDown}
+          secondaryText={secondaryText}
           style={style}
           tabIndex={tabIndex}
-          type="button"
+          variant={variant}
         >
-          {icon && <ElFileUploaderDropzoneIcon aria-hidden>{icon}</ElFileUploaderDropzoneIcon>}
-          {<ElFileUploaderDropzoneText data-slot="primary">{children}</ElFileUploaderDropzoneText>}
-          {secondaryText && variant === "large" && (
-            <ElFileUploaderDropzoneText data-slot="secondary">
-              {secondaryText}
-            </ElFileUploaderDropzoneText>
-          )}
-        </ElFileUploaderDropzone>
+          {children}
+        </FileUploaderDropzoneArea>
       )}
     </FileInput>
   );

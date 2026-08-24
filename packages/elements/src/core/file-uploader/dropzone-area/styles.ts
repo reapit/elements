@@ -40,9 +40,9 @@ export const ElFileUploaderDropzone = styled.button`
     }
 
     /* NOTE: this button is rendered as FileInput's children, so it's always a direct sibling of
-     * the native, visually-hidden file input — see FileUploaderDropzoneInput. :where(...) keeps
-     * data-show-validity from adding specificity that would fight the hover/dragging-over styles
-     * above. */
+     * the native, visually-hidden file input — see FileUploaderDropzoneArea's callers. :where(...)
+     * keeps data-show-validity from adding specificity that would fight the
+     * hover/dragging-over styles above. */
     input:where([data-show-validity="true"]):invalid + &,
     input:where([data-show-validity="true"]):user-invalid + & {
       border-color: var(--colour-border-error-default);
