@@ -745,12 +745,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@changesets/get-github-info@npm:1.0.0-next.4":
-  version: 1.0.0-next.4
-  resolution: "@changesets/get-github-info@npm:1.0.0-next.4::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40changesets%2Fget-github-info%2F-%2Fget-github-info-1.0.0-next.4.tgz"
+"@changesets/get-github-info@npm:1.0.0":
+  version: 1.0.0
+  resolution: "@changesets/get-github-info@npm:1.0.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40changesets%2Fget-github-info%2F-%2Fget-github-info-1.0.0.tgz"
   dependencies:
     dataloader: "npm:^2.2.3"
-  checksum: 10/90098f97ccdc34bf11f41b1254eb1c0609a47d65bae9b956ca75290f1311d72509ba91921885977fed56fbb6ad864fe5c919f2ffc605ee09f1b38841555bc8c7
+  checksum: 10/44c038626aee9ee138ab092e16a222dfb982e3f9ada4882ae28b58563cc45a7a40a0981b055a6b58e6ef2adc5e97285401af2a0dd526c8781636088c48b8242d
   languageName: node
   linkType: hard
 
@@ -5638,7 +5638,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "changelog-format@workspace:packages/changelog-format"
   dependencies:
-    "@changesets/get-github-info": "npm:1.0.0-next.4"
+    "@changesets/get-github-info": "npm:1.0.0"
     "@changesets/types": "npm:^7.0.0"
     vitest: "npm:^4.1.10"
   languageName: unknown
