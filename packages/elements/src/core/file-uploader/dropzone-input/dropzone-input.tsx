@@ -1,50 +1,28 @@
-import type {
-  CSSProperties,
-  FocusEventHandler,
-  KeyboardEventHandler,
-  MouseEventHandler,
-  ReactNode,
-} from "react";
+import type { CSSProperties, ReactNode } from "react";
 
 import { FileInput } from "#src/utils/file-input";
 
 import { useFileUploaderContext } from "../context";
 import { elFileUploaderDropzoneFileInput, FileUploaderDropzoneArea } from "../dropzone-area";
+import type {
+  FileUploaderTriggerAttributesToOmit,
+  BaseFileUploaderTriggerProps,
+} from "../file-uploader-trigger-props";
 import { useFileUploaderInput } from "../use-file-uploader-input";
 
-type FileInputAttributesToOmit =
-  | "autoFocus"
-  | "children"
-  | "className"
-  | "defaultValue"
-  | "onBlur"
-  | "onClick"
-  | "onFocus"
-  | "onKeyDown"
-  | "style"
-  | "tabIndex"
-  | "value";
-
 export namespace FileUploaderDropzoneInput {
-  export interface Props extends Omit<FileInput.Props, FileInputAttributesToOmit> {
-    autoFocus?: boolean;
+  export interface Props
+    extends
+      Omit<FileInput.Props, FileUploaderTriggerAttributesToOmit>,
+      BaseFileUploaderTriggerProps {
     className?: string;
     /** The icon shown in the dropzone's icon badge. */
     icon?: ReactNode;
-    /** Called when the trigger is blurred. */
-    onBlur?: FocusEventHandler<HTMLButtonElement>;
-    /** Called when the trigger is clicked, in addition to opening the file picker. */
-    onClick?: MouseEventHandler<HTMLButtonElement>;
-    /** Called when the trigger is focused. */
-    onFocus?: FocusEventHandler<HTMLButtonElement>;
-    /** Called on a key down event on the trigger. */
-    onKeyDown?: KeyboardEventHandler<HTMLButtonElement>;
     /** The dropzone's primary text. */
     children?: ReactNode;
     /** Optional supporting line of text below the primary text (`children`), e.g. "Up to 10MB". Ignored for `variant="compact"` — Figma has no secondary line for it. */
     secondaryText?: ReactNode;
     style?: CSSProperties;
-    tabIndex?: number;
     /** The size of the dropzone. */
     variant?: "compact" | "large";
   }

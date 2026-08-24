@@ -11,31 +11,29 @@ import { FileInput } from "#src/utils/file-input";
 
 import { useFileUploaderContext } from "../context";
 import { elFileUploaderDropzoneFileInput, FileUploaderDropzoneArea } from "../dropzone-area";
+import type {
+  FileUploaderTriggerAttributesToOmit,
+  BaseFileUploaderTriggerProps,
+} from "../file-uploader-trigger-props";
 import { useFileUploaderInput } from "../use-file-uploader-input";
 import { useObjectUrl } from "../use-object-url";
 import { FileUploaderSingleSelectMediaCard } from "./media-card";
 
 type FileInputAttributesToOmit =
-  | "autoFocus"
-  | "children"
-  | "className"
-  | "defaultValue"
+  | FileUploaderTriggerAttributesToOmit
   | "maxFiles"
   | "minFiles"
-  | "multiple"
-  | "onBlur"
-  | "onClick"
-  | "onFocus"
-  | "onKeyDown"
-  | "style"
-  | "tabIndex"
-  | "value";
+  | "multiple";
 
 export namespace FileUploaderSingleSelectMediaInput {
-  export interface Props extends Omit<FileInput.Props, FileInputAttributesToOmit> {
+  // `onBlur`/`onClick`/`onFocus`/`onKeyDown` are redeclared below — rather than left to
+  // `BaseFileUploaderTriggerProps`'s generic docs — because they're only wired to the empty
+  // placeholder trigger; `FileUploaderSingleSelectMediaCard`'s filled state doesn't accept any of
+  // them.
+  export interface Props
+    extends Omit<FileInput.Props, FileInputAttributesToOmit>, BaseFileUploaderTriggerProps {
     /** Alt text for the filled state's thumbnail image. Defaults to an empty string, since the filename already labels the item. */
     alt?: string;
-    autoFocus?: boolean;
     /**
      * The aspect ratio of the empty dropzone and the selected file's thumbnail.
      * @default '4 / 3'
@@ -44,6 +42,8 @@ export namespace FileUploaderSingleSelectMediaInput {
     className?: string;
     /** The icon shown in the empty state's icon badge. */
     icon?: ReactNode;
+    /** The empty state's primary text. */
+    children?: ReactNode;
     /** Called when the empty placeholder trigger is blurred. No-op once a file is selected — see `FileUploaderSingleSelectMediaCard` for the filled state's own focus handling. */
     onBlur?: FocusEventHandler<HTMLButtonElement>;
     /** Called when the empty placeholder trigger is clicked, in addition to opening the file picker. */
@@ -52,12 +52,9 @@ export namespace FileUploaderSingleSelectMediaInput {
     onFocus?: FocusEventHandler<HTMLButtonElement>;
     /** Called on a key down event on the empty placeholder trigger. */
     onKeyDown?: KeyboardEventHandler<HTMLButtonElement>;
-    /** The empty state's primary text. */
-    children?: ReactNode;
     /** Optional supporting line of text below the primary text (`children`), shown only in the empty state. */
     secondaryText?: ReactNode;
     style?: CSSProperties;
-    tabIndex?: number;
   }
 }
 

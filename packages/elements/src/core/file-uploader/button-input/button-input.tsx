@@ -1,15 +1,14 @@
 import { cx } from "@linaria/core";
-import type {
-  ComponentProps,
-  FocusEventHandler,
-  KeyboardEventHandler,
-  MouseEventHandler,
-} from "react";
+import type { ComponentProps } from "react";
 
 import { Button } from "#src/core/button";
 import { FileInput } from "#src/utils/file-input";
 
 import { useFileUploaderContext } from "../context";
+import type {
+  FileUploaderTriggerAttributesToOmit,
+  BaseFileUploaderTriggerProps,
+} from "../file-uploader-trigger-props";
 import { useFileUploaderInput } from "../use-file-uploader-input";
 import { elFileUploaderButtonInput } from "./styles";
 
@@ -28,32 +27,14 @@ type ButtonAttributesToForward =
   | "useLinkStyle"
   | "variant";
 
-type FileInputAttributesToOmit =
-  | "autoFocus"
-  | "children"
-  | "className"
-  | "defaultValue"
-  | "onBlur"
-  | "onClick"
-  | "onFocus"
-  | "onKeyDown"
-  | "size"
-  | "style"
-  | "tabIndex"
-  | "value";
+type FileInputAttributesToOmit = FileUploaderTriggerAttributesToOmit | "size";
 
 export namespace FileUploaderButtonInput {
   export interface Props
     extends
       Pick<ComponentProps<typeof Button>, ButtonAttributesToForward>,
-      Omit<FileInput.Props, FileInputAttributesToOmit> {
-    autoFocus?: boolean;
-    onBlur?: FocusEventHandler<HTMLButtonElement>;
-    onClick?: MouseEventHandler<HTMLButtonElement>;
-    onFocus?: FocusEventHandler<HTMLButtonElement>;
-    onKeyDown?: KeyboardEventHandler<HTMLButtonElement>;
-    tabIndex?: number;
-  }
+      Omit<FileInput.Props, FileInputAttributesToOmit>,
+      BaseFileUploaderTriggerProps {}
 }
 
 /**

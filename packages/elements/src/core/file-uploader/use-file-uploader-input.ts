@@ -2,6 +2,8 @@ import { useSyncExternalStore } from "react";
 import type { ChangeEventHandler } from "react";
 
 import { validateFiles } from "#src/utils/file-input";
+import type { FileInput } from "#src/utils/file-input";
+import { resolveFileSelectionLimits } from "#src/utils/file-input/resolve-file-selection-limits";
 
 import { useFileUploaderContext } from "./context";
 
@@ -9,14 +11,12 @@ export namespace useFileUploaderInput {
   // Note: Does not accept all the supported validation constraints, because we only care about reporting
   // validity to the queue for file-level constraints (e.g. accept, maxFileSize) and deciding whether to
   // append to or replace the current selection (which only cares about the maximum number of files
-  // permitted, not the minimum).
-  export interface Options {
-    accept?: string;
-    maxFiles?: number;
-    maxFileSize?: number;
-    multiple?: boolean;
-    onChange?: ChangeEventHandler<HTMLInputElement>;
-  }
+  // permitted, not the minimum). Picked from `FileInput.Props` rather than hand-written, so the two
+  // can't silently drift apart.
+  export type Options = Pick<
+    FileInput.Props,
+    "accept" | "maxFiles" | "maxFileSize" | "multiple" | "onChange"
+  >;
 }
 
 /**
@@ -39,7 +39,7 @@ export function useFileUploaderInput({
   const { queue } = useFileUploaderContext("useFileUploaderInput");
   const files = useSyncExternalStore(queue.subscribe, queue.getFilesSnapshot);
 
-  const effectiveMaxFiles = maxFiles ?? (multiple ? Infinity : 1);
+  const { maxFiles: effectiveMaxFiles } = resolveFileSelectionLimits({ maxFiles, multiple });
 
   const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => {
     const newFiles = Array.from(event.currentTarget.files ?? []);

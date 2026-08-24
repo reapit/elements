@@ -2,6 +2,7 @@ import { forwardRef, useId, useState } from "react";
 import type { ChangeEvent, FocusEvent, InputHTMLAttributes, ReactNode } from "react";
 
 import { getInputElement } from "./get-input-element";
+import { resolveFileSelectionLimits } from "./resolve-file-selection-limits";
 import { ElFileInput, ElFileInputWrapper } from "./styles";
 import { useFileDropzone } from "./use-file-dropzone";
 import { useFileInputValidity } from "./use-file-input-validity";
@@ -204,18 +205,20 @@ export const FileInput = forwardRef<HTMLInputElement, FileInput.Props>(
     const [uncontrolledFiles, setUncontrolledFiles] = useState<File[]>(defaultValue ?? []);
     const files = isControlled ? value : uncontrolledFiles;
 
-    // A `maxFiles` above `1` is unsatisfiable under single-select — `validateFiles` rejects a
-    // second file as an overflow before `maxFiles` is ever consulted — so infer `multiple` from it
-    // when the consumer hasn't set `multiple` explicitly. `maxTotalSize` isn't inferred the same
-    // way: with one file, "total selection size" and "that file's size" are the same number, so it
-    // degrades to `maxFileSize` rather than going dead.
-    const effectiveMultiple = multiple ?? (maxFiles !== undefined && maxFiles > 1);
+    // `maxTotalSize` isn't inferred the same way `resolveFileSelectionLimits` infers `multiple`
+    // from `maxFiles`: with one file, "total selection size" and "that file's size" are the same
+    // number, so it degrades to `maxFileSize` rather than going dead.
+    const { multiple: effectiveMultiple, maxFiles: effectiveMaxFiles } = resolveFileSelectionLimits(
+      {
+        maxFiles,
+        multiple,
+      },
+    );
 
-    // `multiple`/`required` are native attributes with no bearing on `validateFiles` by
-    // themselves — they're folded into the same `maxFiles`/`minFiles` custom constraints an
-    // explicit value would use, rather than being a separate rule `validateFiles` has to know
-    // about. An explicit `maxFiles`/`minFiles` always wins over the inferred default.
-    const effectiveMaxFiles = maxFiles ?? (effectiveMultiple ? Infinity : 1);
+    // `required` is a native attribute with no bearing on `validateFiles` by itself — it's folded
+    // into the same `minFiles` custom constraint an explicit value would use, rather than being a
+    // separate rule `validateFiles` has to know about. An explicit `minFiles` always wins over the
+    // inferred default.
     const effectiveMinFiles = minFiles ?? (required ? 1 : 0);
 
     const [isFocused, setIsFocused] = useState(false);
