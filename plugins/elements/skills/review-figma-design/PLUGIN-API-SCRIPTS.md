@@ -43,6 +43,26 @@ const cap = (list, n = 40) => ({ total: list.length, shown: list.slice(0, n) });
 If a script's return still overflows, lower the `cap` limits or put a single frame
 ID in `SCOPE` and run it once per frame.
 
+## 0. The file's page list
+
+Step 1 needs every page in the file, not every page the editor has loaded. Figma loads
+pages lazily and the metadata capability's page listing reports only what is loaded, so
+it under-reports — a file opened on one page answers "one page". `figma.root.children`
+is unaffected: it lists every page, and a page reporting zero children is unloaded
+rather than empty.
+
+```js
+return figma.root.children.map((p) => ({
+  id: p.id,
+  name: p.name,
+  loadedChildren: p.children.length,
+}));
+```
+
+Do not read `loadedChildren` as a page's size. Nothing in this review needs to open the
+out-of-scope pages — their names are the whole point, and they go into the artifact as
+`scope.pagesInFile`.
+
 ## 1. Hygiene and component inventory
 
 Answers step 2's record list and step 3's buckets in one pass. The inventory keys on

@@ -1,6 +1,6 @@
 ---
 name: review-figma-design
-description: Review a Figma design for engineering-handoff readiness against the Reapit Design System, reporting blockers and advisories. Use before marking a design Ready for Dev, or when checking a design's use of Elements components and variables — either triggers the same full review.
+description: Review a Figma design for engineering-handoff readiness against the Reapit Design System, reporting blockers and advisories. Use before marking a design Ready for Dev, when checking a design's use of Elements components and variables, or when a shareable handoff checklist is wanted — each triggers the same full review.
 argument-hint: [Figma file, page, or frame URL]
 compatibility: requires a connected Figma MCP server with read access to the file under review
 ---
@@ -46,15 +46,15 @@ exposes some or all of:
 - **Plugin API execution** — arbitrary read-only scripts against the file. This is
   the only route to a node's Dev Mode annotations and to the file's annotation
   categories, which by default are Development, Interaction, Accessibility, and
-  Content. It is also the only route to prototype data and to an instance's main
-  component. Where it is unavailable, every annotation check in the checklist falls
-  back to `[confirm]`.
+  Content. It is also the only route to prototype data, to an instance's main
+  component, and to a trustworthy list of the file's pages. Where it is unavailable,
+  every annotation check in the checklist falls back to `[confirm]`.
 
   A script must `return` its result. Anything logged to the console is discarded,
   and the run reports no return value — an audit written with `console.log` is lost
   in full. [`PLUGIN-API-SCRIPTS.md`](PLUGIN-API-SCRIPTS.md) in this skill's
-  directory holds a script per survey, ready to adapt: inventory and hygiene,
-  variant states, annotations, prototype, and placeholder copy.
+  directory holds a script per survey, ready to adapt: the page list, inventory and
+  hygiene, variant states, annotations, prototype, and placeholder copy.
 
 Three capabilities carry the review. The Plugin API gives breadth, because a script
 can walk the whole page and return a tally where a response carrying the nodes
@@ -76,21 +76,53 @@ the tool reports a gap in your search as a gap in the design.
 
 ## Step 1 — Fix the scope
 
-List the file's pages. Where more than one page or more than one flow exists, ask
-the designer which pages or frames are in scope rather than reviewing everything.
-A file holding exactly one flow needs no question — review all of it, and say in
-the report that the scope was the whole file.
+Scope is whatever the designer names: a whole file, one page of it, or a single
+frame. All three are ordinary requests, and a review of one frame is not a lesser
+review — it checks the same items against less of the file. What changes is only
+what the report says was excluded.
+
+List the file's pages, and **keep the whole list, not just the part you review**.
+Steps 6 and 7 both need it: what a review excluded is the pages it did not cover, and
+that is a fact about the file, not about the URL you were handed. A node-specific link
+names one frame and says nothing about its siblings, so a review scoped from one link
+knows its own scope and nothing else unless you go and look.
+
+Get that list from the Plugin API — `figma.root.children`, returning each page's `id`
+and `name` — and not from the metadata capability's page listing. Figma loads pages
+lazily, and the metadata listing reports only the pages the editor has loaded, so a
+file opened on one page answers "one page" for a file that has five. The Plugin API
+lists every page regardless; a page it reports with zero children is unloaded, not
+empty. This is the difference between a review that says what it skipped and one that
+claims the whole file:
+
+```js
+return figma.root.children.map(function (p) {
+  return { id: p.id, name: p.name };
+});
+```
+
+Where more than one page or more than one flow exists, ask the designer which pages or
+frames are in scope rather than reviewing everything. A file holding exactly one page
+needs no question — review all of it, and say in the report that the file has one page
+and the scope was all of it.
 
 Ask for a node-specific link per frame in scope while you are asking. Every later
 step addresses frames by node ID, and a link is the cheapest way to get one.
 
-Keep the file's own URL — everything up to the `?` — for the whole review. Step 6
-builds every layer link in the report from it, and reconstructing it later from a
-node ID is not possible.
+Keep three things for the whole review:
+
+- **The file URL** — everything up to the `?`. Step 6 builds every layer link from
+  it, and reconstructing it later from a node ID is not possible.
+- **The file key** — the segment after `/design/`, `AbC123` in
+  `https://www.figma.com/design/AbC123/Tenancy-flow`. It identifies the file across
+  page renames and frame refactors, and step 7 matches a prior artifact on it.
+- **The file's full page list** — every page name, in file order, alongside the
+  subset in scope. It goes into the artifact as `scope.pagesInFile`.
 
 **Done when** you hold a named list of top-level frames to review with a node ID
-for each, and the designer has confirmed it. Carry that list into the report
-verbatim — a reader must be able to tell what you never looked at.
+for each, the file's full page list beside it, and the designer has confirmed the
+scope. Carry both into the report verbatim — a reader must be able to tell what you
+never looked at.
 
 ## Step 2 — Survey structure
 
@@ -240,16 +272,19 @@ and discard. Write it in the conversation, where they can work through it agains
 the open file.
 
 Report against the checklist itself, tick by tick. Keep to this order and this
-shape whatever the medium — the format is fixed on purpose. A designer reads
-several of these, for different files and for successive passes on one file, and
-a checklist that looks the same every time is scannable in a way a set of tables
-is not.
+shape — the format is fixed on purpose. A designer reads several of these, for
+different files and for successive passes on one file, and a checklist that looks
+the same every time is scannable in a way a set of tables is not. Step 7's artifact
+rearranges one thing and nothing else: it colocates each `[confirm]` item in its own
+area rather than gathering them into **Over to you**.
 
 1. **Title** — `Handoff review — <file name>`, with the review date.
 2. **Verdict** — exactly one of **Ready for Dev** (no blockers, nothing left with
    the designer), **Ready with caveats** (no blockers, advisories or designer
    items outstanding), **Not ready** (one or more blockers).
-3. **Scope** — pages and frames inspected, and what was excluded.
+3. **Scope** — pages and frames inspected, and what was excluded. Name the pages you
+   did not review, from step 1's full list. "Whole file reviewed" is a claim about
+   every page in the file, so write it only where the list bears it out.
 4. **Checklist** — the ten areas of `HANDOFF-CHECKLIST.md`, in that order, holding
    every `[inspect]` item with a verdict.
 5. **Over to you** — the items only the designer can settle.
@@ -372,20 +407,146 @@ checklist already carries, and drifts from it as it does.
 warning has at least one finding bullet with a label, a link, and a fix, and the
 verdict follows from them.
 
-### What outlives the fixing
+## Step 7 — Publish an artifact
 
-The checklist is spent once the designer works through it. Two things are not, and
-these are what travel onward:
+Publish one by default. Stay in the conversation alone in two cases: the designer
+asked for that, or the review came to **no blockers and three or fewer outstanding
+items**, counting advisories, `[confirm]` items, and items you could not reach
+together.
 
-- **Over to you** — constraints, prototype flows, character limits, conditional
-  logic, accessibility notes. Not defects, but information engineering needs and
-  cannot read off the file.
-- **Component inventory** — the non-Elements buckets especially, which are an
-  input to the Design System team rather than a designer to-do.
+That threshold is the whole test, and it is why this step comes after the report
+rather than before it — the count is not knowable until step 6 is written. A review
+with a couple of loose ends gets worked through in one sitting, and a link the
+designer will act on once is overhead. Everything larger is a worklist spanning
+days, which is the thing an artifact is for.
 
-Publish an Artifact when that residue is what's wanted: a final pass, a verdict
-being handed to engineering, or an explicit request for something shareable. A
-designer still iterating gets no value from a link they will republish four times.
+Write the conversation report either way. The artifact is where the same findings go
+to be worked on; it never replaces the report the designer is reading now.
+
+The checklist is spent once the designer works through it. What an artifact adds is
+that the designer's own decisions are not:
+
+- **It is stateful.** The designer ticks `[confirm]` items and dismisses findings
+  that do not apply, and the page keeps both across sessions. The dismissals exist
+  nowhere else — the conversation has no way to hold which findings were judged
+  inapplicable, or why.
+- **A contents rail shows every area's live status**, so a designer returning days later
+  reads what is left without re-reading a finding they already settled.
+- **`[confirm]` items sit inside their own area** rather than in a separate **Over
+  to you** section, so everything about one area is in one place. Their answers are
+  what engineering reads afterwards, alongside the component inventory's
+  non-Elements buckets — an input to the Design System team rather than a designer
+  to-do.
+
+[`ARTIFACT-STATE.md`](ARTIFACT-STATE.md) holds the state schema, the state machines,
+the status derivation, and the self-republishing recipe. Match it exactly — a later
+pass reads its own previous output back through it.
+[`ARTIFACT-STYLE.md`](ARTIFACT-STYLE.md) holds the palette, type, and components.
+Read both before writing any HTML, along with the `artifact-capabilities` skill,
+which is authoritative for the runtime calls.
+
+### Find the prior artifact first
+
+One artifact per **reviewed scope**, never one per pass. Successive passes over the
+same pages share one artifact; two pages reviewed as separate pieces of work get one
+each. A designer re-checking the Details page must not end up with two artifacts
+holding divergent dismissals and neither being the record — and equally, a review of
+the Search page must not overwrite the Details page's dismissals because both live in
+one Figma file.
+
+The scope key is the file key plus the pages covered, slugged so it can be matched
+from a title alone:
+
+- `zAFViz…/details-page` — one page.
+- `zAFViz…/desktop+mobile` — several, page names slugged and sorted, joined with `+`.
+- `zAFViz…/all` — every page in the file, which is a different unit of work from any
+  one page and gets its own artifact.
+
+A frame-scoped review keys to the page holding those frames: a designer reviewing
+three frames today and the rest of that page next month means one worklist, and the
+page is the smallest unit they organise by. Scope narrower than a page lives on the
+pass, inside the artifact.
+
+So before publishing anything, find out whether this scope already has one:
+
+1. List the user's artifacts and match on the whole scope key, in the title's
+   parenthesised suffix. A file-key match with a different page slug is **not** a
+   match: it is a sibling review, and joining them would merge two designers'
+   worklists.
+2. Read the match, parse its `#review-state`, and carry it forward per
+   `ARTIFACT-STATE.md`. Republish to that same URL.
+3. **No match.** Publish a fresh one, and say in your reply that this link is now
+   the record for these pages — a first review of a scope should not be held up by a
+   question with one plausible answer. Where the file has siblings in the listing, name
+   them, so the designer sees this file has one worklist per page rather than one
+   overall.
+
+   Ask first only where something points at an earlier review: the designer
+   mentioned one, referred to findings they have already dismissed, or asked for
+   this pass as a re-check. Then a link exists that the listing cannot see — an
+   artifact owned by someone else, or one from a session whose listing has aged out
+   — and publishing fresh would lose every dismissal and answer on it. Say that is
+   why you are asking.
+
+An artifact owned by someone else can be read but not updated. Carry its state
+forward into a new artifact the user owns, then say which link is now the live one —
+the old one keeps its own state and will diverge from this point.
+
+Title the artifact `Handoff review — <file name> · <pages> (<scope key>)`, where
+`<pages>` is the page names as a reader would say them and `<scope key>` is the slug
+above — `Handoff review — Tenancy flow · Details page (zAFViz…/details-page)`. Use
+`whole file` for `<pages>` where the scope key ends `/all`. The scope key is the part
+that must never change: it is how the next pass finds this artifact.
+
+Two more publish arguments are fixed across every review, for the same reason the
+palette is. `favicon` is `📋`, never varied per file or per verdict — it is the family
+mark that makes a handoff review recognisable in a gallery tab strip, and the title
+is what distinguishes one from another. `description` is one sentence naming the file
+and the pages: _Handoff readiness review of Tenancy flow, Details page._ It becomes
+the gallery card's subtitle, so it says what the page covers rather than what the
+verdict was, which goes stale on the next pass.
+
+The names are not. Where the key matches but the file name has changed, the designer
+renamed their Figma file — keys are unique, so there is nothing else it can be.
+Update `file.name` in the state and let the title follow, without asking: matching
+is on the key, so the rename cannot orphan anything, and an artifact still named
+after a file the designer has since renamed is the harder one to find. Say you did
+it in your reply. Bring a title predating this convention onto it the same way,
+adding the key rather than leaving it unmatched next time.
+
+A page rename is the one case that does break matching, because the page slug is part
+of the key. Where the file key matches, the page slug does not, and the pages now in
+the file account for the difference, say so and ask before publishing rather than
+opening a second worklist for the same page under its new name.
+
+### What a refactor costs
+
+Say this to the designer when they ask why something came back, rather than leaving
+them to work it out:
+
+- **Answers to `[confirm]` items always survive.** They are keyed to the checklist,
+  not to the file, so no amount of renaming or re-organising touches them.
+- **Dismissed findings are keyed to a node ID and may not.** Where a pass no longer
+  detects a finding, it is marked _not detected this pass_ rather than dropped —
+  either the designer fixed it, or a refactor moved it, and the file cannot tell you
+  which. The marked entry is the trail.
+- Where the fallback match in `ARTIFACT-STATE.md` reconnected a finding to a
+  recreated node, say so. It is a good guess, not a certainty.
+
+### Tell them about edit access
+
+Only the artifact's owner and editors can save to it. A designer holding a view-only
+link sees the checklist and can tick nothing — the page renders read-only and says
+so, but the person who needs to know is the one sharing the link. So on publishing,
+say in your reply, not in the page: the designer needs edit access for the checklist
+to work, and state is shared rather than per-viewer, so two designers on one
+artifact overwrite each other's ticks.
+
+**Done when** the threshold above has been applied to this pass's actual counts —
+and where it called for an artifact, every checklist item in the conversation report
+appears in it under its own area, every prior dismissal and answer you found has
+been carried forward or explicitly marked not detected, the rail's ten status marks
+follow from the state, the scope block names the pages this pass did not cover, and the designer has the URL and knows they need edit access.
 
 ## When the Figma MCP is not connected
 
