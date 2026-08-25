@@ -1,4 +1,4 @@
-// url=<FILE_UPLOADER_MULTI_SELECT_MEDIA_CARD_URL>
+// url=https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=20527-20166&m=dev
 // source=https://github.com/reapit-global/gbl-ds-elements/blob/main/src/core/file-uploader/media-card/media-card.tsx
 // component=FileUploaderMediaCard
 

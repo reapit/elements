@@ -1,4 +1,4 @@
-// url=<CHIP_SELECT_URL>
+// url=https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=12386-28584&m=dev
 // source=https://github.com/reapit-global/gbl-ds-elements/blob/main/src/core/chip-select-control/chip-select-control.tsx
 // component=ChipSelectControl
 

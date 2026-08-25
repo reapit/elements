@@ -1,4 +1,4 @@
-// url=<EMPTY_STATE_URL>
+// url=https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=20615-3902&m=dev
 // source=https://github.com/reapit-global/gbl-ds-elements/blob/main/src/core/empty-state/empty-state.tsx
 // component=EmptyState
 

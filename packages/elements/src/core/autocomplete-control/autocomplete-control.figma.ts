@@ -1,4 +1,4 @@
-// url=<AUTOCOMPLETE_MULTI_SELECT_URL>
+// url=https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=16580-62528&m=dev
 // source=https://github.com/reapit-global/gbl-ds-elements/blob/main/src/core/autocomplete-control/autocomplete-control.tsx
 // component=AutocompleteControl
 

@@ -1,4 +1,4 @@
-// url=<PAGE_LAYOUT_URL>
+// url=https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=20278-34713&m=dev
 // source=https://github.com/reapit-global/gbl-ds-elements/blob/main/src/core/page-layout/page-layout.tsx
 // component=PageLayout
 

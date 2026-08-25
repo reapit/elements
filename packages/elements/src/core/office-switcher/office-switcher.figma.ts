@@ -1,4 +1,4 @@
-// url=<OFFICE_SWITCHER_URL>
+// url=https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=14949-11979&m=dev
 // source=https://github.com/reapit-global/gbl-ds-elements/blob/main/src/core/office-switcher/office-switcher.tsx
 // component=OfficeSwitcher
 

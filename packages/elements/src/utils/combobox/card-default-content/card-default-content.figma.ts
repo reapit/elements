@@ -1,4 +1,4 @@
-// url=<COMBOBOX_CARD_DEFAULT_CONTENT_URL>
+// url=https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=16826-10102&m=dev
 // source=https://github.com/reapit-global/gbl-ds-elements/blob/main/src/utils/combobox/card-default-content/card-default-content.tsx
 // component=ComboboxCardDefaultContent
 

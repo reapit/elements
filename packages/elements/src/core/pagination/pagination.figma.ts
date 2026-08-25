@@ -1,4 +1,4 @@
-// url=<PAGINATION_URL>
+// url=https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=6364-9402&m=dev
 // source=https://github.com/reapit-global/gbl-ds-elements/blob/main/src/core/pagination/pagination.tsx
 // component=Pagination
 

@@ -1,4 +1,4 @@
-// url=<FILE_UPLOADER_FILE_CARD_LEADING_ELEMENT_URL>
+// url=https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=20523-19699&m=dev
 // source=https://github.com/reapit-global/gbl-ds-elements/blob/main/src/core/file-uploader/file-card/leading-element/leading-element.tsx
 // component=FileUploaderFileCardLeadingElement
 

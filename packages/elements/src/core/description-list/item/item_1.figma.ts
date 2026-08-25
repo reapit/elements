@@ -1,4 +1,4 @@
-// url=<DESCRIPTION_LIST_ITEM_INLINE_URL>
+// url=https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=17730-8225&m=dev
 // source=https://github.com/reapit-global/gbl-ds-elements/blob/main/src/core/description-list/description-list.tsx
 // component=DescriptionList.Item
 

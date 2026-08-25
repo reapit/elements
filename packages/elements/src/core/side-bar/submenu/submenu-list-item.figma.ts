@@ -1,4 +1,4 @@
-// url=<SIDE_BAR_SUBMENU_ITEM_URL>
+// url=https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=12148-35359&m=dev
 // source=https://github.com/reapit-global/gbl-ds-elements/blob/main/src/core/side-bar/side-bar.tsx
 // component=SideBar.SubmenuItem
 

@@ -1,4 +1,4 @@
-// url=<TEXTAREA_URL>
+// url=https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=9811-8793&m=dev
 // source=https://github.com/reapit-global/gbl-ds-elements/blob/main/src/core/textarea-control/textarea-control.tsx
 // component=TextareaControl
 

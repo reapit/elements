@@ -1,4 +1,4 @@
-// url=<OFFICE_SWITCHER_OFFICE_GROUP_URL>
+// url=https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=14949-11030&m=dev
 // component=OfficeSwitcher.Optgroup
 
 import figma from "figma";

@@ -1,4 +1,4 @@
-// url=<SELECT_NATIVE_URL>
+// url=https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=12404-18248&m=dev
 // source=https://github.com/reapit-global/gbl-ds-elements/blob/main/src/core/select-native-control/select-native-control.tsx
 // component=SelectNativeControl
 

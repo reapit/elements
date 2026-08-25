@@ -1,4 +1,4 @@
-// url=<AT_A_GLANCE_CARD_URL_DEPRECATED>
+// url=https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=15854-47008&m=dev
 // component=AtAGlance.AnchorCard
 
 import figma from "figma";

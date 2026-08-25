@@ -1,4 +1,4 @@
-// url=<CHECKBOX_GROUP_URL>
+// url=https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=18332-20637&m=dev
 // source=https://github.com/reapit-global/gbl-ds-elements/blob/main/src/core/checkbox-group-control/checkbox-group-control.tsx
 // component=CheckboxGroupControl
 

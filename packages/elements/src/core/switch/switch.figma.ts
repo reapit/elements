@@ -1,4 +1,4 @@
-// url=<SWITCH_URL>
+// url=https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=33-848&m=dev
 // source=https://github.com/reapit-global/gbl-ds-elements/blob/main/src/core/switch/switch.tsx
 // component=Switch
 

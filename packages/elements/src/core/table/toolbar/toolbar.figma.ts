@@ -1,4 +1,4 @@
-// url=<TABLE_TOOLBAR_URL>
+// url=https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=6364-9384&m=dev
 // source=https://github.com/reapit-global/gbl-ds-elements/blob/main/src/core/table/table.tsx
 // component=Table.Toolbar
 

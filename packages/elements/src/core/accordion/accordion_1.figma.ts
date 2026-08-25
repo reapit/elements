@@ -1,4 +1,4 @@
-// url=<ACCORDION_URL_DEPRECATED>
+// url=https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=14320-99220&m=dev
 // source=https://github.com/reapit-global/gbl-ds-elements/blob/main/src/core/accordion/accordion.tsx
 // component=Accordion
 

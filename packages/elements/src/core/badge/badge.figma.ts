@@ -1,4 +1,4 @@
-// url=<BADGE_URL>
+// url=https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=1454-7529&m=dev
 // source=https://github.com/reapit-global/gbl-ds-elements/blob/main/src/core/badge/badge.tsx
 // component=Badge
 

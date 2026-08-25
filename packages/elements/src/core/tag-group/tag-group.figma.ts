@@ -1,4 +1,4 @@
-// url=<TAG_GROUP_URL>
+// url=https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=118-6272&m=dev
 // source=https://github.com/reapit-global/gbl-ds-elements/blob/main/src/core/tag-group/tag-group.tsx
 // component=TagGroup
 

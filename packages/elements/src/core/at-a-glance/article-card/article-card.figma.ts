@@ -1,4 +1,4 @@
-// url=<AT_A_GLANCE_CARD_URL>
+// url=https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=18327-21770&m=dev
 // component=AtAGlance.ArticleCard
 
 import figma from "figma";

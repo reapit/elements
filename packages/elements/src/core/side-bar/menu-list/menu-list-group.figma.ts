@@ -1,4 +1,4 @@
-// url=<SIDE_BAR_MENU_ITEM_URL>
+// url=https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=12148-35439&m=dev
 // component=SideBar.MenuGroup
 
 import figma from "figma";

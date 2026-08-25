@@ -1,4 +1,4 @@
-// url=<MENU_GROUP_URL>
+// url=https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=9952-3180&m=dev
 // source=https://github.com/reapit-global/gbl-ds-elements/blob/main/src/core/menu/menu.tsx
 // component=Menu.Group
 

@@ -1,4 +1,4 @@
-// url=<PROGRESS_INDICATOR_DETERMINATE_URL>
+// url=https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=20523-4228&m=dev
 // source=https://github.com/reapit-global/gbl-ds-elements/blob/main/src/core/progress-indicator/progress-indicator.tsx
 // component=ProgressIndicator
 

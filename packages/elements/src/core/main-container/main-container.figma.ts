@@ -1,4 +1,4 @@
-// url=<MAIN_CONTAINER_URL>
+// url=https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=18898-22063&m=dev
 // source=https://github.com/reapit-global/gbl-ds-elements/blob/main/src/core/main-container/main-container.tsx
 // component=MainContainer
 

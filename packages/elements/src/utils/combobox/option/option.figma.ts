@@ -1,4 +1,4 @@
-// url=<COMBOBOX_OPTION_URL>
+// url=https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=16645-133563&m=dev
 // source=https://github.com/reapit-global/gbl-ds-elements/blob/main/src/utils/combobox/option/option.tsx
 // component=ComboboxOption
 

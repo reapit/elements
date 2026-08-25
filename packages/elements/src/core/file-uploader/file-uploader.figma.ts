@@ -1,4 +1,4 @@
-// url=<FILE_UPLOADER_MULTI_SELECT_URL>
+// url=https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Elements-DS?node-id=20536-26976&m=dev
 // source=https://github.com/reapit-global/gbl-ds-elements/blob/main/src/core/file-uploader/file-uploader.tsx
 // component=FileUploader
 

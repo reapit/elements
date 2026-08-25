@@ -1,4 +1,4 @@
-// url=<DRAWER_URL>
+// url=https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=20264-36180&m=dev
 // source=https://github.com/reapit-global/gbl-ds-elements/blob/main/src/core/drawer/drawer.tsx
 // component=Drawer
 

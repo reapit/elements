@@ -1,4 +1,4 @@
-// url=<SELECT_MULTI_SELECT_URL>
+// url=https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=16578-25495&m=dev
 // source=https://github.com/reapit-global/gbl-ds-elements/blob/main/src/core/select-control/select-control.tsx
 // component=SelectControl
 

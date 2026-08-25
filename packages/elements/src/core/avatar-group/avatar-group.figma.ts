@@ -1,4 +1,4 @@
-// url=<AVATAR_GROUP_URL>
+// url=https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Elements-DS?node-id=21366-38856&m=dev
 // source=https://github.com/reapit-global/gbl-ds-elements/blob/main/src/core/avatar-group/avatar-group.tsx
 // component=AvatarGroup
 

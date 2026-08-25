@@ -1,4 +1,4 @@
-// url=<DIVIDER_URL>
+// url=https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=11095-10396&m=dev
 // source=https://github.com/reapit-global/gbl-ds-elements/blob/main/src/core/divider/divider.tsx
 // component=Divider
 

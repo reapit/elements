@@ -1,4 +1,4 @@
-// url=<BUTTON_GROUP_URL>
+// url=https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=20264-19832&m=dev
 // source=https://github.com/reapit-global/gbl-ds-elements/blob/main/src/core/button-group/button-group.tsx
 // component=ButtonGroup
 

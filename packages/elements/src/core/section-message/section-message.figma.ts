@@ -1,4 +1,4 @@
-// url=<SECTION_MESSAGE_URL>
+// url=https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=20266-49959&m=dev
 // source=https://github.com/reapit-global/gbl-ds-elements/blob/main/src/core/section-message/section-message.tsx
 // component=SectionMessage
 
