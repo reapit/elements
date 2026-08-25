@@ -20,6 +20,7 @@
     "check:lint:fmt": "oxfmt --check",
     "commit": "yarn test:ci && yarn workspace @reapit/elements run coverage:badges && yarn lint && yarn check",
     "eval:dev": "yarn workspace @reapit/elements-evals run eval:dev",
+    "generate:tokens": "yarn workspaces foreach --all --topological-dev --exclude gbl-ds-elements run generate:tokens",
     "eval:run": "yarn workspace @reapit/elements-evals run eval:run",
     "lint": "yarn workspaces foreach --all --exclude gbl-ds-elements run lint && yarn lint:es && yarn lint:fmt",
     "lint:es": "oxlint --fix packages/elements/src",

@@ -61,6 +61,7 @@ test ──── codacy
 build
 docs ──── deploy-preview
 figma
+tokens                (regenerates the theme CSS and fails if it differs from what is committed)
 audit-skills          (scans .agents/skills and plugins/elements/skills; each scan skipped when its path is unchanged)
 ```
 
@@ -89,6 +90,7 @@ All calling jobs must run `actions/checkout` first — GitHub Actions requires t
 | `deploy-docs`    | `.github/actions` | Cloudflare Wrangler deploy     | `release.yml` deploy-docs job, `deploy-docs-manual.yml`                                                |
 | `deploy-preview` | `.github/actions` | Cloudflare Wrangler deploy     | `test-pr.yml` deploy-preview job                                                                       |
 | `publish-figma`  | `.github/actions` | `figma connect publish [args]` | `test-pr.yml` figma job (with `--dry-run --exit-on-unreadable-files`), `release.yml` publish-figma job |
+| `check-tokens`   | `.github/actions` | `yarn generate:tokens`         | `test-pr.yml` tokens job                                                                               |
 | `audit-skills`   | `actions`         | `skillspector scan`            | `test-pr.yml` audit-skills job; available to other org repos                                           |
 
 ## Workspaces

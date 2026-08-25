@@ -1,0 +1,27 @@
+name: Check Tokens
+description: Regenerate the design token CSS and fail if it differs from what is committed
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+      with:
+        node-version: 24
+        cache: yarn
+    - run: yarn install --immutable
+      shell: bash
+    # The generated theme CSS is committed, so regenerating it must be a no-op.
+    # Comparing the tree before and after — rather than asserting it ends clean —
+    # keeps the assertion scoped to what regeneration touched, without a path
+    # list that has to be kept in step with which workspaces generate tokens.
+    - name: Regenerate and check for drift
+      shell: bash
+      run: |
+        set -euo pipefail
+        before=$(git status --porcelain)
+        yarn generate:tokens
+        after=$(git status --porcelain)
+        if [ "$before" != "$after" ]; then
+          echo "::error::Generated design tokens are out of date. Run 'yarn generate:tokens' and commit the result."
+          git diff --stat
+          exit 1
+        fi
