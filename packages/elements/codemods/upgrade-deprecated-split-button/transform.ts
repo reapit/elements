@@ -57,7 +57,7 @@ const IDENTIFIER_MAP: Record<string, string> = {
 /**
  * The TODO comment block inserted above each renamed <SplitButton> element.
  *
- * Scoped to DeprecatedSplitButton only — DeprecatedActionButton and
+ * Scoped to DeprecatedSplitButton only: DeprecatedActionButton and
  * DeprecatedMenuButton map 1:1 to their replacements with no structural
  * changes required, so they do not need a manual-migration reminder.
  */
@@ -96,7 +96,7 @@ function getDeprecatedAliasMap(
     }
   }
 
-  // Handle test snippets without imports — only add names that actually appear in the source
+  // Handle test snippets without imports: only add names that actually appear in the source
   if (aliasMap.size === 0 && sourceFile.getImportDeclarations().length === 0) {
     const sourceText = sourceFile.getFullText();
     for (const name of Object.keys(IDENTIFIER_MAP)) {
@@ -140,7 +140,7 @@ function transformImports(sourceFile: SourceFile, facadePackage?: string): void 
     for (const namedImport of namedImports) {
       const originalName = namedImport.getName();
 
-      // Handle DeprecatedSplitButtonProps — always removed from imports
+      // Handle DeprecatedSplitButtonProps: always removed from imports
       if (originalName === "DeprecatedSplitButtonProps") {
         importsToRemove.push(namedImport);
         continue;

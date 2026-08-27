@@ -33,7 +33,7 @@ import {
  * - Elements already passing `isFullBleed` are left untouched (already migrated)
  * - Elements whose only child is already a `MainContainer` are left untouched, but still receive
  *   `isFullBleed`
- * - Self-closing elements (`<FocusedLayout.Content />`) are left untouched — there is nothing to wrap
+ * - Self-closing elements (`<FocusedLayout.Content />`) are left untouched: there is nothing to wrap
  * - Elements with a spread attribute (e.g. `{...props}`) still receive `isFullBleed` and the
  *   `MainContainer` wrap, but get a TODO comment: a spread positioned after `isFullBleed` in the
  *   opening tag can override it at runtime, so this needs manual verification
@@ -67,7 +67,7 @@ function hasSpreadAttribute(element: JsxTag): boolean {
  *
  * `getImportAliases` does not distinguish type-only imports from value imports, so an existing
  * `import type { MainContainer }` would otherwise be left as-is while this codemod emits JSX that
- * uses it as a value — a binding that TypeScript erases at compile time.
+ * uses it as a value: a binding that TypeScript erases at compile time.
  */
 function promoteMainContainerImportToValue(sourceFile: SourceFile): void {
   for (const importDecl of sourceFile.getImportDeclarations()) {
@@ -143,7 +143,7 @@ function isNameInUse(sourceFile: SourceFile, name: string): boolean {
 }
 
 /**
- * Resolves the local identifier to use for the Elements `MainContainer` — either an existing
+ * Resolves the local identifier to use for the Elements `MainContainer`: either an existing
  * Elements-scoped alias, the bare name, or a non-conflicting alias if the bare name is already
  * bound to something else (e.g. a locally-defined or third-party `MainContainer`).
  */
@@ -195,7 +195,7 @@ export default function transform(source: string, filePath: string = "file.tsx")
   for (const element of elements) {
     if (hasAttribute(element, "isFullBleed")) continue;
 
-    // Self-closing elements have no children to wrap — leave untouched.
+    // Self-closing elements have no children to wrap, so leave untouched.
     if (element.getKind() === SyntaxKind.JsxSelfClosingElement) continue;
 
     const openingElement = element.asKindOrThrow(SyntaxKind.JsxOpeningElement);
@@ -212,7 +212,7 @@ export default function transform(source: string, filePath: string = "file.tsx")
       needsMainContainerImport = true;
     }
 
-    // A spread attribute can carry its own `isFullBleed`, and — depending on attribute order —
+    // A spread attribute can carry its own `isFullBleed`, and (depending on attribute order)
     // override the one just added above. Flag it for manual review rather than skipping the
     // element outright.
     if (hasSpreadAttribute(openingElement)) {
@@ -226,7 +226,7 @@ export default function transform(source: string, filePath: string = "file.tsx")
 
   // Compute TODO comment insertion points before any other mutation runs. Inserting the
   // MainContainer wrap edits changes each JsxElement's own boundaries, which can forget node
-  // references taken afterwards — so the comment position must be resolved from the
+  // references taken afterwards, so the comment position must be resolved from the
   // pre-mutation tree and merged into the same descending-sorted batch of edits below.
   if (spreadTodoNodes.length > 0) {
     const commentPositions = collectStatementCommentPositions(sourceFile, spreadTodoNodes);

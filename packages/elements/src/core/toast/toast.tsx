@@ -38,13 +38,13 @@ export namespace Toast {
      */
     elapsed?: number;
     /**
-     * Icon to display alongside the message. Only used for the `neutral` variant —
+     * Icon to display alongside the message. Only used for the `neutral` variant:
      * all other variants render a built-in icon and this prop is silently ignored.
      */
     icon?: ReactNode;
     /**
      * When `true`, the timeout bar animation is paused. Use this when the
-     * toast's auto-dismiss timer is suspended — for example, while the user
+     * toast's auto-dismiss timer is suspended, such as while the user
      * hovers or swipes the toast, or while the page is hidden.
      */
     isPaused?: boolean;
@@ -55,7 +55,7 @@ export namespace Toast {
 
 /**
  * A short, non-intrusive notification that appears temporarily to inform the user of an
- * event or outcome. This is a presentation-only component — positioning, stacking, and
+ * event or outcome. This is a presentation-only component: positioning, stacking, and
  * dismissal are handled by a toast provider.
  */
 export function Toast({

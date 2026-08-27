@@ -36,7 +36,7 @@ export namespace FileUploaderFileList {
      */
     name?: string;
     /**
-     * Whether items render as `FileCard` rows or `MediaCard` tiles. Applies to every item — there's
+     * Whether items render as `FileCard` rows or `MediaCard` tiles. Applies to every item: there's
      * no per-item mixing, so pick `'media'` only when every file the uploader accepts is an image
      * or video.
      *

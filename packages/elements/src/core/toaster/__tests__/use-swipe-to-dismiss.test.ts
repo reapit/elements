@@ -100,7 +100,7 @@ test("calls onSwipeEnd when swipe does not meet distance or velocity threshold",
     result.current.onPointerDown(pointerEvent(100));
     // Advance time so velocity stays low (10px / 500ms = 0.02, well below 0.11)
     vi.advanceTimersByTime(500);
-    // Swipe only 10px — below 45px threshold
+    // Swipe only 10px: below 45px threshold
     result.current.onPointerMove(pointerEvent(110));
     result.current.onPointerUp();
   });

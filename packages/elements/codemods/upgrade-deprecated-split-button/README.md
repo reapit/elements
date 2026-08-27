@@ -4,7 +4,7 @@ description: Upgrades DeprecatedSplitButton to the new SplitButton component
 
 # Upgrade Deprecated Split Button Codemod
 
-Automates renaming deprecated split-button identifiers to their core equivalents. This codemod transforms imports, type references, and JSX elements but does not restructure JSX — that requires manual follow-up.
+Automates renaming deprecated split-button identifiers to their core equivalents. This codemod transforms imports, type references, and JSX elements but does not restructure JSX: that requires manual follow-up.
 
 ## Usage
 
@@ -84,7 +84,7 @@ Reapit Elements v5 introduced a redesigned `SplitButton` component with a declar
 | `import { DeprecatedMenuButton } from '@reapit/elements'`                | `import { SplitButtonMenuButton } from '@reapit/elements/core/split-button'`     |
 | `import { DeprecatedSplitButton as MySplitBtn } from '@reapit/elements'` | `import { SplitButton as MySplitBtn } from '@reapit/elements/core/split-button'` |
 | `import { type DeprecatedSplitButton } from '@reapit/elements'`          | `import { type SplitButton } from '@reapit/elements/core/split-button'`          |
-| `import { DeprecatedSplitButtonProps } from '@reapit/elements'`          | _(removed — type references become `SplitButton.Props`)_                         |
+| `import { DeprecatedSplitButtonProps } from '@reapit/elements'`          | _(removed: type references become `SplitButton.Props`)_                          |
 
 ### Type Transformations
 

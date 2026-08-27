@@ -18,13 +18,13 @@ Invoke this skill when:
 
 ## Environment
 
-| Setting         | Value                                                                                    |
-| --------------- | ---------------------------------------------------------------------------------------- |
-| Framework       | `@storybook/react-vite`                                                                  |
-| Autodocs        | Globally enabled in `preview.tsx` — do **not** add `tags: ['autodocs']` to story files   |
-| Prop extraction | `react-docgen-typescript` (supports namespace interface props)                           |
-| Story format    | CSF Next (`preview.meta()` + `meta.story()` + `.extend()`)                               |
-| Theme wrapper   | Global `ThemeProvider` decorator in `preview.tsx` — all stories receive it automatically |
+| Setting         | Value                                                                                   |
+| --------------- | --------------------------------------------------------------------------------------- |
+| Framework       | `@storybook/react-vite`                                                                 |
+| Autodocs        | Globally enabled in `preview.tsx`; do **not** add `tags: ['autodocs']` to story files   |
+| Prop extraction | `react-docgen-typescript` (supports namespace interface props)                          |
+| Story format    | CSF Next (`preview.meta()` + `meta.story()` + `.extend()`)                              |
+| Theme wrapper   | Global `ThemeProvider` decorator in `preview.tsx`; all stories receive it automatically |
 
 ## File Organisation
 
@@ -45,7 +45,7 @@ aliases or import `Meta`/`StoryObj` types.
 ## Meta Definition
 
 Use `preview.meta({ ... })` to define component metadata, imported via the `#.storybook/preview`
-subpath import. Types are inferred automatically — no annotations or `satisfies` needed.
+subpath import. Types are inferred automatically: no annotations or `satisfies` needed.
 
 ```tsx
 // ✅ Correct
@@ -56,7 +56,7 @@ const meta = preview.meta({
   component: Button,
 });
 
-// ❌ Wrong — old CSF 3 pattern
+// ❌ Wrong: old CSF 3 pattern
 import type { Meta, StoryObj } from "@storybook/react-vite";
 const meta = {
   title: "Core/Button",
@@ -69,7 +69,7 @@ export default meta;
 sections: `Core/`, `Utils/`, `Icons/`, `Lab/`, `Deprecated/`.
 
 **Subcomponent stories** (e.g. `Dialog.Body`, `Table.HeaderCell`): reference the `component` field
-and any JSX through the parent namespace, not a direct import from the subcomponent's own file —
+and any JSX through the parent namespace, not a direct import from the subcomponent's own file;
 this keeps the story aligned with the public API. This applies only when the parent actually
 exports the subcomponent as a namespace property.
 
@@ -78,14 +78,14 @@ exports the subcomponent as a namespace property.
 import { Dialog } from "../dialog";
 const meta = preview.meta({ title: "Core/Dialog/Body", component: Dialog.Body });
 
-// ❌ Wrong — direct import from the subcomponent file
+// ❌ Wrong: direct import from the subcomponent file
 import { DialogBody } from "./body";
 const meta = preview.meta({ title: "Core/Dialog/Body", component: DialogBody });
 ```
 
 Companion components sharing the same doc page go in `subcomponents: { AnchorButton }` so their
 prop tables appear in the Controls panel. Use `argTypes` for props that need special Controls
-handling (icon pickers, enum selects, complex-type summaries) — see
+handling (icon pickers, enum selects, complex-type summaries); see
 [reference.md](reference.md#argtypes).
 
 ## The Example Story
@@ -114,7 +114,7 @@ export const Example = meta.story({
 ```
 
 Additional stories build on `Example` with `.extend()`, need a JSDoc description, and sometimes
-need `render` functions, decorators, or controlled-state hooks (`useArgs`/`useState`) — see
+need `render` functions, decorators, or controlled-state hooks (`useArgs`/`useState`); see
 [reference.md](reference.md) for the full patterns, plus the list of common mistakes to catch in
 review.
 

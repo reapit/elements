@@ -4,7 +4,7 @@ import type { FileUploadQueue } from "./file-upload-queue";
 
 /**
  * Diffs successive queue snapshots and returns an ever-growing list of announcement strings
- * suitable for an `aria-live="polite"` region. Never clears — stale content in a live region
+ * suitable for an `aria-live="polite"` region. Never clears; stale content in a live region
  * is handled gracefully by screen readers, and clearing introduces timing complexity for no
  * UX benefit.
  *
@@ -19,7 +19,7 @@ import type { FileUploadQueue } from "./file-upload-queue";
  *   pending-replace set; when the new
  *   item settles (uploaded or error),
  *   the parked name is correlated into
- *   a single replace announcement —
+ *   a single replace announcement;
  *   consistent with how every other
  *   outcome is announced only on
  *   completion, not on queue.
@@ -66,7 +66,7 @@ export function useFileUploaderAnnouncements(queue: FileUploadQueue<any>): strin
     // replace: all current items are brand-new (not present in the previous snapshot), which is
     // exactly what `replaceFiles` produces. In multi-select, removing one item leaves other
     // pre-existing items in the snapshot, so `allCurrentItemsAreNew` is false and we do not park
-    // a pending replace name — avoiding the misclassification of a normal multi-select removal.
+    // a pending replace name; avoiding the misclassification of a normal multi-select removal.
     const currentlyUploading = currentItems.filter(
       (item) => item.status === "uploading" || item.status === "queued",
     );
@@ -77,7 +77,7 @@ export function useFileUploaderAnnouncements(queue: FileUploadQueue<any>): strin
         pendingReplaceNamesRef.current.push(removed.file.name);
       }
     } else if (removedItems.length > 0) {
-      // Plain remove (or multi-select removal) — clear any stale pending replace names.
+      // Plain remove (or multi-select removal); clear any stale pending replace names.
       pendingReplaceNamesRef.current = [];
     }
 

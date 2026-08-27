@@ -12,7 +12,7 @@ export function setupBrowserStubs() {
   // Tests call fireScrollEnd() which dispatches a synthetic event on all of them.
   // We collect all targets (not just the first) because React's event delegation
   // registers a 'scroll' listener on the RTL root container before onScrollEnd
-  // registers its own listener on the carousel track — we must fire to both.
+  // registers its own listener on the carousel track: we must fire to both.
   const scrollEndTargets = new Set<HTMLElement>();
 
   const OriginalIntersectionObserver = globalThis.IntersectionObserver;
@@ -60,7 +60,7 @@ export function setupBrowserStubs() {
     // Collect every element that registers a 'scroll' or 'scrollend' listener.
     // Tests call fireScrollEnd() which dispatches a synthetic scroll event on all
     // of them. This catches both React's event-delegation listener (on the RTL
-    // root container) and the onScrollEnd listener (on the carousel track) — we
+    // root container) and the onScrollEnd listener (on the carousel track): we
     // need the event to reach the track's debounce handler. All listeners are
     // forwarded to the real addEventListener so they fire normally.
     HTMLElement.prototype.addEventListener = function (

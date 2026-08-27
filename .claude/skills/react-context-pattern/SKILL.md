@@ -126,9 +126,9 @@ export const DialogContext = createContext<DialogContext.Value | null>(null);
 
 ### 3. Custom Hook
 
-The hook should throw by default. Only return a nullable value when the context is intentionally optional — see [Optional context hook](#optional-context-hook).
+The hook should throw by default. Only return a nullable value when the context is intentionally optional: see [Optional context hook](#optional-context-hook).
 
-**Checklist (required context — default):**
+**Checklist (required context: default):**
 
 - [ ] Hook named `useComponentNameContext`
 - [ ] Returns non-null context value (not nullable)
@@ -186,7 +186,7 @@ export function useDialogContext(): DialogContext.Value {
 
 ### Optional context hook
 
-Use a nullable return when a component can render meaningfully without a parent provider. This is appropriate when a child component is designed to work both standalone and nested — for example, a header component that can render inside or outside a drawer.
+Use a nullable return when a component can render meaningfully without a parent provider. This is appropriate when a child component is designed to work both standalone and nested: for example, a header component that can render inside or outside a drawer.
 
 **Checklist (optional context):**
 
@@ -339,7 +339,7 @@ export function ChildComponent() {
 2. [ ] Define namespace with `Value` interface
 3. [ ] Document all properties with JSDoc
 4. [ ] Create context with `| null` union type
-5. [ ] Write custom hook — throwing (default) or nullable (optional context)
+5. [ ] Write custom hook: throwing (default) or nullable (optional context)
 6. [ ] Export from component's `index.ts`
 7. [ ] Use context in main component file
 8. [ ] Write tests: error case for required contexts; no-provider case for optional contexts
@@ -432,7 +432,7 @@ export namespace ButtonContext {}
 
 ### Missing Error Handling
 
-For required contexts, returning the raw `useContext` result without a null check is wrong — it silently passes `null` to consumers.
+For required contexts, returning the raw `useContext` result without a null check is wrong; it silently passes `null` to consumers.
 
 ```typescript
 // ❌ Wrong: No null check for a required context

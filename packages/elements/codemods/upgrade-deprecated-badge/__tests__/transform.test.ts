@@ -106,7 +106,7 @@ describe("import transformations", () => {
   test("already-migrated import — skips @reapit/elements/core/badge declaration", () => {
     const input = `import { Badge } from '@reapit/elements/core/badge'`;
     const output = transform(input, "file.tsx");
-    // Nothing to change — no DeprecatedBadge present → early return
+    // Nothing to change: no DeprecatedBadge present → early return
     expect(output).toBe(input);
   });
 });
@@ -136,7 +136,7 @@ describe("facade package support", () => {
   test("non-facade import is not transformed when facade is specified", () => {
     const input = `import { DeprecatedBadge } from '@other/lib'`;
     const output = transform(input, "file.tsx", { facadePackage: "@company/ui" });
-    // @other/lib is not @reapit/elements or @company/ui — should be left alone
+    // @other/lib is not @reapit/elements or @company/ui: should be left alone
     expect(output).toContain("DeprecatedBadge");
     expect(output).toContain("from '@other/lib'");
   });
@@ -144,7 +144,7 @@ describe("facade package support", () => {
   test("direct @reapit/elements import is rewritten to canonical subpath when facadePackage is set", () => {
     // When facadePackage is configured, facade-package imports are preserved in-place
     // (subpath unchanged). Direct @reapit/elements imports are still rewritten to the
-    // canonical subpath — the engine does not merge them into the facade specifier.
+    // canonical subpath: the engine does not merge them into the facade specifier.
     const input = [
       `import { DeprecatedBadge } from '@company/ui'`,
       `import { DeprecatedBadge as RBadge } from '@reapit/elements'`,

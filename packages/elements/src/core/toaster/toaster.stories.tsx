@@ -34,7 +34,7 @@ const cyclingToasts: CyclingToast[] = [
     variant: "neutral",
     message: "I've seen things you people wouldn't believe. Like passing tests.",
   },
-  { variant: "success", message: "To infinity and beyond — deploy complete" },
+  { variant: "success", message: "To infinity and beyond: deploy complete" },
 ];
 
 const cyclingToastAchievements = [
@@ -45,7 +45,7 @@ const cyclingToastAchievements = [
 
 /**
  * Mount one `Toaster` near the root of your application. Trigger toasts imperatively
- * via the `toast()` helper from anywhere in your code — event handlers, async functions,
+ * via the `toast()` helper from anywhere in your code: event handlers, async functions,
  * or outside the React tree.
  *
  * Click "Show toast" repeatedly to cycle through a sequence of messages. Persistent
@@ -83,7 +83,7 @@ export const Example = meta.story({
 
 /**
  * Five variants are available: `success`, `error`, `warning`, `info`, and `neutral`.
- * Use the typed helpers — `toast.success()`, `toast.error()`, etc. — rather than
+ * Use the typed helpers: `toast.success()`, `toast.error()`, etc., not
  * passing a `variant` option directly.
  */
 export const Variants = Example.extend({

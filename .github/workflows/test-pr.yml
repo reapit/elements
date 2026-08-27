@@ -114,7 +114,7 @@ jobs:
   codacy:
     name: Codacy
     needs: test
-    # Coverage is reported on PRs only — this is where it is most actionable,
+    # Coverage is reported on PRs only, since this is where it is most actionable,
     # giving reviewers visibility over untested additions before merge.
     continue-on-error: true
     runs-on:

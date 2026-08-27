@@ -13,7 +13,7 @@ export const elFileUploaderButtonInput = css`
     }
 
     /* NOTE: this button is rendered as FileInput's children, so it's always a direct sibling of
-     * the native, visually-hidden file input — see FileUploaderButtonInput. :where(...) keeps
+     * the native, visually-hidden file input; see FileUploaderButtonInput. :where(...) keeps
      * data-show-validity from adding specificity that would fight the dragging-over styles above. */
     input:where([data-show-validity="true"]):invalid + &,
     input:where([data-show-validity="true"]):user-invalid + & {

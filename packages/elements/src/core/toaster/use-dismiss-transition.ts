@@ -19,7 +19,7 @@ export function useDismissTransition(
   state: ToastState,
   id: string,
 ) {
-  // Guards against toastStore.remove(id) being called multiple times — one
+  // Guards against toastStore.remove(id) being called multiple times: one
   // transitionend event fires per transitioning property, and we only want to
   // remove the entry on the first one.
   const removedRef = useRef(false);

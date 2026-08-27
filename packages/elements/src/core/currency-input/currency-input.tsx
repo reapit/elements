@@ -33,8 +33,8 @@ export namespace CurrencyInput {
  * A monetary input built on top of `NumberInput`. Automatically places the localised currency
  * symbol as a prefix or suffix based on the given `currency` and `locale`.
  *
- * The value contract is identical to `NumberInput`: the value the user edits — and the value
- * `onChange` receives — is a plain numeric string (e.g. `"1234.5"`).
+ * The value contract is identical to `NumberInput`: the value the user edits: and the value
+ * `onChange` receives: is a plain numeric string (e.g. `"1234.5"`).
  *
  * The currency symbol is rendered once, as an affix (prefix or suffix), and is omitted from
  * the formatted overlay to avoid duplication.

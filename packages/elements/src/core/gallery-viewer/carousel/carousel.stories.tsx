@@ -33,7 +33,7 @@ const meta = preview.meta({
 
 /**
  * Uncontrolled carousel. Swipe or click the buttons to navigate between items.
- * The buttons scroll the track automatically — no `onClick` handler required.
+ * The buttons scroll the track automatically: no `onClick` handler required.
  * The previous button is hidden on the first item and the next button is hidden on the last.
  */
 export const Example = meta.story({
@@ -85,7 +85,7 @@ export const Example = meta.story({
 
 /**
  * Controlled carousel. `value` and `onChange` keep external state in sync with
- * the visible item. The buttons scroll the track automatically — consumers no
+ * the visible item. The buttons scroll the track automatically: consumers no
  * longer need to wire up `onClick` handlers or track item indices manually.
  */
 export const Controlled = meta.story({

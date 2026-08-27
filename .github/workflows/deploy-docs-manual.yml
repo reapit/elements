@@ -36,7 +36,7 @@ jobs:
     timeout-minutes: 15
     steps:
       # Fail fast if someone manually triggers a prod deploy from a non-main
-      # branch. v4 is intentionally excluded — it must be deployable from
+      # branch. v4 is intentionally excluded: it must be deployable from
       # non-main branches (e.g. the lts branch) to keep the LTS storybook
       # up to date independently of main.
       - name: Guard production deploy

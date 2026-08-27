@@ -14,7 +14,7 @@ test("renders a native file input inside an unlabelled wrapper", () => {
   expect(input.tagName).toBe("INPUT");
   expect(input).toHaveAttribute("type", "file");
   expect(input.parentElement).toBe(container.firstElementChild);
-  // Deliberately not a `<label>` — see the doc comment on `FileInput` for why: a consumer
+  // Deliberately not a `<label>`; see the doc comment on `FileInput` for why: a consumer
   // associating its own external `<label htmlFor>` with the input must be the input's only label.
   expect(container.firstElementChild?.tagName).toBe("DIV");
 });
@@ -128,7 +128,7 @@ test("renders the content returned by children", () => {
 
 test("keeps the input in the default tab order when children are provided", () => {
   render(<FileInput data-testid="input">{() => <span>Browse</span>}</FileInput>);
-  // Visually hidden isn't the same as absent from the tab order — a keyboard user must still be
+  // Visually hidden isn't the same as absent from the tab order; a keyboard user must still be
   // able to reach and operate the input directly, since `children` here has no interactive
   // element of its own to receive focus instead.
   expect(screen.getByTestId("input")).toHaveProperty("tabIndex", 0);
@@ -254,7 +254,7 @@ test("stays isDraggingOver while the pointer moves across a nested child before 
   const { container } = render(<FileInput>{children}</FileInput>);
   const dropzone = container.firstElementChild as HTMLElement;
 
-  // dragenter/dragleave fire at every element boundary crossed, including nested children — this
+  // dragenter/dragleave fire at every element boundary crossed, including nested children; this
   // simulates entering the dropzone, then entering and leaving a child within it, and asserts
   // isDraggingOver survives that inner pair rather than flickering false.
   fireEvent.dragEnter(dropzone, { dataTransfer: { types: ["Files"] } });
@@ -355,7 +355,7 @@ test("excludes a dropped file that fails accept before it ever reaches the selec
 
   // Unlike a constraint violation (accept on a browsed file, or maxFiles/maxFileSize/maxTotalSize
   // on either entry point), which stays in the selection and only invalidates the input, a dropped
-  // file that fails `accept` never lands here at all — matching what the OS picker would have
+  // file that fails `accept` never lands here at all; matching what the OS picker would have
   // already filtered out before `change` fired for a browsed selection.
   expect(children).toHaveBeenLastCalledWith(expect.objectContaining({ files: [match] }));
 });
@@ -437,7 +437,7 @@ test("replaces the previous selection on a second browse round, even when multip
 
   // `multiple` allows more than one file per round; it doesn't accumulate across rounds. A
   // consumer that wants a running, removable selection owns that itself (a controlled `value`, or
-  // `FileUploadQueue`/`FileUploader`) — see the `onChange` doc comment on `FileInput.Props`.
+  // `FileUploadQueue`/`FileUploader`); see the `onChange` doc comment on `FileInput.Props`.
   expect(children).toHaveBeenLastCalledWith(expect.objectContaining({ files: [b] }));
   expect(Array.from(input.files ?? [])).toEqual([b]);
 });
@@ -502,7 +502,7 @@ test("does not enforce maxFiles across separate rounds", () => {
   const b = makeFile("b.txt");
   fireEvent.change(input, { target: { files: [b] } });
 
-  // Each round is validated against maxFiles on its own — a's earlier round isn't carried
+  // Each round is validated against maxFiles on its own; a's earlier round isn't carried
   // forward, so b (one file) doesn't exceed maxFiles=1 for this round.
   expect(children).toHaveBeenLastCalledWith(expect.objectContaining({ files: [b] }));
 });

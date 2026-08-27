@@ -1,5 +1,5 @@
 // ZeroHeight-only scenario: the agent has access to ZeroHeight design documentation only.
-// Scored on component selection quality — correct component chosen, anti-patterns avoided, variants understood.
+// Scored on component selection quality: correct component chosen, anti-patterns avoided, variants understood.
 // Use this suite to identify gaps in the ZeroHeight design guidance.
 import { generateText, isStepCount } from "ai";
 import { evalite } from "evalite";

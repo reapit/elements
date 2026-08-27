@@ -21,7 +21,7 @@ const withOptions = (
 });
 
 // ---------------------------------------------------------------------------
-// Partial states — returned unchanged (overlay hidden)
+// Partial states: returned unchanged (overlay hidden)
 // ---------------------------------------------------------------------------
 
 test("returns an empty string unchanged", () => {
@@ -41,7 +41,7 @@ test("returns a negative lone decimal point unchanged", () => {
 });
 
 // ---------------------------------------------------------------------------
-// Non-canonical controlled values — returned unchanged (overlay hidden)
+// Non-canonical controlled values: returned unchanged (overlay hidden)
 // ---------------------------------------------------------------------------
 
 test("hides the overlay for exponent notation", () => {
@@ -98,7 +98,7 @@ test("formats a trailing decimal point as the integer it represents", () => {
 });
 
 // ---------------------------------------------------------------------------
-// Precision — exact via the string overload (no rounding through Number)
+// Precision: exact via the string overload (no rounding through Number)
 // ---------------------------------------------------------------------------
 
 test("formats an integer beyond Number.MAX_SAFE_INTEGER exactly via BigInt", () => {
@@ -139,7 +139,7 @@ test("clamps display to 100 fraction digits for pathologically long values", () 
 });
 
 // ---------------------------------------------------------------------------
-// Consumer fraction-digit options — padding without rounding
+// Consumer fraction-digit options: padding without rounding
 // ---------------------------------------------------------------------------
 
 test("pads to minimumFractionDigits", () => {
@@ -147,7 +147,7 @@ test("pads to minimumFractionDigits", () => {
 });
 
 test("does not round a value that exceeds maximumFractionDigits", () => {
-  // maximumFractionDigits: 2 but the value has 3 digits — shown verbatim, not "2.00".
+  // maximumFractionDigits: 2 but the value has 3 digits: shown verbatim, not "2.00".
   expect(resolveOverlayValue("1.999", withOptions({ maximumFractionDigits: 2 }))).toBe("1.999");
 });
 
@@ -175,7 +175,7 @@ test("preserves a typed value beyond the currency default without rounding", () 
 });
 
 // ---------------------------------------------------------------------------
-// showNumberPartsOnly — descriptive affix parts omitted
+// showNumberPartsOnly: descriptive affix parts omitted
 // ---------------------------------------------------------------------------
 
 test("showNumberPartsOnly strips the £ prefix symbol from a GBP overlay", () => {
@@ -212,12 +212,12 @@ test("showNumberPartsOnly strips the % suffix from a percent-style overlay", () 
 
 test("showNumberPartsOnly=false (default) preserves the full formatted output with symbol", () => {
   const params = withOptions({ style: "currency", currency: "GBP" }, { min: 2, max: 2 });
-  // Flag absent — output identical to current .format() behaviour.
+  // Flag absent: output identical to current .format() behaviour.
   expect(resolveOverlayValue("5", params)).toBe("£5.00");
 });
 
 // ---------------------------------------------------------------------------
-// scaleExponent: 2 (percent) — "never rounds" in display-space
+// scaleExponent: 2 (percent); "never rounds" in display-space
 // ---------------------------------------------------------------------------
 
 test("percent: 0.255 → 25.5% (1 display fraction digit)", () => {
@@ -242,7 +242,7 @@ test("percent: 0.2555 with maximumFractionDigits: 2 is shown unrounded (2 displa
 });
 
 // ---------------------------------------------------------------------------
-// unsupported options stripped — overlay never rounds via sig-digit or rounding options
+// unsupported options stripped: overlay never rounds via sig-digit or rounding options
 // ---------------------------------------------------------------------------
 
 // These tests verify resolveOverlayValue's behaviour when called with ALREADY-STRIPPED

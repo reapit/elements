@@ -30,7 +30,7 @@ Because `elements.base` is declared first, `elements.main` styles always win whe
 
 ### Why Named Over Anonymous
 
-Anonymous `@layer {}` blocks each create a **separate** anonymous layer. Their relative ordering depends on when each block first appears in the stylesheet — unpredictable across independently loaded components. A named layer like `elements.main` merges all declarations into a **single** layer, giving one consistent, low-priority bucket across the entire library.
+Anonymous `@layer {}` blocks each create a **separate** anonymous layer. Their relative ordering depends on when each block first appears in the stylesheet; it is unpredictable across independently loaded components. A named layer like `elements.main` merges all declarations into a **single** layer, giving one consistent, low-priority bucket across the entire library.
 
 Named layers also give consumers a clear contract: all component styles live inside `elements.*` layers, and any unlayered styles win regardless of specificity or source order.
 
@@ -49,7 +49,7 @@ For how the layer order reaches the bundle in both Storybook and the production 
 - [ ] Wrap all styles in `@layer elements.main { ... }`
 - [ ] Confirm no anonymous `@layer {}` blocks
 - [ ] Confirm `@keyframes` definitions are outside the `@layer` wrapper
-- [ ] If this component provides foundation styles for other components, use `elements.base` instead (rare — check with the team first)
+- [ ] If this component provides foundation styles for other components, use `elements.base` instead (rare: check with the team first)
 
 ```typescript
 // ✅ Correct
@@ -88,12 +88,12 @@ Storybook and documentation files that do use `@layer` must use `elements.main`.
 ### Anonymous `@layer {}`
 
 ```typescript
-// ❌ Wrong: anonymous layer — ordering is unpredictable across components
+// ❌ Wrong: anonymous layer, because ordering is unpredictable across components
 @layer {
   width: min-content;
 }
 
-// ✅ Correct: named layer — merges into one predictable bucket
+// ✅ Correct: named layer, because it merges into one predictable bucket
 @layer elements.main {
   width: min-content;
 }
@@ -102,7 +102,7 @@ Storybook and documentation files that do use `@layer` must use `elements.main`.
 ### Splitting styles across layered and unlayered
 
 ```typescript
-// ❌ Wrong: selective layering — inconsistent and requires subjective judgement
+// ❌ Wrong: selective layering, because it's inconsistent and requires subjective judgement
 @layer elements.main {
   color: var(--colour-text);
 }
@@ -136,7 +136,7 @@ wyw-in-js scopes `@keyframes` names by appending a suffix derived from the root 
 Keep the `animation` property inside the layer (so it respects layer ordering) and place the `@keyframes` definition outside.
 
 ```typescript
-// ❌ Wrong: @keyframes inside @layer — wyw-in-js cannot scope the name correctly
+// ❌ Wrong: @keyframes inside @layer, because wyw-in-js cannot scope the name correctly
 export const elSpinner = css`
   @layer elements.main {
     animation: spin 1s linear infinite;
@@ -175,7 +175,7 @@ When reviewing code that touches styles:
 
 - [ ] All styles wrapped in `@layer elements.main` (or `elements.base` if justified)
 - [ ] No anonymous `@layer {}` in non-deprecated code
-- [ ] No styles left outside the layer (except `@keyframes` — see Common Mistakes)
+- [ ] No styles left outside the layer (except `@keyframes`, see Common Mistakes)
 - [ ] `@keyframes` definitions are outside the `@layer` wrapper
 - [ ] Storybook and documentation files may skip layering, but must never use anonymous layers
 

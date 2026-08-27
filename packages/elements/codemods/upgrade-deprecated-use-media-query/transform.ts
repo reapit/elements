@@ -56,12 +56,12 @@ function buildMediaQueryExpression(property: string): string {
   const expr = PROPERTY_TO_MEDIA_QUERY[property];
   if (!expr) return `''`;
 
-  // Simple (no "and") — emit a direct isWidthBelow / isWidthAtOrAbove call
+  // Simple (no "and"): emit a direct isWidthBelow / isWidthAtOrAbove call
   if (!expr.includes(" and ")) {
     return expr;
   }
 
-  // Compound — emit a template literal joining the two halves
+  // Compound: emit a template literal joining the two halves
   const [left, right] = expr.split(" and ");
   return `\`\${${left}} and \${${right}}\``;
 }
@@ -72,7 +72,7 @@ function buildMediaQueryExpression(property: string): string {
  */
 function extractBasePackage(moduleSpecifier: string, facadePackage?: string): string {
   const base = facadePackage ?? "@reapit/elements";
-  // The specifier IS the base package or a subpath of it — strip everything after the base
+  // The specifier IS the base package or a subpath of it: strip everything after the base
   if (moduleSpecifier === base || moduleSpecifier.startsWith(base + "/")) {
     return base;
   }
@@ -221,7 +221,7 @@ function transformDestructuredUseMediaQuery(
     if (!varStatement || varStatement.getKind() !== SyntaxKind.VariableStatement) continue;
 
     // Guard: if the declaration list has other declarators, replacing the whole statement
-    // would silently drop them — emit a TODO instead.
+    // would silently drop them, so emit a TODO instead.
     const allDeclarations =
       varDeclList.asKind(SyntaxKind.VariableDeclarationList)?.getDeclarations() ?? [];
     if (allDeclarations.length > 1) {
@@ -243,7 +243,7 @@ function transformDestructuredUseMediaQuery(
       const mediaExpr = buildMediaQueryExpression(propertyName);
 
       if (mediaExpr === `''`) {
-        // Unknown property — emit a TODO comment and skip
+        // Unknown property: emit a TODO comment and skip
         replacements.push(
           `// TODO: Unknown useMediaQuery property '${propertyName}' — migrate manually`,
         );
@@ -333,18 +333,18 @@ function transformMediaStateProvider(
       });
 
       if (meaningfulChildren.length === 0) {
-        // Self-closing equivalent — remove entirely
+        // Self-closing equivalent: remove entirely
         jsxElement.replaceWithText("");
         return; // Restart after mutation
       }
 
       if (meaningfulChildren.length === 1) {
-        // Single child — replace with just the child
+        // Single child: replace with just the child
         jsxElement.replaceWithText(meaningfulChildren[0].getText());
         return; // Restart after mutation
       }
 
-      // Multiple children — wrap in a fragment
+      // Multiple children: wrap in a fragment
       const childrenText = meaningfulChildren.map((c) => c.getText()).join("\n");
       jsxElement.replaceWithText(`<>\n${childrenText}\n</>`);
       return; // Restart after mutation
@@ -433,7 +433,7 @@ export default function transform(
   const { aliases, basePackage } = collectDeprecatedImports(sourceFile, options?.facadePackage);
 
   if (aliases.size === 0) {
-    // Nothing from @reapit/elements — skip
+    // Nothing from @reapit/elements: skip
     return source;
   }
 

@@ -42,7 +42,7 @@ export namespace FileUploaderMediaCard {
     alt?: string;
     /**
      * A formatted duration (e.g. `"15:39"`), shown as an overlay badge on the thumbnail. Only meaningful for video
-     * files — omit for images.
+     * files: omit for images.
      */
     duration?: string;
     /**

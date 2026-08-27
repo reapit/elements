@@ -38,7 +38,7 @@ function createTree(itemCount = 2) {
   const summary = document.createElement("summary");
   summary.setAttribute("role", "treeitem");
   summary.id = `${id}-summary`;
-  // No data-listbox-id — summary elements are not rendered through ListboxOption.
+  // No data-listbox-id, because summary elements are not rendered through ListboxOption.
   details.appendChild(summary);
 
   const items: HTMLButtonElement[] = [];
@@ -206,7 +206,7 @@ describe("getNextOption", () => {
     expect(getNextOption(options, options[0])).toBe(options[1]);
   });
 
-  test("returns null at last option — no wrap", () => {
+  test("returns null at last option (no wrap)", () => {
     const { options } = createListbox(3);
     expect(getNextOption(options, options[2])).toBeNull();
   });
@@ -227,7 +227,7 @@ describe("getPrevOption", () => {
     expect(getPrevOption(options, options[2])).toBe(options[1]);
   });
 
-  test("returns null at first option — no wrap", () => {
+  test("returns null at first option (no wrap)", () => {
     const { options } = createListbox(3);
     expect(getPrevOption(options, options[0])).toBeNull();
   });

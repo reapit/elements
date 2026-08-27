@@ -3,10 +3,10 @@
  * [CSS Custom Highlight API](https://developer.mozilla.org/en-US/docs/Web/API/CSS_custom_highlight_API).
  *
  * `name` is registered directly in the global `CSS.highlights` registry, so it must be unique across the
- * page — reusing a `name` across multiple calls will cause them to overwrite each other's highlights — and
+ * page; reusing a `name` across multiple calls will cause them to overwrite each other's highlights, and
  * the corresponding `::highlight(name)` CSS selector must use the exact same string.
  *
- * Matching happens within each individual text node, not across `element`'s combined `textContent` — a
+ * Matching happens within each individual text node, not across `element`'s combined `textContent`; a
  * `query` split across nested elements (and therefore across separate text nodes) will not be found even
  * though the concatenated text content contains it.
  *
@@ -14,7 +14,7 @@
  * doesn't support the CSS Custom Highlight API or the query is empty.
  */
 export function highlight(
-  /** The name to register the highlight under in `CSS.highlights` — must match the `::highlight()` selector, and be unique across the page. */
+  /** The name to register the highlight under in `CSS.highlights`: must match the `::highlight()` selector, and be unique across the page. */
   name: string,
   /** The text to search for within `element`. Matching is case-insensitive. */
   query: string,

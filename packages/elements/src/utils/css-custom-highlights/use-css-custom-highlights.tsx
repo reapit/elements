@@ -9,16 +9,16 @@ import { highlight } from "./highlight";
  *
  * The highlight is applied and re-applied whenever `name`, `query`, or `ref` change, and is removed
  * automatically when the component unmounts. As with other ref-based utilities, the element must already be
- * attached to `ref.current` by the time this hook runs — attaching it later (e.g. via conditional rendering)
+ * attached to `ref.current` by the time this hook runs; attaching it later (e.g. via conditional rendering)
  * without also changing `name` or `query` will not re-trigger the highlight.
  *
- * Matching happens within each individual text node, not across the element's combined text content — a
+ * Matching happens within each individual text node, not across the element's combined text content; a
  * `query` split across nested elements will not be found even though the concatenated text contains it.
  *
  * No-ops if the browser doesn't support the CSS Custom Highlight API.
  */
 export function useCSSCustomHighlights(
-  /** The name to register the highlight under — must be unique across the page and match the corresponding `::highlight()` CSS selector. */
+  /** The name to register the highlight under: must be unique across the page and match the corresponding `::highlight()` CSS selector. */
   name: string,
   /** The text to search for within the referenced element. Matching is case-insensitive. */
   query: string,

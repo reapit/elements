@@ -54,7 +54,7 @@ function makeInfo({ pull = null, commit = null, user = null } = {}) {
 }
 
 // ---------------------------------------------------------------------------
-// parseCategory — inferred from bump type (no prefix)
+// parseCategory: inferred from bump type (no prefix)
 // ---------------------------------------------------------------------------
 
 test('infers "Added" category for a minor bump with no prefix', async () => {
@@ -97,7 +97,7 @@ test('infers "Removed" category for a major bump with no prefix', async () => {
 });
 
 // ---------------------------------------------------------------------------
-// parseCategory — explicit prefix
+// parseCategory: explicit prefix
 // ---------------------------------------------------------------------------
 
 test('uses "Added" category and strips "Added:" prefix', async () => {
@@ -146,7 +146,7 @@ test('uses "Deprecated" category and strips "Deprecated:" prefix', async () => {
   vi.mocked(getCommitInfo).mockResolvedValue(makeInfo());
 
   const result = await getReleaseLine(
-    makeChangeset({ summary: "Deprecated: DeprecatedIcon — use Icon instead" }),
+    makeChangeset({ summary: "Deprecated: DeprecatedIcon; use Icon instead" }),
     "minor",
     OPTIONS,
   );
@@ -160,7 +160,7 @@ test('uses "Removed" category and strips "Removed:" prefix', async () => {
   vi.mocked(getCommitInfo).mockResolvedValue(makeInfo());
 
   const result = await getReleaseLine(
-    makeChangeset({ summary: "Removed: CJS build output — consumers must migrate to ESM" }),
+    makeChangeset({ summary: "Removed: CJS build output; consumers must migrate to ESM" }),
     "major",
     OPTIONS,
   );
@@ -220,7 +220,7 @@ test("conventional commit prefix is treated as part of the description", async (
     OPTIONS,
   );
 
-  // 'feat:' is not a recognised prefix — it stays in the body and the bump
+  // 'feat:' is not a recognised prefix, so it stays in the body and the bump
   // type heuristic applies (patch → Fixed)
   expect(result).toContain("**[Fixed]**");
   expect(result).toContain("feat: Add dark mode support");
@@ -289,7 +289,7 @@ test("wraps the PR link in parentheses with no extra punctuation", async () => {
   const result = await getReleaseLine(makeChangeset({ summary: "Fix typo" }), "patch", OPTIONS);
 
   expect(result).toContain("[#42]");
-  // Suffix is exactly "(PR link)" — no trailing commas or extra content
+  // Suffix is exactly "(PR link)"; no trailing commas or extra content
   expect(result).toMatch(/\(\[#42\][^)]*\)/);
 });
 

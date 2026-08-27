@@ -251,7 +251,7 @@ function main(): void {
     console.log(`  ${codemods.length} codemod(s) registered`);
   }
 
-  // Generate transforms.ts (independent of manifest change detection — always
+  // Generate transforms.ts (independent of manifest change detection: always
   // regenerate if content differs, so it stays in sync with the filesystem)
   const transformsContent = generateTransformsContent(codemodNames);
 

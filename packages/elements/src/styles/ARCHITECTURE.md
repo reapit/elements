@@ -27,7 +27,7 @@ Reaching this state in both environments takes four coordinated pieces:
 In Storybook, the `previewHead` hook in `.storybook/main.ts` injects the
 layer order declaration into the preview iframe's `<head>` before any
 component CSS loads. In the production library build, the plugin is
-required because LightningCSS — the minifier Vite ships by default —
+required because LightningCSS, the minifier Vite ships by default,
 strips standalone `@layer` order declarations during minification.
 
 ## The Pieces
@@ -98,7 +98,7 @@ declaration order and reverse the intended layer priority.
 
 LightningCSS strips standalone `@layer` order declarations during
 minification. Inlining the declaration in `globals.css` or in a Linaria
-tagged template does not help — the minifier removes it either way.
+tagged template does not help; the minifier removes it either way.
 Keeping the declaration in its own file lets the Vite plugin read it
 verbatim and prepend it to the final bundle after minification has run.
 
@@ -107,7 +107,7 @@ verbatim and prepend it to the final bundle after minification has run.
 The Vite library build only emits CSS for files reachable from a
 declared entry point. The entry points are the public barrels in
 `src/core`, `src/lab`, `src/deprecated`, `src/utils`, and `src/icons`,
-plus a polyfill preload entry — none of which import `globals.ts`.
+plus a polyfill preload entry; none of which import `globals.ts`.
 Without registering `globals.ts` as its own entry point, the bundler
 would never traverse it and the global styles would never appear in
 `dist/js/style.css`.
@@ -140,7 +140,7 @@ first-appearance ordering, which reverses `elements.base` and
 ## Common Pitfalls
 
 - **Removing the `globals.ts` entry point.** The styles will silently
-  disappear from `dist/js/style.css` — there is no error, only missing
+  disappear from `dist/js/style.css`; there is no error, only missing
   global rules at runtime.
 - **Reordering the imports in `globals.ts`.** `layer-order.css` must be
   imported first; otherwise the `@layer` declaration appears after the
@@ -159,4 +159,4 @@ first-appearance ordering, which reverses `elements.base` and
   `elements.main` component styles.
 - **Editing `layer-order.css` during `storybook dev`.** The Storybook
   config reads the file once at startup via `fs.readFileSync`, so edits
-  do not hot-reload — restart Storybook to pick up changes.
+  do not hot-reload; restart Storybook to pick up changes.

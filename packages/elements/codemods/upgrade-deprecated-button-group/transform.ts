@@ -19,7 +19,7 @@ import { createComponentMigration } from "../shared/migration-engine.js";
  *
  * Type Transformations:
  * - DeprecatedButtonGroupProps → ButtonGroup.Props
- * - DeprecatedButtonGroupAlignment has no equivalent — usages will produce a TypeScript error
+ * - DeprecatedButtonGroupAlignment has no equivalent, so usages will produce a TypeScript error
  *
  * JSX Element Transformations:
  * - Element name: <DeprecatedButtonGroup> → <ButtonGroup>
@@ -84,7 +84,7 @@ export default createComponentMigration<ButtonGroupContext>({
     let staticValue: string | undefined;
 
     if (!init) {
-      // Bare attribute with no value — treat as undefined, remove.
+      // Bare attribute with no value: treat as undefined, remove.
       staticValue = undefined;
     } else if (init.getKind() === SyntaxKind.StringLiteral) {
       staticValue = init.asKind(SyntaxKind.StringLiteral)!.getLiteralText();
@@ -99,11 +99,11 @@ export default createComponentMigration<ButtonGroupContext>({
       staticValue !== undefined ? ALIGNMENT_TO_JUSTIFY_CONTENT[staticValue] : undefined;
 
     if (mappedValue !== undefined) {
-      // Static, mappable value — rename prop and replace value.
+      // Static, mappable value: rename prop and replace value.
       jsxAttr.getNameNode().replaceWithText("justifyContent");
       jsxAttr.setInitializer(`"${mappedValue}"`);
     } else {
-      // Dynamic or unmappable — remove prop and schedule a context-aware TODO comment.
+      // Dynamic or unmappable: remove prop and schedule a context-aware TODO comment.
       const useJsx = shouldUseJsxComment(element);
       const todoText = useJsx ? TODO_DYNAMIC_ALIGNMENT_JSX : TODO_DYNAMIC_ALIGNMENT_JS;
       const elementStart =

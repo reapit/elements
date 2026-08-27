@@ -1,6 +1,6 @@
 name: Visual Regression Tests
 
-# DS-136: Disabled — this workflow was permanently failing and costing ~USD 200/month.
+# DS-136: Disabled, this workflow was permanently failing and costing ~USD 200/month.
 # Re-enable by restoring the push and workflow_call triggers once the root cause is fixed.
 on:
   workflow_dispatch:

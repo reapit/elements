@@ -8,7 +8,7 @@ import { isElementsImport } from "./elements-import.js";
  *
  * For each import declaration that originates from @reapit/elements (or the
  * optional facade package), the function finds every named import whose exported
- * name matches `importName` and records the local binding — the alias if one is
+ * name matches `importName` and records the local binding: the alias if one is
  * present, or `importName` itself when no alias is used.
  *
  * When `options.fallbackToName` is true and the source file contains no import

@@ -308,7 +308,7 @@ describe("inline options expansion", () => {
   });
 
   test("does not expand when options is not present", () => {
-    // ToggleRadio without options prop — unusual but should not crash
+    // ToggleRadio without options prop, unusual but should not crash
     const input = [
       `import { ToggleRadio } from '@reapit/elements'`,
       `<ToggleRadio name="r" />`,
@@ -348,7 +348,7 @@ describe("dynamic options (TODO fallback)", () => {
     // Tag is still renamed even though options could not be expanded
     expect(output).toContain("<ChipSelect");
     expect(output).not.toContain("<ToggleRadio");
-    // options prop must be removed — ChipSelect has no `options` prop
+    // options prop must be removed, because ChipSelect has no `options` prop
     expect(output).not.toContain("options={opts}");
     // Element must be non-self-closing (has children)
     expect(output).toContain("</ChipSelect>");
@@ -406,7 +406,7 @@ describe("dynamic options (TODO fallback)", () => {
       `const el = <ToggleRadio name="r" options={opts} />`,
     ].join("\n");
     const output = transform(input, "file.tsx");
-    // Expect exactly one TODO per statement — dynamic options produces one comment
+    // Expect exactly one TODO per statement: dynamic options produces one comment
     const matches = output.match(/\/\/ TODO \(DS-78\)/g);
     expect(matches).not.toBeNull();
     expect(matches!.length).toBe(1);

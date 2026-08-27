@@ -28,16 +28,16 @@ export namespace FileUploaderSingleSelectMediaCard {
     disabled?: boolean;
     /**
      * A formatted duration (e.g. `"15:39"`), shown as an overlay badge on the thumbnail. Only meaningful for video
-     * files — omit for images.
+     * files: omit for images.
      */
     duration?: string;
     /** The file's name, used only for the remove/replace buttons' accessible names. */
     fileName: string;
-    /** Whether a file is currently being dragged over the trigger — reveals the Replace affordance, matching hover/focus. */
+    /** Whether a file is currently being dragged over the trigger: reveals the Replace affordance, matching hover/focus. */
     isDraggingOver?: boolean;
     /** Called when the remove button is clicked. Omit to render a card with no remove button. */
     onRemove?: MouseEventHandler<HTMLButtonElement>;
-    /** Called when the card itself — anywhere other than the remove button — is activated, to trigger picking a replacement file. */
+    /** Called when the card itself (anywhere other than the remove button) is activated, to trigger picking a replacement file. */
     onReplace: () => void;
   }
 }
@@ -45,10 +45,10 @@ export namespace FileUploaderSingleSelectMediaCard {
 /**
  * `FileUploader`'s single-select trigger's filled state: a full-bleed `FileUploaderMediaThumbnail` with no
  * caption, plus a hover/focus/drag-revealed "Replace" affordance covering the whole card. Kept separate from
- * `FileUploader.MediaCard` — despite sharing `FileUploaderMediaThumbnail` — because it's a distinct Figma
+ * `FileUploader.MediaCard` (despite sharing `FileUploaderMediaThumbnail`) because it's a distinct Figma
  * component with different interaction: the whole card (not just a dedicated button) triggers replacing the
  * file, which a list-item `MediaCard` has no equivalent for. Not exported from the top-level `FileUploader`
- * namespace — only used internally by `FileUploaderSingleSelectMediaInput`.
+ * namespace; only used internally by `FileUploaderSingleSelectMediaInput`.
  */
 export function FileUploaderSingleSelectMediaCard({
   src,

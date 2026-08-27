@@ -1,7 +1,7 @@
 {
   "name": "reapit-elements-marketplace",
   "metadata": {
-    "description": "Claude Code plugins for Reapit's Elements Design System — skills for consumer teams (engineering, product, and design) working with Elements from their own codebases.",
+    "description": "Claude Code plugins for Reapit's Elements Design System: skills for consumer teams (engineering, product, and design) working with Elements from their own codebases.",
     "version": "0.1.0"
   },
   "owner": {

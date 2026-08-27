@@ -5,11 +5,11 @@ inputs:
   marker:
     description: >
       Identifier used to find this comment across runs. The '<!-- ' and ' -->' affixes are added
-      automatically — pass only the inner text (e.g. 'my-tool:comment'). Passing the full HTML
+      automatically: pass only the inner text (e.g. 'my-tool:comment'). Passing the full HTML
       comment syntax is also accepted; the affixes are stripped and re-applied.
     required: true
   body:
-    description: Comment body (markdown). The marker is prepended automatically — do not include it here.
+    description: Comment body (markdown). The marker is prepended automatically; do not include it here.
     required: true
   issue-number:
     description: Issue or pull request number to comment on.

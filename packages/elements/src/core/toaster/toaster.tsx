@@ -45,8 +45,8 @@ export namespace Toaster {
 /**
  * Renders the toast notification stack. Mount one `Toaster` near the root of
  * your application. Toasts are triggered imperatively via the `toast()` helper
- * and displayed in the browser's top layer — above native `<dialog>` elements
- * — using `popover="manual"`.
+ * and displayed in the browser's top layer: above native `<dialog>` elements
+ * by using `popover="manual"`.
  *
  * When a `ToastOutlet` is mounted inside a modal dialog or drawer, the
  * `Toaster` automatically portals its toast list into that outlet instead,

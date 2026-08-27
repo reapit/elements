@@ -293,7 +293,7 @@ export function createComponentMigration<TCtx = Record<string, unknown>>(
           for (const namedImport of importDecl.getNamedImports()) {
             if (namedImport.getName() !== identifier.from) continue;
 
-            // Skip aliased imports — the local binding already has a different
+            // Skip aliased imports: the local binding already has a different
             // name and does not need renaming in usage sites.
             if (namedImport.getAliasNode()) continue;
 
@@ -343,7 +343,7 @@ export function createComponentMigration<TCtx = Record<string, unknown>>(
     // Only consider aliases that came from actual Elements imports (not fallback
     // names). When there are no Elements imports, allAliases may still contain
     // fallback names (e.g. 'Radio') if the source has no import declarations at
-    // all — but we must not treat those as needing a new import.
+    // all, but we must not treat those as needing a new import.
     const effectiveAliases = hasAnyElementsImport ? allAliases : new Set<string>();
     const effectivePropsAliases = hasAnyElementsImport ? allPropsAliases : new Set<string>();
 

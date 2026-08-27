@@ -1,6 +1,6 @@
 ---
 name: writing-clear-prose
-description: Apply Strunk's timeless writing rules to any prose humans will read—documentation, commit messages, error messages, or UI text. Use when writing or editing prose for humans (docs, error messages, UI text, comments, commit messages).
+description: Apply Strunk's timeless writing rules to any prose humans will read, documentation, commit messages, error messages, or UI text. Use when writing or editing prose for humans (docs, error messages, UI text, comments, commit messages).
 ---
 
 # Writing Clear Prose

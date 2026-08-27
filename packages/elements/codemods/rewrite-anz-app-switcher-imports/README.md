@@ -6,7 +6,7 @@ description: Rewrite ANZ-specific AppSwitcher imports to @reapit/elements/core/a
 
 Rewrites imports of ANZ-specific `AppSwitcher` exports (such as `SupportedProductId`) to use the new
 `@reapit/elements/core/app-switcher/anz` subpath. Since the ANZ path re-exports all generic symbols too,
-only the module specifier changes — all import bindings remain unchanged.
+only the module specifier changes; all import bindings remain unchanged.
 
 ## Usage
 
@@ -35,7 +35,7 @@ yarn dlx @reapit/elements@beta codemod apply rewrite-anz-app-switcher-imports sr
 ## Transformations
 
 The codemod rewrites the module specifier when any ANZ-specific symbol is detected. Import bindings are
-preserved unchanged — you do not need to update how you reference the imported names.
+preserved unchanged: you do not need to update how you reference the imported names.
 
 | Trigger                                                     | Before                                        | After                                             |
 | ----------------------------------------------------------- | --------------------------------------------- | ------------------------------------------------- |

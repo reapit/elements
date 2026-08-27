@@ -37,7 +37,7 @@ Facade package imports keep their original specifier.
 
 ## Background
 
-The `Snack` system (`SnackProvider`, `useSnack`, `Snack`, `SnackHolder`) has been superseded by the `Toaster` component and `toast` helper from `core/toaster`. The new API is imperative — call `toast.success()`, `toast.error()`, and so on directly without a provider or hook. This codemod provides an automated migration path for the DS-164 API update.
+The `Snack` system (`SnackProvider`, `useSnack`, `Snack`, `SnackHolder`) has been superseded by the `Toaster` component and `toast` helper from `core/toaster`. The new API is imperative: call `toast.success()`, `toast.error()`, and so on directly without a provider or hook. This codemod provides an automated migration path for the DS-164 API update.
 
 ## Transformations
 

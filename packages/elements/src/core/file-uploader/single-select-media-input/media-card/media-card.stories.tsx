@@ -8,7 +8,7 @@ const meta = preview.meta({
 });
 
 /**
- * The whole card is a single trigger for replacing the file — hover, focus, or drag a file over it to reveal
+ * The whole card is a single trigger for replacing the file: hover, focus, or drag a file over it to reveal
  * the "Replace" affordance.
  */
 export const Example = meta.story({
@@ -31,7 +31,7 @@ export const Example = meta.story({
 });
 
 /**
- * `isDraggingOver` reveals the "Replace" affordance the same way hover/focus does — wired up by
+ * `isDraggingOver` reveals the "Replace" affordance the same way hover/focus does; wired up by
  * `FileUploaderSingleSelectMediaInput` from `FileInput`'s `isDraggingOver` render prop while a file is
  * dragged over the trigger.
  */
@@ -54,7 +54,7 @@ export const Video = Example.extend({
 
 /**
  * An `error` status shows a red border and centred error icon, matching `FileUploader.MediaCard`. The
- * "Replace" affordance is suppressed — removing the errored file is still available.
+ * "Replace" affordance is suppressed; removing the errored file is still available.
  */
 export const Error = Example.extend({
   args: {

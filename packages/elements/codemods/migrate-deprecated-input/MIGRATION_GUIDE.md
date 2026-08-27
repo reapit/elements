@@ -6,7 +6,7 @@ This guide covers migrating from the deprecated `Input`, `InputGroup`, `InputAdd
 
 ### With an AI coding agent
 
-Give this file to your agent as context — paste it into the chat, attach it as a file, or point the agent at this path. Specify the scope of the migration (which files or directories to process) and whether the project uses a facade package (see below). The migration rules, decision tree, and before/after examples are written for the agent to follow directly.
+Give this file to your agent as context: paste it into the chat, attach it as a file, or point the agent at this path. Specify the scope of the migration (which files or directories to process) and whether the project uses a facade package (see below). The migration rules, decision tree, and before/after examples are written for the agent to follow directly.
 
 A suggested prompt:
 
@@ -20,7 +20,7 @@ This guide can also be followed manually. The migration rules, prop mapping tabl
 
 ### Facade package support
 
-Many projects consume Reapit Elements through an internal facade package — a workspace or package in their monorepo that re-exports some or all Elements components under a different name (e.g. `@company/ui`, `@company/design-system/elements`).
+Many projects consume Reapit Elements through an internal facade package, a workspace or package in their monorepo that re-exports some or all Elements components under a different name (e.g. `@company/ui`, `@company/design-system/elements`).
 
 When a facade package is present, the rule is: **rename identifiers, but preserve import paths pointing to the facade package**.
 
@@ -28,7 +28,7 @@ When a facade package is present, the rule is: **rename identifiers, but preserv
 // Before (imports from facade package)
 import { InputGroup } from "@company/ui";
 
-// After — identifier renamed, import path unchanged
+// After: identifier renamed, import path unchanged
 import { TextControl } from "@company/ui";
 ```
 
@@ -44,7 +44,7 @@ If the project has multiple facade packages, perform the migration once per faca
 
 **Target audience**: Projects importing `Input`, `InputGroup`, `InputAddOn`, or `InputError` from `@reapit/elements` (or a facade package) that are ready to migrate to the v5 component architecture. This guide covers the full family of deprecated input components and all common usage patterns.
 
-**Version context**: The deprecated input components are marked `@deprecated` and are scheduled for removal in a future major version. The modern replacements — `TextControl`, `DateTimeControl`, `TextareaControl`, `CheckboxControl`, `RadioGroupControl`, and their constituent parts — were introduced in v5 and are the supported path forward.
+**Version context**: The deprecated input components are marked `@deprecated` and are scheduled for removal in a future major version. The modern replacements (`TextControl`, `DateTimeControl`, `TextareaControl`, `CheckboxControl`, `RadioGroupControl`, and their constituent parts) were introduced in v5 and are the supported path forward.
 
 **Architecture shift**: The deprecated `Input` was a thin styled wrapper around a native `<input>` element. The deprecated `InputGroup` was a monolithic form control that combined the input, label, error message, icon, and add-on text into a single component via props. The modern architecture separates these concerns across three tiers:
 
@@ -52,7 +52,7 @@ If the project has multiple facade packages, perform the migration once per faca
 - **Labelled compounds** (`Checkbox`, `RadioButton`) — input plus label, for selection controls.
 - **Controls** (`TextControl`, `DateTimeControl`, `TextareaControl`, `CheckboxControl`, `RadioGroupControl`) — full form field compositions that include the label, help text, and error text, with accessibility wiring (ARIA attributes, ID linking) built in.
 
-For most `InputGroup` usages, the correct migration target is a **Control** — the direct architectural successor.
+For most `InputGroup` usages, the correct migration target is a **Control**, the direct architectural successor.
 
 ## Migration Decision Tree
 
@@ -96,7 +96,7 @@ The two modes have different migration strategies.
 | `errorMessage`                  | `errorText`        | Rename only. Providing `errorText` automatically sets `aria-invalid` and `showValidity`.                                                                                                                                                                          |
 | `hasError`                      | _(remove)_         | Error styling is driven by `errorText` presence. If `hasError` was set without an `errorMessage`, add a descriptive `errorText` value.                                                                                                                            |
 | `icon`                          | `leadingIcon`      | The deprecated `icon` was positioned to the left. Use `leadingIcon` as the default; use `trailingIcon` if the icon was intentionally trailing (check the visual design).                                                                                          |
-| `inputAddOnText`                | `suffix`           | The deprecated add-on was appended to the right. Map to `suffix`. The value changes from a string to a `ReactNode` — strings are valid `ReactNode` and pass through unchanged.                                                                                    |
+| `inputAddOnText`                | `suffix`           | The deprecated add-on was appended to the right. Map to `suffix`. The value changes from a string to a `ReactNode`: strings are valid `ReactNode` and pass through unchanged.                                                                                     |
 | `intent`                        | _(remove)_         | No equivalent. The `intent` prop coloured the icon and add-on; this is no longer supported. Error state is driven by `errorText`. If `intent` was used for decorative colouring, implement the styling manually using CSS.                                        |
 | `id`                            | `id`               | Preserve an existing `id` so that label and ARIA wiring remains stable. If no `id` was set, omit it and `TextControl` will auto-generate one via `useId()`.                                                                                                       |
 | `className`                     | `className`        | Passed through to the `FormControl` wrapper `<div>`.                                                                                                                                                                                                              |
@@ -135,7 +135,7 @@ import { TextControl } from "@company/ui";
 
 Apply the same prop mapping as Rule 1. Pass the `type` prop through (`date`, `time`, or `datetime-local`).
 
-`DateTimeControl` renders a native date/time input with a picker button (calendar icon for `date`/`datetime-local`, clock icon for `time`). It does not accept `icon`, `leadingIcon`, or `trailingIcon` — remove those props. The picker button replaces any icon that was used alongside a date input in the deprecated code.
+`DateTimeControl` renders a native date/time input with a picker button (calendar icon for `date`/`datetime-local`, clock icon for `time`). It does not accept `icon`, `leadingIcon`, or `trailingIcon`; remove those props. The picker button replaces any icon that was used alongside a date input in the deprecated code.
 
 **Import change (direct Elements import)**:
 
@@ -157,21 +157,21 @@ import { DateTimeControl } from "@reapit/elements/core/date-time-control";
 
 **Single checkbox — prop mapping**:
 
-| `InputGroup` prop | `CheckboxControl` prop | Notes                                                                                                                                                   |
-| ----------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `label`           | `label`                | **Required** on `CheckboxControl`. If `label` was absent on the deprecated usage, add a descriptive label — a visually hidden label may be appropriate. |
-| `errorMessage`    | `errorText`            | Rename only.                                                                                                                                            |
-| `hasError`        | _(remove)_             | Driven by `errorText` presence.                                                                                                                         |
-| `name`            | `name`                 | Pass through.                                                                                                                                           |
-| `value`           | `value`                | Pass through.                                                                                                                                           |
-| `checked`         | `checked`              | Pass through (controlled usage).                                                                                                                        |
-| `defaultChecked`  | `defaultChecked`       | Pass through (uncontrolled usage).                                                                                                                      |
-| `disabled`        | `disabled`             | Pass through.                                                                                                                                           |
-| `onChange`        | `onChange`             | Pass through. Note: `onChange` receives a `React.ChangeEvent<HTMLInputElement>`, same as before.                                                        |
-| `icon`            | _(remove)_             | No equivalent for checkboxes. Icons are not part of the `CheckboxControl` API.                                                                          |
-| `inputAddOnText`  | `supplementaryInfo`    | Contextual description text shown beneath the label. Accepts `ReactNode`.                                                                               |
-| `intent`          | _(remove)_             | No equivalent.                                                                                                                                          |
-| `className`       | `className`            | Passed through to the `FormControl` wrapper.                                                                                                            |
+| `InputGroup` prop | `CheckboxControl` prop | Notes                                                                                                                                                  |
+| ----------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `label`           | `label`                | **Required** on `CheckboxControl`. If `label` was absent on the deprecated usage, add a descriptive label; a visually hidden label may be appropriate. |
+| `errorMessage`    | `errorText`            | Rename only.                                                                                                                                           |
+| `hasError`        | _(remove)_             | Driven by `errorText` presence.                                                                                                                        |
+| `name`            | `name`                 | Pass through.                                                                                                                                          |
+| `value`           | `value`                | Pass through.                                                                                                                                          |
+| `checked`         | `checked`              | Pass through (controlled usage).                                                                                                                       |
+| `defaultChecked`  | `defaultChecked`       | Pass through (uncontrolled usage).                                                                                                                     |
+| `disabled`        | `disabled`             | Pass through.                                                                                                                                          |
+| `onChange`        | `onChange`             | Pass through. Note: `onChange` receives a `React.ChangeEvent<HTMLInputElement>`, same as before.                                                       |
+| `icon`            | _(remove)_             | No equivalent for checkboxes. Icons are not part of the `CheckboxControl` API.                                                                         |
+| `inputAddOnText`  | `supplementaryInfo`    | Contextual description text shown beneath the label. Accepts `ReactNode`.                                                                              |
+| `intent`          | _(remove)_             | No equivalent.                                                                                                                                         |
+| `className`       | `className`            | Passed through to the `FormControl` wrapper.                                                                                                           |
 
 **Import change (direct Elements import)**:
 
@@ -207,7 +207,7 @@ import { CheckboxGroupControl } from '@reapit/elements/core/checkbox-group-contr
 
 **When**: `<InputGroup>` has no `children` and `type="radio"`.
 
-**Target**: `<RadioGroupControl>` with `<RadioGroupControl.Option>` children. Radio buttons are not semantically meaningful in isolation — always migrate to the group component, even for a single option.
+**Target**: `<RadioGroupControl>` with `<RadioGroupControl.Option>` children. Radio buttons are not semantically meaningful in isolation: always migrate to the group component, even for a single option.
 
 **Prop mapping** — set these on `<RadioGroupControl>`:
 
@@ -267,20 +267,20 @@ The composition-mode `<InputGroup>` was used as a layout wrapper. Migrate based 
 **Replace the `<InputGroup>` wrapper**:
 
 - Wrapping a text or date input → `<FormControl>`
-- Wrapping a `<Textarea>` that needs a full form-field treatment → `<TextareaControl>` (collapse children back to props — see Rule 7)
+- Wrapping a `<Textarea>` that needs a full form-field treatment → `<TextareaControl>` (collapse children back to props, see Rule 7)
 - Wrapping a `<DeprecatedSelect>` or `<MultiSelectInput>` → leave a `// TODO:` comment; those have separate migration paths
 
 **Replace each child element**:
 
-| Child element         | Replacement                                                                                                             | Notes                                                                                                                                                                                                                    |
-| --------------------- | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `<Input>`             | Apply the standalone `<Input>` rules (Rule 8) to determine the target. The resulting input sits inside `<FormControl>`. |                                                                                                                                                                                                                          |
-| `<ElInputGroupLabel>` | `<FormControl.Label htmlFor="...">`                                                                                     | Set `htmlFor` to the `id` of the migrated input element.                                                                                                                                                                 |
-| `<InputAddOn>`        | `suffix` or `prefix` prop on `<TextInput>`                                                                              | Move the add-on text from a sibling element to a prop on the input.                                                                                                                                                      |
-| `<InputError>`        | `<FormControl.ErrorText id="...">`                                                                                      | Place inside `<FormControl>`. Ensure the input has `aria-errormessage` pointing to this element's `id`. For simple cases, switch to `<TextControl>` and pass `errorText` instead — it handles ARIA wiring automatically. |
-| `<Textarea>`          | `<Textarea>` (unchanged component)                                                                                      | The `Textarea` from `@reapit/elements/core/textarea` requires a `fieldSizing` prop (`'content'` or `'fixed'`). Add `fieldSizing="content"` if absent.                                                                    |
-| `<DeprecatedSelect>`  | _(leave `// TODO:` comment)_                                                                                            | Out of scope for this migration.                                                                                                                                                                                         |
-| `<MultiSelectInput>`  | _(leave `// TODO:` comment)_                                                                                            | Out of scope for this migration.                                                                                                                                                                                         |
+| Child element         | Replacement                                                                                                             | Notes                                                                                                                                                                                                                   |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `<Input>`             | Apply the standalone `<Input>` rules (Rule 8) to determine the target. The resulting input sits inside `<FormControl>`. |                                                                                                                                                                                                                         |
+| `<ElInputGroupLabel>` | `<FormControl.Label htmlFor="...">`                                                                                     | Set `htmlFor` to the `id` of the migrated input element.                                                                                                                                                                |
+| `<InputAddOn>`        | `suffix` or `prefix` prop on `<TextInput>`                                                                              | Move the add-on text from a sibling element to a prop on the input.                                                                                                                                                     |
+| `<InputError>`        | `<FormControl.ErrorText id="...">`                                                                                      | Place inside `<FormControl>`. Ensure the input has `aria-errormessage` pointing to this element's `id`. For simple cases, switch to `<TextControl>` and pass `errorText` instead: it handles ARIA wiring automatically. |
+| `<Textarea>`          | `<Textarea>` (unchanged component)                                                                                      | The `Textarea` from `@reapit/elements/core/textarea` requires a `fieldSizing` prop (`'content'` or `'fixed'`). Add `fieldSizing="content"` if absent.                                                                   |
+| `<DeprecatedSelect>`  | _(leave `// TODO:` comment)_                                                                                            | Out of scope for this migration.                                                                                                                                                                                        |
+| `<MultiSelectInput>`  | _(leave `// TODO:` comment)_                                                                                            | Out of scope for this migration.                                                                                                                                                                                        |
 
 **Import change (direct Elements import)**:
 
@@ -304,7 +304,7 @@ import { TextInput } from "@reapit/elements/core/text-input";
 
 **When**: `<InputGroup>` (in composition mode) contains a `<Textarea>` child.
 
-**Target**: `<TextareaControl>` — collapse the composition back to a single component with props.
+**Target**: `<TextareaControl>`: collapse the composition back to a single component with props.
 
 | Composition child / `InputGroup` prop              | `TextareaControl` prop | Notes                                                                            |
 | -------------------------------------------------- | ---------------------- | -------------------------------------------------------------------------------- |
@@ -376,9 +376,9 @@ If `hasError` was driven by a variable (e.g. `hasError={!!errors.email}`), carry
 | `InputErrorInterface` | _(remove)_          | Not part of the public API in v5.    |
 | `InputAddOnProps`     | _(remove)_          | Not part of the public API in v5.    |
 
-**Styled components used directly** (`ElInput`, `ElInputGroup`, `ElInputGroupLabel`, `ElInputAddOn`, `ElInputError`) — these are internal implementation details with no equivalent exports in the modern components. If a consumer imports them directly, this requires manual migration to the relevant Control component. Leave a `// TODO:` comment and rebuild the customisation using the modern component API.
+**Styled components used directly** (`ElInput`, `ElInputGroup`, `ElInputGroupLabel`, `ElInputAddOn`, `ElInputError`): these are internal implementation details with no equivalent exports in the modern components. If a consumer imports them directly, this requires manual migration to the relevant Control component. Leave a `// TODO:` comment and rebuild the customisation using the modern component API.
 
-**`styled(Input)` or `styled(InputGroup)` in Linaria** — if a consumer has extended a deprecated component via `styled()`, this requires manual migration. The styled extension relies on internal CSS class structure that has changed. Leave a `// TODO:` comment and rebuild the customisation against the modern component.
+**`styled(Input)` or `styled(InputGroup)` in Linaria**: if a consumer has extended a deprecated component via `styled()`, this requires manual migration. The styled extension relies on internal CSS class structure that has changed. Leave a `// TODO:` comment and rebuild the customisation against the modern component.
 
 ---
 
@@ -448,7 +448,7 @@ export const EmailField = ({ error }: { error?: string }) => (
 );
 ```
 
-Note: `hasError` and `intent` are removed — `errorText` drives error state automatically.
+Note: `hasError` and `intent` are removed; `errorText` drives error state automatically.
 
 ---
 
@@ -472,7 +472,7 @@ import { DateTimeControl } from "@reapit/elements/core/date-time-control";
 export const DobField = () => <DateTimeControl type="date" label="Date of birth" name="dob" />;
 ```
 
-Note: `icon` is removed — `DateTimeControl` provides its own picker button.
+Note: `icon` is removed; `DateTimeControl` provides its own picker button.
 
 ---
 
@@ -582,7 +582,7 @@ export const StatusField = () => (
 );
 ```
 
-Note: `RadioGroupControl` requires a group label. Choose a descriptive label (here `"Status"`). If the deprecated code had no group label, add one — an unlabelled radio group is inaccessible.
+Note: `RadioGroupControl` requires a group label. Choose a descriptive label (here `"Status"`). If the deprecated code had no group label, add one, because an unlabelled radio group is inaccessible.
 
 ---
 
@@ -670,7 +670,7 @@ import { TextInput } from "@reapit/elements/core/text-input";
 export const InlineSearch = () => <TextInput type="search" placeholder="Search..." />;
 ```
 
-`hasError={false}` is removed — `showValidity` defaults to `false`, so no error styling appears.
+`hasError={false}` is removed; `showValidity` defaults to `false`, so no error styling appears.
 
 ---
 
@@ -790,11 +790,11 @@ The `intent` prop coloured the icon and add-on for non-error purposes (e.g. `int
 
 ### `inputAddOnText` mapping to `prefix` vs `suffix`
 
-Map `inputAddOnText` to `suffix` by default — the deprecated add-on was appended to the right. If the design intent was a prefix (text on the left), use `prefix` instead. Examine the surrounding context or design to make the correct call; when uncertain, use `suffix` and leave a comment.
+Map `inputAddOnText` to `suffix` by default: the deprecated add-on was appended to the right. If the design intent was a prefix (text on the left), use `prefix` instead. Examine the surrounding context or design to make the correct call; when uncertain, use `suffix` and leave a comment.
 
 ### Radio buttons without a group label
 
-`RadioGroupControl` renders a `<fieldset>` with a `<legend>` automatically. Pass a `label` prop to provide the visible group label. If no visible label is appropriate, pass `aria-label` instead — an unlabelled `<fieldset>` is inaccessible. If the deprecated code had no group label, add a descriptive one.
+`RadioGroupControl` renders a `<fieldset>` with a `<legend>` automatically. Pass a `label` prop to provide the visible group label. If no visible label is appropriate, pass `aria-label` instead, because an unlabelled `<fieldset>` is inaccessible. If the deprecated code had no group label, add a descriptive one.
 
 ### `InputGroup` wrapping `DeprecatedSelect` or `MultiSelectInput`
 
@@ -820,7 +820,7 @@ No dedicated file input component exists, and `TextInput`'s `type` prop does not
 
 ## Working in a Monorepo with a Facade Package
 
-This section applies when the codebase uses a facade package — an internal package that re-exports Elements components under a different name.
+This section applies when the codebase uses a facade package, an internal package that re-exports Elements components under a different name.
 
 ### How to detect a facade package
 
@@ -875,16 +875,16 @@ If the facade re-exports components under different names (e.g. `export { InputG
 
 ## Key API Differences
 
-| Aspect                 | Deprecated (`InputGroup`)                              | Modern (`TextControl` etc.)                                                            |
-| ---------------------- | ------------------------------------------------------ | -------------------------------------------------------------------------------------- |
-| **Architecture**       | Monolithic — one component handles input, label, error | Three-tier — raw input, labelled compound, full control                                |
-| **Error handling**     | `hasError` + `errorMessage` props                      | `errorText` prop; error state is derived automatically                                 |
-| **Accessibility**      | Auto-generated `aria-label` on the input               | Full ARIA wiring: `aria-invalid`, `aria-errormessage`, `aria-describedby` linked by ID |
-| **Labels**             | `label` string prop or `ElInputGroupLabel` child       | `label` ReactNode prop on Control; `FormControl.Label` for manual composition          |
-| **Icons**              | `icon` ReactNode prop                                  | `leadingIcon` and `trailingIcon` props on `TextInput`                                  |
-| **Add-on text**        | `inputAddOnText` string prop                           | `prefix` and `suffix` ReactNode props on `TextInput`                                   |
-| **Intent / colouring** | `intent` prop (primary, danger, neutral, etc.)         | No equivalent; styling is token-based and state-driven                                 |
-| **Checkbox / radio**   | `<Input type="checkbox">` / `<Input type="radio">`     | Separate component families: `Checkbox`, `CheckboxControl`, `RadioGroupControl`        |
-| **Date inputs**        | `<InputGroup type="date">` (CSS-only, no picker UI)    | `DateTimeControl` with a native picker button                                          |
-| **Composition**        | Composition mode with explicit children                | `FormControl` with children, or use a Control component                                |
-| **Type safety**        | Single `InputProps` extending `InputHTMLAttributes`    | Separate typed interfaces per component; namespace pattern                             |
+| Aspect                 | Deprecated (`InputGroup`)                             | Modern (`TextControl` etc.)                                                            |
+| ---------------------- | ----------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| **Architecture**       | Monolithic: one component handles input, label, error | Three-tier: raw input, labelled compound, full control                                 |
+| **Error handling**     | `hasError` + `errorMessage` props                     | `errorText` prop; error state is derived automatically                                 |
+| **Accessibility**      | Auto-generated `aria-label` on the input              | Full ARIA wiring: `aria-invalid`, `aria-errormessage`, `aria-describedby` linked by ID |
+| **Labels**             | `label` string prop or `ElInputGroupLabel` child      | `label` ReactNode prop on Control; `FormControl.Label` for manual composition          |
+| **Icons**              | `icon` ReactNode prop                                 | `leadingIcon` and `trailingIcon` props on `TextInput`                                  |
+| **Add-on text**        | `inputAddOnText` string prop                          | `prefix` and `suffix` ReactNode props on `TextInput`                                   |
+| **Intent / colouring** | `intent` prop (primary, danger, neutral, etc.)        | No equivalent; styling is token-based and state-driven                                 |
+| **Checkbox / radio**   | `<Input type="checkbox">` / `<Input type="radio">`    | Separate component families: `Checkbox`, `CheckboxControl`, `RadioGroupControl`        |
+| **Date inputs**        | `<InputGroup type="date">` (CSS-only, no picker UI)   | `DateTimeControl` with a native picker button                                          |
+| **Composition**        | Composition mode with explicit children               | `FormControl` with children, or use a Control component                                |
+| **Type safety**        | Single `InputProps` extending `InputHTMLAttributes`   | Separate typed interfaces per component; namespace pattern                             |

@@ -6,7 +6,7 @@
 // distinct (locale, options) combinations in a typical app is small, so no
 // eviction is needed. The key separator is \u0000 (null byte), which is safe
 // because locale tags and JSON.stringify output never contain null bytes.
-// Note: differently-ordered options objects produce distinct keys — a minor
+// Note: differently-ordered options objects produce distinct keys: a minor
 // extra instance, not a correctness issue.
 const _cache = new Map<string, Intl.NumberFormat>();
 
@@ -93,14 +93,14 @@ export interface NumberAffix {
  * locale and format options.
  *
  * Uses `Intl.NumberFormat.formatToParts` to extract the first descriptive part
- * (currency symbol, percent sign, or unit — see {@link DESCRIPTIVE_PART_TYPES}) and
+ * (currency symbol, percent sign, or unit; see {@link DESCRIPTIVE_PART_TYPES}) and
  * determines its position relative to the numeric parts in a single pass. Falls back
- * gracefully via {@link getIntlNumberFormat} — invalid options yield
+ * gracefully via {@link getIntlNumberFormat}; invalid options yield
  * `{ affix: '', position: 'prefix' }` rather than throwing.
  *
  * @param value - The value to format. Defaults to `0`. Position detection is reliable for
  *   any finite value, but note that the affix text itself can vary with the value when plural
- *   rules apply — for example, `currencyDisplay: 'name'` or `style: 'unit'` with a long
+ *   rules apply; for example, `currencyDisplay: 'name'` or `style: 'unit'` with a long
  *   display may return `'US dollar'` for `1` and `'US dollars'` for `2`. Pass a value
  *   representative of the intended quantity when the exact affix text matters. Non-finite
  *   values (`NaN`, `Infinity`, `-Infinity`) are normalised to `0` before formatting, because
@@ -137,12 +137,12 @@ const MB = KB * 1000;
 /**
  * Formats a byte count as a human-readable string with a bytes/KB/MB tier, e.g. `'3.6 MB'`.
  *
- * Uses decimal (SI) units — `1 kB` is `1,000` bytes, `1 MB` is `1,000,000` bytes — matching the
+ * Uses decimal (SI) units: `1 kB` is `1,000` bytes, `1 MB` is `1,000,000` bytes, matching the
  * `'kilobyte'`/`'megabyte'` unit names passed to `Intl.NumberFormat`, and how most operating
  * systems and browsers report file sizes.
  *
  * Uses {@link getIntlNumberFormat} with `style: 'unit'` (`unitDisplay: 'short'`), so both the
- * numeric part and the unit are localised — e.g. `'3,6 Mo'` in `fr-FR`, `'245 kB'` in `de-DE`.
+ * numeric part and the unit are localised; for example, `'3,6 Mo'` in `fr-FR`, `'245 kB'` in `de-DE`.
  *
  * @param bytes - The size in bytes. Non-finite values (`NaN`, `Infinity`, `-Infinity`) and
  *   negative values are normalised to `0` before formatting.

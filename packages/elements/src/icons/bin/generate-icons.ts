@@ -35,7 +35,7 @@ function kebabToPascalCase(kebab: string): string {
 
 /** Load icon components from Reapit DS Figma file. */
 async function loadFigmaIcons(): Promise<FigmaComponent[]> {
-  // The `?node-id=xxx` query param scopes the search to within the identified node — in this case
+  // The `?node-id=xxx` query param scopes the search to within the identified node: in this case
   // the "Icons list" auto layout layer which contains all icon component instances.
   return await client.getComponents(
     "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=20-727&m=dev",
@@ -106,7 +106,7 @@ function processSvg(rawSvg: string): string {
 
 /**
  * Download, process, and write SVG files for all Figma icon components.
- * Warns and skips individual icons on failure — never throws.
+ * Warns and skips individual icons on failure; never throws.
  */
 async function downloadAndWriteSvgs(
   components: FigmaComponent[],
@@ -251,7 +251,7 @@ function writeBarrelFile(svgFiles: string[]): void {
     .join("\n");
 
   // Emit a PascalName → kebabName map so consumers (e.g. the icon gallery story) can
-  // recover the subpath name without parsing the export name — which is lossy for
+  // recover the subpath name without parsing the export name, which is lossy for
   // names containing digits (e.g. `W3wIcon` could derive to either `w3w` or `w-3-w`).
   const kebabEntries = svgFiles
     .map((file) => {

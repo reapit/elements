@@ -5,7 +5,7 @@
  *
  * This package is published to npm as `@reapit/elements`. If we used a
  * `postinstall` script, npm would run it for every consumer that installs the
- * package — attempting to run `husky` in their projects, which is both
+ * package, attempting to run `husky` in their projects, which is both
  * unexpected and almost certainly going to fail.
  *
  * The conventional workaround is to pair `postinstall` with `pinst`, which
@@ -27,7 +27,7 @@ module.exports = {
         try {
           execSync("yarn husky", { cwd: project.cwd, stdio: "ignore" });
         } catch (error) {
-          // husky not available (e.g. CI production install) — warn and continue
+          // husky not available (e.g. CI production install): warn and continue
           console.warn(
             "[plugin-husky] Failed to run husky:",
             error && error.message ? error.message : error,

@@ -7,7 +7,7 @@ import { FileUploadIcon } from "#src/icons/file-upload";
 import type { FileUploadQueue } from "./file-upload-queue";
 import { FileUploader } from "./file-uploader";
 
-// Storybook's `meta()` can't infer args from a generic component reference — narrow to a concrete
+// Storybook's `meta()` can't infer args from a generic component reference: narrow to a concrete
 // `TResult` just for the `component:` reference; every story below still uses the real, generic
 // `FileUploader` in JSX.
 const FileUploaderComponent = FileUploader as (
@@ -25,7 +25,7 @@ const meta = preview.meta({
 });
 
 /**
- * `FileUploader.FileList` renders no items of its own — every story wires up this same default
+ * `FileUploader.FileList` renders no items of its own: every story wires up this same default
  * rendering (one `FileUploader.File` per item, wrapped in `ElFileUploaderFileList`) via `children`.
  */
 function renderFileList() {

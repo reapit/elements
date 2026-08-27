@@ -99,7 +99,7 @@ test("does not render a video overlay when isVideo is false", () => {
       src="https://example.com/house.jpg"
     />,
   );
-  // There is no video overlay div — the only aria-hidden element is the image
+  // There is no video overlay div: the only aria-hidden element is the image
   // when it has errored, which it hasn't here (no actual network request).
   // We check that the thumbnail renders cleanly.
   expect(container.firstElementChild).toBeVisible();

@@ -364,7 +364,7 @@ test("allows the locale decimal separator when the existing decimal is within th
   render(<NumberInput locale="de-DE" />);
   const input = screen.getByRole<HTMLInputElement>("textbox");
   Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, "value")?.set?.call(input, "1.5");
-  // Select all text — the existing '.' is inside the selection
+  // Select all text: the existing '.' is inside the selection
   input.setSelectionRange(0, 3);
   const event = new InputEvent("beforeinput", { data: ",", cancelable: true });
   input.dispatchEvent(event);
@@ -386,7 +386,7 @@ test('blocks "." when the existing decimal point is outside the selection', () =
   render(<NumberInput locale="en-GB" />);
   const input = screen.getByRole<HTMLInputElement>("textbox");
   Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, "value")?.set?.call(input, "1.5");
-  // Cursor at the end — existing '.' is NOT in the selection
+  // Cursor at the end: existing '.' is NOT in the selection
   input.setSelectionRange(3, 3);
   const event = new InputEvent("beforeinput", { data: ".", cancelable: true });
   const prevented = !input.dispatchEvent(event);
@@ -398,7 +398,7 @@ test('allows "." when the existing decimal point is inside the selection', () =>
   render(<NumberInput locale="en-GB" />);
   const input = screen.getByRole<HTMLInputElement>("textbox");
   Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, "value")?.set?.call(input, "1.5");
-  // Select all text — the existing '.' is inside the selection
+  // Select all text: the existing '.' is inside the selection
   input.setSelectionRange(0, 3);
   const event = new InputEvent("beforeinput", { data: ".", cancelable: true });
   const prevented = !input.dispatchEvent(event);
@@ -576,7 +576,7 @@ test("minimumFractionDigits is clamped to actualFractionDigits when value exceed
 // ---------------------------------------------------------------------------
 
 test("overlay formats a trailing decimal point as if the dot were absent", () => {
-  // "1234." is numerically equal to "1234" — Intl.NumberFormat formats the
+  // "1234." is numerically equal to "1234"; Intl.NumberFormat formats the
   // number value, so the overlay shows the locale-formatted integer. The
   // trailing dot is an in-progress entry character, not a distinct value.
   const { container } = render(<NumberInput value="1234." locale="en-GB" />);
@@ -592,7 +592,7 @@ test("overlay formats a trailing decimal point on a negative value as if the dot
 
 test("overlay pads a trailing-dot value when minimumFractionDigits is set", () => {
   // "12." is numerically 12. With minimumFractionDigits: 2 the overlay should
-  // show "12.00" — the same value, just padded — not the raw "12.".
+  // show "12.00"; the same value, just padded: not the raw "12.".
   const { container } = render(
     <NumberInput value="12." locale="en-GB" formatOptions={{ minimumFractionDigits: 2 }} />,
   );
@@ -720,7 +720,7 @@ test("keeps the value parseable by Number() after a grouped paste", () => {
 });
 
 // ---------------------------------------------------------------------------
-// invalid formatOptions — graceful degradation
+// invalid formatOptions: graceful degradation
 // ---------------------------------------------------------------------------
 
 test("renders without throwing when maximumFractionDigits is out of range", () => {
@@ -760,7 +760,7 @@ test("coerces a non-integer maximumFractionDigits to its integer part", () => {
 test("overlay formats an integer beyond Number.MAX_SAFE_INTEGER exactly, without rounding", () => {
   // 9007199254740993 is Number.MAX_SAFE_INTEGER + 2.
   // Number('9007199254740993') === 9007199254740992 (rounds to nearest even),
-  // so formatting via Number would display '9,007,199,254,740,992' — one less.
+  // so formatting via Number would display something; one less.
   const { container } = render(<NumberInput value="9007199254740993" locale="en-GB" />);
   const overlay = container.querySelector("[data-formatted-overlay]");
   expect(overlay).toHaveTextContent("9,007,199,254,740,993");
@@ -838,7 +838,7 @@ test("no affix is rendered when formatOptions has no style", () => {
   const { container } = render(
     <NumberInput value="1234.5" locale="en-GB" formatOptions={{ useGrouping: true }} />,
   );
-  // No affix container (prefix or suffix) should be present — TextInput renders affixes as
+  // No affix container should be present; TextInput renders affixes as
   // a span with data-position="before"/"after". No icons are rendered here, so these
   // selectors uniquely identify an affix.
   expect(container.querySelector('[data-position="before"]')).toBeNull();
@@ -913,7 +913,7 @@ test("a leadingIcon suppresses the derived currency affix", () => {
 });
 
 // ---------------------------------------------------------------------------
-// non-canonical controlled values — overlay never diverges, flagged invalid
+// non-canonical controlled values: overlay never diverges, flagged invalid
 // ---------------------------------------------------------------------------
 
 test.each([
@@ -942,7 +942,7 @@ test("does not throw when a controlled value would overflow BigInt parsing via e
 });
 
 // ---------------------------------------------------------------------------
-// percent (style: 'percent') — model-space decimal entry, scaled overlay
+// percent (style: 'percent'): model-space decimal entry, scaled overlay
 // ---------------------------------------------------------------------------
 
 test('infers inputMode="decimal" for style: "percent"', () => {
@@ -1004,7 +1004,7 @@ test("percent overlay pads to minimumFractionDigits in display-space", () => {
 });
 
 // ---------------------------------------------------------------------------
-// unsupported format options — stripped at runtime, overlay never rounds
+// unsupported format options: stripped at runtime, overlay never rounds
 // ---------------------------------------------------------------------------
 
 test("maximumSignificantDigits does not restrict decimal entry", () => {

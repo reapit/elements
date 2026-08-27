@@ -27,8 +27,8 @@ const href = "#";
  * of products and which products are approved for display is not handled automatically by these
  * subcomponents.
  *
- * Instead, there are two ANZ-specific utility functions — `getDisplayableProductsForYourAppsGroup` and
- * `getDisplayableProductsForExploreGroup` — available from `@reapit/elements/core/app-switcher/anz` that filter
+ * Instead, there are two ANZ-specific utility functions: `getDisplayableProductsForYourAppsGroup` and
+ * `getDisplayableProductsForExploreGroup`, available from `@reapit/elements/core/app-switcher/anz` that filter
  * the logged-in user's accessible product IDs into the correct groups. A practical example of how to use these
  * is shown in the "All Accessible" and "None Accessible" stories below.
  */

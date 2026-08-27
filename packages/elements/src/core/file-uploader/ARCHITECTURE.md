@@ -13,8 +13,8 @@ root that provides context).
 
 **[`FileInput`](../../utils/file-input/ARCHITECTURE.md)** is the native file
 selection primitive that every control in this family renders under the
-hood. It is designed for use outside a `FileUploader` context too — for
-example, a single-avatar-upload trigger with no progress UI — which is why it
+hood. It is designed for use outside a `FileUploader` context too (for
+example, a single-avatar-upload trigger with no progress UI), which is why it
 lives in `src/utils/` rather than being private to `file-uploader/`.
 
 **`FileUploadQueue`** (`src/core/file-uploader/`) is an external store class
@@ -37,7 +37,7 @@ the error message those components render, and renders a hidden form input for
 each successfully uploaded item.
 
 **`FileUploader`** (`src/core/file-uploader/`) is the compound root. It
-provides context — the queue instance, `disabled`, and `locale` — to its
+provides context (the queue instance, `disabled`, and `locale`) to its
 descendants and renders no chrome of its own. Consumers arrange a control
 (`FileUploader.ButtonControl` or `FileUploader.DropzoneControl`) and
 `FileUploader.FileList` as siblings.
@@ -46,7 +46,7 @@ descendants and renders no chrome of its own. Consumers arrange a control
 
 ### 1. Invalid files do not block submission
 
-An invalid file — one that fails a per-file constraint such as type or size —
+An invalid file, one that fails a per-file constraint such as type or size,
 is recorded in the queue with a validation error but does not affect whether
 the form can be submitted. Only field-level validity, surfaced through
 `FileInput`'s native constraint validation API, impacts submission.
@@ -60,8 +60,8 @@ all for an invalid item, rather than one with an empty value.
 
 Constraints such as `accept`, `multiple`, `required`, `minFiles`, `maxFiles`,
 `maxFileSize`, and `maxTotalSize` are props on whichever control is rendered
-— `FileUploader.ButtonControl`, `FileUploader.DropzoneControl`, or
-`FileUploader.SingleSelectMediaControl` — not on `FileUploader` itself and
+(`FileUploader.ButtonControl`, `FileUploader.DropzoneControl`, or
+`FileUploader.SingleSelectMediaControl`), not on `FileUploader` itself and
 not shared via context.
 
 The reason is that constraints are tightly coupled to which input is in use.
@@ -80,8 +80,8 @@ the results to the queue. The queue records the outcome per item for two
 purposes:
 
 1. To prevent a queued, invalid file from starting to upload.
-2. To give consumers a way to observe validation results outside the component
-   — for example, by holding a reference to an externally-supplied queue
+2. To give consumers a way to observe validation results outside the component,
+   for example by holding a reference to an externally-supplied queue
    instance and reading its state in a submit handler.
 
 Per-file constraint violations (type mismatch, file too large) are stored as a
@@ -109,14 +109,14 @@ multiple renders.
 `FileUploader.ButtonControl` and `FileUploader.DropzoneControl` are distinct
 components rather than one component with a `variant` prop. The `Button`
 surface and the dropzone surface don't overlap enough to curate into a shared
-prop subset without losing trigger-specific props — a consumer needing
+prop subset without losing trigger-specific props: a consumer needing
 `Button`'s `useLinkStyle`, for example, would have no way to reach it through
 a unified interface. Two separate components, each composing `FormControl`
 around its own trigger's full interface, avoid this trade-off entirely.
 
 `FormControl` chrome (label, help text, error text) sits directly on the
 control rather than on `FileUploader` itself, because help and error text must
-render between the input and the file list — not after both. Splitting the
+render between the input and the file list, not after both. Splitting the
 chrome into a control that is a sibling to `FileUploader.FileList` puts it in
 exactly the right place while leaving `FileUploader`'s consumer-arranged
 composition model untouched.
@@ -139,7 +139,7 @@ attempt.
 
 Each item added to the queue gets its own generated ID, and the queue never
 deduplicates by filename. Selecting the same file again after it errors adds
-a second, independent item rather than replacing or retrying the first — the
+a second, independent item rather than replacing or retrying the first; the
 original stays in the list in its `error` state until removed.
 
 Validation-rejected files are not a lifecycle state. An item rejected by
@@ -151,8 +151,8 @@ them as valid to the queue.
 
 Figma defines multi-select and single-select as two separate top-level
 components, not one component with a variant. The single-select family
-— `FileUploader.SingleSelectMediaInput` and
-`FileUploader.SingleSelectMediaControl` — mirrors the multi-select family at
+(`FileUploader.SingleSelectMediaInput` and
+`FileUploader.SingleSelectMediaControl`) mirrors the multi-select family at
 every layer and is not a mode of the multi-select controls. There is no
 single-select `FileCard`; this pattern is media-only.
 
@@ -166,7 +166,7 @@ Three mechanisms handle form integration, and they are kept separate:
    `FormData` in the normal way.
 
 2. **External queue access.** A consumer who needs richer per-file data at
-   submit time — beyond the IDs collected from `FormData` — holds an external
+   submit time, beyond the IDs collected from `FormData`, holds an external
    queue reference and looks up items by ID in the submit handler.
 
 3. **Native input attribute forwarding.** `FileUploader.File` forwards native
@@ -184,8 +184,8 @@ widgets. The component composes from general, well-established principles:
   This satisfies WCAG 2.2's dragging-movements equivalence requirement without
   any additional ARIA handling, as long as the trigger path is fully
   equivalent.
-- A visually hidden live region announces status transitions — upload
-  completion, failure, and single-select replacement — to assistive
+- A visually hidden live region announces status transitions (upload
+  completion, failure, and single-select replacement) to assistive
   technology.
 - Remove buttons carry explicit accessible names.
 - Focus moves to an adjacent item's remove button, or to the upload trigger

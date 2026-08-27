@@ -85,7 +85,7 @@ function getObjectPropertyString(obj: ObjectLiteralExpression, key: string): str
     if (kind === SyntaxKind.StringLiteral) {
       return (init as StringLiteral).getLiteralText();
     }
-    // Handles {"value"} — but plain string is the common case for option objects
+    // Handles {"value"}, but plain string is the common case for option objects
     if (kind === SyntaxKind.JsxExpression) {
       const expr = (init as JsxExpression).getExpression();
       if (expr?.getKind() === SyntaxKind.StringLiteral) {
@@ -200,7 +200,7 @@ function expandOptionsToChildren(
 ): Node | null {
   const optionsAttr = getAttr(element, "options");
   if (!optionsAttr) {
-    // No options prop at all — remove deprecated props and return; the caller
+    // No options prop at all: remove deprecated props and return; the caller
     // will rename the tag. This is unusual but handled gracefully.
     for (const name of ["hasGreyBg", "isFullWidth", "disabled"]) {
       getAttr(element, name)?.remove();
@@ -288,7 +288,7 @@ function expandOptionsToChildren(
   for (const attr of element.getAttributes()) {
     const attrNode = attr.asKind(SyntaxKind.JsxAttribute);
     if (!attrNode) {
-      // Spread attribute — keep it
+      // Spread attribute; keep it
       propsToKeep.push(attr.getText());
       continue;
     }
@@ -411,7 +411,7 @@ function transformImports(sourceFile: SourceFile, facadePackage?: string): Set<s
 /**
  * Produces a structurally valid `<ChipSelect>…</ChipSelect>` replacement for a
  * ToggleRadio element whose `options` could not be expanded to static children
- * (either because it is dynamic — a variable, call, etc. — or because the
+ * (either because it is dynamic (a variable, call, etc.) or because the
  * inline array contains spread or computed entries).
  *
  * Removes `options`, `hasGreyBg`, `isFullWidth`, and `disabled` from the
@@ -533,7 +533,7 @@ function transformJsxElements(
     const expandedNode = expandOptionsToChildren(element, sourceFile, outputTagName);
 
     if (expandedNode === null) {
-      // Couldn't expand (partially-static array — spread or computed entries).
+      // Couldn't expand (partially-static array: spread or computed entries).
       // Apply the same fallback as the dynamic-options path: produce a
       // structurally valid <ChipSelect> with an inline TODO child.
       if (!element.wasForgotten()) {
@@ -583,13 +583,13 @@ export default function transform(
   const facadePackage = options?.facadePackage;
   const sourceFile = createProjectFromSource(source, filePath);
 
-  // Phase 1: Transform imports (collect aliases first — imports are mutated after)
+  // Phase 1: Transform imports (collect aliases first, so imports are mutated after)
   const aliases = transformImports(sourceFile, facadePackage);
 
   // Phase 2: Rewrite ToggleRadioProps type references → ChipSelect.Props
   transformTypeReferences(sourceFile, new Set(["ToggleRadioProps"]), "ChipSelect.Props");
 
-  // Phase 3: Check for ToggleRadioOption type usage — insert TODO if found
+  // Phase 3: Check for ToggleRadioOption type usage; insert TODO if found
   // (the import is already removed in Phase 1; we check remaining references)
   const hasToggleRadioOptionRef = sourceFile.getFullText().includes("ToggleRadioOption");
 
@@ -615,7 +615,7 @@ export default function transform(
     }
   }
 
-  // ToggleRadioOption type reference TODO — insert at top of file if needed
+  // ToggleRadioOption type reference TODO: insert at top of file if needed
   if (hasToggleRadioOptionRef) {
     // Find any statement that references ToggleRadioOption and annotate it
     const typeRefNodes: Node[] = [];

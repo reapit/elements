@@ -18,7 +18,7 @@ import { elToastOutlet } from "./styles";
  * Each outlet manages its own popover visibility: it shows itself when it is
  * the active (topmost) outlet and toasts exist, and hides itself otherwise.
  *
- * No props are needed — position and duration are controlled by the `Toaster`.
+ * No props are needed: position and duration are controlled by the `Toaster`.
  */
 export function ToastOutlet() {
   const ref = useRef<HTMLDivElement>(null);

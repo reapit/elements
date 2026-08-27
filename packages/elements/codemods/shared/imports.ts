@@ -6,7 +6,7 @@ import { matchesPackage } from "./elements-import.js";
  * Resolves the module specifier to use when writing a migrated import.
  *
  * If `facadePackage` is provided and `sourceSpecifier` matches it (including
- * subpath imports), the source specifier is returned unchanged — the facade
+ * subpath imports), the source specifier is returned unchanged: the facade
  * re-exports from its own path, so the codemod must not rewrite it.
  * Otherwise, `targetSpecifier` is returned.
  *

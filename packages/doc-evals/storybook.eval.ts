@@ -1,5 +1,5 @@
 // Storybook-only scenario: the agent has access to Storybook component documentation only.
-// Scored on implementation correctness — correct imports, valid props, and sound JSX patterns.
+// Scored on implementation correctness: correct imports, valid props, and sound JSX patterns.
 // Use this suite to identify gaps in the Storybook API documentation.
 import { generateText, isStepCount } from "ai";
 import { evalite } from "evalite";

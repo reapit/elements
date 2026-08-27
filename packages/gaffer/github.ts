@@ -70,7 +70,7 @@ export class GitHubClient {
     }));
   }
 
-  /** Re-fetches PR.mergeable — GitHub computes it asynchronously after push. */
+  /** Re-fetches PR.mergeable because GitHub computes it asynchronously after push. */
   async refreshMergeable(number: number): Promise<boolean | null> {
     const { owner, repo } = this.repo;
     const { data } = await this.octokit.rest.pulls.get({ owner, repo, pull_number: number });

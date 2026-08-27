@@ -1,6 +1,6 @@
 ---
 name: capturing-visual-changes
-description: Capture screenshots of UI component changes and embed them in pull request descriptions. Use this skill whenever a PR touches visual UI changes — new components, style updates, layout changes, or interaction behaviour.
+description: Capture screenshots of UI component changes and embed them in pull request descriptions. Use this skill whenever a PR touches visual UI changes, such as new components, style updates, layout changes, or interaction behaviour.
 ---
 
 # Capturing Visual Changes
@@ -36,7 +36,7 @@ yarn workspace @reapit/elements exec storybook dev -p <PORT> --ci > /tmp/storybo
 echo $!
 ```
 
-Note the printed PID — you will need it to stop Storybook in Phase 4.
+Note the printed PID: you will need it to stop Storybook in Phase 4.
 
 ### Step 3: Resolve your Desktop path
 
@@ -104,7 +104,7 @@ gh pr view --json title -q .title 2>/dev/null | grep -oiE '[a-z]+-[0-9]+' | head
 # e.g. "feat: ds-102 Add Combobox component" → DS-102
 ```
 
-Match ticket keys case-insensitively (`[A-Za-z]+-[0-9]+`) and always uppercase the result — filenames always use uppercase ticket references regardless of the casing in the branch name or commit message. If no ticket is found, omit it from filenames entirely — do not use a placeholder.
+Match ticket keys case-insensitively (`[A-Za-z]+-[0-9]+`) and always uppercase the result. Filenames always use uppercase ticket references regardless of the casing in the branch name or commit message. If no ticket is found, omit it from filenames entirely; do not use a placeholder.
 
 ### Step 3: Map components to Storybook story IDs
 
@@ -132,7 +132,7 @@ Use the Chrome DevTools MCP tools with the `<PORT>` chosen in Phase 0.
 
 ### File naming
 
-All files must be saved to an absolute Desktop path. **Do not use `~/Desktop/`** — the screenshot tool does not expand `~` and may treat it as a relative path. Instead, use the `<DESKTOP_PATH>` value resolved in Phase 0.
+All files must be saved to an absolute Desktop path. **Do not use `~/Desktop/`**, because the screenshot tool does not expand `~` and may treat it as a relative path. Instead, use the `<DESKTOP_PATH>` value resolved in Phase 0.
 
 **Pattern:**
 
@@ -140,9 +140,9 @@ All files must be saved to an absolute Desktop path. **Do not use `~/Desktop/`**
 <ticket>-<component>-<state>.png
 ```
 
-- `<ticket>` — the extracted ticket key, e.g. `DS-102`. Omit entirely (including the trailing hyphen) when no ticket is found.
-- `<component>` — lowercase component name, e.g. `button`, `combobox`
-- `<state>` — the story or interaction state, e.g. `default`, `hover`, `open`, `disabled`
+- `<ticket>`: the extracted ticket key, e.g. `DS-102`. Omit entirely (including the trailing hyphen) when no ticket is found.
+- `<component>`: lowercase component name, e.g. `button`, `combobox`
+- `<state>`: the story or interaction state, e.g. `default`, `hover`, `open`, `disabled`
 
 **Examples:**
 
@@ -155,7 +155,7 @@ All files must be saved to an absolute Desktop path. **Do not use `~/Desktop/`**
 
 ### Workflow
 
-Screenshots must be **tightly cropped** to the component — do not capture the full viewport. Follow these steps for every screenshot:
+Screenshots must be **tightly cropped** to the component: do not capture the full viewport. Follow these steps for every screenshot:
 
 1. Navigate to the story iframe URL:
 
@@ -181,7 +181,7 @@ Screenshots must be **tightly cropped** to the component — do not capture the 
    };
    ```
 
-4. **Resize the viewport** to match the component tightly (component height + padding on both axes) using `chrome-devtools_resize_page`. A padding of `16px` top and bottom (matching the Storybook default padding) works well — so total height is typically `h + 32`. Width is typically `1440` (full story width).
+4. **Resize the viewport** to match the component tightly (component height + padding on both axes) using `chrome-devtools_resize_page`. A padding of `16px` top and bottom (matching the Storybook default padding) works well, so total height is typically `h + 32`. Width is typically `1440` (full story width).
 
    ```
    chrome-devtools_resize_page → { width: 1440, height: <h + 32> }
@@ -200,9 +200,9 @@ Screenshots must be **tightly cropped** to the component — do not capture the 
    ```
 
 7. For interactive components, capture each relevant state:
-   - **Default** — the component as it first renders
-   - **Hover** — hover over the primary interactive element, then measure and resize before screenshotting
-   - **Active/open** — click or trigger the open state (dropdowns, dialogs, tooltips). For open states, the popup/overlay extends below the trigger — measure the total height including the overlay:
+   - **Default**: the component as it first renders
+   - **Hover**: hover over the primary interactive element, then measure and resize before screenshotting
+   - **Active/open**: click or trigger the open state (dropdowns, dialogs, tooltips). For open states, the popup/overlay extends below the trigger; measure the total height including the overlay:
 
      ```js
      () => {
@@ -223,7 +223,7 @@ Screenshots must be **tightly cropped** to the component — do not capture the 
 
      Then resize to `{ width: 1440, height: totalH }`.
 
-   - **Disabled** — if a disabled story exists
+   - **Disabled**: only if a disabled story exists
 
 **Example (Chrome DevTools MCP):**
 
@@ -270,7 +270,7 @@ chrome-devtools_resize_page → { width: 1440, height: 900 }
 
 ## Phase 3 — Embed in PR Description
 
-Add a `## Visual changes` section to the PR description. List each captured file with its full Desktop path. The user must drag and drop the files into the PR body on GitHub — GitHub does not support programmatic image/file attachment via the API or `gh` CLI.
+Add a `## Visual changes` section to the PR description. List each captured file with its full Desktop path. The user must drag and drop the files into the PR body on GitHub, because GitHub does not support programmatic image/file attachment via the API or `gh` CLI.
 
 **Template:**
 
@@ -285,7 +285,7 @@ Add a `## Visual changes` section to the PR description. List each captured file
 | Hover   | `<DESKTOP_PATH>/DS-102-button-hover.png`   |
 ```
 
-**Note for the user:** GitHub accepts images (`.png`, `.jpg`, `.gif`) dragged directly into the PR description text area. There is no programmatic upload path — the drag-and-drop step must be done manually in the browser.
+**Note for the user:** GitHub accepts images (`.png`, `.jpg`, `.gif`) dragged directly into the PR description text area. There is no programmatic upload path: the drag-and-drop step must be done manually in the browser.
 
 ---
 
@@ -314,7 +314,7 @@ Before moving on:
 - [ ] Storybook started on `<PORT>`, PID noted
 - [ ] `<DESKTOP_PATH>` resolved and noted (Phase 0, Step 3)
 - [ ] Storybook confirmed ready (curl returned 200)
-- [ ] `git diff` analysed — visual changes identified
+- [ ] `git diff` analysed; visual changes identified
 - [ ] Ticket reference extracted from branch, commit, or PR title
 - [ ] Story IDs confirmed against `.stories.tsx` files
 - [ ] Screenshot taken for each relevant story and state

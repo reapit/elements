@@ -33,7 +33,7 @@ the overlay hides (`display: none`) and the input text becomes visible, so
 the user edits the raw value directly.
 
 The overlay element is only rendered into the DOM when the formatted text is
-defined — that is, when `formatValue` is provided and has not thrown on all
+defined; that is, when `formatValue` is provided and has not thrown on all
 evaluation paths. The CSS rules therefore only need to handle the
 visible/hidden toggle; they never need to guard against a missing element.
 

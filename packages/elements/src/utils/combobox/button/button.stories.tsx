@@ -111,7 +111,7 @@ export const Invalid = Placeholder.extend({
 
 /**
  * The combobox button also reflects an invalid state when `aria-invalid="true"` and
- * `data-show-validity="true"` are set on the parent combobox container — for example, via custom
+ * `data-show-validity="true"` are set on the parent combobox container , such as via custom
  * logic that does not use the browser's constraint validation API. This behaviour is manually shown
  * here.
  */
@@ -129,8 +129,8 @@ export const AriaInvalid = Placeholder.extend({
 });
 
 /**
- * When the button is embedded in a surface that provides its own border or background — such as
- * a table cell or card — use `variant="borderless"` to remove the button's border. Border-based
+ * When the button is embedded in a surface that provides its own border or background, such as
+ * a table cell or card; use `variant="borderless"` to remove the button's border. Border-based
  * validity cues are not shown in this variant, although background-based validity styling may
  * still be applied by the parent combobox when `data-show-validity="true"` is set.
  */

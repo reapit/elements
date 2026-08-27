@@ -26,7 +26,7 @@ export const elGalleryViewerCarouselTrack = css`
     }
 
     /* Read-only controlled mode: prevent the user from swiping away from the controlled value.
-     * overflow: clip (not hidden) is intentional — it does not create a scroll container, so
+     * overflow: clip (not hidden) is intentional: it does not create a scroll container, so
      * programmatic scrolling via scrollIntoView is also blocked. */
     &[data-read-only] {
       overflow: clip;

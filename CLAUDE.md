@@ -10,7 +10,7 @@
 
 ## Workspaces
 
-This is a Yarn workspaces monorepo. Run yarn scripts from the repo root — `check`, `test:ci`,
+This is a Yarn workspaces monorepo. Run yarn scripts from the repo root: `check`, `test:ci`,
 `build:lib` and `build:docs` fan out across every workspace that defines them.
 
 - `packages/elements/` - `@reapit/elements`, the published library, its Storybook and codemods
@@ -54,7 +54,7 @@ All paths below, and in `guidelines/` and the skills, are relative to `packages/
 ## Contributing Guidelines
 
 Write idiomatic TypeScript that matches the surrounding code and file structure. Skills cover
-the conventions that aren't obvious from reading the code — barrel exports, the namespace
+the conventions that aren't obvious from reading the code: barrel exports, the namespace
 interface pattern, the React context pattern, z-index and cascade layering, testing, Storybook
 docs, prose style, codemods, PR review, changesets, and PR conventions. They load automatically
 when relevant; don't restate their rules here.

@@ -4,7 +4,7 @@ on:
   pull_request:
     types: [closed]
   schedule:
-    # Weekly Monday 3 am UTC — sweep orphaned preview Workers.
+    # Weekly Monday 3 am UTC: sweep orphaned preview Workers.
     - cron: "0 3 * * 1"
 
 permissions:
@@ -34,7 +34,7 @@ jobs:
       - name: Delete preview Worker
         # Wrangler unconditionally lists KV namespaces after deleting a Worker to
         # clean up legacy Workers Sites asset namespaces. Our previews use the
-        # modern assets binding, not KV, so there is nothing to clean up — but the
+        # modern assets binding, not KV, so there is nothing to clean up, but the
         # lookup requires Workers KV Storage permission the token lacks, causing
         # wrangler to exit non-zero AFTER the Worker is already deleted. Tolerate
         # the failure so the subsequent steps still run; the weekly sweep backstops
@@ -86,7 +86,7 @@ jobs:
         # by GitHub, so they otherwise accumulate forever in Settings > Environments.
         # Deleting one requires the "administration" permission, which isn't
         # available to GITHUB_TOKEN, hence the app token. continue-on-error so a
-        # transient failure here doesn't fail the whole job — the weekly sweep
+        # transient failure here doesn't fail the whole job: the weekly sweep
         # below backstops anything missed.
         continue-on-error: true
         env:
@@ -119,7 +119,7 @@ jobs:
           # Abort if the open-PR list can't be retrieved: an empty OPEN_PRS
           # would make every Worker look orphaned and delete active previews.
           if ! OPEN_PRS=$(gh pr list --state open --limit 1000 --json number --jq '.[].number'); then
-            echo "Failed to list open PRs — aborting sweep to avoid deleting active previews." >&2
+            echo "Failed to list open PRs: aborting sweep to avoid deleting active previews." >&2
             exit 1
           fi
 
@@ -135,7 +135,7 @@ jobs:
             PR_NUM="${WORKER#gbl-ds-elements-pr-}"
 
             if echo "$OPEN_PRS" | grep -qx "$PR_NUM"; then
-              echo "Skipping ${WORKER} — PR #${PR_NUM} is still open."
+              echo "Skipping ${WORKER}: PR #${PR_NUM} is still open."
             else
               echo "Deleting orphaned Worker ${WORKER} (PR #${PR_NUM} is closed)."
               # Tolerate a single failed delete so one error doesn't abort the whole
@@ -152,7 +152,7 @@ jobs:
           permission-administration: write
           # Listing environments is a read operation and is gated on Actions
           # read access, distinct from the Administration permission needed
-          # to delete one — see docs.github.com/en/rest/deployments/environments.
+          # to delete one: see docs.github.com/en/rest/deployments/environments.
           permission-actions: read
       - name: Delete orphaned environments
         # Backstop for the per-PR "Delete environment" step above: if that step
@@ -166,7 +166,7 @@ jobs:
           set -euo pipefail
 
           if ! OPEN_PRS=$(gh pr list --state open --limit 1000 --json number --jq '.[].number'); then
-            echo "Failed to list open PRs — aborting sweep to avoid deleting active environments." >&2
+            echo "Failed to list open PRs: aborting sweep to avoid deleting active environments." >&2
             exit 1
           fi
 
@@ -178,7 +178,7 @@ jobs:
             PR_NUM="${ENV#pr-}"
 
             if echo "$OPEN_PRS" | grep -qx "$PR_NUM"; then
-              echo "Skipping ${ENV} — PR #${PR_NUM} is still open."
+              echo "Skipping ${ENV}: PR #${PR_NUM} is still open."
             else
               echo "Deleting orphaned environment ${ENV} (PR #${PR_NUM} is closed)."
               GH_TOKEN="$APP_TOKEN" gh api "repos/${{ github.repository }}/environments/${ENV}" -X DELETE || true

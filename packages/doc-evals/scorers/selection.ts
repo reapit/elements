@@ -40,7 +40,7 @@ ${criteria.map((c, i) => `${i + 1}. ${c}`).join("\n")}
 ## Agent output
 ${output}
 
-For each criterion, determine whether the agent's response satisfies it. Be strict but fair — partial evidence counts as not met. Return one result per criterion in the same order as listed.`,
+For each criterion, determine whether the agent's response satisfies it. Be strict but fair: partial evidence counts as not met. Return one result per criterion in the same order as listed.`,
     });
 
     const met = object.criteriaResults.filter((r) => r.met).length;

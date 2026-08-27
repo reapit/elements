@@ -13,7 +13,7 @@ async function createZeroHeightClient(): Promise<Client> {
   return client;
 }
 
-// Lazily initialised singleton — reused across tasks within the same scenario.
+// Lazily initialised singleton: reused across tasks within the same scenario.
 let _clientPromise: Promise<Client> | null = null;
 function getClient(): Promise<Client> {
   if (!_clientPromise) _clientPromise = createZeroHeightClient();

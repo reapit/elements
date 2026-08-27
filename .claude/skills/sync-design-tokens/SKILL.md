@@ -12,14 +12,13 @@ in `src/tokens/dist/`. That CSS is a published surface: consumers write
 
 Token data can only leave Figma from an editor session. There is no REST read on our
 plan, so this sync runs from a machine with the Figma desktop app open on the Elements
-file and an editor seat on it. Confirm both before starting — every step below depends
-on step 1.
+file and an editor seat on it. Confirm both before starting; every step below depends on step 1.
 
 ## Step 1 — Export from Figma
 
 The four token files total ~240KB and a `use_figma` response is capped at 20KB, so the
 export cannot come back in one call. Both Semantics files are 110KB each, so **splitting
-the transfer per file does not work either** — do not improvise that. The exporter
+the transfer per file does not work either**: do not improvise that. The exporter
 chunks the transfer instead, and the loop below is the whole protocol.
 
 The Figma MCP server requires the `figma-use` skill before any `use_figma` call. Invoke
@@ -38,8 +37,7 @@ always fits. Expect a `manifest` with exactly these four keys, each carrying `by
 - `Primitives.Value.tokens.json`
 - `effect.styles.tokens.json`
 
-Any other key count means the collection allowlist no longer matches the Figma file —
-stop and read [reference.md](reference.md#editing-the-exporter) rather than committing
+Any other key count means the collection allowlist no longer matches the Figma file: stop and read [reference.md](reference.md#editing-the-exporter) rather than committing
 the result.
 
 ### 1b — Skip the files that have not changed
@@ -50,7 +48,7 @@ node .claude/skills/sync-design-tokens/scripts/token-digest.js
 
 It prints `file`, `bytes` and `digest` for the committed files, computed the same way
 the manifest computes them. **A file whose pair matches the manifest is unchanged in
-Figma — do not transfer it.** Most syncs touch one theme, so this is usually what keeps
+Figma: do not transfer it.** Most syncs touch one theme, so this is usually what keeps
 the call count down.
 
 This comparison only holds because the exporter's key sorting mirrors `preprocess.js`,
@@ -61,7 +59,7 @@ on a sync where Figma barely moved, suspect that mirroring rather than the desig
 
 For a file the manifest says has `chunks: N`, fetch chunks `0` to `N - 1` by running the
 exporter with `REQUEST = { file: "<name>", chunk: <i> }`. These calls are independent, so
-issue them in parallel — one message containing N `use_figma` blocks. Expect around 13
+issue them in parallel: one message containing N `use_figma` blocks. Expect around 13
 chunks for a Semantics file, 2 for Primitives and 1 for the effect styles.
 
 Once every chunk for a file is in hand, write them **in chunk order**:
@@ -79,7 +77,7 @@ attempt silently doubles it.
 
 Re-run `token-digest.js`. Every transferred file's `bytes` and `digest` must now equal
 the manifest's. A mismatch means a chunk was dropped, duplicated or written out of
-order — retry that file from `: >` rather than editing the JSON by hand.
+order: retry that file from `: >` rather than editing the JSON by hand.
 
 **Done when** every file either matched at 1b or verifies at 1d.
 
@@ -116,7 +114,7 @@ Two things in that output need judgement rather than acceptance:
   Check each candidate against what actually changed in Figma.
 - **`usage.interpolated: true` means the literal property was never found** and a
   shorter stem matched instead. Component styles build property names by
-  interpolation, so the hit is a lead, not a confirmed reference — open the line and
+  interpolation, so the hit is a lead, not a confirmed reference: open the line and
   check whether the departing token is among the values that stem can take.
 
 **Done when** every entry in `css.renamed` is either confirmed as a rename or moved to
@@ -128,10 +126,10 @@ non-empty `hits` array has been read.
 Take the branch matching the most severe class present, and read
 [Deprecating a token](#deprecating-a-token) before writing any shim.
 
-- **Nothing in the diff** — stop, there is nothing to commit.
-- **Changed values only** — `patch`. Changeset naming the tokens whose values moved.
-- **Added tokens** — `minor`. Changeset naming the new tokens.
-- **Renamed or removed tokens** — `minor`, and all three of a deprecation shim, a
+- **Nothing in the diff**: stop, there is nothing to commit.
+- **Changed values only**: `patch`. Changeset naming the tokens whose values moved.
+- **Added tokens**: `minor`. Changeset naming the new tokens.
+- **Renamed or removed tokens**: `minor`, and all three of a deprecation shim, a
   codemod, and a changeset. Without the shim this is a `major`.
 
 A rename or removal is a `minor` _because_ the shim keeps consumer CSS resolving and
@@ -162,14 +160,14 @@ either the shim or the codemod.
 
 Follow `writing-pull-requests`. Two additions specific to a token sync:
 
-- **Put the classification in the description** — added, changed, renamed and removed
+- **Put the classification in the description**: added, changed, renamed and removed
   tokens, named. This is the reviewer's only view of what moved; the diff itself is
   thousands of generated lines.
 - **Any changed value is a UI change**, so the screenshot rule in `CLAUDE.md` applies.
   Follow `capturing-visual-changes`.
 
 Surface the `suspicious` names from step 3 in the description rather than resolving
-them yourself — see [Data hygiene](#data-hygiene). Do not let them block the PR.
+them yourself: see [Data hygiene](#data-hygiene). Do not let them block the PR.
 
 ## Deprecating a token
 
@@ -209,8 +207,8 @@ HEAD:packages/elements/src/tokens/dist/reapit.css`.
 
 ## Data hygiene
 
-Figma names ending in a space and a digit — `comp/navigation/colour/border/top_bar 2` —
-are the usual artefact of duplicating a variable. The exporter's name mapping turns
+A Figma name ending in a space and a digit, such as `comp/navigation/colour/border/top_bar 2`,
+is the usual artefact of duplicating a variable. The exporter's name mapping turns
 spaces into underscores, so a duplicate would otherwise land silently as a real token.
 Both the exporter and the classifier flag these instead.
 

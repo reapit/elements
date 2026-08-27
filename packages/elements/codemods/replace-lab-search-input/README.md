@@ -85,8 +85,8 @@ const el = <SearchInput size="medium" />;
 
 ## Limitations
 
-- **`unstable_onSearch` is removed** — the core component has no equivalent prop. Each removed usage is flagged with a TODO comment. Replace it with a standard `onChange` handler.
-- **The lab component was uncontrolled-only** — the core `SearchInput` supports both controlled (`value`) and uncontrolled (`defaultValue`) usage. Review any usage that relied on the lab component's internal state management.
-- **Re-exports are skipped** — `export { SearchInput } from '…'` declarations are left unchanged and require manual migration.
-- **Aliased non-JSX value references are not renamed** — when `SearchInput` is imported under an alias (e.g. `import { SearchInput as SI } from '…'`), bare value references (e.g. `const C = SI`) are left unchanged because the alias itself is preserved on the rewritten import. No manual changes are required for these references.
-- **Unaliased non-JSX value references require no special handling** — bare value references such as `const C = SearchInput` or `forwardRef(SearchInput)` resolve correctly after migration because the component keeps its name (`SearchInput`) in the core package. The import rewrite alone is sufficient.
+- **`unstable_onSearch` is removed**: the core component has no equivalent prop. Each removed usage is flagged with a TODO comment. Replace it with a standard `onChange` handler.
+- **The lab component was uncontrolled-only**: the core `SearchInput` supports both controlled (`value`) and uncontrolled (`defaultValue`) usage. Review any usage that relied on the lab component's internal state management.
+- **Re-exports are skipped**: `export { SearchInput } from '…'` declarations are left unchanged and require manual migration.
+- **Aliased non-JSX value references are not renamed**: when `SearchInput` is imported under an alias (e.g. `import { SearchInput as SI } from '…'`), bare value references (e.g. `const C = SI`) are left unchanged because the alias itself is preserved on the rewritten import. No manual changes are required for these references.
+- **Unaliased non-JSX value references require no special handling**: bare value references such as `const C = SearchInput` or `forwardRef(SearchInput)` resolve correctly after migration because the component keeps its name (`SearchInput`) in the core package. The import rewrite alone is sufficient.

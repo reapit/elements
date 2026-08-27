@@ -3,7 +3,7 @@
 Skills for this plugin land here, one directory per skill (`<skill-name>/SKILL.md`), following this repo's skill-authoring conventions.
 
 Consumers reach these through Claude Code or Claude Cowork, so a skill here must
-stand on its own — no repository checkout, and no paths into this monorepo.
+stand on its own: no repository checkout, and no paths into this monorepo.
 
 | Skill                 | Covers                                                      |
 | --------------------- | ----------------------------------------------------------- |

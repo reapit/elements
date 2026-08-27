@@ -19,21 +19,21 @@ Invoke this skill when:
 
 All z-index usage in **new or modified, non-deprecated code** MUST follow these rules:
 
-1. **Use semantic tokens** — do not introduce new hardcoded numeric `z-index` values; instead, reference the semantic tokens defined below
-2. **Isolate stacking contexts** — apply `isolation: isolate` to any container whose children use `z-index`
-3. **Handle legacy/deprecated code** — existing deprecated components may still use hardcoded numeric `z-index` values; you are not required to bulk-clean these up, but when you touch them, prefer migrating to semantic tokens where practical
+1. **Use semantic tokens**: do not introduce new hardcoded numeric `z-index` values; instead, reference the semantic tokens defined below
+2. **Isolate stacking contexts**: apply `isolation: isolate` to any container whose children use `z-index`
+3. **Handle legacy/deprecated code**: existing deprecated components may still use hardcoded numeric `z-index` values; you are not required to bulk-clean these up, but when you touch them, prefer migrating to semantic tokens where practical
 
 ### Tokens
 
 Three tokens are defined in `src/styles/globals.ts`:
 
-| Token                | Value | Purpose                                                                                           |
-| -------------------- | ----- | ------------------------------------------------------------------------------------------------- |
-| `--z-index-base`     | `0`   | Explicit base stacking level — use when an element must be overtly placed below elevated siblings |
-| `--z-index-elevated` | `1`   | Internal component stacking (contained by isolation)                                              |
-| `--z-index-sticky`   | `10`  | Sticky/fixed elements that must stay above scrolling content                                      |
+| Token                | Value | Purpose                                                                                          |
+| -------------------- | ----- | ------------------------------------------------------------------------------------------------ |
+| `--z-index-base`     | `0`   | Explicit base stacking level; use when an element must be overtly placed below elevated siblings |
+| `--z-index-elevated` | `1`   | Internal component stacking (contained by isolation)                                             |
+| `--z-index-sticky`   | `10`  | Sticky/fixed elements that must stay above scrolling content                                     |
 
-Only three tokens exist because overlay components (`Dialog`, `Drawer`, `Menu`, `Tooltip`, `Combobox` popups) use native browser APIs (`<dialog>` or `popover`) that place content in the browser's top-layer — above all z-index stacking contexts — eliminating the need for high values.
+Only three tokens exist because overlay components (`Dialog`, `Drawer`, `Menu`, `Tooltip`, `Combobox` popups) use native browser APIs (`<dialog>` or `popover`) that place content in the browser's top-layer, above all z-index stacking contexts, eliminating the need for high values.
 
 ## Process
 
@@ -111,12 +111,12 @@ export const elTopBar = css`
 
 **Checklist:**
 
-- [ ] Use a native browser API — `<dialog>` element or `popover` attribute
-- [ ] Confirm no z-index is applied — top-layer placement is automatic
+- [ ] Use a native browser API: `<dialog>` element or `popover` attribute
+- [ ] Confirm no z-index is applied: top-layer placement is automatic
 - [ ] Remove any `position: fixed` with high z-index values
 
 ```tsx
-// ✅ Correct — top-layer placement requires no z-index
+// ✅ Correct: top-layer placement requires no z-index
 export function Modal({ children }: Modal.Props) {
   return <dialog>{children}</dialog>;
 }
@@ -197,7 +197,7 @@ When reviewing code that touches z-index or stacking:
 - [ ] Sticky/fixed elements use `--z-index-sticky`
 - [ ] Internal stacking uses `--z-index-elevated`
 - [ ] Elements that must sit below elevated siblings use `--z-index-base` explicitly (do not rely on DOM order)
-- [ ] Overlay components use `<dialog>` or `popover` — no z-index applied
+- [ ] Overlay components use `<dialog>` or `popover`; no z-index applied
 
 ## Reference
 

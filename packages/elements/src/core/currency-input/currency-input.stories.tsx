@@ -47,7 +47,7 @@ export const Example = meta.story({
 
 /**
  * The currency symbol is placed automatically as a prefix or suffix based on the locale. The
- * same currency can appear in different positions depending on the reader's locale — for
+ * same currency can appear in different positions depending on the reader's locale: for
  * example, EUR precedes the number in some locales and follows it in others.
  *
  * The fraction-digit precision (e.g. 2 for GBP/USD/EUR, 0 for JPY) is an intrinsic property

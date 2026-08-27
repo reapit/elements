@@ -14,6 +14,6 @@ const meta = preview.meta({
 
 /**
  * The dark background mimics `FileUploaderMediaThumbnail`'s overlay, the only context this component is
- * used in — its white stroke is otherwise invisible on a light background.
+ * used in: its white stroke is otherwise invisible on a light background.
  */
 export const Example = meta.story({});

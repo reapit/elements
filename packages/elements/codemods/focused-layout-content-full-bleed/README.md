@@ -39,10 +39,10 @@ to keep the rendered layout unchanged.
 | ----------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
 | `<FocusedLayout.Content><Form /></FocusedLayout.Content>`                           | `<FocusedLayout.Content isFullBleed><MainContainer size="wide"><Form /></MainContainer></FocusedLayout.Content>`                       |
 | `<FocusedLayoutContent><Form /></FocusedLayoutContent>` (direct import)             | Same transformation, using the element's local alias                                                                                   |
-| `<FocusedLayout.Content isFullBleed>...</FocusedLayout.Content>`                    | _(unchanged — already migrated)_                                                                                                       |
-| `<FocusedLayout.Content isFullBleed={false}>...</FocusedLayout.Content>`            | _(unchanged — explicit opt-out, review manually)_                                                                                      |
+| `<FocusedLayout.Content isFullBleed>...</FocusedLayout.Content>`                    | _(unchanged: already migrated)_                                                                                                        |
+| `<FocusedLayout.Content isFullBleed={false}>...</FocusedLayout.Content>`            | _(unchanged: explicit opt-out, review manually)_                                                                                       |
 | `<FocusedLayout.Content><MainContainer>...</MainContainer></FocusedLayout.Content>` | `isFullBleed` added; the existing `MainContainer` is not duplicated                                                                    |
-| `<FocusedLayout.Content />` (self-closing, no children)                             | _(unchanged — nothing to wrap)_                                                                                                        |
+| `<FocusedLayout.Content />` (self-closing, no children)                             | _(unchanged: nothing to wrap)_                                                                                                         |
 | `<FocusedLayout.Content {...contentProps}><Form /></FocusedLayout.Content>`         | `isFullBleed` added and children wrapped as normal, plus a `// TODO` comment above the statement flagging the spread for manual review |
 
 If `MainContainer` is not already imported, an import from `@reapit/elements/core/main-container`
@@ -53,29 +53,29 @@ rather than treated as already satisfying the need for one.
 
 ## Limitations
 
-- **Namespace aliasing** — If `FocusedLayout` itself is imported under an alias (e.g.
+- **Namespace aliasing**: If `FocusedLayout` itself is imported under an alias (e.g.
   `import { FocusedLayout as FL } from ...`), usages like `<FL.Content>` are not matched. Only the
   literal `FocusedLayout.Content` tag and direct `FocusedLayoutContent` imports (including their
   local aliases) are transformed.
-- **`isFullBleed={false}`** — Left untouched since it is an explicit choice to keep the deprecated
+- **`isFullBleed={false}`**: Left untouched since it is an explicit choice to keep the deprecated
   behaviour. Review these manually once the deprecated behaviour is removed.
-- **Self-closing elements** — `<FocusedLayout.Content />` has no children, so there is nothing to
+- **Self-closing elements**: `<FocusedLayout.Content />` has no children, so there is nothing to
   wrap in a `MainContainer`. These are left untouched.
-- **Spread attributes** — A spread (e.g. `{...contentProps}`) is opaque to static analysis, so the
+- **Spread attributes**: A spread (e.g. `{...contentProps}`) is opaque to static analysis, so the
   codemod cannot tell whether it already sets `isFullBleed`. The `isFullBleed` prop this codemod adds
   is placed before any spread in the opening tag, so if the spread also sets `isFullBleed`, the
   spread wins at runtime. The element is still transformed, but a `// TODO` comment is added above
-  the statement — review these manually.
-- **Formatting** — Run your project's formatter (e.g. Prettier) after applying this codemod; the
+  the statement; review these manually.
+- **Formatting**: Run your project's formatter (e.g. Prettier) after applying this codemod; the
   inserted `MainContainer` tags are not re-indented.
-- **Facade packages are not supported** — This codemod only matches imports from `@reapit/elements`
+- **Facade packages are not supported**: This codemod only matches imports from `@reapit/elements`
   directly.
 
 ## Next Steps After Running This Codemod
 
-1. **Run your formatter** — Tidy up indentation around the newly nested `MainContainer`.
-2. **Run tests** — Verify your application still renders correctly.
-3. **Review `isFullBleed={false}` usages** — These were left untouched and may need manual attention.
-4. **Review `// TODO` comments** — Each element with a spread attribute is flagged; confirm the
+1. **Run your formatter**: Tidy up indentation around the newly nested `MainContainer`.
+2. **Run tests**: Verify your application still renders correctly.
+3. **Review `isFullBleed={false}` usages**: These were left untouched and may need manual attention.
+4. **Review `// TODO` comments**: Each element with a spread attribute is flagged; confirm the
    spread does not set `isFullBleed` back to a different value.
-5. **Commit changes** — Commit the migration as a single atomic change.
+5. **Commit changes**: Commit the migration as a single atomic change.

@@ -2,13 +2,13 @@
 
 House style for the handoff-review Artifact, reached from [`SKILL.md`](SKILL.md)
 step 7 alongside [`ARTIFACT-STATE.md`](ARTIFACT-STATE.md). Follow `artifact-design`
-for everything below that this file does not fix — measure, both-theme support,
+for everything below that this file does not fix: measure, both-theme support,
 building from real content.
 
 Treat the palette, type, and component vocabulary as fixed. That repetition is the
 point: a designer reads several of these, for different files and for successive
 passes on one file, and the fourth pass on a file should look like the first. Adapt
-only what the content forces — how many findings a section holds, whether a section
+only what the content forces: how many findings a section holds, whether a section
 has any at all.
 
 This intentionally overrides `artifact-design`'s instinct to pick a bespoke look per
@@ -18,7 +18,7 @@ is closer to an instrument panel: sans-serif, tight vertical rhythm, colour used
 functionally and never decoratively.
 
 **Do not present this as Reapit Elements.** An artifact cannot load the library's
-stylesheet — the CSP blocks every external host — so any resemblance would be
+stylesheet: the CSP blocks every external host: so any resemblance would be
 hand-copied values drifting from the real tokens. The palette below is neutral on
 purpose. Never label a colour with an Elements token name, and never imply the page
 is built from Elements.
@@ -26,13 +26,13 @@ is built from Elements.
 ## Reference stylesheet
 
 This block is the page's stylesheet, whole. Paste it into a new build as-is, then
-add only what that file's content forces — a `data-status` value the page does not
+add only what that file's content forces: a `data-status` value the page does not
 yet style, an extra area.
 
 It is the only copy. Every section below explains why a rule here is shaped the way
 it is, and carries markup, JS, and reasoning but no CSS declarations, so there is
 nothing to keep in sync and no second copy to drift. Never reassemble this
-stylesheet from the prose below — the prose cannot produce it, by design. Change a
+stylesheet from the prose below: the prose cannot produce it, by design. Change a
 colour or a component here, and edit the prose only where it describes the rule in
 words.
 
@@ -47,13 +47,13 @@ rather than eyeballed. Recompute them if you change a value.
   --ink: #1a1a18; /* body text                          16.8:1 */
   --ink-soft: #57564f; /* secondary prose, fixes              7.4:1 */
   --ink-faint: #6e6c64; /* labels, metadata, stale text        5.3:1 */
-  --rule: #e3e2dd; /* hairlines only — never text, never a control */
+  --rule: #e3e2dd; /* hairlines only: never text, never a control */
   --control-border: #94928b; /* input and button edges              3.1:1 */
 
   --blocked: #b3261e; /* 6.5:1 */
   --attention: #8a5a00; /* 5.9:1 */
   --done: #1d5fa6; /* 6.5:1 */
-  --link: #2a5f73; /* 7.0:1 — layer links only */
+  --link: #2a5f73; /* 7.0:1: layer links only */
 
   --blocked-tint: #fdf2f1;
   --attention-tint: #fcf6e8;
@@ -627,21 +627,21 @@ button:disabled {
 
 ## Palette
 
-Three status hues carry the whole page — one each for blocked, attention, and done —
-against a neutral ground. Nothing else is coloured: no accent per section, no
+Three status hues carry the whole page: one each for blocked, attention, and done,
+against a neutral ground. Nothing else is coloured; no accent per section, no
 decorative tint. A designer scanning for what is left has to be able to trust that
 colour means status.
 
 **Never pair red and green for status.** `--blocked` and `--done` sit on opposite
 ends of the red-green axis, which is exactly the pairing deuteranopia and
-protanopia collapse into indistinguishable browns — the two most common forms of
+protanopia collapse into indistinguishable browns: the two most common forms of
 colour vision deficiency. `--done` is blue (`#1D5FA6` light, `#5B8DEF` dark)
 instead of green, keeping every status on a hue a red-green deficiency still
 resolves. `--attention`'s amber is left alone: red+amber isn't the problematic
 pairing.
 
 Every text pairing clears 4.5:1 in both themes, on the surface it is actually used
-on — including each status colour on its own tint, and `--ink-faint` on `--sunk` as
+on: including each status colour on its own tint, and `--ink-faint` on `--sunk` as
 well as on `--surface`. The lowest is `--ink-faint`, at 5.3:1 light and 4.9:1 dark.
 
 Dark values apply under both `@media (prefers-color-scheme: dark)` guarded as
@@ -650,16 +650,16 @@ wins in both directions. That is why the dark tokens appear twice in the referen
 stylesheet, and the duplication there is load-bearing rather than an oversight.
 
 **Two tokens for two jobs, and they are not interchangeable.** `--rule` draws
-hairlines — section rules, row separators, card edges — and sits near 1.3:1 against
+hairlines: section rules, row separators, card edges: and sits near 1.3:1 against
 its background on purpose, because a separator that competes with text is noise. It
 must never bound a control. Inputs and buttons take `--control-border` instead, at
 3.1:1 light and 3.2:1 dark, which is what WCAG 1.4.11 requires of the visual
 boundary of a control. A text field edged in `--rule` is legible in its text and
-invisible in its shape — the field reads as absent until clicked.
+invisible in its shape: the field reads as absent until clicked.
 
 **A chip tints itself from its own text colour**, `color-mix(in srgb, currentColor
 10%, transparent)`, never a fixed `--sunk` fill. A finding card already sits on a
-status tint, and a fixed light-grey chip on a pale red tint lands at 1.02:1 — the
+status tint, and a fixed light-grey chip on a pale red tint lands at 1.02:1: the
 hex literal in a blocker loses its chip precisely where the chip is the point.
 Mixing from `currentColor` keeps the same 10% lift on every background the page has,
 in both themes, with one declaration.
@@ -668,7 +668,7 @@ in both themes, with one declaration.
 own glyph, so the page survives a monochrome print and any colour vision
 deficiency, blue-yellow included: blocked `●` _Blocked_, attention `▲` _Attention_,
 done `✓` _Done_, not checked `○` _Not checked_, stale `–` _Not detected_. A pill
-showing only a coloured dot is the failure this rule exists to prevent — the
+showing only a coloured dot is the failure this rule exists to prevent: the
 red-green-safe hues above are the first line of defence, this is the second.
 
 ## Type
@@ -681,9 +681,9 @@ red-green-safe hues above are the first line of defence, this is the second.
   is the one part of a finding the designer acts on, and setting it in the faintest
   ink at the smallest size ranks it below the link that merely points at it.
 - Section headings 19px, weight 600, with the area number in `--ink-faint` before
-  the name — `3 · Colour, type, and spacing`.
+  the name; `3 · Colour, type, and spacing`.
 - Labels and pills: 12px, `font-weight: 600`, `letter-spacing: 0.04em`,
-  `text-transform: uppercase`. 12px is the floor — 11px uppercase with tracking
+  `text-transform: uppercase`. 12px is the floor; 11px uppercase with tracking
   clears contrast and still reads as fine print, and this page's labels carry
   status.
 - A finding's severity label is the exception: 12px `--mono` at weight 700, and
@@ -697,8 +697,8 @@ red-green-safe hues above are the first line of defence, this is the second.
 
 ## Base reset
 
-The reset near the top of the reference stylesheet — `box-sizing` on everything, and
-zeroed margins on `p`, the headings, and the `dl` family — is why every margin in the
+The reset near the top of the reference stylesheet; `box-sizing` on everything, and
+zeroed margins on `p`, the headings, and the `dl` family: is why every margin in the
 sheet below it is additive on top of zero rather than a correction of an unknown
 browser default.
 
@@ -709,13 +709,13 @@ an item's status mark and its title. No rule in the sheet was wrong in isolation
 
 ## Layout
 
-A centred two-column grid — a contents rail and the document — floating on
+A centred two-column grid: a contents rail and the document: floating on
 `--ground`. Both columns share one page background; neither sits in a panel.
 
 ```
         ┌──────────────┬────────────────────────────────┐
         │ AREAS        │  HANDOFF READINESS REVIEW      │
-        │ ✓ 1 File …   │  Tenancy flow — Checkout       │
+        │ ✓ 1 File …   │  Tenancy flow; Checkout       │
         │ ● 2 Comp…    │  ⚠ Not ready · 25 Aug · 3 dis… │
         │ …            │  ── scope ──                   │
         │ ▲ 10 Cross…  │  ── 1 File hygiene ──          │
@@ -723,7 +723,7 @@ A centred two-column grid — a contents rail and the document — floating on
         └──────────────┴────────────────────────────────┘
 ```
 
-The rail is `232px`, `position: sticky; top: 40px; align-self: start` — it sticks at
+The rail is `232px`, `position: sticky; top: 40px; align-self: start`; it sticks at
 its own height, not the viewport's, so it never scrolls internally and never draws a
 column edge down the page. No background, no border: the only chrome is the `Areas`
 eyebrow and the row that is hovered or current, which takes `--sunk` and darkens to
@@ -735,7 +735,7 @@ instrument: a designer returning after two days reads it top to bottom and knows
 what is left without re-reading a single finding.
 
 **The mark is a glyph, not a dot.** A coloured dot is the tidier rail and the wrong
-one — it carries status by hue alone, which fails WCAG 1.4.1, and our five statuses
+one: it carries status by hue alone, which fails WCAG 1.4.1, and our five statuses
 do not survive reduction to a traffic light. Keep `●▲✓○–` in the status colour, and
 give each one its word for a screen reader:
 
@@ -758,7 +758,7 @@ after every render. Without it a designer working down a 10-section page has no 
 where they are, and the styling for `.current` in the reference stylesheet does
 nothing.
 
-Register that scroll listener **once**, at the foot of the app script — never inside
+Register that scroll listener **once**, at the foot of the app script: never inside
 the render function. `render()` runs on every tick, dismissal and reopen, so
 registering there adds a listener per render and they accumulate for the life of the
 tab. The handler has to re-query `.nav-row` and `section.area` on each call, because
@@ -770,11 +770,11 @@ window.addEventListener("scroll", markCurrentNav, { passive: true });
 ```
 
 Under 900px the grid collapses to one column and the rail unsticks into a horizontal
-scroller above the content. Do not collapse it into a menu — it is the navigation
+scroller above the content. Do not collapse it into a menu: it is the navigation
 and the status display at once, and hiding it hides the progress.
 
 Main column: capped at 780px by the grid track, generous section spacing, a hairline
-rule under each section heading. Every section renders even when empty of findings —
+rule under each section heading. Every section renders even when empty of findings;
 a section of ticks is how a designer tells a clean area from an unreviewed one.
 
 ## Components
@@ -785,14 +785,14 @@ the scope block.
 
 The meta row holds exactly four things, in this order, and nothing else:
 
-1. **The verdict**, as a pill — the word in its status colour on the matching tint,
+1. **The verdict**, as a pill: the word in its status colour on the matching tint,
    `border: 1px solid currentColor`. The three verdicts map to `data-status` as
    `Not ready` → `blocked`, `Ready with caveats` → `attention`, `Ready for Dev` →
    `done`. The pill carries the word alone; nothing is appended to it.
 2. **The pass date**, as `Pass 2026-08-25`. This is the document's only copy of it.
 3. **The dismissed count**, where any finding is dismissed: _3 dismissed by the
    designer_. Omitted entirely at zero.
-4. **`Open in Figma`**, linking `state.file.url` — the file, not a node. Last,
+4. **`Open in Figma`**, linking `state.file.url`; the file, not a node. Last,
    because it is the one item that leaves the page.
 
 The dismissed count is not optional. It is what stops a verdict resting on the
@@ -815,15 +815,15 @@ the title region it reads as the answer to the question the title asks.
 this order and under these labels: **Pages**, **Frames**, **Excluded**. Frames are
 layer links, per step 6's linking rule; pages are plain text, because a page needs no
 node ID to find. Where earlier passes covered different scope, a `<details>` beneath
-it lists them — one line per pass, oldest last.
+it lists them: one line per pass, oldest last.
 
 Keep all three rows even where a value is thin. A whole-page pass records no frame
 list, and the row then reads `All top-level frames on the page` rather than rendering
-an empty `<dd>` — an unexplained blank next to a label reads as a page that failed to
+an empty `<dd>`; an unexplained blank next to a label reads as a page that failed to
 load its own scope.
 
 **No `Pass date` row.** The date belongs to the document, not to the scope, and the
-meta row above already carries it — a fourth row repeating it four lines lower reads
+meta row above already carries it: a fourth row repeating it four lines lower reads
 as a second, differently-scoped date. The block answers one question only: what was
 and was not looked at.
 
@@ -842,13 +842,13 @@ var text = pass.scope.excluded
   : all.length === 0
     ? "Not established"
     : rest.length === 0
-      ? "Nothing — the file's only page" +
+      ? "Nothing: the file's only page" +
         (all.length > 1 ? "s, all " + all.length + " reviewed" : "")
       : "Other pages in this file: " + rest.join(", ");
 ```
 
 A constant fallback here is how a review of one page out of five shipped a header
-reading _Nothing — whole file reviewed_. An empty `excluded` field means nobody
+reading _Nothing: whole file reviewed_. An empty `excluded` field means nobody
 recorded an exclusion; it does not mean there was nothing to exclude, and the page
 must never upgrade the one into the other. Where the pass never listed the file's
 pages, `Not established` is the honest line.
@@ -856,15 +856,15 @@ pages, `Not established` is the honest line.
 **Checklist item.** One row per item, in checklist order, both kinds colocated in
 the area they belong to. Rows are separated by a 1px `border-bottom: var(--rule)`
 hairline (omitted on the last item in a section), never a permanent coloured left
-border on the item itself — a rail on every row, most of them neutral, reads as
+border on the item itself: a rail on every row, most of them neutral, reads as
 decoration rather than a signal, and it collides with a nested finding card's own
 border (see below). Status lives on a small square mark instead:
 
-- `[inspect]` — a 20×20px `.item-mark` badge, filled with the status's `-tint`
+- `[inspect]`; a 20×20px `.item-mark` badge, filled with the status's `-tint`
   background and set in the status colour, holding the same glyph the rail's status
   marks use (`✓`/`●`/`▲`/`○`). It sits as a flex sibling of the item's text
-  column, not absolutely positioned inside it — the item itself is `display: flex`.
-- `[confirm]` — no mark; the real `<input type="checkbox">` is the leading control,
+  column, not absolutely positioned inside it: the item itself is `display: flex`.
+- `[confirm]`; no mark; the real `<input type="checkbox">` is the leading control,
   plus a small-caps `Over to you` label above it. A checkbox that isn't rendered
   yet needs no separate status glyph.
 
@@ -872,23 +872,23 @@ An `[inspect]` item's mark comes from `itemStatus()` in `ARTIFACT-STATE.md`, map
 onto the page's five display statuses. This mapping is the table; do not re-derive it
 per build:
 
-| `itemStatus`                                  | `data-status` | Glyph |
-| --------------------------------------------- | ------------- | ----- |
-| `passed`                                      | `done`        | `✓`   |
-| `outstanding`, any open `blocker`/`ds`        | `blocked`     | `●`   |
-| `outstanding`, open `advisory` only           | `attention`   | `▲`   |
-| `resolved` — every finding dismissed or stale | `attention`   | `▲`   |
-| `not-checked` — `reached: false`              | `not-checked` | `○`   |
+| `itemStatus`                                 | `data-status` | Glyph |
+| -------------------------------------------- | ------------- | ----- |
+| `passed`                                     | `done`        | `✓`   |
+| `outstanding`, any open `blocker`/`ds`       | `blocked`     | `●`   |
+| `outstanding`, open `advisory` only          | `attention`   | `▲`   |
+| `resolved`; every finding dismissed or stale | `attention`   | `▲`   |
+| `not-checked`; `reached: false`              | `not-checked` | `○`   |
 
 **A resolved item is `attention`, not `done`.** Every finding on it is dismissed or
-stale, so nothing is outstanding — but a plain `✓` would erase the distinction
+stale, so nothing is outstanding: but a plain `✓` would erase the distinction
 between a line that passed on evidence and a line the designer decided did not apply
 to their design. The card beneath it carries the record; the mark has to say there is
 one to read.
 
 That makes the item mark and the rail deliberately asymmetric: `ARTIFACT-STATE.md`'s
 section rules let an all-dismissed section reach **Done**, while its items still show
-`▲`. Both are right, because they answer different questions — the rail answers _is
+`▲`. Both are right, because they answer different questions: the rail answers _is
 there work left in this area_, and the item mark answers _is this line a clean pass_.
 Do not "fix" either one to match the other.
 
@@ -907,7 +907,7 @@ with the mark: the item text on its own line, then `evidence` on the line beneat
 it in `--ink-faint`, omitted where empty. `evidence` is often longer than the item
 text and wraps on its own; laying the mark, text, and evidence out as flex
 siblings of each other (rather than mark-vs-body) makes the wrapped evidence
-collide with the item text instead of sitting cleanly beneath it — keep `.item-body`
+collide with the item text instead of sitting cleanly beneath it: keep `.item-body`
 a plain block, and put `display: flex` only on `.item` itself.
 
 An unreached `[inspect]` item follows the same shape, `not-checked` mark and the
@@ -916,7 +916,7 @@ running text starting at the same indent as a passed item's:
 ```html
 <span class="item-mark" data-status="not-checked">○</span>
 <div class="item-body">
-  <p class="item-line">Not checked — Colours use Design System variables</p>
+  <p class="item-line">Not checked; Colours use Design System variables</p>
 </div>
 ```
 
@@ -930,7 +930,7 @@ the detail text, then the layer link on its own line (prefixed `↳`), then the 
 on its own line in `--ink-faint`. A `ds` finding's label reads `Design System` and
 its fix line names the Design System team as owner.
 
-**Every link out of the page carries `target="_blank" rel="noopener"`** — the layer
+**Every link out of the page carries `target="_blank" rel="noopener"`**; the layer
 links in a finding card and in the scope block, and the header's `Open in Figma`
 alike. The artifact renders in a frame on claude.ai, and a designer clicking a layer
 link mid-checklist must not lose the page they are working down.
@@ -939,7 +939,7 @@ This is a deliberate exception to the item's own rule against a permanent rail
 (see **Checklist item** above): the item carries its status on `.item-mark`, not
 on a rail, so there is nothing in the left-hand gutter for the finding card's
 accent to compete with. The two only conflict when both use the same device in
-the same place — one uses a mark, the other a rail, so both can stand.
+the same place: one uses a mark, the other a rail, so both can stand.
 
 ```html
 <article class="finding" data-severity="blocker" data-state="open">
@@ -958,17 +958,17 @@ the same place — one uses a mark, the other a rail, so both can stand.
 </article>
 ```
 
-**Dismiss control.** The button reveals a small form — a required one-line reason
-and a Dismiss submit — and submit stays disabled while the reason is empty. Say
+**Dismiss control.** The button reveals a small form: a required one-line reason
+and a Dismiss submit: and submit stays disabled while the reason is empty. Say
 what the reason is for in the label: _Why does this not apply to your design?_ A
 reason box with a bare `Reason` label gets `n/a` typed into it.
 
 Build the disclosure from a native `<details>`/`<summary>` pair, not a button
 toggling a `hidden` attribute by hand. `<details>` without `open` never renders its
-children — including a form styled `display: flex` — so there is no cascade to get
+children: including a form styled `display: flex`; so there is no cascade to get
 wrong, no JS to wire the toggle, and no `aria-expanded`/`aria-controls` bookkeeping
 to keep in sync: the element carries that semantic natively. Style only `summary`,
-never the disclosure triangle's role — suppress the default marker and draw your
+never the disclosure triangle's role: suppress the default marker and draw your
 own so it still communicates open/closed:
 
 ```html
@@ -994,7 +994,7 @@ own so it still communicates open/closed:
 un-set rather than adding one, and never wrap it in or style it like an `<a>`.
 
 Wire the reason input and the submit button through the same `data-action` value
-the rest of the page's event delegation uses — never a different attribute like
+the rest of the page's event delegation uses: never a different attribute like
 `data-role` for one and `data-action` for the other, as the markup above does. A
 delegated listener that reads `event.target.dataset.action` sees nothing from an
 element carrying `data-role` instead, so the input silently never fires and the
@@ -1013,7 +1013,7 @@ document.addEventListener("input", (e) => {
 
 A dismissed card keeps its place in the list, drops to `--surface`, strikes the
 detail through, and shows the reason and date in `--ink-faint` beneath it, with a
-`Reopen` button in place of `Dismiss`. Never hide it and never move it — its
+`Reopen` button in place of `Dismiss`. Never hide it and never move it: its
 presence is the record that the designer made a call here.
 
 A `stale` card renders on `--surface` in `--ink-faint` with a `– Not detected this
@@ -1021,8 +1021,8 @@ pass` label, keeping its reason if it had one. No controls: only a pass changes 
 state.
 
 **Confirm item.** A real `<input type="checkbox">` with the item text as its
-`<label>`, then an optional single-line note field beneath — placeholder _Add a note
-for engineering (optional)_ — that persists whether or not the box is ticked. Many
+`<label>`, then an optional single-line note field beneath: placeholder _Add a note
+for engineering (optional)_: that persists whether or not the box is ticked. Many
 of these items need a specific answer rather than a yes, and the note is the part
 that outlives the checklist, so give it room even when unticked.
 
@@ -1030,22 +1030,22 @@ that outlives the checklist, so give it room even when unticked.
 exactly four states. A page that saves silently gives a designer no reason to trust
 that closing the tab is safe.
 
-| When                              | Text                                          |
-| --------------------------------- | --------------------------------------------- |
-| Nothing to say (initial render)   | empty                                         |
-| A publish is scheduled or running | `Saving…`                                     |
-| The publish resolved              | `Saved 14:32` — local time, hours and minutes |
-| `conflict`                        | `Not saved — updated elsewhere, reloading…`   |
-| Any other rejection               | `Save failed — will retry on next change`     |
+| When                              | Text                                         |
+| --------------------------------- | -------------------------------------------- |
+| Nothing to say (initial render)   | empty                                        |
+| A publish is scheduled or running | `Saving…`                                    |
+| The publish resolved              | `Saved 14:32`; local time, hours and minutes |
+| `conflict`                        | `Not saved: updated elsewhere, reloading…`   |
+| Any other rejection               | `Save failed: will retry on next change`     |
 
 The conflict line takes `--attention` via `data-conflict="true"`; the rest stay
 `--ink-faint`. Both failure strings say what happens next, because neither is
-something the designer can act on directly — the conflict one is followed by a
+something the designer can act on directly: the conflict one is followed by a
 reload, and the other by the next edit retrying. A bare `Save failed` leaves them
 wondering whether to re-type the note.
 
 It is the page's only live region, and it has to be in the document before the text
-changes — a region inserted and populated in the same render announces nothing:
+changes: a region inserted and populated in the same render announces nothing:
 
 ```html
 <p class="save-indicator" id="save" role="status" aria-live="polite"></p>
@@ -1054,8 +1054,8 @@ changes — a region inserted and populated in the same render announces nothing
 Render the element unconditionally, empty when there is nothing to say, and write
 only its `textContent` afterwards.
 
-**Read-only banner.** Where `publish` is unavailable — no capability, or a viewer
-without edit access — a strip above the scope block saying the checklist is
+**Read-only banner.** Where `publish` is unavailable: no capability, or a viewer
+without edit access: a strip above the scope block saying the checklist is
 read-only because the viewer has view access, and that edit access is needed to tick
 items. Render every control absent rather than disabled: a disabled checkbox invites
 clicking it.
@@ -1066,23 +1066,23 @@ Check each; the palette above does not make the page compliant on its own.
 
 - **Contrast ≥ 4.5:1** for every text pairing in both themes, including status labels
   on their tints, and `--ink-faint` on `--sunk` as well as on `--surface`.
-- **Contrast ≥ 3:1 for every control's edge** — `--control-border`, never `--rule`.
+- **Contrast ≥ 3:1 for every control's edge**; `--control-border`, never `--rule`.
   This is the one that gets missed, because the text inside the control passes.
 - **A status word and glyph beside every status colour**, per the palette section.
-- **Sequential headings** — `h1` for the title, `h2` per area, `h3` only if an area
+- **Sequential headings**; `h1` for the title, `h2` per area, `h3` only if an area
   genuinely subdivides. Never a heading tag for smaller type.
 - **Real `<label>` for every checkbox and note field**, associated by `for`/`id`,
   not adjacent text. The item text is the checkbox's accessible name.
 - **The dismiss disclosure** is a native `<details>`/`<summary>` pair, not a
   `<button>` toggling a sibling's visibility by hand.
-- **Live status changes announced** — an `aria-live="polite"` region carrying the
+- **Live status changes announced**; an `aria-live="polite"` region carrying the
   save indicator, so a screen-reader user learns the tick was saved.
 - **Focus outline ≥ 2px** in `--link` via `:focus-visible`, on the rail's rows too.
-- **Targets ≥ 44px for the two rows a designer works down** — rail rows and
+- **Targets ≥ 44px for the two rows a designer works down**; rail rows and
   `[confirm]` checkbox rows, both held there by `min-height`. Inline controls inside a
   finding card sit at 34px: comfortably past the 24px WCAG 2.5.8 asks of them, and
   44px would make every dismissed card a bank of buttons.
-- **Motion honours `prefers-reduced-motion`** — the only animation on the page is the
+- **Motion honours `prefers-reduced-motion`**; the only animation on the page is the
   disclosure marker's rotate, and the reset near the top of the stylesheet covers it.
 - **`color-scheme`** declared per theme, so native checkboxes and scrollbars render
   correctly under a forced `data-theme`.

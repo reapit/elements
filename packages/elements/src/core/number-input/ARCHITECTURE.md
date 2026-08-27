@@ -12,9 +12,9 @@ in `en-GB` or `1.234.567,89` in `de-DE`).
 1. The input's `.value` is always canonical: empty, a defined partial state (`'-'`, `'.'`, `'-.'`), or a plain numeric string; a non-canonical controlled value is displayed verbatim and flagged via `patternMismatch`.
 2. Locale affects only the overlay display, never the value. This keeps the value locale-independent, so form submission, server-side parsing, and `onChange` handlers never need to know the active locale.
 3. The overlay never rounds. It displays exactly the digits present in the value, padded to any consumer `minimumFractionDigits`. The 100-digit `Intl.NumberFormat` ceiling is the single exception.
-4. The component requires full control over value representation and entry. `type="number"` cannot provide this — see [Why `type="text"`](#why-typetext-instead-of-typenumber).
-5. By default, the field accepts any number of fraction digits. When `maximumFractionDigits` is specified — or implied by a style with its own Intl defaults such as `currency`, `percent`, or `unit` — entry beyond that cap is rejected.
-6. All interactive input — typing, paste, and drop — must be sanitised before it reaches the value.
+4. The component requires full control over value representation and entry; `type="number"` cannot provide this. See [Why `type="text"`](#why-typetext-instead-of-typenumber).
+5. By default, the field accepts any number of fraction digits. When `maximumFractionDigits` is specified or implied by a style with its own Intl defaults (such as `currency`, `percent`, or `unit`), entry beyond that cap is rejected.
+6. All interactive input (typing, paste, and drop) must be sanitised before it reaches the value.
 7. `min` and `max` must be supported. A value outside those bounds must be marked invalid via the constraint validation API.
 8. A default `pattern` must flag values that bypass entry filtering (for example, a controlled value that exceeds the precision cap). A consumer-supplied `pattern` takes precedence.
 9. When a currency, percent, or unit format is used, the format's affix becomes the input's prefix or suffix based on locale. An explicit affix prop takes precedence.
@@ -39,8 +39,7 @@ uniform: `Number('')` is `0`, whereas `Number('-')`, `Number('.')`, and
 `Number('-.')` are `NaN`. The overlay therefore short-circuits `''` and `'-'`
 explicitly before its `Number()`/`NaN` check (see `resolveOverlayValue`).
 
-A trailing decimal point on digits (e.g. `'1234.'`) is not a separate partial
-state — `Number('1234.')` is `1234`, so it is a valid canonical numeric string.
+A trailing decimal point on digits (e.g. `'1234.'`) is not a separate partial state: `Number('1234.')` is `1234`, so it is a valid canonical numeric string.
 The overlay formats it as the number it represents (e.g. `'1,234'`), applying
 any consumer `minimumFractionDigits` padding as normal (e.g. `'12.'` with
 `minimumFractionDigits: 2` → `'12.00'`).
@@ -69,8 +68,7 @@ has one definition.
 
 The entry filter guarantees the contract for values the component **produces**,
 but a controlled `value` prop can supply any string. A value that `Number()`
-accepts yet the filter would never emit — `'1e5'`, `'0x10'`, `'Infinity'`,
-`'1_000'`, whitespace-padded numbers — is **not** formatted: `resolveOverlayValue`
+accepts yet the filter would never emit (such as `'1e5'`, `'0x10'`, `'Infinity'`, `'1_000'`, whitespace-padded numbers) is **not** formatted: `resolveOverlayValue`
 returns it unchanged, so the overlay shows the raw value verbatim rather than a
 reinterpreted number (e.g. it must never render `'1e5'` as `100,000`). Such values
 are also flagged by the `pattern` backstop (`patternMismatch`) and so match
@@ -103,8 +101,7 @@ Some `Intl.NumberFormat` styles multiply the stored value before display.
 `style: 'percent'` multiplies by 100 (`0.255` → `25.5%`); all other styles
 (`'decimal'`, `'currency'`, `'unit'`) leave the value unchanged.
 
-NumberInput tracks this via a **scale exponent** — the base-10 exponent of the
-multiplier (percent = 2, all others = 0). The exponent is derived generically:
+NumberInput tracks this via a **scale exponent**: the base-10 exponent of the multiplier (percent = 2, all others = 0). The exponent is derived generically:
 format `1` with no fraction digits and inspect the integer part; `'100'` →
 length 3 → exponent 2.
 
@@ -167,8 +164,7 @@ type passed to `Intl.NumberFormat`:
 The resolved fraction-digit bounds are clamped to `INTL_MAX_FRACTION_DIGITS`
 (100, the maximum `Intl.NumberFormat` accepts) so a pathologically long
 controlled value is shown clamped rather than throwing a `RangeError`. Beyond
-100 fraction digits the clamp **rounds** at the 100th digit — the single place
-the "never rounds" rule yields. Such values are also flagged by the `pattern`
+100 fraction digits the clamp **rounds** at the 100th digit; this is the single place the "never rounds" rule yields. Such values are also flagged by the `pattern`
 backstop (`patternMismatch`) and never represent a valid submittable value.
 
 Formally (before the 100-digit clamp):
@@ -190,12 +186,8 @@ The following `Intl.NumberFormatOptions` keys are excluded from `formatOptions`
 at the type level and stripped at runtime (by `stripUnsupportedFormatOptions`
 before any Intl call):
 
-- **Significant-digit options:** `minimumSignificantDigits`,
-  `maximumSignificantDigits` — the fraction budget is value-dependent and
-  trailing-zero semantics are ambiguous, so they cannot soundly constrain entry.
-- **Rounding options:** `roundingIncrement`, `roundingMode`, `roundingPriority`,
-  `trailingZeroDisplay` — they would round the overlay away from the stored
-  value, violating the "overlay never rounds" guarantee.
+- **Significant-digit options:** `minimumSignificantDigits`, `maximumSignificantDigits`; the fraction budget is value-dependent and trailing-zero semantics are ambiguous, so they cannot soundly constrain entry.
+- **Rounding options:** `roundingIncrement`, `roundingMode`, `roundingPriority`, `trailingZeroDisplay`; they would round the overlay away from the stored value, violating the "overlay never rounds" guarantee.
 
 Passing these options is deliberately **not an error** (graceful degradation is
 preserved). The runtime strip is a defence-in-depth backstop for callers that
@@ -206,21 +198,12 @@ the format-cache key stable.
 ### Auto-affix derivation
 
 `NumberInput` accepts the `prefix`, `suffix`, `leadingIcon`, and `trailingIcon` props inherited
-from `TextInput`, so arbitrary affixes that have no `Intl` equivalent — `'/month'`, `'px'`, a
-search icon — are fully supported.
+from `TextInput`, so arbitrary affixes that have no `Intl` equivalent (such as `'/month'`, `'px'`, a
+search icon; they are fully supported.
 
-In addition, when the consumer supplies **none** of those affix props and `formatOptions.style`
-is `'currency'`, `'percent'`, or `'unit'`, `NumberInput` derives the localised affix (currency
-symbol, percent sign, or unit label) and its position from `getNumberAffix`. The derived affix is
-passed to `TextInput` as either `prefix` or `suffix` depending on the locale convention, and an
-internal `showNumberPartsOnly` flag is set to `true` to strip the same descriptive part from the
-formatted overlay, so the symbol never appears twice.
+In addition, when the consumer supplies **none** of those affix props and `formatOptions.style` is `'currency'`, `'percent'`, or `'unit'`, `NumberInput` derives the localised affix (currency symbol, percent sign, or unit label) and its position from `getNumberAffix`. The derived affix is passed to `TextInput` as either `prefix` or `suffix` depending on the locale convention, and an internal `showNumberPartsOnly` flag is set to `true` to strip the same descriptive part from the formatted overlay, so the symbol never appears twice.
 
-The rule is a simple precedence: **an explicit affix wins.** If the consumer provides any of
-`prefix`, `suffix`, `leadingIcon`, or `trailingIcon`, no affix is derived and the overlay is
-formatted in full (the descriptive part is **not** stripped, since we did not inject it). This
-keeps the two concerns from colliding — a consumer affix is rendered verbatim, never silently
-combined with or hidden behind a derived one.
+The rule is a simple precedence: **an explicit affix wins.** If the consumer provides any of `prefix`, `suffix`, `leadingIcon`, or `trailingIcon`, no affix is derived and the overlay is formatted in full (the descriptive part is **not** stripped, since we did not inject it). This keeps the two concerns separate: a consumer affix is rendered verbatim, never silently combined with or hidden behind a derived one.
 
 When `formatOptions` has no `style`, or has a style that does not carry a descriptive affix
 (e.g. `'decimal'`), no affix is derived and the overlay is formatted in full.
@@ -228,15 +211,9 @@ When `formatOptions` has no `style`, or has a style that does not carry a descri
 Thin wrapper components such as `CurrencyInput` rely on the derivation path: they set
 `formatOptions.style: 'currency'`, supply no affix prop, and let `NumberInput` handle all affix
 wiring automatically. `CurrencyInput` additionally omits the affix props from its own public
-`Props`, so a currency consumer cannot override the derived symbol — the opinion that a currency
-symbol is fixed lives in the wrapper, not in the primitive.
+`Props`, so a currency consumer cannot override the derived symbol; the opinion that a currency symbol is fixed lives in the wrapper, not in the primitive.
 
-Consumer `minimumFractionDigits` and `maximumFractionDigits` are used as the
-baseline for `resolvedMin` and `resolvedMax` respectively, but are always
-overridden upward by `actualFractionDigits`. This means padding still works
-(`"1.5"` → `"1.50"` with `minimumFractionDigits: 2`) but rounding never
-occurs — the overlay always shows at least as many digits as are in the raw
-value. `resolvedMin` is additionally clamped to `resolvedMax` so it can never
+Consumer `minimumFractionDigits` and `maximumFractionDigits` are used as the baseline for `resolvedMin` and `resolvedMax` respectively, but are always overridden upward by `actualFractionDigits`. This means padding still works (`"1.5"` → `"1.50"` with `minimumFractionDigits: 2`), but rounding never occurs; the overlay always shows at least as many digits as are in the raw value. `resolvedMin` is additionally clamped to `resolvedMax` so it can never
 force rounding either.
 
 This overlay `resolvedMax` is deliberately **distinct** from the entry cap
@@ -255,10 +232,7 @@ but has more fraction digits than the cap (e.g. `"1.999"` with a cap of 2) is:
 - Flagged invalid by the `pattern` backstop (`patternMismatch`), which causes
   the input to match `:user-invalid` once the user has interacted with it.
 
-This upholds the principle that the overlay must never show a value different
-from what will be submitted. A controlled value that is _not_ canonical is
-handled by the same principle but shown unchanged with no formatting — see
-[Non-canonical controlled values](#non-canonical-controlled-values).
+This upholds the principle that the overlay must never show a value different from what will be submitted. A controlled value that is _not_ canonical is handled by the same principle but shown unchanged with no formatting; see [Non-canonical controlled values](#non-canonical-controlled-values).
 
 ### `pattern` backstop
 
@@ -341,13 +315,13 @@ detected and `onChange` fires exactly once.
 
 ## Custom validity and `:user-invalid`
 
-Because the input uses `type="text"`, the browser's native `min`/`max` constraint validation does not apply, so out-of-range values do not trigger `:invalid` or `:user-invalid` on their own. A `useEffect` calls `setCustomValidity()` whenever the value, `min`, or `max` changes — setting a non-empty validity message when the numeric value falls outside the range, and clearing it otherwise. Partial values (`''` and `'-'`) are treated as not-yet-complete and do not trigger an error.
+Because the input uses `type="text"`, the browser's native `min`/`max` constraint validation does not apply, so out-of-range values do not trigger `:invalid` or `:user-invalid` on their own. A `useEffect` calls `setCustomValidity()` whenever the value, `min`, or `max` changes; it sets a non-empty validity message when the numeric value falls outside the range, and clears it otherwise. Partial values (`''` and `'-'`) are treated as not-yet-complete and do not trigger an error.
 
 ### Validity message tokens
 
 The validity messages are the token strings `'rangeUnderflow'` and `'rangeOverflow'`, mirroring the property names on the native `ValidityState` interface. These tokens are intentionally not English prose:
 
-- They sidestep internationalisation concerns — the component supports a `locale` prop, and hardcoded English messages would be inconsistent.
+- They sidestep internationalisation concerns: the component supports a `locale` prop, and hardcoded English messages would be inconsistent.
 - Consumers who read `validationMessage` from the DOM (e.g. via a form management library) can map these stable tokens to localised error text.
 - The tokens drive the `:user-invalid` CSS pseudo-class; user-facing error messages should be provided via the `NumberControl` wrapper's `errorText` prop.
 
@@ -355,7 +329,7 @@ The validity messages are the token strings `'rangeUnderflow'` and `'rangeOverfl
 
 A default `pattern` is applied that encodes the precision cap; consumer-supplied `pattern` values take precedence. The pattern is **locale-independent** because it validates the canonical value (always `.`-decimal Latin digits), not the localised overlay.
 
-`pattern` is a **validity-only** backstop — it contributes `patternMismatch` to the constraint-validation API but never blocks entry (the platform does not prevent keystrokes on `pattern`). Its purpose is to flag any value that bypasses the entry filter: most notably a controlled `value` set directly by a consumer that exceeds the precision cap or contains a decimal point in integer mode.
+`pattern` is a **validity-only** backstop: it contributes `patternMismatch` to the constraint-validation API but never blocks entry (the platform does not prevent keystrokes on `pattern`). Its purpose is to flag any value that bypasses the entry filter: most notably a controlled `value` set directly by a consumer that exceeds the precision cap or contains a decimal point in integer mode.
 
 The default `pattern` encodes the cap as follows:
 

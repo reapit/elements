@@ -26,8 +26,8 @@ type FileInputAttributesToOmit =
   | "multiple";
 
 export namespace FileUploaderSingleSelectMediaInput {
-  // `onBlur`/`onClick`/`onFocus`/`onKeyDown` are redeclared below — rather than left to
-  // `BaseFileUploaderTriggerProps`'s generic docs — because they're only wired to the empty
+  // `onBlur`/`onClick`/`onFocus`/`onKeyDown` are redeclared below (rather than left to
+  // `BaseFileUploaderTriggerProps`'s generic docs) because they're only wired to the empty
   // placeholder trigger; `FileUploaderSingleSelectMediaCard`'s filled state doesn't accept any of
   // them.
   export interface Props
@@ -44,7 +44,7 @@ export namespace FileUploaderSingleSelectMediaInput {
     icon?: ReactNode;
     /** The empty state's primary text. */
     children?: ReactNode;
-    /** Called when the empty placeholder trigger is blurred. No-op once a file is selected — see `FileUploaderSingleSelectMediaCard` for the filled state's own focus handling. */
+    /** Called when the empty placeholder trigger is blurred. No-op once a file is selected; see `FileUploaderSingleSelectMediaCard` for the filled state's own focus handling. */
     onBlur?: FocusEventHandler<HTMLButtonElement>;
     /** Called when the empty placeholder trigger is clicked, in addition to opening the file picker. */
     onClick?: MouseEventHandler<HTMLButtonElement>;
@@ -61,9 +61,9 @@ export namespace FileUploaderSingleSelectMediaInput {
 /**
  * `FileUploader`'s single-select media trigger: swaps between the empty drag-and-drop prompt (styled the same
  * as `FileUploaderDropzoneInput`'s `variant="large"`) and, once a file is selected, a full-bleed
- * `FileUploaderSingleSelectMediaCard` in its place — whose whole surface re-opens the picker to replace the
+ * `FileUploaderSingleSelectMediaCard` in its place, whose whole surface re-opens the picker to replace the
  * file, alongside its own remove button. Built directly on `FileInput`'s `children` render prop, with
- * `maxFiles` fixed at `1` — see "Single-select composition" in `ARCHITECTURE.md`.
+ * `maxFiles` fixed at `1`; see "Single-select composition" in `ARCHITECTURE.md`.
  */
 export function FileUploaderSingleSelectMediaInput({
   accept,
@@ -99,8 +99,8 @@ export function FileUploaderSingleSelectMediaInput({
 
   const objectUrl = useObjectUrl(item?.file, true);
 
-  // Restores focus to the empty placeholder trigger whenever the filled card — which the remove button
-  // that had focus lives inside of — unmounts and swaps back to it, since a removed element takes browser
+  // Restores focus to the empty placeholder trigger whenever the filled card (which the remove button
+  // that had focus lives inside of) unmounts and swaps back to it, since a removed element takes browser
   // focus with it (back to the document body) rather than leaving it anywhere meaningful.
   const emptyTriggerRef = useRef<HTMLButtonElement>(null);
   const hadItemRef = useRef(!!item);

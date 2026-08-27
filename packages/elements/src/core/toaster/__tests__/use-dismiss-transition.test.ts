@@ -84,7 +84,7 @@ test("ignores transitionend events from child elements", () => {
   renderHook(() => useDismissTransition(ref, "dismissing", id));
 
   act(() => {
-    // Dispatch on the child — the handler checks event.target !== el
+    // Dispatch on the child: the handler checks event.target !== el
     child.dispatchEvent(new Event("transitionend", { bubbles: true }));
   });
 
@@ -108,7 +108,7 @@ test("cleans up event listener and fallback timeout on unmount", () => {
     vi.advanceTimersByTime(500);
   });
 
-  // Toast should still be in the store — cleanup prevented removal
+  // Toast should still be in the store: cleanup prevented removal
   expect(toastStore.getSnapshot()).toHaveLength(1);
 
   toastStore.remove(id);

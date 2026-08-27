@@ -73,7 +73,7 @@ export const Invalid = Example.extend({
 
 /**
  * The radio button also displays in an invalid state when `aria-invalid="true"` and `showValidity`
- * is true. This supports usage where the element is not natively invalid — for example, via custom
+ * is true. This supports usage where the element is not natively invalid, such as via custom
  * logic that does not use the browser's constraint validation API.
  */
 export const AriaInvalid = Example.extend({

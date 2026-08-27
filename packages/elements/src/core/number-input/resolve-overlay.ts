@@ -5,7 +5,7 @@ import { CANONICAL_VALUE_PATTERN } from "./resolve-input";
 // The maximum `maximumFractionDigits` / `minimumFractionDigits` that
 // `Intl.NumberFormat` accepts. Passing a larger value throws a RangeError.
 // A value with more fraction digits than this (only reachable via a controlled
-// `value` prop) is shown clamped to 100 digits rather than hidden — the one
+// `value` prop) is shown clamped to 100 digits rather than hidden: the one
 // place the overlay's "never rounds" rule yields, because `maximumFractionDigits`
 // rounds rather than truncates. Such values are also flagged by the `pattern`
 // backstop (`patternMismatch`) and never represent a valid submittable value.
@@ -43,8 +43,8 @@ export interface ResolveOverlayValueParams {
  * Produces the locale-formatted overlay string for a raw NumberInput value, upholding three rules:
  *
  * 1. **The overlay represents the same number as the value.** Only values matching the canonical
- *    contract shape (`{@link CANONICAL_VALUE_PATTERN}`) are formatted; anything else — `'1e5'`,
- *    `'0x10'`, `'Infinity'`, `'1_000'`, whitespace — is returned **unchanged**, so the overlay
+ *    contract shape (`{@link CANONICAL_VALUE_PATTERN}`) are formatted; anything else: `'1e5'`,
+ *    `'0x10'`, `'Infinity'`, `'1_000'`, whitespace: is returned **unchanged**, so the overlay
  *    shows the raw value verbatim (visually inert, sitting over the identical input text) rather
  *    than a reinterpreted number (e.g. `'1e5'` must never render as `100,000`).
  * 2. **The overlay never rounds.** `maximumFractionDigits` is always at least the number of
@@ -52,8 +52,8 @@ export interface ResolveOverlayValueParams {
  *    over-cap controlled value is shown verbatim rather than rounded.
  * 3. **When `showNumberPartsOnly` is set, descriptive affix parts are omitted.** The
  *    `currency`, `percentSign`, and `unit` parts (and any orphaned literal whitespace they
- *    leave) are stripped from the output. The numeric parts — grouping, decimal, fraction
- *    digits, sign — are preserved exactly.
+ *    leave) are stripped from the output. The numeric parts: grouping, decimal, fraction
+ *    digits, sign: are preserved exactly.
  *
  * Precision is preserved across the full numeric range:
  *
@@ -96,14 +96,14 @@ export function resolveOverlayValue(
 
   // For integers beyond Number.MAX_SAFE_INTEGER, Number(raw) silently loses precision; format the
   // exact value via BigInt. The canonical gate guarantees a no-dot value here matches /^-?\d+$/,
-  // so BigInt() cannot throw — the try/catch is a defensive backstop only. Decimals (and
+  // so BigInt() cannot throw: the try/catch is a defensive backstop only. Decimals (and
   // safe-magnitude integers) pass through as the raw string for arbitrary-precision formatting.
   //
   // The cast to `${number}` is a deliberate author assertion. The lib's StringNumericLiteral
   // type (`${number} | "Infinity" | "-Infinity" | "+Infinity"`) and CANONICAL_VALUE_PATTERN are
   // overlapping but distinct sets: `${number}` accepts '1e5'/'0x10' (which the gate rejects)
-  // and rejects '1.'/'-.'/'' (which the gate's shape allows). The three guards above — the
-  // '' / '-' short-circuit, the canonical gate, and the NaN check — collectively narrow `raw`
+  // and rejects '1.'/'-.'/'' (which the gate's shape allows). The three guards above: the
+  // '' / '-' short-circuit, the canonical gate, and the NaN check: collectively narrow `raw`
   // to a runtime-numeric form that format() accepts, but TypeScript cannot infer this from a
   // runtime regex test. Note: a type predicate `raw is \`${number}\`` would be unsound for the
   // same reason (the two sets do not coincide), and should not be introduced as a "fix".

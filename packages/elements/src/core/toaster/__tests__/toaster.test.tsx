@@ -68,7 +68,7 @@ test('sets data-state="dismissing" after toast.dismiss() and keeps it in the DOM
 
   const item = screen.getByText("Dismissing toast").closest("li");
   expect(item).toHaveAttribute("data-state", "dismissing");
-  // Still in the DOM — waiting for transitionend
+  // Still in the DOM; waiting for transitionend
   expect(item).toBeVisible();
 });
 

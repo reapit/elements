@@ -20,7 +20,7 @@ function makeItem(overrides: Partial<FileUploadQueue.Item> = {}): FileUploadQueu
   } as FileUploadQueue.Item;
 }
 
-// A minimal queue stub — only the methods FileUploaderFile calls are needed.
+// A minimal queue stub: only the methods FileUploaderFile calls are needed.
 function makeQueueStub(overrides: Partial<FileUploadQueue<any>> = {}): FileUploadQueue<any> {
   return {
     removeItem: vi.fn(),
@@ -206,7 +206,7 @@ test("does not render a hidden input for an item with a validationError, even wh
   expect(container.querySelector('input[type="hidden"]')).not.toBeInTheDocument();
 });
 
-test("forwards native input props — onChange, onBlur, ref — onto the hidden input, for RHF/Formik integration", async () => {
+test("forwards native input props (onChange, onBlur, ref) onto the hidden input, for RHF/Formik integration", async () => {
   const item = makeItem({ status: "uploaded", fileId: "result-id" });
   const onChange = vi.fn();
   const onBlur = vi.fn();

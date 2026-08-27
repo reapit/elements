@@ -19,7 +19,7 @@ export const deleteConfirmation: EvalTask = {
       "Controls Dialog visibility with a boolean prop or state",
       "Wires an onClose or dismiss callback to close the Dialog",
       "Renders both a Cancel button and a Delete button within the Dialog footer",
-      'Applies a destructive variant or prop to the Delete button — does NOT use the deprecated intent="danger" prop',
+      'Applies a destructive variant or prop to the Delete button; does NOT use the deprecated intent="danger" prop',
     ],
   },
 };

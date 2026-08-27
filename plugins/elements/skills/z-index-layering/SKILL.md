@@ -18,7 +18,7 @@ Invoke this skill when:
 
 **Do not create arbitrary z-index values in your own code.** Reapit Elements exposes three semantic z-index tokens via CSS custom properties. Reuse them instead of inventing new numbers like `z-index: 999` or `z-index: 10000`, which risk collision with Elements' internal usage.
 
-These tokens are an Elements implementation detail for coordinating stacking with its own components — not a formal Design System specification.
+These tokens are an Elements implementation detail for coordinating stacking with its own components, not a formal Design System specification.
 
 ### Available Tokens
 
@@ -33,11 +33,11 @@ The three tokens are:
 
 | Token                | Purpose                                                                                          |
 | -------------------- | ------------------------------------------------------------------------------------------------ |
-| `--z-index-base`     | Explicit base stacking level — use when an element must sit visibly below elevated siblings      |
-| `--z-index-elevated` | Internal component stacking (e.g., active tab indicator, focus ring) — contained by `isolation`  |
+| `--z-index-base`     | Explicit base stacking level, used when an element must sit visibly below elevated siblings      |
+| `--z-index-elevated` | Internal component stacking (e.g., active tab indicator, focus ring), contained by `isolation`   |
 | `--z-index-sticky`   | Sticky or fixed elements that must stay above scrolling content (e.g., fixed header, sticky nav) |
 
-Reference them by name via `var(--z-index-*)` — their actual numeric values are an Elements
+Reference them by name via `var(--z-index-*)`; their actual numeric values are an Elements
 implementation detail and may change between versions; don't hardcode them.
 
 ## Required Pattern for Your Custom Components
@@ -70,7 +70,7 @@ If your own component has children that use z-index for internal stacking, apply
 // ✅ Correct: container with internal stacking
 export const CustomTabs = styled.nav`
   display: flex;
-  isolation: isolate; // Required: contains child z-index
+  isolation: isolate; // Required, contains child z-index
 `;
 
 export const CustomTab = styled.a`
@@ -82,13 +82,13 @@ export const CustomTab = styled.a`
 
 ### Rule 3: Understand That You Cannot Out-Stack Elements' Overlays
 
-**Critical limitation:** Elements' overlay components (`Dialog`, `Drawer`, `Menu`, `Tooltip`, `Combobox` popups) use native browser APIs (`<dialog>` element or `popover` attribute). These APIs place content in the browser's "top-layer," which sits above ALL z-index stacking contexts — no z-index value, however large, will place your own `position: fixed` element above an open Elements `Dialog`.
+**Critical limitation:** Elements' overlay components (`Dialog`, `Drawer`, `Menu`, `Tooltip`, `Combobox` popups) use native browser APIs (`<dialog>` element or `popover` attribute). These APIs place content in the browser's "top-layer," which sits above ALL z-index stacking contexts, so no z-index value, however large, will place your own `position: fixed` element above an open Elements `Dialog`.
 
 ```typescript
 // ❌ Won't work: your overlay cannot out-stack Elements' Dialog
 export const CustomModal = styled.div`
   position: fixed;
-  z-index: 999999; // Will still appear BELOW an open Elements Dialog
+  z-index: 999999; // Will still appear below an open Elements Dialog
   inset: 0;
   background: rgba(0, 0, 0, 0.5);
 `;
@@ -104,7 +104,7 @@ export const CustomModal = styled.div`
 
 - Render your content as a child or slot within the Elements overlay component
 - Do not attempt to use z-index to place your own `position: fixed` element above it
-- This also applies to composing multiple Elements overlays: e.g. a `Drawer` that needs to open a `Dialog` — nest the `Dialog` inside the `Drawer` rather than layering custom overlays
+- This also applies to composing multiple Elements overlays: e.g. a `Drawer` that needs to open a `Dialog`; nest the `Dialog` inside the `Drawer` rather than layering custom overlays
 
 ## Review Checklist
 

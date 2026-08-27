@@ -18,7 +18,7 @@ export namespace FileUploaderDropzoneArea {
     icon?: ReactNode;
     /** Whether a dragged file is currently over the dropzone. */
     isDraggingOver?: boolean;
-    /** Optional supporting line of text below the primary text (`children`). Ignored for `variant="compact"` — Figma has no secondary line for it. */
+    /** Optional supporting line of text below the primary text (`children`). Ignored for `variant="compact"`: Figma has no secondary line for it. */
     secondaryText?: ReactNode;
     /** The size of the dropzone. */
     variant?: "compact" | "large";

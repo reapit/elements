@@ -6,7 +6,7 @@
 #
 #   **/foo/bar   matches at any depth, including inside every workspace
 #   /foo/bar     matches the repo root only
-#   foo/bar      root only, but silently — never write this
+#   foo/bar      root only, but silently: never write this
 #
 # Single-segment patterns such as `dist/` and `*.log` already match at any depth,
 # so prefixing those with `**/` changes nothing.

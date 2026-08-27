@@ -9,7 +9,7 @@ Design system documentation exists in two places with different purposes:
 - **ZeroHeight** — design intent, component selection guidance, usage rules, and anti-patterns
 - **Storybook** — component API surface, prop definitions, and code examples
 
-An agent that reads only one source will miss information the other provides. These evals measure whether each documentation source is good enough to let an agent make correct decisions independently — and reveal where gaps exist.
+An agent that reads only one source will miss information the other provides. These evals measure whether each documentation source is good enough to let an agent make correct decisions independently, and reveal where gaps exist.
 
 ## How it works
 

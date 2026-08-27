@@ -30,7 +30,7 @@ type JsxElementWithTag = JsxOpeningElement | JsxSelfClosingElement;
  *
  * The `EmptyState.Action` / `EmptyState.ActionButton` form is matched by exact
  * tag text (mirroring the `at-a-glance-article-card` codemod's handling of
- * `AtAGlance.Card`) rather than alias-tracking the `EmptyState` import — this
+ * `AtAGlance.Card`) rather than alias-tracking the `EmptyState` import: this
  * is the form consumers actually use, since `EmptyStateAction` /
  * `EmptyStateActionButton` are not part of the public package exports.
  */

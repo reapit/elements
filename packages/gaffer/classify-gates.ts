@@ -80,7 +80,7 @@ function matchCategories(
   return matches;
 }
 
-/** Manifest changed with no matching lockfile change — the lockfile wasn't regenerated. */
+/** Manifest changed with no matching lockfile change: the lockfile wasn't regenerated. */
 function checkDependencyIntegrity(files: ChangedFile[], policy: Policy): string[] {
   const touchedPaths = new Set(files.map((f) => f.path));
   const issues: string[] = [];
@@ -180,7 +180,7 @@ export function sizeCeilingGate(classification: Classification, policy: Policy):
     return {
       gate: "size-ceiling",
       passed: false,
-      message: `${classification.substantiveLines} substantive lines / ${classification.substantiveFiles} substantive files exceeds the ${lines}-line / ${files}-file ceiling — too large for auto-review.`,
+      message: `${classification.substantiveLines} substantive lines / ${classification.substantiveFiles} substantive files exceeds the ${lines}-line / ${files}-file ceiling: too large for auto-review.`,
     };
   }
   return { gate: "size-ceiling", passed: true, message: "ok" };

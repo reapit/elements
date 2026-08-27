@@ -24,7 +24,7 @@ which entry path was used.
 
 ### 2. `onChange` forwards a native `ChangeEvent`
 
-`onChange` is a literal native `ChangeEvent`, forwarded as-is — the same
+`onChange` is a literal native `ChangeEvent`, forwarded as-is: the same
 convention as `TextInput`. This means React Hook Form's `register()` and
 `Controller`, and Formik's file-input handling, work exactly as they would
 against a bare `<input type="file" multiple>`, with no bespoke event shape to
@@ -53,7 +53,7 @@ right, for native form behaviour.
 
 ### 5. Custom constraints surface through the constraint validation API
 
-Custom constraints — `minFiles`, `maxFiles`, `maxFileSize`, `maxTotalSize` —
+Custom constraints (`minFiles`, `maxFiles`, `maxFileSize`, `maxTotalSize`)
 are surfaced via `setCustomValidity()`. This is consistent with
 `NumberInput`'s range validation, so `reportValidity()` and native
 submit-blocking behave uniformly whether the violation is native or custom.
@@ -67,8 +67,8 @@ an outer `<label htmlFor>` or `aria-label`.
 ### 7. `children` render prop for custom dropzone content
 
 `FileInput` accepts a `children` render prop that receives the input's live
-state — current files, drag and focus state, `disabled`, and the picker-open
-callback — and returns the rendered dropzone content. This lets a consumer
+state (current files, drag and focus state, `disabled`, and the picker-open
+callback) and returns the rendered dropzone content. This lets a consumer
 fully replace the dropzone's visual appearance while retaining all of
 `FileInput`'s selection mechanics (drag-and-drop, validation, native event
 contract) for free, without needing a bespoke wrapper component.

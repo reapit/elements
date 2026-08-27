@@ -11,7 +11,7 @@ yarn install
 yarn start        # starts the Storybook dev server
 ```
 
-This is a Yarn workspaces monorepo. Run yarn scripts from the repo root — they fan out across
+This is a Yarn workspaces monorepo. Run yarn scripts from the repo root: they fan out across
 the workspaces that define them. The published library lives in `packages/elements`; see the
 [README](README.md) for the full layout.
 
@@ -35,7 +35,7 @@ description.
 `feat` · `fix` · `chore` · `ci` · `docs` · `refactor` · `revert`
 
 The branch type should match the PR title type where possible. The nature of
-work sometimes changes after a branch is created — the PR title is what CI
+work sometimes changes after a branch is created; the PR title is what CI
 validates, so ensure that is correct.
 
 ## Commits
@@ -58,7 +58,7 @@ format for them.
 ## Code style
 
 Linting (`oxlint`) and formatting (`oxfmt`) run automatically on commit via git
-hooks and on CI. Use British English for all prose — documentation, comments,
+hooks and on CI. Use British English for all prose: documentation, comments,
 error messages, and UI text.
 
 When adding a `.gitignore` pattern that contains a slash, declare its anchoring:

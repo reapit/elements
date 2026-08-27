@@ -67,7 +67,7 @@ const meta = preview.meta({
 });
 
 /**
- * The default layout — items arranged in a horizontal row.
+ * The default layout: items arranged in a horizontal row.
  */
 export const Row = meta.story({
   args: {

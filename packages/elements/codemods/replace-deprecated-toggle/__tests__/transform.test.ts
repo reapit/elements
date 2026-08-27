@@ -206,7 +206,7 @@ import { Toggle } from '@reapit/elements'
     });
 
     test("escapes double quotes in extracted label text", () => {
-      // JSX text nodes can contain literal double quotes — ts-morph returns them
+      // JSX text nodes can contain literal double quotes; ts-morph returns them
       // as-is, so escapeJsxAttributeValue must convert " to &quot; to avoid
       // producing broken JSX attribute syntax.
       const input = `
@@ -218,7 +218,7 @@ import { Toggle } from '@reapit/elements'
     });
 
     test("escapes ampersands in extracted label text", () => {
-      // A literal & in JSX text is returned as-is by ts-morph — it must be
+      // A literal & in JSX text is returned as-is by ts-morph; it must be
       // escaped to &amp; so the JSX attribute value remains valid.
       const input = `
 import { Toggle } from '@reapit/elements'

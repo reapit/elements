@@ -9,7 +9,7 @@ item's wording so reviews stay comparable across files and across re-runs.
 
 ## 1. File hygiene
 
-- [inspect] No default layer names — `Frame 47`, `Rectangle 12`, `Group 5`.
+- [inspect] No default layer names: `Frame 47`, `Rectangle 12`, `Group 5`.
 - [inspect] Layers grouped logically, by component, section, or screen.
 - [inspect] Hidden layers are either removed or named so the reason is obvious.
 - [inspect] No dead nodes: zero-size, off-canvas, or stray outside any frame.
@@ -21,8 +21,8 @@ item's wording so reviews stay comparable across files and across re-runs.
 Judge the layer-name, hidden-layer, and dead-node items on designer-authored layers
 only, and check each hit's ancestry before reporting it. A library instance brings
 its component's own internals with it: `Line 3` and `Frame 2` layers the library
-author named, hidden nodes that are component toggles — a `Divider` switched off, an
-optional `Button` — and zero-height `LINE` nodes, where a 1px rule reports height 0.
+author named, hidden nodes that are component toggles (a `Divider` switched off, an
+optional `Button`) and zero-height `LINE` nodes, where a 1px rule reports height 0.
 All are passes. Script 1 in [`PLUGIN-API-SCRIPTS.md`](PLUGIN-API-SCRIPTS.md) tags
 each hit `[AUTHORED]` or `[in instance]` for exactly this call. Where a survey of
 hundreds of nodes yields only in-instance hits, the finding is that the file is
@@ -81,24 +81,24 @@ code implements them, so those states are specified whether or not this file dra
 them: a hover drawn on an Elements Button is redundant, and a hover that
 contradicts the library is the finding. That leaves two kinds of real gap.
 
-- [inspect] Interactive elements from outside Elements — unaccounted components and
-  ones flagged as non-Elements — have every state drawn: default, hover, focus,
+- [inspect] Interactive elements from outside Elements (unaccounted components and
+  ones flagged as non-Elements) have every state drawn: default, hover, focus,
   selected, disabled. Nothing else specifies these, so an absent state is a
   blocker.
 - [inspect] State the library cannot decide is drawn or annotated: which control is
   disabled and when, which tab or accordion panel opens on load where that is not
   the one drawn, and what the page shows on its loading, empty, error, and
-  zero-result paths. Ask this of the page, not of a component's variant list — a
+  zero-result paths. Ask this of the page, not of a component's variant list; a
   component that defines no empty variant is a question for the Design System
   team, whereas a page that never says what it shows when the data is missing is
   this file's blocker.
-- [inspect] Long text and overflow scenarios shown — long names, large numbers.
+- [inspect] Long text and overflow scenarios shown: long names, large numbers.
 - [inspect] Forms show validation states: error messages, success confirmation,
   inline hints.
 - [confirm] Edge cases called out: zero items, single item, maximum items,
   pagination, no results.
 
-A library variant the file never uses is not a gap — engineering builds what is
+A library variant the file never uses is not a gap; engineering builds what is
 drawn. It becomes one only where the flow implies the variant is reachable, or
 where content sits behind a state drawn nowhere: an accordion collapsed in every
 frame leaves its own contents unspecified.
@@ -107,13 +107,13 @@ frame leaves its own contents unspecified.
 
 Judge motion by the same rule as states in area 5: whether engineering has to guess
 it, not by whether the file documents it. An Elements component's transitions are
-implemented in the library's own code — easing, duration, and trigger included —
+implemented in the library's own code: easing, duration, and trigger included,
 so an Elements instance needs no motion annotation to specify what it already does.
 Motion that contradicts the library is the finding; motion that matches it,
 undocumented, is not. That leaves the real gap on components outside Elements.
 
 - [inspect] Transitions and animations on interactive elements from outside
-  Elements — unaccounted components and ones flagged as non-Elements — are
+  Elements (unaccounted components and ones flagged as non-Elements) are
   documented with easing, duration, and trigger, in an inspectable form rather than
   prose alone.
 - [inspect] Prototype links or a click-through flow set up for key user paths.
@@ -121,14 +121,14 @@ undocumented, is not. That leaves the real gap on components outside Elements.
   reactions authored in the file from the ones instances inherit.
 - [confirm] Micro-interactions annotated where a static frame cannot convey them,
   for elements outside Elements.
-- [confirm] Gestures — swipe, drag, long-press — called out for touch interfaces,
+- [confirm] Gestures (swipe, drag, long-press) called out for touch interfaces,
   for elements outside Elements.
 
 ## 7. Content and copy
 
 - [inspect] Real content, not `Lorem ipsum` or placeholder strings.
 - [confirm] Character limits noted where truncation or wrapping matters.
-- [confirm] Microcopy finalised and proofread — button labels, tooltips, error
+- [confirm] Microcopy finalised and proofread: button labels, tooltips, error
   messages.
 - [confirm] Dynamic content sources identified, e.g. pulled from user profile,
   API-driven.
@@ -137,13 +137,13 @@ undocumented, is not. That leaves the real gap on components outside Elements.
 
 - [inspect] Illustrations are vector, and photographs are appropriately sized
   raster. A rasterised image where a vector belongs is the finding.
-- [confirm] Export settings match engineering's needs — scale factors, format.
+- [confirm] Export settings match engineering's needs: scale factors, format.
 - [confirm] Licensing and usage rights confirmed for stock or third-party assets.
 
 ## 9. Annotations and specs
 
-Dev Mode annotations are readable through the Plugin API capability — script 3 in
-[`PLUGIN-API-SCRIPTS.md`](PLUGIN-API-SCRIPTS.md) — so read them rather than assuming
+Dev Mode annotations are readable through the Plugin API capability: script 3 in
+[`PLUGIN-API-SCRIPTS.md`](PLUGIN-API-SCRIPTS.md), so read them rather than assuming
 their absence. A file with no annotations at all fails most of
 this area, and that is a finding in its own right.
 
@@ -152,9 +152,9 @@ covers behaviour, Accessibility covers focus and labelling, Content covers copy 
 data sources, Development covers implementation notes.
 
 - [inspect] Anything non-obvious in spacing, sizing, or alignment is explained
-  somewhere reachable — an annotation, a note layer, a description, or a
+  somewhere reachable: an annotation, a note layer, a description, or a
   documentation link.
-- [inspect] Colour pairings meet WCAG AA contrast — 4.5:1 for body text, 3:1 for
+- [inspect] Colour pairings meet WCAG AA contrast: 4.5:1 for body text, 3:1 for
   large text and non-text. No capability returns a ratio, so read the resolved hex
   values off the bound variables and compute it yourself. Quote the ratio you
   computed, and say so where a pairing could not be resolved. A pairing whose two
@@ -186,7 +186,7 @@ None of this is reachable through the Figma MCP. Report all four under **Over to
 you**, and give the area no checklist heading.
 
 - [confirm] Design reviewed and approved by the relevant stakeholders.
-- [confirm] Engineering has access at the right permission level — inspect rather
+- [confirm] Engineering has access at the right permission level: inspect rather
   than edit, unless edit is intended.
 - [confirm] Relevant tickets or stories linked to the file.
 - [confirm] A walkthrough or handoff session scheduled, for a complex feature.

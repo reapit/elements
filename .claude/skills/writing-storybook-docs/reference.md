@@ -4,7 +4,7 @@
 
 Use `argTypes` to improve the Controls panel experience for props that need special handling.
 
-**Icon props** — use `radio` control with a `mapping` object that maps label strings to JSX elements. This lets the user toggle icons without typing JSX.
+**Icon props**: use `radio` control with a `mapping` object that maps label strings to JSX elements. This lets the user toggle icons without typing JSX.
 
 ```tsx
 argTypes: {
@@ -20,7 +20,7 @@ argTypes: {
 }
 ```
 
-**Enum-like string props** — use `select` control with an explicit `options` array.
+**Enum-like string props**: use `select` control with an explicit `options` array.
 
 ```tsx
 argTypes: {
@@ -31,7 +31,7 @@ argTypes: {
 }
 ```
 
-**Props with complex types** — use `table.type.summary` to provide a readable summary when the inferred type would be unreadable in the Controls panel.
+**Props with complex types**: use `table.type.summary` to provide a readable summary when the inferred type would be unreadable in the Controls panel.
 
 ```tsx
 argTypes: {
@@ -46,7 +46,7 @@ argTypes: {
 }
 ```
 
-**Complex children** — when a component accepts children that can only be constructed as JSX, use `radio` with a `mapping` to named layout variants.
+**Complex children**: when a component accepts children that can only be constructed as JSX, use `radio` with a `mapping` to named layout variants.
 
 ```tsx
 argTypes: {
@@ -86,10 +86,10 @@ Every story other than `Example` must have a JSDoc comment directly above its ex
  */
 export const Variants = meta.story({ ... })
 
-// ❌ Wrong — no JSDoc
+// ❌ Wrong: no JSDoc
 export const Variants = meta.story({ ... })
 
-// ❌ Wrong — vague description
+// ❌ Wrong: vague description
 /**
  * Shows variants.
  */
@@ -101,7 +101,7 @@ export const Variants = meta.story({ ... })
 Use `.extend()` to build additional stories on top of `Example` or other stories. This uses smart merging: `args` are shallow merged, `parameters` are deep merged, `decorators` and `tags` are concatenated.
 
 ```tsx
-// ✅ Correct — uses .extend() for smart merging
+// ✅ Correct: uses .extend() for smart merging
 /**
  * Disabled buttons do not receive click events.
  */
@@ -109,7 +109,7 @@ export const Disabled = Example.extend({
   args: { disabled: true },
 });
 
-// ❌ Wrong — manually restating all args
+// ❌ Wrong: manually restating all args
 export const Disabled = meta.story({
   args: {
     disabled: true,
@@ -153,7 +153,7 @@ export const Variants = Example.extend({
   ),
 })
 
-// ❌ Wrong — using meta.story with manual args spread
+// ❌ Wrong: using meta.story with manual args spread
 export const Variants = meta.story({
   args: { ...Example.input.args },
   argTypes: { variant: { control: false } },
@@ -229,7 +229,7 @@ parameters: {
 Storybook converts the export identifier to the display name using `startCase`. When the natural name contains characters that `startCase` would mangle (hyphens, special formatting), override it with the `name` field.
 
 ```tsx
-// ✅ Correct — 'Icon-only' and 'Read-only' need hyphens preserved
+// ✅ Correct: 'Icon-only' and 'Read-only' need hyphens preserved
 export const IconOnly = Example.extend({
   name: 'Icon-only',
   ...
@@ -240,17 +240,17 @@ export const Readonly = Example.extend({
   ...
 })
 
-// Not needed — 'Variants' and 'Disabled' render fine without a name override
+// Not needed: 'Variants' and 'Disabled' render fine without a name override
 export const Variants = Example.extend({ ... })
 export const Disabled = Example.extend({ ... })
 ```
 
 ### Helper components
 
-Define private helper components used only within the story file as unexported functions at the bottom of the file. Do not export them — Storybook will treat every named export that looks like a story as a story.
+Define private helper components used only within the story file as unexported functions at the bottom of the file. Do not export them, because Storybook treats every named export that looks like a story as a story.
 
 ```tsx
-// ✅ Correct — unexported, placed at the bottom
+// ✅ Correct: unexported, placed at the bottom
 function ExampleSimpleLayout({ height }: { height: string }) {
   return (
     <>
@@ -359,14 +359,14 @@ render: function ClosedBy(args) {
 **Do not** add `tags: ['autodocs']` to story files. It is already set globally in `preview.tsx`, so adding it again is redundant.
 
 ```tsx
-// ❌ Wrong — redundant
+// ❌ Wrong: redundant
 const meta = preview.meta({
   title: "Core/Button",
   component: Button,
   tags: ["autodocs"],
 });
 
-// ✅ Correct — no tags needed
+// ✅ Correct: no tags needed
 const meta = preview.meta({
   title: "Core/Button",
   component: Button,
@@ -378,10 +378,10 @@ const meta = preview.meta({
 Do not create MDX documentation files for new components in `src/core/`. Autodocs generates the documentation page automatically from the story file. Reserve MDX for hand-authored conceptual pages (`src/storybook/`) and legacy deprecated components.
 
 ```
-// ❌ Wrong — don't create this for new core components
+// ❌ Wrong: don't create this for new core components
 src/core/button/button.mdx
 
-// ✅ Correct — the story file is sufficient
+// ✅ Correct: the story file is sufficient
 src/core/button/button.stories.tsx
 ```
 
@@ -390,14 +390,14 @@ src/core/button/button.stories.tsx
 Do **not** use the old CSF 3 patterns. Use the CSF Next factory functions instead.
 
 ```tsx
-// ❌ Wrong — old CSF 3
+// ❌ Wrong: old CSF 3
 import type { Meta, StoryObj } from '@storybook/react-vite'
 const meta = { ... } satisfies Meta<typeof Button>
 export default meta
 type Story = StoryObj<typeof meta>
 export const Example: Story = { ... }
 
-// ✅ Correct — CSF Next
+// ✅ Correct: CSF Next
 import preview from '#.storybook/preview'
 const meta = preview.meta({ ... })
 export const Example = meta.story({ ... })
@@ -408,12 +408,12 @@ export const Example = meta.story({ ... })
 When building on an existing story, always use `.extend()` rather than `meta.story()` with `...Story.input.args`.
 
 ```tsx
-// ❌ Wrong — manual spread
+// ❌ Wrong: manual spread
 export const Disabled = meta.story({
   args: { ...Example.input.args, disabled: true },
 });
 
-// ✅ Correct — .extend()
+// ✅ Correct: .extend()
 export const Disabled = Example.extend({
   args: { disabled: true },
 });
@@ -424,7 +424,7 @@ export const Disabled = Example.extend({
 When a component is a subcomponent (part of a parent namespace such as `Dialog.Body`), do not import it directly from its own file. Import the parent and reference the subcomponent through the namespace. This ensures the `component` field, JSX, and Figma Code Connect all reflect the public API.
 
 ```tsx
-// ❌ Wrong — direct import from the subcomponent file
+// ❌ Wrong: direct import from the subcomponent file
 import { DialogBody } from "./body";
 
 const meta = preview.meta({
@@ -432,7 +432,7 @@ const meta = preview.meta({
   component: DialogBody,
 });
 
-// ✅ Correct — import parent and reference via namespace
+// ✅ Correct: import parent and reference via namespace
 import { Dialog } from "../dialog";
 
 const meta = preview.meta({
@@ -449,7 +449,7 @@ When you need Storybook types (e.g., `Decorator`), import them from `@storybook/
 // ✅ Correct
 import type { Decorator } from "@storybook/react-vite";
 
-// ❌ Wrong — wrong package
+// ❌ Wrong: wrong package
 import type { Decorator } from "@storybook/react";
 ```
 
@@ -458,10 +458,10 @@ import type { Decorator } from "@storybook/react";
 In Storybook CSF, any named export from a `*.stories.*` file that is an object or function is treated as a story. Storybook skips exports that are listed in `excludeStories` or that are not objects or functions (for example, exported type aliases). Do not export helper components from story files; instead keep them unexported or move them into a separate helper module (for example under a `__story__/` directory).
 
 ```tsx
-// ❌ Wrong — Storybook will attempt to render this as a story
+// ❌ Wrong: Storybook will attempt to render this as a story
 export function ExampleLayout() { ... }
 
-// ✅ Correct — unexported
+// ✅ Correct: unexported
 function ExampleLayout() { ... }
 ```
 
@@ -470,7 +470,7 @@ function ExampleLayout() { ... }
 Every story except `Example` must have a JSDoc comment. Without it, the documentation page will show the story with no descriptive text, leaving users to infer the intent.
 
 ```tsx
-// ❌ Wrong — no JSDoc
+// ❌ Wrong: no JSDoc
 export const Disabled = Example.extend({
   args: { disabled: true },
 });

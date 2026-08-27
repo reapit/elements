@@ -121,7 +121,7 @@ describe("import rewrites", () => {
 
   test("rewrites type-only imports", () => {
     // DeprecatedPaginationProps rewrites to Pagination.Props, which references the
-    // Pagination namespace — so the import is promoted to a value import.
+    // Pagination namespace, so the import is promoted to a value import.
     const input = [
       `import type { DeprecatedPaginationProps } from '@reapit/elements'`,
       `type Props = DeprecatedPaginationProps`,
@@ -368,7 +368,7 @@ describe("aliased element regressions", () => {
       `const App = () => <DP callback={fn} currentPage={1} numberPages={5}><span /></DP>`,
     ].join("\n");
     const output = transform(input, "file.tsx");
-    // Opening tag stays as alias — not renamed (no matching rule for aliases)
+    // Opening tag stays as alias: not renamed (no matching rule for aliases)
     expect(output).toContain("<DP");
     // Closing tag must not be renamed to Pagination (would produce mismatched JSX)
     expect(output).not.toContain("</Pagination>");
@@ -501,7 +501,7 @@ describe("non-elements import guard", () => {
 describe("re-export preservation", () => {
   test("preserves import when DeprecatedPagination is re-exported via export { }", () => {
     // A file that only imports the symbol to re-export it must not have its
-    // import deleted — that would leave the export referencing a missing binding.
+    // import deleted, which would leave the export referencing a missing binding.
     const input = [
       `import { DeprecatedPagination } from '@reapit/elements'`,
       `export { DeprecatedPagination }`,

@@ -2,7 +2,7 @@
  * Shared helpers for detecting @reapit/elements imports (and facade package imports).
  *
  * These are used by codemods that need to identify any import from
- * @reapit/elements or a configured facade package — including subpath imports
+ * @reapit/elements or a configured facade package: including subpath imports
  * such as '@reapit/elements/core/button'.
  *
  * NOTE: rewrite-v4-imports/transform.ts intentionally has its OWN local copy of

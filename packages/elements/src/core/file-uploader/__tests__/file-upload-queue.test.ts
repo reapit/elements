@@ -281,14 +281,14 @@ test("progress: a trailing throttle timer is cleared, not orphaned, when a later
   queue.subscribe(listener);
 
   // `vi.setSystemTime` moves `Date.now()` forward without advancing the fake timer clock that
-  // drives `setTimeout` — reproducing the real-world race where wall-clock time passes enough to
+  // drives `setTimeout`: reproducing the real-world race where wall-clock time passes enough to
   // take the immediate-notify branch before a still-pending trailing timer's callback runs.
   const start = Date.now();
   capturedOnProgress?.(10); // immediate notify (no prior throttle entry): lastNotifiedAt = start
   vi.setSystemTime(new Date(start + 10));
   capturedOnProgress?.(20); // elapsed (10) < throttle window: schedules a trailing timer
   vi.setSystemTime(new Date(start + 110));
-  capturedOnProgress?.(30); // elapsed (110) >= throttle window: immediate branch — must clear the pending trailing timer
+  capturedOnProgress?.(30); // elapsed (110) >= throttle window: immediate branch; must clear the pending trailing timer
 
   // Only the (irrelevantly-delayed) loading-indicator timer should remain pending; an orphaned
   // trailing throttle timer would leave this at 2.

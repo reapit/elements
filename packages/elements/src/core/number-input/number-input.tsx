@@ -147,7 +147,7 @@ function getIntlFractionDigitBounds(
 }
 
 /**
- * Derives the entry cap — the maximum number of model-space fraction digits a user may type or paste.
+ * Derives the entry cap: the maximum number of model-space fraction digits a user may type or paste.
  *
  * The cap is `Infinity` (unlimited) unless the consumer has expressed a clear precision intent:
  *
@@ -188,8 +188,8 @@ function deriveMaxFractionDigits(
 }
 
 /**
- * A numeric input with locale-aware display formatting. The value the user edits — and the
- * value `onChange` receives — is a plain numeric string (e.g. `"1234.5"`); the grouped,
+ * A numeric input with locale-aware display formatting. The value the user edits: and the
+ * value `onChange` receives: is a plain numeric string (e.g. `"1234.5"`); the grouped,
  * locale-formatted version (e.g. `"1,234.5"`) appears as an overlay when the field is not focused.
  *
  * Use `locale` and `formatOptions` (any `Intl.NumberFormatOptions`) to control display formatting.
@@ -259,8 +259,8 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInput.Props>(
     }, [pattern, allowDecimal, maxFractionDigits]);
 
     // A consumer-supplied affix always wins. When the consumer provides any of prefix, suffix,
-    // leadingIcon, or trailingIcon, no affix is derived and the overlay is formatted in full —
-    // so arbitrary, non-Intl affixes (e.g. "/month", "px") are supported without interference.
+    // leadingIcon, or trailingIcon, no affix is derived and the overlay is formatted in full;
+    // arbitrary, non-Intl affixes (e.g. "/month", "px") are supported without interference.
     const hasConsumerAffix =
       prefix !== undefined ||
       suffix !== undefined ||

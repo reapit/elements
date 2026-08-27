@@ -15,7 +15,7 @@ ChipSelect                  — container; owns context and the container ref
        └─ ChipSelectChip    — presentational styled checkbox; no group awareness
 ```
 
-`ChipSelectChip` is a pure rendering primitive — it draws a styled checkbox and does not
+`ChipSelectChip` is a pure rendering primitive: it draws a styled checkbox and does not
 coordinate with siblings. Group behaviour (deselecting other options when an exclusive chip is
 checked, and stamping `data-exclusive` on the input so `determineNextControlledState` can read
 it) lives in `ChipSelectOption`, the group-aware wrapper.
@@ -37,7 +37,7 @@ it) lives in `ChipSelectOption`, the group-aware wrapper.
 
 When `multiple={false}` (the default), selecting one option should deselect all others.
 `ChipSelectOption` intercepts `onChange` and, when a chip has just been checked in non-multiple
-mode, calls `deselectOtherOptions(container, currentTarget)` — which queries the container ref
+mode, calls `deselectOtherOptions(container, currentTarget)` to query the container ref
 for chip inputs (`input[data-exclusive="true"][type="checkbox"]`) and unchecks any that are
 currently checked.
 
@@ -50,7 +50,7 @@ in the tree.
 When `required={true}` on `ChipSelect`, at least one option must always remain selected.
 `ChipSelectOption` intercepts `onChange`. When a chip is being unchecked and `groupRequired` is
 true, it queries `containerRef` for other checked chip inputs. If none remain, it reverts the
-toggle and returns early — the consumer's `onChange` is not called.
+toggle and returns early: the consumer's `onChange` is not called.
 
 The guard reverts the DOM change by setting `event.currentTarget.checked = true` and returning
 early, because `change` events on checkboxes are not cancellable per the HTML spec
@@ -68,7 +68,7 @@ required and no chip is currently checked:
 chip.required = groupRequired && !anyChipChecked
 ```
 
-When at least one chip is checked, no chip carries `required` — the group constraint is
+When at least one chip is checked, no chip carries `required`: the group constraint is
 satisfied.
 
 The helper is invoked from two places:
@@ -88,7 +88,7 @@ cases where the consumer's controlled state is out of sync with the DOM.
 ### Why imperative
 
 `required` is managed by direct DOM writes rather than a React prop because the value depends on
-whether any chip is checked — state that an individual `ChipSelectOption` cannot observe at
+whether any chip is checked: state that an individual `ChipSelectOption` cannot observe at
 render time. A declarative alternative (tracking `anyChecked` in `ChipSelect` state and
 propagating it via context) would still need a post-mount DOM read to derive the initial value
 and would re-render every option on each change. The imperative sync is contained to one helper
@@ -96,7 +96,7 @@ and would re-render every option on each change. The imperative sync is containe
 
 SSR-rendered HTML carries incorrect `required` attributes until the client-side `useEffect`
 runs. If SSR-correct form validation becomes a requirement, a different
-design — such as a hidden sentinel input representing the group constraint — would be needed.
+design: such as a hidden sentinel input representing the group constraint: would be needed.
 
 ## Controlled vs uncontrolled
 

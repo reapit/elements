@@ -12,7 +12,7 @@ export namespace FileUploaderFileListContext {
     name?: string;
     /**
      * Ref to the `<ul>` element. Used by `FileUploader.File` to perform DOM-based sibling focus
-     * management after a removal — finding the next or previous item's remove button without
+     * management after a removal: finding the next or previous item's remove button without
      * needing explicit knowledge of sibling components.
      */
     listRef: RefObject<HTMLUListElement>;
@@ -21,7 +21,7 @@ export namespace FileUploaderFileListContext {
 
 /**
  * Shares `FileUploader.FileList`'s `variant`/`name` with its `FileUploader.File` descendants, so
- * every item renders consistently — all `FileCard` rows or all `MediaCard` tiles, never a mix —
+ * every item renders consistently (all `FileCard` rows or all `MediaCard` tiles, never a mix),
  * and so a custom `children` render function doesn't have to re-pass `name` to every item.
  */
 export const FileUploaderFileListContext = createContext<FileUploaderFileListContext.Value | null>(

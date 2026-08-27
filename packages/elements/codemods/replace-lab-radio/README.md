@@ -91,10 +91,10 @@ const el = <RadioButton label="Option" />;
 
 ## Limitations
 
-- **`hasError` is removed** — `RadioButton` has no equivalent prop. Error state is managed at the group level via `RadioGroupControl`'s `errorText` prop. Review usages of `hasError` and migrate them to `RadioGroupControl` where appropriate.
-- **`label` is now required** — `Radio` had an optional `label` prop; `RadioButton.Props` requires it. Any usage without `label` will produce a TypeScript error after migration.
-- **Children require manual review** — `RadioButton` does not accept children. Any children passed to the original `Radio` must be removed or migrated.
-- **Consider upgrading to RadioGroupControl** — `RadioButton` is intended for use inside `RadioGroupControl`. The TODO comments added by this codemod flag each migrated usage as a prompt to consider that upgrade.
-- **Re-exports are skipped** — `export { Radio } from '…'` declarations are left unchanged and require manual migration.
-- **Aliased non-JSX value references are not renamed** — when `Radio` is imported under an alias (e.g. `import { Radio as R } from '…'`), JSX usages (`<R />`) are renamed correctly via the alias binding, but bare value references (e.g. `const C = R`) are left unchanged because the alias itself is preserved on the rewritten import (`RadioButton as R`). No manual changes are required for these references.
-- **Dynamic or non-standard aliasing** — unusual aliasing patterns outside standard import syntax may require manual review.
+- **`hasError` is removed**: `RadioButton` has no equivalent prop. Error state is managed at the group level via `RadioGroupControl`'s `errorText` prop. Review usages of `hasError` and migrate them to `RadioGroupControl` where appropriate.
+- **`label` is now required**: `Radio` had an optional `label` prop; `RadioButton.Props` requires it. Any usage without `label` will produce a TypeScript error after migration.
+- **Children require manual review**: `RadioButton` does not accept children. Any children passed to the original `Radio` must be removed or migrated.
+- **Consider upgrading to RadioGroupControl**: `RadioButton` is intended for use inside `RadioGroupControl`. The TODO comments added by this codemod flag each migrated usage as a prompt to consider that upgrade.
+- **Re-exports are skipped**: `export { Radio } from '…'` declarations are left unchanged and require manual migration.
+- **Aliased non-JSX value references are not renamed**: when `Radio` is imported under an alias (e.g. `import { Radio as R } from '…'`), JSX usages (`<R />`) are renamed correctly via the alias binding, but bare value references (e.g. `const C = R`) are left unchanged because the alias itself is preserved on the rewritten import (`RadioButton as R`). No manual changes are required for these references.
+- **Dynamic or non-standard aliasing**: unusual aliasing patterns outside standard import syntax may require manual review.

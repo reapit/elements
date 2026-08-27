@@ -24,7 +24,7 @@ runs:
         workingDirectory: packages/elements
         # The action infers the package manager from a lockfile and falls back to npm
         # when it finds none. The lockfile is at the repo root, not in the workspace,
-        # so state yarn explicitly — npm fails on peer conflicts that yarn only warns about.
+        # so state yarn explicitly: npm fails on peer conflicts that yarn only warns about.
         packageManager: yarn
         # The preview env in wrangler.jsonc declares a base name and no routes, so
         # each PR supplies its own: --name isolates the Worker per PR and --domain

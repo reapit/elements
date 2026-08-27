@@ -170,12 +170,12 @@ test("does not call onChange in uncontrolled mode when scroll-snap returns the u
   expect(onChange).toHaveBeenCalledWith("item-2");
   expect(onChange).toHaveBeenCalledTimes(1);
 
-  // User scrolls slightly but scroll-snap returns them to item-2 — no repeat call.
+  // User scrolls slightly but scroll-snap returns them to item-2: no repeat call.
   triggerScrollEnd();
   expect(onChange).toHaveBeenCalledTimes(1);
 });
 
-test("does not call onChange for intermediate items during a programmatic scroll — only the settled item", () => {
+test("does not call onChange for intermediate items during a programmatic scroll: only the settled item", () => {
   const onChange = vi.fn();
 
   function Carousel({ value }: { value: string }) {
@@ -211,7 +211,7 @@ test("does not call onChange for intermediate items during a programmatic scroll
   // The target item arrives.
   fireIntersection(screen.getByTestId("item-4"), 0.6);
 
-  // Scroll settles — onChange must not fire since value already equals settled item.
+  // Scroll settles: onChange must not fire since value already equals settled item.
   triggerScrollEnd();
 
   expect(onChange).not.toHaveBeenCalled();
@@ -243,7 +243,7 @@ test("calls onChange normally for a user swipe after a programmatic scroll has s
   // Programmatic jump to item-3.
   rerender(<Carousel value="item-3" />);
 
-  // Scroll settles on target — no onChange since value already matches.
+  // Scroll settles on target: no onChange since value already matches.
   fireIntersection(screen.getByTestId("item-3"), 0.6);
   triggerScrollEnd();
   expect(onChange).not.toHaveBeenCalled();

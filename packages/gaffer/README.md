@@ -16,12 +16,12 @@ migrations, published to npm and consumed by other teams' frontends.
 
 Gates run in order. The first failure short-circuits the remainder.
 
-1. **Prerequisites gate** — PR must be non-draft, mergeable, and have no
+1. **Prerequisites gate**: PR must be non-draft, mergeable, and have no
    outstanding change requests.
-2. **Deny-list gate** — any file matching a `denyCategories` glob in
+2. **Deny-list gate**: any file matching a `denyCategories` glob in
    `.gaffer/policy.yml` makes the PR `T2-never`: automatically `quality-hold`,
    regardless of size.
-3. **Size-ceiling gate** — PRs exceeding the hard ceiling (>800 substantive
+3. **Size-ceiling gate**: PRs exceeding the hard ceiling (>800 substantive
    lines or >30 substantive files) are denied as too large to classify
    automatically.
 
@@ -33,10 +33,10 @@ push that crosses a threshold flips the label correctly.
 
 Two mechanisms in `.gaffer/policy.yml`:
 
-- **`denyCategories`** — hard deny. Any match makes the PR `T2-never` and
+- **`denyCategories`**: hard deny. Any match makes the PR `T2-never` and
   `quality-hold`. Reserved for high-blast-radius paths: CI/CD, workflow changes
   referencing secrets, deploy infra, git hooks, release/publish config.
-- **`scrutinyFloorCategories`** — not denied. The tier is floored at
+- **`scrutinyFloorCategories`**: not denied. The tier is floored at
   `T1c-medium` so a change here can never be classified as trivial by line
   count alone. Used for paths with frequent, legitimate churn: design tokens,
   codemods, barrel exports, build toolchain config, and gaffer's own
@@ -57,17 +57,17 @@ lines / 1 file; p90 ~240 lines / 8 files):
 
 ## Branch-protection prerequisites
 
-| Requirement                  | Current state                                           |
-| ---------------------------- | ------------------------------------------------------- |
-| `factory-made` label created | **Not yet** — create in repo settings before first run. |
-| `quality-hold` label created | **Not yet** — create in repo settings before first run. |
+| Requirement                  | Current state                                          |
+| ---------------------------- | ------------------------------------------------------ |
+| `factory-made` label created | **Not yet**: create in repo settings before first run. |
+| `quality-hold` label created | **Not yet**: create in repo settings before first run. |
 
 ## Local usage
 
 ```bash
 export GH_TOKEN=$(gh auth token)
 
-# Classify only — no side effects:
+# Classify only; no side effects:
 node --experimental-strip-types packages/gaffer/classify-pr.ts 1517 --dry-run
 
 # Full run, verbose evidence bundle to stderr:

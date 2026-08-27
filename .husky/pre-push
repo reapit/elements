@@ -4,7 +4,7 @@
 
 # Trunk is whichever branch `.changeset/config.json` declares as its
 # baseBranch. Reading it here keeps this hook byte-identical across
-# maintenance lines (main, lts, …) — each line carries its own trunk
+# maintenance lines (main, lts, …): each line carries its own trunk
 # pointer in the changesets config.
 BASE_BRANCH=$(sed -n 's/.*"baseBranch":[[:space:]]*"\([^"]*\)".*/\1/p' .changeset/config.json | head -n1)
 

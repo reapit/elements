@@ -26,7 +26,7 @@ This will prompt you to answer a few questions:
    - Examples:
      - ✅ `Added: Combobox.Card component for card-based display of selected options`
      - ✅ `Fixed: Correct Drawer sizing on small viewports`
-     - ✅ `Removed: CJS build output — consumers must migrate to ESM imports`
+     - ✅ `Removed: CJS build output; consumers must migrate to ESM imports`
      - ❌ "Updated code" (too vague)
      - ❌ "Changed line 42 in button.tsx" (too technical)
 
@@ -87,7 +87,7 @@ For PRs with no user-facing change, use an empty changeset to make the intent ex
 - ❌ Test-only changes
 - ❌ Internal refactors with no user-facing impact
 
-PRs that only touch dot-directory paths (e.g. `.github/`, `.husky/`) pass the gate automatically without a changeset — see [Enforcement](#enforcement) for why.
+PRs that only touch dot-directory paths (e.g. `.github/`, `.husky/`) pass the gate automatically without a changeset; see [Enforcement](#enforcement) for why.
 
 ## Enforcement
 
@@ -149,7 +149,7 @@ To switch correctly:
    yarn changeset pre enter <new-tag>
    ```
 
-3. Manually set the `package.json` version to `x.y.z-<new-tag>.0` (e.g. `5.0.0-rc.0`). Do not run `yarn changeset version` — let CI handle that.
+3. Manually set the `package.json` version to `x.y.z-<new-tag>.0` (e.g. `5.0.0-rc.0`). Do not run `yarn changeset version`: let CI handle that.
 
 4. Commit and push. When CI runs `changeset version`, it will produce `x.y.z-<new-tag>.1`.
 

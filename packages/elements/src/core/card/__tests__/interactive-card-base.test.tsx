@@ -139,7 +139,7 @@ test("does not call onClick when aria-disabled is true", () => {
 
 test("prevents default on click when aria-disabled is true", () => {
   // NOTE: we spy on `Event.prototype.preventDefault` because the component's internal click handler
-  // always runs when `aria-disabled` is true — it is the consumer-supplied `onClick` callback that
+  // always runs when `aria-disabled` is true, as it is the consumer-supplied `onClick` callback that
   // is skipped. A consumer `onClick` spy would never fire, so we assert on the prototype instead.
   const preventDefaultSpy = vi.spyOn(Event.prototype, "preventDefault");
   render(

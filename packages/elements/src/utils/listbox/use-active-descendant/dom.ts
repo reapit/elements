@@ -28,7 +28,7 @@ export function getInitialActiveOption(listboxElement: HTMLElement): Element | n
   return (selected && options.includes(selected) ? selected : null) ?? getFirstOption(options);
 }
 
-/** Mirrors {@link getInitialActiveOption}, but falls back to the last option instead of the first — used when navigation starts from the end (e.g. ArrowUp/ArrowLeft with no active descendant yet). */
+/** Mirrors {@link getInitialActiveOption}, but falls back to the last option instead of the first; used when navigation starts from the end (e.g. ArrowUp/ArrowLeft with no active descendant yet). */
 export function getInitialActiveOptionFromEnd(
   listboxElement: HTMLElement,
   options: Element[],
@@ -38,7 +38,7 @@ export function getInitialActiveOptionFromEnd(
 }
 
 // Intentionally does not wrap around at the last option. Combobox popups are modal dialogs,
-// so returning focus to the trigger isn't an option here — the ARIA combobox pattern's
+// so returning focus to the trigger isn't an option here; the ARIA combobox pattern's
 // "do nothing at the boundary" behaviour is the only one available to us.
 export function getNextOption(options: Element[], current: Element | null): Element | null {
   if (!current) return options[0] ?? null;
@@ -47,7 +47,7 @@ export function getNextOption(options: Element[], current: Element | null): Elem
   return options[index + 1] ?? null;
 }
 
-// See getNextOption — same "no wraparound at the boundary" rationale applies in reverse.
+// See getNextOption; same "no wraparound at the boundary" rationale applies in reverse.
 export function getPrevOption(options: Element[], current: Element | null): Element | null {
   if (!current) return null;
   const index = options.indexOf(current);
@@ -72,7 +72,7 @@ export function activateOption(ariaOwner: HTMLElement, option: Element): void {
   if (!optionId) {
     if (import.meta.env.DEV) {
       console.error(
-        "[Listbox] activateOption: option element has no id — aria-activedescendant cannot be set. Ensure all options have an id attribute.",
+        "[Listbox] activateOption: option element has no id: aria-activedescendant cannot be set. Ensure all options have an id attribute.",
       );
     }
     return;

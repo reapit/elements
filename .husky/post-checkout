@@ -10,7 +10,7 @@
 # returns the relative path ".git". In a worktree it returns an absolute path
 # ending in .git/worktrees/<name>.
 case "$(git rev-parse --git-dir 2>/dev/null)" in
-  */.git/worktrees/*) ;; # linked worktree — proceed
-  *) exit 0 ;;           # main working tree — skip
+  */.git/worktrees/*) ;; # linked worktree: proceed
+  *) exit 0 ;;           # main working tree: skip
 esac
 yarn install

@@ -163,7 +163,7 @@ async function main() {
 
   if (args.dryRun) {
     console.log(
-      `Dry run — would apply label "${label}" to PR #${args.prNumber}.${denyingGate ? ` Denying gate: ${denyingGate.message}` : ""}`,
+      `Dry run: would apply label "${label}" to PR #${args.prNumber}.${denyingGate ? ` Denying gate: ${denyingGate.message}` : ""}`,
     );
     return;
   }

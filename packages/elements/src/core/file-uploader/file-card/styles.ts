@@ -56,7 +56,7 @@ export const ElFileUploaderFileCardSecondaryInfo = styled.div`
     width: 100%;
 
     /* The error message is allowed to wrap onto a second line rather than truncate, since error messages can
-     * run longer than a status word like "Uploading" — matching Figma's error-state variant. */
+     * run longer than a status word like "Uploading"; matching Figma's error-state variant. */
     &[data-wrap] {
       flex-wrap: wrap;
     }

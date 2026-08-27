@@ -6,18 +6,18 @@ Use this guide to manage z-index values consistently across Reapit Elements comp
 
 Components that use z-index for internal stacking (e.g., active tabs, focus rings) can unintentionally overlap other page elements during scrolling. This pattern solves the problem through:
 
-1. **Semantic z-index tokens** — CSS custom properties for consistent values
-2. **Stacking context isolation** — Contains z-index values within the parent component
+1. **Semantic z-index tokens**: CSS custom properties for consistent values
+2. **Stacking context isolation**: Contains z-index values within the parent component
 
 ## Z-Index Tokens
 
 Three z-index tokens are defined in `src/styles/globals.ts`:
 
-| Token                | Value | Purpose                                                                                           |
-| -------------------- | ----- | ------------------------------------------------------------------------------------------------- |
-| `--z-index-base`     | `0`   | Explicit base stacking level — use when an element must be overtly placed below elevated siblings |
-| `--z-index-elevated` | `1`   | Internal component stacking (contained by isolation)                                              |
-| `--z-index-sticky`   | `10`  | Sticky/fixed elements that must stay above scrolling content                                      |
+| Token                | Value | Purpose                                                                                          |
+| -------------------- | ----- | ------------------------------------------------------------------------------------------------ |
+| `--z-index-base`     | `0`   | Explicit base stacking level: use when an element must be overtly placed below elevated siblings |
+| `--z-index-elevated` | `1`   | Internal component stacking (contained by isolation)                                             |
+| `--z-index-sticky`   | `10`  | Sticky/fixed elements that must stay above scrolling content                                     |
 
 ### Why Only Three Tokens?
 
@@ -194,7 +194,7 @@ These components use `isolation: isolate` to contain internal z-index:
 - `FolderTabs` — Active tab elevation
 - `SplitButton` — Button focus states
 - `Table` (body row) — Interactive element stacking above the primary action
-- `AtAGlance.Carousel` — Navigation buttons are permanently elevated above the scroll grid with `z-index: var(--z-index-elevated)`; visibility is managed via `pointer-events` and `opacity`, not z-index toggling
+- `AtAGlance.Carousel`: Navigation buttons are permanently elevated above the scroll grid with `z-index: var(--z-index-elevated)`; visibility is managed via `pointer-events` and `opacity`, not z-index toggling
 
 ### Sticky Elements
 

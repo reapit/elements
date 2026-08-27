@@ -83,7 +83,7 @@ export default createComponentMigration({
         hasIntentAttr = true;
         const init = jsxAttr.getInitializer();
         if (!init) {
-          // Bare attribute (boolean shorthand) — treat as 'default'.
+          // Bare attribute (boolean shorthand): treat as 'default'.
           intentValue = "default";
         } else {
           const strValue = getPropStringValue(jsxAttr);
@@ -105,17 +105,17 @@ export default createComponentMigration({
         if (jsxAttr.getNameNode().getText() !== "intent") continue;
 
         if (intentIsDynamic) {
-          // Dynamic value — rename prop only, leave value unchanged.
+          // Dynamic value: rename prop only, leave value unchanged.
           jsxAttr.getNameNode().replaceWithText("colour");
         } else {
-          // Static value — rename prop and map the value.
+          // Static value: rename prop and map the value.
           const mappedColour = INTENT_TO_COLOUR[intentValue ?? "default"] ?? "neutral";
           jsxAttr.getNameNode().replaceWithText("colour");
           jsxAttr.setInitializer(`"${mappedColour}"`);
         }
       }
     } else if (!hasColourAttr) {
-      // No intent and no colour — add the required colour="neutral" prop.
+      // No intent and no colour: add the required colour="neutral" prop.
       element.addAttribute({ name: "colour", initializer: '"neutral"' });
     }
   },
@@ -125,7 +125,7 @@ export default createComponentMigration({
     // Note: By this point, Phase 3 has already removed the DeprecatedBadgeGroup import.
     // Aliased usages (e.g. import { DeprecatedBadgeGroup as BG }) would have their
     // import removed but the JSX tag left unrenamed because aliases are no longer
-    // detectable. This is an acceptable limitation — unaliased usage (the common case)
+    // detectable. This is an acceptable limitation: unaliased usage (the common case)
     // is fully migrated. The rename is done by text-matching for 'DeprecatedBadgeGroup'.
 
     // Collect all positions for TODO comment insertion (in reverse order, highest first).

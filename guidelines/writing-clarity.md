@@ -80,7 +80,7 @@ Vigorous writing is concise. Make every word tell.
 | owing to the fact that     | since, because      |
 | in spite of the fact that  | though, although    |
 
-**Special offender**: "the fact that" — revise it out of every sentence.
+**Special offender**: "the fact that"; revise it out of every sentence.
 
 ### 5. Keep Related Words Together (Rule 16)
 

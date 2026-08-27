@@ -33,7 +33,7 @@ interface Rename {
   value: string;
 }
 
-/** Above this, the hit list is truncated — `total` still carries the real count. */
+/** Above this, the hit list is truncated: `total` still carries the real count. */
 const MAX_HITS = 20;
 
 interface Usage {
@@ -48,7 +48,7 @@ const git = (args: string[]): string | null => {
   try {
     return execFileSync("git", args, { encoding: "utf8", maxBuffer: 32 * 1024 * 1024 });
   } catch {
-    // The file did not exist at base-ref — treat it as empty rather than fatal.
+    // The file did not exist at base-ref: treat it as empty rather than fatal.
     return null;
   }
 };
@@ -208,7 +208,7 @@ const surfaces: Record<Surface, Classification> = {
 };
 
 // Only the CSS surface is published, so usage is only searched for properties
-// that left it. Deduplicated across themes — both files declare the same names.
+// that left it. Deduplicated across themes: both files declare the same names.
 const gone = [
   ...new Set([...surfaces.css.removed, ...surfaces.css.renamed.map((r) => r.from)].map(strip)),
 ].sort();

@@ -23,12 +23,12 @@ export namespace FileUploaderFile {
     aspectRatio?: string;
     /** The error text to display on the file card. */
     errorText?: string;
-    /** The item to render — typically one yielded by `FileUploader.FileList`'s `children` render prop. */
+    /** The item to render: typically one yielded by `FileUploader.FileList`'s `children` render prop. */
     item: FileUploadQueue.Item;
     /**
      * Called when the remove button is clicked, in addition to the built-in removal behaviour
      * (`queue.removeItem` + focus transfer). Call `event.preventDefault()` to suppress both the
-     * built-in removal and focus transfer — for example, to show a confirmation dialogue before
+     * built-in removal and focus transfer; for example, to show a confirmation dialogue before
      * deciding whether to remove the item.
      */
     onRemove?: MouseEventHandler<HTMLButtonElement>;
@@ -37,7 +37,7 @@ export namespace FileUploaderFile {
 
 /**
  * Renders one queue item as a `FileCard` row or, when the parent `FileUploader.FileList`'s
- * `variant` is `'media'`, a `MediaCard` tile — including its own thumbnail object URL lifecycle.
+ * `variant` is `'media'`, a `MediaCard` tile: including its own thumbnail object URL lifecycle.
  * Must be rendered inside a `FileUploader.FileList`, which it reads `variant`/`name` from, and a
  * `FileUploader`, which it reads `locale` from.
  *

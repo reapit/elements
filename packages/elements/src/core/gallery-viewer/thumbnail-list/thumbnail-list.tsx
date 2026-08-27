@@ -16,7 +16,7 @@ export namespace GalleryViewerThumbnailList {
  * is intended to contain `GalleryViewerThumbnailList.Item` or
  * `GalleryViewerThumbnailList.ButtonItem` components as children.
  *
- * Does not render a `<nav>` landmark — consumers using anchor-based items
+ * Does not render a `<nav>` landmark: consumers using anchor-based items
  * should wrap this component in a `<nav aria-label="…">` themselves.
  */
 export function GalleryViewerThumbnailList({

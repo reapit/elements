@@ -76,10 +76,10 @@ sweep            (schedule: weekly)
 
 Shared step bundles, split across two locations:
 
-- `.github/actions/` — Node-based actions used internally by this repo's CI. Each handles Node setup before running its command; most also run `yarn install`. `deploy-docs` skips `yarn install` because it has no project dependencies.
-- `actions/` — Language-agnostic actions designed for reuse by other repos. Pin to a specific commit SHA when referencing externally: `reapit-global/gbl-ds-elements/actions/<name>@<sha>`.
+- `.github/actions/`: Node-based actions used internally by this repo's CI. Each handles Node setup before running its command; most also run `yarn install`. `deploy-docs` skips `yarn install` because it has no project dependencies.
+- `actions/`: Language-agnostic actions designed for reuse by other repos. Pin to a specific commit SHA when referencing externally: `reapit-global/gbl-ds-elements/actions/<name>@<sha>`.
 
-All calling jobs must run `actions/checkout` first — GitHub Actions requires the repository to be present on the runner before it can locate a local composite action.
+All calling jobs must run `actions/checkout` first, because GitHub Actions requires the repository to be present on the runner before it can locate a local composite action.
 
 | Action           | Location          | Command                        | Used by                                                                                                |
 | ---------------- | ----------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------ |
@@ -97,13 +97,13 @@ All calling jobs must run `actions/checkout` first — GitHub Actions requires t
 
 Every action above invokes a yarn script at the repo root, and the root scripts fan out across
 workspaces with `yarn workspaces foreach`. Workspaces that do not define a given script are
-skipped, so CI does not need to know which workspaces exist — adding one is a `package.json`
+skipped, so CI does not need to know which workspaces exist: adding one is a `package.json`
 change, not a workflow change.
 
 This is why `test-pr.yml` carries no `paths:` filters: it runs for every pull request, and what
 actually executes is decided by which workspaces define the script. Note that `--since` is
-deliberately not used to narrow the fan-out. Files outside any workspace — root configs,
-`.changeset/`, `plugins/` — belong to the root workspace, so a change to shared tooling would
+deliberately not used to narrow the fan-out. Files outside any workspace (root configs,
+`.changeset/`, `plugins/`) belong to the root workspace, so a change to shared tooling would
 select only the root and skip every workspace check.
 
 Build and test output lives inside the workspace that produced it, so artifacts are uploaded
@@ -123,7 +123,7 @@ directly, since their configs live beside the code they act on.
 **`lts`:**
 
 - **`published == 'true'`**: deploys to `v4`
-- **`published != 'true'`**: skipped — no point updating the LTS storybook for a version PR that has not yet been merged
+- **`published != 'true'`**: skipped, since there is no point updating the LTS storybook for a version PR that has not yet been merged
 
 `deploy-docs-manual.yml` retains a `workflow_dispatch` trigger for emergency manual deploys and out-of-band LTS storybook updates.
 
@@ -146,12 +146,12 @@ After deployment, a sticky PR comment is posted (or updated) with the preview UR
 Aborting a publish mid-flight can leave npm in a partially-published state. Serialising with `cancel-in-progress: false` lets the second run wait rather than kill the first.
 
 **Why does `deploy-docs-manual.yml` use `cancel-in-progress: true` for its concurrency group?**
-Unlike a publish, a Cloudflare deploy is idempotent — the most recent deployment wins. Cancelling a stale deploy and letting the newest one proceed is safe and avoids deploying an outdated build.
+Unlike a publish, a Cloudflare deploy is idempotent: the most recent deployment wins. Cancelling a stale deploy and letting the newest one proceed is safe and avoids deploying an outdated build.
 
 ### Publishing and authentication
 
 **Why is there no `NPM_TOKEN` secret for publishing?**
-Both release paths authenticate to npm via OIDC trusted publishing — no long-lived secret is needed. GitHub Actions mints a short-lived OIDC token, which npm exchanges for a publish token.
+Both release paths authenticate to npm via OIDC trusted publishing: no long-lived secret is needed. GitHub Actions mints a short-lived OIDC token, which npm exchanges for a publish token.
 
 **Why does the `release` job use `environment: release`?**
 The `release` environment is restricted to the `main` and `lts` branches in GitHub Settings → Environments. This ensures GitHub mints an OIDC token only for runs on those branches, providing a belt-and-braces guard on top of the `on: push: branches: [main, lts]` trigger. Both the `release` and `release-manual` jobs use this environment. The `release` environment is separate from `production`, which the `record-release` job uses solely to signal a deployment event to Jira.
@@ -162,7 +162,7 @@ Sigstore provenance requires a public source repository. This repository is priv
 ### Release scope
 
 **Why do `record-release` and `publish-figma` only run on `main`, not `lts`?**
-Jira is not configured to manage two release streams, so emitting a deployment record for an `lts` patch would either duplicate the `main` signal or produce a record Jira cannot act on. Figma Code Connect reflects the latest stable release — publishing from `lts` would overwrite the current version's definitions.
+Jira is not configured to manage two release streams, so emitting a deployment record for an `lts` patch would either duplicate the `main` signal or produce a record Jira cannot act on. Figma Code Connect reflects the latest stable release: publishing from `lts` would overwrite the current version's definitions.
 
 **Why does manual dispatch skip `record-release`, `publish-figma`, and `deploy-docs`?**
 Manual dispatch exists solely as a recovery tool for failed automated releases. Creating a deployment record could duplicate the automated workflow's Jira signal or point at a different commit than Jira expects (since the dispatch checks out an arbitrary ref rather than HEAD of `main`). The dispatch skips Figma Code Connect and docs because it may target a commit other than the latest on `main`. Deploy docs independently via `deploy-docs-manual.yml` if needed.
@@ -173,7 +173,7 @@ Manual dispatch exists solely as a recovery tool for failed automated releases. 
 The `release` job needs to control `actions/checkout` directly because it must use a write-scoped checkout token (from the GitHub App) so that `changesets/action` can push the version PR branch. In this repo, the shared composite actions are local actions under `.github/actions/`, so they cannot be used until the repository is checked out. `release` therefore repeats checkout, setup, and install rather than delegating to a composite action.
 
 **Why does `fetch-depth: 0` appear in the `release` and `audit-skills` jobs but not others?**
-`changesets/action` in the `release` job walks the full git history to find the last release tag and determine which packages changed. The `audit-skills` job needs it so that `git diff origin/<base-ref>...HEAD` can reach the remote base-ref commit — a shallow clone lacks this history. The `check`, `test`, `build`, and `docs` jobs need only a shallow clone, which is faster.
+`changesets/action` in the `release` job walks the full git history to find the last release tag and determine which packages changed. The `audit-skills` job needs it so that `git diff origin/<base-ref>...HEAD` can reach the remote base-ref commit: a shallow clone lacks this history. The `check`, `test`, `build`, and `docs` jobs need only a shallow clone, which is faster.
 
 **Why are `dist` and `docs` artifacts passed between jobs rather than rebuilding?**
 Building twice wastes runner time and risks non-determinism. Uploading from the build job and downloading in the consumer job guarantees the same output is published or deployed.
@@ -182,10 +182,10 @@ Building twice wastes runner time and risks non-determinism. Uploading from the 
 Coverage feedback is most actionable pre-merge, where reviewers can see whether new code is tested. After a change lands on `main`, reviewers can no longer act on it.
 
 **Why is Figma Code Connect validated with `--dry-run` in PRs but only published after a release?**
-Dry-running in `test-pr.yml` catches broken Code Connect definitions before merge without touching Figma. The publish-figma job runs only when `published == 'true'`, keeping Figma component definitions in sync with the npm release — the job never publishes definitions for unreleased code.
+Dry-running in `test-pr.yml` catches broken Code Connect definitions before merge without touching Figma. The publish-figma job runs only when `published == 'true'`, keeping Figma component definitions in sync with the npm release: the job never publishes definitions for unreleased code.
 
 **Why is `deploy-docs-manual.yml` a standalone workflow rather than a reusable workflow called from `release.yml`?**
-It provides an emergency path that bypasses the full CI pipeline — useful when docs need redeploying without a code change (e.g. after an infrastructure update or a failed deploy). In `release.yml`, the `docs` job builds Storybook and the `deploy-docs` job deploys the pre-built artifact, so docs are built only once per run.
+It provides an emergency path that bypasses the full CI pipeline, useful when docs need redeploying without a code change (e.g. after an infrastructure update or a failed deploy). In `release.yml`, the `docs` job builds Storybook and the `deploy-docs` job deploys the pre-built artifact, so docs are built only once per run.
 
 ### Preview deployments
 
@@ -204,4 +204,4 @@ Third-party comment actions (`marocchino/sticky-pull-request-comment`, `peter-ev
 The GitHub Deployments REST API requires only two calls (create deployment, post status) to surface a "View deployment" link on the pull request. The `bobheadxi/deployments` action wraps the same API but introduces a third-party dependency. Inline `gh api` calls keep the supply chain minimal, consistent with the PR comment approach.
 
 **Why are all actions pinned to commit SHAs?**
-A compromised or force-pushed tag can silently change the code a workflow executes. Pinning every action — including GitHub-owned ones — to a full commit SHA with a version comment (e.g. `actions/checkout@<sha> # vX.Y.Z`) locks each reference to an immutable commit. Dependabot preserves this pinning style when it proposes updates, so the next weekly PR auto-heals any reference that drifts back to a tag.
+A compromised or force-pushed tag can silently change the code a workflow executes. Pinning every action (including GitHub-owned ones) to a full commit SHA with a version comment (e.g. `actions/checkout@<sha> # vX.Y.Z`) locks each reference to an immutable commit. Dependabot preserves this pinning style when it proposes updates, so the next weekly PR auto-heals any reference that drifts back to a tag.

@@ -40,7 +40,7 @@ export const ElFileUploaderDropzone = styled.button`
     }
 
     /* NOTE: this button is rendered as FileInput's children, so it's always a direct sibling of
-     * the native, visually-hidden file input — see FileUploaderDropzoneArea's callers. :where(...)
+     * the native, visually-hidden file input; see FileUploaderDropzoneArea's callers. :where(...)
      * keeps data-show-validity from adding specificity that would fight the
      * hover/dragging-over styles above. */
     input:where([data-show-validity="true"]):invalid + &,
@@ -48,7 +48,7 @@ export const ElFileUploaderDropzone = styled.button`
       border-color: var(--colour-border-error-default);
     }
 
-    /* Fixed height, variable width — per Figma, the compact drop area's height doesn't grow with
+    /* Fixed height, variable width: per Figma, the compact drop area's height doesn't grow with
      * its container. */
     &[data-variant="compact"] {
       flex-direction: row;
@@ -57,7 +57,7 @@ export const ElFileUploaderDropzone = styled.button`
       padding-inline: var(--spacing-6);
     }
 
-    /* Resizable along both axes — height fills whatever a consumer's layout gives the trigger,
+    /* Resizable along both axes: height fills whatever a consumer's layout gives the trigger,
      * falling back to its padding-driven intrinsic height otherwise. */
     &[data-variant="large"] {
       flex-direction: column;
@@ -82,7 +82,7 @@ export const ElFileUploaderDropzoneIcon = styled.span`
       height: var(--icon_size-md);
     }
 
-    /* The large icon sits inside a bordered, unfilled circle — see Figma's "Icon wrapper". */
+    /* The large icon sits inside a bordered, unfilled circle; see Figma's "Icon wrapper". */
     [data-variant="large"] & {
       width: var(--icon_size-lg);
       height: var(--icon_size-lg);

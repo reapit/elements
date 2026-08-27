@@ -47,7 +47,7 @@ export function hasJsxUsage(sourceFile: SourceFile, tagNames: Set<string>): bool
  *
  * When `element` is a `JsxOpeningElement`, this function walks up to the
  * enclosing `JsxElement` and renames its closing tag from `oldName` to
- * `newName` — but only if the closing tag currently reads `oldName`. If the
+ * `newName`, but only if the closing tag currently reads `oldName`. If the
  * element is self-closing, no action is taken (there is no closing tag to
  * sync).
  *

@@ -38,7 +38,7 @@ This outputs a JSON report with:
 The scan uses grep-based pattern matching across `src/` (excluding `src/lab/` and `src/deprecated/`). Be aware of these limitations:
 
 - **Guard detection is heuristic.** The script looks for `@supports` blocks in the 15 lines preceding a match. Some features may appear "unguarded" when they are actually safe because:
-  - CSS declarations with unsupported values are silently ignored by browsers (e.g. `container-type: scroll-state` — the declaration is a no-op in non-supporting browsers, even without `@supports`).
+  - CSS declarations with unsupported values are silently ignored by browsers (e.g. `container-type: scroll-state`, where the declaration is a no-op in non-supporting browsers, even without `@supports`).
   - A JS fallback exists elsewhere (e.g. `field-sizing` has both `@supports` guards AND a JS resize fallback in a sibling component).
 - **Comment matches are excluded**, but JSDoc `@see` links containing feature names may still appear. Check the `text` field in matches.
 - **The `excludedDirs` in the output confirms what was skipped.** If `src/lab/` features matter for a specific decision, re-run with modified exclude paths.
@@ -66,7 +66,7 @@ This outputs a JSON report with:
 ### How the Script Works
 
 - **Firefox**: Fetches all cycles from `endoflife.date/api/firefox.json`. Reports stable (only the latest) and ESR versions still within their support window.
-- **Chrome (and Chromium-based Edge)**: Evergreen — only the latest stable version matters. Edge tracks Chrome's release cycle, so Chrome's version is used as a proxy. Fetched from `endoflife.date/api/chrome.json`.
+- **Chrome (and Chromium-based Edge)**: Evergreen; only the latest stable version matters. Edge tracks Chrome's release cycle, so Chrome's version is used as a proxy. Fetched from `endoflife.date/api/chrome.json`.
 - **Safari**: Derived from macOS support. Apple ships Safari security patches for the latest 3 macOS versions. The script fetches `endoflife.date/api/macos.json` and maps each supported macOS version to its bundled Safari version.
 
 ### Maintaining the Safari–macOS Mapping
@@ -108,10 +108,10 @@ Compare `declaredTarget` against `policyFloor` (from Step 2):
 
 Present options appropriate to the gap:
 
-1. **Lower the target** to match the policy floor — assess feasibility by listing which features would need removal or guarding.
-2. **Keep the target with documented exceptions** — list each exception with its EOL date and note when it self-resolves.
-3. **Defer target adoption** — specify the date when all exceptions expire.
-4. **Raise the target** — if the codebase already exceeds the declared target, consider updating `.browserslistrc` to match reality.
+1. **Lower the target** to match the policy floor: assess feasibility by listing which features would need removal or guarding.
+2. **Keep the target with documented exceptions**: list each exception with its EOL date and note when it self-resolves.
+3. **Defer target adoption**: specify the date when all exceptions expire.
+4. **Raise the target**: if the codebase already exceeds the declared target, consider updating `.browserslistrc` to match reality.
 
 ## Step 4 — Maintain Feature Patterns
 
@@ -149,7 +149,7 @@ Use this structure for the final report:
 | **Declared target**          | [from .browserslistrc] |
 | **Effective codebase floor** | [from scan]            |
 | **Policy floor**             | [from vendor check]    |
-| **Policy-compliant?**        | Yes / No — [details]   |
+| **Policy-compliant?**        | Yes / No, with details |
 
 ## Codebase Features
 

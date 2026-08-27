@@ -10,7 +10,7 @@ Monorepo for Reapit's Design System. Managed with [Yarn workspaces](https://yarn
 | [`packages/doc-evals`](./packages/doc-evals) | `@reapit/elements-evals` | Documentation quality evals (private)                             |
 | [`packages/gaffer`](./packages/gaffer)       | `@reapit/gaffer`         | PR classification and merge gating (private)                      |
 
-Repo-wide tooling — changesets, linting, formatting and git hooks — is configured at the root. Everything specific to a workspace lives inside it.
+Repo-wide tooling (changesets, linting, formatting and git hooks) is configured at the root. Everything specific to a workspace lives inside it.
 
 Common tasks run from the root and fan out across workspaces:
 
@@ -24,7 +24,7 @@ yarn build:lib    # builds the library
 
 ## Claude Code Plugin Marketplace
 
-This repo hosts a [Claude Code plugin marketplace](.claude-plugin/marketplace.json) for the Design System — currently the `elements` plugin, giving consumer teams skills for working with Elements from their own codebases (Design System MCP server guidance, tokens, z-index conventions, and codemods). See [plugins/elements](plugins/elements).
+This repo hosts a [Claude Code plugin marketplace](.claude-plugin/marketplace.json) for the Design System: currently the `elements` plugin, giving consumer teams skills for working with Elements from their own codebases (Design System MCP server guidance, tokens, z-index conventions, and codemods). See [plugins/elements](plugins/elements).
 
 ## Documentation
 

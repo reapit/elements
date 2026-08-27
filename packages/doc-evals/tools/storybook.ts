@@ -8,14 +8,14 @@ async function createStorybookClient(): Promise<Client> {
   const client = new Client({ name: "doc-quality-eval", version: "0.1.0" }, { capabilities: {} });
   const transport = new StreamableHTTPClientTransport(
     new URL(`${STORYBOOK_MCP_URL}/mcp`),
-    // Request the docs toolset only — we don't need dev/test tools in evals.
+    // Request the docs toolset only, because we don't need dev/test tools in evals.
     { requestInit: { headers: { "X-MCP-Toolsets": "docs" } } },
   );
   await client.connect(transport);
   return client;
 }
 
-// Lazily initialised singleton — reused across tasks within the same scenario.
+// Lazily initialised singleton: reused across tasks within the same scenario.
 let _clientPromise: Promise<Client> | null = null;
 function getClient(): Promise<Client> {
   if (!_clientPromise) _clientPromise = createStorybookClient();

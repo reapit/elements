@@ -16,7 +16,7 @@ import { CSS_VARIABLE_MAP, bestEffortComment, inlineComment } from "./css-variab
  *   unchanged with no modification.
  *
  * Existing fallback values inside var() are preserved unchanged for direct and
- * best-effort mappings. For inline mappings the fallback is dropped — it is
+ * best-effort mappings. For inline mappings the fallback is dropped, because it is
  * redundant once the value is resolved to a concrete literal.
  * New fallback values are never added.
  *
@@ -111,7 +111,7 @@ function replaceCssVarCalls(source: string): string {
       }
     }
 
-    // Resume the outer loop from the backtick position — the var( was malformed
+    // Resume the outer loop from the backtick position, because the var( was malformed
     // but scanning must continue so subsequent var() calls are still processed.
     if (hitBacktick) continue;
 
@@ -148,7 +148,7 @@ function replaceCssVarCalls(source: string): string {
 
     if (mapping.kind === "inline") {
       // Replace the entire var() call (including any fallback) with the
-      // resolved concrete value. Fallback is dropped — it's moot once the
+      // resolved concrete value. Fallback is dropped, because it's moot once the
       // value is inlined.
       result += `${mapping.inlinedValue} ${inlineComment(varName)}`;
     } else {

@@ -53,7 +53,7 @@ export function GalleryViewerCarouselButton({
 
   // Merge auto-disable (edge detection, read-only mode) with the consumer-provided disabled prop.
   // disabled is destructured rather than forwarded via ...rest so the native HTML
-  // disabled attribute is never applied — this preserves focus-while-disabled.
+  // disabled attribute is never applied: this preserves focus-while-disabled.
   const isDisabled = isReadOnly || atEdge || Boolean(disabled) || Boolean(ariaDisabled);
 
   // Auto-disable: listen to scroll events on the track and check whether this

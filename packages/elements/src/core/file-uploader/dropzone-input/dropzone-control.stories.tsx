@@ -143,7 +143,7 @@ export const Sizing = Example.extend({
 /**
  * Error text renders directly below the input, taking the help text's place.
  *
- * `showValidity` defaults to whether `errorText` is supplied, but can be passed explicitly — e.g.
+ * `showValidity` defaults to whether `errorText` is supplied, but can be passed explicitly; for example:
  * `false`, from a form library that only wants validity communicated once a field has been
  * touched, even though `errorText` (and so `aria-invalid`) is already present.
  */

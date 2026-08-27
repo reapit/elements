@@ -415,7 +415,7 @@ function transformTagElements(
       if (tagNameText === "DeprecatedTag") {
         tagName.replaceWithText("TagGroup.Item");
       } else {
-        // Aliased tag inside a group — the alias now resolves to Tag (from the
+        // Aliased tag inside a group: the alias now resolves to Tag (from the
         // import rewrite) but should be TagGroup.Item. Flag for manual fix.
         comments.push(ALIASED_GROUP_CHILD_TODO);
       }

@@ -9,7 +9,7 @@ const SWIPE_VELOCITY_THRESHOLD = 0.11;
 interface UseSwipeToDismissOptions {
   /** Ref to the inner content div that receives the visual transform. */
   contentElRef: RefObject<HTMLDivElement | null>;
-  /** Toaster position — determines the swipe direction (down for bottom, up for top). */
+  /** Toaster position: determines the swipe direction (down for bottom, up for top). */
   position: Toaster.Position;
   /** Called when the swipe exceeds the dismiss threshold. */
   onDismiss: () => void;
@@ -74,11 +74,11 @@ export function useSwipeToDismiss({
       // adding per-frame overhead that can cause visible jank during the drag.
       // Direct style mutation keeps the gesture loop in the fast path.
       if (delta > 0) {
-        // Swiping toward the dismiss direction — track 1:1
+        // Swiping toward the dismiss direction: track 1:1
         swipeOffsetRef.current = delta;
         contentElRef.current?.style.setProperty("--swipe-offset", `${String(delta * swipeSign)}px`);
       } else {
-        // Swiping against the dismiss direction — apply dampening so the toast
+        // Swiping against the dismiss direction: apply dampening so the toast
         // resists but still moves slightly, rather than hard-clamping.
         const dampened = delta / (1.5 + Math.abs(delta) / 20);
         swipeOffsetRef.current = delta;
@@ -107,7 +107,7 @@ export function useSwipeToDismiss({
       contentElRef.current?.style.removeProperty("--swipe-offset");
       onDismiss();
     } else {
-      // Reset offset to 0 — the CSS transition (re-enabled once data-swiping
+      // Reset offset to 0: the CSS transition (re-enabled once data-swiping
       // is removed by the parent) animates the content back to rest.
       contentElRef.current?.style.setProperty("--swipe-offset", "0px");
       onSwipeEnd();

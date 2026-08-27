@@ -71,7 +71,7 @@ export const Example = meta.story({
 });
 
 /**
- * The underlying `input.value` always uses a `.` decimal — locale affects only the display.
+ * The underlying `input.value` always uses a `.` decimal: locale affects only the display.
  */
 export const LocaleFormatting = Example.extend({
   argTypes: {
@@ -137,8 +137,8 @@ export const Numeric = Example.extend({
 /**
  * When `formatOptions.style` is `'currency'`, `'percent'`, or `'unit'`, the localised affix
  * (currency symbol, percent sign, or unit label) is derived automatically and placed as a
- * prefix or suffix according to the locale. The affix is never typed into the value — the
- * input value remains a plain numeric string — and it is omitted from the formatted overlay
+ * prefix or suffix according to the locale. The affix is never typed into the value: the
+ * input value remains a plain numeric string: and it is omitted from the formatted overlay
  * so the symbol never appears twice.
  *
  * For `style: 'percent'`, values are edited and stored as model-space decimals (e.g. `0.255`
@@ -180,7 +180,7 @@ export const FormattingStyles = Example.extend({
 
 /**
  * Supplying any affix prop (`prefix`, `suffix`, `leadingIcon`, or `trailingIcon`) provides an
- * arbitrary affix that is not tied to a formatting style — for example, a unit such as `kg` or a
+ * arbitrary affix that is not tied to a formatting style: for example, a unit such as `kg` or a
  * billing period such as `/month`. An explicit affix takes precedence over the automatic
  * derivation from `formatOptions.style`.
  */

@@ -36,7 +36,7 @@ export namespace FileUploaderFileCardLeadingElement {
 
 /**
  * The leading thumbnail/icon/badge for `FileUploader.FileCard`, matching Figma's `FileCardLeadingElement`
- * component. Not independently exported — see `FileUploader.FileCard`.
+ * component. Not independently exported; see `FileUploader.FileCard`.
  */
 export function FileUploaderFileCardLeadingElement(
   props: FileUploaderFileCardLeadingElement.Props,

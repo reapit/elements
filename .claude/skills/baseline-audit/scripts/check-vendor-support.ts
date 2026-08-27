@@ -25,12 +25,12 @@ interface VendorReport {
   };
 }
 
-/** Baseline core browser set — the three engines that matter. */
+/** Baseline core browser set: the three engines that matter. */
 const BASELINE_BROWSERS = ["chrome", "firefox", "safari"] as const;
 
 /**
  * For each Baseline year, the minimum browser versions.
- * Hardcoded from browserslist-config-baseline — these are historical facts
+ * Hardcoded from browserslist-config-baseline: these are historical facts
  * that do not change once a Baseline year is defined. Add a new row annually.
  */
 function computeBaselineFloors(): Map<string, Map<number, string>> {
@@ -134,7 +134,7 @@ async function run() {
     });
   }
 
-  // Chrome (only latest stable matters — evergreen)
+  // Chrome (only latest stable matters: evergreen)
   const chromeCycles = await fetchEndOfLife("chrome");
   const latestChrome = chromeCycles.find((c) => isStillSupported(c, today));
   if (latestChrome) {
@@ -147,7 +147,7 @@ async function run() {
     });
   }
 
-  // Safari — derived from macOS support
+  // Safari: derived from macOS support
   // Apple supports Safari on the latest 3 macOS versions.
   // We map macOS version -> Safari version.
   const macosSafariMap: Record<string, string> = {

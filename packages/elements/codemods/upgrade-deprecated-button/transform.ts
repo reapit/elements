@@ -163,7 +163,7 @@ function transformImports(sourceFile: SourceFile, facadePackage?: string): void 
   // For facade package imports, the original specifier is preserved (path unchanged).
   const elementsTargetSpecifier = "@reapit/elements/core/button";
 
-  // Pre-compute the facade target specifier only to use as a skip guard —
+  // Pre-compute the facade target specifier only to use as a skip guard:
   // facade imports are skipped if they are already at their own /core/button path.
   const facadeTargetSpecifier = facadePackage ? `${facadePackage}/core/button` : null;
 

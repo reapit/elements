@@ -354,8 +354,8 @@ function detectVariant(
   // Only spread attributes and no resolvable static props
   if (attrs.length > 0 && attrs.every((a) => Node.isJsxSpreadAttribute(a))) return "spread-only";
 
-  // Spread present without a definitive routing prop (href or onClick) — cannot safely infer the
-  // variant even when a label is present, so leave the element unchanged for manual review.
+  // Spread present without a definitive routing prop (href or onClick), so cannot safely infer the
+  // variant even when a label is present; leave the element unchanged for manual review.
   if (hasSpread && !hasHref && !hasOnClick) return "spread-only";
 
   // Default: treat as anchor; TypeScript will surface any missing href errors
@@ -383,7 +383,7 @@ function buildAnchorReplacement(
   } else if (isActiveResult.kind === "false" || isActiveResult.kind === "absent") {
     ariaCurrent = `aria-current={false}`;
   } else {
-    // Dynamic expression — emit ternary and flag for review
+    // Dynamic expression: emit ternary and flag for review
     ariaCurrent = `aria-current={${isActiveResult.text} ? 'page' : false}`;
     const entry = buildTodoEntry(node, sourceFile, TODO_DYNAMIC_IS_ACTIVE);
     if (entry) todoEntries.push(entry);
@@ -405,7 +405,7 @@ function buildButtonReplacement(
   const isActiveAttr = getAttr(node, "isActive");
   const childrenText = labelToChildrenText(labelAttr);
 
-  // isActive has no equivalent on TopBar.MenuItemButton — drop it and add a TODO
+  // isActive has no equivalent on TopBar.MenuItemButton, so drop it and add a TODO
   if (isActiveAttr) {
     const entry = buildTodoEntry(node, sourceFile, TODO_BUTTON_IS_ACTIVE);
     if (entry) todoEntries.push(entry);
@@ -480,7 +480,7 @@ function buildExpandableReplacement(
   const isActiveResult = resolveIsActive(isActiveAttr);
   const labelText = labelToChildrenText(labelAttr);
 
-  // isActive on TopBar.MenuGroup has the same name and semantics — pass through
+  // isActive on TopBar.MenuGroup has the same name and semantics: pass through
   let isActiveProp = "";
   if (isActiveResult.kind === "true") {
     isActiveProp = " isActive";
@@ -567,7 +567,7 @@ function transformExpandableChildren(
             todoEntries,
           );
         } else {
-          // spread-only or unexpected — preserve and flag
+          // spread-only or unexpected: preserve and flag
           childrenText += child.getText();
           hasNonMobileNavItemChildren = true;
         }
@@ -598,7 +598,7 @@ function transformExpandableChildren(
             todoEntries,
           );
         } else if (variant === "expandable") {
-          // Nested expandable — recurse
+          // Nested expandable: recurse
           childrenText += buildExpandableReplacement(
             child.getOpeningElement(),
             grandChildren,
@@ -638,7 +638,7 @@ function transformJsx(
   const todoEntries: TodoEntry[] = [];
 
   // Collect all top-level MobileNavItem JSX nodes (self-closing and full elements).
-  // "Top-level" means not a descendant of another MobileNavItem target — children of
+  // "Top-level" means not a descendant of another MobileNavItem target: children of
   // expandable variants are handled recursively by buildExpandableReplacement.
   type Target =
     | { kind: "self-closing"; node: import("ts-morph").JsxSelfClosingElement; pos: number }
@@ -754,7 +754,7 @@ export default function transform(
   // Phase 1: rewrite type references (stable positions, before JSX mutations)
   transformTypeReferences(sourceFile, aliases, topBarLocalName);
 
-  // Phase 2: rewrite JSX — produces a list of TODO entries to insert later
+  // Phase 2: rewrite JSX; produces a list of TODO entries to insert later
   const todoEntries = transformJsx(sourceFile, aliases, topBarLocalName);
 
   // Phase 3: insert TODO comments before the import rewrite so that the captured source
@@ -763,7 +763,7 @@ export default function transform(
   // positions and corrupting any insertions made after it.
   insertTodos(todoEntries)(sourceFile);
 
-  // Phase 4: rewrite imports (must come last — it may change the length of the file header)
+  // Phase 4: rewrite imports (must come last, because it may change the length of the file header)
   transformImports(sourceFile, facadePackage);
 
   return sourceFile.getFullText();

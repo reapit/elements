@@ -5,7 +5,7 @@ import { clampPercentage } from "./clamp-percentage";
 export namespace FileUploadQueue {
   /**
    * Which per-item constraint an item currently fails, named after the DOM's `ValidityState`
-   * convention. Reported by a consumer via `reportValidity` — the queue never computes this
+   * convention. Reported by a consumer via `reportValidity`; the queue never computes this
    * itself; see `reportValidity`'s doc comment.
    */
   export type ValidationError = validateFiles.FileValidationError;
@@ -61,7 +61,7 @@ export namespace FileUploadQueue {
     onUpload: (file: File, helpers: UploadHelpers) => Promise<TResult>;
     /**
      * Derives the server-assigned file ID to submit as part of the form from `onUpload`'s
-     * resolved result. Provide this whenever that result isn't itself the ID string — e.g.
+     * resolved result. Provide this whenever that result isn't itself the ID string; for example:
      * `onUpload` resolves a richer object containing metadata alongside the ID. If omitted,
      * `onUpload` is expected to resolve the ID directly, as a `string`.
      */
@@ -74,7 +74,7 @@ const PROGRESS_THROTTLE_MS = 100;
 
 /**
  * An external store (`getSnapshot`/`subscribe`, for `useSyncExternalStore`) that owns the upload
- * lifecycle for a set of files — status, progress, abort. Validation is not the queue's concern:
+ * lifecycle for a set of files: status, progress, abort. Validation is not the queue's concern:
  * a consumer runs `validateFiles` itself and reports the result via `reportValidity`, which is
  * also what starts uploading a newly-valid item. No DOM knowledge, no rendering.
  */
@@ -159,7 +159,7 @@ export class FileUploadQueue<TResult extends unknown = string> {
    * Records per-item validation failures. Valid, still-queued files start uploading. Never aborts
    * an in-flight upload or undoes a completed or errored one.
    *
-   * `rejections` is only ever that round's freshly-picked files (see `useFileUploaderInput`) — an
+   * `rejections` is only ever that round's freshly-picked files (see `useFileUploaderInput`); an
    * item outside it is left untouched deliberately, not revalidated or cleared. A previously
    * rejected item's `validationError` is only ever undone by removing and re-adding the file, not
    * by a later `reportValidity` call.
@@ -287,7 +287,7 @@ export class FileUploadQueue<TResult extends unknown = string> {
 
   #handleUploadResolve(id: string, result: TResult): void {
     const item = this.#items.find((i) => i.id === id);
-    if (!item) return; // removed while in flight — removeItem already cleaned up
+    if (!item) return; // removed while in flight; removeItem already cleaned up
 
     this.#clearResources(id);
 
@@ -296,7 +296,7 @@ export class FileUploadQueue<TResult extends unknown = string> {
     this.#replaceItem({ ...this.#baseFields(item), status: "uploaded", fileId, result });
   }
 
-  // `getFileId` is consumer code, called after the upload itself already succeeded — a throw here
+  // `getFileId` is consumer code, called after the upload itself already succeeded; a throw here
   // (e.g. `result` shaped unexpectedly) must not be mistaken for the upload having failed.
   #getFileId(result: TResult): string | undefined {
     try {
@@ -308,7 +308,7 @@ export class FileUploadQueue<TResult extends unknown = string> {
 
   #handleUploadReject(id: string, error: unknown, signal: AbortSignal): void {
     const item = this.#items.find((i) => i.id === id);
-    if (!item) return; // removed while in flight — removeItem already cleaned up
+    if (!item) return; // removed while in flight; removeItem already cleaned up
 
     const aborted = signal.aborted;
     this.#clearResources(id);
@@ -349,7 +349,7 @@ export class FileUploadQueue<TResult extends unknown = string> {
   }
 
   /**
-   * Aborts `id`'s in-flight upload, then clears its resources — see `#clearResources`. Used only
+   * Aborts `id`'s in-flight upload, then clears its resources; see `#clearResources`. Used only
    * when the item is genuinely being cancelled (removed, or discarded by `replaceFiles`/`destroy`),
    * never when its upload settles: `signal` is documented as "aborted when the item is removed
    * from the queue while its upload is in flight", and aborting on a successful/failed settle

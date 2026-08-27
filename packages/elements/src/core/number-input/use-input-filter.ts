@@ -23,7 +23,7 @@ const nativeInputValueSetter =
 /**
  * Attaches a `beforeinput` listener to the input element identified by `inputId`.
  * The listener enforces numeric-only entry, normalises locale decimal separators
- * to `.`, and sanitises pasted or dropped content — delegating all decisions to
+ * to `.`, and sanitises pasted or dropped content: delegating all decisions to
  * the pure functions in `resolve-input.ts`.
  *
  * `maxFractionDigits` controls precision: `0` restricts entry to integers

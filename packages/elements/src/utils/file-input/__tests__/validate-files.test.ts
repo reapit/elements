@@ -59,8 +59,8 @@ test("accepts a file matching any pattern in a comma-separated accept list", () 
 });
 
 // ---------------------------------------------------------------------------
-// No rules (multiple/required, and their minFiles/maxFiles defaults, are resolved by the caller —
-// FileInput's effectiveMinFiles, and resolveFileSelectionLimits for effectiveMaxFiles — before
+// No rules (multiple/required, and their minFiles/maxFiles defaults, are resolved by the caller;
+// FileInput's effectiveMinFiles, and resolveFileSelectionLimits for effectiveMaxFiles) before
 // validateFiles is ever called; see resolve-file-selection-limits.test.ts for that resolution, and
 // file-input.test.tsx for how FileInput wires it up)
 // ---------------------------------------------------------------------------

@@ -2,7 +2,7 @@
 # the GitHub for Jira integration. Names are matched case-insensitively as
 # glob patterns.
 #
-# Once a config file exists, Jira stops guessing environment categories — every
+# Once a config file exists, Jira stops guessing environment categories: every
 # environment that creates a GitHub Deployment must be listed here or it will
 # appear as "Unmapped" on linked Jira issues.
 deployments:

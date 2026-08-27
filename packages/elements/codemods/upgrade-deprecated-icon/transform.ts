@@ -803,7 +803,7 @@ function collectDeprecatedIconTodoInsertions(
 
 /**
  * Collects the positions and text for TODO comments for DeprecatedIcon used as
- * values (not JSX tags) — e.g., styled(DeprecatedIcon), passed as props, etc.
+ * values (not JSX tags): e.g., styled(DeprecatedIcon), passed as props, etc.
  * Returns an array of {position, text} insertions to apply, without applying them.
  * Positions are sourced from the AST snapshot captured before any string insertions.
  */

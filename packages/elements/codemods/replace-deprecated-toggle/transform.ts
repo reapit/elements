@@ -44,7 +44,7 @@ function hasAriaLabelOrLabel(element: JsxOpeningElement | JsxSelfClosingElement)
 
 /**
  * Escapes raw text (e.g. from a `JsxText` node) for safe embedding in a
- * double-quoted JSX attribute value. Assumes the input is unescaped — do not
+ * double-quoted JSX attribute value. Assumes the input is unescaped; do not
  * pass already entity-encoded strings or `&` will be double-encoded.
  * Replaces `&` with `&amp;` and `"` with `&quot;` in a single pass.
  */
@@ -104,12 +104,12 @@ function extractFirstToggleItemText(
         }
       }
 
-      // Complex inner JSX — wrap in a fragment
+      // Complex inner JSX: wrap in a fragment
       const innerText = innerChildren.map((c) => c.getText()).join("");
       return { kind: "expression", value: `<>${innerText.trim()}</>` };
     }
 
-    // Match <ElToggleItem /> (self-closing — no content)
+    // Match <ElToggleItem /> (self-closing, no content)
     if (child.getKind() === SyntaxKind.JsxSelfClosingElement) {
       const selfClosing = child.asKindOrThrow(SyntaxKind.JsxSelfClosingElement);
       const tagName = selfClosing.getTagNameNode().getText();

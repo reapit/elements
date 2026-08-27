@@ -6,7 +6,7 @@ export const ElFileUploaderMediaThumbnail = styled.div`
   @layer elements.main {
     position: relative;
     /* display: grid, not the block default, so the Image wrapper below stretches to fill this element's
-     * height via track sizing rather than a height: 100% percentage chain — that chain breaks once it has
+     * height via track sizing rather than a height: 100% percentage chain; that chain breaks once it has
      * to resolve through the Image wrapper's own nested elements against this element's flex-grown height. */
     display: grid;
     overflow: hidden;

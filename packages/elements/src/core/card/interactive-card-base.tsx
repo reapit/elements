@@ -93,7 +93,7 @@ export function InteractiveCardBase({
 
   return (
     // NOTE: We use a type assertion on `rest` to avoid narrowing the type based on the specific
-    // `Element` type — the same pattern used by ButtonBase.
+    // `Element` type; the same pattern used by ButtonBase.
     <Element
       {...(rest as HTMLAttributes<HTMLElement>)}
       aria-disabled={isDisabled}

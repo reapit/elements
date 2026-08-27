@@ -1,7 +1,7 @@
 {
   "name": "gbl-ds-elements",
   "private": true,
-  "description": "Monorepo for Reapit's Design System — the published library lives in packages/elements",
+  "description": "Monorepo for Reapit's Design System: the published library lives in packages/elements",
   "license": "MIT",
   "repository": {
     "type": "git",

@@ -70,19 +70,19 @@ test("pauses the timer on hover and resumes with remaining duration on mouse lea
     vi.advanceTimersByTime(0);
   });
 
-  // Simulate hover — toast transitions to paused
+  // Simulate hover: toast transitions to paused
   act(() => {
     toastStore.pause(id);
   });
 
-  // Advance well past the original 5000ms duration — should not dismiss while paused
+  // Advance well past the original 5000ms duration: should not dismiss while paused
   act(() => {
     vi.advanceTimersByTime(3000);
   });
 
   expect(toastStore.getSnapshot()[0]?.state).toBe("paused");
 
-  // Resume — timer restarts with full remaining duration
+  // Resume: timer restarts with full remaining duration
   act(() => {
     toastStore.resume(id);
   });
@@ -109,7 +109,7 @@ test("pauses the timer when the page is hidden and resumes when visible", () => 
     document.dispatchEvent(new Event("visibilitychange"));
   });
 
-  // Advance well past the original duration — should not dismiss while page is hidden
+  // Advance well past the original duration: should not dismiss while page is hidden
   act(() => {
     vi.advanceTimersByTime(5000);
   });

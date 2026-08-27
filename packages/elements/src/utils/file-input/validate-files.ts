@@ -10,7 +10,7 @@
 export namespace validateFiles {
   /**
    * Custom constraints to validate files against. All fields are optional. `multiple` isn't one of
-   * these rules — a caller maps it to `minFiles`/`maxFiles` before calling `validateFiles`; see
+   * these rules; a caller maps it to `minFiles`/`maxFiles` before calling `validateFiles`; see
    * `FileInput`'s `effectiveMinFiles`/`effectiveMaxFiles`.
    */
   export interface Rules {
@@ -26,11 +26,11 @@ export namespace validateFiles {
     maxTotalSize?: number;
   }
 
-  /** Which per-file rule a file fails, named after the DOM's `ValidityState` convention — a fact about that one file, independent of any other file in the selection. */
+  /** Which per-file rule a file fails, named after the DOM's `ValidityState` convention: a fact about that one file, independent of any other file in the selection. */
   export type FileValidationError = "typeMismatch" | "fileSizeOverflow";
 
   /**
-   * Which rule the selection as a whole fails, named after the DOM's `ValidityState` convention —
+   * Which rule the selection as a whole fails, named after the DOM's `ValidityState` convention:
    * a fact about the selection, not about any one file.
    */
   export type SelectionValidationError = "filesOverflow" | "filesUnderflow" | "totalSizeOverflow";
@@ -43,10 +43,10 @@ export namespace validateFiles {
   export interface Result {
     /** Files that satisfy every per-file and selection-wide rule. */
     accepted: File[];
-    /** Files rejected for a per-file reason — wrong type, too large. */
+    /** Files rejected for a per-file reason: wrong type, too large. */
     rejected: Rejection[];
     /**
-     * The selection-wide rule the current selection fails, if any — too many files, or too much
+     * The selection-wide rule the current selection fails, if any: too many files, or too much
      * cumulative size. Reported once, rather than pinned to whichever file happened to cross the
      * limit, since it's a fact about the selection as a whole.
      */
@@ -57,14 +57,14 @@ export namespace validateFiles {
 /**
  * Validates `files` against `rules`.
  *
- * `accept` and `maxFileSize` are checked per file, independently of order — a file failing either
+ * `accept` and `maxFileSize` are checked per file, independently of order; a file failing either
  * is reported in `rejected`. `maxFiles` and `maxTotalSize` are checked by walking the remaining
  * files in order, accumulating count/size as it goes; the first one that would cross a limit, and
- * every file after it, are excluded from `accepted` without being added to `rejected` — that
+ * every file after it, are excluded from `accepted` without being added to `rejected`; that
  * condition is reported once, as `selectionError`, since it's a fact about the selection as a
  * whole rather than about any one of those files. `minFiles` can only be evaluated once every file
- * has been walked — it's a fact about the final accepted count, not about crossing a limit
- * mid-walk — so it's checked once, after the loop, and only when no overflow rule already fired.
+ * has been walked; it's a fact about the final accepted count, not about crossing a limit
+ * mid-walk, so it's checked once, after the loop, and only when no overflow rule already fired.
  *
  * A file that fails more than one per-file rule is reported with the first rule that rejected it,
  * in the order above.
@@ -125,11 +125,11 @@ function selectionOverflowError(
 
 /**
  * Filters `dropped` files down to what a native OS file picker would have already delivered by
- * the time `change` fires — the browser filters the picker's dialog by `accept` and, without
+ * the time `change` fires; the browser filters the picker's dialog by `accept` and, without
  * `multiple`, only ever returns one file. Drag-and-drop bypasses both: the dropped `DataTransfer`
  * is exactly what the OS gave, unfiltered. Applying that same pre-filtering here, before the
  * dropped files are ever assigned to the input, keeps `change` events from browsing and dropping
- * indistinguishable downstream — no bespoke second contract for consumers to handle.
+ * indistinguishable downstream; no bespoke second contract for consumers to handle.
  *
  * This filter is deliberately separate from `validateFiles`'s `accept`/`multiple` checks, which
  * run afterwards against whatever files actually landed in the selection (`FileInput`'s post-hoc,

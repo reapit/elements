@@ -17,7 +17,7 @@ function renderInput(props: Partial<FileUploaderSingleSelectMediaInput.Props> = 
 }
 
 // `onUpload` resolves on a later microtask, so its follow-up state update must be flushed inside
-// `act` here — otherwise it lands after the test's synchronous body has already finished.
+// `act` here; otherwise it lands after the test's synchronous body has already finished.
 async function selectFile(
   queue: FileUploadQueue,
   file = new File([new Uint8Array(10)], "photo.jpg", { type: "image/jpeg" }),

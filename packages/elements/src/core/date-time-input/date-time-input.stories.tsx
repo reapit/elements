@@ -97,7 +97,7 @@ export const Time = Example.extend({
 /**
  * Datetime inputs allows users to enter a date and time. The value represents a local date and time,
  * not necessarily the user's local date and time. In other words, the input allows any valid combination
- * of year, month, day, hour, and minute—even if such a combination is invalid in the user's local time
+ * of year, month, day, hour, and minute, even if such a combination is invalid in the user's local time
  * zone (such as the one hour within a daylight saving time spring-forward transition gap).
  *
  * The value is always formatted `YYYY-MM-DDTHH:mm`, while the displayed value will be formatted according
@@ -155,7 +155,7 @@ export const Invalid = Example.extend({
 
 /**
  * The input also displays in an invalid state when `aria-invalid="true"` and `showValidity` is true.
- * This supports usage where the element is not natively invalid — for example, via custom logic
+ * This supports usage where the element is not natively invalid , such as via custom logic
  * that does not use the browser's constraint validation API.
  */
 export const AriaInvalid = Example.extend({

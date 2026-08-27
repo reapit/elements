@@ -25,7 +25,7 @@ export namespace FileUploader {
     maxWidth?: string;
     /**
      * How long an item must stay uploading/processing before its loading indicator appears, so
-     * fast uploads never flash a spinner. Only meaningful when `queue` isn't supplied — an
+     * fast uploads never flash a spinner. Only meaningful when `queue` isn't supplied: an
      * externally-created queue owns this itself.
      *
      * @default 300
@@ -38,8 +38,8 @@ export namespace FileUploader {
     getFileId?: never;
     /**
      * An externally-created `FileUploadQueue` instance. Defaults to creating one
-     * internally. Passing your own lets a submit handler read the same instance directly —
-     * e.g. to look up richer per-file data by ID after collecting IDs from `FormData` —
+     * internally. Passing your own lets a submit handler read the same instance directly,
+     * for example to look up richer per-file data by ID after collecting IDs from `FormData`,
      * without any form-library-specific integration.
      */
     queue: FileUploadQueue<TResult>;
@@ -48,14 +48,14 @@ export namespace FileUploader {
   interface WithOnUpload<TResult extends unknown = string> extends BaseProps<TResult> {
     /**
      * Derives the server-assigned file ID to submit as part of the form from `onUpload`'s
-     * resolved result. Provide this whenever that result isn't itself the ID string — e.g.
+     * resolved result. Provide this whenever that result isn't itself the ID string: for example,
      * `onUpload` resolves a richer object containing metadata alongside the ID. See
      * `FileUploadQueue.Options.getFileId`.
      */
     getFileId?: FileUploadQueue.Options<TResult>["getFileId"];
     /**
      * Uploads `file`, resolving with whatever the consumer's backend returns. There is no default
-     * implementation — every consumer's upload endpoint and response shape differ — so this is
+     * implementation, because every consumer's upload endpoint and response shape differ, so this is
      * required. Use `helpers` to report progress, flip the item to `processing` for a post-upload
      * server-side step, or record the file ID as soon as it's known rather than waiting for this
      * promise to settle.
@@ -88,7 +88,7 @@ export function FileUploader<TResult extends unknown = string>(props: FileUpload
   const queue = props.queue ?? internalQueue;
   const isUsingOwnQueue = !props.queue;
 
-  // Only destroy a queue this component created itself — an externally-supplied `queue` prop is
+  // Only destroy a queue this component created itself; an externally-supplied `queue` prop is
   // owned by the caller, who may keep using it (e.g. reading it from a submit handler) after this
   // component unmounts.
   useEffect(() => {
@@ -114,7 +114,7 @@ export function FileUploader<TResult extends unknown = string>(props: FileUpload
       <ElFileUploaderAnnouncer aria-atomic="false" aria-live="polite">
         {announcements.map((message, index) => (
           // Each announcement is its own element so the live region accumulates messages
-          // rather than replacing them — `aria-atomic="false"` ensures only the new span
+          // rather than replacing them: `aria-atomic="false"` ensures only the new span
           // is read, not the whole region.
           // eslint-disable-next-line react/no-array-index-key
           <span key={index}>{message}</span>

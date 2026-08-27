@@ -23,7 +23,7 @@ const meta = preview.meta({
 /**
  * `FileUploaderDropzoneArea` is the internal trigger button shared by `FileUploader.DropzoneInput`
  * and `FileUploader.SingleSelectMediaInput`'s empty state. It has no knowledge of `FileInput` or
- * the upload queue — see those components' own stories for the full composition.
+ * the upload queue; see those components' own stories for the full composition.
  */
 export const Example = meta.story({
   args: {

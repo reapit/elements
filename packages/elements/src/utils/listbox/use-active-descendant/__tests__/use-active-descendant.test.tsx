@@ -209,7 +209,7 @@ function Harness({
   );
 }
 
-// ─── handleKeyDown — tree navigation ──────────────────────────────────────────
+// ─── handleKeyDown : tree navigation ──────────────────────────────────────────
 
 /** Thin wrapper attaching `useActiveDescendant` handlers to a div in tree mode. */
 function TreeHarness({
@@ -240,7 +240,7 @@ function TreeHarness({
   );
 }
 
-describe("handleKeyDown — tree navigation", () => {
+describe("handleKeyDown : tree navigation", () => {
   function renderTree({ groupOpen = true } = {}) {
     render(<TreeHarness groupOpen={groupOpen} />);
     const container = screen.getByRole("tree");

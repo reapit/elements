@@ -39,9 +39,9 @@ test("toasts beyond maxItems receive data-is-masked", () => {
   render(<ToastList position="bottom-center" maxItems={3} />);
 
   const items = screen.getAllByRole("listitem");
-  // First toast is beyond maxItems — it should be masked
+  // First toast is beyond maxItems: it should be masked
   expect(items[0]).toHaveAttribute("data-is-masked", "true");
-  // The last three are within the limit — they should not be masked
+  // The last three are within the limit: they should not be masked
   expect(items[1]).not.toHaveAttribute("data-is-masked");
   expect(items[2]).not.toHaveAttribute("data-is-masked");
   expect(items[3]).not.toHaveAttribute("data-is-masked");
@@ -52,7 +52,7 @@ test("dismissing toasts are not counted toward maxItems", () => {
   toastStore.add({ variant: "neutral", message: "Toast 2" });
   toastStore.add({ variant: "neutral", message: "Toast 3" });
 
-  // Dismiss the first toast — it is exiting but still in the DOM
+  // Dismiss the first toast: it is exiting but still in the DOM
   toastStore.dismiss(id1);
 
   render(<ToastList position="bottom-center" maxItems={3} />);

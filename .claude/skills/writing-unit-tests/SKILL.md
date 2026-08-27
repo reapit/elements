@@ -25,7 +25,7 @@ Invoke this skill when:
 
 ## File Organisation
 
-Vitest globals are available without imports — do not import `test`, `expect`, `describe`, `vi`,
+Vitest globals are available without imports: do not import `test`, `expect`, `describe`, `vi`,
 or `afterEach` from `vitest`.
 
 **Standard file order:** imports → setup/cleanup (only when manually manipulating DOM) → tests → helpers.
@@ -68,10 +68,9 @@ test('renders a button element', () => {
 ### User Interactions
 
 **Use `fireEvent`** for single events with no focus management or related events (click, change,
-submit) — call `fireEvent.[eventName]()` directly, never a DOM method like `element.click()`.
+submit): call `fireEvent.[eventName]()` directly, never a DOM method like `element.click()`.
 
-**Use `@testing-library/user-event`** for typing, keyboard navigation, or multiple related events
-— call `userEvent.setup()` at the start and `await` every method.
+**Use `@testing-library/user-event`** for typing, keyboard navigation, or multiple related events: call `userEvent.setup()` at the start and `await` every method.
 
 ```typescript
 import { fireEvent, render, screen } from '@testing-library/react'
@@ -98,7 +97,7 @@ test('updates input value when user types', async () => {
 
 ### Accessibility Testing
 
-Query by role, label, or text — not test IDs. Test accessible names with `{ name: 'label text' }`
+Query by role, label, or text, not test IDs. Test accessible names with `{ name: 'label text' }`
 and accessible descriptions with `toHaveAccessibleDescription()`.
 
 ```typescript
@@ -114,11 +113,11 @@ snapshots, and edge cases, see [reference.md](reference.md).
 
 ## Common Mistakes
 
-- **Nested `describe` blocks** — write flat structures; use `describe` only when grouping clarifies organisation
-- **Generic test names** — `test("works correctly")` instead of `test("renders a button element")`
-- **Testing implementation details** — test behaviour and public API, not internals
-- **Multiple unrelated assertions in one test** — split into separate tests
-- **Snapshots where an explicit assertion would be clearer** — prefer `toHaveAttribute()`/`toHaveClass()` etc. (see [reference.md](reference.md#snapshot-testing))
+- **Nested `describe` blocks**: write flat structures; use `describe` only when grouping clarifies organisation
+- **Generic test names**: `test("works correctly")` instead of `test("renders a button element")`
+- **Testing implementation details**: test behaviour and public API, not internals
+- **Multiple unrelated assertions in one test**: split into separate tests
+- **Snapshots where an explicit assertion would be clearer**: prefer `toHaveAttribute()`/`toHaveClass()` etc. (see [reference.md](reference.md#snapshot-testing))
 
 ## Reference
 

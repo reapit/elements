@@ -58,7 +58,7 @@ export namespace useActiveDescendant {
  * current option drives visual state.
  *
  * data-is-active is set imperatively via the DOM (el.dataset.isActive), bypassing React's
- * render cycle. This is intentional — going through React state would trigger a re-render
+ * render cycle. This is intentional, as going through React state would trigger a re-render
  * on every arrow key press. React components cannot read data-is-active as a prop; use CSS
  * [data-is-active='true'] for styling instead.
  */

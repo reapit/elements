@@ -16,7 +16,7 @@ export namespace ToastList {
 
 /**
  * Renders the list of active toasts from the store. This is a pure
- * presentational component — it subscribes to the store and maps entries to
+ * presentational component: it subscribes to the store and maps entries to
  * `ToastItem` elements inside a positioned `<ul>`.
  *
  * The `Toaster` portals this component into whichever `ToastOutlet` is

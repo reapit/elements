@@ -69,7 +69,7 @@ export default function transform(
             jsxAttr.getInitializerOrThrow().replaceWithText(`"${orientationValue}"`);
           }
         }
-        // Dynamic value — leave as is; the deprecated prop still works.
+        // Dynamic value; leave as is (the deprecated prop still works).
       }
     }
   }

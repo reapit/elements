@@ -291,7 +291,7 @@ test('returns "retracted" when scrolling down', async () => {
 
 ## Snapshot Testing
 
-Use snapshots sparingly — prefer explicit assertions when they keep tests clear. Use snapshots for
+Use snapshots sparingly: prefer explicit assertions when they keep tests clear. Use snapshots for
 complex rendered output, update with `yarn test -u` when changes are intentional, and review
 snapshot diffs carefully in PRs.
 

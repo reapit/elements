@@ -18,7 +18,7 @@ export type ChipSelectOptionProps = ChipSelectOption.Props;
 
 /**
  * A thin wrapper around `ChipSelectChip` that respects the `form`, `name`, `size` and selection mode
- * of the `ChipSelect`. Owns group-level coordination — deselecting other options when an exclusive
+ * of the `ChipSelect`. Owns group-level coordination: deselecting other options when an exclusive
  * chip is checked, and preventing deselection of the last option in a required group.
  */
 export const ChipSelectOption = forwardRef<HTMLInputElement, ChipSelectOption.Props>(

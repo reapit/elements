@@ -36,7 +36,7 @@ Every prop gets JSDoc, every API-related type (props, data types) lives inside t
 boolean props follow the [naming convention](reference.md#boolean-prop-naming): `is`/`has` for
 state, a bare verb for behaviour, and unchanged names for native HTML attributes.
 
-Utility functions use the same shape with `Input`/`Output` instead of `Props` — see
+Utility functions use the same shape with `Input`/`Output` instead of `Props`: see
 [reference.md](reference.md#utility-functions).
 
 For migrations, compound components (`Table.Row`, `Menu.Item`), shared base interfaces, and the

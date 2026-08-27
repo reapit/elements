@@ -5,7 +5,7 @@
 // NOTE: the "Interactive" variant exists in Figma to show hover/disabled states, which only `AvatarButton`/
 // `AvatarAnchor` provide (a plain `Avatar` has no hover/disabled styling). So `Interactive=True` maps to
 // `AvatarButton` here rather than `Avatar`. Swap to `AvatarAnchor` (and add a real `href`) if this avatar
-// should navigate somewhere instead of triggering an in-page action — the Figma file has no property to
+// should navigate somewhere instead of triggering an in-page action; the Figma file has no property to
 // distinguish the two, since both render identically.
 //
 // NOTE: `aria-label` is always included, even though it's technically optional on `Avatar` (but required on

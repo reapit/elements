@@ -11,7 +11,7 @@ Invoke this skill when choosing between similar components, implementing a compo
 
 ## Identifying the Servers
 
-This skill refers to the two servers as `reapit-elements-design-system` and `reapit-elements` for readability. Your MCP client may have them configured under different local names — that name is assigned locally by whoever connects the server, not by the server itself, so it can differ per consumer.
+This skill refers to the two servers as `reapit-elements-design-system` and `reapit-elements` for readability. Your MCP client may have them configured under different local names, because that name is assigned locally by whoever connects the server, not by the server itself, so it can differ per consumer.
 
 To confirm you're talking to the right one regardless of local naming, check the connection's endpoint:
 
@@ -20,13 +20,13 @@ To confirm you're talking to the right one regardless of local naming, check the
 | `reapit-elements-design-system` | `mcp.zeroheight.com/mcp/<id>` | ZeroHeight |
 | `reapit-elements`               | `elements.reapit.cloud/mcp`   | Storybook  |
 
-Tool names (e.g. `search-pages`, `get-documentation`) are defined by the server itself, so they stay the same regardless of local configuration — only the server's name/alias does. For that reason, this skill refers to tools by their bare name rather than prefixing them with a server namespace.
+Tool names (e.g. `search-pages`, `get-documentation`) are defined by the server itself, so they stay the same regardless of local configuration; only the server's name/alias does. For that reason, this skill refers to tools by their bare name rather than prefixing them with a server namespace.
 
 ## The Two MCP Servers
 
 ### 1. `reapit-elements-design-system` (ZeroHeight-backed)
 
-**Purpose:** Usage guidance — when to use a component, why, and how.
+**Purpose:** Usage guidance: when to use a component, why, and how.
 
 This server answers the question: "Which component should I use?" Its tools cover browsing and searching usage documentation, reading full guidance for a component (when to use it, comparisons to similar components, composition rules, accessibility notes), and checking recent releases or changelog entries.
 
@@ -37,7 +37,7 @@ This server answers the question: "Which component should I use?" Its tools cove
 
 ### 2. `reapit-elements` (Storybook-backed)
 
-**Purpose:** API reference — the exact component implementation and code examples.
+**Purpose:** API reference: the exact component implementation and code examples.
 
 This server answers the question: "How do I use this component?" Its tools cover browsing available components, reading the full API reference (TypeScript prop definitions, import path, common usage examples), and viewing detailed code for a specific variant or story, as well as recent releases or changelog entries.
 

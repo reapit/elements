@@ -4,7 +4,7 @@ import { Node, SourceFile, SyntaxKind } from "ts-morph";
  * Checks whether any identifier in `localNames` is used in a non-structural
  * position within the source file.
  *
- * Import specifiers, JSX tag names and — by default — export specifiers are
+ * Import specifiers, JSX tag names and (by default) export specifiers are
  * excluded from consideration, since they are structural references rather than
  * runtime usages.
  *
@@ -142,7 +142,7 @@ export function transformIdentifierReferences(
     for (const namedImport of importDecl.getNamedImports()) {
       if (namedImport.getName() !== oldName) continue;
 
-      // Skip aliased imports — the local binding has a different name already
+      // Skip aliased imports: the local binding has a different name already
       // and does not need renaming.
       if (namedImport.getAliasNode()) continue;
 

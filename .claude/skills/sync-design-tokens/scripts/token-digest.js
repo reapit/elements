@@ -1,9 +1,9 @@
 // Prints the size and digest of each committed token file, in the same format
 // the Figma exporter's manifest reports. Two uses:
 //
-//   Before transfer — a file whose bytes and digest already match the manifest
+//   Before transfer: a file whose bytes and digest already match the manifest
 //   is unchanged in Figma and does not need transferring at all.
-//   After transfer  — a reassembled file whose digest does not match the
+//   After transfer: a reassembled file whose digest does not match the
 //   manifest arrived corrupt, and must not be committed.
 //
 // Run from the repo root:

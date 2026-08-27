@@ -3,7 +3,7 @@
 ## Overview
 
 The toaster displays transient notifications in the browser's top layer.
-Consumers trigger toasts imperatively via `toast()` from anywhere — event
+Consumers trigger toasts imperatively via `toast()` from anywhere: event
 handlers, async functions, or outside the React tree. A single `<Toaster>`
 mounted near the application root subscribes to a shared store and renders the
 active toasts.
@@ -48,12 +48,12 @@ element.
 
 The `pending` → `visible` state machine avoids this. Because `settle()` is a
 no-op for entries already `visible`, a remounted element is inserted directly
-with `data-state="visible"` — no prior `pending` phase, so no transition fires.
+with `data-state="visible"`; no prior `pending` phase, so no transition fires.
 
 ## Outlet stack
 
 When a modal `<dialog>` is open, the browser makes everything outside it
-inert — including other top-layer elements like the toaster's popover. Toasts
+inert: including other top-layer elements like the toaster's popover. Toasts
 remain visible but cannot receive hover or pointer events.
 
 The outlet stack solves this. Each `<ToastOutlet>` is a `<div
@@ -101,8 +101,8 @@ remounts.
 Layout transitions (`grid-template-rows`, `margin-block-start`) live on the
 `<li>`, while visual transitions (`transform`, `opacity`) live on an inner
 `<div>`. This separation exists because animating both on the same element
-caused `translateY(100%)` to resolve against the collapsing grid row height —
-which approaches zero during the exit — producing a barely visible slide
+caused `translateY(100%)` to resolve against the collapsing grid row height;
+which approaches zero during the exit: producing a barely visible slide
 instead of a full off-screen one.
 
 ## Visibility limit
@@ -113,4 +113,4 @@ the array; any beyond the limit receive `data-is-masked`. The content layer
 fades masked toasts to `opacity: 0`. Timers continue running on masked toasts
 and clean them up on expiry.
 
-Masking is purely presentational — the store has no awareness of the limit.
+Masking is purely presentational: the store has no awareness of the limit.

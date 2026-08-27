@@ -27,7 +27,7 @@ Top-level barrel files (`src/core/<name>/index.ts`, `src/utils/<name>/index.ts`,
 // CORRECT
 export { ChipSelect } from "./chip-select";
 
-// WRONG — leaks every export from the module
+// WRONG: leaks every export from the module
 export * from "./chip-select";
 ```
 
@@ -35,13 +35,13 @@ export * from "./chip-select";
 
 Each barrel should export the **minimum** set of symbols that consumers need. In most cases this is a single component or utility function.
 
-Sub-components accessed through the namespace pattern (e.g. `ChipSelect.Option`) do not need separate exports — they travel with the parent component.
+Sub-components accessed through the namespace pattern (e.g. `ChipSelect.Option`) do not need separate exports; they travel with the parent component.
 
 ```typescript
-// CORRECT — one component, sub-components on the namespace
+// CORRECT: one component, sub-components on the namespace
 export { ChipSelect } from "./chip-select";
 
-// WRONG — sub-component exported separately
+// WRONG: sub-component exported separately
 export { ChipSelect } from "./chip-select";
 export { Chip } from "./chip";
 ```
@@ -51,15 +51,15 @@ export { Chip } from "./chip";
 Some folders intentionally export more than one symbol (e.g. a component and a companion utility, or sibling components). These are the exception, not the rule. Each export must be a deliberate, named export.
 
 ```typescript
-// Acceptable — two sibling components
+// Acceptable: two sibling components
 export { AnchorButton } from "./anchor-button";
 export { Button } from "./button";
 
-// Acceptable — component plus companion utility
+// Acceptable: component plus companion utility
 export { SearchInput } from "./search-input";
 export { clearSearchInput } from "./clear-search-input";
 
-// Acceptable — component plus public types
+// Acceptable: component plus public types
 export { AppSwitcher } from "./app-switcher";
 export { isProductAccessible } from "./is-product-accessible";
 export type { SupportedProductId, ProductConfig } from "./config";

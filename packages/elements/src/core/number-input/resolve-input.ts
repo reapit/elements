@@ -11,7 +11,7 @@
 //     and an optional leading `-`, always parseable by `Number()`.
 //
 // The value never contains locale group/decimal separators, non-Latin digits,
-// or any other character — locale affects only the overlay display. When
+// or any other character: locale affects only the overlay display. When
 // decimals are disallowed (`maxFractionDigits === 0`) the canonical form
 // additionally contains no `.` (integers only). When `maxFractionDigits` is a
 // finite positive number, the fractional part contains at most that many digits.
@@ -44,8 +44,8 @@ export type InputResolution =
  *
  * This is the single source of truth for "is this string the shape the component produces?".
  * It is reused both to validate spliced paste fragments (`resolvePaste`) and to gate the overlay
- * formatter (`resolveOverlayValue`), so that non-canonical controlled values — e.g. `'1e5'`,
- * `'0x10'`, `'Infinity'` — are treated consistently as outside the contract.
+ * formatter (`resolveOverlayValue`), so that non-canonical controlled values, such as `'1e5'`,
+ * `'0x10'`, and `'Infinity'`, are treated consistently as outside the contract.
  */
 export const CANONICAL_VALUE_PATTERN = /^-?\d*\.?\d*$/;
 

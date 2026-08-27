@@ -116,11 +116,11 @@ test("resume() restarts the timer with the remaining duration", () => {
   vi.advanceTimersByTime(1000);
   toastStore.pause(id);
 
-  // 3000ms remain — advance 2000ms while paused (should not dismiss)
+  // 3000ms remain: advance 2000ms while paused (should not dismiss)
   vi.advanceTimersByTime(2000);
   expect(toastStore.getSnapshot()[0].state).toBe("paused");
 
-  // Resume — 3000ms timer restarts
+  // Resume: 3000ms timer restarts
   toastStore.resume(id);
   expect(toastStore.getSnapshot()[0].state).toBe("visible");
 
@@ -141,7 +141,7 @@ test("resume() back-dates startedAt to reflect total elapsed time", () => {
   // Advance 500ms while paused (should not count)
   vi.advanceTimersByTime(500);
 
-  // Resume — startedAt should be back-dated so elapsed = 1000ms
+  // Resume: startedAt should be back-dated so elapsed = 1000ms
   toastStore.resume(id);
   const entry = toastStore.getSnapshot()[0];
 

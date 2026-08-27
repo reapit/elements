@@ -22,7 +22,7 @@ export namespace FileUploaderContext {
 /**
  * Shares `FileUploader`'s queue instance (and `disabled`/`locale`) with its control/`Files`
  * descendants, so a consumer doesn't have to thread them through explicit props. Validation
- * constraints are deliberately not here — see `FileUploader`'s own doc comment.
+ * constraints are deliberately not here; see `FileUploader`'s own doc comment.
  */
 export const FileUploaderContext = createContext<FileUploaderContext.Value | null>(null);
 

@@ -22,7 +22,7 @@ offsetY, blur, spread, color` or the bytes differ while the length matches.
 
 Two collections must never be exported. `_Product demo` and `_Responsive` are
 Figma-only, and one holds booleans, which DTCG cannot represent. This is why `EXPORT`
-in the exporter is an explicit allowlist rather than every local collection — a new
+in the exporter is an explicit allowlist rather than every local collection: a new
 collection in Figma has to be added deliberately.
 
 Two more constraints belong to the transfer rather than the mapping:
@@ -33,7 +33,7 @@ Two more constraints belong to the transfer rather than the mapping:
   looks like a huge diff rather than a broken hash.
 - **Chunks are sliced on byte boundaries, not string boundaries.** The exporter encodes
   to UTF-8 first for this reason. Slicing the JSON string instead would split a
-  multi-byte character across two chunks and decode to mojibake — and only in the files
+  multi-byte character across two chunks and decode to mojibake, and only in the files
   that happen to carry a non-ASCII description.
 
 ## Why the transfer is chunked at all
@@ -42,7 +42,7 @@ Chunking means ~240KB of token JSON passes through the agent's context on a full
 which is slow and costs a lot of calls. It is worth knowing why, because the obvious
 objection has a real answer and an unfinished one.
 
-The transfer is chunked because `use_figma` returns its result **to the agent** — that
+The transfer is chunked because `use_figma` returns its result **to the agent**: that
 is the only channel the tool offers. There is no filesystem from inside the Figma plugin
 sandbox, and no REST read on our plan, so the bytes have nowhere else to go.
 
@@ -50,7 +50,7 @@ The better design, **not yet proven to work**, is to skip the agent entirely: ha
 exporter POST each file to a short-lived local receiver that writes straight into
 `packages/elements/src/tokens/`, leaving the `use_figma` response to carry nothing but a
 status. That removes the chunking, the digests and most of the calls in one go. It hangs
-on a single unanswered question — whether the plugin sandbox can reach `127.0.0.1` at
+on a single unanswered question: whether the plugin sandbox can reach `127.0.0.1` at
 all, which depends on the `networkAccess` allowlist in Figma's own MCP plugin manifest,
 something we do not control. A probe for this was written and never run.
 

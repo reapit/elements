@@ -20,7 +20,7 @@ export namespace FileUploaderDropzoneInput {
     icon?: ReactNode;
     /** The dropzone's primary text. */
     children?: ReactNode;
-    /** Optional supporting line of text below the primary text (`children`), e.g. "Up to 10MB". Ignored for `variant="compact"` — Figma has no secondary line for it. */
+    /** Optional supporting line of text below the primary text (`children`), e.g. "Up to 10MB". Ignored for `variant="compact"`: Figma has no secondary line for it. */
     secondaryText?: ReactNode;
     style?: CSSProperties;
     /** The size of the dropzone. */

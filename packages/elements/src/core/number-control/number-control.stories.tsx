@@ -173,7 +173,7 @@ export const FormattingStyles = Example.extend({
 
 /**
  * Supplying any affix prop (`prefix`, `suffix`, `leadingIcon`, or `trailingIcon`) provides an
- * arbitrary affix that is not tied to a formatting style — for example, a unit such as `kg` or a
+ * arbitrary affix that is not tied to a formatting style , such as a unit such as `kg` or a
  * billing period such as `/month`. An explicit affix takes precedence over the automatic
  * derivation from `formatOptions.style`.
  */

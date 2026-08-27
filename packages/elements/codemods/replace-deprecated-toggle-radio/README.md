@@ -159,10 +159,10 @@ When `options` is a variable, function call, spread, or any non-literal expressi
 
 ## Limitations
 
-- **Dynamic `options` arrays require manual conversion** — any `options` value that is not an inline array literal with static `value` and `text` strings cannot be expanded automatically. Convert these to `<ChipSelect.Option>` children by hand.
-- **`ToggleRadioOption` type annotations require manual update** — if you annotate variables with `ToggleRadioOption`, you must update those types manually. The codemod removes the import and inserts a TODO comment at each remaining reference.
-- **`hasGreyBg` has no equivalent** — `ChipSelect` does not support a grey background variant. Review usage and apply custom styling if needed.
-- **`isFullWidth` has no equivalent** — `ChipSelect` uses flex layout. Pass `style={{ width: '100%' }}` or a CSS class if full-width behaviour is needed.
-- **Uncontrolled `isChecked` becomes `defaultChecked`** — the generated code uses `defaultChecked`. If you need controlled selection, use `ChipSelect.determineNextControlledState` and manage state in your component.
-- **Partially-static options objects** — options objects where `value` or `text` cannot be statically determined (e.g., computed properties, shorthand property names) fall back to the dynamic options path and require manual conversion.
-- **Re-exports are not rewritten** — `export { ToggleRadio } from '…'` declarations are left unchanged and require manual migration.
+- **Dynamic `options` arrays require manual conversion**: any `options` value that is not an inline array literal with static `value` and `text` strings cannot be expanded automatically. Convert these to `<ChipSelect.Option>` children by hand.
+- **`ToggleRadioOption` type annotations require manual update**: if you annotate variables with `ToggleRadioOption`, you must update those types manually. The codemod removes the import and inserts a TODO comment at each remaining reference.
+- **`hasGreyBg` has no equivalent**: `ChipSelect` does not support a grey background variant. Review usage and apply custom styling if needed.
+- **`isFullWidth` has no equivalent**: `ChipSelect` uses flex layout. Pass `style={{ width: '100%' }}` or a CSS class if full-width behaviour is needed.
+- **Uncontrolled `isChecked` becomes `defaultChecked`**: the generated code uses `defaultChecked`. If you need controlled selection, use `ChipSelect.determineNextControlledState` and manage state in your component.
+- **Partially-static options objects**: options objects where `value` or `text` cannot be statically determined (e.g., computed properties, shorthand property names) fall back to the dynamic options path and require manual conversion.
+- **Re-exports are not rewritten**: `export { ToggleRadio } from '…'` declarations are left unchanged and require manual migration.

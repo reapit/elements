@@ -80,7 +80,7 @@ export const elToastItem = css`
      *
      * The grid approach is also preferable to max-height because max-height
      * cannot transition to 'auto'. A fixed upper bound (e.g. max-height: 500px)
-     * distorts the easing curve — the visible portion of the transition completes
+     * distorts the easing curve: the visible portion of the transition completes
      * in a fraction of the total duration, proportional to the ratio of actual
      * height to the bound. The grid trick scales correctly at any content height
      * because 0fr→1fr maps directly to 0→content height.
@@ -128,7 +128,7 @@ export const elToastItem = css`
     }
 
     /* ------------------------------------------------------------------ */
-    /* Entry — layout                                                      */
+    /* Entry: layout                                                      */
     /* ------------------------------------------------------------------ */
 
     /* Pending: collapsed with no transition. The toast is in the DOM but not
@@ -150,7 +150,7 @@ export const elToastItem = css`
     }
 
     /* ------------------------------------------------------------------ */
-    /* Exit — layout                                                       */
+    /* Exit: layout                                                       */
     /* ------------------------------------------------------------------ */
 
     &[data-state="dismissing"] {
@@ -176,7 +176,7 @@ export const elToastItem = css`
  * 100% to 0 while the toast is pending.
  *
  * On portal remount, the toast is inserted directly with data-state='visible'
- * and no 'pending' phase — so no entry transition replays.
+ * and no 'pending' phase: so no entry transition replays.
  *
  * min-height: 0 allows the grid row to collapse below content height.
  * overflow: visible keeps the toast rendered outside the collapsed row
@@ -200,7 +200,7 @@ export const elToastItemContent = css`
     }
 
     /* ------------------------------------------------------------------ */
-    /* Entry — visual                                                      */
+    /* Entry: visual                                                      */
     /* ------------------------------------------------------------------ */
 
     /* Pending: off-screen starting position, no transition. */
@@ -220,7 +220,7 @@ export const elToastItemContent = css`
     }
 
     /* ------------------------------------------------------------------ */
-    /* Exit — visual                                                       */
+    /* Exit: visual                                                       */
     /* ------------------------------------------------------------------ */
 
     /* Non-edge toasts: fade + slide toward the edge. */
@@ -259,7 +259,7 @@ export const elToastItemContent = css`
     }
 
     /* ------------------------------------------------------------------ */
-    /* Masked — visual                                                     */
+    /* Masked: visual                                                     */
     /* ------------------------------------------------------------------ */
 
     /* Toasts beyond the visible limit fade out while remaining in the DOM. */

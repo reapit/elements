@@ -52,7 +52,7 @@ const meta = preview.meta({
 
 /**
  * `FileUploader.SingleSelectMediaControl` swaps between the empty drag-and-drop prompt and a full-bleed media
- * card in place, once a file is selected — no separate item list is rendered alongside it, unlike
+ * card in place, once a file is selected; no separate item list is rendered alongside it, unlike
  * `FileUploader.DropzoneControl`/`FileUploader.FileList`. Hover, focus, or drag a file over the filled card to
  * reveal its "Replace" affordance.
  */

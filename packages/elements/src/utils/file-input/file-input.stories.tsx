@@ -8,7 +8,7 @@ import { FileUploadIcon } from "#src/icons/file-upload";
 
 import { FileInput } from "./file-input";
 
-// Demo-only dropzone chrome for the `Drag and drop` story below — `FileInput` renders none of
+// Demo-only dropzone chrome for the `Drag and drop` story below; `FileInput` renders none of
 // this itself. `:has(input:invalid)` reaches the real (visually hidden) input rendered by
 // `FileInput` inside `ElDropzone`, and forwards the error colour into `ElDropzoneContent` via a
 // custom property, since `ElDropzoneContent` is a sibling of that input, not an ancestor of it.
@@ -97,7 +97,7 @@ export const Example = meta.story({
 /**
  * Set `multiple` to allow more than one file per browse round. Browsing again always replaces the
  * current selection, the same as a single-file `FileInput` and matching native
- * `<input type="file" multiple>` behaviour — `FileInput` doesn't accumulate a selection across
+ * `<input type="file" multiple>` behaviour; `FileInput` doesn't accumulate a selection across
  * rounds, since it has no way to remove from it. A consumer that wants a running, removable
  * selection owns that itself; see the `Controlled` story.
  */
@@ -160,8 +160,8 @@ export const Disabled = Example.extend({
 
 /**
  * Pass a `children` render function to fully replace the default rendered content while keeping
- * `FileInput`'s native mechanics — validation, constraint reporting — for free. Here the trigger is
- * a real `Button`, wired to `openFilePicker` explicitly — only the button opens the picker, not the
+ * `FileInput`'s native mechanics (validation, constraint reporting) for free. Here the trigger is
+ * a real `Button`, wired to `openFilePicker` explicitly; only the button opens the picker, not the
  * whole rendered area, so other interactive content (e.g. a remove button on an already-selected
  * file, in a real composition) isn't caught up in it.
  */
@@ -224,7 +224,7 @@ export const DragAndDrop = Example.extend({
     return (
       // `ElDropzone` wraps `FileInput` itself, rather than living inside `children`, so its
       // `:has(input:invalid)` selector can reach the real (visually hidden) input `FileInput`
-      // renders as a sibling of whatever `children` returns — a selector inside `children`'s own
+      // renders as a sibling of whatever `children` returns; a selector inside `children`'s own
       // output could never see it, since that content is a sibling of the input, not an ancestor.
       <ElDropzone>
         <FileInput {...args}>
@@ -250,7 +250,7 @@ export const DragAndDrop = Example.extend({
 /**
  * Passing `value` makes the component controlled: `FileInput` no longer tracks the selection
  * itself, and the consumer updates `value` from `onChange`. `FileInput` never accumulates a
- * selection across browse rounds on its own — it has no way to remove from it — so a consumer
+ * selection across browse rounds on its own (it has no way to remove from it), so a consumer
  * wanting a running, removable selection appends explicitly in its own `onChange` handler, as this
  * story does, pairing accumulation with the removal button that makes it a good experience.
  */

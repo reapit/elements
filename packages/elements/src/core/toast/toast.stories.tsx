@@ -29,7 +29,7 @@ export const Example = meta.story({
 /**
  * Toasts support five variants: `success`, `error`, `warning`, `info`, and `neutral`. The
  * first four variants render a built-in icon. The `neutral` variant accepts an optional
- * `icon` prop — shown here without one.
+ * `icon` prop: shown here without one.
  */
 export const Variants = Example.extend({
   argTypes: {
@@ -68,7 +68,7 @@ export const Truncation = Example.extend({
 
 /**
  * The toast's maximum width is 448px (`--size-112`). When placed inside a narrower
- * container, the toast will not overflow — it shrinks to fit the available space.
+ * container, the toast will not overflow, so it shrinks to fit the available space.
  */
 export const MaxWidth = Example.extend({
   decorators: [
@@ -87,7 +87,7 @@ export const MaxWidth = Example.extend({
 
 /**
  * When a `duration` is provided (in milliseconds), a progress bar animates from zero to
- * full width. The animation is purely visual — DOM removal is the responsibility of the
+ * full width. The animation is purely visual; DOM removal is the responsibility of the
  * consumer.
  */
 export const TimeoutBar = Example.extend({

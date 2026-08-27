@@ -8,7 +8,7 @@ export namespace getFileUploaderItemStatus {
     status: "queued" | "uploading" | "processing" | "uploaded" | "error";
     /**
      * Upload progress as a percentage between `0` and `100`. Only meaningful while `status` is `'uploading'`.
-     * Omit when the upload mechanism can't report progress (e.g. `fetch`) — the status text falls back to a plain
+     * Omit when the upload mechanism can't report progress (e.g. `fetch`); the status text falls back to a plain
      * "Uploading" with no percentage.
      */
     progress?: number;
@@ -16,7 +16,7 @@ export namespace getFileUploaderItemStatus {
     fileSize?: number;
     /**
      * The error message to surface, from either a genuine upload failure (`status === 'error'`)
-     * or a currently-failing validation constraint (independent of `status`) — whichever
+     * or a currently-failing validation constraint (independent of `status`), whichever
      * applies. A present message always wins over `status`'s own text.
      */
     errorMessage?: string;

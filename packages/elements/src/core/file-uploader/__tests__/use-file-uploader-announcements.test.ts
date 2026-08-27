@@ -65,7 +65,7 @@ test("produces a single replace announcement when one item disappears and a new 
 
   const announcementsAfterFirst = result.current.length;
 
-  // Replace with a second file — replaceFiles removes the first item atomically, then the
+  // Replace with a second file: replaceFiles removes the first item atomically, then the
   // new item starts queued and must be started via reportValidity.
   act(() => {
     queue.replaceFiles([makeFile("Photo.jpg")]);

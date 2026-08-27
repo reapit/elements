@@ -110,7 +110,7 @@ test("forwards a ref to the underlying input element", () => {
   expect(ref.current).toBe(screen.getByRole("textbox"));
 });
 
-test("forwards CurrencyInput-specific props — currency symbol reaches the rendered input", () => {
+test("forwards CurrencyInput-specific props: currency symbol reaches the rendered input", () => {
   render(<CurrencyControl label="Amount" currency="GBP" locale="en-GB" />);
   expect(screen.getByText("£")).toBeVisible();
 });

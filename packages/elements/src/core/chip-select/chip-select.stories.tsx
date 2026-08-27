@@ -89,7 +89,7 @@ export const MultiSelect = Example.extend({
 
 /**
  * When controlling the checked state of each option, the consumer is responsible for managing
- * single- or multi-select behaviour. `ChipSelect.determineNextControlledState` handles this —
+ * single- or multi-select behaviour. `ChipSelect.determineNextControlledState` handles this.
  * pass it the current state array and the changed option to get the next state.
  */
 export const Controlled = Example.extend({
@@ -207,7 +207,7 @@ export const ChipSizing = Example.extend({
 });
 
 /**
- * When `required` is true, users cannot deselect all options — at least one must always remain
+ * When `required` is true, users cannot deselect all options: at least one must always remain
  * selected. Attempting to deselect the last selected chip is silently prevented, matching the
  * behaviour of a required radio button group. The same rule applies in multi-select mode: users
  * can freely deselect chips as long as at least one remains selected. Toggle `multiple` in the

@@ -1,10 +1,10 @@
 // Run via the Figma MCP `use_figma` tool. Read-only: touches nothing in the file.
 //
 // The four token files total ~240KB, and a `use_figma` response is capped at 20KB.
-// The two Semantics files are 110KB each, so no per-file split fits — the transfer
+// The two Semantics files are 110KB each, so no per-file split fits: the transfer
 // has to be chunked. Edit REQUEST below to say what this call should return:
 //
-//   { file: null }              manifest — per-file size, digest, chunk count
+//   { file: null }              manifest: per-file size, digest, chunk count
 //   { file: "<name>", chunk: N } one chunk of that file, base64-encoded
 //
 // The manifest carries no file content, so it always fits. Chunks are sized to
@@ -79,9 +79,9 @@ const buildVariables = (collectionName, modeName) => {
   // A collection or mode renamed in Figma needs an EXPORT update, so name the
   // one that is missing rather than failing on an undefined read below.
   const c = collections.find((x) => x.name === collectionName);
-  if (!c) throw new Error(`No "${collectionName}" collection in this file — check EXPORT`);
+  if (!c) throw new Error(`No "${collectionName}" collection in this file: check EXPORT`);
   const m = c.modes.find((x) => x.name === modeName);
-  if (!m) throw new Error(`"${collectionName}" has no "${modeName}" mode — check EXPORT`);
+  if (!m) throw new Error(`"${collectionName}" has no "${modeName}" mode: check EXPORT`);
   const mode = m.modeId;
   const root = {};
   for (const id of c.variableIds) {
@@ -148,7 +148,7 @@ files["effect.styles.tokens.json"] = emit(await buildEffects());
 //
 // Hand-rolled rather than TextEncoder, which the plugin sandbox does not
 // document. Chunks must be sliced on byte boundaries, never string
-// boundaries — a multi-byte character split across two chunks would decode
+// boundaries, because a multi-byte character split across two chunks would decode
 // to mojibake on reassembly.
 const utf8 = (s) => {
   const out = [];
@@ -171,8 +171,8 @@ const utf8 = (s) => {
 //
 // FNV-1a rather than SHA-256 because the plugin sandbox exposes no crypto API,
 // so the hash has to be short enough to reimplement identically in two
-// runtimes. It only has to catch accidental difference — a dropped chunk, an
-// unchanged file — and `generate:tokens` plus the CI drift check are the real
+// runtimes. It only has to catch accidental difference: a dropped chunk, an
+// unchanged file: and `generate:tokens` plus the CI drift check are the real
 // backstop against bad bytes reaching the committed CSS.
 const digest = (bytes) => {
   let h = 0x811c9dc5;
@@ -206,17 +206,17 @@ const bytes = bytesOf.get(REQUEST.file);
 // A typo'd filename would otherwise return chunk 0 of `undefined`.
 if (!bytes) {
   throw new Error(
-    `No file "${REQUEST.file}" in this export — expected one of ${Object.keys(files).join(", ")}`,
+    `No file "${REQUEST.file}" in this export: expected one of ${Object.keys(files).join(", ")}`,
   );
 }
 
 const chunks = chunkCount(REQUEST.file);
 if (!(REQUEST.chunk >= 0 && REQUEST.chunk < chunks)) {
-  throw new Error(`Chunk ${REQUEST.chunk} out of range — "${REQUEST.file}" has ${chunks}`);
+  throw new Error(`Chunk ${REQUEST.chunk} out of range: "${REQUEST.file}" has ${chunks}`);
 }
 
 if (typeof figma.base64Encode !== "function") {
-  throw new Error("figma.base64Encode is unavailable — cannot transfer chunks safely");
+  throw new Error("figma.base64Encode is unavailable: cannot transfer chunks safely");
 }
 
 const start = REQUEST.chunk * CHUNK_BYTES;

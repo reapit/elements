@@ -5,12 +5,12 @@ import { SourceFile } from "ts-morph";
  * (i.e. those without a `from` clause).
  *
  * These names must be preserved during import transformations. If a local
- * import binding is re-exported by name — for example:
+ * import binding is re-exported by name, for example:
  *
  *   import { Pagination } from '@reapit/elements'
  *   export { Pagination }
  *
- * — then removing the import would leave the export referencing a missing
+ * then removing the import would leave the export referencing a missing
  * binding and produce a compile error. Codemods should skip transforming any
  * import whose local name appears in the returned set.
  *

@@ -24,7 +24,7 @@ import { EXPORT_MAP } from "./export-map";
 /**
  * Checks whether a module specifier is a root barrel import from @reapit/elements.
  *
- * Only matches the exact package root — NOT subpath imports like
+ * Only matches the exact package root, not subpath imports like
  * `@reapit/elements/core/button` (those are already correct and must not be
  * re-transformed).
  */
@@ -74,13 +74,13 @@ function transformDeclaration(sourceFile: SourceFile, importDecl: ImportDeclarat
     isTypeOnly: ni.isTypeOnly(),
   }));
 
-  // Default or namespace imports — leave untouched to avoid dropping bindings
+  // Default or namespace imports: leave untouched to avoid dropping bindings
   if (importDecl.getDefaultImport() || importDecl.getNamespaceImport()) {
     return;
   }
 
   if (namedImports.length === 0) {
-    // Side-effect import — leave untouched
+    // Side-effect import: leave untouched
     return;
   }
 

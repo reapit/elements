@@ -7,8 +7,8 @@
 `NumberInput` then derives the localised currency symbol from that style and places it in the
 correct affix slot (`prefix` or `suffix`) of the underlying input.
 
-All numeric behaviour — entry filtering, fraction-digit caps, locale-formatted overlay, value
-contract, and range validation — is delegated entirely to `NumberInput`. See
+All numeric behaviour: entry filtering, fraction-digit caps, locale-formatted overlay, value
+contract, and range validation: is delegated entirely to `NumberInput`. See
 [`../number-input/ARCHITECTURE.md`](../number-input/ARCHITECTURE.md) for the numeric contract.
 
 ## `locale` and `currency` are orthogonal
@@ -40,14 +40,14 @@ currencies differently. Position is a function of _both_:
 | `sv-SE`  | `SEK`      | 1 234,50 kr | `kr`   | suffix   |
 | `ja-JP`  | `JPY`      | ￥1,235     | `￥`   | prefix   |
 
-Both de-DE and en-GB use 2 decimal places — a property of EUR and GBP respectively — but the symbol sits on opposite sides, a property of the locale.
+Both de-DE and en-GB use 2 decimal places: a property of EUR and GBP respectively: but the symbol sits on opposite sides, a property of the locale.
 
 ## Why `currency` is required and cannot be inferred from `locale`
 
 Three independent reasons make inference unsafe:
 
 **1. BCP 47 region is optional.** Locale tags are `language[-script][-REGION]`. The region
-component — the only part that could map to a currency — is optional. Bare-language tags
+component: the only part that could map to a currency: is optional. Bare-language tags
 (`'en'`, `'de'`, `'fr'`) carry no region at all. The browser's default locale, the fallback when
 `locale` is omitted, is frequently just `'en'`.
 
@@ -56,11 +56,11 @@ component — the only part that could map to a currency — is optional. Bare-l
 currency, even when a region is present.
 
 **3. `Intl` provides no locale-to-currency mapping.** `Intl.NumberFormat` deliberately requires
-an explicit `currency` when `style: 'currency'` is used — it throws otherwise. Any locale →
+an explicit `currency` when `style: 'currency'` is used: it throws otherwise. Any locale →
 currency table would have to be maintained in userland and would silently drift as countries
 change their currency.
 
-The deeper asymmetry is the severity of a wrong value. A wrong `locale` only affects formatting —
+The deeper asymmetry is the severity of a wrong value. A wrong `locale` only affects formatting;
 `1,234.50` vs `1.234,50`: the same number, still legible. A wrong inferred `currency` changes the
 _meaning_ of the number: displaying a GBP price in a EUR field is a silent money bug, not a
 cosmetic issue.
@@ -75,13 +75,13 @@ For these reasons `currency` is required, with no default, and `locale` remains 
 which owns all affix wiring: whenever `formatOptions.style` is a descriptive style (`'currency'`,
 `'percent'`, or `'unit'`), `NumberInput` derives the localised symbol and its position in a single
 `Intl.NumberFormat.formatToParts` pass via `getNumberAffix` in `src/utils/number-format`. That
-function finds the first descriptive part (currency symbol, percent sign, or unit — classified by
+function finds the first descriptive part (currency symbol, percent sign, or unit: classified by
 the shared `DESCRIPTIVE_PART_TYPES` set) and compares its index to the first numeric part to
 classify the position as `'prefix'` or `'suffix'`. It routes through the shared
 `getIntlNumberFormat` factory for graceful fallback and instance caching.
 
 Within `CurrencyInput` the derived symbol is always used; there is no consumer override. The
-symbol is placed at the locale-correct position (prefix or suffix) — the consumer cannot control
+symbol is placed at the locale-correct position (prefix or suffix): the consumer cannot control
 which side it sits on, because that is a function of `currency` and `locale` together. `NumberInput`
 itself does accept explicit `prefix`/`suffix` props (an explicit affix wins over derivation), but
 `CurrencyInput` omits them from its own `Props` (see below) so this override is not reachable
@@ -102,7 +102,7 @@ symbol and the formatted overlay stay consistent.
 The formatted overlay (the formatted number shown over the input when unfocused) is
 produced by `NumberInput`'s `resolveOverlayValue`. Because `CurrencyInput` passes
 `style: 'currency'` in `formatOptions`, a naïve `Intl.NumberFormat.format()` call would include
-the currency symbol in the overlay string — duplicating the symbol already rendered by the affix.
+the currency symbol in the overlay string: duplicating the symbol already rendered by the affix.
 
 `NumberInput` prevents this automatically. Having derived a non-empty affix from the descriptive
 style, it sets an internal `showNumberPartsOnly` flag, which causes `resolveOverlayValue` to use

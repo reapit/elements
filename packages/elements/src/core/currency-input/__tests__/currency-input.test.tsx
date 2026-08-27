@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 import { CurrencyInput } from "../currency-input";
 
 // ---------------------------------------------------------------------------
-// Symbol and position — prefix currencies
+// Symbol and position: prefix currencies
 // ---------------------------------------------------------------------------
 
 test("renders £ as a prefix for GBP in en-GB", () => {
@@ -22,7 +22,7 @@ test("renders ￥ as a prefix for JPY in ja-JP", () => {
 });
 
 // ---------------------------------------------------------------------------
-// Symbol and position — suffix currencies
+// Symbol and position: suffix currencies
 // ---------------------------------------------------------------------------
 
 test("renders € as a suffix for EUR in de-DE", () => {

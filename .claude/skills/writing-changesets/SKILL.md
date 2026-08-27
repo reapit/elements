@@ -1,6 +1,6 @@
 ---
 name: writing-changesets
-description: Write changesets for @reapit/elements using @changesets/cli. Use this skill whenever you finish a feature, bug fix, breaking change, deprecation, or codemod — or whenever a PR review asks for a changeset. Covers choosing the right semver bump, picking the correct changelog prefix, writing clear user-facing summaries, naming the file, and deciding when to use an empty changeset instead.
+description: Write changesets for @reapit/elements using @changesets/cli. Use this skill whenever you finish a feature, bug fix, breaking change, deprecation, or codemod, or whenever a PR review asks for a changeset. Covers choosing the right semver bump, picking the correct changelog prefix, writing clear user-facing summaries, naming the file, and deciding when to use an empty changeset instead.
 ---
 
 # Writing Changesets
@@ -19,7 +19,7 @@ Add a changeset for any change that affects the published package:
 
 **One changeset per logical change.** If a PR introduces multiple unrelated user-facing changes, create one file per change. A single file must cover exactly one change and carry exactly one prefix.
 
-Bad — one file covering an addition and two unrelated API changes:
+Bad: one file covering an addition and two unrelated API changes:
 
 ```md
 ---
@@ -33,7 +33,7 @@ Changed: `Bar` prop renamed from `x` to `y`.
 Changed: `Baz` now accepts `string[]` instead of `string`.
 ```
 
-Good — three separate files, each scoped to its own change:
+Good: three separate files, each scoped to its own change:
 
 `add-foo-component.md`
 
@@ -81,7 +81,7 @@ PRs that only touch dot-prefixed directories (`.github/`, `.husky/`, `.changeset
 
 ## File naming
 
-Name the file after the change in kebab-case; the CLI generates a random `adjective-animal-verb` slug by default — override it.
+Name the file after the change in kebab-case; the CLI generates a random `adjective-animal-verb` slug by default, so override it.
 
 When a PR has multiple changesets, give each file a name that makes the scope of that specific change clear in isolation. Avoid catch-all names that bundle several changes.
 
@@ -127,9 +127,9 @@ The only package in this repo is `@reapit/elements`. Do not add other package en
 | `minor`   | New features, new props, new exports, deprecations                                   |
 | `major`   | Breaking changes: removals, renames, behaviour changes that require consumer updates |
 
-**Pre-release mode:** When the repo is in pre-release mode (check `pre.json` for the current tag), all bump types increment the prerelease counter (e.g. `x.y.z-<tag>.0 → x.y.z-<tag>.1`). The bump type is still recorded and applied when exiting pre-release mode — choose it correctly regardless.
+**Pre-release mode:** When the repo is in pre-release mode (check `pre.json` for the current tag), all bump types increment the prerelease counter (e.g. `x.y.z-<tag>.0 → x.y.z-<tag>.1`). The bump type is still recorded and applied when exiting pre-release mode, so choose it correctly regardless.
 
-To switch between pre-release tags (e.g. beta → rc), follow the process in `.changeset/README.md` under "Switching pre-release tags". Do not simply run `pre exit` then `pre enter <new-tag>` without also manually updating `package.json` — Changesets does not reset the pre-release counter when the tag changes.
+To switch between pre-release tags (e.g. beta → rc), follow the process in `.changeset/README.md` under "Switching pre-release tags". Do not simply run `pre exit` then `pre enter <new-tag>` without also manually updating `package.json`, because Changesets does not reset the pre-release counter when the tag changes.
 
 To check whether the repo is in pre-release mode:
 
@@ -143,7 +143,7 @@ The summary is the user-facing description of the change. It appears in `CHANGEL
 
 ### Prefix convention
 
-Start the summary with one of these prefixes. The formatter strips the prefix and renders the category as a bold inline label — for example, `**[Fixed]**` — in the changelog entry.
+Start the summary with one of these prefixes. The formatter strips the prefix and renders the category as a bold inline label (for example, `**[Fixed]**`) in the changelog entry.
 
 | Prefix        | Changelog section | Typical bump                 |
 | ------------- | ----------------- | ---------------------------- |
@@ -164,7 +164,7 @@ Write for the consumer, not the implementer.
 - **Be specific.** Name the components, props, or exports affected.
 - **Use backticks** for component names, prop names, hook names, and import paths.
 - **Omit needless words.** One or two sentences is usually enough.
-- **Use British English** — see the `writing-clear-prose` skill.
+- **Use British English**: see the `writing-clear-prose` skill.
 - **Use active voice.** "Added `X` component" not "An `X` component has been added".
 
 Bad:
@@ -181,7 +181,7 @@ Good:
 
 ### What to leave out
 
-These categories of detail feel relevant when you are close to the implementation, but they belong in a PR description or commit message — not the changelog.
+These categories of detail feel relevant when you are close to the implementation, but they belong in a PR description or commit message, not the changelog.
 
 **Root-cause explanations.** Describe what the consumer experiences, not why it happened internally.
 
@@ -203,7 +203,7 @@ Good:
 
 > Removed: the deprecated `useMediaQuery` hook and related exports. Use the `upgrade-deprecated-use-media-query` codemod to migrate usages automatically.
 
-**CSS and build implementation details.** Never mention `display: grid`, CSS custom property structure, Rolldown parallelism, file glob patterns, bundle size, or other build or style internals. If a token is renamed in a way that requires consumer action, say what to update — not how the internals are restructured.
+**CSS and build implementation details.** Never mention `display: grid`, CSS custom property structure, Rolldown parallelism, file glob patterns, bundle size, or other build or style internals. If a token is renamed in a way that requires consumer action, say what to update, not how the internals are restructured.
 
 Bad:
 
@@ -213,7 +213,7 @@ Good:
 
 > Added: `autoFlow` and `justifyContent` props to `ButtonGroup`.
 
-**Manual migration paths that expose implementation mechanics.** If a codemod exists, reference only the codemod. If no codemod exists and manual migration is unavoidable, describe what to change — not how the underlying mechanism works.
+**Manual migration paths that expose implementation mechanics.** If a codemod exists, reference only the codemod. If no codemod exists and manual migration is unavoidable, describe what to change, not how the underlying mechanism works.
 
 Bad:
 
@@ -307,7 +307,7 @@ Before committing a changeset:
 - [ ] This file covers exactly one user-facing change (split into multiple files if not)
 - [ ] Frontmatter has `'@reapit/elements': <patch|minor|major>`
 - [ ] Bump type matches the impact (breaking → `major`, new feature → `minor`, fix → `patch`)
-- [ ] Prefix is one of `Added:`, `Fixed:`, `Changed:`, `Deprecated:`, `Removed:`, `Security:`, or `Internal:` — not `Feat:`, `Fix:`, `Add`, or other variants
+- [ ] Prefix is one of `Added:`, `Fixed:`, `Changed:`, `Deprecated:`, `Removed:`, `Security:`, or `Internal:`, not `Feat:`, `Fix:`, `Add`, or other variants
 - [ ] If the prefix is omitted, the inferred category is correct (`major` → Removed, `minor` → Added, `patch` → Fixed)
 - [ ] Component and prop names are in backticks
 - [ ] For breaking changes with a codemod, the codemod is mentioned by name

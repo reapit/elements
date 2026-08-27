@@ -38,7 +38,7 @@ PR titles follow a modified conventional commit syntax:
 
 **Rules:**
 
-- Never include a scope — no parenthetical qualifier after the type
+- Never include a scope: no parenthetical qualifier after the type
 - Put the ticket reference before the description, never at the end
 - If the branch is work-in-progress, prefix the whole title with `[WIP] `
 - Keep the description short enough to read at a glance (roughly 50–72 characters total)
@@ -55,20 +55,20 @@ PR titles follow a modified conventional commit syntax:
 
 ### Allowed Commit Types
 
-| Type       | When to use                                           |
-| ---------- | ----------------------------------------------------- |
-| `feat`     | New component, feature, or user-visible behaviour     |
-| `fix`      | Bug fix                                               |
-| `docs`     | Documentation only                                    |
-| `style`    | Formatting, whitespace, punctuation — no logic change |
-| `refactor` | Internal restructure with no user-facing change       |
-| `perf`     | Performance improvement                               |
-| `test`     | Adding or updating tests only                         |
-| `build`    | Build system or tooling change                        |
-| `ci`       | CI configuration change                               |
-| `chore`    | Maintenance task (dependency bumps, housekeeping)     |
-| `task`     | Tracked task not covered by the above types           |
-| `revert`   | Reverts a previous commit                             |
+| Type       | When to use                                          |
+| ---------- | ---------------------------------------------------- |
+| `feat`     | New component, feature, or user-visible behaviour    |
+| `fix`      | Bug fix                                              |
+| `docs`     | Documentation only                                   |
+| `style`    | Formatting, whitespace, punctuation, no logic change |
+| `refactor` | Internal restructure with no user-facing change      |
+| `perf`     | Performance improvement                              |
+| `test`     | Adding or updating tests only                        |
+| `build`    | Build system or tooling change                       |
+| `ci`       | CI configuration change                              |
+| `chore`    | Maintenance task (dependency bumps, housekeeping)    |
+| `task`     | Tracked task not covered by the above types          |
+| `revert`   | Reverts a previous commit                            |
 
 ## PR Description Format
 
@@ -81,7 +81,7 @@ Keep descriptions concise. Reviewers should understand the change and its contex
 
 - <What changed and why, one bullet per distinct point>
 - <Second point if needed>
-- <Third point if needed — omit if fewer points suffice>
+- <Third point if needed, omit if fewer points suffice>
 
 ## Ticket
 
@@ -104,7 +104,7 @@ Omit the **Visual changes** section entirely when the change has no UI impact. U
 
 - Write 1–3 bullet points. One is often enough.
 - Lead each bullet with a verb in the active voice: "Add", "Fix", "Remove", "Update".
-- Name the specific component, prop, or file affected — avoid vague references.
+- Name the specific component, prop, or file affected; avoid vague references.
 - Use British English throughout.
 - Omit needless words. Never write "This PR…" or "This commit…".
 - End bullets without a trailing full stop.
@@ -227,7 +227,7 @@ rm "$tmp"
 Before opening the PR:
 
 - [ ] Title starts with an allowed type (`feat`, `fix`, `chore`, etc.)
-- [ ] No scope in the title — no parenthetical qualifier
+- [ ] No scope in the title: no parenthetical qualifier
 - [ ] Ticket reference (if applicable) follows the type, before the description
 - [ ] Ticket key is uppercase (e.g. `DS-102`, not `ds-102`)
 - [ ] `!` suffix used when the change is breaking

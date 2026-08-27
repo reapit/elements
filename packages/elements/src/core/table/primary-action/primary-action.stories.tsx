@@ -70,7 +70,7 @@ export const PrimaryData = meta.story({
 /**
  * The key feature of the primary action is that its "hit area" will expand to fill the bounding box of
  * the closest, relative-positioned ancestor. By default, this will be the table row. The example below
- * demonstrates this by placing a sibling element—the pattern—next to the primary action. Hovering
+ * demonstrates this by placing a sibling element, the pattern shown next, to the primary action. Hovering
  * the patterned area shows the cursor is actually hovering the primary action. Likewise, focusing the
  * action shows the focus outline surrounding both siblings.
  */

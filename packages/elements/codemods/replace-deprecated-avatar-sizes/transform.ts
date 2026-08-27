@@ -64,7 +64,7 @@ export default function transform(
 
     const jsxAttr = sizeAttr.asKindOrThrow(SyntaxKind.JsxAttribute);
     const value = getPropStringValue(jsxAttr);
-    if (value === undefined) continue; // Dynamic value — leave as is.
+    if (value === undefined) continue; // Dynamic value; leave as is.
 
     const mappedValue = SIZE_MAP[value];
     if (mappedValue) {

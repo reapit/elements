@@ -6,7 +6,7 @@ export namespace GalleryViewerCarouselContext {
     /** Ref tracking the `id` of the currently visible item. Updated by the scroll hook without causing re-renders. */
     activeItemRef: MutableRefObject<string | undefined>;
     /**
-     * `true` when `value` is provided but `onChange` is not — the carousel is in
+     * `true` when `value` is provided but `onChange` is not: the carousel is in
      * read-only controlled mode. The track disables scrolling so the user cannot
      * swipe away from the controlled value.
      */

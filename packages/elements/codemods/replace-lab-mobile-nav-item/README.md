@@ -6,7 +6,7 @@ description: Migrates MobileNavItem from lab/mobile-nav-item to TopBar component
 
 Automates migration from the experimental `MobileNavItem` component (`lab/mobile-nav-item`) to the stable `TopBar` components (`core/top-bar`).
 
-This codemod rewrites imports, JSX usage, and type references. It handles all three variants of `MobileNavItem` — anchor, button, and expandable — and inserts TODO comments wherever manual review is required.
+This codemod rewrites imports, JSX usage, and type references. It handles all three variants of `MobileNavItem` (anchor, button, and expandable) and inserts TODO comments wherever manual review is required.
 
 ## Usage
 
@@ -128,10 +128,10 @@ The codemod inserts a TODO comment in the following situations:
 
 ## Limitations
 
-- **`isActive` on the button variant is dropped** — `TopBar.MenuItemButton` has no `aria-current` prop. Review each flagged usage to determine whether the active state should be communicated another way (e.g. via a parent `TopBar.MenuGroup isActive` prop).
-- **Dynamic `isActive` expressions** — when `isActive` holds a runtime value (e.g. `isActive={isCurrentPage}`), the codemod emits `aria-current={isCurrentPage ? 'page' : false}`. Verify the result compiles and the expression evaluates to the correct type.
-- **Expandable children** — children are wrapped in `TopBar.MenuSubmenu` verbatim. When children include conditional expressions, mapped arrays, or non-`MobileNavItem` JSX, verify the result uses the correct `TopBar.MenuSubmenu.Item` or `TopBar.MenuSubmenu.ItemButton` sub-components.
-- **`label` as a JSX expression** — when `label` holds a runtime value (e.g. `label={title}`), the codemod moves it to children as `{title}`. Verify the expression is `ReactNode`-compatible.
-- **Spread-only usage** — `<MobileNavItem {...props} />` cannot be statically analysed. These elements are left unchanged and flagged with a TODO for manual migration.
-- **Re-exports are skipped** — `export { MobileNavItem } from '…'` declarations are left unchanged and require manual migration.
-- **Aliased non-JSX value references** — when `MobileNavItem` is imported under an alias (e.g. `import { MobileNavItem as NavItem } from '…'`), the codemod rewrites JSX usages but removes the `MobileNavItem as NavItem` import and does not introduce a new `NavItem` binding. Bare value references to the alias (e.g. `const C = NavItem`) will therefore break and must be migrated manually.
+- **`isActive` on the button variant is dropped**: `TopBar.MenuItemButton` has no `aria-current` prop. Review each flagged usage to determine whether the active state should be communicated another way (e.g. via a parent `TopBar.MenuGroup isActive` prop).
+- **Dynamic `isActive` expressions**: when `isActive` holds a runtime value (e.g. `isActive={isCurrentPage}`), the codemod emits `aria-current={isCurrentPage ? 'page' : false}`. Verify the result compiles and the expression evaluates to the correct type.
+- **Expandable children**: children are wrapped in `TopBar.MenuSubmenu` verbatim. When children include conditional expressions, mapped arrays, or non-`MobileNavItem` JSX, verify the result uses the correct `TopBar.MenuSubmenu.Item` or `TopBar.MenuSubmenu.ItemButton` sub-components.
+- **`label` as a JSX expression**: when `label` holds a runtime value (e.g. `label={title}`), the codemod moves it to children as `{title}`. Verify the expression is `ReactNode`-compatible.
+- **Spread-only usage**: `<MobileNavItem {...props} />` cannot be statically analysed. These elements are left unchanged and flagged with a TODO for manual migration.
+- **Re-exports are skipped**: `export { MobileNavItem } from '…'` declarations are left unchanged and require manual migration.
+- **Aliased non-JSX value references**: when `MobileNavItem` is imported under an alias (e.g. `import { MobileNavItem as NavItem } from '…'`), the codemod rewrites JSX usages but removes the `MobileNavItem as NavItem` import and does not introduce a new `NavItem` binding. Bare value references to the alias (e.g. `const C = NavItem`) will therefore break and must be migrated manually.

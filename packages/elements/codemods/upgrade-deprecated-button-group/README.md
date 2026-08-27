@@ -75,8 +75,8 @@ The key API differences are:
 | ---------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
 | `import { DeprecatedButtonGroup } from '@reapit/elements'`             | `import { ButtonGroup } from '@reapit/elements/core/button-group'`             |
 | `import { DeprecatedButtonGroup as BtnGroup } from '@reapit/elements'` | `import { ButtonGroup as BtnGroup } from '@reapit/elements/core/button-group'` |
-| `import { DeprecatedButtonGroupProps } from '@reapit/elements'`        | _(removed — type rewritten to `ButtonGroup.Props`)_                            |
-| `import { DeprecatedButtonGroupAlignment } from '@reapit/elements'`    | _(removed — no equivalent, produces a TypeScript error)_                       |
+| `import { DeprecatedButtonGroupProps } from '@reapit/elements'`        | _(removed: type rewritten to `ButtonGroup.Props`)_                             |
+| `import { DeprecatedButtonGroupAlignment } from '@reapit/elements'`    | _(removed: no equivalent, produces a TypeScript error)_                        |
 
 ### Type Transformations
 
@@ -96,12 +96,12 @@ The key API differences are:
 
 ### JSX — `alignment` → `justifyContent`
 
-| Before                                             | After                                                                     |
-| -------------------------------------------------- | ------------------------------------------------------------------------- |
-| `<DeprecatedButtonGroup alignment="left">`         | `<ButtonGroup justifyContent="start">`                                    |
-| `<DeprecatedButtonGroup alignment="right">`        | `<ButtonGroup justifyContent="end">`                                      |
-| `<DeprecatedButtonGroup alignment="center">`       | `<ButtonGroup justifyContent="center">`                                   |
-| `<DeprecatedButtonGroup alignment={dynamicValue}>` | `<ButtonGroup>` _(prop removed, TODO comment inserted — see Limitations)_ |
+| Before                                             | After                                                                    |
+| -------------------------------------------------- | ------------------------------------------------------------------------ |
+| `<DeprecatedButtonGroup alignment="left">`         | `<ButtonGroup justifyContent="start">`                                   |
+| `<DeprecatedButtonGroup alignment="right">`        | `<ButtonGroup justifyContent="end">`                                     |
+| `<DeprecatedButtonGroup alignment="center">`       | `<ButtonGroup justifyContent="center">`                                  |
+| `<DeprecatedButtonGroup alignment={dynamicValue}>` | `<ButtonGroup>` _(prop removed, TODO comment inserted: see Limitations)_ |
 
 ## Limitations
 
@@ -141,6 +141,6 @@ The two codemods are independent and safe to run in either order.
 
 ## Next Steps After Running This Codemod
 
-1. **Fix TypeScript errors** — Any remaining `DeprecatedButtonGroupAlignment` usages will produce errors. Remove or replace them manually.
-2. **Review TODO comments** — Search for `TODO` in your codebase and address any dynamic `alignment` props that could not be migrated automatically.
-3. **Run tests** — Verify your application still works correctly after the migration.
+1. **Fix TypeScript errors**: Any remaining `DeprecatedButtonGroupAlignment` usages will produce errors. Remove or replace them manually.
+2. **Review TODO comments**: Search for `TODO` in your codebase and address any dynamic `alignment` props that could not be migrated automatically.
+3. **Run tests**: Verify your application still works correctly after the migration.

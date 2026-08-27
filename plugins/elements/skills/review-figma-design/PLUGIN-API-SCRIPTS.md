@@ -5,7 +5,7 @@ order [`SKILL.md`](SKILL.md) uses them. Each returns a tally rather than a node
 tree, so a page of thousands of nodes answers in a few hundred characters.
 
 One rule to know before running any of them: page context resets to the file's
-first page on every call, so each script selects its own page — that line is not
+first page on every call, so each script selects its own page; that line is not
 dead code to remove.
 
 Adapt them; they are a starting point, not a fixed harness. Every script writes
@@ -47,7 +47,7 @@ ID in `SCOPE` and run it once per frame.
 
 Step 1 needs every page in the file, not every page the editor has loaded. Figma loads
 pages lazily and the metadata capability's page listing reports only what is loaded, so
-it under-reports — a file opened on one page answers "one page". `figma.root.children`
+it under-reports; a file opened on one page answers "one page". `figma.root.children`
 is unaffected: it lists every page, and a page reporting zero children is unloaded
 rather than empty.
 
@@ -60,7 +60,7 @@ return figma.root.children.map((p) => ({
 ```
 
 Do not read `loadedChildren` as a page's size. Nothing in this review needs to open the
-out-of-scope pages — their names are the whole point, and they go into the artifact as
+out-of-scope pages; their names are the whole point, and they go into the artifact as
 `scope.pagesInFile`.
 
 ## 1. Hygiene and component inventory
@@ -96,7 +96,7 @@ instances.forEach((n, i) => {
       name: owner.name,
       count: 1,
       sample: n.id,
-      // remote: true means it came from a subscribed library — cross-check which
+      // remote: true means it came from a subscribed library; cross-check which
       // library against the file's subscription list. false means local to the file.
       remote: owner.remote,
     });
@@ -133,7 +133,7 @@ designer's is the easiest false positive in the whole review.
 
 Counts every VARIANT property value per component. This is what turns "no hover
 state anywhere" into a counted fact. Tallies key on the resolved main component's
-owning component set, same as Script 1 — keying on instance name instead splits one
+owning component set, same as Script 1; keying on instance name instead splits one
 component across every override name a designer typed.
 
 ```js
@@ -158,7 +158,7 @@ return tally;
 ```
 
 A property whose every value is `Default`, or a boolean-ish property stuck on one
-side — `Expanded=False`, `Truncated=True` — is the finding. Read the component's
+side (`Expanded=False`, `Truncated=True`) is the finding. Read the component's
 full variant set from the Design System documentation to name the states that
 exist but were never drawn.
 
@@ -177,7 +177,7 @@ return {
     items: n.annotations.map((a) => ({
       categoryId: a.categoryId,
       text: a.labelMarkdown || a.label,
-      // Property pins carry no prose — a pin-only annotation restates a value
+      // Property pins carry no prose; a pin-only annotation restates a value
       // engineering can already read off the layer.
       pins: (a.properties || []).map((p) => p.type),
     })),
@@ -219,7 +219,7 @@ Empty `flowStartingPoints` with an empty `authored` list is no prototype, whatev
 ## 5. Placeholder copy
 
 A text sweep is cheaper than a screenshot and misses things a screenshot catches,
-so run both — see `SKILL.md` step 4.
+so run both; see `SKILL.md` step 4.
 
 ```js
 const FILLER =
@@ -244,5 +244,5 @@ return {
 };
 ```
 
-The word list is a floor, not a definition — extend it for whatever the file
+The word list is a floor, not a definition; extend it for whatever the file
 actually uses.

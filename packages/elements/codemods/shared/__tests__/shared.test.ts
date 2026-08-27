@@ -345,7 +345,7 @@ describe("syncClosingTag", () => {
     const sf = createSourceFile(`<OldName />`);
     const elements = getJsxElements(sf, new Set(["OldName"]));
     syncClosingTag(elements[0], "OldName", "NewName");
-    // Source should be unchanged — no closing tag to rename
+    // Source should be unchanged: no closing tag to rename
     expect(sf.getFullText()).toContain("<OldName />");
   });
 

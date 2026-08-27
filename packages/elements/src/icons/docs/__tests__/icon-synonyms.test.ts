@@ -27,8 +27,8 @@ describe("icon-synonyms.json", () => {
       // No duplicates within the list
       expect(new Set(lowered).size).toBe(lowered.length);
 
-      // No synonym matches the icon's own name (substring of the name is fine —
-      // e.g. `bedroom` for `BedIcon` is useful — but the full name itself is redundant
+      // No synonym matches the icon's own name (substring of the name is fine,
+      // e.g. `bedroom` for `BedIcon` is useful, but the full name itself is redundant
       // because the name is already part of the search haystack).
       const loweredName = iconName.toLowerCase();
       const loweredKebab = (ICON_KEBAB_NAMES[iconName] ?? "").toLowerCase();

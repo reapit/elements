@@ -862,7 +862,7 @@ describe("template literal boundary safety", () => {
 
   test("leaves a var() containing a backtick in its inner content unchanged", () => {
     // Pathological case: a var( whose content somehow contains a backtick.
-    // The scanner cannot safely parse this — it must emit the call unchanged.
+    // The scanner cannot safely parse this, so it must emit the call unchanged.
     const input = "color: var(--`weird);";
     const output = transform(input);
     expect(output).toBe(input);

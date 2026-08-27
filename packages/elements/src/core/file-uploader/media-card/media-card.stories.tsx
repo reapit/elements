@@ -115,7 +115,7 @@ export const ReadOnly = Example.extend({
 });
 
 /**
- * `fileName` is optional — omit it to render a card with no name row, useful when the file name isn't
+ * `fileName` is optional: omit it to render a card with no name row, useful when the file name isn't
  * meaningful to the end user.
  */
 export const NoFileName = Example.extend({

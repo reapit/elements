@@ -174,7 +174,7 @@ Use a bare verb describing what the component _does_. Do not add `is`, `has`, or
 | `showValidity` | Whether the component displays validation feedback |
 | `useLinkStyle` | Whether the component renders with link styling    |
 
-The prefix makes state props immediately recognisable in JSX: `<Button isDestructive>` tells you the button _is_ something. `<Dialog keepMounted>` tells the dialog to _do_ something — the verb makes the intent clear without a prefix.
+The prefix makes state props immediately recognisable in JSX: `<Button isDestructive>` tells you the button _is_ something. `<Dialog keepMounted>` tells the dialog to _do_ something: the verb makes the intent clear without a prefix.
 
 ### Native HTML attributes
 
@@ -193,13 +193,13 @@ Wrapping native attributes (e.g. `isDisabled` instead of `disabled`) breaks the 
 ### What not to do
 
 ```typescript
-// ❌ "is" prefix on a behavioural prop — use a bare verb instead
+// ❌ "is" prefix on a behavioural prop: use a bare verb instead
 interface Props {
   isKeepMounted?: boolean; // ← wrong
   keepMounted?: boolean; // ← correct
 }
 
-// ❌ "should" prefix — adds indirection
+// ❌ "should" prefix: adds indirection
 interface Props {
   shouldShow?: boolean; // ← wrong
   showValidity?: boolean; // ← correct

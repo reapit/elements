@@ -80,7 +80,7 @@ Two props were renamed as part of this stabilisation:
 
 ## Limitations
 
-- **Children require manual review** — `RadioGroup` accepted any children, while `RadioGroupControl` expects `RadioGroupControl.Option` children (which wrap individual radio buttons). Verify that child elements are updated to use `RadioGroupControl.Option` after running this codemod.
-- **HTML attribute passthrough changes** — `RadioGroup` extended `HTMLAttributes<HTMLDivElement>`; `RadioGroupControl` extends `FieldsetHTMLAttributes<HTMLFieldSetElement>`. Any `div`-specific attributes passed through may need manual adjustment.
-- **Re-exports are skipped** — `export { RadioGroup } from '…'` declarations are left unchanged and require manual migration.
-- **Dynamic or non-standard aliasing** — unusual aliasing patterns outside standard import syntax may require manual review.
+- **Children require manual review**: `RadioGroup` accepted any children, while `RadioGroupControl` expects `RadioGroupControl.Option` children (which wrap individual radio buttons). Verify that child elements are updated to use `RadioGroupControl.Option` after running this codemod.
+- **HTML attribute passthrough changes**: `RadioGroup` extended `HTMLAttributes<HTMLDivElement>`; `RadioGroupControl` extends `FieldsetHTMLAttributes<HTMLFieldSetElement>`. Any `div`-specific attributes passed through may need manual adjustment.
+- **Re-exports are skipped**: `export { RadioGroup } from '…'` declarations are left unchanged and require manual migration.
+- **Dynamic or non-standard aliasing**: unusual aliasing patterns outside standard import syntax may require manual review.

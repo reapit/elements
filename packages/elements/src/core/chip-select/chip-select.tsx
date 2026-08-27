@@ -73,7 +73,7 @@ export function ChipSelect({
 
   // Sync `required` across every chip after each render. Without this, controlled state changes
   // (or `defaultChecked` initial states) leave individual chips with stale `required` attributes
-  // — every unchecked chip would carry `required` independently, so native form validation would
+  // Every unchecked chip would carry `required` independently, so native form validation would
   // fail even when one chip is checked. Running on every render keeps the group constraint
   // reflected on a single input: when any chip is checked, no chip is `required`.
   useEffect(() => {

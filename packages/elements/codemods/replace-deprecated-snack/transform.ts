@@ -136,7 +136,7 @@ function transformUseSnackCalls(
     const varStatement = varDeclList?.getParent()?.asKind(SyntaxKind.VariableStatement);
     if (!varDeclList || !varStatement) continue;
 
-    // Destructured binding — cannot automate safely; keep declaration and import in place
+    // Destructured binding; cannot automate safely (keep declaration and import in place)
     if (nameNode.getKind() !== SyntaxKind.Identifier) {
       varStatement.replaceWithText(
         `// TODO: Migrate useSnack() to toast — see @reapit/elements migration guide\n${varStatement.getText()}`,
@@ -246,7 +246,7 @@ function addTodosForSnackComponents(sourceFile: SourceFile, aliases: Map<string,
   );
 }
 
-// These are type-only exports (never used as values), so string replacement is safe — they
+// These are type-only exports (never used as values), so string replacement is safe: they
 // cannot appear in string literals or JSX text in realistic code. ts-morph's replaceWithText
 // cannot replace a TypeReference Identifier with the `never` keyword directly (Identifier →
 // NeverKeyword causes a reconciliation error), so the string approach is the practical choice.

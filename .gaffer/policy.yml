@@ -7,13 +7,13 @@
 version: 1
 
 # gaffer's own required status check. Must be added to the "Main branch
-# protection" ruleset's required_status_checks once this reaches PR stage —
+# protection" ruleset's required_status_checks once this reaches PR stage:
 # it is what actually re-validates the gates at the current head SHA, since
 # this repo's ruleset does not dismiss stale reviews on push.
 statusCheckContext: gaffer/gate
 
 # This repo's ruleset only allows squash merges (allowed_merge_methods:
-# ["squash"] / allow_squash_merge only) — enablePullRequestAutoMerge fails
+# ["squash"] / allow_squash_merge only), so enablePullRequestAutoMerge fails
 # with any other method.
 mergeMethod: SQUASH
 
@@ -36,7 +36,7 @@ sizeExemptGlobs:
 
 # Tier ceilings, calibrated against ~150 merged PRs in this repo (median 5
 # substantive lines / 1 file; p90 ~240 lines / 8 files). Matches PostHog's
-# stamphog thresholds almost exactly — this repo's real distribution sits
+# stamphog thresholds almost exactly; this repo's real distribution sits
 # comfortably inside them.
 sizeThresholds:
   hardCeiling:
@@ -51,7 +51,7 @@ sizeThresholds:
 # Hard deny-list. Any changed file matching a pattern here makes the PR
 # T2-never: the gate stage REFUSEs deterministically and the LLM reviewer is
 # never invoked. Re-derived from this repo's actual blast-radius surface
-# (no auth/billing/migrations here — this is a component library, not a
+# (no auth/billing/migrations here; this is a component library, not a
 # backend service) rather than copied from PostHog's category set.
 denyCategories:
   ci_cd:
@@ -77,7 +77,7 @@ denyCategories:
     pathPatterns:
       - ".husky/**"
   publish_release_config:
-    description: Release/publish configuration (not package.json — see publish_release_manifest)
+    description: Release/publish configuration (not package.json; see publish_release_manifest)
     pathPatterns:
       - ".changeset/config.json"
       - ".changeset/changelog-format.js"
@@ -85,11 +85,11 @@ denyCategories:
     description: Dangerous package.json fields (scripts, toolchain, publish target, identity)
     pathPatterns:
       - "**/package.json"
-    # Ordinary dependency add/bump/remove is NOT denied — only these fields are.
+    # Ordinary dependency add/bump/remove is NOT denied: only these fields are.
     contentPattern: '"(scripts|engines|packageManager|publishConfig|name)"\s*:'
 
-# Scrutiny-floor categories. Not denied — the LLM still reviews these and
-# can approve them — but the gate stage floors the tier at t1c-medium
+# Scrutiny-floor categories. Not denied (the LLM still reviews these and
+# can approve them), but the gate stage floors the tier at t1c-medium
 # regardless of measured size, so a change here can never be waved through
 # as "trivial" purely by line count. These are areas of frequent, legitimate
 # design-system churn (unlike the deny-list above), so a hard deny would
@@ -127,12 +127,12 @@ scrutinyFloorCategories:
       - "**/stylelint.config.js"
       - "**/playwright.config.ts"
   gaffer_agent:
-    description: Gaffer's own implementation and policy (not the workflow — that is covered by ci_cd deny)
+    description: Gaffer's own implementation and policy (not the workflow; that is covered by ci_cd deny)
     pathPatterns:
       - "packages/gaffer/**"
       - ".gaffer/policy.yml"
 
-# Advisory-only flags. Never change the gate verdict or tier — surfaced to
+# Advisory-only flags. Never change the gate verdict or tier: surfaced to
 # the LLM reviewer as extra context so it can factor them into its judgement.
 advisoryCategories:
   deprecated_touch:
@@ -142,7 +142,7 @@ advisoryCategories:
 
 # Dependency ecosystems used for the "manifest changed without a paired
 # lockfile" integrity check. A manifest edit alone (dependency added/bumped/
-# removed) with no matching lockfile change is a T2-never deny — it means
+# removed) with no matching lockfile change is a T2-never deny: it means
 # `yarn install` was never run, or the lockfile was hand-edited.
 dependencyEcosystems:
   node:

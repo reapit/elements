@@ -562,19 +562,19 @@ export const CSS_VARIABLE_MAP: Record<string, VariableMapping> = {
 
   // ---------------------------------------------------------------------------
   // Raw neutral palette  (legacy-reapit/tokens.css)
-  // v5 exposes no raw palette scale — map to the nearest semantic token.
+  // v5 exposes no raw palette scale: map to the nearest semantic token.
   // All are best_effort because the correct semantic token is context-dependent.
   // ---------------------------------------------------------------------------
   "neutral-900": { v5: "--colour-text-primary", kind: "best_effort" },
-  // #323e4b was removed from the v5 palette entirely — inline the hex value.
+  // #323e4b was removed from the v5 palette entirely: inline the hex value.
   "neutral-800": { kind: "inline", inlinedValue: "#323e4b" },
   "neutral-700": { v5: "--colour-text-tertiary", kind: "best_effort" },
-  // #506478 has no semantic v5 equivalent — inline the hex value.
+  // #506478 has no semantic v5 equivalent: inline the hex value.
   "neutral-600": { kind: "inline", inlinedValue: "#506478" },
   "neutral-500": { v5: "--colour-fill-neutral-dark", kind: "best_effort" },
   "neutral-400": { v5: "--colour-fill-neutral-medium", kind: "best_effort" },
   "neutral-300": { v5: "--colour-fill-neutral-medium", kind: "best_effort" },
-  // #c5ced6 has no semantic v5 equivalent — inline the hex value.
+  // #c5ced6 has no semantic v5 equivalent: inline the hex value.
   "neutral-200": { kind: "inline", inlinedValue: "#c5ced6" },
   "neutral-150": { v5: "--colour-border-neutral-light_darker", kind: "best_effort" },
   "neutral-100": { v5: "--colour-fill-neutral-light", kind: "best_effort" },
@@ -627,7 +627,7 @@ export const CSS_VARIABLE_MAP: Record<string, VariableMapping> = {
   "letter-spacing-sm": { v5: "--font-sm-regular-letter_spacing", kind: "direct" },
   "letter-spacing-xs": { v5: "--font-xs-regular-letter_spacing", kind: "direct" },
   "letter-spacing-2xs": { v5: "--font-2xs-regular-letter_spacing", kind: "direct" },
-  // Font family and weights — no standalone v5 tokens; inline concrete values.
+  // Font family and weights: no standalone v5 tokens; inline concrete values.
   "font-family": { kind: "inline", inlinedValue: "Inter" },
   "font-weight-regular": { kind: "inline", inlinedValue: "400" },
   // Legacy Reapit only exposes standalone font-weight tokens for regular and semibold here;

@@ -25,7 +25,7 @@ yarn add @reapit/elements@5`}
 
 ## Step 2: Update the stylesheet import
 
-Replace your existing stylesheet import with the v5 path, and add the new `reset.css` stylesheet. v5 components don't need it, but the `Deprecated*` v4 components you'll still be using mid-migration do — import it before `styles.css` and keep it in place until you've migrated off every deprecated component.
+Replace your existing stylesheet import with the v5 path, and add the new `reset.css` stylesheet. v5 components don't need it, but the `Deprecated*` v4 components you'll still be using mid-migration do; import it before `styles.css` and keep it in place until you've migrated off every deprecated component.
 
 In TypeScript or JavaScript:
 
@@ -47,7 +47,7 @@ The Inter font is now loaded unconditionally from the global stylesheet. If your
 
 ## Step 3: Run the codemods
 
-Elements v5 ships a codemod CLI. Run each codemod in the order shown — the order matters because later codemods build on the output of earlier ones.
+Elements v5 ships a codemod CLI. Run each codemod in the order shown; the order matters because later codemods build on the output of earlier ones.
 
 Add `--dry-run` to any command to preview what it would change without writing files:
 
@@ -60,7 +60,7 @@ Add `--dry-run` to any command to preview what it would change without writing f
 
 ### 1. Rewrite v4 imports
 
-`rewrite-v4-imports` normalises v4 component imports to the `Deprecated*` naming scheme that the component codemods in step 2 expect. Your JSX usage is unchanged — only the import statement is rewritten.
+`rewrite-v4-imports` normalises v4 component imports to the `Deprecated*` naming scheme that the component codemods in step 2 expect. Your JSX usage is unchanged; only the import statement is rewritten.
 
 <Source code={`yarn dlx @reapit/elements codemod apply rewrite-v4-imports src/`} language="bash" />
 
@@ -366,7 +366,7 @@ The short version:
   </tbody>
 </table>
 
-Rename `errorMessage` → `errorText`, `icon` → `leadingIcon`, and `inputAddOnText` → `suffix` on all migrated components. Remove `hasError` and `intent` — error state is now driven by the presence of `errorText`.
+Rename `errorMessage` → `errorText`, `icon` → `leadingIcon`, and `inputAddOnText` → `suffix` on all migrated components. Remove `hasError` and `intent`: error state is now driven by the presence of `errorText`.
 
 <details>
 <summary><strong>Full migration guide</strong></summary>

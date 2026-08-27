@@ -117,7 +117,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          # fetch-depth: 0 is required here — changesets needs full history to
+          # fetch-depth: 0 is required here, because changesets needs full history to
           # determine which packages changed since the last release tag.
           # The parallel check/test/build jobs use the default shallow clone.
           fetch-depth: 0
@@ -223,12 +223,12 @@ jobs:
           REMOTE_SHA="${PEELED:-$RAW}"
 
           if [ -z "${REMOTE_SHA}" ]; then
-            echo "Tag ${TAG} does not exist yet — will create."
+            echo "Tag ${TAG} does not exist yet: will create."
             exit 0
           fi
 
           if [ "${REMOTE_SHA}" = "${HEAD_SHA}" ]; then
-            echo "Tag ${TAG} already exists at this ref — skipping tag creation."
+            echo "Tag ${TAG} already exists at this ref: skipping tag creation."
             echo "skip_tag=true" >> "$GITHUB_OUTPUT"
             exit 0
           fi
@@ -253,7 +253,7 @@ jobs:
           VERSION="${{ steps.derive-tag.outputs.version }}"
 
           if gh release view "${TAG}" 2>/dev/null; then
-            echo "GitHub Release ${TAG} already exists — skipping."
+            echo "GitHub Release ${TAG} already exists: skipping."
             exit 0
           fi
 
@@ -285,7 +285,7 @@ jobs:
           # versions and new packages gracefully. `--no-git-tag` suppresses the
           # post-publish git tagging, which this workflow manages separately.
           #
-          # Authentication uses OIDC trusted publishing — npm exchanges the
+          # Authentication uses OIDC trusted publishing: npm exchanges the
           # GitHub Actions OIDC token for a short-lived publish token.
           #
           # Provenance attestation is intentionally disabled. The OIDC token's

@@ -108,8 +108,8 @@ export const Constrained = Example.extend({
 });
 
 /**
- * When the entire card must be interactive — triggering an action or navigating
- * to a URL — use `ButtonCard` or `AnchorCard` instead of `Card`. Both variants
+ * When the entire card must be interactive, such as triggering an action or navigating
+ * to a URL, use `ButtonCard` or `AnchorCard` instead of `Card`. Both variants
  * share Card's `borderRadius` and `padding` props and add hover, focus, and
  * disabled states appropriate for interactive elements.
  *

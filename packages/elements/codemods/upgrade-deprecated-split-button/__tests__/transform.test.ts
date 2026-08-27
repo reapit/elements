@@ -455,7 +455,7 @@ function MyComponent() {
 `;
     const output = transform(input);
     expect(output).not.toContain("DeprecatedSplitButton");
-    // Count closing tags — TODO comments don't contain </SplitButton>
+    // Count closing tags: TODO comments don't contain </SplitButton>
     const closingMatches = output.match(/<\/SplitButton>/g);
     expect(closingMatches?.length).toBe(2);
   });

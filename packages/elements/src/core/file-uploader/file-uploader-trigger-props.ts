@@ -2,7 +2,7 @@ import type { FocusEventHandler, KeyboardEventHandler, MouseEventHandler } from 
 
 /**
  * Common attributes to omit from `FileInput.Props` when a component embeds a `FileInput` under
- * its own custom trigger — each of `autoFocus`/`onBlur`/`onClick`/`onFocus`/`onKeyDown`/
+ * its own custom trigger: each of `autoFocus`/`onBlur`/`onClick`/`onFocus`/`onKeyDown`/
  * `tabIndex`/`style`/`className` is instead wired onto the visible trigger element (see
  * `FileUploaderTriggerProps`), not the hidden native input.
  */

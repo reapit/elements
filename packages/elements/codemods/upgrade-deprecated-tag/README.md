@@ -63,7 +63,7 @@ The key API differences are:
 | ---------------- | ---------------------------------- | -------------------------------------------------------------- |
 | **Import path**  | `@reapit/elements`                 | `@reapit/elements/core/tag`, `@reapit/elements/core/tag-group` |
 | **Type pattern** | `DeprecatedTagProps`               | `Tag.Props` (namespace)                                        |
-| **Colour prop**  | `intent` (optional)                | Removed — no colour/intent equivalent                          |
+| **Colour prop**  | `intent` (optional)                | Removed: no colour/intent equivalent                           |
 | **Group child**  | `<DeprecatedTag>` inside group     | `<TagGroup.Item>` (compound component)                         |
 
 ## Transformations
@@ -77,10 +77,10 @@ The key API differences are:
 | `import { type DeprecatedTag } from '@reapit/elements'`        | `import { type Tag } from '@reapit/elements/core/tag'`                                           |
 | `import { DeprecatedTag, Input } from '@reapit/elements'`      | `import { Input } from '@reapit/elements'`<br/>`import { Tag } from '@reapit/elements/core/tag'` |
 | `import { DeprecatedTagGroup } from '@reapit/elements'`        | `import { TagGroup } from '@reapit/elements/core/tag-group'`                                     |
-| `import { DeprecatedTagProps } from '@reapit/elements'`        | _(removed — type rewritten to `Tag.Props`)_                                                      |
-| `import { ElDeprecatedTag } from '@reapit/elements'`           | _(removed — manual migration required)_                                                          |
-| `import { ElDeprecatedTagGroup } from '@reapit/elements'`      | _(removed — manual migration required)_                                                          |
-| `import { ElDeprecatedTagGroupInner } from '@reapit/elements'` | _(removed — manual migration required)_                                                          |
+| `import { DeprecatedTagProps } from '@reapit/elements'`        | _(removed: type rewritten to `Tag.Props`)_                                                       |
+| `import { ElDeprecatedTag } from '@reapit/elements'`           | _(removed: manual migration required)_                                                           |
+| `import { ElDeprecatedTagGroup } from '@reapit/elements'`      | _(removed: manual migration required)_                                                           |
+| `import { ElDeprecatedTagGroupInner } from '@reapit/elements'` | _(removed: manual migration required)_                                                           |
 
 ### Import Splitting
 
@@ -151,15 +151,15 @@ Tags inside a group become `TagGroup.Item`, the idiomatic compound-component API
 
 ## Limitations
 
-- **Styled component imports** — `ElDeprecatedTag`, `ElDeprecatedTagGroup`, and `ElDeprecatedTagGroupInner` imports are removed automatically, but usages in JSX or style composition require manual migration.
+- **Styled component imports**: `ElDeprecatedTag`, `ElDeprecatedTagGroup`, and `ElDeprecatedTagGroupInner` imports are removed automatically, but usages in JSX or style composition require manual migration.
 
-- **No colour/intent mapping** — Unlike the badge codemod, the `intent` prop is removed entirely because the new `Tag` component has no equivalent. Review each TODO comment to determine whether visual differentiation is still needed.
+- **No colour/intent mapping**: Unlike the badge codemod, the `intent` prop is removed entirely because the new `Tag` component has no equivalent. Review each TODO comment to determine whether visual differentiation is still needed.
 
-- **Aliased imports** — The codemod preserves import aliases (e.g. `DeprecatedTag as T`). JSX elements using the alias keep their local name; only the import binding changes.
+- **Aliased imports**: The codemod preserves import aliases (e.g. `DeprecatedTag as T`). JSX elements using the alias keep their local name; only the import binding changes.
 
 ## Next Steps After Running This Codemod
 
-1. **Run tests** — Verify your application still works correctly.
-2. **Review TODO comments** — Each standalone migration and intent removal is marked with a TODO; confirm the conversion is appropriate.
-3. **Migrate styled components** — If you used `ElDeprecatedTag` or related exports directly, replace them with the corresponding styled exports from the new components.
-4. **Commit changes** — Commit the migration as a single atomic change.
+1. **Run tests**: Verify your application still works correctly.
+2. **Review TODO comments**: Each standalone migration and intent removal is marked with a TODO; confirm the conversion is appropriate.
+3. **Migrate styled components**: If you used `ElDeprecatedTag` or related exports directly, replace them with the corresponding styled exports from the new components.
+4. **Commit changes**: Commit the migration as a single atomic change.

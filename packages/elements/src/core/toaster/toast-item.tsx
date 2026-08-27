@@ -52,7 +52,7 @@ export function ToastItem({
 
   // Compute the elapsed time once at mount so the timeout bar animation style
   // remains stable. On resume from paused, startedAt is back-dated so that
-  // Date.now() - startedAt always equals the total elapsed time — meaning a
+  // Date.now() - startedAt always equals the total elapsed time: meaning a
   // remount after one or more pauses will compute the correct elapsed offset.
   const [elapsed] = useState(() =>
     isTimedDuration(duration) && startedAt !== null

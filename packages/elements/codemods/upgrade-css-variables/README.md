@@ -109,7 +109,7 @@ The following variables are left completely unchanged:
 
 For **direct** and **best-effort** mappings, existing fallback values inside `var()` are always preserved unchanged. This codemod never adds new fallback values.
 
-For **inline** mappings, any existing fallback is dropped — it is redundant once the value is resolved to a concrete literal.
+For **inline** mappings, any existing fallback is dropped: it is redundant once the value is resolved to a concrete literal.
 
 ```css
 /* Input */

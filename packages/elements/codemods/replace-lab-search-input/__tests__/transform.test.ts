@@ -83,7 +83,7 @@ describe("import rewrites", () => {
       `<SI />`,
     ].join("\n");
     const output = transform(input, "file.tsx");
-    // The alias is preserved and used as the .Props base — no unaliased SearchInput import is added.
+    // The alias is preserved and used as the .Props base: no unaliased SearchInput import is added.
     expect(output).toContain(
       "import { SearchInput as SI } from '@reapit/elements/core/search-input'",
     );

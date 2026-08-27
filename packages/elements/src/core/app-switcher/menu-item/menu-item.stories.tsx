@@ -9,7 +9,7 @@ const meta = preview.meta({
 
 /**
  * A basic menu item that renders an avatar, product name, and supplementary info. All content is supplied
- * directly as props — the avatar slot accepts any React node, allowing consumers to provide their own
+ * directly as props: the avatar slot accepts any React node, allowing consumers to provide their own
  * product logo or placeholder.
  */
 export const Example = meta.story({

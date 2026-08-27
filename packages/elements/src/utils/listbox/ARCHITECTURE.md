@@ -2,7 +2,7 @@
 
 ## Overview
 
-`Listbox` is the foundational selection widget. It renders options twice — once in a hidden
+`Listbox` is the foundational selection widget. It renders options twice: once in a hidden
 native `<select>` for form integration and once in a custom `<div role="listbox">` for styled
 presentation. The two trees stay in sync through a shared selection state held in
 `useListboxSelectState`.
@@ -13,7 +13,7 @@ state and `aria-activedescendant` on the container guides screen readers. Indivi
 elements are never focused directly (`tabIndex={-1}` on every option).
 
 `Listbox` also supports the ARIA [tree pattern](https://www.w3.org/WAI/ARIA/apg/patterns/treeview)
-as an alternative container role, via the `role` prop (`'listbox'` default, or `'tree'`) — see
+as an alternative container role, via the `role` prop (`'listbox'` default, or `'tree'`); see
 [Tree mode](#tree-mode).
 
 ## Component hierarchy
@@ -49,7 +49,7 @@ integration point for all active-descendant management.
 Keyboard navigation itself is dispatched by `navigateActiveDescendant`, a plain DOM function
 (not a hook). `useActiveDescendant`'s `onKeyDown` calls it for the listbox container's own
 keyboard handling, and `ComboboxSearchInput` calls it directly for the same purpose when a
-search input — not the listbox — owns focus (see Combobox architecture).
+search input, not the listbox, owns focus (see Combobox architecture).
 
 ### Why aria-activedescendant instead of roving tabindex
 
@@ -89,7 +89,7 @@ input retains focus.
 ### Option activation on click (onClick)
 
 Clicking an option calls `activateOption` to set `data-is-active` on that option. This ensures
-the active state tracks both keyboard and mouse interactions — clicking an option is equivalent
+the active state tracks both keyboard and mouse interactions; clicking an option is equivalent
 to navigating to it with the keyboard.
 
 ### Keyboard interaction
@@ -105,7 +105,7 @@ to navigating to it with the keyboard.
 | Enter / Space | Clicks the active option                                                             |
 
 In **tree mode** (`role="tree"`), ArrowRight/ArrowLeft are repurposed for hierarchy instead of
-horizontal movement — see [Hierarchical navigation](#hierarchical-navigation).
+horizontal movement; see [Hierarchical navigation](#hierarchical-navigation).
 
 ## Tree mode
 
@@ -116,16 +116,16 @@ Tree mode is selected via the `role` prop (`'listbox'` default, or `'tree'`) and
 - Makes `Listbox.Option` render `role="treeitem"` instead of `role="option"`, by reading `role`
   off `ListboxContext`.
 
-Groups are not built with `Listbox.Optgroup` in tree mode — they use plain `<details>`/`<summary>`
+Groups are not built with `Listbox.Optgroup` in tree mode; they use plain `<details>`/`<summary>`
 directly, with the summary given `role="treeitem"` by the consumer (see
 `OfficeSwitcherOfficeGroup`). Because `role="treeitem"` on `<summary>` overrides the element's
-implicit ARIA semantics per HTML-AAM §5.1, the consumer must also manage `aria-expanded` itself —
-native `<details>` no longer exposes it automatically once the role is overridden.
+implicit ARIA semantics per HTML-AAM §5.1, the consumer must also manage `aria-expanded` itself,
+since native `<details>` no longer exposes it automatically once the role is overridden.
 
 ### Hierarchical navigation
 
 `navigateActiveDescendant` checks `listboxElement.getAttribute('role') === 'tree'` to enable
-tree-only handling of ArrowRight/ArrowLeft (vertical orientation only — a horizontal tree is not
+tree-only handling of ArrowRight/ArrowLeft (vertical orientation only, as a horizontal tree is not
 supported, since the horizontal branch takes priority in the `ariaOrientation === 'horizontal'`
 check):
 
@@ -141,18 +141,18 @@ during linear traversal.
 ### Selectors
 
 Tree mode introduces a second option role (`treeitem`) and a second container role (`tree`), so
-`src/utils/listbox/dom-helpers/selectors.ts` exports three selector constants for different jobs —
-don't reach for the wrong one:
+`src/utils/listbox/dom-helpers/selectors.ts` exports three selector constants for different jobs:
+don't reach for the wrong one.
 
 | Constant                     | Matches                                                                        | Used for                                                                                                                                                     |
 | ---------------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `OPTION_SELECTOR`            | `button[role="option"]`, `button[role="treeitem"]`, `summary[role="treeitem"]` | `querySelectorAll` traversal (e.g. `getVisibleOptions`) — tag-specific so it only matches real option/summary elements                                       |
-| `OPTION_ROLE_SELECTOR`       | `[role="option"]`, `[role="treeitem"]`                                         | `Element.closest()` lookups (e.g. `getOptionElement` in Combobox) — tag-agnostic so it matches regardless of the element's tag                               |
+| `OPTION_SELECTOR`            | `button[role="option"]`, `button[role="treeitem"]`, `summary[role="treeitem"]` | `querySelectorAll` traversal (e.g. `getVisibleOptions`); tag-specific so it only matches real option/summary elements                                        |
+| `OPTION_ROLE_SELECTOR`       | `[role="option"]`, `[role="treeitem"]`                                         | `Element.closest()` lookups (e.g. `getOptionElement` in Combobox), tag-agnostic so it matches regardless of the element's tag                                |
 | `LISTBOX_CONTAINER_SELECTOR` | `[role="listbox"]`, `[role="tree"]`                                            | `Element.closest()` lookups for the owning container (e.g. `findListboxElement`'s fallback when an option has no `data-listbox-id`, such as a group summary) |
 
 ## Active-descendant helpers (`use-active-descendant`)
 
-Pure DOM functions and the `useActiveDescendant` hook. None of them hold React state — they
+Pure DOM functions and the `useActiveDescendant` hook. None of them hold React state; they
 operate on the live DOM directly, which avoids a render cycle per keystroke.
 
 ### Why data-is-active is DOM-imperative
@@ -163,21 +163,21 @@ components cannot read it as a prop.
 
 ### Helper functions
 
-| Function                        | Purpose                                                                                                                         |
-| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| `activateOption`                | Sets `data-is-active`, scrolls into view, sets `aria-activedescendant` on `ariaOwner`                                           |
-| `clearActiveOption`             | Removes `data-is-active` from all options, removes `aria-activedescendant`                                                      |
-| `clickOption`                   | Calls `.click()` on the option element                                                                                          |
-| `getActiveOption`               | Returns the element with `data-is-active="true"`                                                                                |
-| `getInitialActiveOption`        | Returns the selected option, falling back to the first option                                                                   |
-| `getInitialActiveOptionFromEnd` | Mirrors `getInitialActiveOption`, but falls back to the **last** option — used for ArrowUp/ArrowLeft when nothing is active yet |
-| `getNextOption`                 | Returns the next visible option; `null` at the last option (no wraparound)                                                      |
-| `getPrevOption`                 | Returns the previous visible option; `null` at the first option (no wraparound)                                                 |
-| `getFirstOption`                | Returns the first visible option                                                                                                |
-| `getLastOption`                 | Returns the last visible option                                                                                                 |
-| `getVisibleOptions`             | Returns all options not hidden inside a closed `<details>` element                                                              |
+| Function                        | Purpose                                                                                                                        |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| `activateOption`                | Sets `data-is-active`, scrolls into view, sets `aria-activedescendant` on `ariaOwner`                                          |
+| `clearActiveOption`             | Removes `data-is-active` from all options, removes `aria-activedescendant`                                                     |
+| `clickOption`                   | Calls `.click()` on the option element                                                                                         |
+| `getActiveOption`               | Returns the element with `data-is-active="true"`                                                                               |
+| `getInitialActiveOption`        | Returns the selected option, falling back to the first option                                                                  |
+| `getInitialActiveOptionFromEnd` | Mirrors `getInitialActiveOption`, but falls back to the **last** option; used for ArrowUp/ArrowLeft when nothing is active yet |
+| `getNextOption`                 | Returns the next visible option; `null` at the last option (no wraparound)                                                     |
+| `getPrevOption`                 | Returns the previous visible option; `null` at the first option (no wraparound)                                                |
+| `getFirstOption`                | Returns the first visible option                                                                                               |
+| `getLastOption`                 | Returns the last visible option                                                                                                |
+| `getVisibleOptions`             | Returns all options not hidden inside a closed `<details>` element                                                             |
 
-`getNextOption`/`getPrevOption` deliberately don't wrap around at the list boundaries — see the
+`getNextOption`/`getPrevOption` deliberately don't wrap around at the list boundaries; see the
 comment on `getNextOption` for why.
 
 The `ariaOwner` parameter for `activateOption` and `clearActiveOption` is the element that
@@ -218,7 +218,7 @@ container, so form libraries see standard select element events.
 | Context                | Fields                                                                                               |
 | ---------------------- | ---------------------------------------------------------------------------------------------------- |
 | `ListboxContext`       | `disabled`, `listboxId`, `multiple`, `role` (`'listbox'` \| `'tree'`), `selectAction`, `selectValue` |
-| `ListboxRenderContext` | `"native"` or `"custom"` — controls which elements `Option` and `Optgroup` render                    |
+| `ListboxRenderContext` | `"native"` or `"custom"`: controls which elements `Option` and `Optgroup` render                     |
 
 ## Data attributes
 

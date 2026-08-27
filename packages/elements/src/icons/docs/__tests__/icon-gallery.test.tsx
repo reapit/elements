@@ -38,7 +38,7 @@ function getTiles() {
 describe("IconGallery", () => {
   test("renders all icons by default", () => {
     render(<IconGallery />);
-    // 200 icons currently — assert "more than 100" rather than the exact number so the
+    // 200 icons currently, assert "more than 100" rather than the exact number so the
     // test does not need updating every time icons are added or removed.
     expect(getTiles().length).toBeGreaterThan(100);
   });

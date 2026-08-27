@@ -28,7 +28,7 @@ export namespace GalleryViewerCarousel {
      */
     defaultValue?: string;
     /**
-     * Called when the visible item changes — either by swipe or programmatic navigation.
+     * Called when the visible item changes: either by swipe or programmatic navigation.
      * Receives the `id` of the newly visible item.
      */
     onChange?: (id: string) => void;

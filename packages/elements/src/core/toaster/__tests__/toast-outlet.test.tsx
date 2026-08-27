@@ -101,7 +101,7 @@ test("does not call showPopover when it is not the active outlet", () => {
     toastStore.add({ variant: "neutral", message: "Hello" });
   });
 
-  // showPopover should only be called once — on the active (second) outlet
+  // showPopover should only be called once: on the active (second) outlet
   expect(showSpy).toHaveBeenCalledTimes(1);
 
   showSpy.mockRestore();

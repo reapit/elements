@@ -180,7 +180,7 @@ test("is disabled when the carousel is in read-only controlled mode", () => {
       <GalleryViewerCarouselButton aria-label="Next" direction="next" />
     </GalleryViewerCarousel>,
   );
-  // Put the track mid-scroll so atEdge is false — aria-disabled must come from isReadOnly alone.
+  // Put the track mid-scroll so atEdge is false: aria-disabled must come from isReadOnly alone.
   configureTrack(screen.getByTestId("track-readonly"), {
     scrollLeft: 100,
     clientWidth: 100,
@@ -200,7 +200,7 @@ test("a consumer-provided disabled prop overrides auto-disable", () => {
       <GalleryViewerCarouselButton aria-label="Next" direction="next" disabled />
     </GalleryViewerCarousel>,
   );
-  // Put the track mid-scroll so atEdge is false — aria-disabled must come from the disabled prop alone.
+  // Put the track mid-scroll so atEdge is false: aria-disabled must come from the disabled prop alone.
   configureTrack(screen.getByTestId("track-disabled"), {
     scrollLeft: 100,
     clientWidth: 100,

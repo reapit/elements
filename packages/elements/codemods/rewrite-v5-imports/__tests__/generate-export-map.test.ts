@@ -77,7 +77,7 @@ describe("getModuleEntries (against real source)", { timeout: 30_000 }, () => {
 
   let project: Project;
 
-  // addSourceFilesAtPaths over the full source tree is the expensive step —
+  // addSourceFilesAtPaths over the full source tree is the expensive step;
   // give the hook the same budget as the tests.
   beforeAll(() => {
     project = new Project({
@@ -141,7 +141,7 @@ describe("getModuleEntries (against real source)", { timeout: 30_000 }, () => {
 
 // ─── getExportedNames ─────────────────────────────────────────────────────────
 
-// Same timeout rationale as getModuleEntries above — ts-morph project creation
+// Same timeout rationale as getModuleEntries above: ts-morph project creation
 // over the full source tree is slow under coverage instrumentation on CI.
 // Both the describe timeout (tests) and beforeAll timeout (hook) must be set.
 describe("getExportedNames (against real source)", { timeout: 30_000 }, () => {
@@ -198,17 +198,17 @@ describe("getExportedNames (against real source)", { timeout: 30_000 }, () => {
 // buildExportMap creates a ts-morph Project and walks every component index and source
 // file in the tree. This is the most expensive test in the file; under v8
 // coverage on CI the work regularly exceeds the default 5 s timeout.
-// Both the describe timeout (tests) and beforeAll timeout (hook) must be set —
-// Vitest's describe timeout does not cover beforeAll/afterAll hooks.
+// Both the describe timeout (tests) and beforeAll timeout (hook) must be set,
+// because Vitest's describe timeout does not cover beforeAll/afterAll hooks.
 describe("buildExportMap (integration, against real source)", { timeout: 30_000 }, () => {
-  // This is the most expensive test — it reads the entire source tree.
+  // This is the most expensive test: it reads the entire source tree.
   // It validates key invariants of the generated map.
 
   let exportMap: Record<string, string>;
 
   // buildExportMap internally creates a ts-morph Project and processes every
   // source file; give the hook the same 30 s budget as the tests.
-  // Suppress the expected duplicate-export console.warn — the duplicates are a
+  // Suppress the expected duplicate-export console.warn: the duplicates are a
   // known property of the source structure, not a test failure.
   beforeAll(() => {
     const consoleWarn = vi.spyOn(console, "warn").mockImplementation(() => {});

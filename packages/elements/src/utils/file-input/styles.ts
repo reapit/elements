@@ -13,8 +13,8 @@ export const ElFileInputWrapper = styled.div`
 export const ElFileInput = styled.input`
   @layer elements.main {
     /* NOTE: applied when a consumer supplies children, replacing the default rendered content.
-     * The input stays focusable and part of the accessibility tree — see file-input.tsx's doc
-     * comment on tabIndex — it's just not visually shown alongside the custom content. */
+     * The input stays focusable and part of the accessibility tree (see file-input.tsx's doc
+     * comment on tabIndex); it's just not visually shown alongside the custom content. */
     &[data-visually-hidden="true"] {
       position: absolute;
       width: 1px;

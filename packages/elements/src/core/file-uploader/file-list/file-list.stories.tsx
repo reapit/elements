@@ -5,7 +5,7 @@ import type { FileUploadQueue } from "../file-upload-queue";
 import { FileUploader } from "../file-uploader";
 
 // `FileUploader.FileList` always subscribes to its queue, even when `children` is a static
-// subtree rather than the items render function — so every story still needs a queue in context,
+// subtree rather than the items render function, so every story still needs a queue in context,
 // just not a real, uploading one. This stub satisfies the subscription without a `FileUploadQueue`
 // instance or a `FileUploader` ancestor.
 const emptyItems: FileUploadQueue.Item[] = [];

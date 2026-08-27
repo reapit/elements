@@ -10,14 +10,14 @@ The goal is **maximum byte-parity with `main`** so that each cutover is a delibe
 
 ## 1. Prerequisites (out-of-band)
 
-Do these before raising the branch-setup PR — they can't be automated.
+Do these before raising the branch-setup PR: they can't be automated.
 
 | What                                                                      | Why                                                                                                          |
 | ------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
 | GitHub branch protection for the new maintenance branch                   | Prevents force-pushes; enables required status checks                                                        |
 | `release` Environment → add the maintenance branch as a deployment target | The `release` job has `environment: release`; GitHub won't mint an OIDC token unless the branch is permitted |
 | Cloudflare secrets are **repo-scoped**, not environment-scoped            | `ANZ_CLOUDFLARE_TOKEN` and `ANZ_CLOUDFLARE_ACCOUNT_ID` must be available to workflow runs on any branch      |
-| npm Trusted Publisher registration                                        | Already workflow-scoped (`release.yml`), so it auto-covers new branches — just verify                        |
+| npm Trusted Publisher registration                                        | Already workflow-scoped (`release.yml`), so it auto-covers new branches, just verify                         |
 
 ---
 
@@ -35,7 +35,7 @@ The release workflow is the only file on `main` that needs updating to support a
 
 ## 3. Changes on the maintenance branch
 
-All of these belong in the single "backport infra" PR. Minimise scope — no component, token, or utility changes.
+All of these belong in the single "backport infra" PR. Minimise scope: no component, token, or utility changes.
 
 ### 3a. `package.json`
 
@@ -63,7 +63,7 @@ All of these belong in the single "backport infra" PR. Minimise scope — no com
 
 `baseBranch` must match the maintenance branch name (e.g. `lts`), not `"main"`.
 
-Do **not** copy historical `.changeset/*.md` entries from `main` — they describe trunk work. Do **not** copy `pre.json` if main is in pre-release mode.
+Do **not** copy historical `.changeset/*.md` entries from `main`, because they describe trunk work. Do **not** copy `pre.json` if main is in pre-release mode.
 
 ### 3c. Composite action: `test/action.yml`
 
@@ -83,7 +83,7 @@ This is the only composite action that should diverge; document it in the footno
 
 ### 3d. `lint-staged.config.js`
 
-Update the lint, format, and test commands to match the maintenance branch's toolchain. The file structure and key shape stay identical — only the commands change.
+Update the lint, format, and test commands to match the maintenance branch's toolchain. The file structure and key shape stay identical; only the commands change.
 
 ---
 
@@ -100,8 +100,8 @@ Before opening the PR:
 
 After the PR merges and CI is green:
 
-- [ ] `gh workflow run "Deploy Docs (Manual)" --ref <branch> -f target=v<N>` — smoke-test the Storybook deploy
-- [ ] Check `npm dist-tag ls @reapit/elements` — confirm `v<N>` tag exists and points at the new version; `latest` still points at main's release
+- [ ] `gh workflow run "Deploy Docs (Manual)" --ref <branch> -f target=v<N>`: smoke-test the Storybook deploy
+- [ ] Check `npm dist-tag ls @reapit/elements`: confirm `v<N>` tag exists and points at the new version; `latest` still points at main's release
 
 ---
 

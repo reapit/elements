@@ -3,7 +3,7 @@
 ## Overview
 
 `Combobox` is a compound component that wires a trigger button, a popup dialog, and a `Listbox`
-together into the ARIA combobox pattern. It owns no visible UI itself — it delegates all
+together into the ARIA combobox pattern. It owns no visible UI itself; it delegates all
 rendering to subcomponents. Shared state (IDs, disabled, multiple, required) flows down via
 `ComboboxContext`.
 
@@ -48,10 +48,10 @@ option activation on click.
 ### With a search input
 
 The `<input>` holds focus throughout the popup's lifetime. The listbox is `tabIndex={-1}` to
-remove it from the tab sequence — Tab should jump from the input directly to the next focusable
+remove it from the tab sequence; Tab should jump from the input directly to the next focusable
 element outside the popup.
 
-Clicking inside the listbox — on an option or in the whitespace between them — would normally
+Clicking inside the listbox, on an option or in the whitespace between them, would normally
 transfer DOM focus away from the search input, breaking the ability to continue typing.
 `useActiveDescendant`'s `onMouseDown` handler prevents that (see the `onMouseDown` comment on
 `Listbox` for the mechanism); its focus-retention follow-up is skipped when `tabIndex={-1}`,
@@ -69,7 +69,7 @@ element, bypassing the listbox container's own keyboard handlers:
 | Enter     | Clicks the active option                                                                                                       |
 
 ArrowUp's initial landing spot (the end of the list, not the start) and its no-wraparound stop at
-the boundary mirror the standalone listbox — see the Listbox architecture doc's Active-descendant
+the boundary mirror the standalone listbox; see the Listbox architecture doc's Active-descendant
 helpers section for why.
 
 `ComboboxSearchInput` intercepts only navigation keys; all other keystrokes reach the input's
@@ -112,7 +112,7 @@ The handler uses `event.defaultPrevented` as an opt-out: an option can call
 [Tree mode](../listbox/ARCHITECTURE.md#tree-mode)) follows the same close-on-selection rules as a
 standard listbox. Clicking a group's `<summary>` also matches, but since summaries don't carry
 `data-listbox-id`, `'auto'` mode's single-select lookup resolves to no listbox element and treats
-it as not-single-select, so it doesn't close the popup — which is what lets an expand/collapse
+it as not-single-select, so it doesn't close the popup, which is what lets an expand/collapse
 click stay open. `'always'` mode has no such guard and closes on a summary click regardless.
 
 Keyboard selection (Enter on an active option) calls `clickOption`, which invokes `.click()` on
@@ -131,17 +131,17 @@ within the dialog.
 | Context                         | Fields                                                                                                                |
 | ------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
 | `ComboboxContext`               | `comboboxId`, `disabled`, `listboxId`, `multiple`, `popupId`, `required`, `searchInputId`, `size`, ARIA relationships |
-| `ComboboxPopupDialogContext`    | `hasSearch`, `variant` — consumed by `ComboboxListbox` and `ComboboxSearchInput`                                      |
+| `ComboboxPopupDialogContext`    | `hasSearch`, `variant`; consumed by `ComboboxListbox` and `ComboboxSearchInput`                                       |
 | `ComboboxDefaultOptionsContext` | Pre-selected option definitions for controlled default-value scenarios                                                |
 
 ## Contexts — inherited by ComboboxListbox
 
 `ComboboxListbox` reads from `ComboboxContext` to fill the props it pins (`id`,
 `aria-disabled`, `aria-multiselectable`, `aria-required`), and from
-`ComboboxPopupDialogContext` to determine `hasSearch`. This keeps the consumer API minimal —
+`ComboboxPopupDialogContext` to determine `hasSearch`. This keeps the consumer API minimal;
 consumers do not need to pass these through manually.
 
 `role` is not pinned, so a consumer can render `Combobox.Listbox` with `role="tree"` to opt into
 the Listbox utility's tree mode (see Listbox architecture's
-[Tree mode](../listbox/ARCHITECTURE.md#tree-mode)) — `OfficeSwitcher` does this via a thin
+[Tree mode](../listbox/ARCHITECTURE.md#tree-mode)); `OfficeSwitcher` does this via a thin
 `OfficeSwitcherListbox` wrapper that always sets `role="tree"`.

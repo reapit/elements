@@ -134,5 +134,5 @@ Although numeric values are inlined for safety, the preferred long-term solution
 ### `MediaType` type
 
 The `MediaType` interface is removed. Type annotations using `MediaType` are replaced with a `TODO`
-comment. Update these manually — a narrower interface or `ReturnType<typeof useMatchMedia>` is usually
+comment. Update these manually: a narrower interface or `ReturnType<typeof useMatchMedia>` is usually
 the right replacement.
