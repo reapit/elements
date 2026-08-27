@@ -3,7 +3,7 @@
 This document explains how the cascade layer order and the library's global
 styles reach both Storybook and the production CSS bundle. For the rules
 contributors should follow when writing component styles, see the
-[`cascade-layering`](../../.agents/skills/cascade-layering/SKILL.md) skill.
+[`cascade-layering`](../../../.claude/skills/cascade-layering/SKILL.md) skill.
 
 ## Overview
 

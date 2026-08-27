@@ -7,7 +7,7 @@ Composite action that runs [NVIDIA SkillSpector](https://github.com/NVIDIA/Skill
 ```yaml
 - uses: ./actions/audit-skills
   with:
-    path: .agents/skills # directory containing skill subdirectories
+    path: .claude/skills # directory containing skill subdirectories
     changed-only: "true" # scan only skills changed in this PR
     base-ref: ${{ github.base_ref }}
 ```
@@ -16,7 +16,7 @@ Composite action that runs [NVIDIA SkillSpector](https://github.com/NVIDIA/Skill
 
 | Input          | Default          | Description                                                                                                                  |
 | -------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `path`         | `.agents/skills` | Directory whose immediate subdirectories are scanned. Each must contain a `SKILL.md`.                                        |
+| `path`         | `.claude/skills` | Directory whose immediate subdirectories are scanned. Each must contain a `SKILL.md`.                                        |
 | `changed-only` | `false`          | When `true`, scan only skills changed relative to `base-ref`. Requires `base-ref` and `fetch-depth: 0` on the checkout step. |
 | `base-ref`     | _(empty)_        | Base branch to diff against. Pass `github.base_ref` in pull-request workflows. Ignored when `changed-only` is `false`.       |
 
@@ -31,7 +31,7 @@ The action fails if any skill produces findings not covered by its baseline.
 Generate a baseline for a skill after reviewing its findings:
 
 ```bash
-skillspector baseline .agents/skills/my-skill --no-llm -o .agents/skills/my-skill/.skillspector-baseline.yaml
+skillspector baseline .claude/skills/my-skill --no-llm -o .claude/skills/my-skill/.skillspector-baseline.yaml
 ```
 
 Edit the `reason` field for each suppressed fingerprint to explain why it is a false positive. Commit the baseline file alongside the skill.

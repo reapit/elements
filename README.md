@@ -36,7 +36,7 @@ Components and utilities are documented via Storybook and can be accessed via th
 
 ## For Contributors & AI Agents
 
-- **[AGENTS.md](./AGENTS.md)** - Essential guide for AI agents working on this project
+- **[CLAUDE.md](./CLAUDE.md)** - Essential guide for AI agents working on this project
 - **[guidelines/\*](./guidelines)** - Guidelines concerning code style, patterns, and best practices
 - **[.changeset/README.md](./.changeset/README.md)** - How to document your changes using changesets
 

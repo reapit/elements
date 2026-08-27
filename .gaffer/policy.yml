@@ -136,7 +136,7 @@ scrutinyFloorCategories:
 # the LLM reviewer as extra context so it can factor them into its judgement.
 advisoryCategories:
   deprecated_touch:
-    description: "AGENTS.md asks contributors to avoid modifying src/deprecated/"
+    description: "CLAUDE.md asks contributors to avoid modifying src/deprecated/"
     pathPatterns:
       - "**/src/deprecated/**"
 

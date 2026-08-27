@@ -62,7 +62,7 @@ build
 docs ──── deploy-preview
 figma
 tokens                (regenerates the theme CSS and fails if it differs from what is committed)
-audit-skills          (scans .agents/skills and plugins/elements/skills; each scan skipped when its path is unchanged)
+audit-skills          (scans .claude/skills and plugins/elements/skills; each scan skipped when its path is unchanged)
 ```
 
 `cleanup-preview.yml` runs one of two jobs depending on the trigger:

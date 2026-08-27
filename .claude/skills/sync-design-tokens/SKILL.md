@@ -45,7 +45,7 @@ the result.
 ### 1b — Skip the files that have not changed
 
 ```sh
-node .agents/skills/sync-design-tokens/scripts/token-digest.js
+node .claude/skills/sync-design-tokens/scripts/token-digest.js
 ```
 
 It prints `file`, `bytes` and `digest` for the committed files, computed the same way
@@ -101,7 +101,7 @@ committed JSON, which CI checks independently.
 
 ```sh
 node --experimental-strip-types \
-  .agents/skills/sync-design-tokens/scripts/classify-token-diff.ts
+  .claude/skills/sync-design-tokens/scripts/classify-token-diff.ts
 ```
 
 It reports, for the JSON source and the generated CSS separately, which tokens were
@@ -165,7 +165,7 @@ Follow `writing-pull-requests`. Two additions specific to a token sync:
 - **Put the classification in the description** — added, changed, renamed and removed
   tokens, named. This is the reviewer's only view of what moved; the diff itself is
   thousands of generated lines.
-- **Any changed value is a UI change**, so the screenshot rule in `AGENTS.md` applies.
+- **Any changed value is a UI change**, so the screenshot rule in `CLAUDE.md` applies.
   Follow `capturing-visual-changes`.
 
 Surface the `suspicious` names from step 3 in the description rather than resolving

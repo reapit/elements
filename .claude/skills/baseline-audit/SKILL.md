@@ -24,7 +24,7 @@ The project's browser support policy is: **support all browser versions actively
 Run the feature scan script to determine the codebase's effective Baseline floor:
 
 ```sh
-node --experimental-strip-types .agents/skills/baseline-audit/scripts/scan-features.ts
+node --experimental-strip-types .claude/skills/baseline-audit/scripts/scan-features.ts
 ```
 
 This outputs a JSON report with:
@@ -54,7 +54,7 @@ For each feature flagged as "beyond baseline" or "unguarded", review the matches
 Run the vendor support script to determine which browser versions are still receiving security patches:
 
 ```sh
-node --experimental-strip-types .agents/skills/baseline-audit/scripts/check-vendor-support.ts
+node --experimental-strip-types .claude/skills/baseline-audit/scripts/check-vendor-support.ts
 ```
 
 This outputs a JSON report with:

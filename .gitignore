@@ -91,7 +91,7 @@ ehthumbs.db
 Thumbs.db
 
 # Worktrees
-/.agents/worktrees
+/.claude/worktrees
 /.opencode/worktrees
 
 # Exceptions

@@ -7,7 +7,7 @@
 //   manifest arrived corrupt, and must not be committed.
 //
 // Run from the repo root:
-//   node .agents/skills/sync-design-tokens/scripts/token-digest.js
+//   node .claude/skills/sync-design-tokens/scripts/token-digest.js
 
 import { readFileSync } from "node:fs";
 

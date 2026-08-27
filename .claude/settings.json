@@ -1,7 +1,4 @@
 {
-  "permissions": {
-    "additionalDirectories": [".agents/worktrees"]
-  },
   "skillOverrides": {
     "elements:z-index-layering": "off"
   }

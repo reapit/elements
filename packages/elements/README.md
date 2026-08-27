@@ -14,4 +14,4 @@ Components and utilities are documented via Storybook and can be accessed via th
 
 ## Contributing
 
-This package is one workspace in the [gbl-ds-elements](https://github.com/reapit-global/gbl-ds-elements) monorepo. See the [repository README](../../README.md) for the workspace layout, and [AGENTS.md](../../AGENTS.md) for contribution guidelines.
+This package is one workspace in the [gbl-ds-elements](https://github.com/reapit-global/gbl-ds-elements) monorepo. See the [repository README](../../README.md) for the workspace layout, and [CLAUDE.md](../../CLAUDE.md) for contribution guidelines.

@@ -5,7 +5,7 @@
  * Run from the repo root after `yarn generate:tokens`:
  *
  *   node --experimental-strip-types \
- *     .agents/skills/sync-design-tokens/scripts/classify-token-diff.ts [base-ref]
+ *     .claude/skills/sync-design-tokens/scripts/classify-token-diff.ts [base-ref]
  *
  * `base-ref` defaults to HEAD. Output is JSON on stdout.
  */

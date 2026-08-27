@@ -4,7 +4,7 @@ description: Audit Claude Code skills for security vulnerabilities using NVIDIA 
 inputs:
   path:
     description: Directory of skills to scan. Each immediate subdirectory must contain a SKILL.md file.
-    default: .agents/skills
+    default: .claude/skills
   changed-only:
     description: >
       When 'true', only skills that have changed relative to base-ref are scanned.
