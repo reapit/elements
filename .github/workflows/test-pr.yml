@@ -48,6 +48,62 @@ jobs:
           path: packages/elements/coverage/
           retention-days: 1
 
+  visual:
+    name: Visual Tests
+    runs-on:
+      group: rpt-gbl-linux-x64
+    timeout-minutes: 20
+    env:
+      # Yarn's pnpm linker hardlinks package content out of its global content index into
+      # `node_modules/.store`. In a container job that index sits under the container's own HOME,
+      # while the workspace is bind-mounted from the host, and a hard link cannot cross a
+      # filesystem boundary: the install dies with EXDEV part-way through the link step. Moving
+      # the index inside the workspace puts both ends of every link on one device. The runner-
+      # hosted jobs need none of this, having HOME and the workspace on the same disk.
+      YARN_GLOBAL_FOLDER: ${{ github.workspace }}/.yarn/global
+    # Screenshots are specific to the renderer that produced them, down to the pixel, so the suite
+    # only ever runs in the image the baselines were generated in. `scripts/test-visual.sh` runs
+    # that same image locally, and the pin below must match it and `playwright` in
+    # `packages/elements/package.json`.
+    container:
+      image: mcr.microsoft.com/playwright:v1.62.1-noble
+      # Chromium exhausts the 64 MB of /dev/shm a container gets by default and crashes mid-render.
+      options: --ipc=host
+    steps:
+      # actions/checkout runs inside the container, and the Playwright image carries no git-lfs, so
+      # without this there is nothing for `lfs: true` to replace the baseline pointers with.
+      - name: Install Git LFS
+        run: |
+          apt-get update
+          apt-get install --no-install-recommends --yes git-lfs
+      - name: Trust the workspace
+        # The runner creates the workspace directory on the host as its own user, then bind-mounts
+        # it into the container, where every step runs as root. Git finds a repository owned by
+        # someone else and refuses to read it at all, so `git rev-parse` in the guard below fails
+        # with "dubious ownership" before it can check a single blob. Only container jobs need
+        # this; the runner-hosted jobs own their workspace outright.
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          # Full history is for the base-ref diff that scopes the run to changed components.
+          fetch-depth: 0
+          # This is the only job that needs the baseline images themselves.
+          lfs: true
+      - name: Check baselines are LFS pointers
+        # `lint-staged` checks this before every commit, but `--no-verify` skips that, and a raw
+        # PNG cannot be undone by a later commit: the blob stays in the pack for every clone.
+        run: node scripts/check-lfs-pointers.mjs --rev HEAD
+      - uses: ./.github/actions/test-visual
+        with:
+          base-ref: ${{ github.base_ref }}
+      - name: Upload visual report
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: visual-report
+          path: packages/elements/visual-report/
+          retention-days: 7
+
   build:
     name: Build
     runs-on:

@@ -9,5 +9,5 @@ runs:
         cache: yarn
     - run: yarn install --immutable
       shell: bash
-    - run: yarn test:ci
+    - run: yarn test:unit
       shell: bash

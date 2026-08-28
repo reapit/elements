@@ -1,0 +1,16 @@
+# Anchoring convention
+#
+# `.gitattributes` patterns anchor the same way `.gitignore` patterns do, so the convention
+# documented at the top of `.gitignore` applies here too: a slash anywhere but the end anchors the
+# pattern to this file's directory, so declare the intent on every pattern containing a slash.
+
+# Visual regression baselines. Git cannot delta PNGs, so without LFS every change that touches
+# every baseline would add another full set to the pack, permanently, for every clone. A token
+# rename does that.
+#
+# `filter.lfs.required` is deliberately not set here or anywhere in tracked config: it is the only
+# key that makes `git add` fail rather than silently commit the raw PNG, but it gates reads too, so
+# on a machine with no `git-lfs` binary it makes `git status` and `git switch` fatal on an
+# unmodified tree. The Yarn plugin at `.yarn/plugins/plugin-git-lfs.cjs` sets it per-clone, once
+# the binary is known to be present, and `lint-staged` plus CI catch a raw PNG either way.
+**/__screenshots__/**/*.png filter=lfs diff=lfs merge=lfs -text

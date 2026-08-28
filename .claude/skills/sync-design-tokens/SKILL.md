@@ -152,7 +152,7 @@ The codemod migrates two surfaces, and the second is the one that gets missed:
 Follow `creating-codemods` for the codemod and `writing-changesets` for the changeset.
 Neither is restated here.
 
-**Done when** `yarn check` and `yarn test:ci` pass, every `usage` hit from step 3 either
+**Done when** `yarn check` and `yarn test:unit` pass, every `usage` hit from step 3 either
 points at a shimmed property or has been rewritten, and each removed token appears in
 either the shim or the codemod.
 

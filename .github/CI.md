@@ -22,21 +22,23 @@ Five workflows drive CI and deployment:
 `release.yml` job dependencies (push to `main`):
 
 ```
-check ──┐               ┌── record-release   (only if published)
-test  ──┼── release ────┼── publish-figma    (only if published)
-build ──┘               └── deploy-docs      (prod if published, dev otherwise)
-                            │
-docs ───────────────────────┘
+check  ──┐               ┌── record-release   (only if published)
+test   ──┤               ├── publish-figma    (only if published)
+visual ──┼── release ────┤
+build  ──┘               └── deploy-docs      (prod if published, dev otherwise)
+                             │
+docs ────────────────────────┘
 ```
 
 `release.yml` job dependencies (push to `lts`):
 
 ```
-check ──┐
-test  ──┼── release ────┐
-build ──┘               └── deploy-docs   (v4, only if published)
-                            │
-docs ───────────────────────┘
+check  ──┐
+test   ──┤
+visual ──┼── release ────┐
+build  ──┘               └── deploy-docs   (v4, only if published)
+                             │
+docs ────────────────────────┘
 ```
 
 `release.yml` job dependencies (`workflow_dispatch`):
@@ -63,6 +65,7 @@ docs ──── deploy-preview
 figma
 tokens                (regenerates the theme CSS and fails if it differs from what is committed)
 audit-skills          (scans .claude/skills and plugins/elements/skills; each scan skipped when its path is unchanged)
+visual                (screenshots the stories of changed components and diffs them against the committed baselines)
 ```
 
 `cleanup-preview.yml` runs one of two jobs depending on the trigger:
@@ -84,7 +87,8 @@ All calling jobs must run `actions/checkout` first, because GitHub Actions requi
 | Action           | Location          | Command                        | Used by                                                                                                |
 | ---------------- | ----------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------ |
 | `check`          | `.github/actions` | `yarn check`                   | `test-pr.yml` check job, `release.yml` check job                                                       |
-| `test`           | `.github/actions` | `yarn test:ci`                 | `test-pr.yml` test job, `release.yml` test job                                                         |
+| `test`           | `.github/actions` | `yarn test:unit`               | `test-pr.yml` test job, `release.yml` test job                                                         |
+| `test-visual`    | `.github/actions` | `vitest run --project=visual`  | `test-pr.yml` visual job (scoped with `base-ref`), `release.yml` visual job (full suite)               |
 | `build-lib`      | `.github/actions` | `yarn build:lib`               | `test-pr.yml` build job, `release.yml` build job                                                       |
 | `build-docs`     | `.github/actions` | `yarn build:docs`              | `test-pr.yml` docs job, `release.yml` docs job, `deploy-docs-manual.yml`                               |
 | `deploy-docs`    | `.github/actions` | Cloudflare Wrangler deploy     | `release.yml` deploy-docs job, `deploy-docs-manual.yml`                                                |
@@ -107,9 +111,50 @@ deliberately not used to narrow the fan-out. Files outside any workspace (root c
 select only the root and skip every workspace check.
 
 Build and test output lives inside the workspace that produced it, so artifacts are uploaded
-from `packages/elements/dist/`, `packages/elements/public/dist/` and
-`packages/elements/coverage/`. The Wrangler, Figma and Playwright steps target that workspace
-directly, since their configs live beside the code they act on.
+from `packages/elements/dist/`, `packages/elements/public/dist/`, `packages/elements/coverage/`
+and `packages/elements/visual-report/`. The Wrangler, Figma and Vitest browser-mode steps target
+that workspace directly, since their configs live beside the code they act on.
+
+`test-visual` is the one action that does not go through a root script. Locally,
+`yarn test:visual` wraps the run in a `docker run` of the pinned Playwright image, because
+screenshots taken on a developer's machine would not match a Linux baseline. In CI the job
+already runs in that image, so the action calls the workspace script directly rather than nesting
+a container inside a container.
+
+## Visual regression tests
+
+The `visual` job renders each component's Storybook stories in headless Chromium and compares the
+result against a baseline PNG committed beside the component, under `__screenshots__/`. Four
+things make it reproducible:
+
+- **The image is pinned.** `mcr.microsoft.com/playwright:v1.62.1-noble` must stay in step with the
+  `playwright` dependency in `packages/elements/package.json` and with `scripts/test-visual.sh`.
+  Font rendering and the Chromium build decide the pixels, so a bump to any one of the three is a
+  bump to all three, and it will rewrite baselines.
+- **Baselines live in Git LFS.** A raw commit of a full baseline set is permanent weight in every
+  clone. `.gitattributes` declares the filter,
+  `.yarn/plugins/plugin-git-lfs.cjs` configures each clone, `lint-staged` checks the staged blobs,
+  and the `visual` job re-checks the whole tree with `scripts/check-lfs-pointers.mjs --rev HEAD`,
+  which `--no-verify` cannot bypass. Only this job checks out LFS.
+- **The network is stubbed.** `packages/elements/vitest.visual.commands.ts` intercepts every
+  request the page makes: same-origin and Google Fonts pass through, off-origin images are answered
+  with a 1×1 magenta PNG, and anything else is refused. Several stories point an `<img>` at a stock
+  photo service, which would otherwise make a blocking job depend on a third party being up and
+  fast. `src/tests/visual.ts` then waits for `document.fonts.ready` and for each image to decode
+  before capturing, so nothing is screenshotted mid-load. Google Fonts is the one host still
+  reached for real, because `src/styles/globals.css` imports Inter and Source Code Pro from it and
+  text set in the fallback stack fails every comparison.
+- **The run is scoped on pull requests.** `vitest related` narrows it to the tests reachable from
+  the changed component sources; a change anywhere else falls through to the full suite, which is
+  what `release.yml` always runs.
+
+How a story becomes a baseline, and how to add a test or regenerate one, is documented beside the
+code in `packages/elements/src/tests/ARCHITECTURE.md`.
+
+The HTML report is uploaded as the `visual-report` artifact, carrying the baseline, the actual
+screenshot and the diff for every failed comparison. It is a Vite app, so it needs serving rather
+than opening from disk: `npx vite preview --outDir .` inside the unzipped artifact. The failure
+images themselves are plain PNGs under `data/`.
 
 ## Deployment strategy
 
@@ -172,8 +217,11 @@ Manual dispatch exists solely as a recovery tool for failed automated releases. 
 **Why does the `release` job repeat checkout/setup/install instead of using a composite action?**
 The `release` job needs to control `actions/checkout` directly because it must use a write-scoped checkout token (from the GitHub App) so that `changesets/action` can push the version PR branch. In this repo, the shared composite actions are local actions under `.github/actions/`, so they cannot be used until the repository is checked out. `release` therefore repeats checkout, setup, and install rather than delegating to a composite action.
 
-**Why does `fetch-depth: 0` appear in the `release` and `audit-skills` jobs but not others?**
-`changesets/action` in the `release` job walks the full git history to find the last release tag and determine which packages changed. The `audit-skills` job needs it so that `git diff origin/<base-ref>...HEAD` can reach the remote base-ref commit: a shallow clone lacks this history. The `check`, `test`, `build`, and `docs` jobs need only a shallow clone, which is faster.
+**Why does `fetch-depth: 0` appear in the `release`, `audit-skills` and `visual` jobs but not others?**
+`changesets/action` in the `release` job walks the full git history to find the last release tag and determine which packages changed. The `audit-skills` and `test-pr.yml` `visual` jobs need it so that `git diff origin/<base-ref>...HEAD` can reach the remote base-ref commit: a shallow clone lacks this history. The `check`, `test`, `build`, and `docs` jobs need only a shallow clone, which is faster.
+
+**Why does the `visual` job run in a container when every other job runs on the runner directly?**
+The baselines it compares against are exact pixels, so they are only meaningful against a fixed font stack and Chromium build. A pinned image is what fixes both. It is also what lets a developer reproduce a CI failure locally: `yarn test:visual` runs the same image through `docker run`, so a diff seen in CI is a diff seen on the laptop.
 
 **Why are `dist` and `docs` artifacts passed between jobs rather than rebuilding?**
 Building twice wastes runner time and risks non-determinism. Uploading from the build job and downloading in the consumer job guarantees the same output is published or deployed.

@@ -125,7 +125,8 @@ scrutinyFloorCategories:
       - "oxlint.config.ts"
       - "oxfmt.config.ts"
       - "**/stylelint.config.js"
-      - "**/playwright.config.ts"
+      - "**/vitest.visual.*.ts"
+      - "scripts/test-visual.sh"
   gaffer_agent:
     description: Gaffer's own implementation and policy (not the workflow; that is covered by ci_cd deny)
     pathPatterns:

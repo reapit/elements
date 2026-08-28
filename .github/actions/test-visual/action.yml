@@ -1,0 +1,68 @@
+name: Visual Tests
+description: Compare rendered stories against the committed screenshot baselines
+inputs:
+  base-ref:
+    description: >-
+      Branch to diff against, so the run covers only the visual tests related to the component
+      sources that changed. Omit to run the whole suite. The calling job must use fetch-depth: 0
+      on its checkout step.
+    required: false
+    default: ""
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+      with:
+        node-version: 24
+        cache: yarn
+    - run: yarn install --immutable
+      shell: bash
+    - name: Run visual tests
+      env:
+        BASE_REF: ${{ inputs.base-ref }}
+      run: |
+        set -euo pipefail
+
+        # The HTML report is uploaded as a workflow artifact. Its output directory also receives a
+        # copy of the attachments Vitest writes for a failed comparison (the baseline, the actual
+        # screenshot and the diff), so the one artifact carries everything needed to judge a
+        # failure.
+        REPORTER=(--reporter=default --reporter=html --outputFile.html=visual-report/index.html)
+
+        # An empty base-ref input, i.e. no PR to diff against, means run the whole suite.
+        if [ -z "$BASE_REF" ]; then
+          yarn workspace @reapit/elements run test:visual "${REPORTER[@]}"
+          exit 0
+        fi
+
+        CHANGED=$(git diff --diff-filter=d --name-only "origin/$BASE_REF...HEAD")
+
+        # `vitest related` walks imports outwards from the test files, so it narrows the run
+        # reliably only for a change to a component source. A handful of files can move every
+        # baseline at once while being imported by no test file at all, so those fall through to
+        # the full suite instead: the Vitest config that declares the `visual` project, the
+        # Storybook preview, the visual suite's own setup/commands/global-setup files, and a
+        # `package.json` dependency bump.
+        CONFIG_PATTERN='^packages/elements/(vite\.config\.ts|vitest\.visual\.[^/]+\.ts|tsconfig\.visual\.json|package\.json)$|^packages/elements/\.storybook/'
+
+        if [ -z "$CHANGED" ] || printf '%s\n' "$CHANGED" | grep -qE "$CONFIG_PATTERN"; then
+          echo "Changes affect the visual suite's own config; running the full suite."
+          yarn workspace @reapit/elements run test:visual "${REPORTER[@]}"
+          exit 0
+        fi
+
+        # `vitest related` resolves its arguments against the Vitest root, which is the workspace.
+        # Everything outside `packages/elements/src/` is dropped here rather than triggering a full
+        # run: other workspaces, `packages/elements/codemods`, `.yarn/plugins`, and the rest cannot
+        # affect a rendered story.
+        mapfile -t RELATED < <(printf '%s\n' "$CHANGED" | grep '^packages/elements/src/' | sed 's|^packages/elements/||')
+
+        if [ "${#RELATED[@]}" -eq 0 ]; then
+          echo "No changed file can affect a visual baseline; skipping."
+          exit 0
+        fi
+
+        echo "Running the visual tests related to ${#RELATED[@]} changed file(s)."
+        yarn workspace @reapit/elements exec vitest related --run --project=visual \
+          --passWithNoTests "${REPORTER[@]}" "${RELATED[@]}"
+      shell: bash

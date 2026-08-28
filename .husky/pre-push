@@ -1,4 +1,19 @@
 #!/bin/sh
+# Uploading LFS objects is the pre-push hook's job, and nothing else does it: without this line a
+# push succeeds while the objects the pointers name never leave the machine, and the next person to
+# clone gets a fetch error. It runs before the CI guard below because a push from CI needs the
+# upload just as much, and before anything else because `git lfs pre-push` reads the refs being
+# pushed from stdin.
+#
+# `git lfs install` would normally write this hook itself. It cannot here, husky owning the file, so
+# the line is tracked instead and the Yarn plugin at `.yarn/plugins/plugin-git-lfs.cjs` installs the
+# filter config alone. The three other hooks that command offers to write, post-checkout,
+# post-merge and post-commit, exist to apply the `lockable` attribute, which this repo does not use;
+# content itself arrives through the smudge filter, no hook involved.
+if command -v git-lfs > /dev/null 2>&1; then
+  git lfs pre-push "$@" || exit $?
+fi
+
 # Skip in CI environments
 [ "$CI" = "true" ] && exit 0
 

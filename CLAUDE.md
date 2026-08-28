@@ -10,7 +10,7 @@
 
 ## Workspaces
 
-This is a Yarn workspaces monorepo. Run yarn scripts from the repo root: `check`, `test:ci`,
+This is a Yarn workspaces monorepo. Run yarn scripts from the repo root: `check`, `test:unit`,
 `build:lib` and `build:docs` fan out across every workspace that defines them.
 
 - `packages/elements/` - `@reapit/elements`, the published library, its Storybook and codemods
@@ -25,7 +25,7 @@ Everything specific to a workspace lives inside it.
 ## Running a Single Test
 
 Unit tests are vitest, each workspace installing and configuring its own (`doc-evals` and
-`gaffer` have no `test:ci`, only `check`). Run one file or pattern via:
+`gaffer` have no `test:unit`, only `check`). Run one file or pattern via:
 
 ```bash
 yarn workspace @reapit/elements test src/core/button/button.test.tsx

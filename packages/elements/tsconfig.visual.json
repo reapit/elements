@@ -1,0 +1,26 @@
+{
+  // The visual tests get a program of their own, and not because of what they check.
+  // `@vitest/browser/context` augments `expect` with the browser matchers, and those carry their
+  // own vendored copy of the jest-dom types: their `toHaveStyle(css: string |
+  // Partial<CSSStyleDeclaration>)` wins overload resolution over the
+  // `@testing-library/jest-dom` one, which every unit test asserting on a CSS custom property
+  // depends on. Keeping the two sets of ambient matchers in separate programs lets each be
+  // checked against the matchers it actually runs with. `check:types` runs both.
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    // Deliberately without `@testing-library/jest-dom/vitest`: in a browser-mode test the
+    // matchers come from `@vitest/browser/context`, which `src/tests/visual.ts` imports.
+    "types": ["vite/client", "vitest/globals", "vite-plugin-svgr/client"]
+  },
+  "include": [
+    "src/tests",
+    "src/**/*.visual.test.ts",
+    "src/**/*.visual.test.tsx",
+    "vitest.visual.commands.ts",
+    "vitest.visual.global-setup.ts",
+    "vitest.visual.setup.ts"
+  ],
+  // Restated rather than inherited: `tsconfig.json` excludes exactly the files this program is
+  // here to check, and an inherited `exclude` beats this file's `include`.
+  "exclude": [".yarn", "archive", "dist", "node_modules", "public", "storybook-static"]
+}

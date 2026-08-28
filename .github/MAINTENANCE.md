@@ -39,16 +39,16 @@ All of these belong in the single "backport infra" PR. Minimise scope: no compon
 
 ### 3a. `package.json`
 
-| Field                                              | Change                                             | Why                                                                                                   |
-| -------------------------------------------------- | -------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `publishConfig.tag`                                | `"v<N>"` (e.g. `"v5"`)                             | Prevents `yarn changeset publish` defaulting to `latest` and clobbering the trunk's dist-tag          |
-| `packageManager`                                   | Match main                                         | Ensures consistent Yarn version across branches                                                       |
-| `scripts.build:docs`                               | Alias to the branch's storybook-build command      | `build-docs` composite action calls `yarn build:docs`                                                 |
-| `scripts.build:lib`                                | Alias to the branch's lib-build command            | `build-lib` composite action calls `yarn build:lib`                                                   |
-| `scripts.test:ci`                                  | Non-interactive test invocation                    | `test` composite action calls `yarn test:ci`; ensure this script exists and exits non-zero on failure |
-| `scripts.check`                                    | Mirror main: `yarn check:types && yarn check:lint` | Ensures both type checking and linting run via the `check` composite action                           |
-| `repository`, `homepage`, `bugs` URLs              | Update if org/repo slug changed                    | npm trusted publisher cross-checks these                                                              |
-| Remove `bin`, `deploy`, or any CDK-related scripts | n/a                                                | Delete dead entrypoints when removing deployment infrastructure                                       |
+| Field                                              | Change                                             | Why                                                                                          |
+| -------------------------------------------------- | -------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `publishConfig.tag`                                | `"v<N>"` (e.g. `"v5"`)                             | Prevents `yarn changeset publish` defaulting to `latest` and clobbering the trunk's dist-tag |
+| `packageManager`                                   | Match main                                         | Ensures consistent Yarn version across branches                                              |
+| `scripts.build:docs`                               | Alias to the branch's storybook-build command      | `build-docs` composite action calls `yarn build:docs`                                        |
+| `scripts.build:lib`                                | Alias to the branch's lib-build command            | `build-lib` composite action calls `yarn build:lib`                                          |
+| `scripts.test:unit`                                | Non-interactive test invocation                    | `test` composite action calls `yarn test:unit`; it must exist and exit non-zero on failure   |
+| `scripts.check`                                    | Mirror main: `yarn check:types && yarn check:lint` | Ensures both type checking and linting run via the `check` composite action                  |
+| `repository`, `homepage`, `bugs` URLs              | Update if org/repo slug changed                    | npm trusted publisher cross-checks these                                                     |
+| Remove `bin`, `deploy`, or any CDK-related scripts | n/a                                                | Delete dead entrypoints when removing deployment infrastructure                              |
 
 > **Important:** Audit `devDependencies` for packages tied to the new major version's toolchain. Dependencies that don't work with the maintenance branch will break `yarn install` or produce peer-requirement noise. Remove them.
 
@@ -67,21 +67,30 @@ Do **not** copy historical `.changeset/*.md` entries from `main`, because they d
 
 ### 3c. Composite action: `test/action.yml`
 
-The action calls `yarn test:ci`. On `main` that script fans out across workspaces; on a
+The action calls `yarn test:unit`. On `main` that script fans out across workspaces; on a
 single-package maintenance branch it is an ordinary script, so the action needs no change as
-long as the branch defines `test:ci`:
+long as the branch defines `test:unit`:
 
 ```yaml
 # main: fans out across workspaces
-"test:ci": "yarn workspaces foreach --all --exclude gbl-ds-elements run test:ci"
+"test:unit": "yarn workspaces foreach --all --exclude gbl-ds-elements run test:unit"
 
 # maintenance branch: a plain non-interactive test run
-"test:ci": "vitest run"
+"test:unit": "vitest run"
 ```
 
 This is the only composite action that should diverge; document it in the footnote table in `.github/CI.md`.
 
-### 3d. `lint-staged.config.js`
+### 3d. The `visual` job
+
+The `visual` job in `test-pr.yml` and `release.yml` diffs rendered stories against baseline PNGs
+committed under `__screenshots__/`, and it is blocking. A branch cut from `main` inherits both the
+job and the baselines, so it keeps working, provided the LFS objects came across with the branch
+(`git lfs fetch --all`). A branch that predates the baselines has nothing to compare against:
+delete the job from both workflows rather than leaving it to fail, and record that divergence in
+`.github/CI.md`.
+
+### 3e. `lint-staged.config.js`
 
 Update the lint, format, and test commands to match the maintenance branch's toolchain. The file structure and key shape stay identical; only the commands change.
 
@@ -93,7 +102,7 @@ Before opening the PR:
 
 - [ ] `yarn install --immutable` completes cleanly (no missing-peer errors)
 - [ ] `yarn check` (now `check:types && check:lint`) exits 0
-- [ ] `yarn test:ci` exits 0; coverage thresholds met
+- [ ] `yarn test:unit` exits 0; coverage thresholds met
 - [ ] `yarn build:lib && yarn build:docs` both succeed
 - [ ] `yarn changeset status` (with a real `.changeset/*.md` entry) reports the correct bump
 - [ ] `yarn node -e "require('./.changeset/changelog-format.js')"` confirms the changelog formatter loads
@@ -116,7 +125,7 @@ Run `git diff main <maintenance-branch>` and verify that every difference is an 
 Add a footnote to the composite-actions table in `.github/CI.md` for any action that differs from main. Keep the format already established for the `test` action:
 
 ```
-† On `main`, `yarn test:ci` fans out across workspaces. On `lts` it
+† On `main`, `yarn test:unit` fans out across workspaces. On `lts` it
   runs a single package — [reason]. See `package.json` on each branch.
 ```
 

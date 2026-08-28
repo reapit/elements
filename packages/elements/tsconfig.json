@@ -15,5 +15,17 @@
     "rootDir": "./"
   },
   "include": [".storybook", "codemods", "src", "workers"],
-  "exclude": [".yarn", "archive", "dist", "node_modules", "public", "storybook-static"]
+  // The visual tests and their helper are checked by `tsconfig.visual.json` instead; see the
+  // comment there for why they cannot share a program with the unit tests.
+  "exclude": [
+    ".yarn",
+    "archive",
+    "dist",
+    "node_modules",
+    "public",
+    "src/**/*.visual.test.ts",
+    "src/**/*.visual.test.tsx",
+    "src/tests",
+    "storybook-static"
+  ]
 }

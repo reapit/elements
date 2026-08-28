@@ -18,7 +18,8 @@ Common tasks run from the root and fan out across workspaces:
 yarn install
 yarn start        # starts the Storybook dev server for @reapit/elements
 yarn check        # type-checking and linting
-yarn test:ci      # unit tests
+yarn test:unit    # unit tests
+yarn test:visual  # visual regression tests (needs Docker and git-lfs)
 yarn build:lib    # builds the library
 ```
 

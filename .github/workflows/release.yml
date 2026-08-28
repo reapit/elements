@@ -59,6 +59,45 @@ jobs:
           ref: ${{ inputs.ref || github.sha }}
       - uses: ./.github/actions/test
 
+  visual:
+    name: Visual Tests
+    # The recovery path releases a ref that has already been through `test-pr.yml`, and its
+    # dependencies are deliberately kept to the minimum needed to publish.
+    if: github.event_name == 'push'
+    runs-on:
+      group: rpt-gbl-linux-x64
+    timeout-minutes: 20
+    env:
+      # See the comment in `test-pr.yml`: the pnpm linker cannot hardlink from the container's HOME
+      # into the bind-mounted workspace.
+      YARN_GLOBAL_FOLDER: ${{ github.workspace }}/.yarn/global
+    # Must match `test-pr.yml` and `scripts/test-visual.sh`: see the comment there.
+    container:
+      image: mcr.microsoft.com/playwright:v1.62.1-noble
+      options: --ipc=host
+    steps:
+      - name: Install Git LFS
+        run: |
+          apt-get update
+          apt-get install --no-install-recommends --yes git-lfs
+      - name: Trust the workspace
+        # See the comment in `test-pr.yml`: a container job does not own its bind-mounted
+        # workspace, so git refuses it until the path is marked safe.
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          lfs: true
+      # No base-ref, so this runs the whole suite rather than the changed components a pull
+      # request narrows it to.
+      - uses: ./.github/actions/test-visual
+      - name: Upload visual report
+        if: failure()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: visual-report
+          path: packages/elements/visual-report/
+          retention-days: 7
+
   build:
     name: Build
     runs-on:
@@ -95,7 +134,7 @@ jobs:
   release:
     name: Release
     if: github.event_name == 'push'
-    needs: [check, test, build]
+    needs: [check, test, visual, build]
     runs-on:
       group: rpt-gbl-linux-x64
     timeout-minutes: 15

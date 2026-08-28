@@ -54,13 +54,14 @@ storybook-static
 **/coverage/**
 !**/coverage/badges
 !**/coverage/badges/*
+# Where `toMatchScreenshot` writes the actual screenshot and the diff for a failed comparison.
+# Only the baselines under `__screenshots__/` are committed.
+.vitest-attachments/
+# Output of the HTML reporter, which CI uploads as the `visual-report` artifact.
+visual-report/
 
-# Playwright
-test-results/
-playwright-report/
-blob-report/
+# Playwright (the browser driver behind Vitest browser mode)
 **/playwright/.cache/
-**/.visual-test/**
 
 # oxlint
 .oxlintcache

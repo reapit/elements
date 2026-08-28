@@ -18,7 +18,7 @@
     "check": "yarn workspaces foreach --all --topological-dev --exclude gbl-ds-elements run check && yarn check:lint:es && yarn check:lint:fmt",
     "check:lint:es": "oxlint packages/elements/src",
     "check:lint:fmt": "oxfmt --check",
-    "commit": "yarn test:ci && yarn workspace @reapit/elements run coverage:badges && yarn lint && yarn check",
+    "commit": "yarn test:unit && yarn workspace @reapit/elements run coverage:badges && yarn lint && yarn check",
     "eval:dev": "yarn workspace @reapit/elements-evals run eval:dev",
     "generate:tokens": "yarn workspaces foreach --all --topological-dev --exclude gbl-ds-elements run generate:tokens",
     "eval:run": "yarn workspace @reapit/elements-evals run eval:run",
@@ -27,8 +27,8 @@
     "lint:fmt": "oxfmt",
     "start": "yarn workspace @reapit/elements run start",
     "test": "yarn workspace @reapit/elements run test",
-    "test:ci": "yarn workspaces foreach --all --exclude gbl-ds-elements run test:ci",
-    "visual-test": "yarn workspace @reapit/elements run visual-test"
+    "test:unit": "yarn workspaces foreach --all --exclude gbl-ds-elements run test:unit",
+    "test:visual": "bash scripts/test-visual.sh"
   },
   "devDependencies": {
     "@changesets/cli": "^3.0.0",

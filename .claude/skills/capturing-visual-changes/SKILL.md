@@ -332,7 +332,7 @@ Before moving on:
 **Saving files inside the repository:**
 
 ```
-❌ .visual-test/DS-102-button-default.png
+❌ packages/elements/DS-102-button-default.png
 ✅ <DESKTOP_PATH>/DS-102-button-default.png
 ```
 
@@ -388,6 +388,7 @@ Always kill the process when done. Leaving it running wastes resources and may b
 
 ## Reference
 
-- `visual-tests/utils.ts` — `getStoryUrl()` helper showing the iframe URL pattern
-- `visual-tests/index.spec.ts` — existing visual regression test for reference
+- `packages/elements/src/tests/ARCHITECTURE.md` — the visual regression suite, which screenshots
+  the same stories from a headless browser. It is not a substitute for this skill: its
+  baselines prove that nothing changed, whereas a PR needs an image of what did.
 - For PR title and description conventions, use the `writing-pull-requests` skill
