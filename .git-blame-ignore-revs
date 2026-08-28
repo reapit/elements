@@ -1,0 +1,12 @@
+# Commits listed here are ignored by `git blame` (and GitHub's blame view).
+# Add only mass-reformatting commits with no meaningful content changes, so
+# blame still credits the person who last touched the actual code/prose.
+#
+# Local setup (one-time, per clone):
+#   git config blame.ignoreRevsFile .git-blame-ignore-revs
+
+# chore: replace ESLint + Prettier with oxlint + oxfmt (#1098)
+d1266669623e457f7b85b7775b672aa4969cc0e4
+
+# docs: Replace mid-sentence em-dashes with connectors that name the clause relation (#1670)
+79a8183b64ee6c5aff0238bbc21f0472823e244b
