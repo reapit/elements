@@ -3,9 +3,6 @@ updates:
   - package-ecosystem: "npm"
     directories:
       - "/"
-      - "/packages/elements"
-      - "/packages/doc-evals"
-      - "/packages/gaffer"
     versioning-strategy: increase
     schedule:
       interval: "weekly"
