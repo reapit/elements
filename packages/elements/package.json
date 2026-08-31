@@ -101,7 +101,7 @@
   "dependencies": {
     "@linaria/core": "8.2.0",
     "@linaria/react": "8.2.0",
-    "@oddbird/css-anchor-positioning": "^0.10.1"
+    "@oddbird/css-anchor-positioning": "^0.10.2"
   },
   "devDependencies": {
     "@figma/code-connect": "^2.0.0",
