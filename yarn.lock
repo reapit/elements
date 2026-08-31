@@ -1536,7 +1536,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@floating-ui/dom@npm:^1.7.6":
+"@floating-ui/dom@npm:^1.8.0":
   version: 1.8.0
   resolution: "@floating-ui/dom@npm:1.8.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40floating-ui%2Fdom%2F-%2Fdom-1.8.0.tgz"
   dependencies:
@@ -2354,15 +2354,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@oddbird/css-anchor-positioning@npm:^0.10.1":
-  version: 0.10.1
-  resolution: "@oddbird/css-anchor-positioning@npm:0.10.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oddbird%2Fcss-anchor-positioning%2F-%2Fcss-anchor-positioning-0.10.1.tgz"
+"@oddbird/css-anchor-positioning@npm:^0.10.2":
+  version: 0.10.2
+  resolution: "@oddbird/css-anchor-positioning@npm:0.10.2::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oddbird%2Fcss-anchor-positioning%2F-%2Fcss-anchor-positioning-0.10.2.tgz"
   dependencies:
-    "@floating-ui/dom": "npm:^1.7.6"
-    "@types/css-tree": "npm:^2.3.11"
+    "@floating-ui/dom": "npm:^1.8.0"
+    "@types/css-tree": "npm:^3.2.0"
     css-tree: "npm:^3.2.1"
-    nanoid: "npm:^5.1.16"
-  checksum: 10/4049561ae4b0b98204a6c1655eae7a3649a0b403bd3c2814f58c32f57bd37ad8da06da800782fd36d3b0160bfa5c5d1249135731f60ea5887c796dc2e738c472
+    nanoid: "npm:^6.0.1"
+  checksum: 10/2f4de9625e30823ed5bdae9ecf600ce848a256fe5cf274c9efadf98b72aa3bf728dcc2bfcceb95c8dd494c35d19663fed9e6b7ee8d119637247926f3d4f3c016
   languageName: node
   linkType: hard
 
@@ -3288,7 +3288,7 @@ __metadata:
     "@linaria/core": "npm:8.2.0"
     "@linaria/postcss-linaria": "npm:8.2.0"
     "@linaria/react": "npm:8.2.0"
-    "@oddbird/css-anchor-positioning": "npm:^0.10.1"
+    "@oddbird/css-anchor-positioning": "npm:^0.10.2"
     "@playwright/test": "npm:1.62.1"
     "@storybook/addon-a11y": "npm:10.5.7"
     "@storybook/addon-docs": "npm:10.5.7"
@@ -4277,10 +4277,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/css-tree@npm:^2.3.11":
-  version: 2.3.11
-  resolution: "@types/css-tree@npm:2.3.11"
-  checksum: 10/c4e1e990257cc8f9c90ebe3ec1b3d53733f9883cf772bbf1c2da462bb9fa6770b6ed98f24e176d1e0ad2c6b276b8ced5cd3d676b793518bec09adf2dd077a307
+"@types/css-tree@npm:^3.2.0":
+  version: 3.2.0
+  resolution: "@types/css-tree@npm:3.2.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40types%2Fcss-tree%2F-%2Fcss-tree-3.2.0.tgz"
+  checksum: 10/bf179b0eef4bebedacaae3a73d488040c52ac10886ab6e6cdc503d6abbf1e13b2e6f8548f42a82cccbcac76e9a07b78bf889e4a16ebc159f3c4cb60f184f4031
   languageName: node
   linkType: hard
 
@@ -9437,12 +9437,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nanoid@npm:^5.1.16":
-  version: 5.1.16
-  resolution: "nanoid@npm:5.1.16::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fnanoid%2F-%2Fnanoid-5.1.16.tgz"
+"nanoid@npm:^6.0.1":
+  version: 6.0.1
+  resolution: "nanoid@npm:6.0.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fnanoid%2F-%2Fnanoid-6.0.1.tgz"
   bin:
     nanoid: bin/nanoid.js
-  checksum: 10/b1e702e2b7072e74ac2ae880907d0a291853a36617ec5c3d27d81ab04965ebc0d4d0f707cf9220928cf93d5370b1f561c930efee853dc9c1a3facaefdf1a42ee
+  checksum: 10/e49582351f6fff22c275a58504950e923b74c611fc1eac9589a98e89506270d2d1e3b61ed6429df6e7529e54ff71d9f0c5fbb1c540aaee81ae33a523e88ca668
   languageName: node
   linkType: hard
 
