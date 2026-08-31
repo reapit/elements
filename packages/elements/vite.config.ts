@@ -2,16 +2,12 @@ import fs from "node:fs";
 import path from "node:path";
 
 import react from "@vitejs/plugin-react";
-import { playwright } from "@vitest/browser-playwright";
 import wyw from "@wyw-in-js/vite";
-/// <reference types="vitest/config" />
 import { defineConfig } from "vite";
 import svgr from "vite-plugin-svgr";
-import { configDefaults } from "vitest/config";
 
 import { cascadeLayerOrder } from "./build/cascade-layer-order";
 import packageManifest from "./package.json";
-import { stubExternalRequests } from "./vitest.visual.commands";
 
 // We dynamically discover all "first-level" barrel files in the `src/core` directory and add them as
 // individual entry points for our build.
@@ -138,109 +134,4 @@ export default defineConfig({
       include: ["src/**/*.ts", "src/**/*.tsx"],
     }),
   ],
-  test: {
-    // Coverage is a runner-wide concern rather than a per-project one, so it stays here and
-    // reports on the `unit` project alone. The `visual` project contributes nothing: it only
-    // screenshots components the unit project already exercises.
-    coverage: {
-      exclude: [
-        "src/styles",
-        "src/storybook",
-        "src/tests",
-        "src/tokens",
-        "src/types",
-        // Note: We don't want to report coverage for:
-        // - story utilities
-        "**/__story__/**",
-        // - barrel files
-        "**/index.ts",
-        // - our figma code connect files
-        "**/*.figma.*",
-        // - our tests themselves
-        "**/*.test.*",
-        // - our stories
-        "**/*.stories.*",
-        // - any type declaration files
-        "**/*.d.ts",
-        // - any types.ts files
-        "**/types.ts",
-      ],
-      include: ["src/**/*.ts", "src/**/*.tsx"],
-      provider: "v8",
-      reporter: ["json-summary", "text", "lcov"],
-      reportsDirectory: "coverage/report",
-      thresholds: {
-        branches: 71,
-        functions: 84,
-        lines: 87,
-        statements: 87,
-      },
-    },
-    projects: [
-      {
-        // `extends: true` inherits this file's `plugins`, so both projects transform source the
-        // same way the library build and Storybook do. That matters most for wyw-in-js: without
-        // it, components render unstyled, which for the visual project would mean baselines of
-        // nothing but unstyled markup.
-        extends: true,
-        test: {
-          name: "unit",
-          clearMocks: true,
-          environment: "happy-dom",
-          // `include` below also matches `*.visual.test.tsx`, which belongs to the other project
-          // and needs a real browser. Excluding it here rather than narrowing `include` avoids
-          // encoding a "not visual" pattern into the glob every unit test has to satisfy.
-          exclude: [...configDefaults.exclude, "**/*.visual.test.ts?(x)"],
-          globals: true,
-          include: ["src/**/*.test.ts?(x)", "codemods/**/*.test.ts"],
-          setupFiles: ["vitest.setup.ts"],
-        },
-      },
-      {
-        extends: true,
-        test: {
-          name: "visual",
-          browser: {
-            // Playwright's request interception is a server-side API, so the routing that keeps
-            // baselines off the network has to be registered from a browser command.
-            commands: { stubExternalRequests },
-            enabled: true,
-            expect: {
-              toMatchScreenshot: {
-                // Vitest defaults to nesting baselines in a directory named after the test file.
-                // There is one visual test file per component, so that directory would only ever
-                // hold one set; drop it and keep the baselines directly in `__screenshots__/`.
-                resolveScreenshotPath: ({
-                  arg,
-                  browserName,
-                  ext,
-                  platform,
-                  root,
-                  screenshotDirectory,
-                  testFileDirectory,
-                }) =>
-                  path.join(
-                    root,
-                    testFileDirectory,
-                    screenshotDirectory,
-                    `${arg}-${browserName}-${platform}${ext}`,
-                  ),
-              },
-            },
-            headless: true,
-            instances: [{ browser: "chromium" }],
-            provider: playwright(),
-            // 1024 is the MD breakpoint minimum, matching the "MD (Desktop)" entry in
-            // `.storybook/preview.tsx`'s viewport list, so a baseline can be reproduced by eye in
-            // Storybook by picking that viewport from the toolbar.
-            viewport: { height: 900, width: 1024 },
-          },
-          globalSetup: ["vitest.visual.global-setup.ts"],
-          globals: true,
-          include: ["src/**/*.visual.test.ts?(x)"],
-          setupFiles: ["vitest.visual.setup.ts"],
-        },
-      },
-    ],
-  },
 });
