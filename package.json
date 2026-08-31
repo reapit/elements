@@ -31,13 +31,13 @@
     "test:visual": "bash scripts/test-visual.sh"
   },
   "devDependencies": {
-    "@changesets/cli": "^3.0.0",
+    "@changesets/cli": "^3.0.1",
     "@types/node": "^26.2.0",
     "changelog-format": "workspace:*",
     "husky": "^9.1.7",
     "lint-staged": "^17.3.0",
-    "oxfmt": "^0.63.0",
-    "oxlint": "^1.78.0"
+    "oxfmt": "^0.64.0",
+    "oxlint": "^1.79.0"
   },
   "dependenciesMeta": {
     "better-sqlite3": {
@@ -85,11 +85,13 @@
     "postcss@npm:^8.5.6": "8.5.26",
     "qs@npm:^6.12.3": "6.15.3",
     "qs@npm:^6.4.0": "6.15.3",
+    "storybook@npm:10.5.10": "patch:storybook@npm%3A10.5.10#~/.yarn/patches/storybook-npm-10.5.10-e63195ff36.patch",
     "storybook@npm:10.5.2": "patch:storybook@npm%3A10.5.2#~/.yarn/patches/storybook-npm-10.5.2-patch.patch",
     "storybook@npm:10.5.3": "patch:storybook@npm%3A10.5.3#~/.yarn/patches/storybook-npm-10.5.3-ee7b0f5bd4.patch",
     "storybook@npm:10.5.6": "patch:storybook@npm%3A10.5.6#~/.yarn/patches/storybook-npm-10.5.6-625fc040ea.patch",
     "storybook@npm:10.5.7": "patch:storybook@npm%3A10.5.7#~/.yarn/patches/storybook-npm-10.5.7-1b80d9699b.patch",
     "storybook@npm:10.5.8": "patch:storybook@npm%3A10.5.8#~/.yarn/patches/storybook-npm-10.5.8-7236d29bee.patch",
+    "storybook@npm:^10.5.10": "patch:storybook@npm%3A10.5.10#~/.yarn/patches/storybook-npm-10.5.10-e63195ff36.patch",
     "storybook@npm:^10.5.3": "patch:storybook@npm%3A10.5.3#~/.yarn/patches/storybook-npm-10.5.3-ee7b0f5bd4.patch",
     "storybook@npm:^10.5.6": "patch:storybook@npm%3A10.5.6#~/.yarn/patches/storybook-npm-10.5.6-625fc040ea.patch",
     "storybook@npm:^10.5.7": "patch:storybook@npm%3A10.5.7#~/.yarn/patches/storybook-npm-10.5.7-1b80d9699b.patch",

@@ -1,0 +1,13 @@
+diff --git a/dist/_node-chunks/chunk-FMSFP5MW.js b/dist/_node-chunks/chunk-FMSFP5MW.js
+index fba263246a95ce705bcce6f16dff02b892fee252..1a7f0401173c4a47447b115318090aa6b5412bd9 100644
+--- a/dist/_node-chunks/chunk-FMSFP5MW.js
++++ b/dist/_node-chunks/chunk-FMSFP5MW.js
+@@ -1249,7 +1249,7 @@ var getValue = (obj, key) => {
+ // src/csf-tools/enrichCsf.ts
+ import { generate as generate4, types as t5 } from "storybook/internal/babel";
+ var enrichCsfStory = (csf, csfSource, key, options) => {
+-  let storyExport = csfSource.getStoryExport(key), isCsfFactory = t5.isCallExpression(storyExport) && t5.isMemberExpression(storyExport.callee) && t5.isIdentifier(storyExport.callee.object) && storyExport.callee.object.name === "meta", source = !options?.disableSource && extractSource(storyExport), description = !options?.disableDescription && extractDescription(csfSource._storyStatements[key]), parameters = [], baseStoryObject = isCsfFactory ? t5.memberExpression(t5.identifier(key), t5.identifier("input")) : t5.identifier(key), originalParameters = t5.memberExpression(baseStoryObject, t5.identifier("parameters"));
++  let storyExport = csfSource.getStoryExport(key), isCsfFactory = t5.isCallExpression(storyExport) && t5.isMemberExpression(storyExport.callee) && (t5.isIdentifier(storyExport.callee.object) && storyExport.callee.object.name === "meta" || t5.isIdentifier(storyExport.callee.property) && storyExport.callee.property.name === "extend"), source = !options?.disableSource && extractSource(storyExport), description = !options?.disableDescription && extractDescription(csfSource._storyStatements[key]), parameters = [], baseStoryObject = isCsfFactory ? t5.memberExpression(t5.identifier(key), t5.identifier("input")) : t5.identifier(key), originalParameters = t5.memberExpression(baseStoryObject, t5.identifier("parameters"));
+   parameters.push(t5.spreadElement(originalParameters));
+   let optionalDocs = t5.optionalMemberExpression(
+     originalParameters,
