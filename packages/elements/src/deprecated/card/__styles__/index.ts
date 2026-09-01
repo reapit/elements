@@ -64,24 +64,28 @@ export const ElCardHeading = styled.h5`
   -webkit-box-orient: vertical;
   overflow: hidden;
   white-space: normal;
-  margin-bottom: 0.25rem;
+  margin: 0 0 0.25rem;
   width: 100%;
   font-size: 0.875rem /* was --font-size-small */;
+  font-weight: inherit;
 `;
 
 /** @deprecated */
 export const ElCardSubHeading = styled.h6`
+  margin: 0;
   color: var(--colour-text-secondary);
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
   font-size: 0.8125rem /* was --font-size-smallest */;
+  font-weight: inherit;
 `;
 
 export const elCardSubHeadingAdditionalExpanded = css``;
 
 /** @deprecated */
 export const ElCardSubHeadingAdditional = styled.h6`
+  margin: 0;
   color: var(--colour-text-secondary);
   font-size: 0.8125rem /* was --font-size-smallest */;
   font-weight: 500 /* was --font-weight-medium */;
@@ -172,17 +176,19 @@ export const ElCardListHeading = styled.h5`
   white-space: nowrap;
   overflow: hidden;
   font-size: 0.875rem /* was --font-size-small */;
-  margin-bottom: 0.25rem;
+  font-weight: inherit;
+  margin: 0 0 0.25rem;
 `;
 
 /** @deprecated */
 export const ElCardListSubHeading = styled.h6`
   font-size: 0.8125rem /* was --font-size-smallest */;
+  font-weight: inherit;
   color: var(--colour-text-secondary);
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  margin-bottom: 0.75rem;
+  margin: 0 0 0.75rem;
 `;
 
 /** @deprecated */
