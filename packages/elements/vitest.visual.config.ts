@@ -3,8 +3,8 @@ import path from "node:path";
 import { playwright } from "@vitest/browser-playwright";
 import { defineProject, mergeConfig } from "vitest/config";
 
-import vitestConfig from "./vitest.config";
-import { stubExternalRequests } from "./vitest.visual.commands";
+import vitestConfig from "./vitest.config.ts";
+import { stubExternalRequests } from "./vitest.visual.commands.ts";
 
 // Merging `vitestConfig` here (rather than `extends: true`) is what pulls the build's `plugins`
 // (svgr, wyw-in-js) into this project; see the comment in `vitest.config.ts`.

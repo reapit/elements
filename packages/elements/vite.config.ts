@@ -6,8 +6,8 @@ import wyw from "@wyw-in-js/vite";
 import { defineConfig } from "vite";
 import svgr from "vite-plugin-svgr";
 
-import { cascadeLayerOrder } from "./build/cascade-layer-order";
-import packageManifest from "./package.json";
+import { cascadeLayerOrder } from "./build/cascade-layer-order.ts";
+import packageManifest from "./package.json" with { type: "json" };
 
 // We dynamically discover all "first-level" barrel files in the `src/core` directory and add them as
 // individual entry points for our build.

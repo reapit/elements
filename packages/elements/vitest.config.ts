@@ -1,6 +1,6 @@
 import { defineConfig, mergeConfig } from "vitest/config";
 
-import viteConfig from "./vite.config";
+import viteConfig from "./vite.config.ts";
 
 // Vitest doesn't merge `vite.config.ts` and `vitest.config.ts` automatically: a standalone
 // `vitest.config.ts` would otherwise ignore the Vite config entirely, so `mergeConfig` folds

@@ -1,6 +1,6 @@
 import { configDefaults, defineProject, mergeConfig } from "vitest/config";
 
-import vitestConfig from "./vitest.config";
+import vitestConfig from "./vitest.config.ts";
 
 // Merging `vitestConfig` here (rather than `extends: true`) is what pulls the build's `plugins`
 // (svgr, wyw-in-js) into this project; see the comment in `vitest.config.ts`.
