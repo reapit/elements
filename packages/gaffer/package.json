@@ -9,9 +9,9 @@
     "check": "tsc --noEmit"
   },
   "devDependencies": {
-    "@types/node": "^26.2.0",
+    "@types/node": "^26.3.0",
     "@typescript/native": "npm:typescript@^7.0.2",
-    "js-yaml": "^5.3.0",
+    "js-yaml": "^5.4.0",
     "minimatch": "^10.2.6",
     "octokit": "^5.0.5"
   }
