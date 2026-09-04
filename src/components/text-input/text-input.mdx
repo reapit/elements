@@ -1,0 +1,59 @@
+import { Meta, Story, Canvas, Controls, Description } from '@storybook/blocks'
+import { TextInput } from './index'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+import * as TextInputStories from './text-input.stories'
+
+<Meta of={TextInputStories} />
+
+# TextInput
+
+<Description of={TextInput} />
+<Controls />
+
+## TextInput text
+
+<Canvas of={TextInputStories.TextInputText} />
+
+<RenderHtmlMarkup of={TextInputStories.TextInputText} />
+
+## TextInput Disabled
+
+<Canvas of={TextInputStories.TextInputDisabled} />
+
+<RenderHtmlMarkup of={TextInputStories.TextInputDisabled} />
+
+## TextInput With Error
+
+<Canvas of={TextInputStories.TextInputWithError} />
+
+<RenderHtmlMarkup of={TextInputStories.TextInputWithError} />
+
+## TextInput email
+
+<Canvas of={TextInputStories.TextInputEmail} />
+
+<RenderHtmlMarkup of={TextInputStories.TextInputEmail} />
+
+## TextInput password
+
+<Canvas of={TextInputStories.TextInputPassword} />
+
+<RenderHtmlMarkup of={TextInputStories.TextInputPassword} />
+
+## TextInput number
+
+<Canvas of={TextInputStories.TextInputNumber} />
+
+<RenderHtmlMarkup of={TextInputStories.TextInputNumber} />
+
+## TextInput tel (for telephone numbers)
+
+<Canvas of={TextInputStories.TextInputTel} />
+
+<RenderHtmlMarkup of={TextInputStories.TextInputTel} />
+
+## TextInput url
+
+<Canvas of={TextInputStories.TextInputUrl} />
+
+<RenderHtmlMarkup of={TextInputStories.TextInputUrl} />
