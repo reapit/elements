@@ -11,7 +11,7 @@
     "test:unit": "vitest run --silent"
   },
   "dependencies": {
-    "@changesets/get-github-info": "1.0.0"
+    "@changesets/get-github-info": "1.0.1"
   },
   "devDependencies": {
     "@changesets/types": "^7.0.0",
