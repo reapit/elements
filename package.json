@@ -31,13 +31,13 @@
     "test:visual": "bash scripts/test-visual.sh"
   },
   "devDependencies": {
-    "@changesets/cli": "^3.0.1",
-    "@types/node": "^26.2.0",
+    "@changesets/cli": "^3.0.2",
+    "@types/node": "^26.5.1",
     "changelog-format": "workspace:*",
     "husky": "^9.1.7",
-    "lint-staged": "^17.3.0",
-    "oxfmt": "^0.64.0",
-    "oxlint": "^1.79.0"
+    "lint-staged": "^17.5.1",
+    "oxfmt": "^0.68.0",
+    "oxlint": "^1.83.0"
   },
   "dependenciesMeta": {
     "better-sqlite3": {
